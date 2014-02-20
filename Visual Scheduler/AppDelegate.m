@@ -13,6 +13,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    // Hides the status bar. The key UIViewControllerBasedStatusBarAppearance in plist must be set to 'no' for this to work.
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
+    
     return YES;
 }
 							

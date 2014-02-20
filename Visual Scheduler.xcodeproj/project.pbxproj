@@ -21,6 +21,9 @@
 		D83A62DD18B696DC00EC0773 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BF18B696DC00EC0773 /* UIKit.framework */; };
 		D83A62E518B696DC00EC0773 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D83A62E318B696DC00EC0773 /* InfoPlist.strings */; };
 		D83A62E718B696DC00EC0773 /* Visual_SchedulerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D83A62E618B696DC00EC0773 /* Visual_SchedulerTests.m */; };
+		D83A62F218B6971300EC0773 /* Pictogram.m in Sources */ = {isa = PBXBuildFile; fileRef = D83A62F118B6971300EC0773 /* Pictogram.m */; };
+		D83A62F618B69BEC00EC0773 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D83A62F518B69BEC00EC0773 /* SearchViewController.m */; };
+		D83A62FA18B69D8600EC0773 /* beer.png in Resources */ = {isa = PBXBuildFile; fileRef = D83A62F918B69D8600EC0773 /* beer.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,12 @@
 		D83A62E218B696DC00EC0773 /* Visual SchedulerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Visual SchedulerTests-Info.plist"; sourceTree = "<group>"; };
 		D83A62E418B696DC00EC0773 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D83A62E618B696DC00EC0773 /* Visual_SchedulerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Visual_SchedulerTests.m; sourceTree = "<group>"; };
+		D83A62F018B6971300EC0773 /* Pictogram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Pictogram.h; path = Models/Pictogram.h; sourceTree = "<group>"; };
+		D83A62F118B6971300EC0773 /* Pictogram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Pictogram.m; path = Models/Pictogram.m; sourceTree = "<group>"; };
+		D83A62F418B69BEC00EC0773 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchViewController.h; path = Controllers/SearchViewController.h; sourceTree = "<group>"; };
+		D83A62F518B69BEC00EC0773 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewController.m; path = Controllers/SearchViewController.m; sourceTree = "<group>"; };
+		D83A62F918B69D8600EC0773 /* beer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beer.png; sourceTree = "<group>"; };
+		D83A62FB18B6B69E00EC0773 /* ContainsImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ContainsImage.h; path = Protocols/ContainsImage.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,13 +121,17 @@
 		D83A62C118B696DC00EC0773 /* Visual Scheduler */ = {
 			isa = PBXGroup;
 			children = (
+				D83A62FB18B6B69E00EC0773 /* ContainsImage.h */,
+				D83A62F818B69D5100EC0773 /* Pictograms */,
 				D83A62CA18B696DC00EC0773 /* AppDelegate.h */,
 				D83A62CB18B696DC00EC0773 /* AppDelegate.m */,
 				D83A62CD18B696DC00EC0773 /* Main.storyboard */,
 				D83A62D018B696DC00EC0773 /* ViewController.h */,
 				D83A62D118B696DC00EC0773 /* ViewController.m */,
+				D83A62F718B69BEF00EC0773 /* Controllers */,
 				D83A62D318B696DC00EC0773 /* Images.xcassets */,
 				D83A62C218B696DC00EC0773 /* Supporting Files */,
+				D83A62F318B6971D00EC0773 /* Models */,
 			);
 			path = "Visual Scheduler";
 			sourceTree = "<group>";
@@ -151,6 +164,33 @@
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
+		};
+		D83A62F318B6971D00EC0773 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D83A62F018B6971300EC0773 /* Pictogram.h */,
+				D83A62F118B6971300EC0773 /* Pictogram.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		D83A62F718B69BEF00EC0773 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D83A62F418B69BEC00EC0773 /* SearchViewController.h */,
+				D83A62F518B69BEC00EC0773 /* SearchViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		D83A62F818B69D5100EC0773 /* Pictograms */ = {
+			isa = PBXGroup;
+			children = (
+				D83A62F918B69D8600EC0773 /* beer.png */,
+			);
+			name = Pictograms;
+			path = "Visual Scheduler/Pictograms";
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -229,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D83A62D418B696DC00EC0773 /* Images.xcassets in Resources */,
+				D83A62FA18B69D8600EC0773 /* beer.png in Resources */,
 				D83A62C618B696DC00EC0773 /* InfoPlist.strings in Resources */,
 				D83A62CF18B696DC00EC0773 /* Main.storyboard in Resources */,
 			);
@@ -249,7 +290,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D83A62F218B6971300EC0773 /* Pictogram.m in Sources */,
 				D83A62D218B696DC00EC0773 /* ViewController.m in Sources */,
+				D83A62F618B69BEC00EC0773 /* SearchViewController.m in Sources */,
 				D83A62CC18B696DC00EC0773 /* AppDelegate.m in Sources */,
 				D83A62C818B696DC00EC0773 /* main.m in Sources */,
 			);
