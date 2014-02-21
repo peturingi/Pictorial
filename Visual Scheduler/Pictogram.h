@@ -12,7 +12,7 @@
 
 @interface Pictogram : NSManagedObject <ContainsImageData>
 
-@property (nonatomic, retain) NSData * image;
-@property (nonatomic, retain) NSString * title;
+@property (nonatomic, retain) NSData    *image;
+@property (nonatomic, retain) NSString  *title;
 
 @end
