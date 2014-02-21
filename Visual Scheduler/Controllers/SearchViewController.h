@@ -10,14 +10,17 @@
 #import <CoreData/CoreData.h>
 #import "SearchViewControllerDelegate.h"
 
-#define IMAGE_SIZE  200
-
-@interface SearchViewController : UICollectionViewController <UISearchBarDelegate, UICollectionViewDelegateFlowLayout, NSFetchedResultsControllerDelegate> {
-    UISearchBar *_searchBar;    
+@interface SearchViewController : UICollectionViewController <UISearchBarDelegate, UICollectionViewDelegateFlowLayout, NSFetchedResultsControllerDelegate>
+{
+    // Searchbar is created and managed in code.
+    UISearchBar *_searchBar;
+    
+    // Look and feel managed in code.
     IBOutlet UICollectionView *_collectionView;
-    NSArray *_dataSource;
 }
 
+/** If set, this delegate is notified if the user clicks the searchbars 'cancel' button.
+ */
 @property (weak, nonatomic) id<SearchViewControllerDelegate> delegate;
 
 @end
