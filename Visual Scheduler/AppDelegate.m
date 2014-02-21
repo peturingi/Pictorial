@@ -16,8 +16,18 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
-
+#ifdef DEBUG
 - (void)generateTestData {
+    /*NSFetchRequest *all = [[NSFetchRequest alloc] init];
+    [all setEntity:[NSEntityDescription entityForName:@"Pictogram" inManagedObjectContext:self.managedObjectContext]];
+    NSError *error;
+    NSArray *allEntities = [self.managedObjectContext executeFetchRequest:all error:&error];
+    all = nil;
+    for (NSManagedObject *obj in allEntities) {
+        [self.managedObjectContext deleteObject:obj];
+    }
+    [self saveContext];
+    */
     // Populate core data with test data
     Pictogram *beer = [NSEntityDescription insertNewObjectForEntityForName:@"Pictogram" inManagedObjectContext:self.managedObjectContext];
     beer.title = @"Beer";
@@ -27,8 +37,12 @@
     bee.title = @"Bee";
     bee.image = UIImagePNGRepresentation([UIImage imageNamed:@"Bee.png"]);
     
+    Pictogram *milk = [NSEntityDescription insertNewObjectForEntityForName:@"Pictogram" inManagedObjectContext:self.managedObjectContext];
+    milk.title = @"Milk";
+    milk.image = UIImagePNGRepresentation([UIImage imageNamed:@"milk.png"]);
     [self saveContext];
 }
+#endif
 
 #pragma mark -
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -38,8 +52,9 @@
     // Hides the status bar. The key UIViewControllerBasedStatusBarAppearance in plist must be set to 'no' for this to work.
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
 
-    // [self generateTestData];
-    
+#ifdef DEBUG
+    //[self generateTestData];
+#endif
     return YES;
 }
 							
