@@ -11,9 +11,9 @@
 
 @interface Pictogram : NSObject <ContainsImage>
 
-@property (copy)        NSString       *title;
-@property (readonly)    UIImage        *image;
-@property (readonly)    NSMutableArray *tags;
+@property (nonatomic, copy)        NSString       *title;
+@property (nonatomic, readonly)    UIImage        *image;
+@property (nonatomic, readonly)    NSMutableArray *tags;
 
 - (id)initWithImage:(NSString *)imageNamed;
 

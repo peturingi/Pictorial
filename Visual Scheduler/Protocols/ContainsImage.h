@@ -11,6 +11,6 @@
 @protocol ContainsImage <NSObject>
 
 @required
-@property (readonly) UIImage *image;
+@property (nonatomic, readonly) UIImage *image;
 
 @end

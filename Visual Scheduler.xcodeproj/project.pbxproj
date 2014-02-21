@@ -24,6 +24,7 @@
 		D83A62F218B6971300EC0773 /* Pictogram.m in Sources */ = {isa = PBXBuildFile; fileRef = D83A62F118B6971300EC0773 /* Pictogram.m */; };
 		D83A62F618B69BEC00EC0773 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D83A62F518B69BEC00EC0773 /* SearchViewController.m */; };
 		D83A62FA18B69D8600EC0773 /* beer.png in Resources */ = {isa = PBXBuildFile; fileRef = D83A62F918B69D8600EC0773 /* beer.png */; };
+		D83A62FD18B6D6E900EC0773 /* Bee.png in Resources */ = {isa = PBXBuildFile; fileRef = D83A62FC18B6D6E900EC0773 /* Bee.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		D83A62F518B69BEC00EC0773 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewController.m; path = Controllers/SearchViewController.m; sourceTree = "<group>"; };
 		D83A62F918B69D8600EC0773 /* beer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beer.png; sourceTree = "<group>"; };
 		D83A62FB18B6B69E00EC0773 /* ContainsImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ContainsImage.h; path = Protocols/ContainsImage.h; sourceTree = "<group>"; };
+		D83A62FC18B6D6E900EC0773 /* Bee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bee.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +188,7 @@
 		D83A62F818B69D5100EC0773 /* Pictograms */ = {
 			isa = PBXGroup;
 			children = (
+				D83A62FC18B6D6E900EC0773 /* Bee.png */,
 				D83A62F918B69D8600EC0773 /* beer.png */,
 			);
 			name = Pictograms;
@@ -272,6 +275,7 @@
 				D83A62FA18B69D8600EC0773 /* beer.png in Resources */,
 				D83A62C618B696DC00EC0773 /* InfoPlist.strings in Resources */,
 				D83A62CF18B696DC00EC0773 /* Main.storyboard in Resources */,
+				D83A62FD18B6D6E900EC0773 /* Bee.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

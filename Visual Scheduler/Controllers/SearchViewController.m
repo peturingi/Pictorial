@@ -11,6 +11,8 @@
 
 @interface SearchViewController ()
 
+    @property (strong, nonatomic) NSMutableArray *filteredDataSource;
+
 @end
 
 @implementation SearchViewController
@@ -36,8 +38,13 @@
 #ifdef DEBUG
     // Set up test data for use during development.
     Pictogram *p1 = [[Pictogram alloc] initWithImage:@"beer.png"];
-    _dataSource = @[p1,p1,p1,p1,p1,p1,p1,p1,p1,p1,p1,p1,p1,p1,p1,p1,p1,p1,p1,p1,p1,p1,p1,p1,p1,p1,p1,p1,p1,p1,p1,p1,p1,p1,p1,p1,p1,p1,p1,p1];
+    p1.title = @"beer";
+    Pictogram *p2 = [[Pictogram alloc] initWithImage:@"Bee.png"];
+    p2.title = @"Bee";
+    _dataSource = @[p1,p2];
+    [_collectionView reloadData];
 #endif
+
     
 }
 
@@ -123,25 +130,71 @@
 
 #pragma mark - UICollectionViewController
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return _dataSource.count;
+    
+    if (self.filteredDataSource) {
+        return self.filteredDataSource.count;
+    } else {
+        return _dataSource.count;
+    }
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:[(id<ContainsImage>)[_dataSource objectAtIndex:indexPath.row] image]];
+    UIImageView *imageView;
+    if (!self.filteredDataSource) {
+        imageView = [[UIImageView alloc] initWithImage:[(id<ContainsImage>)[_dataSource objectAtIndex:indexPath.row] image]];
+    } else {
+        imageView = [[UIImageView alloc] initWithImage:[(id<ContainsImage>)[self.filteredDataSource objectAtIndex:indexPath.row] image]];
+    }
     CGRect imageFrame = imageView.frame;
     imageFrame.size = CGSizeMake(IMAGE_SIZE, IMAGE_SIZE);
     imageView.frame = imageFrame;
     
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"picture" forIndexPath:indexPath];
     cell.contentMode = UIViewContentModeScaleAspectFit;
+    for (UIView *view in cell.contentView.subviews) view.removeFromSuperview;
     [cell.contentView addSubview:imageView];
     
     return cell;
 }
 #pragma mark - UICollectionViewDelegateFlowLayout
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
     return CGSizeMake(IMAGE_SIZE,IMAGE_SIZE);
 }
+
+#pragma mark - Searching
+- (void)filterDataSourceForSearchText:(NSString *)searchText {
+    
+    [self.filteredDataSource removeAllObjects];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.title contains[c] %@", searchText];
+    self.filteredDataSource = [NSMutableArray arrayWithArray:[_dataSource filteredArrayUsingPredicate:predicate]];
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    
+    [self filterDataSourceForSearchText:searchText];
+    [_collectionView reloadData];
+}
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    
+    self.filteredDataSource = [NSMutableArray arrayWithCapacity:_dataSource.count];
+    [_collectionView reloadData];
+}
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
+    if (self.filteredDataSource && self.filteredDataSource.count == 0) {
+        self.filteredDataSource = nil;
+        [_collectionView reloadData];
+    }
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    
+    self.filteredDataSource = nil;
+    [_collectionView reloadData];
+}
+
 
 @end
