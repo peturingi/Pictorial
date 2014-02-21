@@ -22,10 +22,11 @@
 		D83A62DC18B696DC00EC0773 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BB18B696DC00EC0773 /* Foundation.framework */; };
 		D83A62DD18B696DC00EC0773 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BF18B696DC00EC0773 /* UIKit.framework */; };
 		D83A62E518B696DC00EC0773 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D83A62E318B696DC00EC0773 /* InfoPlist.strings */; };
-		D83A62E718B696DC00EC0773 /* Visual_SchedulerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D83A62E618B696DC00EC0773 /* Visual_SchedulerTests.m */; };
 		D83A62F618B69BEC00EC0773 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D83A62F518B69BEC00EC0773 /* SearchViewController.m */; };
 		D83A62FA18B69D8600EC0773 /* beer.png in Resources */ = {isa = PBXBuildFile; fileRef = D83A62F918B69D8600EC0773 /* beer.png */; };
 		D83A62FD18B6D6E900EC0773 /* Bee.png in Resources */ = {isa = PBXBuildFile; fileRef = D83A62FC18B6D6E900EC0773 /* Bee.png */; };
+		D8B49E6218B8141E00788073 /* SearchViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B49E6118B8141E00788073 /* SearchViewControllerTests.m */; };
+		D8B49E6318B8143600788073 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D83A62F518B69BEC00EC0773 /* SearchViewController.m */; };
 		D8ED7F9718B77771007A7315 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D8ED7F9518B77771007A7315 /* CoreData.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
@@ -62,13 +63,13 @@
 		D83A62DA18B696DC00EC0773 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		D83A62E218B696DC00EC0773 /* Visual SchedulerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Visual SchedulerTests-Info.plist"; sourceTree = "<group>"; };
 		D83A62E418B696DC00EC0773 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		D83A62E618B696DC00EC0773 /* Visual_SchedulerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Visual_SchedulerTests.m; sourceTree = "<group>"; };
 		D83A62F418B69BEC00EC0773 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchViewController.h; path = Controllers/SearchViewController.h; sourceTree = "<group>"; };
 		D83A62F518B69BEC00EC0773 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewController.m; path = Controllers/SearchViewController.m; sourceTree = "<group>"; };
 		D83A62F918B69D8600EC0773 /* beer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beer.png; sourceTree = "<group>"; };
 		D83A62FB18B6B69E00EC0773 /* ContainsImageAsData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ContainsImageAsData.h; path = Protocols/ContainsImageAsData.h; sourceTree = "<group>"; };
 		D83A62FC18B6D6E900EC0773 /* Bee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bee.png; sourceTree = "<group>"; };
 		D8B49E5F18B8025500788073 /* SearchViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SearchViewControllerDelegate.h; path = Protocols/SearchViewControllerDelegate.h; sourceTree = "<group>"; };
+		D8B49E6118B8141E00788073 /* SearchViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewControllerTests.m; path = Controllers/SearchViewControllerTests.m; sourceTree = "<group>"; };
 		D8ED7F9618B77771007A7315 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -157,8 +158,8 @@
 		D83A62E018B696DC00EC0773 /* Visual SchedulerTests */ = {
 			isa = PBXGroup;
 			children = (
-				D83A62E618B696DC00EC0773 /* Visual_SchedulerTests.m */,
 				D83A62E118B696DC00EC0773 /* Supporting Files */,
+				D8B49E6418B81B3500788073 /* Controllers */,
 			);
 			path = "Visual SchedulerTests";
 			sourceTree = "<group>";
@@ -210,6 +211,14 @@
 				D8B49E5F18B8025500788073 /* SearchViewControllerDelegate.h */,
 			);
 			name = Protocols;
+			sourceTree = "<group>";
+		};
+		D8B49E6418B81B3500788073 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D8B49E6118B8141E00788073 /* SearchViewControllerTests.m */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -325,7 +334,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D83A62E718B696DC00EC0773 /* Visual_SchedulerTests.m in Sources */,
+				D8B49E6218B8141E00788073 /* SearchViewControllerTests.m in Sources */,
+				D8B49E6318B8143600788073 /* SearchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
