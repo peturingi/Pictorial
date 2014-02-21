@@ -16,20 +16,29 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
+
+- (void)generateTestData {
+    // Populate core data with test data
+    Pictogram *beer = [NSEntityDescription insertNewObjectForEntityForName:@"Pictogram" inManagedObjectContext:self.managedObjectContext];
+    beer.title = @"Beer";
+    beer.image = UIImagePNGRepresentation([UIImage imageNamed:@"beer.png"]);
+    
+    Pictogram *bee = [NSEntityDescription insertNewObjectForEntityForName:@"Pictogram" inManagedObjectContext:self.managedObjectContext];
+    bee.title = @"Bee";
+    bee.image = UIImagePNGRepresentation([UIImage imageNamed:@"Bee.png"]);
+    
+    [self saveContext];
+}
+
+#pragma mark -
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
     
     // Hides the status bar. The key UIViewControllerBasedStatusBarAppearance in plist must be set to 'no' for this to work.
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
-    
-    // Populate core data with test data
-   /* Pictogram *beer = [NSEntityDescription insertNewObjectForEntityForName:@"Pictogram" inManagedObjectContext:self.managedObjectContext];
-    beer.title = @"Beer";
-    beer.image = UIImagePNGRepresentation([UIImage imageNamed:@"beer.png"]);
-    [self saveContext];*/
-    
 
+    // [self generateTestData];
     
     return YES;
 }
