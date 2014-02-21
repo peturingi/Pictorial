@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		D82E748618B7E49C0031BF2B /* milk.png in Resources */ = {isa = PBXBuildFile; fileRef = D82E748518B7E49C0031BF2B /* milk.png */; };
+		D82E748A18B7E97E0031BF2B /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = D82E748918B7E97E0031BF2B /* Tag.m */; };
+		D82E748D18B7E97E0031BF2B /* Pictogram.m in Sources */ = {isa = PBXBuildFile; fileRef = D82E748C18B7E97E0031BF2B /* Pictogram.m */; };
 		D83A62BC18B696DC00EC0773 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BB18B696DC00EC0773 /* Foundation.framework */; };
 		D83A62BE18B696DC00EC0773 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BD18B696DC00EC0773 /* CoreGraphics.framework */; };
 		D83A62C018B696DC00EC0773 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BF18B696DC00EC0773 /* UIKit.framework */; };
@@ -15,7 +17,6 @@
 		D83A62C818B696DC00EC0773 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D83A62C718B696DC00EC0773 /* main.m */; };
 		D83A62CC18B696DC00EC0773 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D83A62CB18B696DC00EC0773 /* AppDelegate.m */; };
 		D83A62CF18B696DC00EC0773 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D83A62CD18B696DC00EC0773 /* Main.storyboard */; };
-		D83A62D218B696DC00EC0773 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D83A62D118B696DC00EC0773 /* ViewController.m */; };
 		D83A62D418B696DC00EC0773 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D83A62D318B696DC00EC0773 /* Images.xcassets */; };
 		D83A62DB18B696DC00EC0773 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62DA18B696DC00EC0773 /* XCTest.framework */; };
 		D83A62DC18B696DC00EC0773 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BB18B696DC00EC0773 /* Foundation.framework */; };
@@ -26,7 +27,6 @@
 		D83A62FA18B69D8600EC0773 /* beer.png in Resources */ = {isa = PBXBuildFile; fileRef = D83A62F918B69D8600EC0773 /* beer.png */; };
 		D83A62FD18B6D6E900EC0773 /* Bee.png in Resources */ = {isa = PBXBuildFile; fileRef = D83A62FC18B6D6E900EC0773 /* Bee.png */; };
 		D8ED7F9718B77771007A7315 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D8ED7F9518B77771007A7315 /* CoreData.xcdatamodeld */; };
-		D8ED805018B78C07007A7315 /* Pictogram.m in Sources */ = {isa = PBXBuildFile; fileRef = D8ED804F18B78C07007A7315 /* Pictogram.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +41,11 @@
 
 /* Begin PBXFileReference section */
 		D82E748518B7E49C0031BF2B /* milk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = milk.png; sourceTree = "<group>"; };
-		D82E748718B7E8220031BF2B /* CoreData 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CoreData 2.xcdatamodel"; sourceTree = "<group>"; };
+		D82E748718B7E8220031BF2B /* CoreData 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CoreData 2.xcdatamodel"; sourceTree = "<group>"; };
+		D82E748818B7E97E0031BF2B /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tag.h; path = Models/Tag.h; sourceTree = "<group>"; };
+		D82E748918B7E97E0031BF2B /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tag.m; path = Models/Tag.m; sourceTree = "<group>"; };
+		D82E748B18B7E97E0031BF2B /* Pictogram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Pictogram.h; path = Models/Pictogram.h; sourceTree = "<group>"; };
+		D82E748C18B7E97E0031BF2B /* Pictogram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Pictogram.m; path = Models/Pictogram.m; sourceTree = "<group>"; };
 		D83A62B818B696DC00EC0773 /* Visual Scheduler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Visual Scheduler.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D83A62BB18B696DC00EC0773 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D83A62BD18B696DC00EC0773 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -53,8 +57,6 @@
 		D83A62CA18B696DC00EC0773 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D83A62CB18B696DC00EC0773 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D83A62CE18B696DC00EC0773 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D83A62D018B696DC00EC0773 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		D83A62D118B696DC00EC0773 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		D83A62D318B696DC00EC0773 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D83A62D918B696DC00EC0773 /* Visual SchedulerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Visual SchedulerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D83A62DA18B696DC00EC0773 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -66,9 +68,8 @@
 		D83A62F918B69D8600EC0773 /* beer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beer.png; sourceTree = "<group>"; };
 		D83A62FB18B6B69E00EC0773 /* ContainsImageAsData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ContainsImageAsData.h; path = Protocols/ContainsImageAsData.h; sourceTree = "<group>"; };
 		D83A62FC18B6D6E900EC0773 /* Bee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bee.png; sourceTree = "<group>"; };
+		D8B49E5F18B8025500788073 /* SearchViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SearchViewControllerDelegate.h; path = Protocols/SearchViewControllerDelegate.h; sourceTree = "<group>"; };
 		D8ED7F9618B77771007A7315 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
-		D8ED804E18B78C07007A7315 /* Pictogram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pictogram.h; sourceTree = "<group>"; };
-		D8ED804F18B78C07007A7315 /* Pictogram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pictogram.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,13 +130,11 @@
 		D83A62C118B696DC00EC0773 /* Visual Scheduler */ = {
 			isa = PBXGroup;
 			children = (
-				D83A62FB18B6B69E00EC0773 /* ContainsImageAsData.h */,
+				D8B49E6018B8077600788073 /* Protocols */,
 				D83A62F818B69D5100EC0773 /* Pictograms */,
 				D83A62CA18B696DC00EC0773 /* AppDelegate.h */,
 				D83A62CB18B696DC00EC0773 /* AppDelegate.m */,
 				D83A62CD18B696DC00EC0773 /* Main.storyboard */,
-				D83A62D018B696DC00EC0773 /* ViewController.h */,
-				D83A62D118B696DC00EC0773 /* ViewController.m */,
 				D83A62F718B69BEF00EC0773 /* Controllers */,
 				D83A62D318B696DC00EC0773 /* Images.xcassets */,
 				D83A62C218B696DC00EC0773 /* Supporting Files */,
@@ -176,8 +175,10 @@
 		D83A62F318B6971D00EC0773 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D8ED804E18B78C07007A7315 /* Pictogram.h */,
-				D8ED804F18B78C07007A7315 /* Pictogram.m */,
+				D82E748B18B7E97E0031BF2B /* Pictogram.h */,
+				D82E748C18B7E97E0031BF2B /* Pictogram.m */,
+				D82E748818B7E97E0031BF2B /* Tag.h */,
+				D82E748918B7E97E0031BF2B /* Tag.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -201,6 +202,15 @@
 			name = Pictograms;
 			path = "Visual Scheduler/Pictograms";
 			sourceTree = SOURCE_ROOT;
+		};
+		D8B49E6018B8077600788073 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				D83A62FB18B6B69E00EC0773 /* ContainsImageAsData.h */,
+				D8B49E5F18B8025500788073 /* SearchViewControllerDelegate.h */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -302,9 +312,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8ED805018B78C07007A7315 /* Pictogram.m in Sources */,
-				D83A62D218B696DC00EC0773 /* ViewController.m in Sources */,
 				D8ED7F9718B77771007A7315 /* CoreData.xcdatamodeld in Sources */,
+				D82E748A18B7E97E0031BF2B /* Tag.m in Sources */,
+				D82E748D18B7E97E0031BF2B /* Pictogram.m in Sources */,
 				D83A62F618B69BEC00EC0773 /* SearchViewController.m in Sources */,
 				D83A62CC18B696DC00EC0773 /* AppDelegate.m in Sources */,
 				D83A62C818B696DC00EC0773 /* main.m in Sources */,

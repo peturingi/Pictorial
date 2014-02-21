@@ -5,7 +5,7 @@
         <attribute name="title" attributeType="String" syncable="YES"/>
         <relationship name="tag" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="pictogram" inverseEntity="Tag" syncable="YES"/>
     </entity>
-    <entity name="Tag" syncable="YES">
+    <entity name="Tag" representedClassName="Tag" syncable="YES">
         <attribute name="tag" attributeType="String" syncable="YES"/>
         <relationship name="pictogram" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Pictogram" inverseName="tag" inverseEntity="Pictogram" syncable="YES"/>
     </entity>

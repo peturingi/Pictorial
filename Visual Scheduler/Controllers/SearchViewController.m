@@ -9,6 +9,9 @@
 #import "SearchViewController.h"
 #import "Pictogram.h"
 
+// Name of cache used by NSFetchedResultsController
+#define CACHE_NAME  @"Root"
+
 @interface SearchViewController ()
     @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @end
@@ -109,11 +112,7 @@
                                                            constant:0]];
 }
 - (void)configureCoreData {
-    NSError *error;
-    if (![[self fetchedResultsController] performFetch:&error]) {
-        NSLog(@"Critical error: %@, %@", error, error.userInfo);
-        exit(-1); // Fail
-    }
+    [self fetchAndReload];
 }
 
 - (void)didReceiveMemoryWarning
@@ -170,17 +169,27 @@
     if (searchText.length == 0) {
         predicate = nil;
     } else {
-        predicate = [NSPredicate predicateWithFormat:@"SELF.title contains[c] %@", searchText];
+        predicate = [NSPredicate predicateWithFormat:@"ANY tag.tag contains[c] %@ OR title contains[c] %@", searchText, searchText];
     }
+    [NSFetchedResultsController deleteCacheWithName:CACHE_NAME];
     [self.fetchedResultsController.fetchRequest setPredicate:predicate];
-    
-    NSError *error;
-    [self.fetchedResultsController performFetch:&error];
-    if (error) {
-        NSLog(@"Error: %@, %@", error, error.userInfo);
-        exit(-1); // Hard fail.
+    [self fetchAndReload];
+}
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    searchBar.showsCancelButton = YES;
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    [self.fetchedResultsController.fetchRequest setPredicate:nil];
+    if (self.delegate) {
+        [self.delegate searchViewControllerDidCancelSearch:self];
+    } else {
+        searchBar.showsCancelButton = NO;
+        searchBar.text = @"";
+        [searchBar resignFirstResponder];
+        [self fetchAndReload];
     }
-    [_collectionView reloadData];
 }
 
 #pragma mark - Core Data
@@ -201,7 +210,7 @@
         [fetchRequest setFetchBatchSize:20];
         
         NSFetchedResultsController *newFetchResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
-                                                                                                    managedObjectContext:managedObjectContext sectionNameKeyPath:nil cacheName:@"Root"];
+                                                                                                    managedObjectContext:managedObjectContext sectionNameKeyPath:nil cacheName:CACHE_NAME];
         _fetchedResultsController = newFetchResultsController;
         _fetchedResultsController.delegate = self;
         
@@ -209,6 +218,18 @@
     }
 }
 
+/** Fetches all entities and reloads the collection view.
+ */
+- (void)fetchAndReload {
+    [NSFetchedResultsController deleteCacheWithName:CACHE_NAME];
+    NSError *error;
+    [self.fetchedResultsController performFetch:&error];
+    if (error) {
+        NSLog(@"Error: %@, %@", error, error.userInfo);
+        exit(-1); // Hard fail.
+    }
+    [_collectionView reloadData];
+}
 
 
 

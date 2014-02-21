@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#import "SearchViewControllerDelegate.h"
 
 #define IMAGE_SIZE  200
 
@@ -16,5 +17,7 @@
     IBOutlet UICollectionView *_collectionView;
     NSArray *_dataSource;
 }
+
+@property (weak, nonatomic) id<SearchViewControllerDelegate> delegate;
 
 @end

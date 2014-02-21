@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "SearchViewController.h"
 #import "Pictogram.h"
+#import "Tag.h"
 
 @implementation AppDelegate
 
@@ -29,9 +30,17 @@
     [self saveContext];
     */
     // Populate core data with test data
+    /*
+    Tag *tagDrink = [NSEntityDescription insertNewObjectForEntityForName:@"Tag" inManagedObjectContext:self.managedObjectContext];
+    tagDrink.tag = @"Drink";
+    Tag *tagLiquid = [NSEntityDescription insertNewObjectForEntityForName:@"Tag" inManagedObjectContext:self.managedObjectContext];
+    tagLiquid.tag = @"Liquid";
+    
     Pictogram *beer = [NSEntityDescription insertNewObjectForEntityForName:@"Pictogram" inManagedObjectContext:self.managedObjectContext];
     beer.title = @"Beer";
     beer.image = UIImagePNGRepresentation([UIImage imageNamed:@"beer.png"]);
+    [beer addTagObject:tagDrink];
+    [beer addTagObject:tagLiquid];
     
     Pictogram *bee = [NSEntityDescription insertNewObjectForEntityForName:@"Pictogram" inManagedObjectContext:self.managedObjectContext];
     bee.title = @"Bee";
@@ -40,7 +49,10 @@
     Pictogram *milk = [NSEntityDescription insertNewObjectForEntityForName:@"Pictogram" inManagedObjectContext:self.managedObjectContext];
     milk.title = @"Milk";
     milk.image = UIImagePNGRepresentation([UIImage imageNamed:@"milk.png"]);
-    [self saveContext];
+    [milk addTagObject:tagDrink];
+    [milk addTagObject:tagLiquid];
+    
+    [self saveContext];*/
 }
 #endif
 
@@ -53,7 +65,7 @@
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
 
 #ifdef DEBUG
-    //[self generateTestData];
+    [self generateTestData];
 #endif
     return YES;
 }
