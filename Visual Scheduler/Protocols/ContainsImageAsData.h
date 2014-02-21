@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol ContainsImage <NSObject>
+@protocol ContainsImageData <NSObject>
 
 @required
-@property (nonatomic, readonly) UIImage *image;
+@property (nonatomic, retain) NSData *image;
 
 @end

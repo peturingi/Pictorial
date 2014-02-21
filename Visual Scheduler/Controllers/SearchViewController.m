@@ -10,9 +10,7 @@
 #import "Pictogram.h"
 
 @interface SearchViewController ()
-
-    @property (strong, nonatomic) NSMutableArray *filteredDataSource;
-
+    @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @end
 
 @implementation SearchViewController
@@ -30,22 +28,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view
     
+	// Do any additional setup after loading the view
+    [self configureCoreData];
     [self configureSearchView];
     [self configureCollectionView];
-    
-#ifdef DEBUG
-    // Set up test data for use during development.
-    Pictogram *p1 = [[Pictogram alloc] initWithImage:@"beer.png"];
-    p1.title = @"beer";
-    Pictogram *p2 = [[Pictogram alloc] initWithImage:@"Bee.png"];
-    p2.title = @"Bee";
-    _dataSource = @[p1,p2];
-    [_collectionView reloadData];
-#endif
-
-    
 }
 
 - (void)configureSearchView {
@@ -121,6 +108,13 @@
                                                          multiplier:1
                                                            constant:0]];
 }
+- (void)configureCoreData {
+    NSError *error;
+    if (![[self fetchedResultsController] performFetch:&error]) {
+        NSLog(@"Critical error: %@, %@", error, error.userInfo);
+        exit(-1); // Fail
+    }
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -129,72 +123,93 @@
 }
 
 #pragma mark - UICollectionViewController
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    
-    if (self.filteredDataSource) {
-        return self.filteredDataSource.count;
-    } else {
-        return _dataSource.count;
-    }
+    return self.fetchedResultsController.fetchedObjects.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    UIImageView *imageView;
-    if (!self.filteredDataSource) {
-        imageView = [[UIImageView alloc] initWithImage:[(id<ContainsImage>)[_dataSource objectAtIndex:indexPath.row] image]];
-    } else {
-        imageView = [[UIImageView alloc] initWithImage:[(id<ContainsImage>)[self.filteredDataSource objectAtIndex:indexPath.row] image]];
-    }
+    static NSString *CellIdentifier = @"picture";
+    
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
+    [self configureCell:cell atIndexPath:indexPath];
+    
+    return cell;
+}
+
+- (void)configureCell:(UICollectionViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    
+    cell.contentMode = UIViewContentModeScaleAspectFit;
+    
+    id<ContainsImageData> object = [self.fetchedResultsController.fetchedObjects objectAtIndex:indexPath.row];
+    UIImage *image = [UIImage imageWithData:[object image]];
+    NSAssert(image, @"No image was found. Must never be nil!");
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    
     CGRect imageFrame = imageView.frame;
     imageFrame.size = CGSizeMake(IMAGE_SIZE, IMAGE_SIZE);
     imageView.frame = imageFrame;
     
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"picture" forIndexPath:indexPath];
-    cell.contentMode = UIViewContentModeScaleAspectFit;
     for (UIView *view in cell.contentView.subviews) view.removeFromSuperview;
     [cell.contentView addSubview:imageView];
-    
-    return cell;
 }
+
 #pragma mark - UICollectionViewDelegateFlowLayout
+
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     return CGSizeMake(IMAGE_SIZE,IMAGE_SIZE);
 }
 
 #pragma mark - Searching
-- (void)filterDataSourceForSearchText:(NSString *)searchText {
-    
-    [self.filteredDataSource removeAllObjects];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.title contains[c] %@", searchText];
-    self.filteredDataSource = [NSMutableArray arrayWithArray:[_dataSource filteredArrayUsingPredicate:predicate]];
-}
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    NSPredicate *predicate;
     
-    [self filterDataSourceForSearchText:searchText];
+    if (searchText.length == 0) {
+        predicate = nil;
+    } else {
+        predicate = [NSPredicate predicateWithFormat:@"SELF.title contains[c] %@", searchText];
+    }
+    [self.fetchedResultsController.fetchRequest setPredicate:predicate];
+    
+    NSError *error;
+    [self.fetchedResultsController performFetch:&error];
+    if (error) {
+        NSLog(@"Error: %@, %@", error, error.userInfo);
+        exit(-1); // Hard fail.
+    }
     [_collectionView reloadData];
 }
 
-- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
-    
-    self.filteredDataSource = [NSMutableArray arrayWithCapacity:_dataSource.count];
-    [_collectionView reloadData];
-}
+#pragma mark - Core Data
 
-- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
-    if (self.filteredDataSource && self.filteredDataSource.count == 0) {
-        self.filteredDataSource = nil;
-        [_collectionView reloadData];
+- (NSFetchedResultsController *)fetchedResultsController {
+    if (_fetchedResultsController) {
+        return _fetchedResultsController;
+    } else {
+        NSManagedObjectContext *managedObjectContext = [[[UIApplication sharedApplication] delegate] performSelector:@selector(managedObjectContext)];
+        
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Pictogram" inManagedObjectContext:managedObjectContext];
+        [fetchRequest setEntity:entity];
+        
+        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:NO];
+        [fetchRequest setSortDescriptors:@[sortDescriptor]];
+        
+        [fetchRequest setFetchBatchSize:20];
+        
+        NSFetchedResultsController *newFetchResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
+                                                                                                    managedObjectContext:managedObjectContext sectionNameKeyPath:nil cacheName:@"Root"];
+        _fetchedResultsController = newFetchResultsController;
+        _fetchedResultsController.delegate = self;
+        
+        return _fetchedResultsController;
     }
 }
 
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
-    
-    self.filteredDataSource = nil;
-    [_collectionView reloadData];
-}
+
 
 
 @end

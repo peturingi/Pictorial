@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
 
 #define IMAGE_SIZE  200
 
-@interface SearchViewController : UICollectionViewController <UISearchBarDelegate, UICollectionViewDelegateFlowLayout> {
+@interface SearchViewController : UICollectionViewController <UISearchBarDelegate, UICollectionViewDelegateFlowLayout, NSFetchedResultsControllerDelegate> {
     UISearchBar *_searchBar;    
     IBOutlet UICollectionView *_collectionView;
     NSArray *_dataSource;
