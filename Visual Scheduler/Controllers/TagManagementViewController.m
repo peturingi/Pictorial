@@ -158,6 +158,8 @@
     
     // Layout
     cell.textLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    // Possible reuse of excisting cell. Remove previous constraints.
+    [cell removeConstraints:cell.constraints];
     // Searchbar hugs the top of its superview
     [cell addConstraint:[NSLayoutConstraint constraintWithItem:cell.textLabel
                                                                      attribute:NSLayoutAttributeLeft
