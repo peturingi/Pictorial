@@ -23,6 +23,21 @@
 		D81AA9E018B927AD00E3B50C /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D81AA9DE18B927AD00E3B50C /* CameraViewController.m */; };
 		D81AA9E118B927AD00E3B50C /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D81AA9DF18B927AD00E3B50C /* CameraViewController.xib */; };
 		D81AA9E218B9286200E3B50C /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = D81AA9AD18B91E7C00E3B50C /* Camera.m */; };
+		D81AA9EA18B943C400E3B50C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BB18B696DC00EC0773 /* Foundation.framework */; };
+		D81AA9EB18B943C400E3B50C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BD18B696DC00EC0773 /* CoreGraphics.framework */; };
+		D81AA9EC18B943C400E3B50C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BF18B696DC00EC0773 /* UIKit.framework */; };
+		D81AA9F218B943C400E3B50C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D81AA9F018B943C400E3B50C /* InfoPlist.strings */; };
+		D81AA9F418B943C400E3B50C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D81AA9F318B943C400E3B50C /* main.m */; };
+		D81AA9F818B943C400E3B50C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D81AA9F718B943C400E3B50C /* AppDelegate.m */; };
+		D81AA9FB18B943C400E3B50C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D81AA9F918B943C400E3B50C /* Main.storyboard */; };
+		D81AA9FE18B943C400E3B50C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D81AA9FD18B943C400E3B50C /* ViewController.m */; };
+		D81AAA0018B943C400E3B50C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D81AA9FF18B943C400E3B50C /* Images.xcassets */; };
+		D81AAA0618B943C400E3B50C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62DA18B696DC00EC0773 /* XCTest.framework */; };
+		D81AAA0718B943C500E3B50C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BB18B696DC00EC0773 /* Foundation.framework */; };
+		D81AAA0818B943C500E3B50C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BF18B696DC00EC0773 /* UIKit.framework */; };
+		D81AAA1018B943C500E3B50C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D81AAA0E18B943C500E3B50C /* InfoPlist.strings */; };
+		D81AAA1218B943C500E3B50C /* AudioRecorderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D81AAA1118B943C500E3B50C /* AudioRecorderTests.m */; };
+		D81AAA1B18B9478600E3B50C /* AudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = D81AAA1A18B9478600E3B50C /* AudioRecorder.m */; };
 		D82E748618B7E49C0031BF2B /* milk.png in Resources */ = {isa = PBXBuildFile; fileRef = D82E748518B7E49C0031BF2B /* milk.png */; };
 		D82E748A18B7E97E0031BF2B /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = D82E748918B7E97E0031BF2B /* Tag.m */; };
 		D82E748D18B7E97E0031BF2B /* Pictogram.m in Sources */ = {isa = PBXBuildFile; fileRef = D82E748C18B7E97E0031BF2B /* Pictogram.m */; };
@@ -55,6 +70,13 @@
 			remoteGlobalIDString = D81AA9B218B925B900E3B50C;
 			remoteInfo = CameraComponent;
 		};
+		D81AAA0918B943C500E3B50C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D83A62B018B696DB00EC0773 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D81AA9E818B943C400E3B50C;
+			remoteInfo = AudioRecorder;
+		};
 		D83A62DE18B696DC00EC0773 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D83A62B018B696DB00EC0773 /* Project object */;
@@ -83,6 +105,24 @@
 		D81AA9DE18B927AD00E3B50C /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		D81AA9DF18B927AD00E3B50C /* CameraViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraViewController.xib; sourceTree = "<group>"; };
 		D81AA9E318B9312900E3B50C /* CameraDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CameraDelegate.h; path = Camera/CameraDelegate.h; sourceTree = "<group>"; };
+		D81AA9E918B943C400E3B50C /* AudioRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioRecorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D81AA9EF18B943C400E3B50C /* AudioRecorder-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AudioRecorder-Info.plist"; sourceTree = "<group>"; };
+		D81AA9F118B943C400E3B50C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D81AA9F318B943C400E3B50C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D81AA9F518B943C400E3B50C /* AudioRecorder-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AudioRecorder-Prefix.pch"; sourceTree = "<group>"; };
+		D81AA9F618B943C400E3B50C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D81AA9F718B943C400E3B50C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D81AA9FA18B943C400E3B50C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D81AA9FC18B943C400E3B50C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		D81AA9FD18B943C400E3B50C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		D81AA9FF18B943C400E3B50C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D81AAA0518B943C400E3B50C /* AudioRecorderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AudioRecorderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D81AAA0D18B943C500E3B50C /* AudioRecorderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AudioRecorderTests-Info.plist"; sourceTree = "<group>"; };
+		D81AAA0F18B943C500E3B50C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D81AAA1118B943C500E3B50C /* AudioRecorderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioRecorderTests.m; sourceTree = "<group>"; };
+		D81AAA1918B9478600E3B50C /* AudioRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioRecorder.h; path = AudioRecorder/AudioRecorder.h; sourceTree = "<group>"; };
+		D81AAA1A18B9478600E3B50C /* AudioRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioRecorder.m; path = AudioRecorder/AudioRecorder.m; sourceTree = "<group>"; };
+		D81AAA1C18B9479B00E3B50C /* AudioRecorderDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AudioRecorderDelegate.h; path = AudioRecorder/AudioRecorderDelegate.h; sourceTree = "<group>"; };
 		D82E748518B7E49C0031BF2B /* milk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = milk.png; sourceTree = "<group>"; };
 		D82E748718B7E8220031BF2B /* CoreData 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CoreData 2.xcdatamodel"; sourceTree = "<group>"; };
 		D82E748818B7E97E0031BF2B /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tag.h; path = Models/Tag.h; sourceTree = "<group>"; };
@@ -136,6 +176,26 @@
 				D81AA9CA18B925B900E3B50C /* XCTest.framework in Frameworks */,
 				D81AA9CC18B925B900E3B50C /* UIKit.framework in Frameworks */,
 				D81AA9CB18B925B900E3B50C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D81AA9E618B943C400E3B50C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D81AA9EB18B943C400E3B50C /* CoreGraphics.framework in Frameworks */,
+				D81AA9EC18B943C400E3B50C /* UIKit.framework in Frameworks */,
+				D81AA9EA18B943C400E3B50C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D81AAA0218B943C400E3B50C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D81AAA0618B943C400E3B50C /* XCTest.framework in Frameworks */,
+				D81AAA0818B943C500E3B50C /* UIKit.framework in Frameworks */,
+				D81AAA0718B943C500E3B50C /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,6 +276,60 @@
 			name = Camera;
 			sourceTree = "<group>";
 		};
+		D81AA9ED18B943C400E3B50C /* AudioRecorder */ = {
+			isa = PBXGroup;
+			children = (
+				D81AA9F618B943C400E3B50C /* AppDelegate.h */,
+				D81AA9F718B943C400E3B50C /* AppDelegate.m */,
+				D81AA9F918B943C400E3B50C /* Main.storyboard */,
+				D81AA9FC18B943C400E3B50C /* ViewController.h */,
+				D81AA9FD18B943C400E3B50C /* ViewController.m */,
+				D81AA9FF18B943C400E3B50C /* Images.xcassets */,
+				D81AA9EE18B943C400E3B50C /* Supporting Files */,
+				D81AAA1D18B947A400E3B50C /* AudioRecorder */,
+			);
+			path = AudioRecorder;
+			sourceTree = "<group>";
+		};
+		D81AA9EE18B943C400E3B50C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D81AA9EF18B943C400E3B50C /* AudioRecorder-Info.plist */,
+				D81AA9F018B943C400E3B50C /* InfoPlist.strings */,
+				D81AA9F318B943C400E3B50C /* main.m */,
+				D81AA9F518B943C400E3B50C /* AudioRecorder-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D81AAA0B18B943C500E3B50C /* AudioRecorderTests */ = {
+			isa = PBXGroup;
+			children = (
+				D81AAA1118B943C500E3B50C /* AudioRecorderTests.m */,
+				D81AAA0C18B943C500E3B50C /* Supporting Files */,
+			);
+			path = AudioRecorderTests;
+			sourceTree = "<group>";
+		};
+		D81AAA0C18B943C500E3B50C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D81AAA0D18B943C500E3B50C /* AudioRecorderTests-Info.plist */,
+				D81AAA0E18B943C500E3B50C /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D81AAA1D18B947A400E3B50C /* AudioRecorder */ = {
+			isa = PBXGroup;
+			children = (
+				D81AAA1918B9478600E3B50C /* AudioRecorder.h */,
+				D81AAA1A18B9478600E3B50C /* AudioRecorder.m */,
+				D81AAA1C18B9479B00E3B50C /* AudioRecorderDelegate.h */,
+			);
+			name = AudioRecorder;
+			sourceTree = "<group>";
+		};
 		D83A62AF18B696DB00EC0773 = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +338,8 @@
 				D83A62E018B696DC00EC0773 /* Visual SchedulerTests */,
 				D81AA9B718B925B900E3B50C /* CameraComponent */,
 				D81AA9CF18B925B900E3B50C /* CameraComponentTests */,
+				D81AA9ED18B943C400E3B50C /* AudioRecorder */,
+				D81AAA0B18B943C500E3B50C /* AudioRecorderTests */,
 				D83A62BA18B696DC00EC0773 /* Frameworks */,
 				D83A62B918B696DC00EC0773 /* Products */,
 			);
@@ -236,6 +352,8 @@
 				D83A62D918B696DC00EC0773 /* Visual SchedulerTests.xctest */,
 				D81AA9B318B925B900E3B50C /* CameraComponent.app */,
 				D81AA9C918B925B900E3B50C /* CameraComponentTests.xctest */,
+				D81AA9E918B943C400E3B50C /* AudioRecorder.app */,
+				D81AAA0518B943C400E3B50C /* AudioRecorderTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -385,6 +503,41 @@
 			productReference = D81AA9C918B925B900E3B50C /* CameraComponentTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		D81AA9E818B943C400E3B50C /* AudioRecorder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D81AAA1718B943C500E3B50C /* Build configuration list for PBXNativeTarget "AudioRecorder" */;
+			buildPhases = (
+				D81AA9E518B943C400E3B50C /* Sources */,
+				D81AA9E618B943C400E3B50C /* Frameworks */,
+				D81AA9E718B943C400E3B50C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AudioRecorder;
+			productName = AudioRecorder;
+			productReference = D81AA9E918B943C400E3B50C /* AudioRecorder.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D81AAA0418B943C400E3B50C /* AudioRecorderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D81AAA1818B943C500E3B50C /* Build configuration list for PBXNativeTarget "AudioRecorderTests" */;
+			buildPhases = (
+				D81AAA0118B943C400E3B50C /* Sources */,
+				D81AAA0218B943C400E3B50C /* Frameworks */,
+				D81AAA0318B943C400E3B50C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D81AAA0A18B943C500E3B50C /* PBXTargetDependency */,
+			);
+			name = AudioRecorderTests;
+			productName = AudioRecorderTests;
+			productReference = D81AAA0518B943C400E3B50C /* AudioRecorderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		D83A62B718B696DC00EC0773 /* Visual Scheduler */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D83A62EA18B696DC00EC0773 /* Build configuration list for PBXNativeTarget "Visual Scheduler" */;
@@ -432,6 +585,9 @@
 					D81AA9C818B925B900E3B50C = {
 						TestTargetID = D83A62B718B696DC00EC0773;
 					};
+					D81AAA0418B943C400E3B50C = {
+						TestTargetID = D83A62B718B696DC00EC0773;
+					};
 					D83A62D818B696DC00EC0773 = {
 						TestTargetID = D83A62B718B696DC00EC0773;
 					};
@@ -454,6 +610,8 @@
 				D83A62D818B696DC00EC0773 /* Visual SchedulerTests */,
 				D81AA9B218B925B900E3B50C /* CameraComponent */,
 				D81AA9C818B925B900E3B50C /* CameraComponentTests */,
+				D81AA9E818B943C400E3B50C /* AudioRecorder */,
+				D81AAA0418B943C400E3B50C /* AudioRecorderTests */,
 			);
 		};
 /* End PBXProject section */
@@ -474,6 +632,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				D81AA9D418B925B900E3B50C /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D81AA9E718B943C400E3B50C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D81AAA0018B943C400E3B50C /* Images.xcassets in Resources */,
+				D81AA9F218B943C400E3B50C /* InfoPlist.strings in Resources */,
+				D81AA9FB18B943C400E3B50C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D81AAA0318B943C400E3B50C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D81AAA1018B943C500E3B50C /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,6 +696,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D81AA9E518B943C400E3B50C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D81AA9FE18B943C400E3B50C /* ViewController.m in Sources */,
+				D81AA9F818B943C400E3B50C /* AppDelegate.m in Sources */,
+				D81AAA1B18B9478600E3B50C /* AudioRecorder.m in Sources */,
+				D81AA9F418B943C400E3B50C /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D81AAA0118B943C400E3B50C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D81AAA1218B943C500E3B50C /* AudioRecorderTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D83A62B418B696DC00EC0773 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -552,6 +747,11 @@
 			target = D81AA9B218B925B900E3B50C /* CameraComponent */;
 			targetProxy = D81AA9CD18B925B900E3B50C /* PBXContainerItemProxy */;
 		};
+		D81AAA0A18B943C500E3B50C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D81AA9E818B943C400E3B50C /* AudioRecorder */;
+			targetProxy = D81AAA0918B943C500E3B50C /* PBXContainerItemProxy */;
+		};
 		D83A62DF18B696DC00EC0773 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D83A62B718B696DC00EC0773 /* Visual Scheduler */;
@@ -572,6 +772,30 @@
 			isa = PBXVariantGroup;
 			children = (
 				D81AA9D318B925B900E3B50C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D81AA9F018B943C400E3B50C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D81AA9F118B943C400E3B50C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D81AA9F918B943C400E3B50C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D81AA9FA18B943C400E3B50C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D81AAA0E18B943C500E3B50C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D81AAA0F18B943C500E3B50C /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -671,6 +895,80 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CameraComponent/CameraComponent-Prefix.pch";
 				INFOPLIST_FILE = "CameraComponentTests/CameraComponentTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+		D81AAA1318B943C500E3B50C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AudioRecorder/AudioRecorder-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "AudioRecorder/AudioRecorder-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D81AAA1418B943C500E3B50C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AudioRecorder/AudioRecorder-Prefix.pch";
+				INFOPLIST_FILE = "AudioRecorder/AudioRecorder-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		D81AAA1518B943C500E3B50C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Visual Scheduler.app/Visual Scheduler";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AudioRecorder/AudioRecorder-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "AudioRecorderTests/AudioRecorderTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		D81AAA1618B943C500E3B50C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Visual Scheduler.app/Visual Scheduler";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AudioRecorder/AudioRecorder-Prefix.pch";
+				INFOPLIST_FILE = "AudioRecorderTests/AudioRecorderTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -829,12 +1127,30 @@
 				D81AA9D918B925B900E3B50C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D81AA9DA18B925B900E3B50C /* Build configuration list for PBXNativeTarget "CameraComponentTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D81AA9DB18B925B900E3B50C /* Debug */,
 				D81AA9DC18B925B900E3B50C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D81AAA1718B943C500E3B50C /* Build configuration list for PBXNativeTarget "AudioRecorder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D81AAA1318B943C500E3B50C /* Debug */,
+				D81AAA1418B943C500E3B50C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D81AAA1818B943C500E3B50C /* Build configuration list for PBXNativeTarget "AudioRecorderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D81AAA1518B943C500E3B50C /* Debug */,
+				D81AAA1618B943C500E3B50C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

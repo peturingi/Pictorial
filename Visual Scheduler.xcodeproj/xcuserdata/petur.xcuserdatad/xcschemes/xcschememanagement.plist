@@ -4,10 +4,15 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>CameraComponent.xcscheme</key>
+		<key>AudioRecorder.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>2</integer>
+		</dict>
+		<key>CameraComponent.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
 		</dict>
 		<key>Visual Scheduler.xcscheme</key>
 		<dict>
@@ -23,6 +28,16 @@
 			<true/>
 		</dict>
 		<key>D81AA9C818B925B900E3B50C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D81AA9E818B943C400E3B50C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D81AAA0418B943C400E3B50C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

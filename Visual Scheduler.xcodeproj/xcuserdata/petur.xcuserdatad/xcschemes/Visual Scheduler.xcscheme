@@ -48,6 +48,16 @@
                ReferencedContainer = "container:Visual Scheduler.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D81AAA0418B943C400E3B50C"
+               BuildableName = "AudioRecorderTests.xctest"
+               BlueprintName = "AudioRecorderTests"
+               ReferencedContainer = "container:Visual Scheduler.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
