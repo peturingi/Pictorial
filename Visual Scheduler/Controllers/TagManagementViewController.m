@@ -48,11 +48,22 @@
     // Manual registration of the class we want to use for reuseable cells as we are doing this programatically.
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CELL_REUSE_IDENTIFIER];
     
+    [self configureGestureRecognizers];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)configureGestureRecognizers {
+    SEL gestureSelector = NSSelectorFromString(@"handleGesture:");
+    UISwipeGestureRecognizer *gestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:gestureSelector];
+    NSAssert([self respondsToSelector:gestureSelector], @"Missing implementation of gesture handling method");
+    
+    gestureRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
+    [self.tableView addGestureRecognizer:gestureRecognizer];
 }
 
 - (void)didReceiveMemoryWarning
@@ -62,6 +73,18 @@
 }
 
 #pragma mark - UI Actions
+
+- (void)handleGesture:(UISwipeGestureRecognizer *)gestureRecognizer {
+    NSAssert(gestureRecognizer, @"must not be nil!");
+    
+    CGPoint location = [gestureRecognizer locationInView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:location];
+    
+    if (indexPath) {
+        _cellToDelete = indexPath;
+        [self.tableView setEditing:YES];
+    }
+}
 
 - (void)addButton:(id)sender {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"New Tag" message:@"Please enter the new tag:" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
@@ -82,38 +105,58 @@
         if (input.length > 0) {
             [self createNewTag:input];
         }
-        
     }
 }
 
 
-#pragma mark - Table view data source
+#pragma mark - Table view
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if ([indexPath isEqual:_cellToDelete]) {
+        return YES;
+    } else {
+        return NO;
+    }
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    NSAssert(self.fetchedResultsController, @"Must not be nil!");
     return self.fetchedResultsController.sections.count;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    id  sectionInfo =
-    [[_fetchedResultsController sections] objectAtIndex:section];
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSAssert(self.fetchedResultsController, @"Must not be nil!");
+    id sectionInfo = [[_fetchedResultsController sections] objectAtIndex:section];
+    NSAssert(sectionInfo, @"Must not be nil!");
     return [sectionInfo numberOfObjects];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CELL_REUSE_IDENTIFIER forIndexPath:indexPath];
-    
-    // Set up the cell...
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CELL_REUSE_IDENTIFIER forIndexPath:indexPath];
     [self configureCell:cell atIndexPath:indexPath];
-    
+    NSAssert(cell, @"Must not be nil!");
     return cell;
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    Tag *info = [_fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = info.tag;
+    Tag *tag = [_fetchedResultsController objectAtIndexPath:indexPath];
+    NSAssert(tag, @"Must not be nil!");
+    cell.textLabel.text = tag.tag;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        NSAssert(managedObject, @"Must not be nil!");
+        [self.managedObjectContext deleteObject:managedObject];
+        [self saveContext];
+        
+        _cellToDelete = nil;
+        [self.tableView setEditing:NO];
+    }
+    NSAssert(!_cellToDelete, @"No cell should be marked for deletion at this point.");
+    NSAssert(!self.tableView.editing, @"It must not be possible to edit the tableView at this point.");
 }
 
 #pragma mark - Core Data
@@ -169,13 +212,11 @@
     [self.tableView beginUpdates];
 }
 
-
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
     
     UITableView *tableView = self.tableView;
     
     switch(type) {
-            
         case NSFetchedResultsChangeInsert:
             [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
             break;
@@ -197,11 +238,9 @@
     }
 }
 
-
 - (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id )sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
     
     switch(type) {
-            
         case NSFetchedResultsChangeInsert:
             [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
             break;
@@ -211,7 +250,6 @@
             break;
     }
 }
-
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
     // The fetch controller has sent all current change notifications, so tell the table view to process all updates.
@@ -225,58 +263,5 @@
     tag.tag = string;
     [self saveContext];
 }
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-
- */
-
 
 @end
