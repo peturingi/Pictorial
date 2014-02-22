@@ -256,6 +256,7 @@
         NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:NO];
         [fetchRequest setSortDescriptors:@[sortDescriptor]];
         
+        [NSFetchedResultsController deleteCacheWithName:CACHE_NAME];
         NSFetchedResultsController *newFetchResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
                                                                                                     managedObjectContext:managedObjectContext
                                                                                                       sectionNameKeyPath:nil
