@@ -36,7 +36,9 @@
     NSAssert(self.navigationController, @"This implementation depends on a navigationController");
     NSAssert(self.navigationItem, @"navigationController not found!");
     self.title = @"Tags";
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonSystemItemAdd target:self action:@selector(addButton:)];
+    _addButton = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(addButton:)];
+    _cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(cancelButton:)];
+    self.navigationItem.rightBarButtonItem = _addButton;
     
     NSError *error;
 	if (![[self fetchedResultsController] performFetch:&error]) {
@@ -82,7 +84,8 @@
     
     if (indexPath) {
         _cellToDelete = indexPath;
-        [self.tableView setEditing:YES];
+        [self.tableView setEditing:YES animated:NO];
+        self.navigationItem.rightBarButtonItem = _cancelButton;
     }
 }
 
@@ -92,6 +95,13 @@
     [alert textFieldAtIndex:0].keyboardType = UIKeyboardTypeAlphabet;
     [alert textFieldAtIndex:0].placeholder = @"Tag";
     [alert show];
+}
+- (void)cancelButton:(id)sender {
+    if (_cellToDelete) {
+        _cellToDelete = nil;
+        [self.tableView setEditing:NO animated:NO];
+        self.navigationItem.rightBarButtonItem = _addButton;
+    }
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -139,10 +149,24 @@
     return cell;
 }
 
+/** Sets cell textLabel to tag.
+ */
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     Tag *tag = [_fetchedResultsController objectAtIndexPath:indexPath];
     NSAssert(tag, @"Must not be nil!");
     cell.textLabel.text = tag.tag;
+    
+    // Layout
+    cell.textLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    // Searchbar hugs the top of its superview
+    [cell addConstraint:[NSLayoutConstraint constraintWithItem:cell.textLabel
+                                                                     attribute:NSLayoutAttributeLeft
+                                                                     relatedBy:NSLayoutRelationEqual
+                                                                        toItem:cell
+                                                                     attribute:NSLayoutAttributeLeft
+                                                                    multiplier:1.0
+                                                                      constant:15]];
+    
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -153,7 +177,8 @@
         [self saveContext];
         
         _cellToDelete = nil;
-        [self.tableView setEditing:NO];
+        [self.tableView setEditing:NO animated:NO];
+        self.navigationItem.rightBarButtonItem = _addButton;
     }
     NSAssert(!_cellToDelete, @"No cell should be marked for deletion at this point.");
     NSAssert(!self.tableView.editing, @"It must not be possible to edit the tableView at this point.");
@@ -212,41 +237,54 @@
     [self.tableView beginUpdates];
 }
 
-- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
+- (void)controller:(NSFetchedResultsController *)controller
+   didChangeObject:(id)anObject
+       atIndexPath:(NSIndexPath *)indexPath
+     forChangeType:(NSFetchedResultsChangeType)type
+      newIndexPath:(NSIndexPath *)newIndexPath {
     
     UITableView *tableView = self.tableView;
     
     switch(type) {
         case NSFetchedResultsChangeInsert:
-            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
             break;
             
         case NSFetchedResultsChangeDelete:
-            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
             break;
             
         case NSFetchedResultsChangeUpdate:
-            [self configureCell:[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+            [self configureCell:[tableView cellForRowAtIndexPath:indexPath]
+                    atIndexPath:indexPath];
             break;
             
         case NSFetchedResultsChangeMove:
-            [tableView deleteRowsAtIndexPaths:[NSArray
-                                               arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-            [tableView insertRowsAtIndexPaths:[NSArray
-                                               arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            
+            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
             break;
     }
 }
 
-- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id )sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
+- (void)controller:(NSFetchedResultsController *)controller
+  didChangeSection:(id )sectionInfo
+           atIndex:(NSUInteger)sectionIndex
+     forChangeType:(NSFetchedResultsChangeType)type {
     
     switch(type) {
         case NSFetchedResultsChangeInsert:
-            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex]
+                          withRowAnimation:UITableViewRowAnimationFade];
             break;
             
         case NSFetchedResultsChangeDelete:
-            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex]
+                          withRowAnimation:UITableViewRowAnimationFade];
             break;
     }
 }

@@ -17,6 +17,9 @@
  *  changes to edit mode and allows deletion.
  */
     NSIndexPath *_cellToDelete;
+    
+    UIBarButtonItem *_addButton;
+    UIBarButtonItem *_cancelButton;
 }
 
 @end
