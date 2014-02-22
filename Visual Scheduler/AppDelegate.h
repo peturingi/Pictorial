@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Protocols/CoreDataController.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, CoreDataController>
 
 @property (strong, nonatomic) UIWindow *window;
 
