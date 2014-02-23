@@ -8,7 +8,6 @@
 
 #import "AudioRecorder.h"
 
-
 @interface AudioRecorder ()
     @property (strong, nonatomic) AVAudioRecorder *recorder;
     @property (strong, nonatomic) AVAudioPlayer *player;
@@ -16,23 +15,27 @@
 
 @implementation AudioRecorder
 
-/** init
- * @throw NSException if an AVAudioSession can not be established.
- */
-- (id)init {
+- (id)initWithDelegate:(id<AudioRecorderDelegate>)delegate {
+    NSAssert(delegate, @"A delegate must be passed!");
+    if (!delegate) return nil;
+    
     self = [super init];
     if (self) {
-        
-        [self configureAudio];
-        
-        // Todo, react to audio notifications.
-        // todo, react if user denies audio recording when prompted by the system.
+        _delegate = delegate;
+        if (![self configureAudio]) {
+            // Abort, audio could not be configured.
+            NSAssert(false, @"Failed to configure the audio framework!");
+            return nil;
+        }
     }
-    
     return self;
 }
 
-- (void)configureAudio {
+/** Takes care of configuring the audio framework so it can be used for playback and recording.
+ @return YES Successfully configured.
+ @return NO Error during configuration.
+ */
+- (BOOL)configureAudio {
     
     AVAudioSession *audioSession = [AVAudioSession sharedInstance];
     
@@ -49,54 +52,86 @@
     [audioSession setCategory:AVAudioSessionCategoryPlayAndRecord error:&audioSessionError];
     if (audioSessionError) {
         NSLog(@"Error getting audiosession: %@", audioSessionError.localizedDescription);
+        return NO;
     }
     
     [audioSession setActive:YES error:&audioSessionError];
     if (audioSessionError) {
         NSLog(@"Failed to activate audiosession: %@", audioSessionError.localizedDescription);
+        return NO;
     }
     
     NSError *recorderError;
     _recorder = [[AVAudioRecorder alloc] initWithURL:[self temporaryFile] settings:nil error:&recorderError];
-    NSAssert(!recorderError, @"Error.");
+    if (recorderError) {
+        NSLog(@"Failed to configure AVAudioRecorder: %@", recorderError.localizedDescription);
+        return NO;
+    }
+
+    return YES;
 }
 
 - (void)recordAudio {
-    NSAssert([self canRecord], @"Can not begin recording!");
     
-    [self.delegate audioRecorderRecorderAboutToBegin];
-    [self.recorder record];
+    
+    if ([self canRecord]) {
+        [[AVAudioSession sharedInstance] requestRecordPermission:^(BOOL granted) {
+            if (granted) {
+                [self.delegate audioRecorderRecorderAboutToBegin];
+                [self.recorder record];
+            } else {
+                [self.delegate audioRecorderPermissionToRecordDeniedByUserOrSecuritySettings];
+            }
+        }];
+    } else {
+        NSString *errorMsg = @"Can not begin recording audio.";
+        NSAssert(false, errorMsg);
+        NSLog(@"%@",errorMsg);
+    }
 }
 
+/** Play a previously recorded audiofile.
+ */
 - (void)playbackAudio {
     NSError *playerError;
     _player = [[AVAudioPlayer alloc] initWithContentsOfURL:self.recorder.url error:&playerError];
     _player.delegate = self;
-    NSAssert(!playerError, @"Error.");
+    if (!self.player || playerError) {
+        [NSException raise:NSInternalInconsistencyException format:@"Expected the player to be instantiated"];
+    }
     
-    NSAssert([self canPlay], @"Can not begin playback!");
-    [self.delegate audioRecorderPlayerAboutToBeginPlaying];
-    [self.player play];
-
-    NSLog(@"Playing");
+    if ([self canPlay]) {
+        [self.delegate audioRecorderPlayerAboutToBeginPlaying];
+        [self.player play];
+    } else {
+        NSString *errorMsg = @"Can not begin playback.";
+        NSAssert(false, errorMsg);
+        NSLog(@"%@", errorMsg);
+    }
 }
 
+/** Stops playback or recording.
+ */
 - (void)stop {
-    if (self.recorder.isRecording) {
+    
+    if (self.recorder && self.recorder.isRecording) {
         [self.recorder stop];
         [self.delegate audioRecorderRecorderDidFinish];
-        NSLog(@"Stopped recording");
+        return;
     }
-    if (self.player.isPlaying) {
+    
+    if (self.player && self.player.isPlaying) {
         [self.player stop];
         self.player.currentTime = 0;
         [self.delegate audioRecorderPlayerDidFinishPlaying];
-        NSLog(@"Stopped playing");
+        return;
     }
+    
+    NSLog(@"Neither the recorder not the player are active. Nothing to stop!");
 }
 
 - (BOOL)canPlay {
-    return !(self.player.playing || self.recorder.recording);
+    return [self canRecord];
 }
 
 - (BOOL)canRecord {
@@ -104,12 +139,13 @@
 }
 
 - (BOOL)isPlaying {
-    NSAssert(self.player, @"Must not be nil!");
     return self.player.playing;
 }
 
 - (BOOL)isRecording {
-    NSAssert(self.recorder, @"Must not be nil!");
+    if (!self.recorder) {
+        [NSException raise:NSInternalInconsistencyException format:@"Expected the recorder to be instantiated."];
+    }
     return self.recorder.recording;
 }
 
@@ -137,8 +173,8 @@
         return NO;
     }
 }
-
-#pragma mark - AVAudioPlayerDelegate
+#pragma mark - Delegate Wrappers
+#pragma mark AVAudioPlayerDelegate
 
 - (void)audioPlayerBeginInterruption:(AVAudioPlayer *)player {
     [self.delegate audioRecorderPlayerBeginInterruption];
@@ -156,7 +192,7 @@
     [self.delegate audioRecorderPlayerDidFinishPlaying];
 }
 
-#pragma mark - AVAudioRecorderDelegate
+#pragma mark AVAudioRecorderDelegate
 
 - (void)audioRecorderBeginInterruption:(AVAudioRecorder *)recorder {
     [self.delegate audioRecorderRecorderBeginInterruption];

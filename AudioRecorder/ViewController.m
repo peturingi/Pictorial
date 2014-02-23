@@ -19,7 +19,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    _audioRecorder = [[AudioRecorder alloc] init];
+    _audioRecorder = [[AudioRecorder alloc] initWithDelegate:self];
     _audioRecorder.delegate = self;
 }
 
@@ -68,6 +68,10 @@
     self.play.enabled = NO;
     self.record.enabled = NO;
     self.stop.enabled = NO;
+}
+
+- (void)audioRecorderPermissionToRecordDeniedByUserOrSecuritySettings {
+    NSLog(@"Permission denied for microphone...");
 }
 
 
