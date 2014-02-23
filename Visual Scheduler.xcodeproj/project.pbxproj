@@ -38,6 +38,7 @@
 		D81AAA1018B943C500E3B50C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D81AAA0E18B943C500E3B50C /* InfoPlist.strings */; };
 		D81AAA1218B943C500E3B50C /* AudioRecorderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D81AAA1118B943C500E3B50C /* AudioRecorderTests.m */; };
 		D81AAA1B18B9478600E3B50C /* AudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = D81AAA1A18B9478600E3B50C /* AudioRecorder.m */; };
+		D81AAA1F18B94F0A00E3B50C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D81AAA1E18B94F0A00E3B50C /* AVFoundation.framework */; };
 		D82E748618B7E49C0031BF2B /* milk.png in Resources */ = {isa = PBXBuildFile; fileRef = D82E748518B7E49C0031BF2B /* milk.png */; };
 		D82E748A18B7E97E0031BF2B /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = D82E748918B7E97E0031BF2B /* Tag.m */; };
 		D82E748D18B7E97E0031BF2B /* Pictogram.m in Sources */ = {isa = PBXBuildFile; fileRef = D82E748C18B7E97E0031BF2B /* Pictogram.m */; };
@@ -123,6 +124,7 @@
 		D81AAA1918B9478600E3B50C /* AudioRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioRecorder.h; path = AudioRecorder/AudioRecorder.h; sourceTree = "<group>"; };
 		D81AAA1A18B9478600E3B50C /* AudioRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioRecorder.m; path = AudioRecorder/AudioRecorder.m; sourceTree = "<group>"; };
 		D81AAA1C18B9479B00E3B50C /* AudioRecorderDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AudioRecorderDelegate.h; path = AudioRecorder/AudioRecorderDelegate.h; sourceTree = "<group>"; };
+		D81AAA1E18B94F0A00E3B50C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D82E748518B7E49C0031BF2B /* milk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = milk.png; sourceTree = "<group>"; };
 		D82E748718B7E8220031BF2B /* CoreData 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CoreData 2.xcdatamodel"; sourceTree = "<group>"; };
 		D82E748818B7E97E0031BF2B /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tag.h; path = Models/Tag.h; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D81AAA1F18B94F0A00E3B50C /* AVFoundation.framework in Frameworks */,
 				D81AA9EB18B943C400E3B50C /* CoreGraphics.framework in Frameworks */,
 				D81AA9EC18B943C400E3B50C /* UIKit.framework in Frameworks */,
 				D81AA9EA18B943C400E3B50C /* Foundation.framework in Frameworks */,
@@ -361,6 +364,7 @@
 		D83A62BA18B696DC00EC0773 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D81AAA1E18B94F0A00E3B50C /* AVFoundation.framework */,
 				D83A62BB18B696DC00EC0773 /* Foundation.framework */,
 				D83A62BD18B696DC00EC0773 /* CoreGraphics.framework */,
 				D83A62BF18B696DC00EC0773 /* UIKit.framework */,

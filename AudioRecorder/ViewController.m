@@ -7,9 +7,10 @@
 //
 
 #import "ViewController.h"
+#import "AudioRecorder.h"
 
 @interface ViewController ()
-
+    @property (strong, nonatomic) AudioRecorder *audioRecorder;
 @end
 
 @implementation ViewController
@@ -18,6 +19,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    _audioRecorder = [[AudioRecorder alloc] init];
+    _audioRecorder.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -25,5 +28,48 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)play:(id)sender {
+    [self.audioRecorder playbackAudio];
+}
+- (IBAction)stop:(id)sender {
+    [self.audioRecorder stop];
+}
+- (IBAction)record:(id)sender {
+    [self.audioRecorder recordAudio];
+}
+
+#pragma mark - AudioRecordingDelegate
+
+- (void)audioRecorderRecorderAboutToBegin {
+    self.play.enabled = NO;
+    self.record.enabled = NO;
+    self.stop.enabled = YES;
+}
+
+- (void)audioRecorderPlayerAboutToBeginPlaying {
+    self.play.enabled = NO;
+    self.record.enabled = NO;
+    self.stop.enabled = YES;
+}
+
+- (void)audioRecorderPlayerDidFinishPlaying {
+    self.play.enabled = YES;
+    self.record.enabled = YES;
+    self.stop.enabled = NO;
+}
+
+- (void)audioRecorderRecorderDidFinish {
+    self.play.enabled = YES;
+    self.record.enabled = YES;
+    self.stop.enabled = NO;
+}
+
+- (void)audioRecorderInputIsNotAvailable {
+    self.play.enabled = NO;
+    self.record.enabled = NO;
+    self.stop.enabled = NO;
+}
+
+
 
 @end
