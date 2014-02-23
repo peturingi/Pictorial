@@ -282,6 +282,7 @@
 		D81AA9ED18B943C400E3B50C /* AudioRecorder */ = {
 			isa = PBXGroup;
 			children = (
+				D81AAA1D18B947A400E3B50C /* AudioRecorder */,
 				D81AA9F618B943C400E3B50C /* AppDelegate.h */,
 				D81AA9F718B943C400E3B50C /* AppDelegate.m */,
 				D81AA9F918B943C400E3B50C /* Main.storyboard */,
@@ -289,7 +290,6 @@
 				D81AA9FD18B943C400E3B50C /* ViewController.m */,
 				D81AA9FF18B943C400E3B50C /* Images.xcassets */,
 				D81AA9EE18B943C400E3B50C /* Supporting Files */,
-				D81AAA1D18B947A400E3B50C /* AudioRecorder */,
 			);
 			path = AudioRecorder;
 			sourceTree = "<group>";
