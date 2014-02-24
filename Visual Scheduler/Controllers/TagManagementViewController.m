@@ -16,6 +16,11 @@
 #define ALERT_TAG_USER_INPUT    10
 #define ALERT_CRITICAL_ERROR    20
 
+// Risk of mixing those two up.
+// That is why they are defined here.
+#define SORT_BY_KEY @"tag"
+#define TAG_ENTITY_NAME @"Tag"
+
 #pragma mark - Private Properties
 
 @interface TagManagementViewController ()
@@ -51,8 +56,8 @@
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CELL_REUSE_IDENTIFIER];
     
     [self configureNavigationBar];
-    [self configureCoreData];
-    [self configureGestureRecognizers];
+    [self fetchEntities];
+    [self setupGestureRecognizers];
 }
 
 /** Configures the apperance of the navigation bar
@@ -62,8 +67,8 @@
     NSAssert(self.navigationController, @"This implementation depends on a navigationController");
 
     self.title = @"Tags";
-    _addButton = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(addButton:)];
-    _cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(cancelButton:)];
+    _addButton = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(addButtonWasTouched:)];
+    _cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(cancelButtonWasTouched:)];
     self.navigationItem.rightBarButtonItem = _addButton;
     
     /* Post */
@@ -72,7 +77,7 @@
 
 /** Configures CoreData, ensures its ready for use.
  */
-- (void)configureCoreData {
+- (void)fetchEntities {
     NSError *error;
     // fetchedResultsController is configured by sideeffect of its getter.
 	if (![[self fetchedResultsController] performFetch:&error]) {
@@ -83,17 +88,16 @@
 
 /** Configures gesture recognizers.
  */
-- (void)configureGestureRecognizers {
+- (void)setupGestureRecognizers {
     /* Pre */
-    SEL gestureSelector = NSSelectorFromString(@"handleGesture:");
+    SEL gestureSelector = NSSelectorFromString(@"handleSwipeGesture:");
     NSAssert([self respondsToSelector:gestureSelector], @"Missing implementation of gesture handling method");
     
     /* Left swipe over tableview cell to trigger delete mode */
     NSAssert(self.tableView, @"Must not be nil!");
-    UISwipeGestureRecognizer *gestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:gestureSelector];
-    gestureRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
-    [self.tableView addGestureRecognizer:gestureRecognizer];
-    
+    UISwipeGestureRecognizer *swipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:gestureSelector];
+    swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
+    [self.tableView addGestureRecognizer:swipeGestureRecognizer];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -103,13 +107,13 @@
 
 #pragma mark - UI Actions
 
-- (void)handleGesture:(UISwipeGestureRecognizer *)gestureRecognizer {
+- (void)handleSwipeGesture:(UISwipeGestureRecognizer *)gestureRecognizer {
     /* Pre */
     NSAssert(gestureRecognizer, @"Must not be nil!");
     NSAssert(self.tableView, @"Must not be nil!");
     
-    CGPoint location = [gestureRecognizer locationInView:self.tableView];
-    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:location];
+    CGPoint locationOfGestureInView = [gestureRecognizer locationInView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:locationOfGestureInView];
     
     if (indexPath) {
         
@@ -119,26 +123,24 @@
         self.cellToDelete = indexPath;
         
         self.navigationItem.rightBarButtonItem = _cancelButton;
-        
-        
         NSAssert(self.navigationItem.rightBarButtonItem, @"No rightBarButton");
     }
 }
 
 /** Handles what should happen when the add button is pressed.
  */
-- (void)addButton:(id)sender {
+- (void)addButtonWasTouched:(id)sender {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"New Tag" message:@"Please enter the new tag:" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
     alert.tag = ALERT_TAG_USER_INPUT;
     [alert textFieldAtIndex:0].keyboardType = UIKeyboardTypeAlphabet;
-    [alert textFieldAtIndex:0].placeholder = @"Tag";
+    [alert textFieldAtIndex:0].placeholder = TAG_ENTITY_NAME;
     [alert show];
 }
 
 /** Handles what should happen when the cancel button is pressed.
  */
-- (void)cancelButton:(id)sender {
+- (void)cancelButtonWasTouched:(id)sender {
     if (self.cellToDelete) {
         /* Pre */
         NSAssert(self.tableView, @"Must not be nil!");
@@ -167,7 +169,7 @@
                 // Input contains a string?
                 NSString *input = [alertView textFieldAtIndex:0].text;
                 if (input.length > 0) {
-                    [self createNewTag:input];
+                    [self createAndSaveNewTag:input];
                 }
             }
             break;
@@ -298,22 +300,21 @@
         self.managedObjectContext = [[[UIApplication sharedApplication] delegate] performSelector:@selector(managedObjectContext)];
         NSAssert(self.managedObjectContext, @"must not be nil!");
         
-        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Tag" inManagedObjectContext:self.managedObjectContext];
-        NSAssert(entity, @"must not be nil!");
+        NSEntityDescription *tag = [NSEntityDescription entityForName:TAG_ENTITY_NAME inManagedObjectContext:self.managedObjectContext];
+        NSAssert(tag, @"must not be nil!");
         
         NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-        [fetchRequest setEntity:entity];
+        [fetchRequest setEntity:tag];
         [fetchRequest setFetchBatchSize:20];
         
-        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"tag" ascending:YES];
+        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:SORT_BY_KEY ascending:YES];
         [fetchRequest setSortDescriptors:@[sortDescriptor]];
         
         [NSFetchedResultsController deleteCacheWithName:CACHE_NAME];
-        NSFetchedResultsController *newFetchResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
-                                                                                                    managedObjectContext:self.managedObjectContext
-                                                                                                      sectionNameKeyPath:nil
-                                                                                                               cacheName:CACHE_NAME];
-        _fetchedResultsController = newFetchResultsController;
+        _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
+                                                                        managedObjectContext:self.managedObjectContext
+                                                                          sectionNameKeyPath:nil
+                                                                                   cacheName:CACHE_NAME];
         _fetchedResultsController.delegate = self;
         
         /* Post */
@@ -331,20 +332,16 @@
 - (void)saveContext {
     NSAssert(self.managedObjectContext.hasChanges, @"Nothing to save!");
     
-    NSError *error = nil;
+    NSError *saveError;
     NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
     if (managedObjectContext != nil) {
-        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
-            // Replace this implementation with code to handle the error appropriately.
-            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            
+        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&saveError]) {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Critical error."
-                                                            message:error.localizedDescription
+                                                            message:saveError.localizedDescription
                                                            delegate:self
                                                   cancelButtonTitle:@"Abort"
                                                   otherButtonTitles:nil];
             alert.tag = ALERT_CRITICAL_ERROR;
-            
             [alert show];
         }
     }
@@ -413,11 +410,11 @@
     [self.tableView endUpdates];
 }
 
-- (void)createNewTag:(NSString *)string {
-    NSAssert(string.length > 0, @"Tag must always contain characters!");
+- (void)createAndSaveNewTag:(NSString *)title {
+    NSAssert(title.length > 0, @"Tag must always contain characters!");
     
-    Tag *tag = [NSEntityDescription insertNewObjectForEntityForName:@"Tag" inManagedObjectContext:self.managedObjectContext];
-    tag.tag = string;
+    Tag *tag = [NSEntityDescription insertNewObjectForEntityForName:TAG_ENTITY_NAME inManagedObjectContext:self.managedObjectContext];
+    tag.tag = title;
     [self saveContext];
 }
 
