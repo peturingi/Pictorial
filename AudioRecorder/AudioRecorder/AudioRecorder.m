@@ -22,11 +22,18 @@
     self = [super init];
     if (self) {
         _delegate = delegate;
-        if (![self configureAudio]) {
+        
+        if (![self configureAudioSession]) {
             // Abort, audio could not be configured.
             NSAssert(false, @"Failed to configure the audio framework!");
             return nil;
         }
+        
+        if (![self configureRecorder]) {
+            NSAssert(false, @"Recorder could not be configured!");
+            return nil;
+        }
+        
     }
     return self;
 }
@@ -35,7 +42,7 @@
  @return YES Successfully configured.
  @return NO Error during configuration.
  */
-- (BOOL)configureAudio {
+- (BOOL)configureAudioSession {
     
     AVAudioSession *audioSession = [AVAudioSession sharedInstance];
     
@@ -60,19 +67,20 @@
         NSLog(@"Failed to activate audiosession: %@", audioSessionError.localizedDescription);
         return NO;
     }
-    
+    return YES;
+}
+
+- (BOOL)configureRecorder {
     NSError *recorderError;
-    _recorder = [[AVAudioRecorder alloc] initWithURL:[self temporaryFile] settings:nil error:&recorderError];
+    _recorder = [[AVAudioRecorder alloc] initWithURL:[self reusableTemporaryFileLocation] settings:nil error:&recorderError];
     if (recorderError) {
         NSLog(@"Failed to configure AVAudioRecorder: %@", recorderError.localizedDescription);
         return NO;
     }
-
     return YES;
 }
 
 - (void)recordAudio {
-    
     
     if ([self canRecord]) {
         [[AVAudioSession sharedInstance] requestRecordPermission:^(BOOL granted) {
@@ -84,15 +92,13 @@
             }
         }];
     } else {
-        NSString *errorMsg = @"Can not begin recording audio.";
-        NSAssert(false, errorMsg);
-        NSLog(@"%@",errorMsg);
+        NSAssert(false, @"Can not begin recording audio.");
     }
 }
 
 /** Play a previously recorded audiofile.
  */
-- (void)playbackAudio {
+- (void)playRecording {
     NSError *playerError;
     _player = [[AVAudioPlayer alloc] initWithContentsOfURL:self.recorder.url error:&playerError];
     _player.delegate = self;
@@ -131,11 +137,15 @@
 }
 
 - (BOOL)canPlay {
-    return [self canRecord];
+    return ![self isPlayingOrRecording];
 }
 
 - (BOOL)canRecord {
-    return !(self.recorder.recording || self.player.playing);
+    return ![self isPlayingOrRecording];
+}
+
+- (BOOL)isPlayingOrRecording {
+    return (self.recorder.recording || self.player.playing);
 }
 
 - (BOOL)isPlaying {
@@ -154,7 +164,7 @@
  @throws NSInternalInconsistencyException if the directory is not found.
  @return URL of the temporaray directory.
  */
-- (NSURL *)temporaryFile {
+- (NSURL *)reusableTemporaryFileLocation {
     NSString *tempDir = NSTemporaryDirectory();
     if (!tempDir) {
         [NSException raise:NSInternalInconsistencyException format:@"NSTemporaryDirectory() returned nil."];
@@ -162,10 +172,10 @@
     return [[NSURL alloc] initFileURLWithPath:[tempDir stringByAppendingString:@"temporaryAudioFile"]];
 }
 
-- (BOOL)saveRecordingTo:(NSURL *)location error:(NSError *)error{
+- (BOOL)saveRecordingTo:(NSURL *)destination filesystemError:(NSError *)error{
     NSAssert(self.recorder, @"A recorder is needed as it points to the recording to be saved.");
 
-    [[NSFileManager defaultManager] moveItemAtURL:self.recorder.url toURL:location error:&error];
+    [[NSFileManager defaultManager] moveItemAtURL:self.recorder.url toURL:destination error:&error];
     
     if (!error) {
         return YES;

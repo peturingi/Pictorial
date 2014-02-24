@@ -25,7 +25,7 @@
 
 /** Plays back the recorded audio to the default output device.
  */
-- (void)playbackAudio;
+- (void)playRecording;
 
 /** Stops the audio player if playing.
  *  Stops the recorder if recording.
@@ -55,7 +55,7 @@
  @return YES saved successfully.
  @return NO failed to save. See error for details.
  */
-- (BOOL)saveRecordingTo:(NSURL *)location error:(NSError *)error;
+- (BOOL)saveRecordingTo:(NSURL *)destination filesystemError:(NSError *)error;
 
 @property (weak, nonatomic)id<AudioRecorderDelegate> delegate;
 

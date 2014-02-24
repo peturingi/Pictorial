@@ -29,7 +29,7 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)play:(id)sender {
-    [self.audioRecorder playbackAudio];
+    [self.audioRecorder playRecording];
 }
 - (IBAction)stop:(id)sender {
     [self.audioRecorder stop];
