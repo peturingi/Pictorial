@@ -67,7 +67,7 @@
     NSAssert(self.navigationController, @"This implementation depends on a navigationController");
 
     self.title = @"Tags";
-    _addButton = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(addButtonWasTouched:)];
+    _addButton = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(showInputUIForNewTag:)];
     _cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(cancelButtonWasTouched:)];
     self.navigationItem.rightBarButtonItem = _addButton;
     
@@ -129,7 +129,7 @@
 
 /** Handles what should happen when the add button is pressed.
  */
-- (void)addButtonWasTouched:(id)sender {
+- (void)showInputUIForNewTag:(id)sender {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"New Tag" message:@"Please enter the new tag:" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
     alert.tag = ALERT_TAG_USER_INPUT;
