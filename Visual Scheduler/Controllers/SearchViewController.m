@@ -40,7 +40,7 @@
     [super viewDidLoad];
     
 	// Do any additional setup after loading the view
-    [self configureCoreData];
+    [self fetchEntitiesAndReloadCollectionView];
     [self configureSearchView];
     [self configureCollectionView];
 }
@@ -130,12 +130,6 @@
                                                            constant:0]];
 }
 
-/** Configures and sets up CoreData.
- */
-- (void)configureCoreData {
-    [self fetchEntitiesAndReloadCollectionView];
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -145,19 +139,24 @@
 #pragma mark - UICollectionView
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    NSAssert(collectionView, @"must not be nil.");
+    NSAssert(section < 0, @"Invalid section.");
+    
     NSAssert(self.fetchedResultsController, @"fetchedResultsController is nil.");
+    
     return self.fetchedResultsController.fetchedObjects.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *CellIdentifier = @"picture";
+    static NSString *REUSABLE_CELL_IDENTIFIER = @"picture";
     
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
-    [self configureCell:cell atIndexPath:indexPath];
+    UICollectionViewCell *reusableCell = [collectionView dequeueReusableCellWithReuseIdentifier:REUSABLE_CELL_IDENTIFIER forIndexPath:indexPath];
+    [self configureCell:reusableCell atIndexPath:indexPath];
     
-    NSAssert(cell, @"nil must never be returned by this method.");
-    return cell;
+    NSAssert(reusableCell, @"nil must never be returned by this method.");
+    
+    return reusableCell;
 }
 
 /** Populates each cell in the collection view with an image.
@@ -169,10 +168,13 @@
     
     cell.contentMode = UIViewContentModeScaleAspectFit;
     
-    id<ContainsImageData> object = [self.fetchedResultsController.fetchedObjects objectAtIndex:indexPath.row];
-    NSAssert(object, @"object must not be nil");
+    id<ContainsImageData> objectContainingImageData = [self.fetchedResultsController.fetchedObjects objectAtIndex:indexPath.row];
+
+
+    NSAssert(objectContainingImageData, @"object must not be nil");
     
-    UIImage *image = [UIImage imageWithData:[object image]];
+    UIImage *image = [UIImage imageWithData:[objectContainingImageData image]];
+
     NSAssert(image, @"No image was found. Must never be nil!");
     
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
@@ -182,7 +184,7 @@
     imageView.frame = imageFrame;
     
     // Remove any old subviews from the cell, as reused cells contain garbage.
-    for (UIView *view in cell.contentView.subviews) { [view removeFromSuperview]; }
+    for (UIView *v in cell.contentView.subviews) { [v removeFromSuperview]; }
     
     [cell.contentView addSubview:imageView];
 }
@@ -247,21 +249,22 @@
         NSManagedObjectContext *managedObjectContext = [[[UIApplication sharedApplication] delegate] performSelector:@selector(managedObjectContext)];
         NSAssert(managedObjectContext, @"must not be nil!");
         
-        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Pictogram" inManagedObjectContext:managedObjectContext];
-        NSAssert(entity, @"must not be nil!");
+        NSEntityDescription *pictogram = [NSEntityDescription entityForName:@"Pictogram" inManagedObjectContext:managedObjectContext];
+        NSAssert(pictogram, @"must not be nil!");
         NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-        [fetchRequest setEntity:entity];
-        [fetchRequest setFetchBatchSize:20];
+        [fetchRequest setEntity:pictogram];
+        
+        const NSInteger FETCH_BATCH_SIZE = 20;
+        [fetchRequest setFetchBatchSize:FETCH_BATCH_SIZE];
         
         NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:NO];
         [fetchRequest setSortDescriptors:@[sortDescriptor]];
         
         [NSFetchedResultsController deleteCacheWithName:CACHE_NAME];
-        NSFetchedResultsController *newFetchResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
-                                                                                                    managedObjectContext:managedObjectContext
-                                                                                                      sectionNameKeyPath:nil
-                                                                                                               cacheName:CACHE_NAME];
-        _fetchedResultsController = newFetchResultsController;
+        _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
+                                                                        managedObjectContext:managedObjectContext
+                                                                          sectionNameKeyPath:nil
+                                                                                   cacheName:CACHE_NAME];
         _fetchedResultsController.delegate = self;
         
         NSAssert(_fetchedResultsController, @"must not be nil!");
@@ -272,15 +275,18 @@
 /** Fetches all entities and reloads the collection view.
  */
 - (void)fetchEntitiesAndReloadCollectionView {
+    // Fetch entities
     [NSFetchedResultsController deleteCacheWithName:CACHE_NAME];
-    NSError *error;
-    [self.fetchedResultsController performFetch:&error];
-    NSAssert(!error, @"Error!");
-    if (error) {
-        NSLog(@"Error: %@, %@", error, error.userInfo);
+    NSError *fetchError;
+    [self.fetchedResultsController performFetch:&fetchError];
+    NSAssert(!fetchError, @"Error!");
+    if (fetchError) {
+        NSLog(@"Error: %@, %@", fetchError, fetchError.userInfo);
         exit(-1); // Hard fail.
     }
     NSAssert(_collectionView, @"must not be nil!");
+    
+    // Reload the collection view
     [_collectionView reloadData];
 }
 
