@@ -13,9 +13,7 @@
     @property (strong, nonatomic) UIImagePickerController *cameraUI;
 @end
 
-
 @implementation Camera
-
 
 - (id)initWithViewController:(UIViewController *)controller usingDelegate:(id)delegate {
     NSAssert(controller, @"Must not be nil!");
@@ -82,18 +80,17 @@
     UIImage *originalImage;
     NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
     
-    // If a picture was taken.
+    // If a photo was taken.
     if (CFStringCompare((CFStringRef)mediaType, kUTTypeImage , 0) == kCFCompareEqualTo) {
         editedImage = (UIImage *)[info objectForKey:UIImagePickerControllerEditedImage];
         originalImage = (UIImage *)[info objectForKey:UIImagePickerControllerOriginalImage];
         
         // Override a previous photo if it has not been developed.
-        _lastPhoto = editedImage ? editedImage : originalImage;
-        NSAssert(_lastPhoto, @"Must not be nil!");
+        lastPhotoCaptured = editedImage ? editedImage : originalImage;
+        NSAssert(lastPhotoCaptured, @"Must not be nil!");
         
         [self.delegate cameraSnappedPhoto];
     }
-
     [self hide];
 }
 
@@ -101,7 +98,6 @@
     NSAssert(self.controller, @"Must not be nil!");
     [self hide];
 }
-
 
 #pragma mark - Code
 
@@ -113,8 +109,8 @@
 }
 
 - (UIImage *)developPhoto {
-    UIImage *photo = _lastPhoto;
-    _lastPhoto = nil;
+    UIImage *photo = lastPhotoCaptured;
+    lastPhotoCaptured = nil;
     return photo;
 }
 

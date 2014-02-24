@@ -9,12 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "CameraDelegate.h"
 
-
 @interface Camera : NSObject <UINavigationControllerDelegate, UIImagePickerControllerDelegate> {
     
     /** The last photo taken.
      */
-    __strong UIImage *_lastPhoto;
+    __strong UIImage *lastPhotoCaptured;
 }
 
 @property (weak, nonatomic, readonly) id<CameraDelegate> delegate;
