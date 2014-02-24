@@ -31,7 +31,7 @@
     *  Only the cell over which the delete swipe gestuer was performed
     *  changes to edit mode and allows deletion.
     */
-    @property (nonatomic, strong) NSIndexPath *cellToDelete;
+    @property (nonatomic, strong) NSIndexPath *cellMarkedForDeletionByUser;
 
 @end
 
@@ -52,51 +52,49 @@
 {
     [super viewDidLoad];
     
-    // Manual registration of the class we want to use for reuseable cells as we are doing this programatically.
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CELL_REUSE_IDENTIFIER];
-    
-    [self configureNavigationBar];
-    [self fetchEntities];
-    [self setupGestureRecognizers];
+    [self configureUserInterface];
+    [self fetchEntitiesFromCoreData];
 }
 
-/** Configures the apperance of the navigation bar
- */
-- (void)configureNavigationBar {
-    /* Pre */
-    NSAssert(self.navigationController, @"This implementation depends on a navigationController");
-
+- (void)configureUserInterface {
     self.title = @"Tags";
-    _addButton = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(showInputUIForNewTag:)];
-    _cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(cancelButtonWasTouched:)];
-    self.navigationItem.rightBarButtonItem = _addButton;
-    
-    /* Post */
+    [self configureTableView];
+    [self configureNavigationBar];
+}
+
+- (void)configureTableView {
+    NSAssert(self.tableView, nil);
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CELL_REUSE_IDENTIFIER];
+    [self addLeftSwipeGestureRecognizerToTableView];
+}
+
+- (void)configureNavigationBar {
+    NSAssert(self.navigationItem, nil);
+    [self createNavigationButtons];
+    [self.navigationItem setRightBarButtonItem:_addButton];
     NSAssert(self.navigationItem.rightBarButtonItem, @"Missing button.");
 }
 
-/** Configures CoreData, ensures its ready for use.
- */
-- (void)fetchEntities {
+- (void)createNavigationButtons {
+    _addButton = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(showInputUIForNewTag:)];
+    _cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(abortCellDeletion:)];
+}
+
+- (void)fetchEntitiesFromCoreData {
     NSError *error;
-    // fetchedResultsController is configured by sideeffect of its getter.
 	if (![[self fetchedResultsController] performFetch:&error]) {
 		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
 		exit(-1);  // Fail
 	}
 }
 
-/** Configures gesture recognizers.
- */
-- (void)setupGestureRecognizers {
-    /* Pre */
+- (void)addLeftSwipeGestureRecognizerToTableView {
     SEL gestureSelector = NSSelectorFromString(@"handleSwipeGesture:");
     NSAssert([self respondsToSelector:gestureSelector], @"Missing implementation of gesture handling method");
     
-    /* Left swipe over tableview cell to trigger delete mode */
-    NSAssert(self.tableView, @"Must not be nil!");
     UISwipeGestureRecognizer *swipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:gestureSelector];
     swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
+    NSAssert(self.tableView, nil);
     [self.tableView addGestureRecognizer:swipeGestureRecognizer];
 }
 
@@ -108,27 +106,24 @@
 #pragma mark - UI Actions
 
 - (void)handleSwipeGesture:(UISwipeGestureRecognizer *)gestureRecognizer {
-    /* Pre */
-    NSAssert(gestureRecognizer, @"Must not be nil!");
-    NSAssert(self.tableView, @"Must not be nil!");
+    NSAssert(gestureRecognizer, nil);
+    NSAssert(self.tableView, nil);
     
-    CGPoint locationOfGestureInView = [gestureRecognizer locationInView:self.tableView];
-    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:locationOfGestureInView];
+    CGPoint locationOfGesture = [gestureRecognizer locationInView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:locationOfGesture];
     
     if (indexPath) {
-        
-        // Making the tableview editable triggers a chainreaction in its delegate; this class is its delegate.
-        [self.tableView setEditing:YES animated:NO];
-        // Keep reference to the cell marked for deletion, for use in the chainreaction.
-        self.cellToDelete = indexPath;
-        
-        self.navigationItem.rightBarButtonItem = _cancelButton;
-        NSAssert(self.navigationItem.rightBarButtonItem, @"No rightBarButton");
+        [self switchUserInterfaceToEditMode];
+        self.cellMarkedForDeletionByUser = indexPath;
     }
 }
 
-/** Handles what should happen when the add button is pressed.
- */
+- (void)switchUserInterfaceToEditMode {
+    [self.tableView setEditing:YES animated:NO];
+    self.navigationItem.rightBarButtonItem = _cancelButton;
+    NSAssert(self.navigationItem.rightBarButtonItem && self.navigationItem.rightBarButtonItem == _cancelButton, nil);
+}
+
 - (void)showInputUIForNewTag:(id)sender {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"New Tag" message:@"Please enter the new tag:" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
@@ -138,39 +133,27 @@
     [alert show];
 }
 
-/** Handles what should happen when the cancel button is pressed.
- */
-- (void)cancelButtonWasTouched:(id)sender {
-    if (self.cellToDelete) {
-        /* Pre */
-        NSAssert(self.tableView, @"Must not be nil!");
-        NSAssert(self.navigationItem, @"Must not be nil!");
-        
-        self.cellToDelete = nil;
-        [self.tableView setEditing:NO animated:NO];
-        self.navigationItem.rightBarButtonItem = _addButton;
-        
-        /* Post */
-        NSAssert(self.tableView.editing == NO, @"Should not be editable!");
-        NSAssert(self.navigationItem.rightBarButtonItem == _addButton, @"Failed to set button!");
+- (void)abortCellDeletion:(id)sender {
+    if (self.cellMarkedForDeletionByUser) {
+        self.cellMarkedForDeletionByUser = nil;
+        [self switchUserInterfaceFromEditModeToNormalMode];
     }
+}
+
+- (void)switchUserInterfaceFromEditModeToNormalMode {
+    [self.tableView setEditing:NO animated:NO];
+    self.navigationItem.rightBarButtonItem = _addButton;
+    
+    NSAssert(self.tableView && self.tableView.editing == NO, nil);
+    NSAssert(self.navigationItem.rightBarButtonItem == _addButton, nil);
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     
     switch (alertView.tag) {
-            
         case ALERT_TAG_USER_INPUT:
-            NSAssert(alertView.numberOfButtons == 2, @"Unexpected numberOfButtons.");
-            NSAssert([alertView textFieldAtIndex:0].text, @"Could not find input text.");
-            
-            // OK button clicked?
             if (buttonIndex == 1) {
-                // Input contains a string?
-                NSString *input = [alertView textFieldAtIndex:0].text;
-                if (input.length > 0) {
-                    [self createAndSaveNewTag:input];
-                }
+                [self handleUserInputForNewTagFrom:alertView];
             }
             break;
             
@@ -183,109 +166,112 @@
     }
 }
 
-#pragma mark - Table view
-
-/** Selectivly mark editable, only a row who just received an edit-gesture.
- */
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    /* Pre */
-    NSAssert(tableView, @"Must not be nil!");
-    NSAssert(indexPath, @"Must not be nil!");
-    return YES;
-    if ([indexPath isEqual:self.cellToDelete]) {
-        return YES;
-    } else {
-        return NO;
+- (void)handleUserInputForNewTagFrom:(UIAlertView *)alertView {
+    NSAssert(alertView.numberOfButtons == 2, @"Expected OK and Cancel buttons.");
+    NSAssert([alertView textFieldAtIndex:0].text, nil);
+    
+    NSString *input = [alertView textFieldAtIndex:0].text;
+    if (input.length > 0) {
+        [self createAndSaveNewTag:input];
     }
 }
 
+#pragma mark - Table view
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSAssert(tableView, nil);
+    NSAssert(indexPath, nil);
+    return YES;
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    /* Pre */
-    NSAssert(self.fetchedResultsController, @"Must not be nil!");
+    NSAssert(_fetchedResultsController, nil);
     
     return self.fetchedResultsController.sections.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    /* Pre */
-    NSAssert(tableView, @"Must not be nil!");
-    NSAssert(self.fetchedResultsController, @"Must not be nil!");
+    NSAssert(tableView, nil);
+    NSAssert(_fetchedResultsController, nil);
     
-    id sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
-    NSAssert(sectionInfo, @"Must not be nil!");
+    id<NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+    NSAssert(sectionInfo, nil);
     
     return [sectionInfo numberOfObjects];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    /* Pre */
-    NSAssert(tableView, @"Must not be nil!");
-    NSAssert(indexPath, @"Must not be nil!");
+    NSAssert(tableView, nil);
+    NSAssert(indexPath, nil);
     
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CELL_REUSE_IDENTIFIER forIndexPath:indexPath];
+    [self prepareCellForReuse:cell];
     [self configureCell:cell atIndexPath:indexPath];
     
-    NSAssert(cell, @"Must not be nil!");
+    NSAssert(cell, nil);
     return cell;
 }
 
-/** Sets cell textLabel to tag.
- */
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    /* Pre */
-    NSAssert(cell, @"Must not be nil!");
-    NSAssert(indexPath, @"Must not be nil!");
-    
-    Tag *tag = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    NSAssert(tag, @"Must not be nil!");
-    cell.textLabel.text = tag.tag;
-    
-    // Layout
+- (void)prepareCellForReuse:(UITableViewCell *)cell {
+    NSAssert(cell, nil);
     cell.textLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    // Possible reuse of excisting cell. Remove previous constraints.
     [cell removeConstraints:cell.constraints];
+}
+
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    NSAssert(cell, nil);
+    NSAssert(indexPath, nil);
+        cell.textLabel.text = [self tagAtIndexPath:indexPath];
+
     // Searchbar hugs the top of its superview
     [cell addConstraint:[NSLayoutConstraint constraintWithItem:cell.textLabel
-                                                                     attribute:NSLayoutAttributeLeft
-                                                                     relatedBy:NSLayoutRelationEqual
-                                                                        toItem:cell
-                                                                     attribute:NSLayoutAttributeLeft
-                                                                    multiplier:1.0
-                                                                      constant:15]];
-    /* Post */
-    NSAssert(cell, @"Must not be nil!");
+                                                     attribute:NSLayoutAttributeLeft
+                                                     relatedBy:NSLayoutRelationEqual
+                                                        toItem:cell
+                                                     attribute:NSLayoutAttributeLeft
+                                                    multiplier:1.0
+                                                      constant:15]];
+    NSAssert(cell, nil);
     NSAssert(cell.textLabel.text.length > 0, @"Invalid textLabel");
 }
 
+- (NSString *)tagAtIndexPath:(NSIndexPath *)indexPath {
+    NSAssert(indexPath, nil);
+    
+    NSAssert(_fetchedResultsController, nil);
+    NSString *tagValue = ((Tag *)[self.fetchedResultsController objectAtIndexPath:indexPath]).tag;
+    
+    NSAssert(tagValue > 0, @"Invalid tag length.");
+    return tagValue;
+}
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    /* Pre */
-    NSAssert(tableView, @"Must not be nil!");
-    NSAssert(editingStyle, @"Must not be nil!");
-    NSAssert(indexPath, @"Must not be nil!");
-    NSAssert(self.fetchedResultsController, @"Must not be nil!");
-    NSAssert(self.managedObjectContext, @"Must not be nil!");
+    NSAssert(tableView, nil);
+    NSAssert(editingStyle, nil);
+    NSAssert(indexPath, nil);
+    NSAssert(_fetchedResultsController, nil);
+    NSAssert(_managedObjectContext, nil);
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        NSAssert(self.tableView.editing, @"Trying to delete from a table which is not marked as editable.");
-        
-        NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        NSAssert(managedObject, @"Must not be nil!");
-        
-        [self.managedObjectContext deleteObject:managedObject];
-        NSAssert(self.managedObjectContext.hasChanges, @"Failed to delete");
-        
-        [self saveContext];
-        
-        self.cellToDelete = nil;
-        [self.tableView setEditing:NO animated:NO];
-        self.navigationItem.rightBarButtonItem = _addButton;
+        [self deleteTagForRowAtIndexPath:indexPath];
+        [self switchUserInterfaceFromEditModeToNormalMode];
     }
 
-    /* Post */
-    NSAssert(!self.cellToDelete, @"No cell should be marked for deletion.");
+    NSAssert(!self.cellMarkedForDeletionByUser, @"No cell should be marked for deletion.");
     NSAssert(!self.tableView.editing, @"Tableview should not be editable.");
     NSAssert(!self.managedObjectContext.hasChanges, @"Object context should not contain unsaved changes.");
+}
+
+- (void)deleteTagForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSAssert(self.tableView.editing, @"Trying to delete from a table which is not marked as editable.");
+    
+    NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    NSAssert(managedObject, nil);
+    
+    [self.managedObjectContext deleteObject:managedObject];
+    [self saveContext];
+    
+    self.cellMarkedForDeletionByUser = nil;
 }
 
 #pragma mark - Core Data
@@ -298,10 +284,10 @@
     } else {
         NSAssert([[[UIApplication sharedApplication] delegate] respondsToSelector:@selector(managedObjectContext)], @"AppDelegate does not respond to a needed selector");
         self.managedObjectContext = [[[UIApplication sharedApplication] delegate] performSelector:@selector(managedObjectContext)];
-        NSAssert(self.managedObjectContext, @"must not be nil!");
+        NSAssert(self.managedObjectContext, nil);
         
         NSEntityDescription *tag = [NSEntityDescription entityForName:TAG_ENTITY_NAME inManagedObjectContext:self.managedObjectContext];
-        NSAssert(tag, @"must not be nil!");
+        NSAssert(tag, nil);
         
         NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
         [fetchRequest setEntity:tag];
@@ -318,7 +304,7 @@
         _fetchedResultsController.delegate = self;
         
         /* Post */
-        NSAssert(_fetchedResultsController, @"must not be nil!");
+        NSAssert(_fetchedResultsController, nil);
         NSAssert(_fetchedResultsController.delegate, @"Delegate has not been set.");
         return _fetchedResultsController;
     }
@@ -413,8 +399,8 @@
 - (void)createAndSaveNewTag:(NSString *)title {
     NSAssert(title.length > 0, @"Tag must always contain characters!");
     
-    Tag *tag = [NSEntityDescription insertNewObjectForEntityForName:TAG_ENTITY_NAME inManagedObjectContext:self.managedObjectContext];
-    tag.tag = title;
+    Tag *tagEntity = [NSEntityDescription insertNewObjectForEntityForName:TAG_ENTITY_NAME inManagedObjectContext:self.managedObjectContext];
+    tagEntity.tag = title;
     [self saveContext];
 }
 
