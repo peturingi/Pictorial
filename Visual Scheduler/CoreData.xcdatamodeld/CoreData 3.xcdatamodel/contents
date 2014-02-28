@@ -12,6 +12,7 @@
         <relationship name="pictogram" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Pictogram" inverseName="category" inverseEntity="Pictogram" syncable="YES"/>
     </entity>
     <entity name="Pictogram" representedClassName="Pictogram" syncable="YES">
+        <attribute name="favorited" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="imageURL" attributeType="String" minValueString="1" allowsExternalBinaryDataStorage="YES" indexed="YES" syncable="YES"/>
         <attribute name="title" attributeType="String" minValueString="1" maxValueString="30" defaultValueString="Piktogram" syncable="YES"/>
         <relationship name="category" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Category" inverseName="pictogram" inverseEntity="Category" syncable="YES"/>
@@ -25,7 +26,7 @@
     <elements>
         <element name="Activity" positionX="135" positionY="-1" width="128" height="118"/>
         <element name="Category" positionX="-225" positionY="0" width="128" height="73"/>
-        <element name="Pictogram" positionX="-36" positionY="-7" width="128" height="88"/>
+        <element name="Pictogram" positionX="-36" positionY="-7" width="128" height="103"/>
         <element name="Schedule" positionX="-36" positionY="207" width="128" height="103"/>
     </elements>
 </model>
