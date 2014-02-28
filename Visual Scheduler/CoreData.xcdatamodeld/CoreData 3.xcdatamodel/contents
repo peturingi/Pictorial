@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13B42" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Activity" syncable="YES">
+        <attribute name="cancelled" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="done" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="title" attributeType="String" minValueString="1" maxValueString="50" syncable="YES"/>
+        <attribute name="type" attributeType="Integer 16" minValueString="0" maxValueString="2" defaultValueString="0" syncable="YES"/>
+        <relationship name="pictograms" toMany="YES" minCount="1" deletionRule="Nullify" ordered="YES" destinationEntity="Pictogram" syncable="YES"/>
+    </entity>
+    <entity name="Category" representedClassName="Category" syncable="YES">
+        <attribute name="title" attributeType="String" minValueString="1" maxValueString="50" indexed="YES" syncable="YES"/>
+        <relationship name="pictogram" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Pictogram" inverseName="category" inverseEntity="Pictogram" syncable="YES"/>
+    </entity>
+    <entity name="Pictogram" representedClassName="Pictogram" syncable="YES">
+        <attribute name="imageURL" attributeType="String" minValueString="1" allowsExternalBinaryDataStorage="YES" indexed="YES" syncable="YES"/>
+        <attribute name="title" attributeType="String" minValueString="1" maxValueString="30" defaultValueString="Piktogram" syncable="YES"/>
+        <relationship name="category" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Category" inverseName="pictogram" inverseEntity="Category" syncable="YES"/>
+    </entity>
+    <entity name="Schedule" syncable="YES">
+        <attribute name="colour" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
+        <attribute name="date" attributeType="Date" syncable="YES"/>
+        <attribute name="title" attributeType="String" minValueString="1" maxValueString="50" defaultValueString="Skema" syncable="YES"/>
+        <relationship name="activity" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Activity" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Pictogram" positionX="-36" positionY="-7" width="128" height="88"/>
+        <element name="Category" positionX="-225" positionY="0" width="128" height="73"/>
+        <element name="Activity" positionX="135" positionY="-1" width="128" height="118"/>
+        <element name="Schedule" positionX="-36" positionY="207" width="128" height="103"/>
+    </elements>
+</model>

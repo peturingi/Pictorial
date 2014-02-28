@@ -89,6 +89,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		688A8C1918C0A23F006ED17E /* CoreData 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CoreData 3.xcdatamodel"; sourceTree = "<group>"; };
 		D81AA9AC18B91E7C00E3B50C /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Camera.h; path = Camera/Camera.h; sourceTree = "<group>"; };
 		D81AA9AD18B91E7C00E3B50C /* Camera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Camera.m; path = Camera/Camera.m; sourceTree = "<group>"; };
 		D81AA9B318B925B900E3B50C /* CameraComponent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CameraComponent.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1195,10 +1196,11 @@
 		D8ED7F9518B77771007A7315 /* CoreData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				688A8C1918C0A23F006ED17E /* CoreData 3.xcdatamodel */,
 				D82E748718B7E8220031BF2B /* CoreData 2.xcdatamodel */,
 				D8ED7F9618B77771007A7315 /* CoreData.xcdatamodel */,
 			);
-			currentVersion = D82E748718B7E8220031BF2B /* CoreData 2.xcdatamodel */;
+			currentVersion = 688A8C1918C0A23F006ED17E /* CoreData 3.xcdatamodel */;
 			name = CoreData.xcdatamodeld;
 			path = "Visual Scheduler/CoreData.xcdatamodeld";
 			sourceTree = "<group>";
