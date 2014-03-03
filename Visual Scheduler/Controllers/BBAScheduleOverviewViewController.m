@@ -1,6 +1,8 @@
 #import "BBAScheduleOverviewViewController.h"
+#import <CoreData/CoreData.h>
 
 @interface BBAScheduleOverviewViewController ()
+    @property (strong, nonatomic) NSFetchedResultsController *dataSource;
 @end
 
 @implementation BBAScheduleOverviewViewController
@@ -8,8 +10,13 @@
 - (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
     if (self) {
+        [self setupDataSource];
     }
     return self;
+}
+
+- (void)setupDataSource {
+    
 }
 
 #pragma mark viewDidLoad
@@ -35,25 +42,18 @@
 
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return _dataSource.sections.count;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    id <NSFetchedResultsSectionInfo> sectionInfo = [_dataSource sections][section];
+    return [sectionInfo numberOfObjects];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"Cell";
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *CellIdentifier = @"CellInScheduleOverview";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+    // TODO Configure the cell...
     return cell;
 }
 

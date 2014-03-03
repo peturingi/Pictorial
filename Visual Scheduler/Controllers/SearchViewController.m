@@ -130,10 +130,8 @@
                                                            constant:0]];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - UICollectionView
@@ -141,21 +139,15 @@
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     NSAssert(collectionView, @"must not be nil.");
     NSAssert(section < 0, @"Invalid section.");
-    
     NSAssert(self.fetchedResultsController, @"fetchedResultsController is nil.");
-    
     return self.fetchedResultsController.fetchedObjects.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    
     static NSString *REUSABLE_CELL_IDENTIFIER = @"picture";
-    
     UICollectionViewCell *reusableCell = [collectionView dequeueReusableCellWithReuseIdentifier:REUSABLE_CELL_IDENTIFIER forIndexPath:indexPath];
     [self configureCell:reusableCell atIndexPath:indexPath];
-    
     NSAssert(reusableCell, @"nil must never be returned by this method.");
-    
     return reusableCell;
 }
 
