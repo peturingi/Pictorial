@@ -7,8 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "SearchViewController.h"
-#import "TagManagementViewController.h"
 #import "Pictogram.h"
 #import "Tag.h"
 
@@ -69,12 +67,7 @@
     [self generateTestData];
 #endif
     
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[[TagManagementViewController alloc] init]];
-    [self.window setRootViewController:navigationController];
-    [self.window makeKeyAndVisible];
 
     return YES;
 }

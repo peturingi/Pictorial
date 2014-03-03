@@ -58,6 +58,7 @@
 		D83A62F618B69BEC00EC0773 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D83A62F518B69BEC00EC0773 /* SearchViewController.m */; };
 		D83A62FA18B69D8600EC0773 /* beer.png in Resources */ = {isa = PBXBuildFile; fileRef = D83A62F918B69D8600EC0773 /* beer.png */; };
 		D83A62FD18B6D6E900EC0773 /* Bee.png in Resources */ = {isa = PBXBuildFile; fileRef = D83A62FC18B6D6E900EC0773 /* Bee.png */; };
+		D85EA1A918C4B12300ACDBD6 /* BBAScheduleOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D85EA1A818C4B12300ACDBD6 /* BBAScheduleOverviewViewController.m */; };
 		D8B49E6218B8141E00788073 /* SearchViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B49E6118B8141E00788073 /* SearchViewControllerTests.m */; };
 		D8B49E6318B8143600788073 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D83A62F518B69BEC00EC0773 /* SearchViewController.m */; };
 		D8B49E6718B823A000788073 /* TagManagementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B49E6618B823A000788073 /* TagManagementViewController.m */; };
@@ -89,7 +90,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		688A8C1918C0A23F006ED17E /* CoreData 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CoreData 3.xcdatamodel"; sourceTree = "<group>"; };
+		688A8C1918C0A23F006ED17E /* CoreData 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CoreData 3.xcdatamodel"; sourceTree = "<group>"; };
 		D81AA9AC18B91E7C00E3B50C /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Camera.h; path = Camera/Camera.h; sourceTree = "<group>"; };
 		D81AA9AD18B91E7C00E3B50C /* Camera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Camera.m; path = Camera/Camera.m; sourceTree = "<group>"; };
 		D81AA9B318B925B900E3B50C /* CameraComponent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CameraComponent.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -154,6 +155,8 @@
 		D83A62F918B69D8600EC0773 /* beer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beer.png; sourceTree = "<group>"; };
 		D83A62FB18B6B69E00EC0773 /* ContainsImageAsData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ContainsImageAsData.h; path = Protocols/ContainsImageAsData.h; sourceTree = "<group>"; };
 		D83A62FC18B6D6E900EC0773 /* Bee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bee.png; sourceTree = "<group>"; };
+		D85EA1A718C4B12300ACDBD6 /* BBAScheduleOverviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBAScheduleOverviewViewController.h; path = Controllers/BBAScheduleOverviewViewController.h; sourceTree = "<group>"; };
+		D85EA1A818C4B12300ACDBD6 /* BBAScheduleOverviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBAScheduleOverviewViewController.m; path = Controllers/BBAScheduleOverviewViewController.m; sourceTree = "<group>"; };
 		D8B49E5F18B8025500788073 /* SearchViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SearchViewControllerDelegate.h; path = Protocols/SearchViewControllerDelegate.h; sourceTree = "<group>"; };
 		D8B49E6118B8141E00788073 /* SearchViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewControllerTests.m; path = Controllers/SearchViewControllerTests.m; sourceTree = "<group>"; };
 		D8B49E6518B823A000788073 /* TagManagementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TagManagementViewController.h; path = Controllers/TagManagementViewController.h; sourceTree = "<group>"; };
@@ -383,6 +386,8 @@
 				D83A62CA18B696DC00EC0773 /* AppDelegate.h */,
 				D83A62CB18B696DC00EC0773 /* AppDelegate.m */,
 				D83A62CD18B696DC00EC0773 /* Main.storyboard */,
+				D85EA1A718C4B12300ACDBD6 /* BBAScheduleOverviewViewController.h */,
+				D85EA1A818C4B12300ACDBD6 /* BBAScheduleOverviewViewController.m */,
 				D83A62F718B69BEF00EC0773 /* Controllers */,
 				D83A62D318B696DC00EC0773 /* Images.xcassets */,
 				D83A62C218B696DC00EC0773 /* Supporting Files */,
@@ -733,6 +738,7 @@
 				D81AA9AE18B91E7C00E3B50C /* Camera.m in Sources */,
 				D83A62CC18B696DC00EC0773 /* AppDelegate.m in Sources */,
 				D83A62C818B696DC00EC0773 /* main.m in Sources */,
+				D85EA1A918C4B12300ACDBD6 /* BBAScheduleOverviewViewController.m in Sources */,
 				D8B49E6718B823A000788073 /* TagManagementViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
