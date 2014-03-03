@@ -1,5 +1,6 @@
 #import "BBAScheduleOverviewViewController.h"
 #import <CoreData/CoreData.h>
+#import "Schedule.h"
 
 @interface BBAScheduleOverviewViewController ()
     @property (strong, nonatomic) NSFetchedResultsController *dataSource;
@@ -16,7 +17,13 @@
 }
 
 - (void)setupDataSource {
-    
+    // TODO
+    /*
+     entityForName: Schedule
+     fetchBatchSize: 20
+     sortDescriptor1: date, ascending YES
+     sortDescriptor2: title, ascending YES
+     */
 }
 
 #pragma mark viewDidLoad
@@ -27,6 +34,7 @@
 }
 
 - (void)setupUI {
+    self.title = @"Schedules";
     [self setupAddScheduleButton];
 }
 
@@ -36,13 +44,10 @@
     self.navigationItem.rightBarButtonItem = addButton;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return _dataSource.sections.count;
+    NSArray *sections = _dataSource.sections;
+    return sections.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -53,8 +58,15 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"CellInScheduleOverview";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    // TODO Configure the cell...
+    Schedule *schedule = [_dataSource objectAtIndexPath:indexPath];
+    cell.textLabel.text = schedule.title;
     return cell;
+}
+
+#pragma mark - UI Interaction
+
+- (void)createSchedule {
+    // TODO : Show create schedule UI
 }
 
 /*
@@ -107,5 +119,11 @@
 }
 
  */
+
+#pragma mark - Error Handling
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+}
 
 @end

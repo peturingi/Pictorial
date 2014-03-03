@@ -2,18 +2,19 @@
 //  Pictogram.m
 //  Visual Scheduler
 //
-//  Created by Pétur Ingi Egilsson on 21/02/14.
+//  Created by Pétur Ingi Egilsson on 03/03/14.
 //  Copyright (c) 2014 Student Project. All rights reserved.
 //
 
 #import "Pictogram.h"
-#import "Tag.h"
+#import "PictoCategory.h"
 
 
 @implementation Pictogram
 
-@dynamic image;
+@dynamic favorited;
+@dynamic imageURL;
 @dynamic title;
-@dynamic tag;
+@dynamic category;
 
 @end

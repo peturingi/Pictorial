@@ -1,8 +1,8 @@
 //
-//  Tag.h
+//  PictoCategory.h
 //  Visual Scheduler
 //
-//  Created by Pétur Ingi Egilsson on 21/02/14.
+//  Created by Pétur Ingi Egilsson on 03/03/14.
 //  Copyright (c) 2014 Student Project. All rights reserved.
 //
 
@@ -11,13 +11,13 @@
 
 @class Pictogram;
 
-@interface Tag : NSManagedObject
+@interface PictoCategory : NSManagedObject
 
-@property (nonatomic, retain) NSString * tag;
+@property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSSet *pictogram;
 @end
 
-@interface Tag (CoreDataGeneratedAccessors)
+@interface PictoCategory (CoreDataGeneratedAccessors)
 
 - (void)addPictogramObject:(Pictogram *)value;
 - (void)removePictogramObject:(Pictogram *)value;

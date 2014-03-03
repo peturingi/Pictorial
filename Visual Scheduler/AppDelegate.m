@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "Pictogram.h"
-#import "Tag.h"
 
 @implementation AppDelegate
 

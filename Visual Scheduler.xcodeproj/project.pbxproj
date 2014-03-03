@@ -67,8 +67,6 @@
 		D81AAA1F18B94F0A00E3B50C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D81AAA1E18B94F0A00E3B50C /* AVFoundation.framework */; };
 		D81AAA2018B9949D00E3B50C /* AudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = D81AAA1A18B9478600E3B50C /* AudioRecorder.m */; };
 		D82E748618B7E49C0031BF2B /* milk.png in Resources */ = {isa = PBXBuildFile; fileRef = D82E748518B7E49C0031BF2B /* milk.png */; };
-		D82E748A18B7E97E0031BF2B /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = D82E748918B7E97E0031BF2B /* Tag.m */; };
-		D82E748D18B7E97E0031BF2B /* Pictogram.m in Sources */ = {isa = PBXBuildFile; fileRef = D82E748C18B7E97E0031BF2B /* Pictogram.m */; };
 		D83171D718C4ABB50043A7E4 /* TestModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6851470218C4A742002CF73F /* TestModel.xcdatamodeld */; };
 		D83A62BC18B696DC00EC0773 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BB18B696DC00EC0773 /* Foundation.framework */; };
 		D83A62BE18B696DC00EC0773 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BD18B696DC00EC0773 /* CoreGraphics.framework */; };
@@ -82,13 +80,10 @@
 		D83A62DC18B696DC00EC0773 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BB18B696DC00EC0773 /* Foundation.framework */; };
 		D83A62DD18B696DC00EC0773 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BF18B696DC00EC0773 /* UIKit.framework */; };
 		D83A62E518B696DC00EC0773 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D83A62E318B696DC00EC0773 /* InfoPlist.strings */; };
-		D83A62F618B69BEC00EC0773 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D83A62F518B69BEC00EC0773 /* SearchViewController.m */; };
 		D83A62FA18B69D8600EC0773 /* beer.png in Resources */ = {isa = PBXBuildFile; fileRef = D83A62F918B69D8600EC0773 /* beer.png */; };
 		D83A62FD18B6D6E900EC0773 /* Bee.png in Resources */ = {isa = PBXBuildFile; fileRef = D83A62FC18B6D6E900EC0773 /* Bee.png */; };
 		D85EA1A918C4B12300ACDBD6 /* BBAScheduleOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D85EA1A818C4B12300ACDBD6 /* BBAScheduleOverviewViewController.m */; };
 		D8B49E6218B8141E00788073 /* SearchViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B49E6118B8141E00788073 /* SearchViewControllerTests.m */; };
-		D8B49E6318B8143600788073 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D83A62F518B69BEC00EC0773 /* SearchViewController.m */; };
-		D8B49E6718B823A000788073 /* TagManagementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B49E6618B823A000788073 /* TagManagementViewController.m */; };
 		D8DB7FB618C4B8B900BA2037 /* BBAContext.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FA918C4B8B900BA2037 /* BBAContext.m */; };
 		D8DB7FB718C4B8B900BA2037 /* BBACoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FAB18C4B8B900BA2037 /* BBACoreDataStack.m */; };
 		D8DB7FB818C4B8B900BA2037 /* BBAModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FAD18C4B8B900BA2037 /* BBAModel.m */; };
@@ -98,6 +93,10 @@
 		D8DB7FBC18C4B8B900BA2037 /* TestBBACoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FB318C4B8B900BA2037 /* TestBBACoreDataStack.m */; };
 		D8DB7FBD18C4B8B900BA2037 /* TestBBAModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FB418C4B8B900BA2037 /* TestBBAModel.m */; };
 		D8DB7FBE18C4B8B900BA2037 /* TestBBAStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FB518C4B8B900BA2037 /* TestBBAStore.m */; };
+		D8DB7FDA18C4C31200BA2037 /* PictoCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FD918C4C31200BA2037 /* PictoCategory.m */; };
+		D8DB7FDD18C4C31300BA2037 /* Pictogram.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FDC18C4C31300BA2037 /* Pictogram.m */; };
+		D8DB7FE018C4C31300BA2037 /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FDF18C4C31300BA2037 /* Schedule.m */; };
+		D8DB7FE318C4C31300BA2037 /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FE218C4C31300BA2037 /* Activity.m */; };
 		D8ED7F9718B77771007A7315 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D8ED7F9518B77771007A7315 /* CoreData.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
@@ -173,10 +172,6 @@
 		D81AAA1E18B94F0A00E3B50C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D82E748518B7E49C0031BF2B /* milk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = milk.png; sourceTree = "<group>"; };
 		D82E748718B7E8220031BF2B /* CoreData 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CoreData 2.xcdatamodel"; sourceTree = "<group>"; };
-		D82E748818B7E97E0031BF2B /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tag.h; path = Models/Tag.h; sourceTree = "<group>"; };
-		D82E748918B7E97E0031BF2B /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tag.m; path = Models/Tag.m; sourceTree = "<group>"; };
-		D82E748B18B7E97E0031BF2B /* Pictogram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Pictogram.h; path = Models/Pictogram.h; sourceTree = "<group>"; };
-		D82E748C18B7E97E0031BF2B /* Pictogram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Pictogram.m; path = Models/Pictogram.m; sourceTree = "<group>"; };
 		D83A62B818B696DC00EC0773 /* Visual Scheduler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Visual Scheduler.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D83A62BB18B696DC00EC0773 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D83A62BD18B696DC00EC0773 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -218,6 +213,15 @@
 		D8DB7FB318C4B8B900BA2037 /* TestBBACoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestBBACoreDataStack.m; sourceTree = SOURCE_ROOT; };
 		D8DB7FB418C4B8B900BA2037 /* TestBBAModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestBBAModel.m; sourceTree = SOURCE_ROOT; };
 		D8DB7FB518C4B8B900BA2037 /* TestBBAStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestBBAStore.m; sourceTree = SOURCE_ROOT; };
+		D8DB7FCB18C4C02D00BA2037 /* CoreData 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CoreData 4.xcdatamodel"; sourceTree = "<group>"; };
+		D8DB7FD818C4C31200BA2037 /* PictoCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PictoCategory.h; path = Model/PictoCategory.h; sourceTree = "<group>"; };
+		D8DB7FD918C4C31200BA2037 /* PictoCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PictoCategory.m; path = Model/PictoCategory.m; sourceTree = "<group>"; };
+		D8DB7FDB18C4C31300BA2037 /* Pictogram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Pictogram.h; path = Model/Pictogram.h; sourceTree = "<group>"; };
+		D8DB7FDC18C4C31300BA2037 /* Pictogram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Pictogram.m; path = Model/Pictogram.m; sourceTree = "<group>"; };
+		D8DB7FDE18C4C31300BA2037 /* Schedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Schedule.h; path = Model/Schedule.h; sourceTree = "<group>"; };
+		D8DB7FDF18C4C31300BA2037 /* Schedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Schedule.m; path = Model/Schedule.m; sourceTree = "<group>"; };
+		D8DB7FE118C4C31300BA2037 /* Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Activity.h; path = Model/Activity.h; sourceTree = "<group>"; };
+		D8DB7FE218C4C31300BA2037 /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Activity.m; path = Model/Activity.m; sourceTree = "<group>"; };
 		D8ED7F9618B77771007A7315 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 		D8F3852718B83549007A8C6E /* CoreDataController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CoreDataController.h; path = Protocols/CoreDataController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -555,10 +559,14 @@
 		D83A62F318B6971D00EC0773 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D82E748B18B7E97E0031BF2B /* Pictogram.h */,
-				D82E748C18B7E97E0031BF2B /* Pictogram.m */,
-				D82E748818B7E97E0031BF2B /* Tag.h */,
-				D82E748918B7E97E0031BF2B /* Tag.m */,
+				D8DB7FE118C4C31300BA2037 /* Activity.h */,
+				D8DB7FE218C4C31300BA2037 /* Activity.m */,
+				D8DB7FDE18C4C31300BA2037 /* Schedule.h */,
+				D8DB7FDF18C4C31300BA2037 /* Schedule.m */,
+				D8DB7FDB18C4C31300BA2037 /* Pictogram.h */,
+				D8DB7FDC18C4C31300BA2037 /* Pictogram.m */,
+				D8DB7FD818C4C31200BA2037 /* PictoCategory.h */,
+				D8DB7FD918C4C31200BA2037 /* PictoCategory.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -888,18 +896,22 @@
 				D8DB7FBB18C4B8B900BA2037 /* TestBBAContext.m in Sources */,
 				D8DB7FBA18C4B8B900BA2037 /* HelperMethodsForTests.m in Sources */,
 				D8DB7FB618C4B8B900BA2037 /* BBAContext.m in Sources */,
+				D8DB7FDD18C4C31300BA2037 /* Pictogram.m in Sources */,
 				D8DB7FBC18C4B8B900BA2037 /* TestBBACoreDataStack.m in Sources */,
 				D8DB7FB818C4B8B900BA2037 /* BBAModel.m in Sources */,
 				D8DB7FB918C4B8B900BA2037 /* BBAStore.m in Sources */,
 				685146E218C49EE0002CF73F /* (null) in Sources */,
 				685146C418C49EC4002CF73F /* BBA_Core_Data_Stack.xcdatamodeld in Sources */,
+				D8DB7FE018C4C31300BA2037 /* Schedule.m in Sources */,
 				685146E118C49EE0002CF73F /* (null) in Sources */,
 				D8DB7FBE18C4B8B900BA2037 /* TestBBAStore.m in Sources */,
 				685146BD18C49EC4002CF73F /* (null) in Sources */,
 				685146E018C49EE0002CF73F /* (null) in Sources */,
+				D8DB7FDA18C4C31200BA2037 /* PictoCategory.m in Sources */,
 				685146E318C49EE0002CF73F /* (null) in Sources */,
 				D83171D718C4ABB50043A7E4 /* TestModel.xcdatamodeld in Sources */,
 				D8DB7FB718C4B8B900BA2037 /* BBACoreDataStack.m in Sources */,
+				D8DB7FE318C4C31300BA2037 /* Activity.m in Sources */,
 				D8DB7FBD18C4B8B900BA2037 /* TestBBAModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -962,15 +974,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8ED7F9718B77771007A7315 /* CoreData.xcdatamodeld in Sources */,
-				D82E748A18B7E97E0031BF2B /* Tag.m in Sources */,
 				D81AAA2018B9949D00E3B50C /* AudioRecorder.m in Sources */,
-				D82E748D18B7E97E0031BF2B /* Pictogram.m in Sources */,
-				D83A62F618B69BEC00EC0773 /* SearchViewController.m in Sources */,
 				D81AA9AE18B91E7C00E3B50C /* Camera.m in Sources */,
 				D83A62CC18B696DC00EC0773 /* AppDelegate.m in Sources */,
 				D83A62C818B696DC00EC0773 /* main.m in Sources */,
 				D85EA1A918C4B12300ACDBD6 /* BBAScheduleOverviewViewController.m in Sources */,
-				D8B49E6718B823A000788073 /* TagManagementViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -979,7 +987,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8B49E6218B8141E00788073 /* SearchViewControllerTests.m in Sources */,
-				D8B49E6318B8143600788073 /* SearchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1560,11 +1567,12 @@
 		D8ED7F9518B77771007A7315 /* CoreData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				D8DB7FCB18C4C02D00BA2037 /* CoreData 4.xcdatamodel */,
 				688A8C1918C0A23F006ED17E /* CoreData 3.xcdatamodel */,
 				D82E748718B7E8220031BF2B /* CoreData 2.xcdatamodel */,
 				D8ED7F9618B77771007A7315 /* CoreData.xcdatamodel */,
 			);
-			currentVersion = 688A8C1918C0A23F006ED17E /* CoreData 3.xcdatamodel */;
+			currentVersion = D8DB7FCB18C4C02D00BA2037 /* CoreData 4.xcdatamodel */;
 			name = CoreData.xcdatamodeld;
 			path = "Visual Scheduler/CoreData.xcdatamodeld";
 			sourceTree = "<group>";
