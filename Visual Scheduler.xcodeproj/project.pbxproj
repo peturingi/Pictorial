@@ -386,8 +386,6 @@
 				D83A62CA18B696DC00EC0773 /* AppDelegate.h */,
 				D83A62CB18B696DC00EC0773 /* AppDelegate.m */,
 				D83A62CD18B696DC00EC0773 /* Main.storyboard */,
-				D85EA1A718C4B12300ACDBD6 /* BBAScheduleOverviewViewController.h */,
-				D85EA1A818C4B12300ACDBD6 /* BBAScheduleOverviewViewController.m */,
 				D83A62F718B69BEF00EC0773 /* Controllers */,
 				D83A62D318B696DC00EC0773 /* Images.xcassets */,
 				D83A62C218B696DC00EC0773 /* Supporting Files */,
@@ -439,6 +437,7 @@
 		D83A62F718B69BEF00EC0773 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D85EA1AA18C4B3DE00ACDBD6 /* Schedule Overview */,
 				D83A62F418B69BEC00EC0773 /* SearchViewController.h */,
 				D83A62F518B69BEC00EC0773 /* SearchViewController.m */,
 				D8B49E6518B823A000788073 /* TagManagementViewController.h */,
@@ -457,6 +456,15 @@
 			name = Pictograms;
 			path = "Visual Scheduler/Pictograms";
 			sourceTree = SOURCE_ROOT;
+		};
+		D85EA1AA18C4B3DE00ACDBD6 /* Schedule Overview */ = {
+			isa = PBXGroup;
+			children = (
+				D85EA1A718C4B12300ACDBD6 /* BBAScheduleOverviewViewController.h */,
+				D85EA1A818C4B12300ACDBD6 /* BBAScheduleOverviewViewController.m */,
+			);
+			name = "Schedule Overview";
+			sourceTree = "<group>";
 		};
 		D8B49E6018B8077600788073 /* Protocols */ = {
 			isa = PBXGroup;

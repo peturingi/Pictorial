@@ -1,27 +1,18 @@
-//
-//  BBAScheduleOverviewViewController.m
-//  Visual Scheduler
-//
-//  Created by Pétur Ingi Egilsson on 03/03/14.
-//  Copyright (c) 2014 Student Project. All rights reserved.
-//
-
 #import "BBAScheduleOverviewViewController.h"
 
 @interface BBAScheduleOverviewViewController ()
-
 @end
 
 @implementation BBAScheduleOverviewViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
+- (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
+
+#pragma mark viewDidLoad
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -40,7 +31,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
