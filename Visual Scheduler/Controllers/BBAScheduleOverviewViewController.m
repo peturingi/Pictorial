@@ -83,7 +83,7 @@ static NSString * const kSortCellsBy = @"title";
 #pragma mark - UI Interaction
 
 - (void)createSchedule {
-    // TODO : Show create schedule UI
+    [self performSegueWithIdentifier:@"addSchedule" sender:self];
 }
 
 /*

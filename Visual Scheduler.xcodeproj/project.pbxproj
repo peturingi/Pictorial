@@ -105,6 +105,7 @@
 		D8DB7FED18C4CA3900BA2037 /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FDF18C4C31300BA2037 /* Schedule.m */; };
 		D8DB7FEE18C4CA3900BA2037 /* Pictogram.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FDC18C4C31300BA2037 /* Pictogram.m */; };
 		D8DB7FEF18C4CA3900BA2037 /* PictoCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FD918C4C31200BA2037 /* PictoCategory.m */; };
+		D8DB7FF518C4DA2300BA2037 /* BBAAddScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FF418C4DA2300BA2037 /* BBAAddScheduleViewController.m */; };
 		D8ED7F9718B77771007A7315 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D8ED7F9518B77771007A7315 /* CoreData.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
@@ -221,7 +222,7 @@
 		D8DB7FB318C4B8B900BA2037 /* TestBBACoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestBBACoreDataStack.m; sourceTree = SOURCE_ROOT; };
 		D8DB7FB418C4B8B900BA2037 /* TestBBAModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestBBAModel.m; sourceTree = SOURCE_ROOT; };
 		D8DB7FB518C4B8B900BA2037 /* TestBBAStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestBBAStore.m; sourceTree = SOURCE_ROOT; };
-		D8DB7FCB18C4C02D00BA2037 /* CoreData 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CoreData 4.xcdatamodel"; sourceTree = "<group>"; };
+		D8DB7FCB18C4C02D00BA2037 /* CoreData 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CoreData 4.xcdatamodel"; sourceTree = "<group>"; };
 		D8DB7FD818C4C31200BA2037 /* PictoCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PictoCategory.h; path = Model/PictoCategory.h; sourceTree = "<group>"; };
 		D8DB7FD918C4C31200BA2037 /* PictoCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PictoCategory.m; path = Model/PictoCategory.m; sourceTree = "<group>"; };
 		D8DB7FDB18C4C31300BA2037 /* Pictogram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Pictogram.h; path = Model/Pictogram.h; sourceTree = "<group>"; };
@@ -230,6 +231,8 @@
 		D8DB7FDF18C4C31300BA2037 /* Schedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Schedule.m; path = Model/Schedule.m; sourceTree = "<group>"; };
 		D8DB7FE118C4C31300BA2037 /* Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Activity.h; path = Model/Activity.h; sourceTree = "<group>"; };
 		D8DB7FE218C4C31300BA2037 /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Activity.m; path = Model/Activity.m; sourceTree = "<group>"; };
+		D8DB7FF318C4DA2300BA2037 /* BBAAddScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBAAddScheduleViewController.h; path = Controllers/BBAAddScheduleViewController.h; sourceTree = "<group>"; };
+		D8DB7FF418C4DA2300BA2037 /* BBAAddScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBAAddScheduleViewController.m; path = Controllers/BBAAddScheduleViewController.m; sourceTree = "<group>"; };
 		D8ED7F9618B77771007A7315 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -581,6 +584,7 @@
 		D83A62F718B69BEF00EC0773 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D8DB7FF618C4DA2F00BA2037 /* Add Schedule */,
 				D85EA1AA18C4B3DE00ACDBD6 /* Schedule Overview */,
 				D83A62F418B69BEC00EC0773 /* SearchViewController.h */,
 				D83A62F518B69BEC00EC0773 /* SearchViewController.m */,
@@ -625,6 +629,15 @@
 				D8B49E6118B8141E00788073 /* SearchViewControllerTests.m */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		D8DB7FF618C4DA2F00BA2037 /* Add Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				D8DB7FF318C4DA2300BA2037 /* BBAAddScheduleViewController.h */,
+				D8DB7FF418C4DA2300BA2037 /* BBAAddScheduleViewController.m */,
+			);
+			name = "Add Schedule";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -983,6 +996,7 @@
 				D8DB7FE618C4C46C00BA2037 /* BBAModel.m in Sources */,
 				D8DB7FE518C4C46600BA2037 /* BBAContext.m in Sources */,
 				D81AAA2018B9949D00E3B50C /* AudioRecorder.m in Sources */,
+				D8DB7FF518C4DA2300BA2037 /* BBAAddScheduleViewController.m in Sources */,
 				D8DB7FEC18C4CA3900BA2037 /* Activity.m in Sources */,
 				D81AA9AE18B91E7C00E3B50C /* Camera.m in Sources */,
 				D8DB7FEE18C4CA3900BA2037 /* Pictogram.m in Sources */,
