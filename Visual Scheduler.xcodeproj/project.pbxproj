@@ -106,6 +106,7 @@
 		D8DB7FEE18C4CA3900BA2037 /* Pictogram.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FDC18C4C31300BA2037 /* Pictogram.m */; };
 		D8DB7FEF18C4CA3900BA2037 /* PictoCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FD918C4C31200BA2037 /* PictoCategory.m */; };
 		D8DB7FF518C4DA2300BA2037 /* BBAAddScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FF418C4DA2300BA2037 /* BBAAddScheduleViewController.m */; };
+		D8DB7FFF18C50F4700BA2037 /* BBAShowScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FFE18C50F4700BA2037 /* BBAShowScheduleViewController.m */; };
 		D8ED7F9718B77771007A7315 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D8ED7F9518B77771007A7315 /* CoreData.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
@@ -233,6 +234,8 @@
 		D8DB7FE218C4C31300BA2037 /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Activity.m; path = Model/Activity.m; sourceTree = "<group>"; };
 		D8DB7FF318C4DA2300BA2037 /* BBAAddScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBAAddScheduleViewController.h; path = Controllers/BBAAddScheduleViewController.h; sourceTree = "<group>"; };
 		D8DB7FF418C4DA2300BA2037 /* BBAAddScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBAAddScheduleViewController.m; path = Controllers/BBAAddScheduleViewController.m; sourceTree = "<group>"; };
+		D8DB7FFD18C50F4700BA2037 /* BBAShowScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBAShowScheduleViewController.h; path = "Controllers/Show Schedule/BBAShowScheduleViewController.h"; sourceTree = "<group>"; };
+		D8DB7FFE18C50F4700BA2037 /* BBAShowScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBAShowScheduleViewController.m; path = "Controllers/Show Schedule/BBAShowScheduleViewController.m"; sourceTree = "<group>"; };
 		D8ED7F9618B77771007A7315 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -584,6 +587,7 @@
 		D83A62F718B69BEF00EC0773 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D8DB800018C50FAC00BA2037 /* Show Schedule */,
 				D8DB7FF618C4DA2F00BA2037 /* Add Schedule */,
 				D85EA1AA18C4B3DE00ACDBD6 /* Schedule Overview */,
 				D83A62F418B69BEC00EC0773 /* SearchViewController.h */,
@@ -638,6 +642,15 @@
 				D8DB7FF418C4DA2300BA2037 /* BBAAddScheduleViewController.m */,
 			);
 			name = "Add Schedule";
+			sourceTree = "<group>";
+		};
+		D8DB800018C50FAC00BA2037 /* Show Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				D8DB7FFD18C50F4700BA2037 /* BBAShowScheduleViewController.h */,
+				D8DB7FFE18C50F4700BA2037 /* BBAShowScheduleViewController.m */,
+			);
+			name = "Show Schedule";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1004,6 +1017,7 @@
 				D83A62CC18B696DC00EC0773 /* AppDelegate.m in Sources */,
 				D8DB7FEF18C4CA3900BA2037 /* PictoCategory.m in Sources */,
 				D83A62C818B696DC00EC0773 /* main.m in Sources */,
+				D8DB7FFF18C50F4700BA2037 /* BBAShowScheduleViewController.m in Sources */,
 				D8DB7FE718C4C46C00BA2037 /* BBAStore.m in Sources */,
 				D8DB7FE418C4C46200BA2037 /* BBACoreDataStack.m in Sources */,
 				D85EA1A918C4B12300ACDBD6 /* BBAScheduleOverviewViewController.m in Sources */,

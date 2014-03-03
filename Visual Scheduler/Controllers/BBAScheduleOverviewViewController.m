@@ -1,6 +1,7 @@
 #import "BBAScheduleOverviewViewController.h"
 #import "Schedule.h"
 #import "../../BBACoreDataStack.h"
+#import "Show Schedule/BBAShowScheduleViewController.h"
 
 static NSString * const kCellReuseIdentifier = @"ScheduleCell";
 static NSString * const kSortCellsBy = @"title";
@@ -85,6 +86,19 @@ static NSString * const kSortCellsBy = @"title";
 
 - (void)createSchedule {
     [self performSegueWithIdentifier:@"addSchedule" sender:self];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"showSchedule" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"showSchedule"]) {
+        BBAShowScheduleViewController *destination = [segue destinationViewController];
+        NSIndexPath *selectedRow = [self.tableView indexPathForSelectedRow];
+        Schedule *selectedSchedule = [_dataSource objectAtIndexPath:selectedRow];
+        [destination setSchedule:selectedSchedule];
+    }
 }
 
 /*

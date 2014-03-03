@@ -68,11 +68,44 @@
                     <navigationItem key="navigationItem" title="Root View Controller" id="bJ1-PE-WSj"/>
                     <connections>
                         <segue destination="eVk-VY-uL6" kind="modal" identifier="addSchedule" modalPresentationStyle="formSheet" id="tWV-gF-v86"/>
+                        <segue destination="KEu-jL-5VT" kind="push" identifier="showSchedule" id="cKj-zX-VKH"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YtU-ge-aXT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="782" y="-232"/>
+            <point key="canvasLocation" x="464" y="-116"/>
+        </scene>
+        <!--Show Schedule View Controller-->
+        <scene sceneID="LtD-C5-igR">
+            <objects>
+                <viewController id="KEu-jL-5VT" customClass="BBAShowScheduleViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3BD-jD-2X9"/>
+                        <viewControllerLayoutGuide type="bottom" id="jce-lo-9mr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oZx-rd-gcI">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CeG-6F-ErX">
+                                <rect key="frame" x="0.0" y="980" width="768" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="View1" id="APq-iB-dhn"/>
+                                    <barButtonItem title="View2" id="fjY-qZ-0im"/>
+                                    <barButtonItem title="View3" id="8rg-P3-hWd"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="N0o-S5-KVl">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="mGr-lQ-4O5"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LUx-F8-Uzi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2191" y="929"/>
         </scene>
         <!--Add Schedule View Controller-->
         <scene sceneID="JVZ-KN-laV">
@@ -193,7 +226,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ned-k5-kX6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1676" y="1009"/>
+            <point key="canvasLocation" x="1282" y="1117"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LMG-h6-PzK">
