@@ -1,11 +1,3 @@
-//
-//  Camera.h
-//  Visual Scheduler
-//
-//  Created by Pétur Ingi Egilsson on 22/02/14.
-//  Copyright (c) 2014 Student Project. All rights reserved.
-//
-
 #import <Foundation/Foundation.h>
 #import "CameraDelegate.h"
 
@@ -25,7 +17,7 @@
  @return A camera if if the hardware has one.
  @return nil if the hardware does not have a camera.
  */
-- (id)initWithViewController:(UIViewController *)controller usingDelegate:(id)delegate;
+- (id)initWithViewController:(UIViewController *)controller usingDelegate:(id<CameraDelegate>)delegate;
 
 /** Show the camera
  @return YES if an attempt was made to show the camera.
