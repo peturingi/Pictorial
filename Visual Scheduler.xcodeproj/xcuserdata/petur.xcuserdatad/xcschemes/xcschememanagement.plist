@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
+		<key>BBA Core Data Stack.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>CameraComponent.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -22,6 +27,16 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>685146AF18C49EC3002CF73F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>685146CA18C49EC4002CF73F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>D81AA9B218B925B900E3B50C</key>
 		<dict>
 			<key>primary</key>

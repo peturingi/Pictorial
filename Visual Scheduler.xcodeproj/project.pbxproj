@@ -69,6 +69,7 @@
 		D82E748618B7E49C0031BF2B /* milk.png in Resources */ = {isa = PBXBuildFile; fileRef = D82E748518B7E49C0031BF2B /* milk.png */; };
 		D82E748A18B7E97E0031BF2B /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = D82E748918B7E97E0031BF2B /* Tag.m */; };
 		D82E748D18B7E97E0031BF2B /* Pictogram.m in Sources */ = {isa = PBXBuildFile; fileRef = D82E748C18B7E97E0031BF2B /* Pictogram.m */; };
+		D83171D718C4ABB50043A7E4 /* TestModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6851470218C4A742002CF73F /* TestModel.xcdatamodeld */; };
 		D83A62BC18B696DC00EC0773 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BB18B696DC00EC0773 /* Foundation.framework */; };
 		D83A62BE18B696DC00EC0773 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BD18B696DC00EC0773 /* CoreGraphics.framework */; };
 		D83A62C018B696DC00EC0773 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BF18B696DC00EC0773 /* UIKit.framework */; };
@@ -898,6 +899,7 @@
 				685146BD18C49EC4002CF73F /* main.m in Sources */,
 				685146E018C49EE0002CF73F /* BBACoreDataStack.m in Sources */,
 				685146E318C49EE0002CF73F /* BBAContext.m in Sources */,
+				D83171D718C4ABB50043A7E4 /* TestModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1462,6 +1464,7 @@
 				685146DC18C49EC4002CF73F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		685146DD18C49EC4002CF73F /* Build configuration list for PBXNativeTarget "BBA Core Data StackTests" */ = {
 			isa = XCConfigurationList;
@@ -1470,6 +1473,7 @@
 				685146DF18C49EC4002CF73F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D81AA9D718B925B900E3B50C /* Build configuration list for PBXNativeTarget "CameraComponent" */ = {
 			isa = XCConfigurationList;
