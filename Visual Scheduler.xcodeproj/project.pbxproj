@@ -7,6 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		685146B118C49EC3002CF73F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BB18B696DC00EC0773 /* Foundation.framework */; };
+		685146B218C49EC3002CF73F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BD18B696DC00EC0773 /* CoreGraphics.framework */; };
+		685146B318C49EC3002CF73F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BF18B696DC00EC0773 /* UIKit.framework */; };
+		685146B518C49EC4002CF73F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 685146B418C49EC4002CF73F /* CoreData.framework */; };
+		685146BB18C49EC4002CF73F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 685146B918C49EC4002CF73F /* InfoPlist.strings */; };
+		685146BD18C49EC4002CF73F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 685146BC18C49EC4002CF73F /* main.m */; };
+		685146C118C49EC4002CF73F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 685146C018C49EC4002CF73F /* AppDelegate.m */; };
+		685146C418C49EC4002CF73F /* BBA_Core_Data_Stack.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 685146C218C49EC4002CF73F /* BBA_Core_Data_Stack.xcdatamodeld */; };
+		685146C618C49EC4002CF73F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 685146C518C49EC4002CF73F /* Images.xcassets */; };
+		685146CC18C49EC4002CF73F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62DA18B696DC00EC0773 /* XCTest.framework */; };
+		685146CD18C49EC4002CF73F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BB18B696DC00EC0773 /* Foundation.framework */; };
+		685146CE18C49EC4002CF73F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BF18B696DC00EC0773 /* UIKit.framework */; };
+		685146CF18C49EC4002CF73F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 685146B418C49EC4002CF73F /* CoreData.framework */; };
+		685146D718C49EC4002CF73F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 685146D518C49EC4002CF73F /* InfoPlist.strings */; };
+		685146E018C49EE0002CF73F /* BBACoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 6851469A18C49C7E002CF73F /* BBACoreDataStack.m */; };
+		685146E118C49EE0002CF73F /* BBAStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6851469D18C49C7E002CF73F /* BBAStore.m */; };
+		685146E218C49EE0002CF73F /* BBAModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6851469F18C49C7E002CF73F /* BBAModel.m */; };
+		685146E318C49EE0002CF73F /* BBAContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 685146A118C49C7E002CF73F /* BBAContext.m */; };
+		685146F018C4A217002CF73F /* TestBBAModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 685146A318C49CBA002CF73F /* TestBBAModel.m */; };
+		685146F218C4A224002CF73F /* HelperMethodsForTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 685146A818C49CBA002CF73F /* HelperMethodsForTests.m */; };
+		685146F418C4A430002CF73F /* BBA_Core_Data_Stack.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 685146C218C49EC4002CF73F /* BBA_Core_Data_Stack.xcdatamodeld */; };
+		685146FC18C4A53B002CF73F /* TestBBAStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 685146A418C49CBA002CF73F /* TestBBAStore.m */; };
+		685146FD18C4A540002CF73F /* TestBBAContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 685146A518C49CBA002CF73F /* TestBBAContext.m */; };
+		685146FE18C4A544002CF73F /* TestBBACoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 685146A618C49CBA002CF73F /* TestBBACoreDataStack.m */; };
+		6851470518C4A742002CF73F /* TestModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6851470218C4A742002CF73F /* TestModel.xcdatamodeld */; };
+		6851470918C4A77A002CF73F /* TestEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6851470718C4A77A002CF73F /* TestEntity.m */; };
 		D81AA9AE18B91E7C00E3B50C /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = D81AA9AD18B91E7C00E3B50C /* Camera.m */; };
 		D81AA9B418B925B900E3B50C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BB18B696DC00EC0773 /* Foundation.framework */; };
 		D81AA9B518B925B900E3B50C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BD18B696DC00EC0773 /* CoreGraphics.framework */; };
@@ -43,6 +69,7 @@
 		D82E748618B7E49C0031BF2B /* milk.png in Resources */ = {isa = PBXBuildFile; fileRef = D82E748518B7E49C0031BF2B /* milk.png */; };
 		D82E748A18B7E97E0031BF2B /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = D82E748918B7E97E0031BF2B /* Tag.m */; };
 		D82E748D18B7E97E0031BF2B /* Pictogram.m in Sources */ = {isa = PBXBuildFile; fileRef = D82E748C18B7E97E0031BF2B /* Pictogram.m */; };
+		D83171D718C4ABB50043A7E4 /* TestModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6851470218C4A742002CF73F /* TestModel.xcdatamodeld */; };
 		D83A62BC18B696DC00EC0773 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BB18B696DC00EC0773 /* Foundation.framework */; };
 		D83A62BE18B696DC00EC0773 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BD18B696DC00EC0773 /* CoreGraphics.framework */; };
 		D83A62C018B696DC00EC0773 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BF18B696DC00EC0773 /* UIKit.framework */; };
@@ -66,6 +93,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		685146D018C49EC4002CF73F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D83A62B018B696DB00EC0773 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 685146AF18C49EC3002CF73F;
+			remoteInfo = "BBA Core Data Stack";
+		};
 		D81AA9CD18B925B900E3B50C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D83A62B018B696DB00EC0773 /* Project object */;
@@ -166,6 +200,28 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		685146AD18C49EC3002CF73F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				685146B218C49EC3002CF73F /* CoreGraphics.framework in Frameworks */,
+				685146B518C49EC4002CF73F /* CoreData.framework in Frameworks */,
+				685146B318C49EC3002CF73F /* UIKit.framework in Frameworks */,
+				685146B118C49EC3002CF73F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		685146C818C49EC4002CF73F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				685146CC18C49EC4002CF73F /* XCTest.framework in Frameworks */,
+				685146CF18C49EC4002CF73F /* CoreData.framework in Frameworks */,
+				685146CE18C49EC4002CF73F /* UIKit.framework in Frameworks */,
+				685146CD18C49EC4002CF73F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D81AA9B018B925B900E3B50C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -230,6 +286,63 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		685146B618C49EC4002CF73F /* BBA Core Data Stack */ = {
+			isa = PBXGroup;
+			children = (
+				6851469918C49C7E002CF73F /* BBACoreDataStack.h */,
+				6851469A18C49C7E002CF73F /* BBACoreDataStack.m */,
+				6851469C18C49C7E002CF73F /* BBAStore.h */,
+				6851469D18C49C7E002CF73F /* BBAStore.m */,
+				6851469E18C49C7E002CF73F /* BBAModel.h */,
+				6851469F18C49C7E002CF73F /* BBAModel.m */,
+				685146A018C49C7E002CF73F /* BBAContext.h */,
+				685146A118C49C7E002CF73F /* BBAContext.m */,
+				685146BF18C49EC4002CF73F /* AppDelegate.h */,
+				685146C018C49EC4002CF73F /* AppDelegate.m */,
+				685146C518C49EC4002CF73F /* Images.xcassets */,
+				685146C218C49EC4002CF73F /* BBA_Core_Data_Stack.xcdatamodeld */,
+				685146B718C49EC4002CF73F /* Supporting Files */,
+			);
+			path = "BBA Core Data Stack";
+			sourceTree = "<group>";
+		};
+		685146B718C49EC4002CF73F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				685146B818C49EC4002CF73F /* BBA Core Data Stack-Info.plist */,
+				685146B918C49EC4002CF73F /* InfoPlist.strings */,
+				685146BC18C49EC4002CF73F /* main.m */,
+				685146BE18C49EC4002CF73F /* BBA Core Data Stack-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		685146D218C49EC4002CF73F /* BBA Core Data StackTests */ = {
+			isa = PBXGroup;
+			children = (
+				6851470218C4A742002CF73F /* TestModel.xcdatamodeld */,
+				6851470618C4A77A002CF73F /* TestEntity.h */,
+				6851470718C4A77A002CF73F /* TestEntity.m */,
+				685146A318C49CBA002CF73F /* TestBBAModel.m */,
+				685146A418C49CBA002CF73F /* TestBBAStore.m */,
+				685146A518C49CBA002CF73F /* TestBBAContext.m */,
+				685146A618C49CBA002CF73F /* TestBBACoreDataStack.m */,
+				685146A718C49CBA002CF73F /* HelperMethodsForTests.h */,
+				685146A818C49CBA002CF73F /* HelperMethodsForTests.m */,
+				685146D318C49EC4002CF73F /* Supporting Files */,
+			);
+			path = "BBA Core Data StackTests";
+			sourceTree = "<group>";
+		};
+		685146D318C49EC4002CF73F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				685146D418C49EC4002CF73F /* BBA Core Data StackTests-Info.plist */,
+				685146D518C49EC4002CF73F /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		D81AA9B718B925B900E3B50C /* CameraComponent */ = {
 			isa = PBXGroup;
 			children = (
@@ -348,6 +461,8 @@
 				D81AA9CF18B925B900E3B50C /* CameraComponentTests */,
 				D81AA9ED18B943C400E3B50C /* AudioRecorder */,
 				D81AAA0B18B943C500E3B50C /* AudioRecorderTests */,
+				685146B618C49EC4002CF73F /* BBA Core Data Stack */,
+				685146D218C49EC4002CF73F /* BBA Core Data StackTests */,
 				D83A62BA18B696DC00EC0773 /* Frameworks */,
 				D83A62B918B696DC00EC0773 /* Products */,
 			);
@@ -362,6 +477,8 @@
 				D81AA9C918B925B900E3B50C /* CameraComponentTests.xctest */,
 				D81AA9E918B943C400E3B50C /* AudioRecorder.app */,
 				D81AAA0518B943C400E3B50C /* AudioRecorderTests.xctest */,
+				685146B018C49EC3002CF73F /* BBA Core Data Stack.app */,
+				685146CB18C49EC4002CF73F /* BBA Core Data StackTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -374,6 +491,7 @@
 				D83A62BD18B696DC00EC0773 /* CoreGraphics.framework */,
 				D83A62BF18B696DC00EC0773 /* UIKit.framework */,
 				D83A62DA18B696DC00EC0773 /* XCTest.framework */,
+				685146B418C49EC4002CF73F /* CoreData.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -487,6 +605,41 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		685146AF18C49EC3002CF73F /* BBA Core Data Stack */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 685146DA18C49EC4002CF73F /* Build configuration list for PBXNativeTarget "BBA Core Data Stack" */;
+			buildPhases = (
+				685146AC18C49EC3002CF73F /* Sources */,
+				685146AD18C49EC3002CF73F /* Frameworks */,
+				685146AE18C49EC3002CF73F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "BBA Core Data Stack";
+			productName = "BBA Core Data Stack";
+			productReference = 685146B018C49EC3002CF73F /* BBA Core Data Stack.app */;
+			productType = "com.apple.product-type.application";
+		};
+		685146CA18C49EC4002CF73F /* BBA Core Data StackTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 685146DD18C49EC4002CF73F /* Build configuration list for PBXNativeTarget "BBA Core Data StackTests" */;
+			buildPhases = (
+				685146C718C49EC4002CF73F /* Sources */,
+				685146C818C49EC4002CF73F /* Frameworks */,
+				685146C918C49EC4002CF73F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				685146D118C49EC4002CF73F /* PBXTargetDependency */,
+			);
+			name = "BBA Core Data StackTests";
+			productName = "BBA Core Data StackTests";
+			productReference = 685146CB18C49EC4002CF73F /* BBA Core Data StackTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		D81AA9B218B925B900E3B50C /* CameraComponent */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D81AA9D718B925B900E3B50C /* Build configuration list for PBXNativeTarget "CameraComponent" */;
@@ -601,6 +754,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Student Project";
 				TargetAttributes = {
+					685146CA18C49EC4002CF73F = {
+						TestTargetID = 685146AF18C49EC3002CF73F;
+					};
 					D81AA9C818B925B900E3B50C = {
 						TestTargetID = D83A62B718B696DC00EC0773;
 					};
@@ -631,11 +787,30 @@
 				D81AA9C818B925B900E3B50C /* CameraComponentTests */,
 				D81AA9E818B943C400E3B50C /* AudioRecorder */,
 				D81AAA0418B943C400E3B50C /* AudioRecorderTests */,
+				685146AF18C49EC3002CF73F /* BBA Core Data Stack */,
+				685146CA18C49EC4002CF73F /* BBA Core Data StackTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		685146AE18C49EC3002CF73F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				685146BB18C49EC4002CF73F /* InfoPlist.strings in Resources */,
+				685146C618C49EC4002CF73F /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		685146C918C49EC4002CF73F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				685146D718C49EC4002CF73F /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D81AA9B118B925B900E3B50C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -696,6 +871,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		685146AC18C49EC3002CF73F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				685146C118C49EC4002CF73F /* AppDelegate.m in Sources */,
+				685146E218C49EE0002CF73F /* BBAModel.m in Sources */,
+				685146C418C49EC4002CF73F /* BBA_Core_Data_Stack.xcdatamodeld in Sources */,
+				685146E118C49EE0002CF73F /* BBAStore.m in Sources */,
+				685146BD18C49EC4002CF73F /* main.m in Sources */,
+				685146E018C49EE0002CF73F /* BBACoreDataStack.m in Sources */,
+				685146E318C49EE0002CF73F /* BBAContext.m in Sources */,
+				D83171D718C4ABB50043A7E4 /* TestModel.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		685146C718C49EC4002CF73F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6851470518C4A742002CF73F /* TestModel.xcdatamodeld in Sources */,
+				685146F218C4A224002CF73F /* HelperMethodsForTests.m in Sources */,
+				685146FD18C4A540002CF73F /* TestBBAContext.m in Sources */,
+				685146FC18C4A53B002CF73F /* TestBBAStore.m in Sources */,
+				685146F018C4A217002CF73F /* TestBBAModel.m in Sources */,
+				6851470918C4A77A002CF73F /* TestEntity.m in Sources */,
+				685146F418C4A430002CF73F /* BBA_Core_Data_Stack.xcdatamodeld in Sources */,
+				685146FE18C4A544002CF73F /* TestBBACoreDataStack.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D81AA9AF18B925B900E3B50C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -763,6 +968,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		685146D118C49EC4002CF73F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 685146AF18C49EC3002CF73F /* BBA Core Data Stack */;
+			targetProxy = 685146D018C49EC4002CF73F /* PBXContainerItemProxy */;
+		};
 		D81AA9CE18B925B900E3B50C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D81AA9B218B925B900E3B50C /* CameraComponent */;
@@ -781,6 +991,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		685146B918C49EC4002CF73F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				685146BA18C49EC4002CF73F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		685146D518C49EC4002CF73F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				685146D618C49EC4002CF73F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		D81AA9BA18B925B900E3B50C /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -848,6 +1074,80 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		685146DB18C49EC4002CF73F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BBA Core Data Stack/BBA Core Data Stack-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "BBA Core Data Stack/BBA Core Data Stack-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		685146DC18C49EC4002CF73F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BBA Core Data Stack/BBA Core Data Stack-Prefix.pch";
+				INFOPLIST_FILE = "BBA Core Data Stack/BBA Core Data Stack-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		685146DE18C49EC4002CF73F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BBA Core Data Stack.app/BBA Core Data Stack";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BBA Core Data Stack/BBA Core Data Stack-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "BBA Core Data StackTests/BBA Core Data StackTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		685146DF18C49EC4002CF73F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BBA Core Data Stack.app/BBA Core Data Stack";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BBA Core Data Stack/BBA Core Data Stack-Prefix.pch";
+				INFOPLIST_FILE = "BBA Core Data StackTests/BBA Core Data StackTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
 		D81AA9D818B925B900E3B50C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1141,6 +1441,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		685146DA18C49EC4002CF73F /* Build configuration list for PBXNativeTarget "BBA Core Data Stack" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				685146DB18C49EC4002CF73F /* Debug */,
+				685146DC18C49EC4002CF73F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		685146DD18C49EC4002CF73F /* Build configuration list for PBXNativeTarget "BBA Core Data StackTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				685146DE18C49EC4002CF73F /* Debug */,
+				685146DF18C49EC4002CF73F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D81AA9D718B925B900E3B50C /* Build configuration list for PBXNativeTarget "CameraComponent" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1207,6 +1525,26 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
+		685146C218C49EC4002CF73F /* BBA_Core_Data_Stack.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				685146C318C49EC4002CF73F /* BBA_Core_Data_Stack.xcdatamodel */,
+			);
+			currentVersion = 685146C318C49EC4002CF73F /* BBA_Core_Data_Stack.xcdatamodel */;
+			path = BBA_Core_Data_Stack.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		6851470218C4A742002CF73F /* TestModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6851470318C4A742002CF73F /* TestModel.xcdatamodel */,
+			);
+			currentVersion = 6851470318C4A742002CF73F /* TestModel.xcdatamodel */;
+			path = TestModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		D8ED7F9518B77771007A7315 /* CoreData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
