@@ -1,9 +1,11 @@
 #import "BBAScheduleOverviewViewController.h"
 #import <CoreData/CoreData.h>
 #import "Schedule.h"
+#import "../../BBACoreDataStack.h"
 
 @interface BBAScheduleOverviewViewController ()
     @property (strong, nonatomic) NSFetchedResultsController *dataSource;
+    @property (strong, nonatomic) BBACoreDataStack *coreDataStack;
 @end
 
 @implementation BBAScheduleOverviewViewController
@@ -11,37 +13,46 @@
 - (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
     if (self) {
-        [self setupDataSource];
+
     }
     return self;
-}
-
-- (void)setupDataSource {
-    // TODO
-    /*
-     entityForName: Schedule
-     fetchBatchSize: 20
-     sortDescriptor1: date, ascending YES
-     sortDescriptor2: title, ascending YES
-     */
 }
 
 #pragma mark viewDidLoad
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupDataSource];
     [self setupUI];
+    [self reloadTableView];
+}
+
+- (void)setupDataSource {
+    _coreDataStack = [BBACoreDataStack stackWithModelNamed:@"CoreData" andStoreFileNamed:@"CoreData.sqlite"];
+    NSSortDescriptor *sd = [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES];
+    _dataSource = [_coreDataStack fetchedResultsControllerForEntityClass:[Schedule class] batchSize:20 andSortDescriptors:@[sd]];
+    [_dataSource performFetch:nil];
 }
 
 - (void)setupUI {
     self.title = @"Schedules";
     [self setupAddScheduleButton];
+    [self setupTableView];
 }
 
 - (void)setupAddScheduleButton {
     SEL actionForButton = @selector(createSchedule);
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:actionForButton];
     self.navigationItem.rightBarButtonItem = addButton;
+}
+
+- (void)setupTableView {
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"CellInScheduleOverview"];
+}
+
+- (void)reloadTableView {
+    [self.coreDataStack performFetchForResultsController:self.dataSource];
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source

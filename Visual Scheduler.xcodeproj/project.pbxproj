@@ -97,6 +97,14 @@
 		D8DB7FDD18C4C31300BA2037 /* Pictogram.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FDC18C4C31300BA2037 /* Pictogram.m */; };
 		D8DB7FE018C4C31300BA2037 /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FDF18C4C31300BA2037 /* Schedule.m */; };
 		D8DB7FE318C4C31300BA2037 /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FE218C4C31300BA2037 /* Activity.m */; };
+		D8DB7FE418C4C46200BA2037 /* BBACoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FAB18C4B8B900BA2037 /* BBACoreDataStack.m */; };
+		D8DB7FE518C4C46600BA2037 /* BBAContext.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FA918C4B8B900BA2037 /* BBAContext.m */; };
+		D8DB7FE618C4C46C00BA2037 /* BBAModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FAD18C4B8B900BA2037 /* BBAModel.m */; };
+		D8DB7FE718C4C46C00BA2037 /* BBAStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FAF18C4B8B900BA2037 /* BBAStore.m */; };
+		D8DB7FEC18C4CA3900BA2037 /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FE218C4C31300BA2037 /* Activity.m */; };
+		D8DB7FED18C4CA3900BA2037 /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FDF18C4C31300BA2037 /* Schedule.m */; };
+		D8DB7FEE18C4CA3900BA2037 /* Pictogram.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FDC18C4C31300BA2037 /* Pictogram.m */; };
+		D8DB7FEF18C4CA3900BA2037 /* PictoCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FD918C4C31200BA2037 /* PictoCategory.m */; };
 		D8ED7F9718B77771007A7315 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D8ED7F9518B77771007A7315 /* CoreData.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
@@ -223,7 +231,6 @@
 		D8DB7FE118C4C31300BA2037 /* Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Activity.h; path = Model/Activity.h; sourceTree = "<group>"; };
 		D8DB7FE218C4C31300BA2037 /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Activity.m; path = Model/Activity.m; sourceTree = "<group>"; };
 		D8ED7F9618B77771007A7315 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
-		D8F3852718B83549007A8C6E /* CoreDataController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CoreDataController.h; path = Protocols/CoreDataController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -606,7 +613,6 @@
 		D8B49E6018B8077600788073 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				D8F3852718B83549007A8C6E /* CoreDataController.h */,
 				D83A62FB18B6B69E00EC0773 /* ContainsImageAsData.h */,
 				D8B49E5F18B8025500788073 /* SearchViewControllerDelegate.h */,
 			);
@@ -974,10 +980,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8ED7F9718B77771007A7315 /* CoreData.xcdatamodeld in Sources */,
+				D8DB7FE618C4C46C00BA2037 /* BBAModel.m in Sources */,
+				D8DB7FE518C4C46600BA2037 /* BBAContext.m in Sources */,
 				D81AAA2018B9949D00E3B50C /* AudioRecorder.m in Sources */,
+				D8DB7FEC18C4CA3900BA2037 /* Activity.m in Sources */,
 				D81AA9AE18B91E7C00E3B50C /* Camera.m in Sources */,
+				D8DB7FEE18C4CA3900BA2037 /* Pictogram.m in Sources */,
+				D8DB7FED18C4CA3900BA2037 /* Schedule.m in Sources */,
 				D83A62CC18B696DC00EC0773 /* AppDelegate.m in Sources */,
+				D8DB7FEF18C4CA3900BA2037 /* PictoCategory.m in Sources */,
 				D83A62C818B696DC00EC0773 /* main.m in Sources */,
+				D8DB7FE718C4C46C00BA2037 /* BBAStore.m in Sources */,
+				D8DB7FE418C4C46200BA2037 /* BBACoreDataStack.m in Sources */,
 				D85EA1A918C4B12300ACDBD6 /* BBAScheduleOverviewViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,5 +1,5 @@
 #import <UIKit/UIKit.h>
 
-@interface BBAScheduleOverviewViewController : UITableViewController
+@interface BBAScheduleOverviewViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
 @end

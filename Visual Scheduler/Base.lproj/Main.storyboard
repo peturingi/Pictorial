@@ -60,12 +60,16 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="bnG-DL-C5g" id="Aue-qt-Pnu"/>
+                            <outlet property="delegate" destination="bnG-DL-C5g" id="gWN-rU-jVn"/>
+                        </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="bJ1-PE-WSj"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YtU-ge-aXT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="493" y="-96"/>
+            <point key="canvasLocation" x="782" y="-232"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LMG-h6-PzK">
