@@ -1,5 +1,4 @@
 #import "BBAScheduleOverviewViewController.h"
-#import <CoreData/CoreData.h>
 #import "Schedule.h"
 #import "../../BBACoreDataStack.h"
 
@@ -8,7 +7,6 @@ static NSString * const kSortCellsBy = @"title";
 
 @interface BBAScheduleOverviewViewController ()
     @property (strong, nonatomic) NSFetchedResultsController *dataSource;
-    @property (strong, nonatomic) BBACoreDataStack *coreDataStack;
 @end
 
 @implementation BBAScheduleOverviewViewController
@@ -25,19 +23,17 @@ static NSString * const kSortCellsBy = @"title";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupDataStack];
     [self setupDataSource];
     [self setupUI];
     [self reloadTableView];
 }
 
-- (void)setupDataStack {
-    _coreDataStack = [BBACoreDataStack stackWithModelNamed:@"CoreData" andStoreFileNamed:@"CoreData.sqlite"];
-}
-
 - (void)setupDataSource {
+// TODO Temporary implementation for use during development. Change to a proper one before release.
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:kSortCellsBy ascending:YES];
-    _dataSource = [_coreDataStack fetchedResultsControllerForEntityClass:[Schedule class] batchSize:20 andSortDescriptors:@[sortDescriptor]];
+    BBACoreDataStack *coreDataStack = [BBACoreDataStack sharedInstance];
+    _dataSource = [coreDataStack fetchedResultsControllerForEntityClass:[Schedule class] batchSize:20 andSortDescriptors:@[sortDescriptor]];
+    _dataSource.delegate = self;
 }
 
 - (void)setupUI {
@@ -57,7 +53,7 @@ static NSString * const kSortCellsBy = @"title";
 }
 
 - (void)reloadTableView {
-    [self.coreDataStack performFetchForResultsController:self.dataSource];
+    [[BBACoreDataStack sharedInstance] fetchFor:_dataSource];
     [self.tableView reloadData];
 }
 
@@ -78,6 +74,11 @@ static NSString * const kSortCellsBy = @"title";
     Schedule *schedule = [_dataSource objectAtIndexPath:indexPath];
     cell.textLabel.text = schedule.title;
     return cell;
+}
+
+#pragma mark - FetchedResultsController Delegate
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    [self reloadTableView];
 }
 
 #pragma mark - UI Interaction

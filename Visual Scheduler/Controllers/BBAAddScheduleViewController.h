@@ -1,13 +1,11 @@
-//
-//  BBAAddScheduleViewController.h
-//  Visual Scheduler
-//
-//  Created by Pétur Ingi Egilsson on 03/03/14.
-//  Copyright (c) 2014 Student Project. All rights reserved.
-//
-
 #import <UIKit/UIKit.h>
+#import "../../CameraComponent/Camera/CameraDelegate.h"
 
-@interface BBAAddScheduleViewController : UIViewController
+@interface BBAAddScheduleViewController : UIViewController <CameraDelegate> {
+    __weak IBOutlet UISwitch *showTitle;
+    __weak IBOutlet UISwitch *showSteps;
+    __weak IBOutlet UIView *backgroundColor;
+    __weak IBOutlet UITextField *schedulesTitle;
+}
 
 @end

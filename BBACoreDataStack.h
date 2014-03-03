@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+
 @class BBAModel;
 @class BBAStore;
 @class BBAContext;
@@ -11,11 +12,12 @@
     NSString* _modelName;
     NSString* _storeFileName;
 }
++ (id)sharedInstance;
+- (NSManagedObjectContext *)sharedObjectContext;
 
 +(instancetype)stackWithModelNamed:(NSString*)modelName andStoreFileNamed:(NSString*)storeFileName;
-
 -(NSFetchedResultsController*)fetchedResultsControllerForEntityClass:(Class)aClass batchSize:(NSUInteger)size andSortDescriptors:(NSArray*)sortDescriptors;
--(void)performFetchForResultsController:(NSFetchedResultsController*)fetchedResultsController;
+-(void)fetchFor:(NSFetchedResultsController*)fetchedResultsController;
 -(NSArray*)resultFromFetchRequest:(NSFetchRequest*)fetchRequest;
 //-(NSFetchedResultsController*)fetchedResultsControllerFromFetchRequest:(NSFetchRequest*)request;
 -(NSFetchRequest*)fetchRequestForEntityClass:(Class)aClass;
@@ -23,5 +25,7 @@
 -(void)deleteObject:(NSManagedObject*)anObject;
 -(void)deleteStoreAndResetStack;
 -(void)saveAll;
+
+- (void)insertScheduleWithTitle:(NSString *)aString logo:(UIImage *)image backgroundColor:(NSInteger)colorCode;
 
 @end

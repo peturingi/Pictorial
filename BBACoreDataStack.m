@@ -11,9 +11,35 @@
 #import "BBAStore.h"
 #import "BBAContext.h"
 
+#import "Schedule.h"
+
 @implementation BBACoreDataStack
 
 #pragma mark - public methods
+
++ (id)sharedInstance {
+    static dispatch_once_t p = 0;
+    __strong static id _sharedObject = nil;
+    dispatch_once(&p, ^{
+        _sharedObject = [[BBACoreDataStack alloc] initWithModelNamed:@"CoreData" andStoreFileNamed:@"CoreData.sqlite"];
+    });
+    return _sharedObject;
+}
+
+- (NSManagedObjectContext *)sharedObjectContext {
+    return [_context managedObjectContext];
+}
+
+- (void)insertScheduleWithTitle:(NSString *)aString logo:(UIImage *)image backgroundColor:(NSInteger)colorCode {
+    Schedule *schedule = (Schedule *)[self insertNewManagedObjectFromClass:[Schedule class]];
+    schedule.title = aString;
+    // TODO store the image instead of discarding it.
+    schedule.date = [NSDate date];
+    // TODO handle saving of color
+    schedule.colour = [NSNumber numberWithInteger:colorCode];
+    [self saveAll];
+}
+
 +(instancetype)stackWithModelNamed:(NSString *)modelName andStoreFileNamed:(NSString *)storeFileName{
     return [[BBACoreDataStack alloc]initWithModelNamed:modelName andStoreFileNamed:storeFileName];
 }
@@ -37,7 +63,7 @@
     return result;
 }
 
--(void)performFetchForResultsController:(NSFetchedResultsController*)fetchedResultsController{
+-(void)fetchFor:(NSFetchedResultsController*)fetchedResultsController{
     NSError* error = nil;
     BOOL success = [fetchedResultsController performFetch:&error];
     if(!success){

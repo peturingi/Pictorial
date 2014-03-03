@@ -1,38 +1,73 @@
-//
-//  BBAAddScheduleViewController.m
-//  Visual Scheduler
-//
-//  Created by Pétur Ingi Egilsson on 03/03/14.
-//  Copyright (c) 2014 Student Project. All rights reserved.
-//
-
 #import "BBAAddScheduleViewController.h"
+#import "../../CameraComponent/Camera/Camera.h"
+#import "BBACoreDataStack.h"
 
 @interface BBAAddScheduleViewController ()
-@property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
 
+@property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
+@property (strong, nonatomic) Camera *camera;
+@property (strong, nonatomic) UIImage *image;
 @end
 
 @implementation BBAAddScheduleViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupCamera];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)setupCamera {
+    _camera = [[Camera alloc] initWithViewController:self usingDelegate:self];
 }
+
+- (IBAction)showCamera:(id)sender {
+    [_camera show];
+}
+
+- (IBAction)done:(id)sender {
+    if ([self verifyTitle]) {
+        [self createScheduleFromInput];
+        [self dismiss:nil];
+    } else {
+        [self alertUserOfInvalidInput];
+    }
+}
+
+- (void)createScheduleFromInput {
+    [[BBACoreDataStack sharedInstance] insertScheduleWithTitle:schedulesTitle.text logo:nil backgroundColor:0];
+}
+
+- (BOOL)verifyTitle {
+    NSString *title = schedulesTitle.text;
+    if (title.length > 0) {
+        return YES;
+    } else {
+        return NO;
+    }
+}
+
+- (void)alertUserOfInvalidInput {
+    UIAlertView *invalidInput = [[UIAlertView alloc] initWithTitle:@"Warning" message:@"You must specify a title for the schedule." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [invalidInput show];
+}
+
+- (IBAction)dismiss:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+
+#pragma mark - CameraDelegate
+
+- (void)cameraSnappedPhoto {
+    _image = [_camera developPhoto];
+}
+
+#pragma mark - Error Handling
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+}
+
 
 @end

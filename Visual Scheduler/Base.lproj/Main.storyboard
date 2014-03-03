@@ -90,13 +90,28 @@
                                 <rect key="frame" x="0.0" y="0.0" width="540" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="Add Schedule" id="UP8-cF-Leu"/>
+                                    <navigationItem title="Add Schedule" id="UP8-cF-Leu">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="qDb-Z2-Ivi">
+                                            <connections>
+                                                <action selector="dismiss:" destination="eVk-VY-uL6" id="Ghe-LS-Vbk"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Done" id="bNU-Vz-ne4">
+                                            <connections>
+                                                <action selector="done:" destination="eVk-VY-uL6" id="fIi-Vr-6EF"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xww-x8-aSP">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xww-x8-aSP">
                                 <rect key="frame" x="20" y="95" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="eOb-bp-ts9" appends="YES" id="AWr-af-xb8"/>
+                                </connections>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z1N-TD-S7F">
                                 <rect key="frame" x="20" y="57" width="200" height="30"/>
@@ -143,10 +158,19 @@
                     </view>
                     <modalFormSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="backgroundColor" destination="dU8-rd-8Xp" id="xqy-V3-onA"/>
                         <outlet property="navigationBar" destination="ZIP-0o-yav" id="syb-XT-Hhs"/>
+                        <outlet property="schedulesTitle" destination="Z1N-TD-S7F" id="2N1-H8-CfH"/>
+                        <outlet property="showSteps" destination="QRx-XF-vqu" id="FhE-Gh-fbs"/>
+                        <outlet property="showTitle" destination="wWN-ej-5Fm" id="HLh-Ws-sIN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ned-k5-kX6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="eOb-bp-ts9">
+                    <connections>
+                        <action selector="showCamera:" destination="eVk-VY-uL6" id="WxI-i5-w7x"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1670" y="953"/>
         </scene>
