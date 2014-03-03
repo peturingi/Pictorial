@@ -3,6 +3,9 @@
 #import "Schedule.h"
 #import "../../BBACoreDataStack.h"
 
+static NSString * const kCellReuseIdentifier = @"ScheduleCell";
+static NSString * const kSortCellsBy = @"title";
+
 @interface BBAScheduleOverviewViewController ()
     @property (strong, nonatomic) NSFetchedResultsController *dataSource;
     @property (strong, nonatomic) BBACoreDataStack *coreDataStack;
@@ -22,16 +25,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupDataStack];
     [self setupDataSource];
     [self setupUI];
     [self reloadTableView];
 }
 
-- (void)setupDataSource {
+- (void)setupDataStack {
     _coreDataStack = [BBACoreDataStack stackWithModelNamed:@"CoreData" andStoreFileNamed:@"CoreData.sqlite"];
-    NSSortDescriptor *sd = [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES];
-    _dataSource = [_coreDataStack fetchedResultsControllerForEntityClass:[Schedule class] batchSize:20 andSortDescriptors:@[sd]];
-    [_dataSource performFetch:nil];
+}
+
+- (void)setupDataSource {
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:kSortCellsBy ascending:YES];
+    _dataSource = [_coreDataStack fetchedResultsControllerForEntityClass:[Schedule class] batchSize:20 andSortDescriptors:@[sortDescriptor]];
 }
 
 - (void)setupUI {
@@ -47,7 +53,7 @@
 }
 
 - (void)setupTableView {
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"CellInScheduleOverview"];
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kCellReuseIdentifier];
 }
 
 - (void)reloadTableView {
@@ -56,9 +62,10 @@
 }
 
 #pragma mark - Table view data source
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     NSArray *sections = _dataSource.sections;
-    return sections.count;
+    return [sections count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -67,8 +74,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"CellInScheduleOverview";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellReuseIdentifier forIndexPath:indexPath];
     Schedule *schedule = [_dataSource objectAtIndexPath:indexPath];
     cell.textLabel.text = schedule.title;
     return cell;
@@ -118,18 +124,6 @@
     return YES;
 }
 */
-
-/*
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-
- */
 
 #pragma mark - Error Handling
 
