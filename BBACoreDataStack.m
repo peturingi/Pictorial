@@ -1,17 +1,10 @@
-//
-//  BBACoreDataStore.m
-//  TestCoreData
-//
-//  Created by Brian Pedersen on 01/03/14.
-//  Copyright (c) 2014 TestOrg. All rights reserved.
-//
-
 #import "BBACoreDataStack.h"
 #import "BBAModel.h"
 #import "BBAStore.h"
 #import "BBAContext.h"
 
 #import "Schedule.h"
+#import "Activity.h"
 
 @implementation BBACoreDataStack
 
@@ -37,6 +30,7 @@
     schedule.date = [NSDate date];
     // TODO handle saving of color
     schedule.colour = [NSNumber numberWithInteger:colorCode];
+    
     [self saveAll];
 }
 

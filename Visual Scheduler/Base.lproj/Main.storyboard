@@ -104,14 +104,11 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xww-x8-aSP">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xww-x8-aSP">
                                 <rect key="frame" x="20" y="95" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="eOb-bp-ts9" appends="YES" id="AWr-af-xb8"/>
-                                </connections>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z1N-TD-S7F">
                                 <rect key="frame" x="20" y="57" width="200" height="30"/>
@@ -153,12 +150,41 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LCH-lm-U6Y">
+                                <rect key="frame" x="20" y="303" width="200" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Camera"/>
+                                <connections>
+                                    <action selector="showCamera:" destination="eVk-VY-uL6" eventType="touchUpInside" id="rgC-Zj-VMW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rY1-6F-dhI">
+                                <rect key="frame" x="20" y="341" width="200" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Library">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showLibrary:" destination="eVk-VY-uL6" eventType="touchUpInside" id="mpK-vI-a18"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IgH-So-p9e">
+                                <rect key="frame" x="20" y="379" width="200" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Pictograms">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showPictograms:" destination="eVk-VY-uL6" eventType="touchUpInside" id="BdW-yQ-KSh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <modalFormSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="backgroundColor" destination="dU8-rd-8Xp" id="xqy-V3-onA"/>
+                        <outlet property="imageView" destination="xww-x8-aSP" id="E78-XM-83d"/>
                         <outlet property="navigationBar" destination="ZIP-0o-yav" id="syb-XT-Hhs"/>
                         <outlet property="schedulesTitle" destination="Z1N-TD-S7F" id="2N1-H8-CfH"/>
                         <outlet property="showSteps" destination="QRx-XF-vqu" id="FhE-Gh-fbs"/>
@@ -166,13 +192,8 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ned-k5-kX6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="eOb-bp-ts9">
-                    <connections>
-                        <action selector="showCamera:" destination="eVk-VY-uL6" id="WxI-i5-w7x"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1670" y="953"/>
+            <point key="canvasLocation" x="1676" y="1009"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LMG-h6-PzK">

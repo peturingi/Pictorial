@@ -6,6 +6,7 @@
     __weak IBOutlet UISwitch *showSteps;
     __weak IBOutlet UIView *backgroundColor;
     __weak IBOutlet UITextField *schedulesTitle;
+    __weak IBOutlet UIImageView *imageView;
 }
 
 @end

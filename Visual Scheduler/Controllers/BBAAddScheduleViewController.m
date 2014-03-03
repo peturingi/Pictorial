@@ -7,6 +7,7 @@
 @property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
 @property (strong, nonatomic) Camera *camera;
 @property (strong, nonatomic) UIImage *image;
+@property (strong, nonatomic) UIPopoverController *cameraOrPictogramSelection;
 @end
 
 @implementation BBAAddScheduleViewController
@@ -23,6 +24,11 @@
 - (IBAction)showCamera:(id)sender {
     [_camera show];
 }
+- (IBAction)showLibrary:(id)sender {
+}
+- (IBAction)showPictograms:(id)sender {
+}
+
 
 - (IBAction)done:(id)sender {
     if ([self verifyTitle]) {
@@ -54,8 +60,6 @@
 - (IBAction)dismiss:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
-
 
 #pragma mark - CameraDelegate
 
