@@ -45,7 +45,6 @@
     NSAssert(self.delegate, @"Must not be nil!");
     
     if ([Camera isAvailable]) {
-        // Asks the controller to show the camera and inform the delegate after it has appeared.
         [self.controller presentViewController:self.cameraUI animated:YES completion:^{
             if ([self.delegate respondsToSelector:@selector(cameraAppeared)]) {
                 [self.delegate cameraAppeared];
@@ -76,34 +75,33 @@
     UIImage *originalImage;
     NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
     
-    // If a photo was taken.
     if (CFStringCompare((CFStringRef)mediaType, kUTTypeImage , 0) == kCFCompareEqualTo) {
         editedImage = (UIImage *)[info objectForKey:UIImagePickerControllerEditedImage];
         originalImage = (UIImage *)[info objectForKey:UIImagePickerControllerOriginalImage];
         
-        // Override a previous photo if it has not been developed.
         lastPhotoCaptured = editedImage ? editedImage : originalImage;
-        NSAssert(lastPhotoCaptured, @"Must not be nil!");
-        
-        if ([self.delegate respondsToSelector:@selector(cameraSnappedPhoto)]) {
-            [self.delegate cameraSnappedPhoto];
-        }
     }
     [self hide];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    NSAssert(self.controller, @"Must not be nil!");
+    [self deletePreviouslyCapturedPhoto];
     [self hide];
+}
+
+- (void)deletePreviouslyCapturedPhoto {
+    lastPhotoCaptured = nil;
 }
 
 #pragma mark - Code
 
 - (void)hide {
-    NSAssert(self.controller, @"Can not find the controller responsible for hiding the camera.");
-    
-    // Asks the controller to hide the camera and informs the delegate when it has disappeared.
     [self.controller dismissViewControllerAnimated:YES completion:^{
+        if (lastPhotoCaptured) {
+            if ([self.delegate respondsToSelector:@selector(cameraSnappedPhoto)]) {
+                [self.delegate cameraSnappedPhoto];
+            }
+        }
         if ([self.delegate respondsToSelector:@selector(cameraDidDisappear)]) {
             [self.delegate cameraDidDisappear];
         }
