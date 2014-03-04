@@ -6,5 +6,6 @@
 }
 
 @property (weak, nonatomic) UIImage *photo;
+@property (weak, nonatomic) id delegate;
 
 @end

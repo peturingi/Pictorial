@@ -67,6 +67,12 @@
     return uniquePath;
 }
 
+- (void)notifyDelegateOfPictogramCreation {
+    if ([self.delegate respondsToSelector:@selector(BBANewPictogramViewControllerCreatedPictogram)]) {
+        [self.delegate performSelector:@selector(BBANewPictogramViewControllerCreatedPictogram)];
+    }
+}
+
 
 
 @end
