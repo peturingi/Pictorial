@@ -162,7 +162,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1u7-j9-YdA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="544" y="1562"/>
+            <point key="canvasLocation" x="538" y="1562"/>
         </scene>
         <!--Select Pictogram-->
         <scene sceneID="yQK-vJ-uJC">

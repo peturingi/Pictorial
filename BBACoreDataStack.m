@@ -5,6 +5,7 @@
 
 #import "Schedule.h"
 #import "Activity.h"
+#import "Pictogram.h"
 
 @implementation BBACoreDataStack
 
@@ -31,6 +32,14 @@
     // TODO handle saving of color
     schedule.colour = [NSNumber numberWithInteger:colorCode];
     
+    [self saveAll];
+}
+
+- (void)insertPictogramWithTitle:(NSString *)aString andLocation:(NSString *)location {
+    Pictogram *pictogram = (Pictogram *)[self insertNewManagedObjectFromClass:[Pictogram class]];
+    pictogram.title = aString;
+    pictogram.favorited = [NSNumber numberWithBool:NO];
+    pictogram.imageURL = location;
     [self saveAll];
 }
 

@@ -1,5 +1,7 @@
 #import "BBANewPictogramViewController.h"
 #import "Camera.h"
+#import "Pictogram.h"
+#import "../../BBACoreDataStack.h"
 
 @interface BBANewPictogramViewController ()
 @end
@@ -39,13 +41,32 @@
     }
 }
 
-- (void)createPictogramFromInput {
-    
-}
-
 - (void)alertUserOfInvalidTitle {
     UIAlertView *invalidTitle = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You must specify a title." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [invalidTitle show];
 }
+
+- (void)createPictogramFromInput {
+    NSString *title = photoTitle.text;
+    NSString *location = [self locationOfNewPictogram];
+    NSData *imageData = UIImagePNGRepresentation(self.photo);
+    [imageData writeToFile:location atomically:YES];
+    [[BBACoreDataStack sharedInstance] insertPictogramWithTitle:title andLocation:location];
+}
+
+- (NSString *)locationOfNewPictogram {
+    NSString *filePrefix = @"pictogram-";
+    NSString *uniqueString = [[NSProcessInfo processInfo] globallyUniqueString];
+    NSString *uniqueFileName = [filePrefix stringByAppendingString:uniqueString];
+    uniqueFileName = [uniqueFileName stringByAppendingString:uniqueString];
+    
+    NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [dirPaths firstObject];
+    
+    NSString *uniquePath = [documentsDirectory stringByAppendingPathComponent:uniqueFileName];
+    return uniquePath;
+}
+
+
 
 @end

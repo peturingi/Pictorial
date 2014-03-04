@@ -27,5 +27,6 @@
 -(void)saveAll;
 
 - (void)insertScheduleWithTitle:(NSString *)aString logo:(UIImage *)image backgroundColor:(NSInteger)colorCode;
+- (void)insertPictogramWithTitle:(NSString *)aString andLocation:(NSString *)location;
 
 @end
