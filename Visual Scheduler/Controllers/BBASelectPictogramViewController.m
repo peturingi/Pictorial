@@ -2,6 +2,7 @@
 #import "BBANewPictogramViewController.h"
 #import "../../BBACoreDataStack.h"
 #import "Pictogram.h"
+#import "UIView+BBASubviews.h"
 
 NSString * const kCellReusableIdentifier = @"pictogramSelector";
 NSInteger const kCellTagForImageView = 1;
@@ -13,19 +14,13 @@ NSInteger const kCellTagForLabelView = 2;
 
 @implementation BBASelectPictogramViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+- (void)didReceiveMemoryWarning {
+    camera = nil;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"dev: View did load");
     [self setupCoreData];
 }
 
@@ -36,20 +31,17 @@ NSInteger const kCellTagForLabelView = 2;
     [_fetchedResultsController performFetch:nil];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 #pragma mark - Camera
+
 - (IBAction)cameraButton:(id)sender {
     [self setupCamera];
     [self showCamera];
 }
 
 - (void)setupCamera {
-    camera = [[Camera alloc] initWithViewController:self usingDelegate:self];
+    if (!camera) {
+        camera = [[Camera alloc] initWithViewController:self usingDelegate:self];
+    }
 }
 
 - (void)showCamera {
@@ -59,8 +51,7 @@ NSInteger const kCellTagForLabelView = 2;
 }
 
 - (void)alertUserCameraIsNotAvailable {
-    UIAlertView *cameraAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"The camera is unavailable" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [cameraAlert show];
+    [[[UIAlertView alloc] initWithTitle:@"Error" message:@"The camera is unavailable" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
 }
 
 - (void)cameraSnappedPhoto {
@@ -81,22 +72,13 @@ NSInteger const kCellTagForLabelView = 2;
 }
 
 - (void)configureCell:(UICollectionViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    UIImageView *imageView = (UIImageView *)[self subviewOf:cell.contentView withTag:kCellTagForImageView];
+    UIImageView *imageView = (UIImageView *)[cell firstSubviewWithTag:kCellTagForImageView];
     UIImage *image = [self imageForIndexPath:indexPath];
     [imageView setImage:image];
     
-    UILabel *labelView = (UILabel *)[self subviewOf:cell.contentView withTag:kCellTagForLabelView];
+    UILabel *labelView = (UILabel *)[cell firstSubviewWithTag:kCellTagForLabelView];
     NSString *title = [self titleForIndexPath:indexPath];
     [labelView setText:title];
-}
-
-- (UIView *)subviewOf:(UIView *)aView withTag:(NSInteger)tagOfView {
-    for (UIView *subview in aView.subviews) {
-        if (subview.tag == tagOfView) {
-            return subview;
-        }
-    }
-    return nil;
 }
 
 - (UIImage *)imageForIndexPath:(NSIndexPath *)indexPath {
