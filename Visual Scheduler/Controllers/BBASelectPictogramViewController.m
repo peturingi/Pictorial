@@ -73,21 +73,21 @@ NSInteger const kCellTagForLabelView = 2;
 
 - (void)configureCell:(UICollectionViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     UIImageView *imageView = (UIImageView *)[cell.contentView firstSubviewWithTag:kCellTagForImageView];
-    UIImage *image = [self imageForIndexPath:indexPath];
+    UIImage *image = [self imageForPictogramAtIndexPath:indexPath];
     [imageView setImage:image];
     
     UILabel *labelView = (UILabel *)[cell.contentView firstSubviewWithTag:kCellTagForLabelView];
-    NSString *title = [self titleForIndexPath:indexPath];
+    NSString *title = [self titleForPictogramIndexPath:indexPath];
     [labelView setText:title];
 }
 
-- (UIImage *)imageForIndexPath:(NSIndexPath *)indexPath {
+- (UIImage *)imageForPictogramAtIndexPath:(NSIndexPath *)indexPath {
     Pictogram *pictogram = [self.fetchedResultsController objectAtIndexPath:indexPath];
     NSData *imageData = [NSData dataWithContentsOfFile:pictogram.imageURL];
     return [UIImage imageWithData:imageData];
 }
 
-- (NSString *)titleForIndexPath:(NSIndexPath *)indexPath {
+- (NSString *)titleForPictogramIndexPath:(NSIndexPath *)indexPath {
     Pictogram *pictogram = [self.fetchedResultsController objectAtIndexPath:indexPath];
     return pictogram.title;
 }
@@ -99,10 +99,10 @@ NSInteger const kCellTagForLabelView = 2;
 }
 
 #pragma mark - FetcheResultsController delegate
+
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
     [self.collectionView reloadData];
 }
-
 
 #pragma mark - Segues
 
@@ -110,8 +110,7 @@ NSInteger const kCellTagForLabelView = 2;
     if ([segue.identifier isEqualToString:@"newPictogramAskForTitle"]) {
         BBANewPictogramViewController *newPictogram = (BBANewPictogramViewController *)segue.destinationViewController;
         [newPictogram setDelegate:self];
-        UIImage *photo = [camera developPhoto];
-        [newPictogram setPhoto:photo];
+        [newPictogram setPhoto:[camera developPhoto]];
     }
 }
 

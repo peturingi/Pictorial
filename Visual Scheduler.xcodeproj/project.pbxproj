@@ -58,6 +58,8 @@
 		D81AAA1B18B9478600E3B50C /* AudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = D81AAA1A18B9478600E3B50C /* AudioRecorder.m */; };
 		D81AAA1F18B94F0A00E3B50C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D81AAA1E18B94F0A00E3B50C /* AVFoundation.framework */; };
 		D81AAA2018B9949D00E3B50C /* AudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = D81AAA1A18B9478600E3B50C /* AudioRecorder.m */; };
+		D82D5FD118C610C0000A8FD3 /* BBAPictogramCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = D82D5FD018C610C0000A8FD3 /* BBAPictogramCreator.m */; };
+		D82D5FD418C616A6000A8FD3 /* UIView+BBASubviews.m in Sources */ = {isa = PBXBuildFile; fileRef = D82D5FD318C616A6000A8FD3 /* UIView+BBASubviews.m */; };
 		D82E748618B7E49C0031BF2B /* milk.png in Resources */ = {isa = PBXBuildFile; fileRef = D82E748518B7E49C0031BF2B /* milk.png */; };
 		D83171D718C4ABB50043A7E4 /* TestModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6851470218C4A742002CF73F /* TestModel.xcdatamodeld */; };
 		D83A62BC18B696DC00EC0773 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BB18B696DC00EC0773 /* Foundation.framework */; };
@@ -180,6 +182,10 @@
 		D81AAA1A18B9478600E3B50C /* AudioRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioRecorder.m; path = AudioRecorder/AudioRecorder.m; sourceTree = "<group>"; };
 		D81AAA1C18B9479B00E3B50C /* AudioRecorderDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AudioRecorderDelegate.h; path = AudioRecorder/AudioRecorderDelegate.h; sourceTree = "<group>"; };
 		D81AAA1E18B94F0A00E3B50C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		D82D5FCF18C610C0000A8FD3 /* BBAPictogramCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBAPictogramCreator.h; path = Controllers/BBAPictogramCreator.h; sourceTree = "<group>"; };
+		D82D5FD018C610C0000A8FD3 /* BBAPictogramCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBAPictogramCreator.m; path = Controllers/BBAPictogramCreator.m; sourceTree = "<group>"; };
+		D82D5FD218C616A6000A8FD3 /* UIView+BBASubviews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+BBASubviews.h"; path = "Visual Scheduler/Category/UIView+BBASubviews.h"; sourceTree = "<group>"; };
+		D82D5FD318C616A6000A8FD3 /* UIView+BBASubviews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+BBASubviews.m"; path = "Visual Scheduler/Category/UIView+BBASubviews.m"; sourceTree = "<group>"; };
 		D82E748518B7E49C0031BF2B /* milk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = milk.png; sourceTree = "<group>"; };
 		D82E748718B7E8220031BF2B /* CoreData 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CoreData 2.xcdatamodel"; sourceTree = "<group>"; };
 		D83A62B818B696DC00EC0773 /* Visual Scheduler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Visual Scheduler.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -629,6 +635,8 @@
 			children = (
 				D8805F3D18C5DD01001BD35B /* BBANewPictogramViewController.h */,
 				D8805F3E18C5DD01001BD35B /* BBANewPictogramViewController.m */,
+				D82D5FCF18C610C0000A8FD3 /* BBAPictogramCreator.h */,
+				D82D5FD018C610C0000A8FD3 /* BBAPictogramCreator.m */,
 			);
 			name = "New Pictogram";
 			sourceTree = "<group>";
@@ -638,6 +646,8 @@
 			children = (
 				D8805F4518C5E456001BD35B /* BBASelectPictogramViewController.h */,
 				D8805F4618C5E456001BD35B /* BBASelectPictogramViewController.m */,
+				D82D5FD218C616A6000A8FD3 /* UIView+BBASubviews.h */,
+				D82D5FD318C616A6000A8FD3 /* UIView+BBASubviews.m */,
 			);
 			name = "Select Pictogram";
 			path = ..;
@@ -1032,11 +1042,13 @@
 				D8DB7FE618C4C46C00BA2037 /* BBAModel.m in Sources */,
 				D8DB7FE518C4C46600BA2037 /* BBAContext.m in Sources */,
 				D81AAA2018B9949D00E3B50C /* AudioRecorder.m in Sources */,
+				D82D5FD418C616A6000A8FD3 /* UIView+BBASubviews.m in Sources */,
 				D8805F3F18C5DD01001BD35B /* BBANewPictogramViewController.m in Sources */,
 				D8DB7FF518C4DA2300BA2037 /* BBAAddScheduleViewController.m in Sources */,
 				D8DB7FEC18C4CA3900BA2037 /* Activity.m in Sources */,
 				D81AA9AE18B91E7C00E3B50C /* Camera.m in Sources */,
 				D8DB7FEE18C4CA3900BA2037 /* Pictogram.m in Sources */,
+				D82D5FD118C610C0000A8FD3 /* BBAPictogramCreator.m in Sources */,
 				D8805F4718C5E456001BD35B /* BBASelectPictogramViewController.m in Sources */,
 				D8DB7FED18C4CA3900BA2037 /* Schedule.m in Sources */,
 				D83A62CC18B696DC00EC0773 /* AppDelegate.m in Sources */,

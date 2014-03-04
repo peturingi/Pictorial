@@ -2,9 +2,6 @@
 #import "CameraDelegate.h"
 
 @interface Camera : NSObject <UINavigationControllerDelegate, UIImagePickerControllerDelegate> {
-    
-    /** The last photo taken.
-     */
     __strong UIImage *lastPhotoCaptured;
 }
 
@@ -25,8 +22,6 @@
  */
 - (BOOL)show;
 
-/** Hide the camera
- */
 - (void)hide;
 
 /** Develops the photo contained within the camera.
@@ -36,10 +31,6 @@
  */
 - (UIImage *)developPhoto;
 
-#pragma mark - Class Methods
-/** Is the camera device available?
- @return YES The device is available, else NO.
- */
 + (BOOL)isAvailable;
 
 @end
