@@ -1,7 +1,5 @@
 #import "BBANewPictogramViewController.h"
-#import "Camera.h"
-#import "Pictogram.h"
-#import "../../BBACoreDataStack.h"
+#import "BBAPictogramCreator.h"
 
 @interface BBANewPictogramViewController ()
 @end
@@ -22,7 +20,8 @@
 
 - (IBAction)doneButton:(id)sender {
     if ([self verifyTitle]) {
-        [self createPictogramFromUserInput];
+        [BBAPictogramCreator savePictogramFromUserInputWith:photoTitle.text with:photoView.image];
+        [self notifyDelegateOfPictogramCreation];
         [self dismissViewController];
     } else {
         [self alertUserOfInvalidTitle];
@@ -35,34 +34,6 @@
 
 - (void)alertUserOfInvalidTitle {
     [[[UIAlertView alloc] initWithTitle:@"Error" message:@"You must specify a title." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-}
-
-- (void)createPictogramFromUserInput {
-    NSString *destination = [self destinationForPictogram];
-    [self saveImageAt:destination];
-    [[BBACoreDataStack sharedInstance] insertPictogramWithTitle:photoTitle.text andLocation:destination];
-}
-
-- (void)saveImageAt:(NSString *)destination {
-    NSData *imageData = UIImagePNGRepresentation(self.photo);
-    [imageData writeToFile:destination atomically:YES];
-}
-
-- (NSString *)destinationForPictogram {
-    NSString *uniqueFileName = [self uniqueFileName];
-    NSString *documentDir = [self documentDirectory];
-    return [documentDir stringByAppendingString:uniqueFileName];
-}
-
-- (NSString *)uniqueFileName {
-    NSString *prefix = @"pictogram-";
-    NSString *uniqueString = [[NSProcessInfo processInfo] globallyUniqueString];
-    return [prefix stringByAppendingString:uniqueString];
-}
-
-- (NSString *)documentDirectory {
-    NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    return [dirPaths firstObject];
 }
 
 #pragma clang diagnostic push
