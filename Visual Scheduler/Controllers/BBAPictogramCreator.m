@@ -29,7 +29,7 @@
 - (NSString *)destinationForPictogram {
     NSString *uniqueFileName = [self uniqueFileName];
     NSString *documentDir = [self documentDirectory];
-    return [documentDir stringByAppendingString:uniqueFileName];
+    return [documentDir stringByAppendingPathComponent:uniqueFileName];
 }
 
 - (NSString *)uniqueFileName {

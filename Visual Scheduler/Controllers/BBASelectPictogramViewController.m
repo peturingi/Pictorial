@@ -14,10 +14,6 @@ NSInteger const kCellTagForLabelView = 2;
 
 @implementation BBASelectPictogramViewController
 
-- (void)didReceiveMemoryWarning {
-    camera = nil;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -39,9 +35,7 @@ NSInteger const kCellTagForLabelView = 2;
 }
 
 - (void)setupCamera {
-    if (!camera) {
         camera = [[Camera alloc] initWithViewController:self usingDelegate:self];
-    }
 }
 
 - (void)showCamera {
