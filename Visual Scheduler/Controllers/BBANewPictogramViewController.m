@@ -8,71 +8,72 @@
 
 @implementation BBANewPictogramViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-
 - (void)viewWillAppear:(BOOL)animated {
     [photoView setImage:self.photo];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
 - (IBAction)cancelButton:(id)sender {
+    [self dismissViewController];
+}
+
+- (void)dismissViewController {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
 - (IBAction)doneButton:(id)sender {
     if ([self verifyTitle]) {
-        [self createPictogramFromInput];
-        [self dismissViewControllerAnimated:YES completion:nil];
+        [self createPictogramFromUserInput];
+        [self dismissViewController];
     } else {
         [self alertUserOfInvalidTitle];
     }
 }
 
 - (BOOL)verifyTitle {
-    NSString *title = photoTitle.text;
-    if (title.length > 0) {
-        return YES;
-    }
-    else {
-        return NO;
-    }
+    return ([photoTitle.text length] > 0) ? YES : NO;
 }
 
 - (void)alertUserOfInvalidTitle {
-    UIAlertView *invalidTitle = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You must specify a title." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [invalidTitle show];
+    [[[UIAlertView alloc] initWithTitle:@"Error" message:@"You must specify a title." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
 }
 
-- (void)createPictogramFromInput {
-    NSString *title = photoTitle.text;
-    NSString *location = [self locationOfNewPictogram];
+- (void)createPictogramFromUserInput {
+    NSString *destination = [self destinationForPictogram];
+    [self saveImageAt:destination];
+    [[BBACoreDataStack sharedInstance] insertPictogramWithTitle:photoTitle.text andLocation:destination];
+}
+
+- (void)saveImageAt:(NSString *)destination {
     NSData *imageData = UIImagePNGRepresentation(self.photo);
-    [imageData writeToFile:location atomically:YES];
-    [[BBACoreDataStack sharedInstance] insertPictogramWithTitle:title andLocation:location];
+    [imageData writeToFile:destination atomically:YES];
 }
 
-- (NSString *)locationOfNewPictogram {
-    NSString *filePrefix = @"pictogram-";
+- (NSString *)destinationForPictogram {
+    NSString *uniqueFileName = [self uniqueFileName];
+    NSString *documentDir = [self documentDirectory];
+    return [documentDir stringByAppendingString:uniqueFileName];
+}
+
+- (NSString *)uniqueFileName {
+    NSString *prefix = @"pictogram-";
     NSString *uniqueString = [[NSProcessInfo processInfo] globallyUniqueString];
-    NSString *uniqueFileName = [filePrefix stringByAppendingString:uniqueString];
-    uniqueFileName = [uniqueFileName stringByAppendingString:uniqueString];
-    
-    NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [dirPaths firstObject];
-    
-    NSString *uniquePath = [documentsDirectory stringByAppendingPathComponent:uniqueFileName];
-    return uniquePath;
+    return [prefix stringByAppendingString:uniqueString];
 }
 
+- (NSString *)documentDirectory {
+    NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    return [dirPaths firstObject];
+}
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
 - (void)notifyDelegateOfPictogramCreation {
-    if ([self.delegate respondsToSelector:@selector(BBANewPictogramViewControllerCreatedPictogram)]) {
-        [self.delegate performSelector:@selector(BBANewPictogramViewControllerCreatedPictogram)];
+    SEL delegateMethod = NSSelectorFromString(@"BBANewPictogramViewControllerCreatedPictogram");
+    if ([self.delegate respondsToSelector:delegateMethod]) {
+        [self.delegate performSelector:delegateMethod];
     }
 }
-
+#pragma clang diagnostic pop
 
 
 @end
