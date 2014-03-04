@@ -72,11 +72,11 @@ NSInteger const kCellTagForLabelView = 2;
 }
 
 - (void)configureCell:(UICollectionViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    UIImageView *imageView = (UIImageView *)[cell firstSubviewWithTag:kCellTagForImageView];
+    UIImageView *imageView = (UIImageView *)[cell.contentView firstSubviewWithTag:kCellTagForImageView];
     UIImage *image = [self imageForIndexPath:indexPath];
     [imageView setImage:image];
     
-    UILabel *labelView = (UILabel *)[cell firstSubviewWithTag:kCellTagForLabelView];
+    UILabel *labelView = (UILabel *)[cell.contentView firstSubviewWithTag:kCellTagForLabelView];
     NSString *title = [self titleForIndexPath:indexPath];
     [labelView setText:title];
 }
