@@ -46,8 +46,8 @@
     
     if ([Camera isAvailable]) {
         [self.controller presentViewController:self.cameraUI animated:YES completion:^{
-            if ([self.delegate respondsToSelector:@selector(cameraAppeared)]) {
-                [self.delegate cameraAppeared];
+            if ([self.delegate respondsToSelector:@selector(cameraDidAppear:)]) {
+                [self.delegate cameraDidAppear:self];
             }
         }];
         return YES;
@@ -98,12 +98,12 @@
 - (void)hide {
     [self.controller dismissViewControllerAnimated:YES completion:^{
         if (lastPhotoCaptured) {
-            if ([self.delegate respondsToSelector:@selector(cameraSnappedPhoto)]) {
-                [self.delegate cameraSnappedPhoto];
+            if ([self.delegate respondsToSelector:@selector(cameraDidSnapPhoto:)]) {
+                [self.delegate cameraDidSnapPhoto:self];
             }
         }
-        if ([self.delegate respondsToSelector:@selector(cameraDidDisappear)]) {
-            [self.delegate cameraDidDisappear];
+        if ([self.delegate respondsToSelector:@selector(cameraDidDisappear:)]) {
+            [self.delegate cameraDidDisappear:self];
         }
     }];
 }

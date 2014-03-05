@@ -46,10 +46,10 @@
 - (void)cameraDidDisappear {
     NSLog(@"Camera did disappear");
 }
-- (void)cameraAppeared {
+- (void)cameraDidAppear:(Camera *)camera {
     NSLog(@"Camera appeared");
 }
-- (void)cameraSnappedPhoto {
+- (void)cameraDidSnapPhoto:(Camera *)camera {
     NSLog(@"Camera took a photo!");
     UIImage *img = [self.camera developPhoto];
     [self.view addSubview:[[UIImageView alloc] initWithImage:img]];

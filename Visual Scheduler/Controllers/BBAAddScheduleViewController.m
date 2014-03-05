@@ -63,7 +63,7 @@
 
 #pragma mark - CameraDelegate
 
-- (void)cameraSnappedPhoto {
+- (void)cameraDidSnapPhoto:(Camera *)camera {
     _image = [_camera developPhoto];
 }
 

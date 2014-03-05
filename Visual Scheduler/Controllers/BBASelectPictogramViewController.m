@@ -15,8 +15,7 @@ NSInteger const kCellTagForLabelView = 2;
 
 @implementation BBASelectPictogramViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     [self setupCoreData];
 }
@@ -46,6 +45,8 @@ NSInteger const kCellTagForLabelView = 2;
         camera = [[Camera alloc] initWithViewController:self usingDelegate:self];
 }
 
+#pragma mark Camera Delegate
+
 - (void)showCamera {
     if (![camera show]) {
         [self alertUserCameraIsNotAvailable];
@@ -56,7 +57,7 @@ NSInteger const kCellTagForLabelView = 2;
     [[[UIAlertView alloc] initWithTitle:@"Error" message:@"The camera is unavailable" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
 }
 
-- (void)cameraSnappedPhoto {
+- (void)cameraDidSnapPhoto:(Camera *)camera {
     [self performSegueWithIdentifier:@"newPictogramAskForTitle" sender:nil];
 }
 
