@@ -217,7 +217,11 @@
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Select a Pictogram" id="33y-hS-ZDq">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="ZA2-01-otg"/>
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="8fm-7D-Bhi"/>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="8fm-7D-Bhi">
+                            <connections>
+                                <action selector="doneButton:" destination="y0V-LV-Sxe" id="paN-WG-OR2"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="Vl8-8o-MeU" kind="modal" identifier="newPictogramAskForTitle" modalPresentationStyle="formSheet" animates="NO" id="rhG-M6-40r"/>

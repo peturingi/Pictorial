@@ -215,6 +215,7 @@
 		D8805F3E18C5DD01001BD35B /* BBANewPictogramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBANewPictogramViewController.m; path = Controllers/BBANewPictogramViewController.m; sourceTree = "<group>"; };
 		D8805F4518C5E456001BD35B /* BBASelectPictogramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBASelectPictogramViewController.h; path = "Visual Scheduler/Controllers/BBASelectPictogramViewController.h"; sourceTree = "<group>"; };
 		D8805F4618C5E456001BD35B /* BBASelectPictogramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBASelectPictogramViewController.m; path = "Visual Scheduler/Controllers/BBASelectPictogramViewController.m"; sourceTree = "<group>"; };
+		D88CF2B618C71B5300AF0CC1 /* BBASelectPictogramViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BBASelectPictogramViewControllerDelegate.h; path = "Visual Scheduler/Controllers/BBASelectPictogramViewControllerDelegate.h"; sourceTree = "<group>"; };
 		D8B49E5F18B8025500788073 /* SearchViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SearchViewControllerDelegate.h; path = Protocols/SearchViewControllerDelegate.h; sourceTree = "<group>"; };
 		D8B49E6118B8141E00788073 /* SearchViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewControllerTests.m; path = Controllers/SearchViewControllerTests.m; sourceTree = "<group>"; };
 		D8B49E6518B823A000788073 /* TagManagementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TagManagementViewController.h; path = Controllers/TagManagementViewController.h; sourceTree = "<group>"; };
@@ -646,6 +647,7 @@
 			children = (
 				D8805F4518C5E456001BD35B /* BBASelectPictogramViewController.h */,
 				D8805F4618C5E456001BD35B /* BBASelectPictogramViewController.m */,
+				D88CF2B618C71B5300AF0CC1 /* BBASelectPictogramViewControllerDelegate.h */,
 				D82D5FD218C616A6000A8FD3 /* UIView+BBASubviews.h */,
 				D82D5FD318C616A6000A8FD3 /* UIView+BBASubviews.m */,
 			);

@@ -10,6 +10,7 @@ NSInteger const kCellTagForLabelView = 2;
 
 @interface BBASelectPictogramViewController ()
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) NSManagedObjectID *selectedItem;
 @end
 
 @implementation BBASelectPictogramViewController
@@ -28,6 +29,13 @@ NSInteger const kCellTagForLabelView = 2;
 }
 
 #pragma mark - Camera
+
+- (IBAction)doneButton:(id)sender {
+}
+
+- (void)informDelegateWhichItemWasSelected {
+    [self.delegate BBASelectPictogramViewController:self didSelectItem:_selectedItem];
+}
 
 - (IBAction)cameraButton:(id)sender {
     [self setupCamera];
@@ -53,6 +61,11 @@ NSInteger const kCellTagForLabelView = 2;
 }
 
 #pragma mark - UICollectionView
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    _selectedItem = [_fetchedResultsController objectAtIndexPath:indexPath];
+    [self informDelegateWhichItemWasSelected];
+}
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     NSArray *fetchedObjects = [[self fetchedResultsController] fetchedObjects];
