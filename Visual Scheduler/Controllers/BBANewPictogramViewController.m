@@ -21,7 +21,6 @@
 - (IBAction)doneButton:(id)sender {
     if ([self verifyTitle]) {
         [BBAPictogramCreator savePictogramFromUserInputWith:photoTitle.text with:photoView.image];
-        [self notifyDelegateOfPictogramCreation];
         [self dismissViewController];
     } else {
         [self alertUserOfInvalidTitle];
@@ -35,16 +34,5 @@
 - (void)alertUserOfInvalidTitle {
     [[[UIAlertView alloc] initWithTitle:@"Error" message:@"You must specify a title." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
 }
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-- (void)notifyDelegateOfPictogramCreation {
-    SEL delegateMethod = NSSelectorFromString(@"BBANewPictogramViewControllerCreatedPictogram");
-    if ([self.delegate respondsToSelector:delegateMethod]) {
-        [self.delegate performSelector:delegateMethod];
-    }
-}
-#pragma clang diagnostic pop
-
 
 @end

@@ -32,10 +32,6 @@ NSInteger const kCellTagForLabelView = 2;
 - (IBAction)doneButton:(id)sender {
 }
 
-- (void)informDelegateWhichItemWasSelected {
-    [self.delegate BBASelectPictogramViewController:self didSelectItem:_selectedItem];
-}
-
 - (IBAction)cameraButton:(id)sender {
     [self setupCamera];
     [self showCamera];
@@ -44,8 +40,6 @@ NSInteger const kCellTagForLabelView = 2;
 - (void)setupCamera {
         camera = [[Camera alloc] initWithViewController:self usingDelegate:self];
 }
-
-#pragma mark Camera Delegate
 
 - (void)showCamera {
     if (![camera show]) {
@@ -57,6 +51,8 @@ NSInteger const kCellTagForLabelView = 2;
     [[[UIAlertView alloc] initWithTitle:@"Error" message:@"The camera is unavailable" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
 }
 
+#pragma mark Camera Delegate
+
 - (void)cameraDidSnapPhoto:(Camera *)camera {
     [self performSegueWithIdentifier:@"newPictogramAskForTitle" sender:nil];
 }
@@ -66,6 +62,10 @@ NSInteger const kCellTagForLabelView = 2;
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     _selectedItem = [_fetchedResultsController objectAtIndexPath:indexPath];
     [self informDelegateWhichItemWasSelected];
+}
+
+- (void)informDelegateWhichItemWasSelected {
+    [self.delegate BBASelectPictogramViewController:self didSelectItem:_selectedItem];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -98,12 +98,6 @@ NSInteger const kCellTagForLabelView = 2;
 - (NSString *)titleForPictogramIndexPath:(NSIndexPath *)indexPath {
     Pictogram *pictogram = [self.fetchedResultsController objectAtIndexPath:indexPath];
     return pictogram.title;
-}
-
-#pragma mark - BBANewPictogramViewController delegate
-
-- (void)BBANewPictogramViewControllerCreatedPictogram {
-    [self.fetchedResultsController performFetch:nil];
 }
 
 #pragma mark - FetcheResultsController delegate
