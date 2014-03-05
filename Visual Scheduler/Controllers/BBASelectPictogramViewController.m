@@ -62,10 +62,12 @@ NSInteger const kCellTagForLabelView = 2;
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     _selectedItem = [_fetchedResultsController objectAtIndexPath:indexPath];
     [self informDelegateWhichItemWasSelected];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)informDelegateWhichItemWasSelected {
-    [self.delegate BBASelectPictogramViewController:self didSelectItem:_selectedItem];
+    [self.delegate BBASelectPictogramViewController:self didSelectItem:(Pictogram *)_selectedItem];
+    
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {

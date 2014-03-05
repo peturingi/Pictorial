@@ -1,10 +1,7 @@
 #import <UIKit/UIKit.h>
-#import "../../CameraComponent/Camera/CameraDelegate.h"
+#import "BBASelectPictogramViewControllerDelegate.h"
 
-@interface BBAAddScheduleViewController : UIViewController <CameraDelegate> {
-    __weak IBOutlet UISwitch *showTitle;
-    __weak IBOutlet UISwitch *showSteps;
-    __weak IBOutlet UIView *backgroundColor;
+@interface BBAAddScheduleViewController : UIViewController <BBASelectPictogramViewControllerDelegate> {
     __weak IBOutlet UITextField *schedulesTitle;
     __weak IBOutlet UIImageView *imageView;
 }

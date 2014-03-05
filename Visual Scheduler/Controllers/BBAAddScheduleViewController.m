@@ -1,34 +1,20 @@
 #import "BBAAddScheduleViewController.h"
-#import "../../CameraComponent/Camera/Camera.h"
 #import "BBACoreDataStack.h"
+#import "Pictogram.h"
+#import "BBASelectPictogramViewController.h"
 
 @interface BBAAddScheduleViewController ()
 
 @property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
-@property (strong, nonatomic) Camera *camera;
 @property (strong, nonatomic) UIImage *image;
-@property (strong, nonatomic) UIPopoverController *cameraOrPictogramSelection;
+
 @end
 
 @implementation BBAAddScheduleViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupCamera];
 }
-
-- (void)setupCamera {
-    _camera = [[Camera alloc] initWithViewController:self usingDelegate:self];
-}
-
-- (IBAction)showCamera:(id)sender {
-    [_camera show];
-}
-- (IBAction)showLibrary:(id)sender {
-}
-- (IBAction)showPictograms:(id)sender {
-}
-
 
 - (IBAction)done:(id)sender {
     if ([self verifyTitle]) {
@@ -40,7 +26,7 @@
 }
 
 - (void)createScheduleFromInput {
-    [[BBACoreDataStack sharedInstance] insertScheduleWithTitle:schedulesTitle.text logo:nil backgroundColor:0];
+    [[BBACoreDataStack sharedInstance] insertScheduleWithTitle:schedulesTitle.text logo:imageView.image backgroundColor:0];
 }
 
 - (BOOL)verifyTitle {
@@ -58,19 +44,24 @@
 }
 
 - (IBAction)dismiss:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
-#pragma mark - CameraDelegate
-
-- (void)cameraDidSnapPhoto:(Camera *)camera {
-    _image = [_camera developPhoto];
+- (IBAction)imageViewTouched:(id)sender {
+    [self performSegueWithIdentifier:@"showPictogramSelector" sender:nil];
 }
 
-#pragma mark - Error Handling
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([[segue identifier] isEqualToString:@"showPictogramSelector"]) {
+        BBASelectPictogramViewController *destinationView = [segue destinationViewController];
+        [destinationView setDelegate:self];
+    }
+}
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
+- (void)BBASelectPictogramViewController:(BBASelectPictogramViewController *)controller didSelectItem:(Pictogram *)item {
+    UIImage *pictogramImage = [UIImage imageWithContentsOfFile:item.imageURL];
+    [imageView setImage:pictogramImage];
 }
 
 
