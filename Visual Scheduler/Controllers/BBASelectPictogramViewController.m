@@ -110,9 +110,9 @@ NSInteger const kCellTagForLabelView = 2;
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"newPictogramAskForTitle"]) {
-        BBANewPictogramViewController *newPictogram = (BBANewPictogramViewController *)segue.destinationViewController;
-        [newPictogram setDelegate:self];
-        [newPictogram setPhoto:[camera developPhoto]];
+        BBANewPictogramViewController *newPictogramViewController = (BBANewPictogramViewController *)segue.destinationViewController;
+        [newPictogramViewController setDelegate:self];
+        [newPictogramViewController setPhoto:[camera developPhoto]];
     }
 }
 

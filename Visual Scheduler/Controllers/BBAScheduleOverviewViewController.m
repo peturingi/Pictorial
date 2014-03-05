@@ -3,8 +3,8 @@
 #import "../../BBACoreDataStack.h"
 #import "Show Schedule/BBAShowScheduleViewController.h"
 
-static NSString * const kCellReuseIdentifier = @"ScheduleCell";
-static NSString * const kSortCellsBy = @"title";
+static NSString * const kBBACellReuseIdentifier = @"ScheduleCell";
+static NSString * const kBBASortCellsBy = @"title";
 
 @interface BBAScheduleOverviewViewController ()
     @property (strong, nonatomic) NSFetchedResultsController *dataSource;
@@ -12,29 +12,12 @@ static NSString * const kSortCellsBy = @"title";
 
 @implementation BBAScheduleOverviewViewController
 
-- (id)initWithStyle:(UITableViewStyle)style {
-    self = [super initWithStyle:style];
-    if (self) {
-
-    }
-    return self;
-}
-
 #pragma mark viewDidLoad
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupDataSource];
     [self setupUI];
-    [self reloadTableView];
-}
-
-- (void)setupDataSource {
-// TODO Temporary implementation for use during development. Change to a proper one before release.
-    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:kSortCellsBy ascending:YES];
-    BBACoreDataStack *coreDataStack = [BBACoreDataStack sharedInstance];
-    _dataSource = [coreDataStack fetchedResultsControllerForEntityClass:[Schedule class] batchSize:20 andSortDescriptors:@[sortDescriptor]];
-    _dataSource.delegate = self;
+    [self setupDataSource];
 }
 
 - (void)setupUI {
@@ -50,12 +33,16 @@ static NSString * const kSortCellsBy = @"title";
 }
 
 - (void)setupTableView {
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kCellReuseIdentifier];
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kBBACellReuseIdentifier];
 }
 
-- (void)reloadTableView {
+- (void)setupDataSource {
+    // TODO Temporary implementation for use during development. Change to a proper one before release.
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:kBBASortCellsBy ascending:YES];
+    BBACoreDataStack *coreDataStack = [BBACoreDataStack sharedInstance];
+    _dataSource = [coreDataStack fetchedResultsControllerForEntityClass:[Schedule class] batchSize:20 andSortDescriptors:@[sortDescriptor]];
+    _dataSource.delegate = self;
     [[BBACoreDataStack sharedInstance] fetchFor:_dataSource];
-    [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source
@@ -66,20 +53,25 @@ static NSString * const kSortCellsBy = @"title";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    id <NSFetchedResultsSectionInfo> sectionInfo = [_dataSource sections][section];
+    id <NSFetchedResultsSectionInfo> sectionInfo = [[_dataSource sections] objectAtIndex:section];
     return [sectionInfo numberOfObjects];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellReuseIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kBBACellReuseIdentifier forIndexPath:indexPath];
     Schedule *schedule = [_dataSource objectAtIndexPath:indexPath];
     cell.textLabel.text = schedule.title;
     return cell;
 }
 
 #pragma mark - FetchedResultsController Delegate
+
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
     [self reloadTableView];
+}
+
+- (void)reloadTableView {
+    [self.tableView reloadData];
 }
 
 #pragma mark - UI Interaction
@@ -139,11 +131,5 @@ static NSString * const kSortCellsBy = @"title";
     return YES;
 }
 */
-
-#pragma mark - Error Handling
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
 
 @end

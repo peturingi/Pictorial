@@ -52,7 +52,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="DFT-b6-o8F">
-                                <rect key="frame" x="0.0" y="22" width="768" height="44"/>
+                                <rect key="frame" x="0.0" y="86" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DFT-b6-o8F" id="xez-u4-XYv">
                                     <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
@@ -180,7 +180,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="pictogramSelector" id="rLe-sd-dbw">
-                                <rect key="frame" x="0.0" y="64" width="240" height="269"/>
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="269"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="240" height="269"/>
@@ -371,7 +371,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
-                        <segue destination="y0V-LV-Sxe" kind="relationship" relationship="rootViewController" id="6IU-Jf-YcK"/>
+                        <segue destination="bnG-DL-C5g" kind="relationship" relationship="rootViewController" id="0db-Nb-3fW"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jOM-wJ-ZzT" userLabel="First Responder" sceneMemberID="firstResponder"/>
