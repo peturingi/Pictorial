@@ -1,11 +1,3 @@
-//
-//  TestBBAStore.m
-//  TestCoreData
-//
-//  Created by Brian Pedersen on 02/03/14.
-//  Copyright (c) 2014 TestOrg. All rights reserved.
-//
-
 #import <XCTest/XCTest.h>
 #import "BBAStore.h"
 #import "BBAModel.h"
