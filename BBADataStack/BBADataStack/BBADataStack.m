@@ -10,6 +10,20 @@
     return [[BBADataStack alloc]initWithModelNamed:modelName andStoreFileNamed:storeFileName];
 }
 
++(instancetype)stackInMemoryWithModelNamed:(NSString*)name{
+    return [[BBADataStack alloc]initInMemoryWithModelNamed:name];
+}
+
+-(id)initInMemoryWithModelNamed:(NSString*)name{
+    self = [super init];
+    if(self){
+        _model = [BBAModel modelFromModelNamed:name];
+        _store = [BBAStore inMemoryStoreWithModel:[_model managedObjectModel]];
+        _context = [BBAContext contextWithStore:[_store persistentStoreCoordinator]];
+    }
+    return self;
+}
+
 -(NSFetchedResultsController*)fetchedResultsControllerFromFetchRequest:(NSFetchRequest*)request{
     return [[NSFetchedResultsController alloc]initWithFetchRequest:request
                                                     managedObjectContext:[_context managedObjectContext]

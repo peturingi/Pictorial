@@ -7,6 +7,31 @@
     return [[BBAStore alloc]initWithModel:model andStoreFileURL:storeFileURL];
 }
 
++(instancetype)inMemoryStoreWithModel:(NSManagedObjectModel *)model{
+    return [[BBAStore alloc]initInMemoryWithModel:model];
+}
+
+-(id)initInMemoryWithModel:(NSManagedObjectModel*)model{
+    self = [super init];
+    if(self){
+        [self verifyModel:model];
+        [self setupInMemoryStoreCoordinatorWithModel:model];
+    }
+    return self;
+}
+
+-(void)setupInMemoryStoreCoordinatorWithModel:(NSManagedObjectModel*)model{
+    _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
+    NSError *error = nil;
+    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSInMemoryStoreType
+                                                   configuration:nil
+                                                             URL:nil
+                                                         options:@{NSMigratePersistentStoresAutomaticallyOption: @YES}
+                                                           error:&error]){
+        [NSException raise:@"Failed to initialize persistency store" format:@"Failed to initialize the persistent store coordinator with the provided options. This is either due to a failed migration or an invalid store file url. The generated error is: %@", error];
+    }
+}
+
 -(NSPersistentStoreCoordinator*)persistentStoreCoordinator{
     return _persistentStoreCoordinator;
 }

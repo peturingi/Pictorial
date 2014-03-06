@@ -17,4 +17,5 @@
 
 +(void)save;
 +(void)modelNamed:(NSString*)name andStore:(NSString*)store;
++(void)modelWithStoreInMemoryNamed:(NSString*)name;
 @end

@@ -14,6 +14,8 @@
 
 +(instancetype)stackWithModelNamed:(NSString*)modelName andStoreFileNamed:(NSString*)storeFileName;
 
++(instancetype)stackInMemoryWithModelNamed:(NSString*)name;
+
 -(NSArray*)resultFromFetchRequest:(NSFetchRequest*)fetchRequest;
 -(NSFetchedResultsController*)fetchedResultsControllerFromFetchRequest:(NSFetchRequest*)request;
 -(NSFetchRequest*)fetchRequestForEntityClass:(Class)aClass;

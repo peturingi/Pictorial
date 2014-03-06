@@ -22,6 +22,11 @@
     
 }
 
++(void)modelWithStoreInMemoryNamed:(NSString*)name{
+    BBADataStack* datastack = [BBADataStack stackInMemoryWithModelNamed:name];
+    [BBAServiceProvider insertService:datastack];
+}
+
 +(BBADataStack*)datastack{
     return [BBAServiceProvider serviceFromClass:[BBADataStack class]];
 }

@@ -6,6 +6,7 @@
 }
 
 +(instancetype)storeWithModel:(NSManagedObjectModel*)model andStoreFileURL:(NSURL*)storeFileURL;
++(instancetype)inMemoryStoreWithModel:(NSManagedObjectModel*)model;
 -(NSPersistentStoreCoordinator*)persistentStoreCoordinator;
 
 @end
