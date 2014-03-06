@@ -2,14 +2,14 @@
 //  Schedule.h
 //  BBAModel
 //
-//  Created by Brian Pedersen on 06/03/14.
+//  Created by Pétur Ingi Egilsson on 06/03/14.
 //  Copyright (c) 2014 BBA. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Activity;
+@class Activity, Pictogram;
 
 @interface Schedule : NSManagedObject
 
@@ -17,6 +17,7 @@
 @property (nonatomic, retain) NSDate * date;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSOrderedSet *activity;
+@property (nonatomic, retain) Pictogram *logo;
 @end
 
 @interface Schedule (CoreDataGeneratedAccessors)

@@ -36,13 +36,13 @@
 		68BAADAF18C883A70040E86A /* CoreData.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 68BAADAD18C8822D0040E86A /* CoreData.xcdatamodeld */; };
 		68BAADC218C88AD60040E86A /* Pictogram.m in Sources */ = {isa = PBXBuildFile; fileRef = 68BAADC118C88AD60040E86A /* Pictogram.m */; };
 		68BAADC318C88AD60040E86A /* Pictogram.m in Sources */ = {isa = PBXBuildFile; fileRef = 68BAADC118C88AD60040E86A /* Pictogram.m */; };
-		68BAADC618C88AD70040E86A /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = 68BAADC518C88AD70040E86A /* Schedule.m */; };
-		68BAADC718C88AD70040E86A /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = 68BAADC518C88AD70040E86A /* Schedule.m */; };
 		68BAADCA18C88AD70040E86A /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 68BAADC918C88AD70040E86A /* Activity.m */; };
 		68BAADCB18C88AD70040E86A /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 68BAADC918C88AD70040E86A /* Activity.m */; };
 		68BAADCE18C88AD70040E86A /* PictoCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 68BAADCD18C88AD70040E86A /* PictoCategory.m */; };
 		68BAADCF18C88AD70040E86A /* PictoCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 68BAADCD18C88AD70040E86A /* PictoCategory.m */; };
 		68C8A73718C7B632007FF9C5 /* libBBAFileManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 68C8A73618C7B632007FF9C5 /* libBBAFileManager.a */; };
+		D89C0C9B18C8BF8900F61708 /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = D89C0C9A18C8BF8900F61708 /* Schedule.m */; };
+		D89C0C9C18C8BF8900F61708 /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = D89C0C9A18C8BF8900F61708 /* Schedule.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -97,19 +97,20 @@
 		68887A0B18C5E09D008ED38A /* Schedule+CDStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Schedule+CDStack.h"; sourceTree = "<group>"; };
 		68887A0C18C5E09D008ED38A /* Schedule+CDStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Schedule+CDStack.m"; sourceTree = "<group>"; };
 		68887A1018C5E26F008ED38A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		68BAADA918C8822D0040E86A /* CoreData 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CoreData 4.xcdatamodel"; sourceTree = "<group>"; };
-		68BAADAA18C8822D0040E86A /* CoreData 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CoreData 3.xcdatamodel"; sourceTree = "<group>"; };
-		68BAADAB18C8822D0040E86A /* CoreData 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CoreData 2.xcdatamodel"; sourceTree = "<group>"; };
-		68BAADAC18C8822D0040E86A /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
+		68BAADA918C8822D0040E86A /* CoreData 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CoreData 4.xcdatamodel"; sourceTree = "<group>"; };
+		68BAADAA18C8822D0040E86A /* CoreData 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CoreData 3.xcdatamodel"; sourceTree = "<group>"; };
+		68BAADAB18C8822D0040E86A /* CoreData 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CoreData 2.xcdatamodel"; sourceTree = "<group>"; };
+		68BAADAC18C8822D0040E86A /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 		68BAADC018C88AD60040E86A /* Pictogram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pictogram.h; sourceTree = "<group>"; };
 		68BAADC118C88AD60040E86A /* Pictogram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pictogram.m; sourceTree = "<group>"; };
-		68BAADC418C88AD70040E86A /* Schedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Schedule.h; sourceTree = "<group>"; };
-		68BAADC518C88AD70040E86A /* Schedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Schedule.m; sourceTree = "<group>"; };
 		68BAADC818C88AD70040E86A /* Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Activity.h; sourceTree = "<group>"; };
 		68BAADC918C88AD70040E86A /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Activity.m; sourceTree = "<group>"; };
 		68BAADCC18C88AD70040E86A /* PictoCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictoCategory.h; sourceTree = "<group>"; };
 		68BAADCD18C88AD70040E86A /* PictoCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictoCategory.m; sourceTree = "<group>"; };
 		68C8A73618C7B632007FF9C5 /* libBBAFileManager.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBBAFileManager.a; path = "../BBAFileManager/build/Debug-iphoneos/libBBAFileManager.a"; sourceTree = "<group>"; };
+		D89C0C9818C8BE8000F61708 /* CoreData 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CoreData 5.xcdatamodel"; sourceTree = "<group>"; };
+		D89C0C9918C8BF8900F61708 /* Schedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Schedule.h; sourceTree = "<group>"; };
+		D89C0C9A18C8BF8900F61708 /* Schedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Schedule.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,8 +145,8 @@
 		683E440E18C71D3A001314EB /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
-				68BAADC418C88AD70040E86A /* Schedule.h */,
-				68BAADC518C88AD70040E86A /* Schedule.m */,
+				D89C0C9918C8BF8900F61708 /* Schedule.h */,
+				D89C0C9A18C8BF8900F61708 /* Schedule.m */,
 				68887A0B18C5E09D008ED38A /* Schedule+CDStack.h */,
 				68887A0C18C5E09D008ED38A /* Schedule+CDStack.m */,
 			);
@@ -362,9 +363,9 @@
 				6880B24C18C6260A000900CD /* Schedule+CDStack.m in Sources */,
 				683A56E118C7B82800752CEE /* BBAModelStack.m in Sources */,
 				6880B24F18C6260A000900CD /* main.m in Sources */,
-				68BAADC618C88AD70040E86A /* Schedule.m in Sources */,
 				68BAADCA18C88AD70040E86A /* Activity.m in Sources */,
 				683E441518C71DE9001314EB /* Activity+CDStack.m in Sources */,
+				D89C0C9B18C8BF8900F61708 /* Schedule.m in Sources */,
 				68BAADC218C88AD60040E86A /* Pictogram.m in Sources */,
 				683E441918C731C5001314EB /* Pictogram+CDStack.m in Sources */,
 				68BAADCE18C88AD70040E86A /* PictoCategory.m in Sources */,
@@ -377,10 +378,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D89C0C9C18C8BF8900F61708 /* Schedule.m in Sources */,
 				683A56E218C7B82800752CEE /* BBAModelStack.m in Sources */,
 				68BAADCB18C88AD70040E86A /* Activity.m in Sources */,
 				68BAADC318C88AD60040E86A /* Pictogram.m in Sources */,
-				68BAADC718C88AD70040E86A /* Schedule.m in Sources */,
 				6865C8A218C7C01C003D7EF5 /* NSFetchedResultsController+SafeFetch.m in Sources */,
 				683E441418C71DDF001314EB /* Activity+CDStack.m in Sources */,
 				683E441A18C731C5001314EB /* Pictogram+CDStack.m in Sources */,
@@ -570,12 +571,13 @@
 		68BAADAD18C8822D0040E86A /* CoreData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				D89C0C9818C8BE8000F61708 /* CoreData 5.xcdatamodel */,
 				68BAADA918C8822D0040E86A /* CoreData 4.xcdatamodel */,
 				68BAADAA18C8822D0040E86A /* CoreData 3.xcdatamodel */,
 				68BAADAB18C8822D0040E86A /* CoreData 2.xcdatamodel */,
 				68BAADAC18C8822D0040E86A /* CoreData.xcdatamodel */,
 			);
-			currentVersion = 68BAADA918C8822D0040E86A /* CoreData 4.xcdatamodel */;
+			currentVersion = D89C0C9818C8BE8000F61708 /* CoreData 5.xcdatamodel */;
 			name = CoreData.xcdatamodeld;
 			path = "../../Visual Scheduler/CoreData.xcdatamodeld";
 			sourceTree = "<group>";
