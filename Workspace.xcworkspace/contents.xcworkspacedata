@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:BBADataStack/BBADataStack.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:BBAServiceProvider/BBAServiceProvider.xcodeproj">
    </FileRef>
    <FileRef
