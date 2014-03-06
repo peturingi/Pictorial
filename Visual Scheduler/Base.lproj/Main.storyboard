@@ -45,7 +45,7 @@
         <!--Schedule Overview-->
         <scene sceneID="MhY-IM-atK">
             <objects>
-                <tableViewController id="bnG-DL-C5g" userLabel="Schedule Overview" customClass="BBAScheduleOverviewViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="scheduleOverview" id="bnG-DL-C5g" userLabel="Schedule Overview" customClass="BBAScheduleOverviewViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="CMA-C3-GHe">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -266,7 +266,7 @@
         <!--Show Schedule-->
         <scene sceneID="neW-ja-5jt">
             <objects>
-                <tableViewController id="gcU-7o-ixR" userLabel="Show Schedule" customClass="BBAShowScheduleViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="showSchedule" id="gcU-7o-ixR" userLabel="Show Schedule" customClass="BBAShowScheduleViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="LTA-H5-XmH">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

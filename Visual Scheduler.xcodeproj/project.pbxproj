@@ -76,6 +76,7 @@
 		D8805F3C18C5CD8E001BD35B /* TestModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6851470218C4A742002CF73F /* TestModel.xcdatamodeld */; };
 		D8805F3F18C5DD01001BD35B /* BBANewPictogramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8805F3E18C5DD01001BD35B /* BBANewPictogramViewController.m */; };
 		D8805F4718C5E456001BD35B /* BBASelectPictogramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8805F4618C5E456001BD35B /* BBASelectPictogramViewController.m */; };
+		D887832E18C8E33300F13B28 /* BBAScheduleOverviewViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D887832D18C8E33300F13B28 /* BBAScheduleOverviewViewControllerTests.m */; };
 		D8DB7FB618C4B8B900BA2037 /* BBAContext.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FA918C4B8B900BA2037 /* BBAContext.m */; };
 		D8DB7FB718C4B8B900BA2037 /* BBACoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FAB18C4B8B900BA2037 /* BBACoreDataStack.m */; };
 		D8DB7FB818C4B8B900BA2037 /* BBAModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FAD18C4B8B900BA2037 /* BBAModel.m */; };
@@ -119,13 +120,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		683725B718C88E2F00617DC4 /* libBBAModel.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libBBAModel.a; path = "BBAModel/build/Debug-iphoneos/libBBAModel.a"; sourceTree = "<group>"; };
-		683725B918C88EB400617DC4 /* libBBAModel.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libBBAModel.a; path = "BBAModel/build/Debug-iphoneos/libBBAModel.a"; sourceTree = "<group>"; };
-		683725BB18C88F0300617DC4 /* libBBAFileManager.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libBBAFileManager.a; path = "BBAFileManager/build/Debug-iphoneos/libBBAFileManager.a"; sourceTree = "<group>"; };
-		683725BD18C88F1F00617DC4 /* libBBADataStack.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libBBADataStack.a; path = "BBADataStack/build/Debug-iphoneos/libBBADataStack.a"; sourceTree = "<group>"; };
-		683725BF18C88F3800617DC4 /* libBBAFileManager.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libBBAFileManager.a; path = "BBAFileManager/build/Debug-iphoneos/libBBAFileManager.a"; sourceTree = "<group>"; };
-		683725C118C88F4D00617DC4 /* libBBAServiceProvider.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libBBAServiceProvider.a; path = "BBAServiceProvider/build/Debug-iphoneos/libBBAServiceProvider.a"; sourceTree = "<group>"; };
-		683725C318C88FAC00617DC4 /* libBBAModel.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libBBAModel.a; path = "BBAModel/build/Debug-iphoneos/libBBAModel.a"; sourceTree = "<group>"; };
+		683725B718C88E2F00617DC4 /* libBBAModel.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBBAModel.a; path = "BBAModel/build/Debug-iphoneos/libBBAModel.a"; sourceTree = "<group>"; };
+		683725B918C88EB400617DC4 /* libBBAModel.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBBAModel.a; path = "BBAModel/build/Debug-iphoneos/libBBAModel.a"; sourceTree = "<group>"; };
+		683725BB18C88F0300617DC4 /* libBBAFileManager.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBBAFileManager.a; path = "BBAFileManager/build/Debug-iphoneos/libBBAFileManager.a"; sourceTree = "<group>"; };
+		683725BD18C88F1F00617DC4 /* libBBADataStack.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBBADataStack.a; path = "BBADataStack/build/Debug-iphoneos/libBBADataStack.a"; sourceTree = "<group>"; };
+		683725BF18C88F3800617DC4 /* libBBAFileManager.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBBAFileManager.a; path = "BBAFileManager/build/Debug-iphoneos/libBBAFileManager.a"; sourceTree = "<group>"; };
+		683725C118C88F4D00617DC4 /* libBBAServiceProvider.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBBAServiceProvider.a; path = "BBAServiceProvider/build/Debug-iphoneos/libBBAServiceProvider.a"; sourceTree = "<group>"; };
+		683725C318C88FAC00617DC4 /* libBBAModel.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBBAModel.a; path = "BBAModel/build/Debug-iphoneos/libBBAModel.a"; sourceTree = "<group>"; };
 		688A8C1918C0A23F006ED17E /* CoreData 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CoreData 3.xcdatamodel"; sourceTree = "<group>"; };
 		D81AA9E918B943C400E3B50C /* AudioRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioRecorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D81AA9EF18B943C400E3B50C /* AudioRecorder-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AudioRecorder-Info.plist"; sourceTree = "<group>"; };
@@ -188,6 +189,7 @@
 		D8805F3E18C5DD01001BD35B /* BBANewPictogramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBANewPictogramViewController.m; path = Controllers/BBANewPictogramViewController.m; sourceTree = "<group>"; };
 		D8805F4518C5E456001BD35B /* BBASelectPictogramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBASelectPictogramViewController.h; path = "Visual Scheduler/Controllers/BBASelectPictogramViewController.h"; sourceTree = "<group>"; };
 		D8805F4618C5E456001BD35B /* BBASelectPictogramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBASelectPictogramViewController.m; path = "Visual Scheduler/Controllers/BBASelectPictogramViewController.m"; sourceTree = "<group>"; };
+		D887832D18C8E33300F13B28 /* BBAScheduleOverviewViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBAScheduleOverviewViewControllerTests.m; path = "Visual SchedulerTests/BBAScheduleOverviewViewControllerTests.m"; sourceTree = SOURCE_ROOT; };
 		D88CF2B618C71B5300AF0CC1 /* BBASelectPictogramViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BBASelectPictogramViewControllerDelegate.h; path = "Visual Scheduler/Controllers/BBASelectPictogramViewControllerDelegate.h"; sourceTree = "<group>"; };
 		D8B49E5F18B8025500788073 /* SearchViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SearchViewControllerDelegate.h; path = Protocols/SearchViewControllerDelegate.h; sourceTree = "<group>"; };
 		D8B49E6518B823A000788073 /* TagManagementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TagManagementViewController.h; path = Controllers/TagManagementViewController.h; sourceTree = "<group>"; };
@@ -476,6 +478,7 @@
 				D850E82A18C87C3D0051CD51 /* MockManagedObjectContext.m */,
 				D850E82718C8746A0051CD51 /* BBAShowScheduleViewControllerTests.m */,
 				D850E83018C890F00051CD51 /* BBAShowScheduleViewController_BBAShowScheduleViewControllerPrivate.h */,
+				D887832D18C8E33300F13B28 /* BBAScheduleOverviewViewControllerTests.m */,
 				D850E82D18C88E7E0051CD51 /* MockViewController.h */,
 				D850E82E18C88E7E0051CD51 /* MockViewController.m */,
 				D83A62E118B696DC00EC0773 /* Supporting Files */,
@@ -896,6 +899,7 @@
 			files = (
 				D850E82B18C87C3D0051CD51 /* MockManagedObjectContext.m in Sources */,
 				D850E82F18C88E7E0051CD51 /* MockViewController.m in Sources */,
+				D887832E18C8E33300F13B28 /* BBAScheduleOverviewViewControllerTests.m in Sources */,
 				D850E82818C8746A0051CD51 /* BBAShowScheduleViewControllerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
