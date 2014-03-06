@@ -3,9 +3,9 @@
 #import "BBAStore.h"
 #import "BBAContext.h"
 
-#import "Schedule.h"
-#import "Activity.h"
-#import "Pictogram.h"
+#import "BBAModel/BBAModel/Schedule.h"
+#import "BBAModel/BBAModel/Activity.h"
+#import "BBAModel/BBAModel/Pictogram.h"
 
 @implementation BBACoreDataStack
 

@@ -10,12 +10,7 @@
 #pragma mark -
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
-    [self setupDataStack];
     return YES;
-}
-
-- (void)setupDataStack {
-    [BBAModelStack modelNamed:@"CoreData" andStore:@"RuntimeStore"];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
