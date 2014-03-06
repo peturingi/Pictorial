@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:BBAFileManager/BBAFileManager.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Visual Scheduler.xcodeproj">
    </FileRef>
    <FileRef
