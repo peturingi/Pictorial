@@ -1,6 +1,6 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
-#import "Camera.h"
+#import "../../BBACamera/BBACamera/Camera.h"
 #import "BBASelectPictogramViewControllerDelegate.h"
 
 @interface BBASelectPictogramViewController : UICollectionViewController <CameraDelegate, NSFetchedResultsControllerDelegate> {

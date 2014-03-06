@@ -1,0 +1,604 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D850E78B18C869210051CD51 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D850E78A18C869210051CD51 /* Foundation.framework */; };
+		D850E79918C869210051CD51 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D850E79818C869210051CD51 /* XCTest.framework */; };
+		D850E79A18C869210051CD51 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D850E78A18C869210051CD51 /* Foundation.framework */; };
+		D850E79F18C869210051CD51 /* libBBACamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D850E78718C869210051CD51 /* libBBACamera.a */; };
+		D850E7A518C869210051CD51 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D850E7A318C869210051CD51 /* InfoPlist.strings */; };
+		D850E7B318C869550051CD51 /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = D850E7B218C869550051CD51 /* Camera.m */; };
+		D850E7B918C869A00051CD51 /* MockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D850E7B518C869A00051CD51 /* MockViewController.m */; };
+		D850E7BA18C869A00051CD51 /* MockCameraDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D850E7B718C869A00051CD51 /* MockCameraDelegate.m */; };
+		D850E7BB18C869A00051CD51 /* CameraTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D850E7B818C869A00051CD51 /* CameraTests.m */; };
+		D850E7EF18C86AC10051CD51 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D850E78A18C869210051CD51 /* Foundation.framework */; };
+		D850E7F118C86AC10051CD51 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D850E7F018C86AC10051CD51 /* CoreGraphics.framework */; };
+		D850E7F818C86AC10051CD51 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D850E7F618C86AC10051CD51 /* InfoPlist.strings */; };
+		D850E7FA18C86AC10051CD51 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D850E7F918C86AC10051CD51 /* main.m */; };
+		D850E7FE18C86AC10051CD51 /* BBAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D850E7FD18C86AC10051CD51 /* BBAAppDelegate.m */; };
+		D850E80018C86AC10051CD51 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D850E7FF18C86AC10051CD51 /* Images.xcassets */; };
+		D850E81B18C86B970051CD51 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D850E81A18C86B970051CD51 /* UIKit.framework */; };
+		D850E81C18C86BF30051CD51 /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = D850E7B218C869550051CD51 /* Camera.m */; };
+		D850E81D18C86C1C0051CD51 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D850E81A18C86B970051CD51 /* UIKit.framework */; };
+		D850E81F18C86C7B0051CD51 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D850E81E18C86C7B0051CD51 /* MobileCoreServices.framework */; };
+		D850E82018C86C8B0051CD51 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D850E81E18C86C7B0051CD51 /* MobileCoreServices.framework */; };
+		D850E82118C86CC70051CD51 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D850E81A18C86B970051CD51 /* UIKit.framework */; };
+		D850E82218C86CD80051CD51 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D850E81E18C86C7B0051CD51 /* MobileCoreServices.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D850E79D18C869210051CD51 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D850E77F18C869210051CD51 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D850E78618C869210051CD51;
+			remoteInfo = BBACamera;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D850E78518C869210051CD51 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		D850E78718C869210051CD51 /* libBBACamera.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBBACamera.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D850E78A18C869210051CD51 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D850E78E18C869210051CD51 /* BBACamera-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BBACamera-Prefix.pch"; sourceTree = "<group>"; };
+		D850E79718C869210051CD51 /* BBACameraTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BBACameraTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D850E79818C869210051CD51 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		D850E7A218C869210051CD51 /* BBACameraTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BBACameraTests-Info.plist"; sourceTree = "<group>"; };
+		D850E7A418C869210051CD51 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D850E7B018C869550051CD51 /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
+		D850E7B118C869550051CD51 /* CameraDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraDelegate.h; sourceTree = "<group>"; };
+		D850E7B218C869550051CD51 /* Camera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Camera.m; sourceTree = "<group>"; };
+		D850E7B418C869A00051CD51 /* MockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockViewController.h; sourceTree = "<group>"; };
+		D850E7B518C869A00051CD51 /* MockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockViewController.m; sourceTree = "<group>"; };
+		D850E7B618C869A00051CD51 /* MockCameraDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockCameraDelegate.h; sourceTree = "<group>"; };
+		D850E7B718C869A00051CD51 /* MockCameraDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockCameraDelegate.m; sourceTree = "<group>"; };
+		D850E7B818C869A00051CD51 /* CameraTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraTests.m; sourceTree = "<group>"; };
+		D850E7EE18C86AC10051CD51 /* BBACameraTestsTarget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BBACameraTestsTarget.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D850E7F018C86AC10051CD51 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D850E7F518C86AC10051CD51 /* BBACameraTestsTarget-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BBACameraTestsTarget-Info.plist"; sourceTree = "<group>"; };
+		D850E7F718C86AC10051CD51 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D850E7F918C86AC10051CD51 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D850E7FB18C86AC10051CD51 /* BBACameraTestsTarget-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BBACameraTestsTarget-Prefix.pch"; sourceTree = "<group>"; };
+		D850E7FC18C86AC10051CD51 /* BBAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBAAppDelegate.h; sourceTree = "<group>"; };
+		D850E7FD18C86AC10051CD51 /* BBAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBAAppDelegate.m; sourceTree = "<group>"; };
+		D850E7FF18C86AC10051CD51 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D850E81A18C86B970051CD51 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D850E81E18C86C7B0051CD51 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D850E78418C869210051CD51 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D850E82018C86C8B0051CD51 /* MobileCoreServices.framework in Frameworks */,
+				D850E81B18C86B970051CD51 /* UIKit.framework in Frameworks */,
+				D850E78B18C869210051CD51 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D850E79418C869210051CD51 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D850E82218C86CD80051CD51 /* MobileCoreServices.framework in Frameworks */,
+				D850E82118C86CC70051CD51 /* UIKit.framework in Frameworks */,
+				D850E79918C869210051CD51 /* XCTest.framework in Frameworks */,
+				D850E79F18C869210051CD51 /* libBBACamera.a in Frameworks */,
+				D850E79A18C869210051CD51 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D850E7EB18C86AC10051CD51 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D850E81F18C86C7B0051CD51 /* MobileCoreServices.framework in Frameworks */,
+				D850E81D18C86C1C0051CD51 /* UIKit.framework in Frameworks */,
+				D850E7F118C86AC10051CD51 /* CoreGraphics.framework in Frameworks */,
+				D850E7EF18C86AC10051CD51 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D850E77E18C869210051CD51 = {
+			isa = PBXGroup;
+			children = (
+				D850E78C18C869210051CD51 /* BBACamera */,
+				D850E7A018C869210051CD51 /* BBACameraTests */,
+				D850E7F318C86AC10051CD51 /* BBACameraTestsTarget */,
+				D850E78918C869210051CD51 /* Frameworks */,
+				D850E78818C869210051CD51 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D850E78818C869210051CD51 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D850E78718C869210051CD51 /* libBBACamera.a */,
+				D850E79718C869210051CD51 /* BBACameraTests.xctest */,
+				D850E7EE18C86AC10051CD51 /* BBACameraTestsTarget.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D850E78918C869210051CD51 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D850E81E18C86C7B0051CD51 /* MobileCoreServices.framework */,
+				D850E81A18C86B970051CD51 /* UIKit.framework */,
+				D850E78A18C869210051CD51 /* Foundation.framework */,
+				D850E79818C869210051CD51 /* XCTest.framework */,
+				D850E7F018C86AC10051CD51 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D850E78C18C869210051CD51 /* BBACamera */ = {
+			isa = PBXGroup;
+			children = (
+				D850E7B018C869550051CD51 /* Camera.h */,
+				D850E7B118C869550051CD51 /* CameraDelegate.h */,
+				D850E7B218C869550051CD51 /* Camera.m */,
+				D850E78D18C869210051CD51 /* Supporting Files */,
+			);
+			path = BBACamera;
+			sourceTree = "<group>";
+		};
+		D850E78D18C869210051CD51 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D850E78E18C869210051CD51 /* BBACamera-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D850E7A018C869210051CD51 /* BBACameraTests */ = {
+			isa = PBXGroup;
+			children = (
+				D850E7B418C869A00051CD51 /* MockViewController.h */,
+				D850E7B518C869A00051CD51 /* MockViewController.m */,
+				D850E7B618C869A00051CD51 /* MockCameraDelegate.h */,
+				D850E7B718C869A00051CD51 /* MockCameraDelegate.m */,
+				D850E7B818C869A00051CD51 /* CameraTests.m */,
+				D850E7A118C869210051CD51 /* Supporting Files */,
+			);
+			path = BBACameraTests;
+			sourceTree = "<group>";
+		};
+		D850E7A118C869210051CD51 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D850E7A218C869210051CD51 /* BBACameraTests-Info.plist */,
+				D850E7A318C869210051CD51 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D850E7F318C86AC10051CD51 /* BBACameraTestsTarget */ = {
+			isa = PBXGroup;
+			children = (
+				D850E7FC18C86AC10051CD51 /* BBAAppDelegate.h */,
+				D850E7FD18C86AC10051CD51 /* BBAAppDelegate.m */,
+				D850E7FF18C86AC10051CD51 /* Images.xcassets */,
+				D850E7F418C86AC10051CD51 /* Supporting Files */,
+			);
+			path = BBACameraTestsTarget;
+			sourceTree = "<group>";
+		};
+		D850E7F418C86AC10051CD51 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D850E7F518C86AC10051CD51 /* BBACameraTestsTarget-Info.plist */,
+				D850E7F618C86AC10051CD51 /* InfoPlist.strings */,
+				D850E7F918C86AC10051CD51 /* main.m */,
+				D850E7FB18C86AC10051CD51 /* BBACameraTestsTarget-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D850E78618C869210051CD51 /* BBACamera */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D850E7AA18C869220051CD51 /* Build configuration list for PBXNativeTarget "BBACamera" */;
+			buildPhases = (
+				D850E78318C869210051CD51 /* Sources */,
+				D850E78418C869210051CD51 /* Frameworks */,
+				D850E78518C869210051CD51 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BBACamera;
+			productName = BBACamera;
+			productReference = D850E78718C869210051CD51 /* libBBACamera.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		D850E79618C869210051CD51 /* BBACameraTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D850E7AD18C869220051CD51 /* Build configuration list for PBXNativeTarget "BBACameraTests" */;
+			buildPhases = (
+				D850E79318C869210051CD51 /* Sources */,
+				D850E79418C869210051CD51 /* Frameworks */,
+				D850E79518C869210051CD51 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D850E79E18C869210051CD51 /* PBXTargetDependency */,
+			);
+			name = BBACameraTests;
+			productName = BBACameraTests;
+			productReference = D850E79718C869210051CD51 /* BBACameraTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D850E7ED18C86AC10051CD51 /* BBACameraTestsTarget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D850E81318C86AC10051CD51 /* Build configuration list for PBXNativeTarget "BBACameraTestsTarget" */;
+			buildPhases = (
+				D850E7EA18C86AC10051CD51 /* Sources */,
+				D850E7EB18C86AC10051CD51 /* Frameworks */,
+				D850E7EC18C86AC10051CD51 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BBACameraTestsTarget;
+			productName = BBACameraTestsTarget;
+			productReference = D850E7EE18C86AC10051CD51 /* BBACameraTestsTarget.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D850E77F18C869210051CD51 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Bluebird Apps I/S";
+				TargetAttributes = {
+					D850E79618C869210051CD51 = {
+						TestTargetID = D850E7ED18C86AC10051CD51;
+					};
+				};
+			};
+			buildConfigurationList = D850E78218C869210051CD51 /* Build configuration list for PBXProject "BBACamera" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D850E77E18C869210051CD51;
+			productRefGroup = D850E78818C869210051CD51 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D850E78618C869210051CD51 /* BBACamera */,
+				D850E79618C869210051CD51 /* BBACameraTests */,
+				D850E7ED18C86AC10051CD51 /* BBACameraTestsTarget */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D850E79518C869210051CD51 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D850E7A518C869210051CD51 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D850E7EC18C86AC10051CD51 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D850E7F818C86AC10051CD51 /* InfoPlist.strings in Resources */,
+				D850E80018C86AC10051CD51 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D850E78318C869210051CD51 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D850E7B318C869550051CD51 /* Camera.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D850E79318C869210051CD51 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D850E7BB18C869A00051CD51 /* CameraTests.m in Sources */,
+				D850E7B918C869A00051CD51 /* MockViewController.m in Sources */,
+				D850E7BA18C869A00051CD51 /* MockCameraDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D850E7EA18C86AC10051CD51 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D850E7FE18C86AC10051CD51 /* BBAAppDelegate.m in Sources */,
+				D850E81C18C86BF30051CD51 /* Camera.m in Sources */,
+				D850E7FA18C86AC10051CD51 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D850E79E18C869210051CD51 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D850E78618C869210051CD51 /* BBACamera */;
+			targetProxy = D850E79D18C869210051CD51 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D850E7A318C869210051CD51 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D850E7A418C869210051CD51 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D850E7F618C86AC10051CD51 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D850E7F718C86AC10051CD51 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D850E7A818C869210051CD51 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D850E7A918C869210051CD51 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D850E7AB18C869220051CD51 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/BBACamera.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BBACamera/BBACamera-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		D850E7AC18C869220051CD51 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/BBACamera.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BBACamera/BBACamera-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		D850E7AE18C869220051CD51 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BBACameraTestsTarget.app/BBACameraTestsTarget";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BBACamera/BBACamera-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "BBACameraTests/BBACameraTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		D850E7AF18C869220051CD51 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BBACameraTestsTarget.app/BBACameraTestsTarget";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BBACamera/BBACamera-Prefix.pch";
+				INFOPLIST_FILE = "BBACameraTests/BBACameraTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+		D850E81418C86AC10051CD51 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BBACameraTestsTarget/BBACameraTestsTarget-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "BBACameraTestsTarget/BBACameraTestsTarget-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D850E81518C86AC10051CD51 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BBACameraTestsTarget/BBACameraTestsTarget-Prefix.pch";
+				INFOPLIST_FILE = "BBACameraTestsTarget/BBACameraTestsTarget-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D850E78218C869210051CD51 /* Build configuration list for PBXProject "BBACamera" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D850E7A818C869210051CD51 /* Debug */,
+				D850E7A918C869210051CD51 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D850E7AA18C869220051CD51 /* Build configuration list for PBXNativeTarget "BBACamera" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D850E7AB18C869220051CD51 /* Debug */,
+				D850E7AC18C869220051CD51 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D850E7AD18C869220051CD51 /* Build configuration list for PBXNativeTarget "BBACameraTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D850E7AE18C869220051CD51 /* Debug */,
+				D850E7AF18C869220051CD51 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D850E81318C86AC10051CD51 /* Build configuration list for PBXNativeTarget "BBACameraTestsTarget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D850E81418C86AC10051CD51 /* Debug */,
+				D850E81518C86AC10051CD51 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D850E77F18C869210051CD51 /* Project object */;
+}

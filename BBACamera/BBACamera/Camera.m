@@ -7,10 +7,11 @@
 
 @implementation Camera
 
+- (id)init {
+    return [self initWithViewController:nil usingDelegate:nil];
+}
+
 - (id)initWithViewController:(UIViewController *)controller usingDelegate:(id)delegate {
-    NSAssert(controller, @"Must not be nil!");
-    NSAssert(delegate, @"Must not be nil!");
-    
     self = [super init];
     if (self) {
         if ([Camera isAvailable]) {
@@ -21,29 +22,17 @@
             return nil;
         }
     }
-    
-    /* Post */
-    NSAssert(_delegate, @"Must not be nil.");
-    NSAssert(_controller, @"Must not be nil.");
     return self;
 }
 
 - (void)configureCamera {
-    /* Pre */
-    NSAssert([Camera isAvailable], @"Camera is not available. Cannot configure!");
-    
     _cameraUI = [[UIImagePickerController alloc] init];
     _cameraUI.delegate = self;
     _cameraUI.sourceType = UIImagePickerControllerSourceTypeCamera;
     _cameraUI.allowsEditing = YES;
-    
-    /* Post */
-    NSAssert(self.cameraUI, @"Must not be nil!");
 }
 
 - (BOOL)show {
-    NSAssert(self.delegate, @"Must not be nil!");
-    
     if ([Camera isAvailable]) {
         [self.controller presentViewController:self.cameraUI animated:YES completion:^{
             if ([self.delegate respondsToSelector:@selector(cameraDidAppear:)]) {
@@ -68,9 +57,6 @@
 #pragma mark - UIImagePickerControllerDelegate
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    NSAssert(picker, @"Must not be nil!");
-    NSAssert(info, @"Must not be nil!");
-    
     UIImage *editedImage;
     UIImage *originalImage;
     NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
@@ -112,6 +98,15 @@
     UIImage *photo = lastPhotoCaptured;
     lastPhotoCaptured = nil;
     return photo;
+}
+
+- (void)setDelegate:(id<CameraDelegate>)delegate {
+    if (delegate && ![delegate conformsToProtocol:@protocol(CameraDelegate)]) {
+        [[NSException exceptionWithName:NSInvalidArgumentException
+                                 reason:@"Delegate object does not conform to the delegate protocol"
+                               userInfo:nil] raise];
+    }
+    _delegate = delegate;
 }
 
 @end

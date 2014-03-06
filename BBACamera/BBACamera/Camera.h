@@ -1,12 +1,12 @@
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "CameraDelegate.h"
 
 @interface Camera : NSObject <UINavigationControllerDelegate, UIImagePickerControllerDelegate> {
     __strong UIImage *lastPhotoCaptured;
 }
 
-@property (weak, nonatomic, readonly) id<CameraDelegate> delegate;
-@property (weak, nonatomic, readonly) UIViewController *controller;
+@property (weak, nonatomic) id<CameraDelegate> delegate;
+@property (weak, nonatomic) UIViewController *controller;
 
 /** Creates a camera.
  @param controller The viewcontroller responsible for presenting the camera.
