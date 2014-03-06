@@ -7,9 +7,6 @@
 //
 
 #import "AppDelegate.h"
-//#import "../../BBADataStack/BBADataStack/BBADataStack.h"
-//#import "../../BBAServiceProvider/BBAServiceProvider/BBAServiceProvider.h"
-//#import "Schedule+CDStack.h"
 #import "BBAModelStack.h"
 
 @implementation AppDelegate
@@ -20,11 +17,7 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    /*
-    BBADataStack* datastack = [BBADataStack stackWithModelNamed:@"CoreData 4" andStoreFileNamed:@"storetest"];
-    [BBAServiceProvider insertService:datastack];
-     */
-    [BBAModelStack modelNamed:@"CoreData 4" andStore:@"storetest"];
+    [BBAModelStack modelNamed:@"CoreData 4" andStore:@"modelStoreTest"];
     UIImage* image = [UIImage imageNamed:@"testImage"];
     [Pictogram insertWithTitle:@"somethign" andImage:image];
     return YES;

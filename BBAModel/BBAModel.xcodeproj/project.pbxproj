@@ -42,8 +42,8 @@
 		6880B25A18C6260A000900CD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6888799C18C5DEC3008ED38A /* InfoPlist.strings */; };
 		6880B25B18C6260A000900CD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 688879A518C5DEC3008ED38A /* Images.xcassets */; };
 		6880B26618C6270F000900CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6888799318C5DEC3008ED38A /* Foundation.framework */; };
+		68BAADAF18C883A70040E86A /* CoreData.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 68BAADAD18C8822D0040E86A /* CoreData.xcdatamodeld */; };
 		68C8A73718C7B632007FF9C5 /* libBBAFileManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 68C8A73618C7B632007FF9C5 /* libBBAFileManager.a */; };
-		68E4E50618C629B800A42F63 /* CoreData 4.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 688879FA18C5DF8E008ED38A /* CoreData 4.xcdatamodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -107,6 +107,10 @@
 		68887A0B18C5E09D008ED38A /* Schedule+CDStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Schedule+CDStack.h"; sourceTree = "<group>"; };
 		68887A0C18C5E09D008ED38A /* Schedule+CDStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Schedule+CDStack.m"; sourceTree = "<group>"; };
 		68887A1018C5E26F008ED38A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		68BAADA918C8822D0040E86A /* CoreData 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CoreData 4.xcdatamodel"; sourceTree = "<group>"; };
+		68BAADAA18C8822D0040E86A /* CoreData 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CoreData 3.xcdatamodel"; sourceTree = "<group>"; };
+		68BAADAB18C8822D0040E86A /* CoreData 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CoreData 2.xcdatamodel"; sourceTree = "<group>"; };
+		68BAADAC18C8822D0040E86A /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 		68C8A73618C7B632007FF9C5 /* libBBAFileManager.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBBAFileManager.a; path = "../BBAFileManager/build/Debug-iphoneos/libBBAFileManager.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -261,6 +265,7 @@
 		688879F918C5DF39008ED38A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				68BAADAD18C8822D0040E86A /* CoreData.xcdatamodeld */,
 				683E441118C71DB4001314EB /* Activity */,
 				683E441018C71D66001314EB /* PictoCategory */,
 				683E440F18C71D55001314EB /* Pictogram */,
@@ -343,6 +348,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68BAADAF18C883A70040E86A /* CoreData.xcdatamodeld in Resources */,
 				683A56E418C7BA5300752CEE /* testImage.png in Resources */,
 				6880B25A18C6260A000900CD /* InfoPlist.strings in Resources */,
 				6880B25B18C6260A000900CD /* Images.xcassets in Resources */,
@@ -381,7 +387,6 @@
 				6865C8A218C7C01C003D7EF5 /* NSFetchedResultsController+SafeFetch.m in Sources */,
 				683E441418C71DDF001314EB /* Activity+CDStack.m in Sources */,
 				683E441A18C731C5001314EB /* Pictogram+CDStack.m in Sources */,
-				68E4E50618C629B800A42F63 /* CoreData 4.xcdatamodel in Sources */,
 				683E43FD18C64471001314EB /* PictoCategory.m in Sources */,
 				683178B118C628FC00AF2FDD /* Schedule+CDStack.m in Sources */,
 				683E440518C64472001314EB /* Activity.m in Sources */,
@@ -564,6 +569,22 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		68BAADAD18C8822D0040E86A /* CoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				68BAADA918C8822D0040E86A /* CoreData 4.xcdatamodel */,
+				68BAADAA18C8822D0040E86A /* CoreData 3.xcdatamodel */,
+				68BAADAB18C8822D0040E86A /* CoreData 2.xcdatamodel */,
+				68BAADAC18C8822D0040E86A /* CoreData.xcdatamodel */,
+			);
+			currentVersion = 68BAADA918C8822D0040E86A /* CoreData 4.xcdatamodel */;
+			name = CoreData.xcdatamodeld;
+			path = "../../Visual Scheduler/CoreData.xcdatamodeld";
+			sourceTree = "<group>";
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 6888798818C5DEC3008ED38A /* Project object */;
 }
