@@ -1,11 +1,3 @@
-//
-//  TestBBAServiceProvider.m
-//  BBAServiceProvider
-//
-//  Created by Brian Pedersen on 04/03/14.
-//  Copyright (c) 2014 BBA. All rights reserved.
-//
-
 #import <XCTest/XCTest.h>
 #import "BBAServiceProvider.h"
 
@@ -19,12 +11,19 @@
 {
     [super setUp];
     // Put setup code here; it will be run once, before the first test case.
+    [BBAServiceProvider deleteServiceOfClass:[self class]];
 }
 
 - (void)tearDown
 {
     // Put teardown code here; it will be run once, after the last test case.
     [super tearDown];
+}
+
+-(void)testCannotInsertDuplicate{
+    [BBAServiceProvider insertService:self];
+    XCTAssertThrows([BBAServiceProvider insertService:self], @"inserting duplicate did not throw");
+    
 }
 
 -(void)testCanInsertAndRetrieve{

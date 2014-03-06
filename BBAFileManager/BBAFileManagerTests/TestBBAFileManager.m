@@ -1,11 +1,3 @@
-//
-//  TestBBAFileManager.m
-//  BBAFileManager
-//
-//  Created by Brian Pedersen on 05/03/14.
-//  Copyright (c) 2014 BBA. All rights reserved.
-//
-
 #import <XCTest/XCTest.h>
 #import "BBAFileManager.h"
 

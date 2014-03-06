@@ -12,7 +12,6 @@
 		6880B1EB18C5FB62000900CD /* BBAServiceProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6880B1EA18C5FB62000900CD /* BBAServiceProvider.m */; };
 		6880B1F218C5FB62000900CD /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6880B1F118C5FB62000900CD /* XCTest.framework */; };
 		6880B1F318C5FB62000900CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6880B1E318C5FB62000900CD /* Foundation.framework */; };
-		6880B1F518C5FB62000900CD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6880B1F418C5FB62000900CD /* UIKit.framework */; };
 		6880B1F818C5FB62000900CD /* libBBAServiceProvider.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6880B1E018C5FB62000900CD /* libBBAServiceProvider.a */; };
 		6880B1FE18C5FB62000900CD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6880B1FC18C5FB62000900CD /* InfoPlist.strings */; };
 		6880B21018C60169000900CD /* TestBBAServiceProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6880B20B18C5FF12000900CD /* TestBBAServiceProvider.m */; };
@@ -69,7 +68,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6880B1F218C5FB62000900CD /* XCTest.framework in Frameworks */,
-				6880B1F518C5FB62000900CD /* UIKit.framework in Frameworks */,
 				6880B1F818C5FB62000900CD /* libBBAServiceProvider.a in Frameworks */,
 				6880B1F318C5FB62000900CD /* Foundation.framework in Frameworks */,
 			);
