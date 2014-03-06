@@ -7,16 +7,15 @@
 }
 
 - (BOOL)wasAskedToPresentViewController {
-    return BBA_wasAskedToDismissViewController;
+    return BBA_wasAskedToPresentViewController;
 }
 
 - (void)dismissViewControllerAnimated:(BOOL)flag completion:(void (^)(void))completion {
+    [super dismissViewControllerAnimated:flag completion:completion];
     BBA_wasAskedToDismissViewController = YES;
 }
 - (BOOL)wasAskedToDismissViewController {
     return BBA_wasAskedToDismissViewController;
 }
-
-
 
 @end
