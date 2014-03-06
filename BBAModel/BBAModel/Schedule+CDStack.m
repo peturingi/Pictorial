@@ -21,6 +21,15 @@ static NSUInteger const kBBAScheduleBatchSize = 20;
     return instance;
 }
 
++(void)insertWithTile:(NSString*)title imageLogo:(UIImage*)image andBackgroundColor:(NSUInteger)colorIndex{
+    id schedule = [[self class]insert];
+    // TODO: save image
+    [schedule setTitle:title];
+    [schedule setDate:[NSDate date]];
+    [schedule setColour:[NSNumber numberWithUnsignedInteger:colorIndex]];
+    [[self class]save];
+}
+
 +(NSFetchedResultsController*)fetchedResultsController{
     NSSortDescriptor* descriptor = [[NSSortDescriptor alloc]initWithKey:@"title" ascending:YES];
     NSArray* sortDescriptors = @[descriptor];

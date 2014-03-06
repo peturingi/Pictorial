@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		683725C418C88FAC00617DC4 /* libBBAModel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 683725C318C88FAC00617DC4 /* libBBAModel.a */; };
+		683725C618C8904400617DC4 /* BBACoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FAB18C4B8B900BA2037 /* BBACoreDataStack.m */; };
 		685146B118C49EC3002CF73F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BB18B696DC00EC0773 /* Foundation.framework */; };
 		685146B218C49EC3002CF73F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BD18B696DC00EC0773 /* CoreGraphics.framework */; };
 		685146B318C49EC3002CF73F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BF18B696DC00EC0773 /* UIKit.framework */; };
@@ -85,14 +87,6 @@
 		D8DB7FDD18C4C31300BA2037 /* Pictogram.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FDC18C4C31300BA2037 /* Pictogram.m */; };
 		D8DB7FE018C4C31300BA2037 /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FDF18C4C31300BA2037 /* Schedule.m */; };
 		D8DB7FE318C4C31300BA2037 /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FE218C4C31300BA2037 /* Activity.m */; };
-		D8DB7FE418C4C46200BA2037 /* BBACoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FAB18C4B8B900BA2037 /* BBACoreDataStack.m */; };
-		D8DB7FE518C4C46600BA2037 /* BBAContext.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FA918C4B8B900BA2037 /* BBAContext.m */; };
-		D8DB7FE618C4C46C00BA2037 /* BBAModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FAD18C4B8B900BA2037 /* BBAModel.m */; };
-		D8DB7FE718C4C46C00BA2037 /* BBAStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FAF18C4B8B900BA2037 /* BBAStore.m */; };
-		D8DB7FEC18C4CA3900BA2037 /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FE218C4C31300BA2037 /* Activity.m */; };
-		D8DB7FED18C4CA3900BA2037 /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FDF18C4C31300BA2037 /* Schedule.m */; };
-		D8DB7FEE18C4CA3900BA2037 /* Pictogram.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FDC18C4C31300BA2037 /* Pictogram.m */; };
-		D8DB7FEF18C4CA3900BA2037 /* PictoCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FD918C4C31200BA2037 /* PictoCategory.m */; };
 		D8DB7FF518C4DA2300BA2037 /* BBAAddScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FF418C4DA2300BA2037 /* BBAAddScheduleViewController.m */; };
 		D8DB7FFF18C50F4700BA2037 /* BBAShowScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FFE18C50F4700BA2037 /* BBAShowScheduleViewController.m */; };
 		D8ED7F9718B77771007A7315 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D8ED7F9518B77771007A7315 /* CoreData.xcdatamodeld */; };
@@ -123,6 +117,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		683725B718C88E2F00617DC4 /* libBBAModel.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libBBAModel.a; path = "BBAModel/build/Debug-iphoneos/libBBAModel.a"; sourceTree = "<group>"; };
+		683725B918C88EB400617DC4 /* libBBAModel.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libBBAModel.a; path = "BBAModel/build/Debug-iphoneos/libBBAModel.a"; sourceTree = "<group>"; };
+		683725BB18C88F0300617DC4 /* libBBAFileManager.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libBBAFileManager.a; path = "BBAFileManager/build/Debug-iphoneos/libBBAFileManager.a"; sourceTree = "<group>"; };
+		683725BD18C88F1F00617DC4 /* libBBADataStack.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libBBADataStack.a; path = "BBADataStack/build/Debug-iphoneos/libBBADataStack.a"; sourceTree = "<group>"; };
+		683725BF18C88F3800617DC4 /* libBBAFileManager.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libBBAFileManager.a; path = "BBAFileManager/build/Debug-iphoneos/libBBAFileManager.a"; sourceTree = "<group>"; };
+		683725C118C88F4D00617DC4 /* libBBAServiceProvider.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libBBAServiceProvider.a; path = "BBAServiceProvider/build/Debug-iphoneos/libBBAServiceProvider.a"; sourceTree = "<group>"; };
+		683725C318C88FAC00617DC4 /* libBBAModel.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libBBAModel.a; path = "BBAModel/build/Debug-iphoneos/libBBAModel.a"; sourceTree = "<group>"; };
 		688A8C1918C0A23F006ED17E /* CoreData 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CoreData 3.xcdatamodel"; sourceTree = "<group>"; };
 		D81AA9E918B943C400E3B50C /* AudioRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioRecorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D81AA9EF18B943C400E3B50C /* AudioRecorder-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AudioRecorder-Info.plist"; sourceTree = "<group>"; };
@@ -262,6 +263,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				683725C418C88FAC00617DC4 /* libBBAModel.a in Frameworks */,
 				D850E82618C86F420051CD51 /* MobileCoreServices.framework in Frameworks */,
 				D850E82418C86D5F0051CD51 /* libBBACamera.a in Frameworks */,
 				D83A62BE18B696DC00EC0773 /* CoreGraphics.framework in Frameworks */,
@@ -414,6 +416,13 @@
 		D83A62BA18B696DC00EC0773 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				683725C318C88FAC00617DC4 /* libBBAModel.a */,
+				683725C118C88F4D00617DC4 /* libBBAServiceProvider.a */,
+				683725BF18C88F3800617DC4 /* libBBAFileManager.a */,
+				683725BD18C88F1F00617DC4 /* libBBADataStack.a */,
+				683725BB18C88F0300617DC4 /* libBBAFileManager.a */,
+				683725B918C88EB400617DC4 /* libBBAModel.a */,
+				683725B718C88E2F00617DC4 /* libBBAModel.a */,
 				D850E82518C86F420051CD51 /* MobileCoreServices.framework */,
 				D850E82318C86D5F0051CD51 /* libBBACamera.a */,
 				D81AAA1E18B94F0A00E3B50C /* AVFoundation.framework */,
@@ -856,24 +865,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8ED7F9718B77771007A7315 /* CoreData.xcdatamodeld in Sources */,
-				D8DB7FE618C4C46C00BA2037 /* BBAModel.m in Sources */,
-				D8DB7FE518C4C46600BA2037 /* BBAContext.m in Sources */,
 				D81AAA2018B9949D00E3B50C /* AudioRecorder.m in Sources */,
 				D82D5FD418C616A6000A8FD3 /* UIView+BBASubviews.m in Sources */,
 				D8805F3F18C5DD01001BD35B /* BBANewPictogramViewController.m in Sources */,
 				D8DB7FF518C4DA2300BA2037 /* BBAAddScheduleViewController.m in Sources */,
-				D8DB7FEC18C4CA3900BA2037 /* Activity.m in Sources */,
-				D8DB7FEE18C4CA3900BA2037 /* Pictogram.m in Sources */,
 				D82D5FD118C610C0000A8FD3 /* BBAPictogramCreator.m in Sources */,
 				D8805F4718C5E456001BD35B /* BBASelectPictogramViewController.m in Sources */,
-				D8DB7FED18C4CA3900BA2037 /* Schedule.m in Sources */,
 				D83A62CC18B696DC00EC0773 /* AppDelegate.m in Sources */,
-				D8DB7FEF18C4CA3900BA2037 /* PictoCategory.m in Sources */,
 				D83A62C818B696DC00EC0773 /* main.m in Sources */,
 				D8DB7FFF18C50F4700BA2037 /* BBAShowScheduleViewController.m in Sources */,
-				D8DB7FE718C4C46C00BA2037 /* BBAStore.m in Sources */,
-				D8DB7FE418C4C46200BA2037 /* BBACoreDataStack.m in Sources */,
 				D85EA1A918C4B12300ACDBD6 /* BBAScheduleOverviewViewController.m in Sources */,
+				683725C618C8904400617DC4 /* BBACoreDataStack.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1208,6 +1210,7 @@
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Visual_Scheduler-dkxsscvrumbjjoephvoayemnivgl/Build/Products/Debug-iphoneos",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1225,6 +1228,7 @@
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Visual_Scheduler-dkxsscvrumbjjoephvoayemnivgl/Build/Products/Debug-iphoneos",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

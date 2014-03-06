@@ -1,7 +1,8 @@
 #import "BBASelectPictogramViewController.h"
 #import "BBANewPictogramViewController.h"
-#import "../../BBACoreDataStack.h"
-#import "Pictogram.h"
+//#import "../../BBACoreDataStack.h"
+//#import "Pictogram.h"
+#import "../../BBAModel/BBAModel/BBAModelStack.h"
 #import "UIView+BBASubviews.h"
 
 NSString * const kCellReusableIdentifier = @"pictogramSelector";
@@ -21,10 +22,15 @@ NSInteger const kCellTagForLabelView = 2;
 }
 
 - (void)setupCoreData {
+    /*
     NSSortDescriptor *pictogramSorter = [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES];
     _fetchedResultsController = [[BBACoreDataStack sharedInstance] fetchedResultsControllerForEntityClass:[Pictogram class] batchSize:20 andSortDescriptors:@[pictogramSorter]];
     [_fetchedResultsController setDelegate:self];
     [_fetchedResultsController performFetch:nil];
+     */
+    _fetchedResultsController = [Pictogram fetchedResultsController];
+    [_fetchedResultsController setDelegate:self];
+    [_fetchedResultsController errorHandledFetch];
 }
 
 #pragma mark - Camera

@@ -18,7 +18,6 @@
 		682DEA7418C5F1DC00ECC735 /* BBAStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 682DEA7318C5F1DC00ECC735 /* BBAStore.m */; };
 		682DEA7718C5F1FF00ECC735 /* BBAModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 682DEA7618C5F1FF00ECC735 /* BBAModel.m */; };
 		682DEA7A18C5F23200ECC735 /* BBAContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 682DEA7918C5F23200ECC735 /* BBAContext.m */; };
-		682DEA7C18C5F25500ECC735 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 682DEA7B18C5F25500ECC735 /* CoreData.framework */; };
 		682DEA8618C5F2A400ECC735 /* TestBBAModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 682DEA7D18C5F2A400ECC735 /* TestBBAModel.m */; };
 		682DEA8718C5F2A400ECC735 /* TestBBAStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 682DEA7E18C5F2A400ECC735 /* TestBBAStore.m */; };
 		682DEA8818C5F2A400ECC735 /* TestBBAContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 682DEA7F18C5F2A400ECC735 /* TestBBAContext.m */; };
@@ -106,7 +105,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				682DEA7C18C5F25500ECC735 /* CoreData.framework in Frameworks */,
 				682DEA4D18C5F19300ECC735 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -635,6 +633,7 @@
 				6880B23F18C603D4000900CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

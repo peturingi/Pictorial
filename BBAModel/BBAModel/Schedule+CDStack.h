@@ -10,4 +10,5 @@
 #import "ModelProtocol.h"
 
 @interface Schedule (CDStack) <ModelProtocol>
++(void)insertWithTile:(NSString*)title imageLogo:(UIImage*)image andBackgroundColor:(NSUInteger)colorIndex;
 @end

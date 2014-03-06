@@ -1,9 +1,7 @@
 #import "AppDelegate.h"
-#import <CoreData/CoreData.h>
-#import "../BBACoreDataStack.h"
+#import "../BBAModel/BBAModel/BBAModelStack.h"
 
 @interface AppDelegate ()
-    @property (strong, nonatomic) BBACoreDataStack* coreDataStack;
 @end
 
 
@@ -12,11 +10,12 @@
 #pragma mark -
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
+    [self setupDataStack];
     return YES;
 }
 
 - (void)setupDataStack {
-    _coreDataStack = [BBACoreDataStack stackWithModelNamed:@"CoreData" andStoreFileNamed:@"CoreData.sqlite"];
+    [BBAModelStack modelNamed:@"CoreData" andStore:@"RuntimeStore"];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

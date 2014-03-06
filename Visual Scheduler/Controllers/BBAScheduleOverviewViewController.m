@@ -1,7 +1,8 @@
 #import "BBAScheduleOverviewViewController.h"
-#import "Schedule.h"
-#import "../../BBACoreDataStack.h"
+//#import "Schedule.h"
+//#import "../../BBACoreDataStack.h"
 #import "Show Schedule/BBAShowScheduleViewController.h"
+#import "../../BBAModel/BBAModel/BBAModelStack.h"
 
 static NSString * const kBBACellReuseIdentifier = @"ScheduleCell";
 static NSString * const kBBASortCellsBy = @"title";
@@ -38,11 +39,16 @@ static NSString * const kBBASortCellsBy = @"title";
 
 - (void)setupDataSource {
     // TODO Temporary implementation for use during development. Change to a proper one before release.
+    /*
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:kBBASortCellsBy ascending:YES];
     BBACoreDataStack *coreDataStack = [BBACoreDataStack sharedInstance];
     _dataSource = [coreDataStack fetchedResultsControllerForEntityClass:[Schedule class] batchSize:20 andSortDescriptors:@[sortDescriptor]];
     _dataSource.delegate = self;
     [[BBACoreDataStack sharedInstance] fetchFor:_dataSource];
+     */
+    _dataSource = [Schedule fetchedResultsController];
+    [_dataSource setDelegate:self];
+    [_dataSource errorHandledFetch];
 }
 
 #pragma mark - Table view data source
