@@ -1,6 +1,11 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#import "../../BBAModel/BBAModel/Schedule.h"
 
-@interface BBAScheduleOverviewViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate>
+@class BBAScheduleTableDataSource;
+
+@interface BBAScheduleOverviewViewController : UITableViewController
+
+- (void)scheduleTableDataSource:(BBAScheduleTableDataSource *)sender scheduleWasSelectedByUser:(Schedule *)selection;
 
 @end
