@@ -40,7 +40,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ag-18-8bu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2539" y="-227"/>
+            <point key="canvasLocation" x="-1709" y="-206"/>
         </scene>
         <!--Schedule Overview-->
         <scene sceneID="MhY-IM-atK">
@@ -73,7 +73,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YtU-ge-aXT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="464" y="-116"/>
+            <point key="canvasLocation" x="-492" y="-1575"/>
         </scene>
         <!--New Pictogram View Controller-->
         <scene sceneID="GJ8-lK-fDS">
@@ -130,7 +130,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1u7-j9-YdA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="538" y="1562"/>
+            <point key="canvasLocation" x="3094" y="-286"/>
         </scene>
         <!--Select Pictogram-->
         <scene sceneID="yQK-vJ-uJC">
@@ -204,7 +204,7 @@
                     </items>
                 </toolbar>
             </objects>
-            <point key="canvasLocation" x="-378" y="1360"/>
+            <point key="canvasLocation" x="1994" y="-286"/>
         </scene>
         <!--Add Schedule View Controller - New Schedule-->
         <scene sceneID="JVZ-KN-laV">
@@ -261,12 +261,12 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1117" y="985"/>
+            <point key="canvasLocation" x="928" y="-286"/>
         </scene>
-        <!--Show Schedule View Controller-->
+        <!--Show Schedule-->
         <scene sceneID="neW-ja-5jt">
             <objects>
-                <tableViewController id="gcU-7o-ixR" customClass="BBAShowScheduleViewController" sceneMemberID="viewController">
+                <tableViewController id="gcU-7o-ixR" userLabel="Show Schedule" customClass="BBAShowScheduleViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="LTA-H5-XmH">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -286,11 +286,52 @@
                             <outlet property="delegate" destination="gcU-7o-ixR" id="hiL-Bp-jdg"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="K7d-ag-uvP"/>
+                    <navigationItem key="navigationItem" id="K7d-ag-uvP">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="B2I-u1-Bdl">
+                            <connections>
+                                <segue destination="FpC-qh-DWd" kind="push" id="pU7-1w-La2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ajf-nH-jT2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1552" y="-195"/>
+            <point key="canvasLocation" x="928" y="-1595"/>
+        </scene>
+        <!--New Activity-->
+        <scene sceneID="13z-Fo-S6C">
+            <objects>
+                <viewController title="New Activity" id="FpC-qh-DWd" userLabel="New Activity" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wFd-P1-tHM"/>
+                        <viewControllerLayoutGuide type="bottom" id="gBA-R6-a9U"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="P9h-zm-f3w">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hGx-SI-6E2">
+                                <rect key="frame" x="259" y="152" width="250" height="250"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Dn-Qb-JUF">
+                                <rect key="frame" x="259" y="410" width="250" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="vLy-a1-Pff">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="PtA-Iy-huL"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="f2s-qz-gJU"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ovR-1z-DaI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1994" y="-1595"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LMG-h6-PzK">
@@ -309,7 +350,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jOM-wJ-ZzT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-481" y="-96"/>
+            <point key="canvasLocation" x="-1709" y="-1575"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

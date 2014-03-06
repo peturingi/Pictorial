@@ -45,5 +45,4 @@
                   @"It must be possible to make an association with a schedule.");
 }
 
-
 @end
