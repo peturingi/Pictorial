@@ -63,6 +63,8 @@
 		D850E82818C8746A0051CD51 /* BBAShowScheduleViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D850E82718C8746A0051CD51 /* BBAShowScheduleViewControllerTests.m */; };
 		D850E82B18C87C3D0051CD51 /* MockManagedObjectContext.m in Sources */ = {isa = PBXBuildFile; fileRef = D850E82A18C87C3D0051CD51 /* MockManagedObjectContext.m */; };
 		D850E82C18C885230051CD51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D83A62CD18B696DC00EC0773 /* Main.storyboard */; };
+		D850E82F18C88E7E0051CD51 /* MockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D850E82E18C88E7E0051CD51 /* MockViewController.m */; };
+		D850E83218C899B70051CD51 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D850E83118C899B70051CD51 /* libOCMock.a */; };
 		D85EA1A918C4B12300ACDBD6 /* BBAScheduleOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D85EA1A818C4B12300ACDBD6 /* BBAScheduleOverviewViewController.m */; };
 		D8805F3718C5CD8E001BD35B /* HelperMethodsForTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FB118C4B8B900BA2037 /* HelperMethodsForTests.m */; };
 		D8805F3818C5CD8E001BD35B /* TestBBAContext.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FB218C4B8B900BA2037 /* TestBBAContext.m */; };
@@ -175,6 +177,10 @@
 		D850E82718C8746A0051CD51 /* BBAShowScheduleViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBAShowScheduleViewControllerTests.m; path = "Visual SchedulerTests/BBAShowScheduleViewControllerTests.m"; sourceTree = SOURCE_ROOT; };
 		D850E82918C87C3D0051CD51 /* MockManagedObjectContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MockManagedObjectContext.h; path = "Visual SchedulerTests/MockManagedObjectContext.h"; sourceTree = SOURCE_ROOT; };
 		D850E82A18C87C3D0051CD51 /* MockManagedObjectContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MockManagedObjectContext.m; path = "Visual SchedulerTests/MockManagedObjectContext.m"; sourceTree = SOURCE_ROOT; };
+		D850E82D18C88E7E0051CD51 /* MockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockViewController.h; sourceTree = "<group>"; };
+		D850E82E18C88E7E0051CD51 /* MockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockViewController.m; sourceTree = "<group>"; };
+		D850E83018C890F00051CD51 /* BBAShowScheduleViewController_BBAShowScheduleViewControllerPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBAShowScheduleViewController_BBAShowScheduleViewControllerPrivate.h; sourceTree = "<group>"; };
+		D850E83118C899B70051CD51 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = OCMock/libOCMock.a; sourceTree = "<group>"; };
 		D85EA1A718C4B12300ACDBD6 /* BBAScheduleOverviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBAScheduleOverviewViewController.h; path = Controllers/BBAScheduleOverviewViewController.h; sourceTree = "<group>"; };
 		D85EA1A818C4B12300ACDBD6 /* BBAScheduleOverviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBAScheduleOverviewViewController.m; path = Controllers/BBAScheduleOverviewViewController.m; sourceTree = "<group>"; };
 		D8805F3D18C5DD01001BD35B /* BBANewPictogramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBANewPictogramViewController.h; path = Controllers/BBANewPictogramViewController.h; sourceTree = "<group>"; };
@@ -274,6 +280,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D850E83218C899B70051CD51 /* libOCMock.a in Frameworks */,
 				D83A62DB18B696DC00EC0773 /* XCTest.framework in Frameworks */,
 				D83A62DD18B696DC00EC0773 /* UIKit.framework in Frameworks */,
 				D83A62DC18B696DC00EC0773 /* Foundation.framework in Frameworks */,
@@ -414,6 +421,7 @@
 		D83A62BA18B696DC00EC0773 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D850E83118C899B70051CD51 /* libOCMock.a */,
 				D850E82518C86F420051CD51 /* MobileCoreServices.framework */,
 				D850E82318C86D5F0051CD51 /* libBBACamera.a */,
 				D81AAA1E18B94F0A00E3B50C /* AVFoundation.framework */,
@@ -458,6 +466,9 @@
 				D850E82918C87C3D0051CD51 /* MockManagedObjectContext.h */,
 				D850E82A18C87C3D0051CD51 /* MockManagedObjectContext.m */,
 				D850E82718C8746A0051CD51 /* BBAShowScheduleViewControllerTests.m */,
+				D850E83018C890F00051CD51 /* BBAShowScheduleViewController_BBAShowScheduleViewControllerPrivate.h */,
+				D850E82D18C88E7E0051CD51 /* MockViewController.h */,
+				D850E82E18C88E7E0051CD51 /* MockViewController.m */,
 				D83A62E118B696DC00EC0773 /* Supporting Files */,
 				D8B49E6418B81B3500788073 /* Controllers */,
 			);
@@ -882,6 +893,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D850E82B18C87C3D0051CD51 /* MockManagedObjectContext.m in Sources */,
+				D850E82F18C88E7E0051CD51 /* MockViewController.m in Sources */,
 				D850E82818C8746A0051CD51 /* BBAShowScheduleViewControllerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1247,6 +1259,10 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Visual SchedulerTests/Visual SchedulerTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/petur/Development/Visual\\ Scheduler/OCMock",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -1266,6 +1282,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Visual Scheduler/Visual Scheduler-Prefix.pch";
 				INFOPLIST_FILE = "Visual SchedulerTests/Visual SchedulerTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/petur/Development/Visual\\ Scheduler/OCMock",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;

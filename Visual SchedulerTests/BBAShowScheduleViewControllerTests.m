@@ -2,6 +2,9 @@
 #import "BBAShowScheduleViewController.h"
 #import "Schedule.h"
 #import "MockManagedObjectContext.h"
+#import "MockViewController.h"
+#import "BBAShowScheduleViewController_BBAShowScheduleViewControllerPrivate.h"
+#import "../OCMock/OCMock/OCMock.h"
 
 @interface BBAShowScheduleViewControllerTests : XCTestCase {
     MockManagedObjectContext *managedObjectContext;
@@ -43,6 +46,10 @@
     self.showScheduleViewController.schedule = schedule;
     XCTAssertTrue([self.showScheduleViewController.schedule isEqual:schedule],
                   @"It must be possible to make an association with a schedule.");
+}
+
+- (void)testAsksToDismissSelf {
+#warning nothing here because needs OCMock framework.
 }
 
 @end

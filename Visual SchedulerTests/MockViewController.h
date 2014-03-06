@@ -4,4 +4,8 @@
     BOOL BBA_wasAskedToPresentViewController;
     BOOL BBA_wasAskedToDismissViewController;
 }
+
+- (BOOL)wasAskedToPresentViewController;
+- (BOOL)wasAskedToDismissViewController;
+
 @end
