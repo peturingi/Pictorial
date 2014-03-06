@@ -1,8 +1,11 @@
 #import <XCTest/XCTest.h>
 #import "BBAShowScheduleViewController.h"
 #import "Schedule.h"
+#import "MockManagedObjectContext.h"
 
-@interface BBAShowScheduleViewControllerTests : XCTestCase
+@interface BBAShowScheduleViewControllerTests : XCTestCase {
+    MockManagedObjectContext *managedObjectContext;
+}
 @property (strong, nonatomic) BBAShowScheduleViewController* showScheduleViewController;
 @end
 
@@ -28,13 +31,15 @@
 }
 
 - (void)testScheduleCanBeSetToSchedule {
-    Schedule *schedule = [[Schedule alloc] init];
+    MockManagedObjectContext *mockObjectContext = [[MockManagedObjectContext alloc] init];
+    Schedule *schedule = [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([Schedule class]) inManagedObjectContext:mockObjectContext.managedObjectContext];
     XCTAssertNoThrow(self.showScheduleViewController.schedule = schedule,
                      @"It must be possible to set schedule to a schedule object.");
 }
 
 - (void)testScheduleCanBeAssociated {
-    Schedule *schedule = [[Schedule alloc] init];
+    MockManagedObjectContext *mockObjectContext = [[MockManagedObjectContext alloc] init];
+    Schedule *schedule = [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([Schedule class]) inManagedObjectContext:mockObjectContext.managedObjectContext];
     self.showScheduleViewController.schedule = schedule;
     XCTAssertTrue([self.showScheduleViewController.schedule isEqual:schedule],
                   @"It must be possible to make an association with a schedule.");
