@@ -11,12 +11,19 @@
 {
     [super setUp];
     // Put setup code here; it will be run once, before the first test case.
+    [BBAServiceProvider deleteServiceOfClass:[self class]];
 }
 
 - (void)tearDown
 {
     // Put teardown code here; it will be run once, after the last test case.
     [super tearDown];
+}
+
+-(void)testCannotInsertDuplicate{
+    [BBAServiceProvider insertService:self];
+    XCTAssertThrows([BBAServiceProvider insertService:self], @"inserting duplicate did not throw");
+    
 }
 
 -(void)testCanInsertAndRetrieve{

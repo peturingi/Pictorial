@@ -2,12 +2,11 @@
 //  Pictogram.m
 //  BBAModel
 //
-//  Created by Brian Pedersen on 04/03/14.
+//  Created by Brian Pedersen on 06/03/14.
 //  Copyright (c) 2014 BBA. All rights reserved.
 //
 
 #import "Pictogram.h"
-#import "Activity.h"
 #import "PictoCategory.h"
 
 
@@ -17,6 +16,5 @@
 @dynamic imageURL;
 @dynamic title;
 @dynamic category;
-@dynamic activity;
 
 @end
