@@ -60,6 +60,7 @@
 		D83A62FD18B6D6E900EC0773 /* Bee.png in Resources */ = {isa = PBXBuildFile; fileRef = D83A62FC18B6D6E900EC0773 /* Bee.png */; };
 		D850E82418C86D5F0051CD51 /* libBBACamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D850E82318C86D5F0051CD51 /* libBBACamera.a */; settings = {ATTRIBUTES = (Required, ); }; };
 		D850E82618C86F420051CD51 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D850E82518C86F420051CD51 /* MobileCoreServices.framework */; };
+		D850E82818C8746A0051CD51 /* BBAShowScheduleViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D850E82718C8746A0051CD51 /* BBAShowScheduleViewControllerTests.m */; };
 		D85EA1A918C4B12300ACDBD6 /* BBAScheduleOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D85EA1A818C4B12300ACDBD6 /* BBAScheduleOverviewViewController.m */; };
 		D8805F3718C5CD8E001BD35B /* HelperMethodsForTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FB118C4B8B900BA2037 /* HelperMethodsForTests.m */; };
 		D8805F3818C5CD8E001BD35B /* TestBBAContext.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FB218C4B8B900BA2037 /* TestBBAContext.m */; };
@@ -169,6 +170,7 @@
 		D83A62FC18B6D6E900EC0773 /* Bee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bee.png; sourceTree = "<group>"; };
 		D850E82318C86D5F0051CD51 /* libBBACamera.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBBACamera.a; path = "../../Library/Developer/Xcode/DerivedData/Visual_Scheduler-dkxsscvrumbjjoephvoayemnivgl/Build/Products/Debug-iphoneos/libBBACamera.a"; sourceTree = "<group>"; };
 		D850E82518C86F420051CD51 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		D850E82718C8746A0051CD51 /* BBAShowScheduleViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBAShowScheduleViewControllerTests.m; path = "Visual SchedulerTests/BBAShowScheduleViewControllerTests.m"; sourceTree = SOURCE_ROOT; };
 		D85EA1A718C4B12300ACDBD6 /* BBAScheduleOverviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBAScheduleOverviewViewController.h; path = Controllers/BBAScheduleOverviewViewController.h; sourceTree = "<group>"; };
 		D85EA1A818C4B12300ACDBD6 /* BBAScheduleOverviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBAScheduleOverviewViewController.m; path = Controllers/BBAScheduleOverviewViewController.m; sourceTree = "<group>"; };
 		D8805F3D18C5DD01001BD35B /* BBANewPictogramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBANewPictogramViewController.h; path = Controllers/BBANewPictogramViewController.h; sourceTree = "<group>"; };
@@ -569,6 +571,7 @@
 			children = (
 				D8DB7FFD18C50F4700BA2037 /* BBAShowScheduleViewController.h */,
 				D8DB7FFE18C50F4700BA2037 /* BBAShowScheduleViewController.m */,
+				D850E82718C8746A0051CD51 /* BBAShowScheduleViewControllerTests.m */,
 			);
 			name = "Show Schedule";
 			sourceTree = "<group>";
@@ -871,6 +874,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D850E82818C8746A0051CD51 /* BBAShowScheduleViewControllerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
