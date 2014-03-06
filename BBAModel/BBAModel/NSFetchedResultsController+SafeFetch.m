@@ -1,11 +1,3 @@
-//
-//  NSFetchedResultsController+SafeFetch.m
-//  BBAModel
-//
-//  Created by Brian Pedersen on 05/03/14.
-//  Copyright (c) 2014 BBA. All rights reserved.
-//
-
 #import "NSFetchedResultsController+SafeFetch.h"
 
 @implementation NSFetchedResultsController (SafeFetch)
