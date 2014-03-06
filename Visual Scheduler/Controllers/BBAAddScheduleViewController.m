@@ -1,6 +1,4 @@
 #import "BBAAddScheduleViewController.h"
-//#import "BBACoreDataStack.h"
-//#import "Pictogram.h"
 #import "BBASelectPictogramViewController.h"
 #import "../../BBAModel/BBAModel/BBAModelStack.h"
 
@@ -8,6 +6,7 @@
 
 @property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
 @property (strong, nonatomic) UIImage *image;
+@property (strong, nonatomic) Pictogram *pictogramLogo;
 
 @end
 
@@ -27,7 +26,7 @@
 }
 
 - (void)createScheduleFromInput {
-    [Schedule insertWithTile:schedulesTitle.text imageLogo:imageView.image andBackgroundColor:0];
+    [Schedule insertWithTitle:self.pictogramLogo.title logo:self.pictogramLogo backGround:0];
 }
 
 - (BOOL)verifyTitle {
@@ -63,6 +62,7 @@
 - (void)BBASelectPictogramViewController:(BBASelectPictogramViewController *)controller didSelectItem:(Pictogram *)item {
     UIImage *pictogramImage = [UIImage imageWithContentsOfFile:item.imageURL];
     [imageView setImage:pictogramImage];
+    [self setPictogramLogo:item];
 }
 
 
