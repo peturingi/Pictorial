@@ -2,6 +2,15 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:BBAModel/BBAModel.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:BBADataStack/BBADataStack.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:BBAServiceProvider/BBAServiceProvider.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:BBAFileManager/BBAFileManager.xcodeproj">
    </FileRef>
    <FileRef
