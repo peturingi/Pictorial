@@ -26,7 +26,7 @@
 }
 
 - (void)createScheduleFromInput {
-    [Schedule insertWithTitle:self.pictogramLogo.title logo:self.pictogramLogo backGround:0];
+    [Schedule insertWithTitle:schedulesTitle.text logo:self.pictogramLogo backGround:0];
 }
 
 - (BOOL)verifyTitle {

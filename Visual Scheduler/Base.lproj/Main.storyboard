@@ -75,6 +75,7 @@
                 <customObject id="sgg-mA-Zug" customClass="BBAScheduleTableDataSource">
                     <connections>
                         <outlet property="tableViewController" destination="bnG-DL-C5g" id="UHH-Ud-QDB"/>
+                        <outlet property="tableViewControllersTableView" destination="CMA-C3-GHe" id="kdv-bF-3xD"/>
                     </connections>
                 </customObject>
             </objects>
