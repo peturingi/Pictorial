@@ -24,12 +24,6 @@
 		685146E118C49EE0002CF73F /* (null) in Sources */ = {isa = PBXBuildFile; };
 		685146E218C49EE0002CF73F /* (null) in Sources */ = {isa = PBXBuildFile; };
 		685146E318C49EE0002CF73F /* (null) in Sources */ = {isa = PBXBuildFile; };
-		D81AA9B418B925B900E3B50C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BB18B696DC00EC0773 /* Foundation.framework */; };
-		D81AA9B518B925B900E3B50C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BD18B696DC00EC0773 /* CoreGraphics.framework */; };
-		D81AA9B618B925B900E3B50C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BF18B696DC00EC0773 /* UIKit.framework */; };
-		D81AA9CA18B925B900E3B50C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62DA18B696DC00EC0773 /* XCTest.framework */; };
-		D81AA9CB18B925B900E3B50C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BB18B696DC00EC0773 /* Foundation.framework */; };
-		D81AA9CC18B925B900E3B50C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BF18B696DC00EC0773 /* UIKit.framework */; };
 		D81AA9EA18B943C400E3B50C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BB18B696DC00EC0773 /* Foundation.framework */; };
 		D81AA9EB18B943C400E3B50C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BD18B696DC00EC0773 /* CoreGraphics.framework */; };
 		D81AA9EC18B943C400E3B50C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BF18B696DC00EC0773 /* UIKit.framework */; };
@@ -64,12 +58,6 @@
 		D83A62E518B696DC00EC0773 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D83A62E318B696DC00EC0773 /* InfoPlist.strings */; };
 		D83A62FA18B69D8600EC0773 /* beer.png in Resources */ = {isa = PBXBuildFile; fileRef = D83A62F918B69D8600EC0773 /* beer.png */; };
 		D83A62FD18B6D6E900EC0773 /* Bee.png in Resources */ = {isa = PBXBuildFile; fileRef = D83A62FC18B6D6E900EC0773 /* Bee.png */; };
-		D850E7C118C86A830051CD51 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BB18B696DC00EC0773 /* Foundation.framework */; };
-		D850E7C218C86A830051CD51 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BD18B696DC00EC0773 /* CoreGraphics.framework */; };
-		D850E7C318C86A830051CD51 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BF18B696DC00EC0773 /* UIKit.framework */; };
-		D850E7D718C86A830051CD51 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62DA18B696DC00EC0773 /* XCTest.framework */; };
-		D850E7D818C86A830051CD51 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BB18B696DC00EC0773 /* Foundation.framework */; };
-		D850E7D918C86A830051CD51 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BF18B696DC00EC0773 /* UIKit.framework */; };
 		D850E82418C86D5F0051CD51 /* libBBACamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D850E82318C86D5F0051CD51 /* libBBACamera.a */; settings = {ATTRIBUTES = (Required, ); }; };
 		D850E82618C86F420051CD51 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D850E82518C86F420051CD51 /* MobileCoreServices.framework */; };
 		D85EA1A918C4B12300ACDBD6 /* BBAScheduleOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D85EA1A818C4B12300ACDBD6 /* BBAScheduleOverviewViewController.m */; };
@@ -81,7 +69,6 @@
 		D8805F3C18C5CD8E001BD35B /* TestModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6851470218C4A742002CF73F /* TestModel.xcdatamodeld */; };
 		D8805F3F18C5DD01001BD35B /* BBANewPictogramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8805F3E18C5DD01001BD35B /* BBANewPictogramViewController.m */; };
 		D8805F4718C5E456001BD35B /* BBASelectPictogramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8805F4618C5E456001BD35B /* BBASelectPictogramViewController.m */; };
-		D8B49E6218B8141E00788073 /* SearchViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B49E6118B8141E00788073 /* SearchViewControllerTests.m */; };
 		D8DB7FB618C4B8B900BA2037 /* BBAContext.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FA918C4B8B900BA2037 /* BBAContext.m */; };
 		D8DB7FB718C4B8B900BA2037 /* BBACoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FAB18C4B8B900BA2037 /* BBACoreDataStack.m */; };
 		D8DB7FB818C4B8B900BA2037 /* BBAModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FAD18C4B8B900BA2037 /* BBAModel.m */; };
@@ -116,13 +103,6 @@
 			remoteGlobalIDString = 685146AF18C49EC3002CF73F;
 			remoteInfo = "BBA Core Data Stack";
 		};
-		D81AA9CD18B925B900E3B50C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D83A62B018B696DB00EC0773 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D81AA9B218B925B900E3B50C;
-			remoteInfo = CameraComponent;
-		};
 		D81AAA0918B943C500E3B50C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D83A62B018B696DB00EC0773 /* Project object */;
@@ -137,19 +117,10 @@
 			remoteGlobalIDString = D83A62B718B696DC00EC0773;
 			remoteInfo = "Visual Scheduler";
 		};
-		D850E7DA18C86A830051CD51 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D83A62B018B696DB00EC0773 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D850E7BF18C86A830051CD51;
-			remoteInfo = BBACameraTestsTarget;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		688A8C1918C0A23F006ED17E /* CoreData 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CoreData 3.xcdatamodel"; sourceTree = "<group>"; };
-		D81AA9B318B925B900E3B50C /* CameraComponent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CameraComponent.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D81AA9C918B925B900E3B50C /* CameraComponentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CameraComponentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D81AA9E918B943C400E3B50C /* AudioRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioRecorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D81AA9EF18B943C400E3B50C /* AudioRecorder-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AudioRecorder-Info.plist"; sourceTree = "<group>"; };
 		D81AA9F118B943C400E3B50C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -196,8 +167,6 @@
 		D83A62F918B69D8600EC0773 /* beer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beer.png; sourceTree = "<group>"; };
 		D83A62FB18B6B69E00EC0773 /* ContainsImageAsData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ContainsImageAsData.h; path = Protocols/ContainsImageAsData.h; sourceTree = "<group>"; };
 		D83A62FC18B6D6E900EC0773 /* Bee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bee.png; sourceTree = "<group>"; };
-		D850E7C018C86A830051CD51 /* BBACameraTestsTarget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BBACameraTestsTarget.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D850E7D618C86A830051CD51 /* BBACameraTestsTargetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BBACameraTestsTargetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D850E82318C86D5F0051CD51 /* libBBACamera.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBBACamera.a; path = "../../Library/Developer/Xcode/DerivedData/Visual_Scheduler-dkxsscvrumbjjoephvoayemnivgl/Build/Products/Debug-iphoneos/libBBACamera.a"; sourceTree = "<group>"; };
 		D850E82518C86F420051CD51 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		D85EA1A718C4B12300ACDBD6 /* BBAScheduleOverviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBAScheduleOverviewViewController.h; path = Controllers/BBAScheduleOverviewViewController.h; sourceTree = "<group>"; };
@@ -208,7 +177,6 @@
 		D8805F4618C5E456001BD35B /* BBASelectPictogramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBASelectPictogramViewController.m; path = "Visual Scheduler/Controllers/BBASelectPictogramViewController.m"; sourceTree = "<group>"; };
 		D88CF2B618C71B5300AF0CC1 /* BBASelectPictogramViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BBASelectPictogramViewControllerDelegate.h; path = "Visual Scheduler/Controllers/BBASelectPictogramViewControllerDelegate.h"; sourceTree = "<group>"; };
 		D8B49E5F18B8025500788073 /* SearchViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SearchViewControllerDelegate.h; path = Protocols/SearchViewControllerDelegate.h; sourceTree = "<group>"; };
-		D8B49E6118B8141E00788073 /* SearchViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewControllerTests.m; path = Controllers/SearchViewControllerTests.m; sourceTree = "<group>"; };
 		D8B49E6518B823A000788073 /* TagManagementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TagManagementViewController.h; path = Controllers/TagManagementViewController.h; sourceTree = "<group>"; };
 		D8B49E6618B823A000788073 /* TagManagementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TagManagementViewController.m; path = Controllers/TagManagementViewController.m; sourceTree = "<group>"; };
 		D8DB7FA818C4B8B900BA2037 /* BBAContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAContext.h; sourceTree = SOURCE_ROOT; };
@@ -263,26 +231,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D81AA9B018B925B900E3B50C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D81AA9B518B925B900E3B50C /* CoreGraphics.framework in Frameworks */,
-				D81AA9B618B925B900E3B50C /* UIKit.framework in Frameworks */,
-				D81AA9B418B925B900E3B50C /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D81AA9C618B925B900E3B50C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D81AA9CA18B925B900E3B50C /* XCTest.framework in Frameworks */,
-				D81AA9CC18B925B900E3B50C /* UIKit.framework in Frameworks */,
-				D81AA9CB18B925B900E3B50C /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D81AA9E618B943C400E3B50C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -323,26 +271,6 @@
 				D83A62DB18B696DC00EC0773 /* XCTest.framework in Frameworks */,
 				D83A62DD18B696DC00EC0773 /* UIKit.framework in Frameworks */,
 				D83A62DC18B696DC00EC0773 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D850E7BD18C86A830051CD51 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D850E7C218C86A830051CD51 /* CoreGraphics.framework in Frameworks */,
-				D850E7C318C86A830051CD51 /* UIKit.framework in Frameworks */,
-				D850E7C118C86A830051CD51 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D850E7D318C86A830051CD51 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D850E7D718C86A830051CD51 /* XCTest.framework in Frameworks */,
-				D850E7D918C86A830051CD51 /* UIKit.framework in Frameworks */,
-				D850E7D818C86A830051CD51 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,12 +399,8 @@
 			children = (
 				D83A62B818B696DC00EC0773 /* Visual Scheduler.app */,
 				D83A62D918B696DC00EC0773 /* Visual SchedulerTests.xctest */,
-				D81AA9B318B925B900E3B50C /* CameraComponent.app */,
-				D81AA9C918B925B900E3B50C /* CameraComponentTests.xctest */,
 				D81AA9E918B943C400E3B50C /* AudioRecorder.app */,
 				D81AAA0518B943C400E3B50C /* AudioRecorderTests.xctest */,
-				D850E7C018C86A830051CD51 /* BBACameraTestsTarget.app */,
-				D850E7D618C86A830051CD51 /* BBACameraTestsTargetTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -627,7 +551,6 @@
 		D8B49E6418B81B3500788073 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D8B49E6118B8141E00788073 /* SearchViewControllerTests.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -684,41 +607,6 @@
 			);
 			name = "BBA Core Data StackTests";
 			productName = "BBA Core Data StackTests";
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		D81AA9B218B925B900E3B50C /* CameraComponent */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D81AA9D718B925B900E3B50C /* Build configuration list for PBXNativeTarget "CameraComponent" */;
-			buildPhases = (
-				D81AA9AF18B925B900E3B50C /* Sources */,
-				D81AA9B018B925B900E3B50C /* Frameworks */,
-				D81AA9B118B925B900E3B50C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = CameraComponent;
-			productName = CameraComponent;
-			productReference = D81AA9B318B925B900E3B50C /* CameraComponent.app */;
-			productType = "com.apple.product-type.application";
-		};
-		D81AA9C818B925B900E3B50C /* CameraComponentTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D81AA9DA18B925B900E3B50C /* Build configuration list for PBXNativeTarget "CameraComponentTests" */;
-			buildPhases = (
-				D81AA9C518B925B900E3B50C /* Sources */,
-				D81AA9C618B925B900E3B50C /* Frameworks */,
-				D81AA9C718B925B900E3B50C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D81AA9CE18B925B900E3B50C /* PBXTargetDependency */,
-			);
-			name = CameraComponentTests;
-			productName = CameraComponentTests;
-			productReference = D81AA9C918B925B900E3B50C /* CameraComponentTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		D81AA9E818B943C400E3B50C /* AudioRecorder */ = {
@@ -791,41 +679,6 @@
 			productReference = D83A62D918B696DC00EC0773 /* Visual SchedulerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		D850E7BF18C86A830051CD51 /* BBACameraTestsTarget */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D850E7E818C86A840051CD51 /* Build configuration list for PBXNativeTarget "BBACameraTestsTarget" */;
-			buildPhases = (
-				D850E7BC18C86A830051CD51 /* Sources */,
-				D850E7BD18C86A830051CD51 /* Frameworks */,
-				D850E7BE18C86A830051CD51 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = BBACameraTestsTarget;
-			productName = BBACameraTestsTarget;
-			productReference = D850E7C018C86A830051CD51 /* BBACameraTestsTarget.app */;
-			productType = "com.apple.product-type.application";
-		};
-		D850E7D518C86A830051CD51 /* BBACameraTestsTargetTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D850E7E918C86A840051CD51 /* Build configuration list for PBXNativeTarget "BBACameraTestsTargetTests" */;
-			buildPhases = (
-				D850E7D218C86A830051CD51 /* Sources */,
-				D850E7D318C86A830051CD51 /* Frameworks */,
-				D850E7D418C86A830051CD51 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D850E7DB18C86A830051CD51 /* PBXTargetDependency */,
-			);
-			name = BBACameraTestsTargetTests;
-			productName = BBACameraTestsTargetTests;
-			productReference = D850E7D618C86A830051CD51 /* BBACameraTestsTargetTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -838,16 +691,10 @@
 					685146CA18C49EC4002CF73F = {
 						TestTargetID = D83A62B718B696DC00EC0773;
 					};
-					D81AA9C818B925B900E3B50C = {
-						TestTargetID = D83A62B718B696DC00EC0773;
-					};
 					D81AAA0418B943C400E3B50C = {
 						TestTargetID = D83A62B718B696DC00EC0773;
 					};
 					D83A62D818B696DC00EC0773 = {
-						TestTargetID = D83A62B718B696DC00EC0773;
-					};
-					D850E7D518C86A830051CD51 = {
 						TestTargetID = D83A62B718B696DC00EC0773;
 					};
 				};
@@ -867,14 +714,10 @@
 			targets = (
 				D83A62B718B696DC00EC0773 /* Visual Scheduler */,
 				D83A62D818B696DC00EC0773 /* Visual SchedulerTests */,
-				D81AA9B218B925B900E3B50C /* CameraComponent */,
-				D81AA9C818B925B900E3B50C /* CameraComponentTests */,
 				D81AA9E818B943C400E3B50C /* AudioRecorder */,
 				D81AAA0418B943C400E3B50C /* AudioRecorderTests */,
 				685146AF18C49EC3002CF73F /* BBA Core Data Stack */,
 				685146CA18C49EC4002CF73F /* BBA Core Data StackTests */,
-				D850E7BF18C86A830051CD51 /* BBACameraTestsTarget */,
-				D850E7D518C86A830051CD51 /* BBACameraTestsTargetTests */,
 			);
 		};
 /* End PBXProject section */
@@ -894,20 +737,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				685146D718C49EC4002CF73F /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D81AA9B118B925B900E3B50C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D81AA9C718B925B900E3B50C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -946,20 +775,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D83A62E518B696DC00EC0773 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D850E7BE18C86A830051CD51 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D850E7D418C86A830051CD51 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1004,20 +819,6 @@
 				D8805F3A18C5CD8E001BD35B /* TestBBAModel.m in Sources */,
 				D8805F3B18C5CD8E001BD35B /* TestBBAStore.m in Sources */,
 				D8805F3C18C5CD8E001BD35B /* TestModel.xcdatamodeld in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D81AA9AF18B925B900E3B50C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D81AA9C518B925B900E3B50C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1070,21 +871,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8B49E6218B8141E00788073 /* SearchViewControllerTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D850E7BC18C86A830051CD51 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D850E7D218C86A830051CD51 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1096,11 +882,6 @@
 			target = 685146AF18C49EC3002CF73F /* BBA Core Data Stack */;
 			targetProxy = 685146D018C49EC4002CF73F /* PBXContainerItemProxy */;
 		};
-		D81AA9CE18B925B900E3B50C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D81AA9B218B925B900E3B50C /* CameraComponent */;
-			targetProxy = D81AA9CD18B925B900E3B50C /* PBXContainerItemProxy */;
-		};
 		D81AAA0A18B943C500E3B50C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D81AA9E818B943C400E3B50C /* AudioRecorder */;
@@ -1110,11 +891,6 @@
 			isa = PBXTargetDependency;
 			target = D83A62B718B696DC00EC0773 /* Visual Scheduler */;
 			targetProxy = D83A62DE18B696DC00EC0773 /* PBXContainerItemProxy */;
-		};
-		D850E7DB18C86A830051CD51 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D850E7BF18C86A830051CD51 /* BBACameraTestsTarget */;
-			targetProxy = D850E7DA18C86A830051CD51 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1252,80 +1028,6 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BBA Core Data Stack/BBA Core Data Stack-Prefix.pch";
 				INFOPLIST_FILE = "BBA Core Data StackTests/BBA Core Data StackTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
-		D81AA9D818B925B900E3B50C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CameraComponent/CameraComponent-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "CameraComponent/CameraComponent-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Debug;
-		};
-		D81AA9D918B925B900E3B50C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CameraComponent/CameraComponent-Prefix.pch";
-				INFOPLIST_FILE = "CameraComponent/CameraComponent-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		D81AA9DB18B925B900E3B50C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Visual Scheduler.app/Visual Scheduler";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CameraComponent/CameraComponent-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "CameraComponentTests/CameraComponentTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		D81AA9DC18B925B900E3B50C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Visual Scheduler.app/Visual Scheduler";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CameraComponent/CameraComponent-Prefix.pch";
-				INFOPLIST_FILE = "CameraComponentTests/CameraComponentTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -1558,80 +1260,6 @@
 			};
 			name = Release;
 		};
-		D850E7E418C86A840051CD51 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BBACameraTestsTarget/BBACameraTestsTarget-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "BBACameraTestsTarget/BBACameraTestsTarget-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Debug;
-		};
-		D850E7E518C86A840051CD51 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BBACameraTestsTarget/BBACameraTestsTarget-Prefix.pch";
-				INFOPLIST_FILE = "BBACameraTestsTarget/BBACameraTestsTarget-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		D850E7E618C86A840051CD51 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Visual Scheduler.app/Visual Scheduler";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BBACameraTestsTarget/BBACameraTestsTarget-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "BBACameraTestsTargetTests/BBACameraTestsTargetTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		D850E7E718C86A840051CD51 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Visual Scheduler.app/Visual Scheduler";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BBACameraTestsTarget/BBACameraTestsTarget-Prefix.pch";
-				INFOPLIST_FILE = "BBACameraTestsTargetTests/BBACameraTestsTargetTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1649,24 +1277,6 @@
 			buildConfigurations = (
 				685146DE18C49EC4002CF73F /* Debug */,
 				685146DF18C49EC4002CF73F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D81AA9D718B925B900E3B50C /* Build configuration list for PBXNativeTarget "CameraComponent" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D81AA9D818B925B900E3B50C /* Debug */,
-				D81AA9D918B925B900E3B50C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D81AA9DA18B925B900E3B50C /* Build configuration list for PBXNativeTarget "CameraComponentTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D81AA9DB18B925B900E3B50C /* Debug */,
-				D81AA9DC18B925B900E3B50C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1715,22 +1325,6 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
-		};
-		D850E7E818C86A840051CD51 /* Build configuration list for PBXNativeTarget "BBACameraTestsTarget" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D850E7E418C86A840051CD51 /* Debug */,
-				D850E7E518C86A840051CD51 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
-		D850E7E918C86A840051CD51 /* Build configuration list for PBXNativeTarget "BBACameraTestsTargetTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D850E7E618C86A840051CD51 /* Debug */,
-				D850E7E718C86A840051CD51 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 
