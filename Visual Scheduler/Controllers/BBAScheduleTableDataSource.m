@@ -15,37 +15,38 @@ NSString * const kBBACellIdentifier = @"ScheduleCell";
 }
 
 - (void)setupDataSource {
-    _dataSource = [Schedule fetchedResultsController];
-    [_dataSource setDelegate:self];
-    [_dataSource errorHandledFetch];
+    self.dataSource = [Schedule fetchedResultsController];
+    [self.dataSource setDelegate:self];
+    [self.dataSource errorHandledFetch];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    id <NSFetchedResultsSectionInfo> sectionInfo = [[_dataSource sections] objectAtIndex:section];
+    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.dataSource sections] objectAtIndex:section];
     return [sectionInfo numberOfObjects];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    NSArray *sections = _dataSource.sections;
+    NSArray *sections = self.dataSource.sections;
     return [sections count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSParameterAssert(indexPath.section == 0);
     NSParameterAssert(indexPath.row < self.dataSource.fetchedObjects.count);
-    UITableViewCell *cell = [tableViewControllersTableView dequeueReusableCellWithIdentifier:kBBACellIdentifier forIndexPath:indexPath];
-    Schedule *schedule = [_dataSource objectAtIndexPath:indexPath];
+    UITableViewCell *cell = [self.delegate.tableView dequeueReusableCellWithIdentifier:kBBACellIdentifier forIndexPath:indexPath];
+    Schedule *schedule = [self.dataSource objectAtIndexPath:indexPath];
     cell.textLabel.text = schedule.title;
     return cell;
 }
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
-    [tableViewControllersTableView reloadData];
+    [self.delegate.tableView reloadData];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSParameterAssert(indexPath.row < self.dataSource.fetchedObjects.count);
     [tableView indexPathForSelectedRow];
-    [tableViewController scheduleTableDataSource:self scheduleWasSelectedByUser:[self.dataSource objectAtIndexPath:indexPath]];
+    [self.delegate scheduleTableDataSource:self scheduleWasSelectedByUser:[self.dataSource objectAtIndexPath:indexPath]];
 }
 
 
