@@ -31,11 +31,6 @@
 		D81AA9FB18B943C400E3B50C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D81AA9F918B943C400E3B50C /* Main.storyboard */; };
 		D81AA9FE18B943C400E3B50C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D81AA9FD18B943C400E3B50C /* ViewController.m */; };
 		D81AAA0018B943C400E3B50C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D81AA9FF18B943C400E3B50C /* Images.xcassets */; };
-		D81AAA0618B943C400E3B50C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62DA18B696DC00EC0773 /* XCTest.framework */; };
-		D81AAA0718B943C500E3B50C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BB18B696DC00EC0773 /* Foundation.framework */; };
-		D81AAA0818B943C500E3B50C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BF18B696DC00EC0773 /* UIKit.framework */; };
-		D81AAA1018B943C500E3B50C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D81AAA0E18B943C500E3B50C /* InfoPlist.strings */; };
-		D81AAA1218B943C500E3B50C /* AudioRecorderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D81AAA1118B943C500E3B50C /* AudioRecorderTests.m */; };
 		D81AAA1B18B9478600E3B50C /* AudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = D81AAA1A18B9478600E3B50C /* AudioRecorder.m */; };
 		D81AAA1F18B94F0A00E3B50C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D81AAA1E18B94F0A00E3B50C /* AVFoundation.framework */; };
 		D81AAA2018B9949D00E3B50C /* AudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = D81AAA1A18B9478600E3B50C /* AudioRecorder.m */; };
@@ -59,7 +54,6 @@
 		D850E82B18C87C3D0051CD51 /* MockManagedObjectContext.m in Sources */ = {isa = PBXBuildFile; fileRef = D850E82A18C87C3D0051CD51 /* MockManagedObjectContext.m */; };
 		D850E82C18C885230051CD51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D83A62CD18B696DC00EC0773 /* Main.storyboard */; };
 		D850E82F18C88E7E0051CD51 /* MockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D850E82E18C88E7E0051CD51 /* MockViewController.m */; };
-		D850E83218C899B70051CD51 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D850E83118C899B70051CD51 /* libOCMock.a */; };
 		D85EA1A918C4B12300ACDBD6 /* BBAScheduleOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D85EA1A818C4B12300ACDBD6 /* BBAScheduleOverviewViewController.m */; };
 		D8805F3F18C5DD01001BD35B /* BBANewPictogramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8805F3E18C5DD01001BD35B /* BBANewPictogramViewController.m */; };
 		D8805F4718C5E456001BD35B /* BBASelectPictogramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8805F4618C5E456001BD35B /* BBASelectPictogramViewController.m */; };
@@ -69,6 +63,7 @@
 		D889F7EC18C9054E008A497F /* ScheduleTableDataSourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D889F7EB18C9054E008A497F /* ScheduleTableDataSourceTests.m */; };
 		D889F7EE18C9249A008A497F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D83A62CB18B696DC00EC0773 /* AppDelegate.m */; };
 		D8BD79D318C9FBFA0004FD36 /* BBAScheduleTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D889F7E918C90506008A497F /* BBAScheduleTableDataSource.m */; };
+		D8BD79D918CA05130004FD36 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8BD79D818CA05120004FD36 /* libOCMock.a */; };
 		D8DB7FF518C4DA2300BA2037 /* BBAAddScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FF418C4DA2300BA2037 /* BBAAddScheduleViewController.m */; };
 		D8DB7FFF18C50F4700BA2037 /* BBAShowScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FFE18C50F4700BA2037 /* BBAShowScheduleViewController.m */; };
 /* End PBXBuildFile section */
@@ -80,13 +75,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 685146AF18C49EC3002CF73F;
 			remoteInfo = "BBA Core Data Stack";
-		};
-		D81AAA0918B943C500E3B50C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D83A62B018B696DB00EC0773 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D81AA9E818B943C400E3B50C;
-			remoteInfo = AudioRecorder;
 		};
 		D83A62DE18B696DC00EC0773 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -116,7 +104,6 @@
 		D81AA9FC18B943C400E3B50C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		D81AA9FD18B943C400E3B50C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		D81AA9FF18B943C400E3B50C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		D81AAA0518B943C400E3B50C /* AudioRecorderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AudioRecorderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D81AAA0D18B943C500E3B50C /* AudioRecorderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AudioRecorderTests-Info.plist"; sourceTree = "<group>"; };
 		D81AAA0F18B943C500E3B50C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D81AAA1118B943C500E3B50C /* AudioRecorderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioRecorderTests.m; sourceTree = "<group>"; };
@@ -176,6 +163,9 @@
 		D8B49E5F18B8025500788073 /* SearchViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SearchViewControllerDelegate.h; path = Protocols/SearchViewControllerDelegate.h; sourceTree = "<group>"; };
 		D8B49E6518B823A000788073 /* TagManagementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TagManagementViewController.h; path = Controllers/TagManagementViewController.h; sourceTree = "<group>"; };
 		D8B49E6618B823A000788073 /* TagManagementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TagManagementViewController.m; path = Controllers/TagManagementViewController.m; sourceTree = "<group>"; };
+		D8BD79D418CA04AD0004FD36 /* ocmock */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ocmock; sourceTree = "<group>"; };
+		D8BD79D618CA05060004FD36 /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = file; name = OCMock.framework; path = ocmock/Source/build/Debug/OCMock.framework; sourceTree = "<group>"; };
+		D8BD79D818CA05120004FD36 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = ocmock/Products/iOS/libOCMock.a; sourceTree = "<group>"; };
 		D8DB7FF318C4DA2300BA2037 /* BBAAddScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBAAddScheduleViewController.h; path = Controllers/BBAAddScheduleViewController.h; sourceTree = "<group>"; };
 		D8DB7FF418C4DA2300BA2037 /* BBAAddScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBAAddScheduleViewController.m; path = Controllers/BBAAddScheduleViewController.m; sourceTree = "<group>"; };
 		D8DB7FFD18C50F4700BA2037 /* BBAShowScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBAShowScheduleViewController.h; path = "Controllers/Show Schedule/BBAShowScheduleViewController.h"; sourceTree = "<group>"; };
@@ -215,16 +205,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D81AAA0218B943C400E3B50C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D81AAA0618B943C400E3B50C /* XCTest.framework in Frameworks */,
-				D81AAA0818B943C500E3B50C /* UIKit.framework in Frameworks */,
-				D81AAA0718B943C500E3B50C /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D83A62B518B696DC00EC0773 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -242,7 +222,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D850E83218C899B70051CD51 /* libOCMock.a in Frameworks */,
+				D8BD79D918CA05130004FD36 /* libOCMock.a in Frameworks */,
 				D83A62DB18B696DC00EC0773 /* XCTest.framework in Frameworks */,
 				D83A62DD18B696DC00EC0773 /* UIKit.framework in Frameworks */,
 				D83A62DC18B696DC00EC0773 /* Foundation.framework in Frameworks */,
@@ -325,7 +305,6 @@
 				D83A62B818B696DC00EC0773 /* Visual Scheduler.app */,
 				D83A62D918B696DC00EC0773 /* Visual SchedulerTests.xctest */,
 				D81AA9E918B943C400E3B50C /* AudioRecorder.app */,
-				D81AAA0518B943C400E3B50C /* AudioRecorderTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -333,6 +312,9 @@
 		D83A62BA18B696DC00EC0773 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D8BD79D818CA05120004FD36 /* libOCMock.a */,
+				D8BD79D618CA05060004FD36 /* OCMock.framework */,
+				D8BD79D418CA04AD0004FD36 /* ocmock */,
 				683725C318C88FAC00617DC4 /* libBBAModel.a */,
 				683725C118C88F4D00617DC4 /* libBBAServiceProvider.a */,
 				683725BF18C88F3800617DC4 /* libBBAFileManager.a */,
@@ -559,24 +541,6 @@
 			productReference = D81AA9E918B943C400E3B50C /* AudioRecorder.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D81AAA0418B943C400E3B50C /* AudioRecorderTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D81AAA1818B943C500E3B50C /* Build configuration list for PBXNativeTarget "AudioRecorderTests" */;
-			buildPhases = (
-				D81AAA0118B943C400E3B50C /* Sources */,
-				D81AAA0218B943C400E3B50C /* Frameworks */,
-				D81AAA0318B943C400E3B50C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D81AAA0A18B943C500E3B50C /* PBXTargetDependency */,
-			);
-			name = AudioRecorderTests;
-			productName = AudioRecorderTests;
-			productReference = D81AAA0518B943C400E3B50C /* AudioRecorderTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		D83A62B718B696DC00EC0773 /* Visual Scheduler */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D83A62EA18B696DC00EC0773 /* Build configuration list for PBXNativeTarget "Visual Scheduler" */;
@@ -624,9 +588,6 @@
 					685146CA18C49EC4002CF73F = {
 						TestTargetID = D83A62B718B696DC00EC0773;
 					};
-					D81AAA0418B943C400E3B50C = {
-						TestTargetID = D83A62B718B696DC00EC0773;
-					};
 					D83A62D818B696DC00EC0773 = {
 						TestTargetID = D83A62B718B696DC00EC0773;
 					};
@@ -648,7 +609,6 @@
 				D83A62B718B696DC00EC0773 /* Visual Scheduler */,
 				D83A62D818B696DC00EC0773 /* Visual SchedulerTests */,
 				D81AA9E818B943C400E3B50C /* AudioRecorder */,
-				D81AAA0418B943C400E3B50C /* AudioRecorderTests */,
 				685146AF18C49EC3002CF73F /* BBA Core Data Stack */,
 				685146CA18C49EC4002CF73F /* BBA Core Data StackTests */,
 			);
@@ -678,14 +638,6 @@
 				D81AAA0018B943C400E3B50C /* Images.xcassets in Resources */,
 				D81AA9F218B943C400E3B50C /* InfoPlist.strings in Resources */,
 				D81AA9FB18B943C400E3B50C /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D81AAA0318B943C400E3B50C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D81AAA1018B943C500E3B50C /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -744,14 +696,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D81AAA0118B943C400E3B50C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D81AAA1218B943C500E3B50C /* AudioRecorderTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D83A62B418B696DC00EC0773 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -790,11 +734,6 @@
 			isa = PBXTargetDependency;
 			target = 685146AF18C49EC3002CF73F /* BBA Core Data Stack */;
 			targetProxy = 685146D018C49EC4002CF73F /* PBXContainerItemProxy */;
-		};
-		D81AAA0A18B943C500E3B50C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D81AA9E818B943C400E3B50C /* AudioRecorder */;
-			targetProxy = D81AAA0918B943C500E3B50C /* PBXContainerItemProxy */;
 		};
 		D83A62DF18B696DC00EC0773 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -961,50 +900,6 @@
 			};
 			name = Release;
 		};
-		D81AAA1518B943C500E3B50C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Visual Scheduler.app/Visual Scheduler";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "AudioRecorder/AudioRecorder-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "AudioRecorderTests/AudioRecorderTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		D81AAA1618B943C500E3B50C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Visual Scheduler.app/Visual Scheduler";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "AudioRecorder/AudioRecorder-Prefix.pch";
-				INFOPLIST_FILE = "AudioRecorderTests/AudioRecorderTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
 		D83A62E818B696DC00EC0773 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1137,10 +1032,23 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/usr/include",
+				);
 				INFOPLIST_FILE = "Visual SchedulerTests/Visual SchedulerTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/petur/Development/Visual\\ Scheduler/OCMock",
+					"$(SRCROOT)/usr/lib",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-force_load",
+					"\"$(SRCROOT)/usr/lib/libOCMock.a\"",
+					"-objC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -1162,10 +1070,23 @@
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Visual Scheduler/Visual Scheduler-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/usr/include",
+				);
 				INFOPLIST_FILE = "Visual SchedulerTests/Visual SchedulerTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/petur/Development/Visual\\ Scheduler/OCMock",
+					"$(SRCROOT)/usr/lib",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-force_load",
+					"\"$(SRCROOT)/usr/lib/libOCMock.a\"",
+					"-objC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -1199,15 +1120,6 @@
 			buildConfigurations = (
 				D81AAA1318B943C500E3B50C /* Debug */,
 				D81AAA1418B943C500E3B50C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D81AAA1818B943C500E3B50C /* Build configuration list for PBXNativeTarget "AudioRecorderTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D81AAA1518B943C500E3B50C /* Debug */,
-				D81AAA1618B943C500E3B50C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
