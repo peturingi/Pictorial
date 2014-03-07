@@ -48,16 +48,6 @@
                ReferencedContainer = "container:BBADataStack.xcodeproj">
             </BuildableReference>
          </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6880B1EF18C5FB62000900CD"
-               BuildableName = "BBAServiceProviderTests.xctest"
-               BlueprintName = "BBAServiceProviderTests"
-               ReferencedContainer = "container:../BBAServiceProvider/BBAServiceProvider.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

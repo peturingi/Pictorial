@@ -33,6 +33,13 @@
 		6880B25A18C6260A000900CD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6888799C18C5DEC3008ED38A /* InfoPlist.strings */; };
 		6880B25B18C6260A000900CD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 688879A518C5DEC3008ED38A /* Images.xcassets */; };
 		6880B26618C6270F000900CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6888799318C5DEC3008ED38A /* Foundation.framework */; };
+		68B3E22118C9F21D006F77E0 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 688879AC18C5DEC3008ED38A /* XCTest.framework */; };
+		68B3E22218C9F21D006F77E0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6888799318C5DEC3008ED38A /* Foundation.framework */; };
+		68B3E22318C9F21D006F77E0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6888799718C5DEC3008ED38A /* UIKit.framework */; };
+		68B3E22918C9F21D006F77E0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 68B3E22718C9F21D006F77E0 /* InfoPlist.strings */; };
+		68B3E22B18C9F21D006F77E0 /* BBAModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B3E22A18C9F21D006F77E0 /* BBAModelTests.m */; };
+		68B3E23518C9F342006F77E0 /* libBBAServiceProvider.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 68B3E23418C9F342006F77E0 /* libBBAServiceProvider.a */; };
+		68B3E23718C9F347006F77E0 /* libBBADataStack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 68B3E23618C9F347006F77E0 /* libBBADataStack.a */; };
 		68BAADAF18C883A70040E86A /* CoreData.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 68BAADAD18C8822D0040E86A /* CoreData.xcdatamodeld */; };
 		68BAADC218C88AD60040E86A /* Pictogram.m in Sources */ = {isa = PBXBuildFile; fileRef = 68BAADC118C88AD60040E86A /* Pictogram.m */; };
 		68BAADC318C88AD60040E86A /* Pictogram.m in Sources */ = {isa = PBXBuildFile; fileRef = 68BAADC118C88AD60040E86A /* Pictogram.m */; };
@@ -44,6 +51,16 @@
 		D89C0C9B18C8BF8900F61708 /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = D89C0C9A18C8BF8900F61708 /* Schedule.m */; };
 		D89C0C9C18C8BF8900F61708 /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = D89C0C9A18C8BF8900F61708 /* Schedule.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		68B3E23218C9F249006F77E0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6888798818C5DEC3008ED38A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6880B26418C6270F000900CD;
+			remoteInfo = BBAModel;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		6880B26318C6270F000900CD /* CopyFiles */ = {
@@ -97,6 +114,13 @@
 		68887A0B18C5E09D008ED38A /* Schedule+CDStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Schedule+CDStack.h"; sourceTree = "<group>"; };
 		68887A0C18C5E09D008ED38A /* Schedule+CDStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Schedule+CDStack.m"; sourceTree = "<group>"; };
 		68887A1018C5E26F008ED38A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		68B3E22018C9F21D006F77E0 /* BBAModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BBAModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		68B3E22618C9F21D006F77E0 /* BBAModelTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BBAModelTests-Info.plist"; sourceTree = "<group>"; };
+		68B3E22818C9F21D006F77E0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		68B3E22A18C9F21D006F77E0 /* BBAModelTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBAModelTests.m; sourceTree = "<group>"; };
+		68B3E22C18C9F21D006F77E0 /* BBAModelTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BBAModelTests-Prefix.pch"; sourceTree = "<group>"; };
+		68B3E23418C9F342006F77E0 /* libBBAServiceProvider.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libBBAServiceProvider.a; path = "../BBAServiceProvider/build/Debug-iphoneos/libBBAServiceProvider.a"; sourceTree = "<group>"; };
+		68B3E23618C9F347006F77E0 /* libBBADataStack.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libBBADataStack.a; path = "../BBADataStack/build/Debug-iphoneos/libBBADataStack.a"; sourceTree = "<group>"; };
 		68BAADA918C8822D0040E86A /* CoreData 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CoreData 4.xcdatamodel"; sourceTree = "<group>"; };
 		68BAADAA18C8822D0040E86A /* CoreData 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CoreData 3.xcdatamodel"; sourceTree = "<group>"; };
 		68BAADAB18C8822D0040E86A /* CoreData 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CoreData 2.xcdatamodel"; sourceTree = "<group>"; };
@@ -108,7 +132,7 @@
 		68BAADCC18C88AD70040E86A /* PictoCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictoCategory.h; sourceTree = "<group>"; };
 		68BAADCD18C88AD70040E86A /* PictoCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictoCategory.m; sourceTree = "<group>"; };
 		68C8A73618C7B632007FF9C5 /* libBBAFileManager.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBBAFileManager.a; path = "../BBAFileManager/build/Debug-iphoneos/libBBAFileManager.a"; sourceTree = "<group>"; };
-		D89C0C9818C8BE8000F61708 /* CoreData 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CoreData 5.xcdatamodel"; sourceTree = "<group>"; };
+		D89C0C9818C8BE8000F61708 /* CoreData 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CoreData 5.xcdatamodel"; sourceTree = "<group>"; };
 		D89C0C9918C8BF8900F61708 /* Schedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Schedule.h; sourceTree = "<group>"; };
 		D89C0C9A18C8BF8900F61708 /* Schedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Schedule.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,6 +160,18 @@
 				6865C89A18C7BDC5003D7EF5 /* libBBADataStack.a in Frameworks */,
 				683E445A18C739A0001314EB /* libBBAFileManager.a in Frameworks */,
 				6880B26618C6270F000900CD /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68B3E21D18C9F21D006F77E0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68B3E23718C9F347006F77E0 /* libBBADataStack.a in Frameworks */,
+				68B3E23518C9F342006F77E0 /* libBBAServiceProvider.a in Frameworks */,
+				68B3E22118C9F21D006F77E0 /* XCTest.framework in Frameworks */,
+				68B3E22318C9F21D006F77E0 /* UIKit.framework in Frameworks */,
+				68B3E22218C9F21D006F77E0 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +238,7 @@
 				688879A318C5DEC3008ED38A /* AppDelegate.m */,
 				688879A518C5DEC3008ED38A /* Images.xcassets */,
 				6888799918C5DEC3008ED38A /* BBAModel */,
+				68B3E22418C9F21D006F77E0 /* BBAModelTests */,
 				6888799218C5DEC3008ED38A /* Frameworks */,
 				6888799118C5DEC3008ED38A /* Products */,
 				6880B26018C6260A000900CD /* BBAModel copy-Info.plist */,
@@ -213,6 +250,7 @@
 			children = (
 				6880B25F18C6260A000900CD /* BBAModel copy.app */,
 				6880B26518C6270F000900CD /* libBBAModel.a */,
+				68B3E22018C9F21D006F77E0 /* BBAModelTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -220,6 +258,8 @@
 		6888799218C5DEC3008ED38A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				68B3E23618C9F347006F77E0 /* libBBADataStack.a */,
+				68B3E23418C9F342006F77E0 /* libBBAServiceProvider.a */,
 				6865C89B18C7BDC9003D7EF5 /* libBBAServiceProvider.a */,
 				6865C89918C7BDC5003D7EF5 /* libBBADataStack.a */,
 				68C8A73618C7B632007FF9C5 /* libBBAFileManager.a */,
@@ -277,6 +317,25 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		68B3E22418C9F21D006F77E0 /* BBAModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				68B3E22A18C9F21D006F77E0 /* BBAModelTests.m */,
+				68B3E22518C9F21D006F77E0 /* Supporting Files */,
+			);
+			path = BBAModelTests;
+			sourceTree = "<group>";
+		};
+		68B3E22518C9F21D006F77E0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				68B3E22618C9F21D006F77E0 /* BBAModelTests-Info.plist */,
+				68B3E22718C9F21D006F77E0 /* InfoPlist.strings */,
+				68B3E22C18C9F21D006F77E0 /* BBAModelTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -314,6 +373,24 @@
 			productReference = 6880B26518C6270F000900CD /* libBBAModel.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		68B3E21F18C9F21D006F77E0 /* BBAModelTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 68B3E23118C9F21D006F77E0 /* Build configuration list for PBXNativeTarget "BBAModelTests" */;
+			buildPhases = (
+				68B3E21C18C9F21D006F77E0 /* Sources */,
+				68B3E21D18C9F21D006F77E0 /* Frameworks */,
+				68B3E21E18C9F21D006F77E0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				68B3E23318C9F249006F77E0 /* PBXTargetDependency */,
+			);
+			name = BBAModelTests;
+			productName = BBAModelTests;
+			productReference = 68B3E22018C9F21D006F77E0 /* BBAModelTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -337,6 +414,7 @@
 			targets = (
 				6880B24818C6260A000900CD /* BBAModel copy */,
 				6880B26418C6270F000900CD /* BBAModel */,
+				68B3E21F18C9F21D006F77E0 /* BBAModelTests */,
 			);
 		};
 /* End PBXProject section */
@@ -350,6 +428,14 @@
 				683A56E418C7BA5300752CEE /* testImage.png in Resources */,
 				6880B25A18C6260A000900CD /* InfoPlist.strings in Resources */,
 				6880B25B18C6260A000900CD /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68B3E21E18C9F21D006F77E0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68B3E22918C9F21D006F77E0 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,13 +477,37 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		68B3E21C18C9F21D006F77E0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68B3E22B18C9F21D006F77E0 /* BBAModelTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		68B3E23318C9F249006F77E0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6880B26418C6270F000900CD /* BBAModel */;
+			targetProxy = 68B3E23218C9F249006F77E0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		6888799C18C5DEC3008ED38A /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				6888799D18C5DEC3008ED38A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		68B3E22718C9F21D006F77E0 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				68B3E22818C9F21D006F77E0 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -535,6 +645,44 @@
 			};
 			name = Release;
 		};
+		68B3E22F18C9F21D006F77E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BBAModelTests/BBAModelTests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "BBAModelTests/BBAModelTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		68B3E23018C9F21D006F77E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BBAModelTests/BBAModelTests-Prefix.pch";
+				INFOPLIST_FILE = "BBAModelTests/BBAModelTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -564,6 +712,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		68B3E23118C9F21D006F77E0 /* Build configuration list for PBXNativeTarget "BBAModelTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68B3E22F18C9F21D006F77E0 /* Debug */,
+				68B3E23018C9F21D006F77E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 

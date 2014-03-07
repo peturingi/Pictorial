@@ -6,22 +6,21 @@
 @implementation BBADataStack
 
 #pragma mark - public methods
+
++(instancetype)stackInMemoryStoreFromMergedModelBundle{
+    return [[BBADataStack alloc]initInMemoryFromBundle];
+}
+
++(instancetype)stackFromMergedModelBundleAndStoreNamed:(NSString*)storeFileName{
+    return [[BBADataStack alloc]initFromBundleWithStoreFile:storeFileName];
+}
+
++(instancetype)stackInMemoryWithModelNamed:(NSString*)modelName{
+    return [[BBADataStack alloc]initInMemoryWithModelNamed:modelName];
+}
+
 +(instancetype)stackWithModelNamed:(NSString *)modelName andStoreFileNamed:(NSString *)storeFileName{
     return [[BBADataStack alloc]initWithModelNamed:modelName andStoreFileNamed:storeFileName];
-}
-
-+(instancetype)stackInMemoryWithModelNamed:(NSString*)name{
-    return [[BBADataStack alloc]initInMemoryWithModelNamed:name];
-}
-
--(id)initInMemoryWithModelNamed:(NSString*)name{
-    self = [super init];
-    if(self){
-        _model = [BBAModel modelFromModelNamed:name];
-        _store = [BBAStore inMemoryStoreWithModel:[_model managedObjectModel]];
-        _context = [BBAContext contextWithStore:[_store persistentStoreCoordinator]];
-    }
-    return self;
 }
 
 -(NSFetchedResultsController*)fetchedResultsControllerFromFetchRequest:(NSFetchRequest*)request{
@@ -69,9 +68,41 @@
 }
 
 #pragma mark - private methods
+-(id)initInMemoryFromBundle{
+    self = [super init];
+    if(self){
+        _inMemory = YES;
+        _fromBundle = YES;
+        [self setupStack];
+    }
+    return self;
+}
+
+-(id)initInMemoryWithModelNamed:(NSString*)modelName{
+    self = [super init];
+    if(self){
+        _inMemory = YES;
+        _modelName = modelName;
+        [self setupStack];
+    }
+    return self;
+}
+
+-(id)initFromBundleWithStoreFile:(NSString*)storeFileName{
+    self = [super init];
+    if(self){
+        _storeFileName = storeFileName;
+        _inMemory = NO;
+        _fromBundle = YES;
+        [self setupStack];
+    }
+    return self;
+}
+
 -(id)initWithModelNamed:(NSString *)modelName andStoreFileNamed:(NSString *)storeFileName{
     self = [super init];
     if(self){
+        _inMemory = NO;
         _storeFileName = storeFileName;
         _modelName = modelName;
         [self setupStack];
@@ -80,8 +111,31 @@
 }
 
 -(void)setupStack{
-    _model = [BBAModel modelFromModelNamed:_modelName];
-    _store = [BBAStore storeWithModel:[_model managedObjectModel] andStoreFileURL:[self storeFileURL]];
+    [self setupModel];
+    [self setupStore];
+    [self setupContext];
+}
+
+-(void)setupModel{
+    if(_fromBundle){
+        _model = [BBAModel mergedBundleModel];
+    }else{
+        _model = [BBAModel modelFromModelNamed:_modelName];
+    }
+}
+
+-(void)setupStore{
+    NSAssert(_model, @"cannot instantiate store before model");
+    if(_inMemory){
+        _store = [BBAStore inMemoryStoreWithModel:[_model managedObjectModel]];
+    }else{
+        _store = [BBAStore storeWithModel:[_model managedObjectModel] andStoreFileURL:[self storeFileURL]];
+    }
+
+}
+
+-(void)setupContext{
+    NSAssert(_store, @"cannot instantiate context before store");
     _context = [BBAContext contextWithStore:[_store persistentStoreCoordinator]];
 }
 

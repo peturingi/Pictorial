@@ -9,9 +9,9 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    [BBAModelStack modelNamed:@"CoreData 4" andStore:@"modelStoreTest"];
+    [BBAModelStack installInMemoryStoreWithMergedBundle];
     UIImage* image = [UIImage imageNamed:@"testImage"];
-    [Pictogram insertWithTitle:@"somethign" andImage:image];
+    [Pictogram insertWithTitle:@"something" andImage:image];
     return YES;
 }
 
