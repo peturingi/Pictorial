@@ -21,13 +21,9 @@ NSString * const kBBACellIdentifier = @"ScheduleCell";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSParameterAssert(section == 0);
     id <NSFetchedResultsSectionInfo> sectionInfo = [[self.dataSource sections] objectAtIndex:section];
     return [sectionInfo numberOfObjects];
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    NSArray *sections = self.dataSource.sections;
-    return [sections count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -44,7 +40,6 @@ NSString * const kBBACellIdentifier = @"ScheduleCell";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSParameterAssert(indexPath.row < self.dataSource.fetchedObjects.count);
     [tableView indexPathForSelectedRow];
     [self.delegate scheduleTableDataSource:self scheduleWasSelectedByUser:[self.dataSource objectAtIndexPath:indexPath]];
 }

@@ -2,6 +2,8 @@
 #import "BBAScheduleTableDataSource.h"
 #import <objc/runtime.h>
 #import <OCMock/OCMock.h>
+#import "MockTableView.h"
+#import "MockScheduleOverviewViewController.h"
 
 extern void __gcov_flush();
 
@@ -96,5 +98,31 @@ extern void __gcov_flush();
     XCTAssertThrows([self.tableDataSource tableView:nil numberOfRowsInSection:1],
                     @"The tableView must only have a single section.");
 }
+
+- (void)testWillNotCreateCellsForMoreThanOneSection {
+    NSIndexPath *secondSection = [NSIndexPath indexPathForRow:0 inSection:1];
+    XCTAssertThrows([self.tableDataSource tableView:nil cellForRowAtIndexPath:secondSection]);
+}
+
+#pragma mark - NSFetchedResultsController delegate
+
+- (void)testAsksTableViewToReloadDataWhenNewDataIsAvailable {
+    BBAScheduleOverviewViewController *controller = [[BBAScheduleOverviewViewController alloc] init];
+    MockTableView *tableView = [[MockTableView alloc] init];
+    [controller setTableView:tableView];
+    [self.tableDataSource setDelegate:controller];
+    [self.tableDataSource controllerDidChangeContent:nil];
+    XCTAssertTrue([tableView wasAskedToReloadData],
+                  @"The tableView must be asked to reload its data as soon as new data has become available.");
+}
+
+- (void)testInformsDelegateOfRowSelection {
+    MockScheduleOverviewViewController *controller = [[MockScheduleOverviewViewController alloc] init];
+    [self.tableDataSource setDelegate:controller];
+    [self.tableDataSource tableView:nil didSelectRowAtIndexPath:nil];
+    XCTAssertTrue([controller scheduleWasSelectedByUser],
+                  @"The controller must report back to its delegate when user selects a row.");
+}
+
 
 @end
