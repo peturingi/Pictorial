@@ -10,8 +10,14 @@
 
 - (void)setUp {
     [super setUp];
+    [self setupDataStack];
     _tableDataSource = [[BBAScheduleTableDataSource alloc] init];
-    [BBAModelStack modelNamed:@"CoreData" andStore:]
+}
+
+- (void)setupDataStack {
+    [BBAServiceProvider deleteServiceOfClass:[BBADataStack class]];
+    BBADataStack* stack = [BBADataStack stackInMemoryWithModelNamed:@"CoreData"];
+    [BBAServiceProvider insertService:stack];
 }
 
 - (void)tearDown {
@@ -27,6 +33,11 @@
 - (void)testComformsToUITableViewDataSourceProtocol {
     XCTAssertTrue([[self.tableDataSource class] conformsToProtocol:@protocol(UITableViewDataSource)],
                   @"A class acting as tableDataSource must conform to the UITableViewDataSource protocol.");
+}
+
+- (void)testConformsToUITableViewDelegate {
+    XCTAssertTrue([[self.tableDataSource class] conformsToProtocol:@protocol(UITableViewDelegate)],
+                  @"A class acting as a tableDataSource must conform to the UITableViewDelegate protocol.");
 }
 
 - (void)testConformsToNSFetchedResultsControllerDelegate {

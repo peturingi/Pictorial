@@ -1,6 +1,6 @@
 #import <XCTest/XCTest.h>
 #import "BBAShowScheduleViewController.h"
-#import "Schedule.h"
+#import "../BBAModel/BBAModel/Schedule+CDStack.h"
 #import "MockManagedObjectContext.h"
 #import "MockViewController.h"
 #import "BBAShowScheduleViewController_BBAShowScheduleViewControllerPrivate.h"
@@ -62,11 +62,6 @@
 - (void)testViewControllerHasNonNullDelegate {
     objc_property_t delegateProperty = class_getProperty([[self.showScheduleViewController tableView] class], "delegate");
     XCTAssertTrue(delegateProperty != NULL, @"showScheduleViewController's tableView must have a delegate");
-}
-
-#pragma mark -
-- (void)testAsksToDismissSelf {
-#warning nothing here because needs OCMock framework.
 }
 
 @end

@@ -8,20 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		683725C418C88FAC00617DC4 /* libBBAModel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 683725C318C88FAC00617DC4 /* libBBAModel.a */; };
-		683725C618C8904400617DC4 /* BBACoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FAB18C4B8B900BA2037 /* BBACoreDataStack.m */; };
 		685146B118C49EC3002CF73F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BB18B696DC00EC0773 /* Foundation.framework */; };
 		685146B218C49EC3002CF73F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BD18B696DC00EC0773 /* CoreGraphics.framework */; };
 		685146B318C49EC3002CF73F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BF18B696DC00EC0773 /* UIKit.framework */; };
 		685146B518C49EC4002CF73F /* (null) in Frameworks */ = {isa = PBXBuildFile; };
-		685146BB18C49EC4002CF73F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 685146B918C49EC4002CF73F /* InfoPlist.strings */; };
 		685146BD18C49EC4002CF73F /* (null) in Sources */ = {isa = PBXBuildFile; };
 		685146C118C49EC4002CF73F /* (null) in Sources */ = {isa = PBXBuildFile; };
-		685146C418C49EC4002CF73F /* BBA_Core_Data_Stack.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 685146C218C49EC4002CF73F /* BBA_Core_Data_Stack.xcdatamodeld */; };
 		685146C618C49EC4002CF73F /* (null) in Resources */ = {isa = PBXBuildFile; };
 		685146CC18C49EC4002CF73F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62DA18B696DC00EC0773 /* XCTest.framework */; };
 		685146CD18C49EC4002CF73F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BB18B696DC00EC0773 /* Foundation.framework */; };
 		685146CE18C49EC4002CF73F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BF18B696DC00EC0773 /* UIKit.framework */; };
-		685146D718C49EC4002CF73F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 685146D518C49EC4002CF73F /* InfoPlist.strings */; };
 		685146E018C49EE0002CF73F /* (null) in Sources */ = {isa = PBXBuildFile; };
 		685146E118C49EE0002CF73F /* (null) in Sources */ = {isa = PBXBuildFile; };
 		685146E218C49EE0002CF73F /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -43,10 +39,8 @@
 		D81AAA1B18B9478600E3B50C /* AudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = D81AAA1A18B9478600E3B50C /* AudioRecorder.m */; };
 		D81AAA1F18B94F0A00E3B50C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D81AAA1E18B94F0A00E3B50C /* AVFoundation.framework */; };
 		D81AAA2018B9949D00E3B50C /* AudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = D81AAA1A18B9478600E3B50C /* AudioRecorder.m */; };
-		D82D5FD118C610C0000A8FD3 /* BBAPictogramCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = D82D5FD018C610C0000A8FD3 /* BBAPictogramCreator.m */; };
 		D82D5FD418C616A6000A8FD3 /* UIView+BBASubviews.m in Sources */ = {isa = PBXBuildFile; fileRef = D82D5FD318C616A6000A8FD3 /* UIView+BBASubviews.m */; };
 		D82E748618B7E49C0031BF2B /* milk.png in Resources */ = {isa = PBXBuildFile; fileRef = D82E748518B7E49C0031BF2B /* milk.png */; };
-		D83171D718C4ABB50043A7E4 /* TestModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6851470218C4A742002CF73F /* TestModel.xcdatamodeld */; };
 		D83A62BC18B696DC00EC0773 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BB18B696DC00EC0773 /* Foundation.framework */; };
 		D83A62BE18B696DC00EC0773 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BD18B696DC00EC0773 /* CoreGraphics.framework */; };
 		D83A62C018B696DC00EC0773 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BF18B696DC00EC0773 /* UIKit.framework */; };
@@ -67,12 +61,6 @@
 		D850E82F18C88E7E0051CD51 /* MockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D850E82E18C88E7E0051CD51 /* MockViewController.m */; };
 		D850E83218C899B70051CD51 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D850E83118C899B70051CD51 /* libOCMock.a */; };
 		D85EA1A918C4B12300ACDBD6 /* BBAScheduleOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D85EA1A818C4B12300ACDBD6 /* BBAScheduleOverviewViewController.m */; };
-		D8805F3718C5CD8E001BD35B /* HelperMethodsForTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FB118C4B8B900BA2037 /* HelperMethodsForTests.m */; };
-		D8805F3818C5CD8E001BD35B /* TestBBAContext.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FB218C4B8B900BA2037 /* TestBBAContext.m */; };
-		D8805F3918C5CD8E001BD35B /* TestBBACoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FB318C4B8B900BA2037 /* TestBBACoreDataStack.m */; };
-		D8805F3A18C5CD8E001BD35B /* TestBBAModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FB418C4B8B900BA2037 /* TestBBAModel.m */; };
-		D8805F3B18C5CD8E001BD35B /* TestBBAStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FB518C4B8B900BA2037 /* TestBBAStore.m */; };
-		D8805F3C18C5CD8E001BD35B /* TestModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6851470218C4A742002CF73F /* TestModel.xcdatamodeld */; };
 		D8805F3F18C5DD01001BD35B /* BBANewPictogramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8805F3E18C5DD01001BD35B /* BBANewPictogramViewController.m */; };
 		D8805F4718C5E456001BD35B /* BBASelectPictogramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8805F4618C5E456001BD35B /* BBASelectPictogramViewController.m */; };
 		D887832E18C8E33300F13B28 /* BBAScheduleOverviewViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D887832D18C8E33300F13B28 /* BBAScheduleOverviewViewControllerTests.m */; };
@@ -80,15 +68,6 @@
 		D889F7EA18C90506008A497F /* BBAScheduleTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D889F7E918C90506008A497F /* BBAScheduleTableDataSource.m */; };
 		D889F7EC18C9054E008A497F /* ScheduleTableDataSourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D889F7EB18C9054E008A497F /* ScheduleTableDataSourceTests.m */; };
 		D889F7EE18C9249A008A497F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D83A62CB18B696DC00EC0773 /* AppDelegate.m */; };
-		D8DB7FB618C4B8B900BA2037 /* BBAContext.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FA918C4B8B900BA2037 /* BBAContext.m */; };
-		D8DB7FB718C4B8B900BA2037 /* BBACoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FAB18C4B8B900BA2037 /* BBACoreDataStack.m */; };
-		D8DB7FB818C4B8B900BA2037 /* BBAModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FAD18C4B8B900BA2037 /* BBAModel.m */; };
-		D8DB7FB918C4B8B900BA2037 /* BBAStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FAF18C4B8B900BA2037 /* BBAStore.m */; };
-		D8DB7FBA18C4B8B900BA2037 /* HelperMethodsForTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FB118C4B8B900BA2037 /* HelperMethodsForTests.m */; };
-		D8DB7FBB18C4B8B900BA2037 /* TestBBAContext.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FB218C4B8B900BA2037 /* TestBBAContext.m */; };
-		D8DB7FBC18C4B8B900BA2037 /* TestBBACoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FB318C4B8B900BA2037 /* TestBBACoreDataStack.m */; };
-		D8DB7FBD18C4B8B900BA2037 /* TestBBAModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FB418C4B8B900BA2037 /* TestBBAModel.m */; };
-		D8DB7FBE18C4B8B900BA2037 /* TestBBAStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FB518C4B8B900BA2037 /* TestBBAStore.m */; };
 		D8DB7FF518C4DA2300BA2037 /* BBAAddScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FF418C4DA2300BA2037 /* BBAAddScheduleViewController.m */; };
 		D8DB7FFF18C50F4700BA2037 /* BBAShowScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FFE18C50F4700BA2037 /* BBAShowScheduleViewController.m */; };
 /* End PBXBuildFile section */
@@ -144,8 +123,6 @@
 		D81AAA1A18B9478600E3B50C /* AudioRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioRecorder.m; path = AudioRecorder/AudioRecorder.m; sourceTree = "<group>"; };
 		D81AAA1C18B9479B00E3B50C /* AudioRecorderDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AudioRecorderDelegate.h; path = AudioRecorder/AudioRecorderDelegate.h; sourceTree = "<group>"; };
 		D81AAA1E18B94F0A00E3B50C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		D82D5FCF18C610C0000A8FD3 /* BBAPictogramCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBAPictogramCreator.h; path = Controllers/BBAPictogramCreator.h; sourceTree = "<group>"; };
-		D82D5FD018C610C0000A8FD3 /* BBAPictogramCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBAPictogramCreator.m; path = Controllers/BBAPictogramCreator.m; sourceTree = "<group>"; };
 		D82D5FD218C616A6000A8FD3 /* UIView+BBASubviews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+BBASubviews.h"; path = "Visual Scheduler/Category/UIView+BBASubviews.h"; sourceTree = "<group>"; };
 		D82D5FD318C616A6000A8FD3 /* UIView+BBASubviews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+BBASubviews.m"; path = "Visual Scheduler/Category/UIView+BBASubviews.m"; sourceTree = "<group>"; };
 		D82E748518B7E49C0031BF2B /* milk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = milk.png; sourceTree = "<group>"; };
@@ -198,20 +175,6 @@
 		D8B49E5F18B8025500788073 /* SearchViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SearchViewControllerDelegate.h; path = Protocols/SearchViewControllerDelegate.h; sourceTree = "<group>"; };
 		D8B49E6518B823A000788073 /* TagManagementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TagManagementViewController.h; path = Controllers/TagManagementViewController.h; sourceTree = "<group>"; };
 		D8B49E6618B823A000788073 /* TagManagementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TagManagementViewController.m; path = Controllers/TagManagementViewController.m; sourceTree = "<group>"; };
-		D8DB7FA818C4B8B900BA2037 /* BBAContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAContext.h; sourceTree = SOURCE_ROOT; };
-		D8DB7FA918C4B8B900BA2037 /* BBAContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAContext.m; sourceTree = SOURCE_ROOT; };
-		D8DB7FAA18C4B8B900BA2037 /* BBACoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBACoreDataStack.h; sourceTree = SOURCE_ROOT; };
-		D8DB7FAB18C4B8B900BA2037 /* BBACoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBACoreDataStack.m; sourceTree = SOURCE_ROOT; };
-		D8DB7FAC18C4B8B900BA2037 /* BBAModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAModel.h; sourceTree = SOURCE_ROOT; };
-		D8DB7FAD18C4B8B900BA2037 /* BBAModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAModel.m; sourceTree = SOURCE_ROOT; };
-		D8DB7FAE18C4B8B900BA2037 /* BBAStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAStore.h; sourceTree = SOURCE_ROOT; };
-		D8DB7FAF18C4B8B900BA2037 /* BBAStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAStore.m; sourceTree = SOURCE_ROOT; };
-		D8DB7FB018C4B8B900BA2037 /* HelperMethodsForTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperMethodsForTests.h; sourceTree = SOURCE_ROOT; };
-		D8DB7FB118C4B8B900BA2037 /* HelperMethodsForTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelperMethodsForTests.m; sourceTree = SOURCE_ROOT; };
-		D8DB7FB218C4B8B900BA2037 /* TestBBAContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestBBAContext.m; sourceTree = SOURCE_ROOT; };
-		D8DB7FB318C4B8B900BA2037 /* TestBBACoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestBBACoreDataStack.m; sourceTree = SOURCE_ROOT; };
-		D8DB7FB418C4B8B900BA2037 /* TestBBAModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestBBAModel.m; sourceTree = SOURCE_ROOT; };
-		D8DB7FB518C4B8B900BA2037 /* TestBBAStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestBBAStore.m; sourceTree = SOURCE_ROOT; };
 		D8DB7FF318C4DA2300BA2037 /* BBAAddScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBAAddScheduleViewController.h; path = Controllers/BBAAddScheduleViewController.h; sourceTree = "<group>"; };
 		D8DB7FF418C4DA2300BA2037 /* BBAAddScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBAAddScheduleViewController.m; path = Controllers/BBAAddScheduleViewController.m; sourceTree = "<group>"; };
 		D8DB7FFD18C50F4700BA2037 /* BBAShowScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBAShowScheduleViewController.h; path = "Controllers/Show Schedule/BBAShowScheduleViewController.h"; sourceTree = "<group>"; };
@@ -288,54 +251,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		685146B618C49EC4002CF73F /* BBA Core Data Stack */ = {
-			isa = PBXGroup;
-			children = (
-				D8DB7FA818C4B8B900BA2037 /* BBAContext.h */,
-				D8DB7FA918C4B8B900BA2037 /* BBAContext.m */,
-				D8DB7FAA18C4B8B900BA2037 /* BBACoreDataStack.h */,
-				D8DB7FAB18C4B8B900BA2037 /* BBACoreDataStack.m */,
-				D8DB7FAC18C4B8B900BA2037 /* BBAModel.h */,
-				D8DB7FAD18C4B8B900BA2037 /* BBAModel.m */,
-				D8DB7FAE18C4B8B900BA2037 /* BBAStore.h */,
-				D8DB7FAF18C4B8B900BA2037 /* BBAStore.m */,
-				685146C218C49EC4002CF73F /* BBA_Core_Data_Stack.xcdatamodeld */,
-				685146B718C49EC4002CF73F /* Supporting Files */,
-			);
-			path = "BBA Core Data Stack";
-			sourceTree = "<group>";
-		};
-		685146B718C49EC4002CF73F /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				685146B918C49EC4002CF73F /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		685146D218C49EC4002CF73F /* BBA Core Data StackTests */ = {
-			isa = PBXGroup;
-			children = (
-				D8DB7FB018C4B8B900BA2037 /* HelperMethodsForTests.h */,
-				D8DB7FB118C4B8B900BA2037 /* HelperMethodsForTests.m */,
-				D8DB7FB218C4B8B900BA2037 /* TestBBAContext.m */,
-				D8DB7FB318C4B8B900BA2037 /* TestBBACoreDataStack.m */,
-				D8DB7FB418C4B8B900BA2037 /* TestBBAModel.m */,
-				D8DB7FB518C4B8B900BA2037 /* TestBBAStore.m */,
-				6851470218C4A742002CF73F /* TestModel.xcdatamodeld */,
-				685146D318C49EC4002CF73F /* Supporting Files */,
-			);
-			path = "BBA Core Data StackTests";
-			sourceTree = "<group>";
-		};
-		685146D318C49EC4002CF73F /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				685146D518C49EC4002CF73F /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		D81AA9ED18B943C400E3B50C /* AudioRecorder */ = {
 			isa = PBXGroup;
 			children = (
@@ -398,8 +313,6 @@
 				D83A62E018B696DC00EC0773 /* Visual SchedulerTests */,
 				D81AA9ED18B943C400E3B50C /* AudioRecorder */,
 				D81AAA0B18B943C500E3B50C /* AudioRecorderTests */,
-				685146B618C49EC4002CF73F /* BBA Core Data Stack */,
-				685146D218C49EC4002CF73F /* BBA Core Data StackTests */,
 				D83A62BA18B696DC00EC0773 /* Frameworks */,
 				D83A62B918B696DC00EC0773 /* Products */,
 			);
@@ -541,8 +454,6 @@
 			children = (
 				D8805F3D18C5DD01001BD35B /* BBANewPictogramViewController.h */,
 				D8805F3E18C5DD01001BD35B /* BBANewPictogramViewController.m */,
-				D82D5FCF18C610C0000A8FD3 /* BBAPictogramCreator.h */,
-				D82D5FD018C610C0000A8FD3 /* BBAPictogramCreator.m */,
 			);
 			name = "New Pictogram";
 			sourceTree = "<group>";
@@ -748,7 +659,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				685146BB18C49EC4002CF73F /* InfoPlist.strings in Resources */,
 				685146C618C49EC4002CF73F /* (null) in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -757,7 +667,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				685146D718C49EC4002CF73F /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -808,22 +717,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				685146C118C49EC4002CF73F /* (null) in Sources */,
-				D8DB7FBB18C4B8B900BA2037 /* TestBBAContext.m in Sources */,
-				D8DB7FBA18C4B8B900BA2037 /* HelperMethodsForTests.m in Sources */,
-				D8DB7FB618C4B8B900BA2037 /* BBAContext.m in Sources */,
-				D8DB7FBC18C4B8B900BA2037 /* TestBBACoreDataStack.m in Sources */,
-				D8DB7FB818C4B8B900BA2037 /* BBAModel.m in Sources */,
-				D8DB7FB918C4B8B900BA2037 /* BBAStore.m in Sources */,
 				685146E218C49EE0002CF73F /* (null) in Sources */,
-				685146C418C49EC4002CF73F /* BBA_Core_Data_Stack.xcdatamodeld in Sources */,
 				685146E118C49EE0002CF73F /* (null) in Sources */,
-				D8DB7FBE18C4B8B900BA2037 /* TestBBAStore.m in Sources */,
 				685146BD18C49EC4002CF73F /* (null) in Sources */,
 				685146E018C49EE0002CF73F /* (null) in Sources */,
 				685146E318C49EE0002CF73F /* (null) in Sources */,
-				D83171D718C4ABB50043A7E4 /* TestModel.xcdatamodeld in Sources */,
-				D8DB7FB718C4B8B900BA2037 /* BBACoreDataStack.m in Sources */,
-				D8DB7FBD18C4B8B900BA2037 /* TestBBAModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -831,12 +729,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8805F3718C5CD8E001BD35B /* HelperMethodsForTests.m in Sources */,
-				D8805F3818C5CD8E001BD35B /* TestBBAContext.m in Sources */,
-				D8805F3918C5CD8E001BD35B /* TestBBACoreDataStack.m in Sources */,
-				D8805F3A18C5CD8E001BD35B /* TestBBAModel.m in Sources */,
-				D8805F3B18C5CD8E001BD35B /* TestBBAStore.m in Sources */,
-				D8805F3C18C5CD8E001BD35B /* TestModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -867,7 +759,6 @@
 				D82D5FD418C616A6000A8FD3 /* UIView+BBASubviews.m in Sources */,
 				D8805F3F18C5DD01001BD35B /* BBANewPictogramViewController.m in Sources */,
 				D8DB7FF518C4DA2300BA2037 /* BBAAddScheduleViewController.m in Sources */,
-				D82D5FD118C610C0000A8FD3 /* BBAPictogramCreator.m in Sources */,
 				D8805F4718C5E456001BD35B /* BBASelectPictogramViewController.m in Sources */,
 				D83A62C818B696DC00EC0773 /* main.m in Sources */,
 				D889F7EE18C9249A008A497F /* AppDelegate.m in Sources */,
@@ -875,7 +766,6 @@
 				D889F7E718C90349008A497F /* CoreData.xcdatamodeld in Sources */,
 				D8DB7FFF18C50F4700BA2037 /* BBAShowScheduleViewController.m in Sources */,
 				D85EA1A918C4B12300ACDBD6 /* BBAScheduleOverviewViewController.m in Sources */,
-				683725C618C8904400617DC4 /* BBACoreDataStack.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -912,20 +802,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		685146B918C49EC4002CF73F /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		685146D518C49EC4002CF73F /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		D81AA9F018B943C400E3B50C /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1356,22 +1232,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		685146C218C49EC4002CF73F /* BBA_Core_Data_Stack.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-			);
-			path = BBA_Core_Data_Stack.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-		6851470218C4A742002CF73F /* TestModel.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-			);
-			path = TestModel.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
 		D889F7E118C90349008A497F /* CoreData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
