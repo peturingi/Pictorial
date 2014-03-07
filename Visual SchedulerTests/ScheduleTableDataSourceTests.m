@@ -1,6 +1,7 @@
 #import <XCTest/XCTest.h>
 #import "BBAScheduleTableDataSource.h"
 #import <objc/runtime.h>
+#import <OCMock/OCMock.h>
 
 extern void __gcov_flush();
 
@@ -91,6 +92,5 @@ extern void __gcov_flush();
     XCTAssertTrue(self.tableDataSource.dataSource.fetchedObjects.count == 100,
                   @"The dataSource should contain 100 items at this point.");
 }
-
 
 @end
