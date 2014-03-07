@@ -119,8 +119,8 @@
 		68B3E22818C9F21D006F77E0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		68B3E22A18C9F21D006F77E0 /* BBAModelTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBAModelTests.m; sourceTree = "<group>"; };
 		68B3E22C18C9F21D006F77E0 /* BBAModelTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BBAModelTests-Prefix.pch"; sourceTree = "<group>"; };
-		68B3E23418C9F342006F77E0 /* libBBAServiceProvider.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libBBAServiceProvider.a; path = "../BBAServiceProvider/build/Debug-iphoneos/libBBAServiceProvider.a"; sourceTree = "<group>"; };
-		68B3E23618C9F347006F77E0 /* libBBADataStack.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libBBADataStack.a; path = "../BBADataStack/build/Debug-iphoneos/libBBADataStack.a"; sourceTree = "<group>"; };
+		68B3E23418C9F342006F77E0 /* libBBAServiceProvider.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBBAServiceProvider.a; path = "../BBAServiceProvider/build/Debug-iphoneos/libBBAServiceProvider.a"; sourceTree = "<group>"; };
+		68B3E23618C9F347006F77E0 /* libBBADataStack.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBBADataStack.a; path = "../BBADataStack/build/Debug-iphoneos/libBBADataStack.a"; sourceTree = "<group>"; };
 		68BAADA918C8822D0040E86A /* CoreData 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CoreData 4.xcdatamodel"; sourceTree = "<group>"; };
 		68BAADAA18C8822D0040E86A /* CoreData 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CoreData 3.xcdatamodel"; sourceTree = "<group>"; };
 		68BAADAB18C8822D0040E86A /* CoreData 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CoreData 2.xcdatamodel"; sourceTree = "<group>"; };
@@ -720,6 +720,7 @@
 				68B3E23018C9F21D006F77E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
@@ -733,7 +734,7 @@
 				68BAADAB18C8822D0040E86A /* CoreData 2.xcdatamodel */,
 				68BAADAC18C8822D0040E86A /* CoreData.xcdatamodel */,
 			);
-			currentVersion = D89C0C9818C8BE8000F61708 /* CoreData 5.xcdatamodel */;
+			currentVersion = 68BAADAC18C8822D0040E86A /* CoreData.xcdatamodel */;
 			name = CoreData.xcdatamodeld;
 			path = "../../Visual Scheduler/CoreData.xcdatamodeld";
 			sourceTree = "<group>";

@@ -92,4 +92,9 @@ extern void __gcov_flush();
                   @"The dataSource should contain 100 items at this point.");
 }
 
+- (void)testOneSectionInTableView {
+    XCTAssertThrows([self.tableDataSource tableView:nil numberOfRowsInSection:1],
+                    @"The tableView must only have a single section.");
+}
+
 @end
