@@ -54,11 +54,11 @@
 		D850E82B18C87C3D0051CD51 /* MockManagedObjectContext.m in Sources */ = {isa = PBXBuildFile; fileRef = D850E82A18C87C3D0051CD51 /* MockManagedObjectContext.m */; };
 		D850E82C18C885230051CD51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D83A62CD18B696DC00EC0773 /* Main.storyboard */; };
 		D850E82F18C88E7E0051CD51 /* MockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D850E82E18C88E7E0051CD51 /* MockViewController.m */; };
+		D85E8CD618CA584200BB5F10 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D85E8CD418CA584200BB5F10 /* CoreData.xcdatamodeld */; };
 		D85EA1A918C4B12300ACDBD6 /* BBAScheduleOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D85EA1A818C4B12300ACDBD6 /* BBAScheduleOverviewViewController.m */; };
 		D8805F3F18C5DD01001BD35B /* BBANewPictogramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8805F3E18C5DD01001BD35B /* BBANewPictogramViewController.m */; };
 		D8805F4718C5E456001BD35B /* BBASelectPictogramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8805F4618C5E456001BD35B /* BBASelectPictogramViewController.m */; };
 		D887832E18C8E33300F13B28 /* BBAScheduleOverviewViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D887832D18C8E33300F13B28 /* BBAScheduleOverviewViewControllerTests.m */; };
-		D889F7E718C90349008A497F /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D889F7E118C90349008A497F /* CoreData.xcdatamodeld */; };
 		D889F7EA18C90506008A497F /* BBAScheduleTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D889F7E918C90506008A497F /* BBAScheduleTableDataSource.m */; };
 		D889F7EC18C9054E008A497F /* ScheduleTableDataSourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D889F7EB18C9054E008A497F /* ScheduleTableDataSourceTests.m */; };
 		D889F7EE18C9249A008A497F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D83A62CB18B696DC00EC0773 /* AppDelegate.m */; };
@@ -66,6 +66,7 @@
 		D8BD79D918CA05130004FD36 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8BD79D818CA05120004FD36 /* libOCMock.a */; };
 		D8DB7FF518C4DA2300BA2037 /* BBAAddScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FF418C4DA2300BA2037 /* BBAAddScheduleViewController.m */; };
 		D8DB7FFF18C50F4700BA2037 /* BBAShowScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FFE18C50F4700BA2037 /* BBAShowScheduleViewController.m */; };
+		D8E7A2C818CA52FE005F505C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8E7A2C718CA52FE005F505C /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,6 +145,7 @@
 		D850E82E18C88E7E0051CD51 /* MockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockViewController.m; sourceTree = "<group>"; };
 		D850E83018C890F00051CD51 /* BBAShowScheduleViewController_BBAShowScheduleViewControllerPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBAShowScheduleViewController_BBAShowScheduleViewControllerPrivate.h; sourceTree = "<group>"; };
 		D850E83118C899B70051CD51 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = OCMock/libOCMock.a; sourceTree = "<group>"; };
+		D85E8CD518CA584200BB5F10 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 		D85EA1A718C4B12300ACDBD6 /* BBAScheduleOverviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBAScheduleOverviewViewController.h; path = Controllers/BBAScheduleOverviewViewController.h; sourceTree = "<group>"; };
 		D85EA1A818C4B12300ACDBD6 /* BBAScheduleOverviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBAScheduleOverviewViewController.m; path = Controllers/BBAScheduleOverviewViewController.m; sourceTree = "<group>"; };
 		D8805F3D18C5DD01001BD35B /* BBANewPictogramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBANewPictogramViewController.h; path = Controllers/BBANewPictogramViewController.h; sourceTree = "<group>"; };
@@ -151,11 +153,6 @@
 		D8805F4518C5E456001BD35B /* BBASelectPictogramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBASelectPictogramViewController.h; path = "Visual Scheduler/Controllers/BBASelectPictogramViewController.h"; sourceTree = "<group>"; };
 		D8805F4618C5E456001BD35B /* BBASelectPictogramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBASelectPictogramViewController.m; path = "Visual Scheduler/Controllers/BBASelectPictogramViewController.m"; sourceTree = "<group>"; };
 		D887832D18C8E33300F13B28 /* BBAScheduleOverviewViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBAScheduleOverviewViewControllerTests.m; path = "Visual SchedulerTests/BBAScheduleOverviewViewControllerTests.m"; sourceTree = SOURCE_ROOT; };
-		D889F7E218C90349008A497F /* CoreData 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CoreData 2.xcdatamodel"; sourceTree = "<group>"; };
-		D889F7E318C90349008A497F /* CoreData 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CoreData 3.xcdatamodel"; sourceTree = "<group>"; };
-		D889F7E418C90349008A497F /* CoreData 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CoreData 4.xcdatamodel"; sourceTree = "<group>"; };
-		D889F7E518C90349008A497F /* CoreData 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CoreData 5.xcdatamodel"; sourceTree = "<group>"; };
-		D889F7E618C90349008A497F /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 		D889F7E818C90506008A497F /* BBAScheduleTableDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBAScheduleTableDataSource.h; path = Controllers/BBAScheduleTableDataSource.h; sourceTree = "<group>"; };
 		D889F7E918C90506008A497F /* BBAScheduleTableDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBAScheduleTableDataSource.m; path = Controllers/BBAScheduleTableDataSource.m; sourceTree = "<group>"; };
 		D889F7EB18C9054E008A497F /* ScheduleTableDataSourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScheduleTableDataSourceTests.m; path = "Visual SchedulerTests/ScheduleTableDataSourceTests.m"; sourceTree = SOURCE_ROOT; };
@@ -164,12 +161,13 @@
 		D8B49E6518B823A000788073 /* TagManagementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TagManagementViewController.h; path = Controllers/TagManagementViewController.h; sourceTree = "<group>"; };
 		D8B49E6618B823A000788073 /* TagManagementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TagManagementViewController.m; path = Controllers/TagManagementViewController.m; sourceTree = "<group>"; };
 		D8BD79D418CA04AD0004FD36 /* ocmock */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ocmock; sourceTree = "<group>"; };
-		D8BD79D618CA05060004FD36 /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = file; name = OCMock.framework; path = ocmock/Source/build/Debug/OCMock.framework; sourceTree = "<group>"; };
+		D8BD79D618CA05060004FD36 /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMock.framework; path = ocmock/Source/build/Debug/OCMock.framework; sourceTree = "<group>"; };
 		D8BD79D818CA05120004FD36 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = ocmock/Products/iOS/libOCMock.a; sourceTree = "<group>"; };
 		D8DB7FF318C4DA2300BA2037 /* BBAAddScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBAAddScheduleViewController.h; path = Controllers/BBAAddScheduleViewController.h; sourceTree = "<group>"; };
 		D8DB7FF418C4DA2300BA2037 /* BBAAddScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBAAddScheduleViewController.m; path = Controllers/BBAAddScheduleViewController.m; sourceTree = "<group>"; };
 		D8DB7FFD18C50F4700BA2037 /* BBAShowScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBAShowScheduleViewController.h; path = "Controllers/Show Schedule/BBAShowScheduleViewController.h"; sourceTree = "<group>"; };
 		D8DB7FFE18C50F4700BA2037 /* BBAShowScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBAShowScheduleViewController.m; path = "Controllers/Show Schedule/BBAShowScheduleViewController.m"; sourceTree = "<group>"; };
+		D8E7A2C718CA52FE005F505C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +207,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8E7A2C818CA52FE005F505C /* CoreData.framework in Frameworks */,
 				683725C418C88FAC00617DC4 /* libBBAModel.a in Frameworks */,
 				D850E82618C86F420051CD51 /* MobileCoreServices.framework in Frameworks */,
 				D850E82418C86D5F0051CD51 /* libBBACamera.a in Frameworks */,
@@ -289,7 +288,7 @@
 		D83A62AF18B696DB00EC0773 = {
 			isa = PBXGroup;
 			children = (
-				D889F7E118C90349008A497F /* CoreData.xcdatamodeld */,
+				D85E8CD418CA584200BB5F10 /* CoreData.xcdatamodeld */,
 				D83A62C118B696DC00EC0773 /* Visual Scheduler */,
 				D83A62E018B696DC00EC0773 /* Visual SchedulerTests */,
 				D81AA9ED18B943C400E3B50C /* AudioRecorder */,
@@ -312,6 +311,7 @@
 		D83A62BA18B696DC00EC0773 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D8E7A2C718CA52FE005F505C /* CoreData.framework */,
 				D8BD79D818CA05120004FD36 /* libOCMock.a */,
 				D8BD79D618CA05060004FD36 /* OCMock.framework */,
 				D8BD79D418CA04AD0004FD36 /* ocmock */,
@@ -701,6 +701,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D81AAA2018B9949D00E3B50C /* AudioRecorder.m in Sources */,
+				D85E8CD618CA584200BB5F10 /* CoreData.xcdatamodeld in Sources */,
 				D82D5FD418C616A6000A8FD3 /* UIView+BBASubviews.m in Sources */,
 				D8805F3F18C5DD01001BD35B /* BBANewPictogramViewController.m in Sources */,
 				D8DB7FF518C4DA2300BA2037 /* BBAAddScheduleViewController.m in Sources */,
@@ -708,7 +709,6 @@
 				D83A62C818B696DC00EC0773 /* main.m in Sources */,
 				D889F7EE18C9249A008A497F /* AppDelegate.m in Sources */,
 				D889F7EA18C90506008A497F /* BBAScheduleTableDataSource.m in Sources */,
-				D889F7E718C90349008A497F /* CoreData.xcdatamodeld in Sources */,
 				D8DB7FFF18C50F4700BA2037 /* BBAShowScheduleViewController.m in Sources */,
 				D85EA1A918C4B12300ACDBD6 /* BBAScheduleOverviewViewController.m in Sources */,
 			);
@@ -1154,16 +1154,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		D889F7E118C90349008A497F /* CoreData.xcdatamodeld */ = {
+		D85E8CD418CA584200BB5F10 /* CoreData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				D889F7E218C90349008A497F /* CoreData 2.xcdatamodel */,
-				D889F7E318C90349008A497F /* CoreData 3.xcdatamodel */,
-				D889F7E418C90349008A497F /* CoreData 4.xcdatamodel */,
-				D889F7E518C90349008A497F /* CoreData 5.xcdatamodel */,
-				D889F7E618C90349008A497F /* CoreData.xcdatamodel */,
+				D85E8CD518CA584200BB5F10 /* CoreData.xcdatamodel */,
 			);
-			currentVersion = D889F7E518C90349008A497F /* CoreData 5.xcdatamodel */;
+			currentVersion = D85E8CD518CA584200BB5F10 /* CoreData.xcdatamodel */;
 			name = CoreData.xcdatamodeld;
 			path = "Visual Scheduler/CoreData.xcdatamodeld";
 			sourceTree = "<group>";

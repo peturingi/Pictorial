@@ -37,21 +37,6 @@
                     @"It should not be possible to assign schedule to an object not of type Schedule");
 }
 
-- (void)testScheduleCanBeSetToSchedule {
-    MockManagedObjectContext *mockObjectContext = [[MockManagedObjectContext alloc] init];
-    Schedule *schedule = [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([Schedule class]) inManagedObjectContext:mockObjectContext.managedObjectContext];
-    XCTAssertNoThrow(self.showScheduleViewController.schedule = schedule,
-                     @"It must be possible to set schedule to a schedule object.");
-}
-
-- (void)testScheduleCanBeAssociated {
-    MockManagedObjectContext *mockObjectContext = [[MockManagedObjectContext alloc] init];
-    Schedule *schedule = [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([Schedule class]) inManagedObjectContext:mockObjectContext.managedObjectContext];
-    self.showScheduleViewController.schedule = schedule;
-    XCTAssertTrue([self.showScheduleViewController.schedule isEqual:schedule],
-                  @"It must be possible to make an association with a schedule.");
-}
-
 #pragma mark - Table View
 
 - (void)testViewControllerHasNonNullDataSource {
