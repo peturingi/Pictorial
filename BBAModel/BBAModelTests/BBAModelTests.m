@@ -34,14 +34,14 @@
 }
 
 -(void)testModelNamedAndStoreMethodInstallsStackInServiceProvider{
-    [BBAModelStack modelNamed:@"CoreData 4" andStore:@"testStore"];
+    [BBAModelStack installInMemoryStoreWithMergedBundle];
     BBADataStack* stack;
     XCTAssertNoThrow(stack = [BBAServiceProvider serviceFromClass:[BBADataStack class]], @"retrieving the service threw. It was not properly installed");
     XCTAssert(stack, @"retrieved service was nil");
 }
 
 -(void)testModeWithStoreInMemoryNamedMethodInstallsStackInServiceProvider{
-    [BBAModelStack modelWithStoreInMemoryNamed:@"CoreData 4"];
+    [BBAModelStack installInMemoryStoreWithMergedBundle];
     BBADataStack* stack;
     XCTAssertNoThrow(stack = [BBAServiceProvider serviceFromClass:[BBADataStack class]], @"retrieving the service threw. It was not properly installed");
     XCTAssert(stack, @"retrieved service was nil");
