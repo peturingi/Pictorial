@@ -18,11 +18,11 @@ static NSString * const kBBASortCellsBy = @"title";
     [super viewDidLoad];
     [self setupTableDataSource];
     [self setupUI];
+    [self registerForNotifications];
 }
 
 - (void)setupTableDataSource {
     tableViewDataSourceAndDelegate = [[BBAScheduleTableDataSource alloc] init];
-    [tableViewDataSourceAndDelegate setDelegate:self];
 }
 
 - (void)setupUI {
@@ -44,15 +44,35 @@ static NSString * const kBBASortCellsBy = @"title";
     [self.tableView setDelegate:tableViewDataSourceAndDelegate];
 }
 
+#pragma mark - Notifications
+
+- (void)registerForNotifications {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(tableDataStoreDidSelectItem:)
+                                                 name:kBBANotificationNameForDidSelectItem
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(tableDataStoreDidRequestTableViewReloadData:)
+                                                 name:kBBANotificationNameForNewDataAvailable
+                                               object:nil];
+}
+
+- (void)tableDataStoreDidSelectItem:(NSNotification *)notification {
+    if (![[notification object] isKindOfClass:[NSManagedObject class]]) {
+        @throw [NSException exceptionWithName:NSInvalidArgumentException reason:@"The receiver does not know what to do with an object of this type." userInfo:nil];
+    }
+    userSelectedSchedule = [notification object];
+    [self performSegueWithIdentifier:@"showSchedule" sender:self];
+}
+
+- (void)tableDataStoreDidRequestTableViewReloadData:(NSNotification *)notification {
+    [[self tableView] reloadData];
+}
+
 #pragma mark - UI Interaction
 
 - (void)createSchedule {
     [self performSegueWithIdentifier:@"addSchedule" sender:self];
-}
-
-- (void)scheduleTableDataSource:(BBAScheduleTableDataSource *)sender scheduleWasSelectedByUser:(Schedule *)selection {
-    userSelectedSchedule = selection;
-    [self performSegueWithIdentifier:@"showSchedule" sender:self];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

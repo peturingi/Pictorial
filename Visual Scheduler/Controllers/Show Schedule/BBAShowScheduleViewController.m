@@ -12,7 +12,7 @@
 }
 
 - (void)setSchedule:(Schedule *)schedule {
-    if (!schedule || ![schedule isKindOfClass:[Schedule class]]) {
+    if (!schedule || ![schedule isKindOfClass:[NSManagedObject class]]) {
         [[NSException exceptionWithName:NSInvalidArgumentException reason:@"A Schedule must be used as an argument." userInfo:nil] raise];
     }
     _schedule = schedule;

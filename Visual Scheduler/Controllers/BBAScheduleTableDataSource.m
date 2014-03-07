@@ -1,8 +1,10 @@
 #import "BBAScheduleTableDataSource.h"
 
-@implementation BBAScheduleTableDataSource
-
 NSString * const kBBACellIdentifier = @"ScheduleCell";
+NSString * const kBBANotificationNameForDidSelectItem = @"didSelectObjectInScheduleTableDataSource";
+NSString * const kBBANotificationNameForNewDataAvailable = @"newDataAvailableInScheduleTableDataSource";
+
+@implementation BBAScheduleTableDataSource
 
 #pragma mark - UITableViewDataSource
 
@@ -35,12 +37,14 @@ NSString * const kBBACellIdentifier = @"ScheduleCell";
 }
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
-    [self.delegate.tableView reloadData];
+    NSNotification *notification = [NSNotification notificationWithName:kBBANotificationNameForNewDataAvailable object:nil];
+    [[NSNotificationCenter defaultCenter] postNotification:notification];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView indexPathForSelectedRow];
-    [self.delegate scheduleTableDataSource:self scheduleWasSelectedByUser:[self.dataSource objectAtIndexPath:indexPath]];
+    Schedule *selectedSchedule = [self.dataSource objectAtIndexPath:indexPath];
+    NSNotification *notification = [NSNotification notificationWithName:kBBANotificationNameForDidSelectItem object:selectedSchedule];
+    [[NSNotificationCenter defaultCenter] postNotification:notification];
 }
 
 

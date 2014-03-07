@@ -11,13 +11,23 @@ extern void __gcov_flush();
 @property (strong, nonatomic) BBAScheduleTableDataSource *tableDataSource;
 @end
 
-@implementation ScheduleTableDataSourceTests
+@implementation ScheduleTableDataSourceTests {
+    NSNotification *receivedNotification;
+}
 
 - (void)setUp {
     [super setUp];
     [self setupDataStack];
     _tableDataSource = [[BBAScheduleTableDataSource alloc] init];
-}
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didReceiveNotification:)
+                                                 name:kBBANotificationNameForDidSelectItem
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didReceiveNotification:)
+                                                 name:kBBANotificationNameForNewDataAvailable
+                                               object:nil];
+     }
 
 - (void)setupDataStack {
     [BBAServiceProvider deleteServiceOfClass:[BBADataStack class]];
@@ -27,7 +37,13 @@ extern void __gcov_flush();
 - (void)tearDown {
     __gcov_flush();
     _tableDataSource = nil;
+    receivedNotification = nil;
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     [super tearDown];
+}
+
+- (void)didReceiveNotification:(NSNotification *)notification {
+    receivedNotification = notification;
 }
 
 #pragma mark - Init
@@ -105,22 +121,17 @@ extern void __gcov_flush();
 }
 
 - (void)testInformsDelegateOfRowSelection {
-    MockScheduleOverviewViewController *controller = [[MockScheduleOverviewViewController alloc] init];
-    [self.tableDataSource setDelegate:controller];
-    [self.tableDataSource tableView:nil didSelectRowAtIndexPath:nil];
-    XCTAssertTrue([controller scheduleWasSelectedByUser],
+    [Schedule insertWithTitle:@"Test domain" logo:nil backGround:0];
+    [self.tableDataSource tableView:nil didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    XCTAssertEqual([receivedNotification name], kBBANotificationNameForDidSelectItem,
                   @"The controller must report back to its delegate when user selects a row.");
 }
 
 #pragma mark - NSFetchedResultsController delegate
 
 - (void)testAsksTableViewToReloadDataWhenNewDataIsAvailable {
-    BBAScheduleOverviewViewController *controller = [[BBAScheduleOverviewViewController alloc] init];
-    MockTableView *tableView = [[MockTableView alloc] init];
-    [controller setTableView:tableView];
-    [self.tableDataSource setDelegate:controller];
     [self.tableDataSource controllerDidChangeContent:nil];
-    XCTAssertTrue([tableView wasAskedToReloadData],
+    XCTAssertEqual([receivedNotification name], kBBANotificationNameForNewDataAvailable,
                   @"The tableView must be asked to reload its data as soon as new data has become available.");
 }
 

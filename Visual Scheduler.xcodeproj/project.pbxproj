@@ -62,7 +62,6 @@
 		D889F7EA18C90506008A497F /* BBAScheduleTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D889F7E918C90506008A497F /* BBAScheduleTableDataSource.m */; };
 		D889F7EC18C9054E008A497F /* ScheduleTableDataSourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D889F7EB18C9054E008A497F /* ScheduleTableDataSourceTests.m */; };
 		D889F7EE18C9249A008A497F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D83A62CB18B696DC00EC0773 /* AppDelegate.m */; };
-		D8BD79D318C9FBFA0004FD36 /* BBAScheduleTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D889F7E918C90506008A497F /* BBAScheduleTableDataSource.m */; };
 		D8BD79D918CA05130004FD36 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8BD79D818CA05120004FD36 /* libOCMock.a */; };
 		D8DB7FF518C4DA2300BA2037 /* BBAAddScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FF418C4DA2300BA2037 /* BBAAddScheduleViewController.m */; };
 		D8DB7FFF18C50F4700BA2037 /* BBAShowScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FFE18C50F4700BA2037 /* BBAShowScheduleViewController.m */; };
@@ -730,7 +729,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8EC7D5318CA61E500B6A673 /* MockTableView.m in Sources */,
-				D8BD79D318C9FBFA0004FD36 /* BBAScheduleTableDataSource.m in Sources */,
 				D850E82B18C87C3D0051CD51 /* MockManagedObjectContext.m in Sources */,
 				D850E82F18C88E7E0051CD51 /* MockViewController.m in Sources */,
 				D889F7EC18C9054E008A497F /* ScheduleTableDataSourceTests.m in Sources */,

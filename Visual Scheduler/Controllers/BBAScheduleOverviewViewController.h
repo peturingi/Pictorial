@@ -5,6 +5,4 @@
 
 @interface BBAScheduleOverviewViewController : UITableViewController
 
-- (void)scheduleTableDataSource:(BBAScheduleTableDataSource *)sender scheduleWasSelectedByUser:(Schedule *)selection;
-
 @end

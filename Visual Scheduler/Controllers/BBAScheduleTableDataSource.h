@@ -2,9 +2,12 @@
 #import "../../BBAModel/BBAModel/BBAModelStack.h"
 #import "BBAScheduleOverviewViewController.h"
 
+extern NSString * const kBBACellIdentifier;
+extern NSString * const kBBANotificationNameForDidSelectItem;
+extern NSString * const kBBANotificationNameForNewDataAvailable;
+
 @interface BBAScheduleTableDataSource : NSObject <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate>
 
-@property (weak, nonatomic) BBAScheduleOverviewViewController *delegate;
 @property (strong, nonatomic) NSFetchedResultsController *dataSource;
 
 @end
