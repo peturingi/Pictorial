@@ -10,11 +10,11 @@
     BBAContext* _context;
     NSString* _modelName;
     NSString* _storeFileName;
+    BOOL _inMemory;
 }
 
 +(instancetype)stackWithModelNamed:(NSString*)modelName andStoreFileNamed:(NSString*)storeFileName;
-
-+(instancetype)stackInMemoryWithModelNamed:(NSString*)name;
++(instancetype)stackInMemoryWithModelNamed:(NSString*)modelName;
 
 -(NSArray*)resultFromFetchRequest:(NSFetchRequest*)fetchRequest;
 -(NSFetchedResultsController*)fetchedResultsControllerFromFetchRequest:(NSFetchRequest*)request;

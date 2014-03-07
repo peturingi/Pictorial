@@ -11,22 +11,14 @@
     return [[BBAStore alloc]initInMemoryWithModel:model];
 }
 
--(id)initInMemoryWithModel:(NSManagedObjectModel*)model{
-    self = [super init];
-    if(self){
-        [self verifyModel:model];
-        [self setupInMemoryStoreCoordinatorWithModel:model];
-    }
-    return self;
-}
-
--(void)setupInMemoryStoreCoordinatorWithModel:(NSManagedObjectModel*)model{
+-(void)setupPersitentCoordinator:(NSManagedObjectModel*)model storeType:(NSString*)type andStoreFile:(NSURL*)storeFile{
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
     NSError *error = nil;
+    NSDictionary* options = @{NSMigratePersistentStoresAutomaticallyOption: @YES};
     if (![_persistentStoreCoordinator addPersistentStoreWithType:NSInMemoryStoreType
                                                    configuration:nil
                                                              URL:nil
-                                                         options:@{NSMigratePersistentStoresAutomaticallyOption: @YES}
+                                                         options:options
                                                            error:&error]){
         [NSException raise:@"Failed to initialize persistency store" format:@"Failed to initialize the persistent store coordinator with the provided options. This is either due to a failed migration or an invalid store file url. The generated error is: %@", error];
     }
@@ -42,7 +34,16 @@
     if(self){
         [self verifyModel:model];
         [self verifyStoreFileURL:storeFileURL];
-        [self setupPersistentStoreCoordinatorWithModel:model andStoreFile:storeFileURL];
+        [self setupPersitentCoordinator:model storeType:NSSQLiteStoreType andStoreFile:storeFileURL];
+    }
+    return self;
+}
+
+-(id)initInMemoryWithModel:(NSManagedObjectModel*)model{
+    self = [super init];
+    if(self){
+        [self verifyModel:model];
+        [self setupPersitentCoordinator:model storeType:NSInMemoryStoreType andStoreFile:nil];
     }
     return self;
 }
@@ -60,18 +61,6 @@
     if(![storeFileURL isFileURL]){
         
         [NSException raise:@"storeFileURL was not a file" format:@"storeFileURL was not a valid URL for a file location"];
-    }
-}
-
--(void)setupPersistentStoreCoordinatorWithModel:(NSManagedObjectModel*)model andStoreFile:(NSURL*)storeFile{
-    _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
-    NSError *error = nil;
-    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
-                                                   configuration:nil
-                                                             URL:storeFile
-                                                         options:@{NSMigratePersistentStoresAutomaticallyOption: @YES}
-                                                           error:&error]){
-        [NSException raise:@"Failed to initialize persistency store" format:@"Failed to initialize the persistent store coordinator with the provided options. This is either due to a failed migration or an invalid store file url. The generated error is: %@", error];
     }
 }
 

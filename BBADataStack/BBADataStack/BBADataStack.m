@@ -10,18 +10,8 @@
     return [[BBADataStack alloc]initWithModelNamed:modelName andStoreFileNamed:storeFileName];
 }
 
-+(instancetype)stackInMemoryWithModelNamed:(NSString*)name{
-    return [[BBADataStack alloc]initInMemoryWithModelNamed:name];
-}
-
--(id)initInMemoryWithModelNamed:(NSString*)name{
-    self = [super init];
-    if(self){
-        _model = [BBAModel modelFromModelNamed:name];
-        _store = [BBAStore inMemoryStoreWithModel:[_model managedObjectModel]];
-        _context = [BBAContext contextWithStore:[_store persistentStoreCoordinator]];
-    }
-    return self;
++(instancetype)stackInMemoryWithModelNamed:(NSString*)modelName{
+    return [[BBADataStack alloc]initInMemoryWithModelNamed:modelName];
 }
 
 -(NSFetchedResultsController*)fetchedResultsControllerFromFetchRequest:(NSFetchRequest*)request{
@@ -72,7 +62,18 @@
 -(id)initWithModelNamed:(NSString *)modelName andStoreFileNamed:(NSString *)storeFileName{
     self = [super init];
     if(self){
+        _inMemory = NO;
         _storeFileName = storeFileName;
+        _modelName = modelName;
+        [self setupStack];
+    }
+    return self;
+}
+
+-(id)initInMemoryWithModelNamed:(NSString*)modelName{
+    self = [super init];
+    if(self){
+        _inMemory = YES;
         _modelName = modelName;
         [self setupStack];
     }
@@ -81,7 +82,11 @@
 
 -(void)setupStack{
     _model = [BBAModel modelFromModelNamed:_modelName];
-    _store = [BBAStore storeWithModel:[_model managedObjectModel] andStoreFileURL:[self storeFileURL]];
+    if(_inMemory){
+        _store = [BBAStore inMemoryStoreWithModel:[_model managedObjectModel]];
+    }else{
+        _store = [BBAStore storeWithModel:[_model managedObjectModel] andStoreFileURL:[self storeFileURL]];
+    }
     _context = [BBAContext contextWithStore:[_store persistentStoreCoordinator]];
 }
 
