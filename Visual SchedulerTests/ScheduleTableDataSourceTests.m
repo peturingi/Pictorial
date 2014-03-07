@@ -18,8 +18,7 @@ extern void __gcov_flush();
 
 - (void)setupDataStack {
     [BBAServiceProvider deleteServiceOfClass:[BBADataStack class]];
-    BBADataStack* stack = [BBADataStack stackInMemoryWithModelNamed:@"CoreData"];
-    [BBAServiceProvider insertService:stack];
+    [BBAModelStack installInMemoryStoreWithMergedBundle];
 }
 
 - (void)tearDown {
