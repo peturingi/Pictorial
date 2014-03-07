@@ -28,8 +28,7 @@ NSString * const kBBACellIdentifier = @"ScheduleCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSParameterAssert(indexPath.section == 0);
-    NSParameterAssert(indexPath.row < self.dataSource.fetchedObjects.count);
-    UITableViewCell *cell = [self.delegate.tableView dequeueReusableCellWithIdentifier:kBBACellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kBBACellIdentifier forIndexPath:indexPath];
     Schedule *schedule = [self.dataSource objectAtIndexPath:indexPath];
     cell.textLabel.text = schedule.title;
     return cell;

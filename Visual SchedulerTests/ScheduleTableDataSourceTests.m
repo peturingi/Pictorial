@@ -104,6 +104,14 @@ extern void __gcov_flush();
     XCTAssertThrows([self.tableDataSource tableView:nil cellForRowAtIndexPath:secondSection]);
 }
 
+- (void)testInformsDelegateOfRowSelection {
+    MockScheduleOverviewViewController *controller = [[MockScheduleOverviewViewController alloc] init];
+    [self.tableDataSource setDelegate:controller];
+    [self.tableDataSource tableView:nil didSelectRowAtIndexPath:nil];
+    XCTAssertTrue([controller scheduleWasSelectedByUser],
+                  @"The controller must report back to its delegate when user selects a row.");
+}
+
 #pragma mark - NSFetchedResultsController delegate
 
 - (void)testAsksTableViewToReloadDataWhenNewDataIsAvailable {
@@ -115,14 +123,5 @@ extern void __gcov_flush();
     XCTAssertTrue([tableView wasAskedToReloadData],
                   @"The tableView must be asked to reload its data as soon as new data has become available.");
 }
-
-- (void)testInformsDelegateOfRowSelection {
-    MockScheduleOverviewViewController *controller = [[MockScheduleOverviewViewController alloc] init];
-    [self.tableDataSource setDelegate:controller];
-    [self.tableDataSource tableView:nil didSelectRowAtIndexPath:nil];
-    XCTAssertTrue([controller scheduleWasSelectedByUser],
-                  @"The controller must report back to its delegate when user selects a row.");
-}
-
 
 @end
