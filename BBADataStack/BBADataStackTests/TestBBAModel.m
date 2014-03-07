@@ -21,7 +21,8 @@
 }
 
 -(void)testCreatesValidManagedObjectModel{
-    BBAModel* model = [BBAModel modelFromModelNamed:kBBATestModel];
+    BBAModel* model;
+    XCTAssertNoThrow(model = [BBAModel modelFromModelNamed:kBBATestModel], @"instantiating the model threw");
     NSManagedObjectModel* objectModel = [model managedObjectModel];
     XCTAssertNotNil(objectModel, @"object model was nil");
 }

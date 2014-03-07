@@ -16,6 +16,8 @@
 @interface BBAModelStack : NSObject
 
 +(void)save;
-+(void)modelNamed:(NSString*)name andStore:(NSString*)store;
-+(void)modelWithStoreInMemoryNamed:(NSString*)name;
++(void)installInMemoryStoreWithMergedBundle;
++(void)installInMemoryStoreWithModelNamed:(NSString*)modelName;
++(void)installFromMergedBundleWithStoreNamed:(NSString*)storeName;
++(void)installWithModelNamed:(NSString*)modelName andStoreFileNamed:(NSString*)storeFileName;
 @end

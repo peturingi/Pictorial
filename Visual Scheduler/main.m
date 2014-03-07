@@ -4,7 +4,7 @@
 
 int main(int argc, char * argv[]) {
     @autoreleasepool {
-        [BBAModelStack modelNamed:@"CoreData" andStore:@"RuntimeStore"];
+        [BBAModelStack installFromMergedBundleWithStoreNamed:@"RuntimeStore"];
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }
 }

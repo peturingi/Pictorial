@@ -11,10 +11,13 @@
     NSString* _modelName;
     NSString* _storeFileName;
     BOOL _inMemory;
+    BOOL _fromBundle;
 }
 
 +(instancetype)stackWithModelNamed:(NSString*)modelName andStoreFileNamed:(NSString*)storeFileName;
 +(instancetype)stackInMemoryWithModelNamed:(NSString*)modelName;
++(instancetype)stackInMemoryStoreFromMergedModelBundle;
++(instancetype)stackFromMergedModelBundleAndStoreNamed:(NSString*)storeFileName;
 
 -(NSArray*)resultFromFetchRequest:(NSFetchRequest*)fetchRequest;
 -(NSFetchedResultsController*)fetchedResultsControllerFromFetchRequest:(NSFetchRequest*)request;

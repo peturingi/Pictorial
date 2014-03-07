@@ -11,20 +11,28 @@
 #import "../../BBADataStack/BBADataStack/BBADataStack.h"
 
 @implementation BBAModelStack
++(void)installInMemoryStoreWithMergedBundle{
+    BBADataStack* datastack = [BBADataStack stackInMemoryStoreFromMergedModelBundle];
+    [BBAServiceProvider insertService:datastack];
+}
+
++(void)installInMemoryStoreWithModelNamed:(NSString*)modelName{
+    BBADataStack* datastack = [BBADataStack stackInMemoryWithModelNamed:modelName];
+    [BBAServiceProvider insertService:datastack];
+}
+
++(void)installFromMergedBundleWithStoreNamed:(NSString*)storeName{
+    BBADataStack* datastack = [BBADataStack stackFromMergedModelBundleAndStoreNamed:storeName];
+    [BBAServiceProvider insertService:datastack];
+}
+
++(void)installWithModelNamed:(NSString*)modelName andStoreFileNamed:(NSString*)storeFileName{
+    BBADataStack* datastack = [BBADataStack stackWithModelNamed:modelName andStoreFileNamed:storeFileName];
+    [BBAServiceProvider insertService:datastack];
+}
 
 +(void)save{
     [[[self class]datastack]saveAll];
-}
-
-+(void)modelNamed:(NSString*)name andStore:(NSString*)store{
-    BBADataStack* datastack = [BBADataStack stackWithModelNamed:name andStoreFileNamed:store];
-    [BBAServiceProvider insertService:datastack];
-    
-}
-
-+(void)modelWithStoreInMemoryNamed:(NSString*)name{
-    BBADataStack* datastack = [BBADataStack stackInMemoryWithModelNamed:name];
-    [BBAServiceProvider insertService:datastack];
 }
 
 +(BBADataStack*)datastack{

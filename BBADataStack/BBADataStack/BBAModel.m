@@ -14,7 +14,20 @@ NSString* const kBBAModelExtensionVersioned = @"momd";
     return model;
 }
 
++(instancetype)mergedBundleModel{
+    BBAModel* model = [[BBAModel alloc]initFromMergedBundle];
+    return model;
+}
+
 #pragma mark - private methods
+-(id)initFromMergedBundle{
+    self = [super init];
+    if(self){
+        [self setupFromMergedBundle];
+    }
+    return self;
+}
+
 -(id)initWithModelNamed:(NSString*)modelName{
     self = [super init];
     if(self){
@@ -28,6 +41,13 @@ NSString* const kBBAModelExtensionVersioned = @"momd";
     if(!modelName || [modelName length] == 0){
         [NSException raise:@"modelName invalid" format:@"modelName was either empty or nil"];
     }
+}
+
+-(void)setupFromMergedBundle{
+    NSMutableSet *allBundles = [NSMutableSet set];
+    [allBundles addObjectsFromArray: [NSBundle allBundles]];
+    [allBundles addObjectsFromArray: [NSBundle allFrameworks]];
+    _managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:[allBundles allObjects]];
 }
 
 -(void)setupManagedObjectModelFromModelName:(NSString*)modelName{
