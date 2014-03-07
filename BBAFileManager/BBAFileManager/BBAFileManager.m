@@ -20,10 +20,6 @@
 }
 
 +(NSString*)documentDirectory{
-    /*
-    NSArray* directoryPaths = NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES);
-    return [directoryPaths firstObject];
-     */
     NSArray* directories = [[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
     NSURL* documentsDir = [directories lastObject];
     return [documentsDir path];
