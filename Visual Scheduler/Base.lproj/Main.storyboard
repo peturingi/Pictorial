@@ -60,10 +60,6 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="sgg-mA-Zug" id="zGF-Dr-m4d"/>
-                            <outlet property="delegate" destination="sgg-mA-Zug" id="e1b-i7-fY9"/>
-                        </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="bJ1-PE-WSj"/>
                     <connections>
@@ -72,12 +68,6 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YtU-ge-aXT" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="sgg-mA-Zug" customClass="BBAScheduleTableDataSource">
-                    <connections>
-                        <outlet property="tableViewController" destination="bnG-DL-C5g" id="UHH-Ud-QDB"/>
-                        <outlet property="tableViewControllersTableView" destination="CMA-C3-GHe" id="kdv-bF-3xD"/>
-                    </connections>
-                </customObject>
             </objects>
             <point key="canvasLocation" x="-492" y="-1575"/>
         </scene>

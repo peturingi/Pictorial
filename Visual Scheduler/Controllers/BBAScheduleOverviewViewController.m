@@ -1,19 +1,28 @@
 #import "BBAScheduleOverviewViewController.h"
 #import "Show Schedule/BBAShowScheduleViewController.h"
 #import "../../BBAModel/BBAModel/BBAModelStack.h"
+#import "BBAScheduleTableDataSource.h"
+#import <CoreData/CoreData.h>
 
 static NSString * const kBBACellReuseIdentifier = @"ScheduleCell";
 static NSString * const kBBASortCellsBy = @"title";
 
 @implementation BBAScheduleOverviewViewController {
     Schedule *userSelectedSchedule;
+    BBAScheduleTableDataSource *tableViewDataSourceAndDelegate;
 }
 
 #pragma mark viewDidLoad
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupTableDataSource];
     [self setupUI];
+}
+
+- (void)setupTableDataSource {
+    tableViewDataSourceAndDelegate = [[BBAScheduleTableDataSource alloc] init];
+    [tableViewDataSourceAndDelegate setDelegate:self];
 }
 
 - (void)setupUI {
@@ -29,7 +38,10 @@ static NSString * const kBBASortCellsBy = @"title";
 }
 
 - (void)setupTableView {
+    NSAssert(tableViewDataSourceAndDelegate, @"Cannot configure tableView - it will not be able to configure its delegates");
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kBBACellReuseIdentifier];
+    [self.tableView setDataSource:tableViewDataSourceAndDelegate];
+    [self.tableView setDelegate:tableViewDataSourceAndDelegate];
 }
 
 #pragma mark - UI Interaction
