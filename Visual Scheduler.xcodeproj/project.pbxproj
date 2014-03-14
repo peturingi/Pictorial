@@ -37,6 +37,9 @@
 		D81AAA2018B9949D00E3B50C /* AudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = D81AAA1A18B9478600E3B50C /* AudioRecorder.m */; };
 		D82D5FD418C616A6000A8FD3 /* UIView+BBASubviews.m in Sources */ = {isa = PBXBuildFile; fileRef = D82D5FD318C616A6000A8FD3 /* UIView+BBASubviews.m */; };
 		D82E748618B7E49C0031BF2B /* milk.png in Resources */ = {isa = PBXBuildFile; fileRef = D82E748518B7E49C0031BF2B /* milk.png */; };
+		D8315AF418D39DEA00C4A340 /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = D8315AF218D39DEA00C4A340 /* Camera.m */; };
+		D8315B0018D39E0600C4A340 /* CameraTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8315AF818D39E0600C4A340 /* CameraTests.m */; };
+		D8315B0218D39E0600C4A340 /* MockCameraDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8315AFC18D39E0600C4A340 /* MockCameraDelegate.m */; };
 		D83A62BC18B696DC00EC0773 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BB18B696DC00EC0773 /* Foundation.framework */; };
 		D83A62BE18B696DC00EC0773 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BD18B696DC00EC0773 /* CoreGraphics.framework */; };
 		D83A62C018B696DC00EC0773 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BF18B696DC00EC0773 /* UIKit.framework */; };
@@ -68,7 +71,6 @@
 		D8EA05A718D3541400F5D01F /* BBACoreDataStackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EA05A618D3541400F5D01F /* BBACoreDataStackTests.m */; };
 		D8EA05F718D355E000F5D01F /* BBACoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EA05F618D355E000F5D01F /* BBACoreDataStack.m */; };
 		D8EA05F918D3578900F5D01F /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D85E8CD418CA584200BB5F10 /* CoreData.xcdatamodeld */; };
-		D8EA05FD18D359C200F5D01F /* libBBACamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8EA05FC18D359C200F5D01F /* libBBACamera.a */; };
 		D8EA060018D3635A00F5D01F /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EA05FF18D3635900F5D01F /* Schedule.m */; };
 		D8EA060318D3635A00F5D01F /* Pictogram.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EA060218D3635A00F5D01F /* Pictogram.m */; };
 		D8EA060618D3635A00F5D01F /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EA060518D3635A00F5D01F /* Activity.m */; };
@@ -124,6 +126,12 @@
 		D82D5FD218C616A6000A8FD3 /* UIView+BBASubviews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+BBASubviews.h"; path = "Visual Scheduler/Category/UIView+BBASubviews.h"; sourceTree = "<group>"; };
 		D82D5FD318C616A6000A8FD3 /* UIView+BBASubviews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+BBASubviews.m"; path = "Visual Scheduler/Category/UIView+BBASubviews.m"; sourceTree = "<group>"; };
 		D82E748518B7E49C0031BF2B /* milk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = milk.png; sourceTree = "<group>"; };
+		D8315AF118D39DEA00C4A340 /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
+		D8315AF218D39DEA00C4A340 /* Camera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Camera.m; sourceTree = "<group>"; };
+		D8315AF318D39DEA00C4A340 /* CameraDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraDelegate.h; sourceTree = "<group>"; };
+		D8315AF818D39E0600C4A340 /* CameraTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraTests.m; sourceTree = "<group>"; };
+		D8315AFB18D39E0600C4A340 /* MockCameraDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockCameraDelegate.h; sourceTree = "<group>"; };
+		D8315AFC18D39E0600C4A340 /* MockCameraDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockCameraDelegate.m; sourceTree = "<group>"; };
 		D83A62B818B696DC00EC0773 /* Visual Scheduler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Visual Scheduler.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D83A62BB18B696DC00EC0773 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D83A62BD18B696DC00EC0773 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -233,7 +241,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8EA05FD18D359C200F5D01F /* libBBACamera.a in Frameworks */,
 				D8E7A2C818CA52FE005F505C /* CoreData.framework in Frameworks */,
 				D850E82618C86F420051CD51 /* MobileCoreServices.framework in Frameworks */,
 				D83A62BE18B696DC00EC0773 /* CoreGraphics.framework in Frameworks */,
@@ -319,6 +326,28 @@
 			name = AudioRecorder;
 			sourceTree = "<group>";
 		};
+		D8315AF518D39DF000C4A340 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				D8315AF618D39E0600C4A340 /* BBACameraTests */,
+				D8315AF118D39DEA00C4A340 /* Camera.h */,
+				D8315AF218D39DEA00C4A340 /* Camera.m */,
+				D8315AF318D39DEA00C4A340 /* CameraDelegate.h */,
+			);
+			name = Camera;
+			sourceTree = "<group>";
+		};
+		D8315AF618D39E0600C4A340 /* BBACameraTests */ = {
+			isa = PBXGroup;
+			children = (
+				D8315AF818D39E0600C4A340 /* CameraTests.m */,
+				D8315AFB18D39E0600C4A340 /* MockCameraDelegate.h */,
+				D8315AFC18D39E0600C4A340 /* MockCameraDelegate.m */,
+			);
+			name = BBACameraTests;
+			path = "Visual SchedulerTests/BBACameraTests";
+			sourceTree = SOURCE_ROOT;
+		};
 		D83A62AF18B696DB00EC0773 = {
 			isa = PBXGroup;
 			children = (
@@ -374,6 +403,7 @@
 		D83A62C118B696DC00EC0773 /* Visual Scheduler */ = {
 			isa = PBXGroup;
 			children = (
+				D8315AF518D39DF000C4A340 /* Camera */,
 				D8EA05F818D355E900F5D01F /* Core Data */,
 				D8B49E6018B8077600788073 /* Protocols */,
 				D83A62F818B69D5100EC0773 /* Pictograms */,
@@ -790,6 +820,7 @@
 				D889F7EA18C90506008A497F /* BBAScheduleTableDataSource.m in Sources */,
 				D8EA060318D3635A00F5D01F /* Pictogram.m in Sources */,
 				D8DB7FFF18C50F4700BA2037 /* BBAShowScheduleViewController.m in Sources */,
+				D8315AF418D39DEA00C4A340 /* Camera.m in Sources */,
 				D85EA1A918C4B12300ACDBD6 /* BBAScheduleOverviewViewController.m in Sources */,
 				D8EA05F718D355E000F5D01F /* BBACoreDataStack.m in Sources */,
 			);
@@ -799,6 +830,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8315B0018D39E0600C4A340 /* CameraTests.m in Sources */,
+				D8315B0218D39E0600C4A340 /* MockCameraDelegate.m in Sources */,
 				D8EA05F918D3578900F5D01F /* CoreData.xcdatamodeld in Sources */,
 				D8EC7D5318CA61E500B6A673 /* MockTableView.m in Sources */,
 				D813A9D118D38BA100D3515A /* MockScheduleOverviewViewController.m in Sources */,
