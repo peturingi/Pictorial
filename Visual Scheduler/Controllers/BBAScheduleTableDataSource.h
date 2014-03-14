@@ -1,5 +1,5 @@
 #import <UIKit/UIKit.h>
-#import "../../BBAModel/BBAModel/BBAModelStack.h"
+#import "BBACoreDataStack.h"
 #import "BBAScheduleOverviewViewController.h"
 
 extern NSString * const kBBACellIdentifier;

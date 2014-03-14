@@ -1,8 +1,9 @@
 #import "BBAScheduleTableDataSource.h"
+#import "Schedule.h"
 
 NSString * const kBBACellIdentifier = @"ScheduleCell";
 NSString * const kBBANotificationNameForDidSelectItem = @"didSelectObjectInScheduleTableDataSource";
-NSString * const kBBANotificationNameForNewDataAvailable = @"newDataAvailableInScheduleTableDataSource";
+NSString * const kBBANotificationNameForNewDataAvailable = @"didUpdateScheduleTableDataSource";
 
 @implementation BBAScheduleTableDataSource
 
@@ -17,15 +18,23 @@ NSString * const kBBANotificationNameForNewDataAvailable = @"newDataAvailableInS
 }
 
 - (void)setupDataSource {
-    self.dataSource = [Schedule fetchedResultsController];
+    NSManagedObjectContext *sharedManagedObjectContext = [[BBACoreDataStack sharedInstance] sharedManagedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Schedule" inManagedObjectContext:sharedManagedObjectContext];
+    [fetchRequest setEntity:entity];
+    [fetchRequest setFetchBatchSize:30];
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES];
+    [fetchRequest setSortDescriptors:@[sortDescriptor]];
+    self.dataSource = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:sharedManagedObjectContext sectionNameKeyPath:nil cacheName:@"Master"];
     [self.dataSource setDelegate:self];
-    [self.dataSource errorHandledFetch];
+    [self.dataSource performFetch:nil];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     NSParameterAssert(section == 0);
     id <NSFetchedResultsSectionInfo> sectionInfo = [[self.dataSource sections] objectAtIndex:section];
-    return [sectionInfo numberOfObjects];
+    NSUInteger count = [sectionInfo numberOfObjects];
+    return count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -36,17 +45,15 @@ NSString * const kBBANotificationNameForNewDataAvailable = @"newDataAvailableInS
     return cell;
 }
 
-- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
-    NSNotification *notification = [NSNotification notificationWithName:kBBANotificationNameForNewDataAvailable object:nil];
-    [[NSNotificationCenter defaultCenter] postNotification:notification];
-}
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     Schedule *selectedSchedule = [self.dataSource objectAtIndexPath:indexPath];
     NSNotification *notification = [NSNotification notificationWithName:kBBANotificationNameForDidSelectItem object:selectedSchedule];
     [[NSNotificationCenter defaultCenter] postNotification:notification];
 }
 
-
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    NSNotification *notification = [NSNotification notificationWithName:kBBANotificationNameForNewDataAvailable object:nil];
+    [[NSNotificationCenter defaultCenter] postNotification:notification];
+}
 
 @end

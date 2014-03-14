@@ -4,8 +4,7 @@
 #import <OCMock/OCMock.h>
 #import "MockTableView.h"
 #import "MockScheduleOverviewViewController.h"
-
-extern void __gcov_flush();
+#import "Schedule.h"
 
 @interface ScheduleTableDataSourceTests : XCTestCase
 @property (strong, nonatomic) BBAScheduleTableDataSource *tableDataSource;
@@ -17,7 +16,6 @@ extern void __gcov_flush();
 
 - (void)setUp {
     [super setUp];
-    [self setupDataStack];
     _tableDataSource = [[BBAScheduleTableDataSource alloc] init];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(didReceiveNotification:)
@@ -27,15 +25,17 @@ extern void __gcov_flush();
                                              selector:@selector(didReceiveNotification:)
                                                  name:kBBANotificationNameForNewDataAvailable
                                                object:nil];
-     }
-
-- (void)setupDataStack {
-    [BBAServiceProvider deleteServiceOfClass:[BBADataStack class]];
-    [BBAModelStack installInMemoryStoreWithMergedBundle];
 }
 
 - (void)tearDown {
-    __gcov_flush();
+    
+    NSManagedObjectContext * context = [[BBACoreDataStack sharedInstance] sharedManagedObjectContext];
+    NSFetchRequest * fetch = [[NSFetchRequest alloc] init];
+    [fetch setEntity:[NSEntityDescription entityForName:@"Schedule" inManagedObjectContext:context]];
+    NSArray * result = [context executeFetchRequest:fetch error:nil];
+    for (id entity in result)
+        [context deleteObject:entity];
+    
     _tableDataSource = nil;
     receivedNotification = nil;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -97,14 +97,16 @@ extern void __gcov_flush();
 }
 
 - (void)testDataSourceContainsOneObject {
-    [Schedule insertWithTitle:@"Test" logo:nil backGround:0];
+    [[BBACoreDataStack sharedInstance] scheduleWithTitle:@"Test Domain" withPictogramAsLogo:nil withBackgroundColour:0];
     XCTAssertTrue(self.tableDataSource.dataSource.fetchedObjects.count == 1,
                   @"The dataSource should only contain a single item at this point.");
 }
 
 - (void)testDataSourceContainsOneHundredObjects {
+    XCTAssertTrue(self.tableDataSource.dataSource.fetchedObjects.count == 0,
+                  @"The datasource must be empty before the test begins.");
     for (int i = 0; i < 100; i++) {
-        [Schedule insertWithTitle:@"Test" logo:nil backGround:0];
+        [[BBACoreDataStack sharedInstance] scheduleWithTitle:@"Test Domain" withPictogramAsLogo:nil withBackgroundColour:0];
     }
     XCTAssertTrue(self.tableDataSource.dataSource.fetchedObjects.count == 100,
                   @"The dataSource should contain 100 items at this point.");
@@ -121,7 +123,7 @@ extern void __gcov_flush();
 }
 
 - (void)testInformsDelegateOfRowSelection {
-    [Schedule insertWithTitle:@"Test domain" logo:nil backGround:0];
+    [[BBACoreDataStack sharedInstance] scheduleWithTitle:@"Test Domain" withPictogramAsLogo:nil withBackgroundColour:0];
     [self.tableDataSource tableView:nil didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     XCTAssertEqual([receivedNotification name], kBBANotificationNameForDidSelectItem,
                   @"The controller must report back to its delegate when user selects a row.");

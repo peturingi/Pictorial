@@ -1,50 +1,23 @@
 #import "BBAScheduleOverviewViewController.h"
 #import "Show Schedule/BBAShowScheduleViewController.h"
-#import "../../BBAModel/BBAModel/BBAModelStack.h"
 #import "BBAScheduleTableDataSource.h"
 #import <CoreData/CoreData.h>
+#import "Pictogram.h"
 
-static NSString * const kBBACellReuseIdentifier = @"ScheduleCell";
 static NSString * const kBBASortCellsBy = @"title";
 
 @implementation BBAScheduleOverviewViewController {
     Schedule *userSelectedSchedule;
-    BBAScheduleTableDataSource *tableViewDataSourceAndDelegate;
 }
-
-#pragma mark viewDidLoad
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupTableDataSource];
-    [self setupUI];
     [self registerForNotifications];
 }
 
-- (void)setupTableDataSource {
-    tableViewDataSourceAndDelegate = [[BBAScheduleTableDataSource alloc] init];
+- (void)viewWillAppear:(BOOL)animated {
+    [[self tableView] reloadData];
 }
-
-- (void)setupUI {
-    self.title = @"Schedules";
-    [self setupAddScheduleButton];
-    [self setupTableView];
-}
-
-- (void)setupAddScheduleButton {
-    SEL actionForButton = @selector(createSchedule);
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:actionForButton];
-    self.navigationItem.rightBarButtonItem = addButton;
-}
-
-- (void)setupTableView {
-    NSAssert(tableViewDataSourceAndDelegate, @"Cannot configure tableView - it will not be able to configure its delegates");
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kBBACellReuseIdentifier];
-    [self.tableView setDataSource:tableViewDataSourceAndDelegate];
-    [self.tableView setDelegate:tableViewDataSourceAndDelegate];
-}
-
-#pragma mark - Notifications
 
 - (void)registerForNotifications {
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -52,7 +25,7 @@ static NSString * const kBBASortCellsBy = @"title";
                                                  name:kBBANotificationNameForDidSelectItem
                                                object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(tableDataStoreDidRequestTableViewReloadData:)
+                                             selector:@selector(reloadTableViewData:)
                                                  name:kBBANotificationNameForNewDataAvailable
                                                object:nil];
 }
@@ -65,13 +38,13 @@ static NSString * const kBBASortCellsBy = @"title";
     [self performSegueWithIdentifier:@"showSchedule" sender:self];
 }
 
-- (void)tableDataStoreDidRequestTableViewReloadData:(NSNotification *)notification {
+- (void)reloadTableViewData:(NSNotification *)notification {
     [[self tableView] reloadData];
 }
 
 #pragma mark - UI Interaction
 
-- (void)createSchedule {
+- (IBAction)createSchedule:(id)sender {
     [self performSegueWithIdentifier:@"addSchedule" sender:self];
 }
 

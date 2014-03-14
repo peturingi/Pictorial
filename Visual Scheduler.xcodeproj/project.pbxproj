@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		683725C418C88FAC00617DC4 /* libBBAModel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 683725C318C88FAC00617DC4 /* libBBAModel.a */; };
 		685146B118C49EC3002CF73F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BB18B696DC00EC0773 /* Foundation.framework */; };
 		685146B218C49EC3002CF73F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BD18B696DC00EC0773 /* CoreGraphics.framework */; };
 		685146B318C49EC3002CF73F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BF18B696DC00EC0773 /* UIKit.framework */; };
@@ -22,6 +21,8 @@
 		685146E118C49EE0002CF73F /* (null) in Sources */ = {isa = PBXBuildFile; };
 		685146E218C49EE0002CF73F /* (null) in Sources */ = {isa = PBXBuildFile; };
 		685146E318C49EE0002CF73F /* (null) in Sources */ = {isa = PBXBuildFile; };
+		D813A9D018D38B0E00D3515A /* ScheduleTableDataSourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D889F7EB18C9054E008A497F /* ScheduleTableDataSourceTests.m */; };
+		D813A9D118D38BA100D3515A /* MockScheduleOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EC7D5518CA63C500B6A673 /* MockScheduleOverviewViewController.m */; };
 		D81AA9EA18B943C400E3B50C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BB18B696DC00EC0773 /* Foundation.framework */; };
 		D81AA9EB18B943C400E3B50C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BD18B696DC00EC0773 /* CoreGraphics.framework */; };
 		D81AA9EC18B943C400E3B50C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BF18B696DC00EC0773 /* UIKit.framework */; };
@@ -48,7 +49,6 @@
 		D83A62E518B696DC00EC0773 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D83A62E318B696DC00EC0773 /* InfoPlist.strings */; };
 		D83A62FA18B69D8600EC0773 /* beer.png in Resources */ = {isa = PBXBuildFile; fileRef = D83A62F918B69D8600EC0773 /* beer.png */; };
 		D83A62FD18B6D6E900EC0773 /* Bee.png in Resources */ = {isa = PBXBuildFile; fileRef = D83A62FC18B6D6E900EC0773 /* Bee.png */; };
-		D850E82418C86D5F0051CD51 /* libBBACamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D850E82318C86D5F0051CD51 /* libBBACamera.a */; settings = {ATTRIBUTES = (Required, ); }; };
 		D850E82618C86F420051CD51 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D850E82518C86F420051CD51 /* MobileCoreServices.framework */; };
 		D850E82818C8746A0051CD51 /* BBAShowScheduleViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D850E82718C8746A0051CD51 /* BBAShowScheduleViewControllerTests.m */; };
 		D850E82B18C87C3D0051CD51 /* MockManagedObjectContext.m in Sources */ = {isa = PBXBuildFile; fileRef = D850E82A18C87C3D0051CD51 /* MockManagedObjectContext.m */; };
@@ -60,14 +60,21 @@
 		D8805F4718C5E456001BD35B /* BBASelectPictogramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8805F4618C5E456001BD35B /* BBASelectPictogramViewController.m */; };
 		D887832E18C8E33300F13B28 /* BBAScheduleOverviewViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D887832D18C8E33300F13B28 /* BBAScheduleOverviewViewControllerTests.m */; };
 		D889F7EA18C90506008A497F /* BBAScheduleTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D889F7E918C90506008A497F /* BBAScheduleTableDataSource.m */; };
-		D889F7EC18C9054E008A497F /* ScheduleTableDataSourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D889F7EB18C9054E008A497F /* ScheduleTableDataSourceTests.m */; };
 		D889F7EE18C9249A008A497F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D83A62CB18B696DC00EC0773 /* AppDelegate.m */; };
 		D8BD79D918CA05130004FD36 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8BD79D818CA05120004FD36 /* libOCMock.a */; };
 		D8DB7FF518C4DA2300BA2037 /* BBAAddScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FF418C4DA2300BA2037 /* BBAAddScheduleViewController.m */; };
 		D8DB7FFF18C50F4700BA2037 /* BBAShowScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FFE18C50F4700BA2037 /* BBAShowScheduleViewController.m */; };
 		D8E7A2C818CA52FE005F505C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8E7A2C718CA52FE005F505C /* CoreData.framework */; };
+		D8EA05A718D3541400F5D01F /* BBACoreDataStackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EA05A618D3541400F5D01F /* BBACoreDataStackTests.m */; };
+		D8EA05F718D355E000F5D01F /* BBACoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EA05F618D355E000F5D01F /* BBACoreDataStack.m */; };
+		D8EA05F918D3578900F5D01F /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D85E8CD418CA584200BB5F10 /* CoreData.xcdatamodeld */; };
+		D8EA05FD18D359C200F5D01F /* libBBACamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8EA05FC18D359C200F5D01F /* libBBACamera.a */; };
+		D8EA060018D3635A00F5D01F /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EA05FF18D3635900F5D01F /* Schedule.m */; };
+		D8EA060318D3635A00F5D01F /* Pictogram.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EA060218D3635A00F5D01F /* Pictogram.m */; };
+		D8EA060618D3635A00F5D01F /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EA060518D3635A00F5D01F /* Activity.m */; };
+		D8EA060918D3635A00F5D01F /* PictoCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EA060818D3635A00F5D01F /* PictoCategory.m */; };
+		D8EA060D18D37B2000F5D01F /* Pictogram.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EA060218D3635A00F5D01F /* Pictogram.m */; };
 		D8EC7D5318CA61E500B6A673 /* MockTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EC7D5218CA61E500B6A673 /* MockTableView.m */; };
-		D8EC7D5618CA63C500B6A673 /* MockScheduleOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EC7D5518CA63C500B6A673 /* MockScheduleOverviewViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +102,7 @@
 		683725BF18C88F3800617DC4 /* libBBAFileManager.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBBAFileManager.a; path = "BBAFileManager/build/Debug-iphoneos/libBBAFileManager.a"; sourceTree = "<group>"; };
 		683725C118C88F4D00617DC4 /* libBBAServiceProvider.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBBAServiceProvider.a; path = "BBAServiceProvider/build/Debug-iphoneos/libBBAServiceProvider.a"; sourceTree = "<group>"; };
 		683725C318C88FAC00617DC4 /* libBBAModel.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBBAModel.a; path = "BBAModel/build/Debug-iphoneos/libBBAModel.a"; sourceTree = "<group>"; };
+		D813A9D918D3995700D3515A /* Visual Scheduler-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Visual Scheduler-Prefix.pch"; sourceTree = "<group>"; };
 		D81AA9E918B943C400E3B50C /* AudioRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioRecorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D81AA9EF18B943C400E3B50C /* AudioRecorder-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AudioRecorder-Info.plist"; sourceTree = "<group>"; };
 		D81AA9F118B943C400E3B50C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -144,7 +152,7 @@
 		D850E82A18C87C3D0051CD51 /* MockManagedObjectContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MockManagedObjectContext.m; path = "Visual SchedulerTests/MockManagedObjectContext.m"; sourceTree = SOURCE_ROOT; };
 		D850E82D18C88E7E0051CD51 /* MockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockViewController.h; sourceTree = "<group>"; };
 		D850E82E18C88E7E0051CD51 /* MockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockViewController.m; sourceTree = "<group>"; };
-		D850E83018C890F00051CD51 /* BBAShowScheduleViewController_BBAShowScheduleViewControllerPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBAShowScheduleViewController_BBAShowScheduleViewControllerPrivate.h; sourceTree = "<group>"; };
+		D850E83018C890F00051CD51 /* BBAShowScheduleViewController_BBAShowScheduleViewControllerPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BBAShowScheduleViewController_BBAShowScheduleViewControllerPrivate.h; path = "Visual SchedulerTests/BBAShowScheduleViewController_BBAShowScheduleViewControllerPrivate.h"; sourceTree = SOURCE_ROOT; };
 		D850E83118C899B70051CD51 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = OCMock/libOCMock.a; sourceTree = "<group>"; };
 		D85E8CD518CA584200BB5F10 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 		D85EA1A718C4B12300ACDBD6 /* BBAScheduleOverviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBAScheduleOverviewViewController.h; path = Controllers/BBAScheduleOverviewViewController.h; sourceTree = "<group>"; };
@@ -169,6 +177,19 @@
 		D8DB7FFD18C50F4700BA2037 /* BBAShowScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBAShowScheduleViewController.h; path = "Controllers/Show Schedule/BBAShowScheduleViewController.h"; sourceTree = "<group>"; };
 		D8DB7FFE18C50F4700BA2037 /* BBAShowScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBAShowScheduleViewController.m; path = "Controllers/Show Schedule/BBAShowScheduleViewController.m"; sourceTree = "<group>"; };
 		D8E7A2C718CA52FE005F505C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D8EA05A618D3541400F5D01F /* BBACoreDataStackTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBACoreDataStackTests.m; sourceTree = "<group>"; };
+		D8EA05F518D355E000F5D01F /* BBACoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBACoreDataStack.h; path = "Core Data/BBACoreDataStack.h"; sourceTree = "<group>"; };
+		D8EA05F618D355E000F5D01F /* BBACoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBACoreDataStack.m; path = "Core Data/BBACoreDataStack.m"; sourceTree = "<group>"; };
+		D8EA05FA18D359BB00F5D01F /* libBBAModel.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBBAModel.a; path = "../../Library/Developer/Xcode/DerivedData/Workspace-dprtwvgbntgrkgexznktovghwufi/Build/Products/Debug-iphoneos/libBBAModel.a"; sourceTree = "<group>"; };
+		D8EA05FC18D359C200F5D01F /* libBBACamera.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBBACamera.a; path = "../../Library/Developer/Xcode/DerivedData/Workspace-dprtwvgbntgrkgexznktovghwufi/Build/Products/Debug-iphoneos/libBBACamera.a"; sourceTree = "<group>"; };
+		D8EA05FE18D3635900F5D01F /* Schedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Schedule.h; path = "Core Data/Schedule.h"; sourceTree = "<group>"; };
+		D8EA05FF18D3635900F5D01F /* Schedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Schedule.m; path = "Core Data/Schedule.m"; sourceTree = "<group>"; };
+		D8EA060118D3635A00F5D01F /* Pictogram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Pictogram.h; path = "Core Data/Pictogram.h"; sourceTree = "<group>"; };
+		D8EA060218D3635A00F5D01F /* Pictogram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Pictogram.m; path = "Core Data/Pictogram.m"; sourceTree = "<group>"; };
+		D8EA060418D3635A00F5D01F /* Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Activity.h; path = "Core Data/Activity.h"; sourceTree = "<group>"; };
+		D8EA060518D3635A00F5D01F /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Activity.m; path = "Core Data/Activity.m"; sourceTree = "<group>"; };
+		D8EA060718D3635A00F5D01F /* PictoCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PictoCategory.h; path = "Visual Scheduler/Core Data/PictoCategory.h"; sourceTree = "<group>"; };
+		D8EA060818D3635A00F5D01F /* PictoCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PictoCategory.m; path = "Core Data/PictoCategory.m"; sourceTree = "<group>"; };
 		D8EC7D5118CA61E500B6A673 /* MockTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MockTableView.h; path = "Visual SchedulerTests/MockTableView.h"; sourceTree = SOURCE_ROOT; };
 		D8EC7D5218CA61E500B6A673 /* MockTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MockTableView.m; path = "Visual SchedulerTests/MockTableView.m"; sourceTree = SOURCE_ROOT; };
 		D8EC7D5418CA63C500B6A673 /* MockScheduleOverviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MockScheduleOverviewViewController.h; path = "Visual SchedulerTests/MockScheduleOverviewViewController.h"; sourceTree = SOURCE_ROOT; };
@@ -212,10 +233,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8EA05FD18D359C200F5D01F /* libBBACamera.a in Frameworks */,
 				D8E7A2C818CA52FE005F505C /* CoreData.framework in Frameworks */,
-				683725C418C88FAC00617DC4 /* libBBAModel.a in Frameworks */,
 				D850E82618C86F420051CD51 /* MobileCoreServices.framework in Frameworks */,
-				D850E82418C86D5F0051CD51 /* libBBACamera.a in Frameworks */,
 				D83A62BE18B696DC00EC0773 /* CoreGraphics.framework in Frameworks */,
 				D83A62C018B696DC00EC0773 /* UIKit.framework in Frameworks */,
 				D83A62BC18B696DC00EC0773 /* Foundation.framework in Frameworks */,
@@ -236,6 +256,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D813A9CF18D388F900D3515A /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				D850E82718C8746A0051CD51 /* BBAShowScheduleViewControllerTests.m */,
+				D850E83018C890F00051CD51 /* BBAShowScheduleViewController_BBAShowScheduleViewControllerPrivate.h */,
+			);
+			name = Tests;
+			sourceTree = "<group>";
+		};
 		D81AA9ED18B943C400E3B50C /* AudioRecorder */ = {
 			isa = PBXGroup;
 			children = (
@@ -294,6 +323,7 @@
 			isa = PBXGroup;
 			children = (
 				D85E8CD418CA584200BB5F10 /* CoreData.xcdatamodeld */,
+				D8EA060718D3635A00F5D01F /* PictoCategory.h */,
 				D83A62C118B696DC00EC0773 /* Visual Scheduler */,
 				D83A62E018B696DC00EC0773 /* Visual SchedulerTests */,
 				D81AA9ED18B943C400E3B50C /* AudioRecorder */,
@@ -316,6 +346,8 @@
 		D83A62BA18B696DC00EC0773 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D8EA05FC18D359C200F5D01F /* libBBACamera.a */,
+				D8EA05FA18D359BB00F5D01F /* libBBAModel.a */,
 				D8E7A2C718CA52FE005F505C /* CoreData.framework */,
 				D8BD79D818CA05120004FD36 /* libOCMock.a */,
 				D8BD79D618CA05060004FD36 /* OCMock.framework */,
@@ -342,6 +374,7 @@
 		D83A62C118B696DC00EC0773 /* Visual Scheduler */ = {
 			isa = PBXGroup;
 			children = (
+				D8EA05F818D355E900F5D01F /* Core Data */,
 				D8B49E6018B8077600788073 /* Protocols */,
 				D83A62F818B69D5100EC0773 /* Pictograms */,
 				D83A62CA18B696DC00EC0773 /* AppDelegate.h */,
@@ -358,10 +391,10 @@
 		D83A62C218B696DC00EC0773 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D83A62C918B696DC00EC0773 /* Visual Scheduler-Prefix.pch */,
 				D83A62C318B696DC00EC0773 /* Visual Scheduler-Info.plist */,
 				D83A62C418B696DC00EC0773 /* InfoPlist.strings */,
 				D83A62C718B696DC00EC0773 /* main.m */,
-				D83A62C918B696DC00EC0773 /* Visual Scheduler-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -371,14 +404,10 @@
 			children = (
 				D8EC7D5118CA61E500B6A673 /* MockTableView.h */,
 				D8EC7D5218CA61E500B6A673 /* MockTableView.m */,
-				D889F7EB18C9054E008A497F /* ScheduleTableDataSourceTests.m */,
 				D8EC7D5418CA63C500B6A673 /* MockScheduleOverviewViewController.h */,
 				D8EC7D5518CA63C500B6A673 /* MockScheduleOverviewViewController.m */,
 				D850E82918C87C3D0051CD51 /* MockManagedObjectContext.h */,
 				D850E82A18C87C3D0051CD51 /* MockManagedObjectContext.m */,
-				D850E82718C8746A0051CD51 /* BBAShowScheduleViewControllerTests.m */,
-				D850E83018C890F00051CD51 /* BBAShowScheduleViewController_BBAShowScheduleViewControllerPrivate.h */,
-				D887832D18C8E33300F13B28 /* BBAScheduleOverviewViewControllerTests.m */,
 				D850E82D18C88E7E0051CD51 /* MockViewController.h */,
 				D850E82E18C88E7E0051CD51 /* MockViewController.m */,
 				D83A62E118B696DC00EC0773 /* Supporting Files */,
@@ -390,6 +419,7 @@
 		D83A62E118B696DC00EC0773 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D813A9D918D3995700D3515A /* Visual Scheduler-Prefix.pch */,
 				D83A62E218B696DC00EC0773 /* Visual SchedulerTests-Info.plist */,
 				D83A62E318B696DC00EC0773 /* InfoPlist.strings */,
 			);
@@ -433,6 +463,7 @@
 		D85EA1AA18C4B3DE00ACDBD6 /* Schedule Overview */ = {
 			isa = PBXGroup;
 			children = (
+				D8EA060E18D3883100F5D01F /* Tests */,
 				D85EA1A718C4B12300ACDBD6 /* BBAScheduleOverviewViewController.h */,
 				D85EA1A818C4B12300ACDBD6 /* BBAScheduleOverviewViewController.m */,
 				D889F7E818C90506008A497F /* BBAScheduleTableDataSource.h */,
@@ -491,10 +522,46 @@
 		D8DB800018C50FAC00BA2037 /* Show Schedule */ = {
 			isa = PBXGroup;
 			children = (
+				D813A9CF18D388F900D3515A /* Tests */,
 				D8DB7FFD18C50F4700BA2037 /* BBAShowScheduleViewController.h */,
 				D8DB7FFE18C50F4700BA2037 /* BBAShowScheduleViewController.m */,
 			);
 			name = "Show Schedule";
+			sourceTree = "<group>";
+		};
+		D8EA05A518D353E400F5D01F /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				D8EA05A618D3541400F5D01F /* BBACoreDataStackTests.m */,
+			);
+			name = Tests;
+			path = "Visual SchedulerTests";
+			sourceTree = SOURCE_ROOT;
+		};
+		D8EA05F818D355E900F5D01F /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				D8EA05A518D353E400F5D01F /* Tests */,
+				D8EA05F518D355E000F5D01F /* BBACoreDataStack.h */,
+				D8EA05F618D355E000F5D01F /* BBACoreDataStack.m */,
+				D8EA060818D3635A00F5D01F /* PictoCategory.m */,
+				D8EA060418D3635A00F5D01F /* Activity.h */,
+				D8EA060518D3635A00F5D01F /* Activity.m */,
+				D8EA060118D3635A00F5D01F /* Pictogram.h */,
+				D8EA060218D3635A00F5D01F /* Pictogram.m */,
+				D8EA05FE18D3635900F5D01F /* Schedule.h */,
+				D8EA05FF18D3635900F5D01F /* Schedule.m */,
+			);
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
+		D8EA060E18D3883100F5D01F /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				D887832D18C8E33300F13B28 /* BBAScheduleOverviewViewControllerTests.m */,
+				D889F7EB18C9054E008A497F /* ScheduleTableDataSourceTests.m */,
+			);
+			name = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -591,7 +658,7 @@
 		D83A62B018B696DB00EC0773 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Student Project";
 				TargetAttributes = {
 					685146CA18C49EC4002CF73F = {
@@ -709,8 +776,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8EC7D5618CA63C500B6A673 /* MockScheduleOverviewViewController.m in Sources */,
+				D8EA060918D3635A00F5D01F /* PictoCategory.m in Sources */,
 				D81AAA2018B9949D00E3B50C /* AudioRecorder.m in Sources */,
+				D8EA060618D3635A00F5D01F /* Activity.m in Sources */,
+				D8EA060018D3635A00F5D01F /* Schedule.m in Sources */,
 				D85E8CD618CA584200BB5F10 /* CoreData.xcdatamodeld in Sources */,
 				D82D5FD418C616A6000A8FD3 /* UIView+BBASubviews.m in Sources */,
 				D8805F3F18C5DD01001BD35B /* BBANewPictogramViewController.m in Sources */,
@@ -719,8 +788,10 @@
 				D83A62C818B696DC00EC0773 /* main.m in Sources */,
 				D889F7EE18C9249A008A497F /* AppDelegate.m in Sources */,
 				D889F7EA18C90506008A497F /* BBAScheduleTableDataSource.m in Sources */,
+				D8EA060318D3635A00F5D01F /* Pictogram.m in Sources */,
 				D8DB7FFF18C50F4700BA2037 /* BBAShowScheduleViewController.m in Sources */,
 				D85EA1A918C4B12300ACDBD6 /* BBAScheduleOverviewViewController.m in Sources */,
+				D8EA05F718D355E000F5D01F /* BBACoreDataStack.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -728,12 +799,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8EA05F918D3578900F5D01F /* CoreData.xcdatamodeld in Sources */,
 				D8EC7D5318CA61E500B6A673 /* MockTableView.m in Sources */,
+				D813A9D118D38BA100D3515A /* MockScheduleOverviewViewController.m in Sources */,
 				D850E82B18C87C3D0051CD51 /* MockManagedObjectContext.m in Sources */,
 				D850E82F18C88E7E0051CD51 /* MockViewController.m in Sources */,
-				D889F7EC18C9054E008A497F /* ScheduleTableDataSourceTests.m in Sources */,
+				D8EA060D18D37B2000F5D01F /* Pictogram.m in Sources */,
 				D887832E18C8E33300F13B28 /* BBAScheduleOverviewViewControllerTests.m in Sources */,
+				D8EA05A718D3541400F5D01F /* BBACoreDataStackTests.m in Sources */,
 				D850E82818C8746A0051CD51 /* BBAShowScheduleViewControllerTests.m in Sources */,
+				D813A9D018D38B0E00D3515A /* ScheduleTableDataSourceTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -807,7 +882,6 @@
 		685146DB18C49EC4002CF73F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -825,7 +899,6 @@
 		685146DC18C49EC4002CF73F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -839,7 +912,6 @@
 		685146DE18C49EC4002CF73F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Visual Scheduler.app/Visual Scheduler";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -862,7 +934,6 @@
 		685146DF18C49EC4002CF73F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Visual Scheduler.app/Visual Scheduler";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -881,7 +952,6 @@
 		D81AAA1318B943C500E3B50C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -899,7 +969,6 @@
 		D81AAA1418B943C500E3B50C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -914,7 +983,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -955,7 +1023,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -998,6 +1065,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Visual_Scheduler-dkxsscvrumbjjoephvoayemnivgl/Build/Products/Debug-iphoneos",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Workspace-dprtwvgbntgrkgexznktovghwufi/Build/Products/Debug-iphoneos",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1017,6 +1085,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Visual_Scheduler-dkxsscvrumbjjoephvoayemnivgl/Build/Products/Debug-iphoneos",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Workspace-dprtwvgbntgrkgexznktovghwufi/Build/Products/Debug-iphoneos",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1027,20 +1096,19 @@
 		D83A62EE18B696DC00EC0773 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Visual Scheduler.app/Visual Scheduler";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
-				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
-				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
+				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Visual Scheduler/Visual Scheduler-Prefix.pch";
+				GCC_PREFIX_HEADER = "Visual SchedulerTests/Visual Scheduler-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
+					"TESTING=1",
 					"DEBUG=1",
-					"$(inherited)",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1069,17 +1137,20 @@
 		D83A62EF18B696DC00EC0773 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Visual Scheduler.app/Visual Scheduler";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
-				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
-				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
+				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Visual Scheduler/Visual Scheduler-Prefix.pch";
+				GCC_PREFIX_HEADER = "Visual SchedulerTests/Visual Scheduler-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"TESTING=1",
+					"DEBUG=1",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,

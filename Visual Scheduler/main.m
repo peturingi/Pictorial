@@ -1,10 +1,12 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
-#import "../BBAModel/BBAModel/BBAModelStack.h"
+#import "Core Data/BBACoreDataStack.h"
+
+
 
 int main(int argc, char * argv[]) {
     @autoreleasepool {
-        [BBAModelStack installFromMergedBundleWithStoreNamed:@"RuntimeStore"];
+        BBACoreDataStack *coreDataStack __attribute__((unused)) = [BBACoreDataStack sharedInstance];
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }
 }

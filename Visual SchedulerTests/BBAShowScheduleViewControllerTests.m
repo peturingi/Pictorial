@@ -1,6 +1,5 @@
 #import <XCTest/XCTest.h>
 #import "BBAShowScheduleViewController.h"
-#import "../BBAModel/BBAModel/Schedule+CDStack.h"
 #import "MockManagedObjectContext.h"
 #import "MockViewController.h"
 #import "BBAShowScheduleViewController_BBAShowScheduleViewControllerPrivate.h"

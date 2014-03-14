@@ -1,6 +1,8 @@
 #import "BBAAddScheduleViewController.h"
 #import "BBASelectPictogramViewController.h"
-#import "../../BBAModel/BBAModel/BBAModelStack.h"
+#import "BBACoreDataStack.h"
+#import "Schedule.h"
+#import "Pictogram.h"
 
 @interface BBAAddScheduleViewController ()
 
@@ -26,7 +28,8 @@
 }
 
 - (void)createScheduleFromInput {
-    [Schedule insertWithTitle:schedulesTitle.text logo:self.pictogramLogo backGround:0];
+    // TODO No date is not inserted.
+    [[BBACoreDataStack sharedInstance] scheduleWithTitle:schedulesTitle.text withPictogramAsLogo:self.pictogramLogo withBackgroundColour:0];
 }
 
 - (BOOL)verifyTitle {

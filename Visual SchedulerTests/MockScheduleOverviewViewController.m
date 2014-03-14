@@ -1,4 +1,5 @@
 #import "MockScheduleOverviewViewController.h"
+#import "Schedule.h"
 
 @interface MockScheduleOverviewViewController ()
 

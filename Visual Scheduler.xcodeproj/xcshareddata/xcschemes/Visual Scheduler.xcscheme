@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0500"
+   LastUpgradeVersion = "0510"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -35,16 +35,6 @@
                BlueprintIdentifier = "D83A62D818B696DC00EC0773"
                BuildableName = "Visual SchedulerTests.xctest"
                BlueprintName = "Visual SchedulerTests"
-               ReferencedContainer = "container:Visual Scheduler.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D81AAA0418B943C400E3B50C"
-               BuildableName = "AudioRecorderTests.xctest"
-               BlueprintName = "AudioRecorderTests"
                ReferencedContainer = "container:Visual Scheduler.xcodeproj">
             </BuildableReference>
          </TestableReference>
