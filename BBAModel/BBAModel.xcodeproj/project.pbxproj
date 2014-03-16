@@ -40,11 +40,8 @@
 		68B3E22B18C9F21D006F77E0 /* BBAModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B3E22A18C9F21D006F77E0 /* BBAModelTests.m */; };
 		68B3E23518C9F342006F77E0 /* libBBAServiceProvider.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 68B3E23418C9F342006F77E0 /* libBBAServiceProvider.a */; };
 		68B3E23718C9F347006F77E0 /* libBBADataStack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 68B3E23618C9F347006F77E0 /* libBBADataStack.a */; };
-		68BAADAF18C883A70040E86A /* CoreData.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 68BAADAD18C8822D0040E86A /* CoreData.xcdatamodeld */; };
 		68BAADC218C88AD60040E86A /* Pictogram.m in Sources */ = {isa = PBXBuildFile; fileRef = 68BAADC118C88AD60040E86A /* Pictogram.m */; };
 		68BAADC318C88AD60040E86A /* Pictogram.m in Sources */ = {isa = PBXBuildFile; fileRef = 68BAADC118C88AD60040E86A /* Pictogram.m */; };
-		68BAADCA18C88AD70040E86A /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 68BAADC918C88AD70040E86A /* Activity.m */; };
-		68BAADCB18C88AD70040E86A /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 68BAADC918C88AD70040E86A /* Activity.m */; };
 		68BAADCE18C88AD70040E86A /* PictoCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 68BAADCD18C88AD70040E86A /* PictoCategory.m */; };
 		68BAADCF18C88AD70040E86A /* PictoCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 68BAADCD18C88AD70040E86A /* PictoCategory.m */; };
 		68C8A73718C7B632007FF9C5 /* libBBAFileManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 68C8A73618C7B632007FF9C5 /* libBBAFileManager.a */; };
@@ -121,18 +118,11 @@
 		68B3E22C18C9F21D006F77E0 /* BBAModelTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BBAModelTests-Prefix.pch"; sourceTree = "<group>"; };
 		68B3E23418C9F342006F77E0 /* libBBAServiceProvider.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBBAServiceProvider.a; path = "../BBAServiceProvider/build/Debug-iphoneos/libBBAServiceProvider.a"; sourceTree = "<group>"; };
 		68B3E23618C9F347006F77E0 /* libBBADataStack.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBBADataStack.a; path = "../BBADataStack/build/Debug-iphoneos/libBBADataStack.a"; sourceTree = "<group>"; };
-		68BAADA918C8822D0040E86A /* CoreData 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CoreData 4.xcdatamodel"; sourceTree = "<group>"; };
-		68BAADAA18C8822D0040E86A /* CoreData 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CoreData 3.xcdatamodel"; sourceTree = "<group>"; };
-		68BAADAB18C8822D0040E86A /* CoreData 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CoreData 2.xcdatamodel"; sourceTree = "<group>"; };
-		68BAADAC18C8822D0040E86A /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 		68BAADC018C88AD60040E86A /* Pictogram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pictogram.h; sourceTree = "<group>"; };
 		68BAADC118C88AD60040E86A /* Pictogram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pictogram.m; sourceTree = "<group>"; };
-		68BAADC818C88AD70040E86A /* Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Activity.h; sourceTree = "<group>"; };
-		68BAADC918C88AD70040E86A /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Activity.m; sourceTree = "<group>"; };
 		68BAADCC18C88AD70040E86A /* PictoCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictoCategory.h; sourceTree = "<group>"; };
 		68BAADCD18C88AD70040E86A /* PictoCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictoCategory.m; sourceTree = "<group>"; };
 		68C8A73618C7B632007FF9C5 /* libBBAFileManager.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBBAFileManager.a; path = "../BBAFileManager/build/Debug-iphoneos/libBBAFileManager.a"; sourceTree = "<group>"; };
-		D89C0C9818C8BE8000F61708 /* CoreData 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CoreData 5.xcdatamodel"; sourceTree = "<group>"; };
 		D89C0C9918C8BF8900F61708 /* Schedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Schedule.h; sourceTree = "<group>"; };
 		D89C0C9A18C8BF8900F61708 /* Schedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Schedule.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -214,8 +204,6 @@
 		683E441118C71DB4001314EB /* Activity */ = {
 			isa = PBXGroup;
 			children = (
-				68BAADC818C88AD70040E86A /* Activity.h */,
-				68BAADC918C88AD70040E86A /* Activity.m */,
 				683E441218C71DDF001314EB /* Activity+CDStack.h */,
 				683E441318C71DDF001314EB /* Activity+CDStack.m */,
 			);
@@ -304,7 +292,6 @@
 		688879F918C5DF39008ED38A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				68BAADAD18C8822D0040E86A /* CoreData.xcdatamodeld */,
 				683E441118C71DB4001314EB /* Activity */,
 				683E441018C71D66001314EB /* PictoCategory */,
 				683E440F18C71D55001314EB /* Pictogram */,
@@ -424,7 +411,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				68BAADAF18C883A70040E86A /* CoreData.xcdatamodeld in Resources */,
 				683A56E418C7BA5300752CEE /* testImage.png in Resources */,
 				6880B25A18C6260A000900CD /* InfoPlist.strings in Resources */,
 				6880B25B18C6260A000900CD /* Images.xcassets in Resources */,
@@ -449,7 +435,6 @@
 				6880B24C18C6260A000900CD /* Schedule+CDStack.m in Sources */,
 				683A56E118C7B82800752CEE /* BBAModelStack.m in Sources */,
 				6880B24F18C6260A000900CD /* main.m in Sources */,
-				68BAADCA18C88AD70040E86A /* Activity.m in Sources */,
 				683E441518C71DE9001314EB /* Activity+CDStack.m in Sources */,
 				D89C0C9B18C8BF8900F61708 /* Schedule.m in Sources */,
 				68BAADC218C88AD60040E86A /* Pictogram.m in Sources */,
@@ -466,7 +451,6 @@
 			files = (
 				D89C0C9C18C8BF8900F61708 /* Schedule.m in Sources */,
 				683A56E218C7B82800752CEE /* BBAModelStack.m in Sources */,
-				68BAADCB18C88AD70040E86A /* Activity.m in Sources */,
 				68BAADC318C88AD60040E86A /* Pictogram.m in Sources */,
 				6865C8A218C7C01C003D7EF5 /* NSFetchedResultsController+SafeFetch.m in Sources */,
 				683E441418C71DDF001314EB /* Activity+CDStack.m in Sources */,
@@ -717,23 +701,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		68BAADAD18C8822D0040E86A /* CoreData.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				D89C0C9818C8BE8000F61708 /* CoreData 5.xcdatamodel */,
-				68BAADA918C8822D0040E86A /* CoreData 4.xcdatamodel */,
-				68BAADAA18C8822D0040E86A /* CoreData 3.xcdatamodel */,
-				68BAADAB18C8822D0040E86A /* CoreData 2.xcdatamodel */,
-				68BAADAC18C8822D0040E86A /* CoreData.xcdatamodel */,
-			);
-			currentVersion = 68BAADAC18C8822D0040E86A /* CoreData.xcdatamodel */;
-			name = CoreData.xcdatamodeld;
-			path = "../../Visual Scheduler/CoreData.xcdatamodeld";
-			sourceTree = "<group>";
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 6888798818C5DEC3008ED38A /* Project object */;
 }

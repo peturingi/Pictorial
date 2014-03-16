@@ -15,5 +15,6 @@
 - (NSManagedObjectContext *)sharedManagedObjectContext;
 
 #pragma mark - Models
+- (NSFetchedResultsController *)fetchedResultsControllerForSchedule;
 - (Schedule *)scheduleWithTitle:(NSString *)title withPictogramAsLogo:(Pictogram *)pictogram withBackgroundColour:(NSInteger)colourIndex;
 @end

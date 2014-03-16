@@ -1,4 +1,5 @@
 #import "BBACoreDataStack.h"
+#import "UIApplication+BBA.h"
 
 @interface BBACoreDataStack() {
     
@@ -107,6 +108,10 @@ static id sharedInstance = nil;
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
+#pragma mark - Activity
+#pragma mark - Pictogram
+#pragma mark - Schedule
+
 - (Schedule *)scheduleWithTitle:(NSString *)title withPictogramAsLogo:(Pictogram *)image withBackgroundColour:(NSInteger)colourIndex {
     NSManagedObjectContext *context = [[BBACoreDataStack sharedInstance] sharedManagedObjectContext];
     Schedule *schedule = [NSEntityDescription insertNewObjectForEntityForName:@"Schedule" inManagedObjectContext:context];
@@ -120,5 +125,18 @@ static id sharedInstance = nil;
     }
     return schedule;
 }
+
+- (NSFetchedResultsController *)fetchedResultsControllerForSchedule {
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Schedule" inManagedObjectContext:[self managedObjectContext]];
+    [fetchRequest setEntity:entity];
+    [fetchRequest setFetchBatchSize:30];
+    NSSortDescriptor* descriptor = [[NSSortDescriptor alloc]initWithKey:@"title" ascending:YES];
+    [fetchRequest setSortDescriptors:@[descriptor]];
+    NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Schedule"];
+    return fetchedResultsController;
+}
+
+
 
 @end

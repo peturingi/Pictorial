@@ -18,14 +18,7 @@ NSString * const kBBANotificationNameForNewDataAvailable = @"didUpdateScheduleTa
 }
 
 - (void)setupDataSource {
-    NSManagedObjectContext *sharedManagedObjectContext = [[BBACoreDataStack sharedInstance] sharedManagedObjectContext];
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Schedule" inManagedObjectContext:sharedManagedObjectContext];
-    [fetchRequest setEntity:entity];
-    [fetchRequest setFetchBatchSize:30];
-    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES];
-    [fetchRequest setSortDescriptors:@[sortDescriptor]];
-    self.dataSource = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:sharedManagedObjectContext sectionNameKeyPath:nil cacheName:@"Master"];
+    self.dataSource = [[BBACoreDataStack sharedInstance] fetchedResultsControllerForSchedule];
     [self.dataSource setDelegate:self];
     [self.dataSource performFetch:nil];
 }

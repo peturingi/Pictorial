@@ -77,4 +77,8 @@
     XCTAssertTrue(numberOfSchedulesBeforeTest == [items count] - 1, @"Expected increase in the number of items after saving a new item.");
 }
 
+- (void)testFetchedResultsControllerForSchedule {
+    XCTAssertNotNil([self.sharedStack fetchedResultsControllerForSchedule], @"Could not retrieve fetchedResultsControllerForSchedule.");
+}
+
 @end

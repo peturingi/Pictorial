@@ -22,15 +22,6 @@ static NSUInteger const kBBAScheduleBatchSize = 20;
     [[[self class] cdstack]saveAll];
 }
 
-+(NSFetchedResultsController*)fetchedResultsController{
-    NSSortDescriptor* descriptor = [[NSSortDescriptor alloc]initWithKey:@"title" ascending:YES];
-    NSArray* sortDescriptors = @[descriptor];
-    NSFetchRequest* request = [[self cdstack] fetchRequestForEntityClass:[self class]];
-    [request setSortDescriptors:sortDescriptors];
-    [request setFetchBatchSize:kBBAScheduleBatchSize];
-    return [[self cdstack] fetchedResultsControllerFromFetchRequest:request];
-}
-
 +(BBADataStack*)cdstack{
     return [BBAServiceProvider serviceFromClass:[BBADataStack class]];
 }
