@@ -11,9 +11,6 @@
       location = "group:BBAServiceProvider/BBAServiceProvider.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:BBAFileManager/BBAFileManager.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:Visual Scheduler.xcodeproj">
    </FileRef>
 </Workspace>

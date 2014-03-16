@@ -322,14 +322,22 @@
 		D82838B018D5B85A009C03A8 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				D82838B618D5BBCE009C03A8 /* Tests */,
 				D82838AD18D5B850009C03A8 /* UIImage+BBA.h */,
 				D82838AE18D5B850009C03A8 /* UIImage+BBA.m */,
 				D82838B118D5B9DF009C03A8 /* UIApplication+BBA.h */,
 				D82838B218D5B9DF009C03A8 /* UIApplication+BBA.m */,
-				D82838B418D5BA39009C03A8 /* UIApplicationTests.m */,
 			);
 			name = Categories;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		D82838B618D5BBCE009C03A8 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				D82838B418D5BA39009C03A8 /* UIApplicationTests.m */,
+			);
+			name = Tests;
 			sourceTree = "<group>";
 		};
 		D8315AF518D39DF000C4A340 /* Camera */ = {
