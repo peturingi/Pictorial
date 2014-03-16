@@ -35,6 +35,7 @@
 		D81AAA1B18B9478600E3B50C /* AudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = D81AAA1A18B9478600E3B50C /* AudioRecorder.m */; };
 		D81AAA1F18B94F0A00E3B50C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D81AAA1E18B94F0A00E3B50C /* AVFoundation.framework */; };
 		D81AAA2018B9949D00E3B50C /* AudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = D81AAA1A18B9478600E3B50C /* AudioRecorder.m */; };
+		D82838AF18D5B850009C03A8 /* UIImage+BBA.m in Sources */ = {isa = PBXBuildFile; fileRef = D82838AE18D5B850009C03A8 /* UIImage+BBA.m */; };
 		D82D5FD418C616A6000A8FD3 /* UIView+BBASubviews.m in Sources */ = {isa = PBXBuildFile; fileRef = D82D5FD318C616A6000A8FD3 /* UIView+BBASubviews.m */; };
 		D82E748618B7E49C0031BF2B /* milk.png in Resources */ = {isa = PBXBuildFile; fileRef = D82E748518B7E49C0031BF2B /* milk.png */; };
 		D8315AF418D39DEA00C4A340 /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = D8315AF218D39DEA00C4A340 /* Camera.m */; };
@@ -115,6 +116,8 @@
 		D81AAA1A18B9478600E3B50C /* AudioRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioRecorder.m; path = AudioRecorder/AudioRecorder.m; sourceTree = "<group>"; };
 		D81AAA1C18B9479B00E3B50C /* AudioRecorderDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AudioRecorderDelegate.h; path = AudioRecorder/AudioRecorderDelegate.h; sourceTree = "<group>"; };
 		D81AAA1E18B94F0A00E3B50C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		D82838AD18D5B850009C03A8 /* UIImage+BBA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+BBA.h"; path = "Visual Scheduler/Category/UIImage+BBA.h"; sourceTree = "<group>"; };
+		D82838AE18D5B850009C03A8 /* UIImage+BBA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+BBA.m"; path = "Visual Scheduler/Category/UIImage+BBA.m"; sourceTree = "<group>"; };
 		D82D5FD218C616A6000A8FD3 /* UIView+BBASubviews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+BBASubviews.h"; path = "Visual Scheduler/Category/UIView+BBASubviews.h"; sourceTree = "<group>"; };
 		D82D5FD318C616A6000A8FD3 /* UIView+BBASubviews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+BBASubviews.m"; path = "Visual Scheduler/Category/UIView+BBASubviews.m"; sourceTree = "<group>"; };
 		D82E748518B7E49C0031BF2B /* milk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = milk.png; sourceTree = "<group>"; };
@@ -311,6 +314,16 @@
 			name = AudioRecorder;
 			sourceTree = "<group>";
 		};
+		D82838B018D5B85A009C03A8 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				D82838AD18D5B850009C03A8 /* UIImage+BBA.h */,
+				D82838AE18D5B850009C03A8 /* UIImage+BBA.m */,
+			);
+			name = Categories;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		D8315AF518D39DF000C4A340 /* Camera */ = {
 			isa = PBXGroup;
 			children = (
@@ -375,6 +388,7 @@
 		D83A62C118B696DC00EC0773 /* Visual Scheduler */ = {
 			isa = PBXGroup;
 			children = (
+				D82838B018D5B85A009C03A8 /* Categories */,
 				D8315AF518D39DF000C4A340 /* Camera */,
 				D8EA05F818D355E900F5D01F /* Core Data */,
 				D8B49E6018B8077600788073 /* Protocols */,
@@ -803,6 +817,7 @@
 				D8805F3F18C5DD01001BD35B /* BBANewPictogramViewController.m in Sources */,
 				D8DB7FF518C4DA2300BA2037 /* BBAAddScheduleViewController.m in Sources */,
 				D8805F4718C5E456001BD35B /* BBASelectPictogramViewController.m in Sources */,
+				D82838AF18D5B850009C03A8 /* UIImage+BBA.m in Sources */,
 				D83A62C818B696DC00EC0773 /* main.m in Sources */,
 				D889F7EE18C9249A008A497F /* AppDelegate.m in Sources */,
 				D889F7EA18C90506008A497F /* BBAScheduleTableDataSource.m in Sources */,
