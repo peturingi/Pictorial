@@ -109,7 +109,7 @@ static id sharedInstance = nil;
 #pragma mark - Activity
 - (NSFetchedResultsController *)fetchedResultsControllerForActivity {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Activity" inManagedObjectContext:[self managedObjectContext]];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Activity" inManagedObjectContext:self.sharedManagedObjectContext];
     [fetchRequest setEntity:entity];
     [fetchRequest setFetchBatchSize:30];
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES];
@@ -122,7 +122,7 @@ static id sharedInstance = nil;
 
 - (NSFetchedResultsController*)fetchedResultsControllerForCategory {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"PictoCategory" inManagedObjectContext:[self managedObjectContext]];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"PictoCategory" inManagedObjectContext:self.sharedManagedObjectContext];
     [fetchRequest setEntity:entity];
     [fetchRequest setFetchBatchSize:30];
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES];
@@ -134,8 +134,7 @@ static id sharedInstance = nil;
 #pragma mark - Pictogram
 
 - (Pictogram *)pictogramWithTitle:(NSString *)title withImage:(UIImage *)image {
-    NSManagedObjectContext *context = [[BBACoreDataStack sharedInstance] sharedManagedObjectContext];
-    Pictogram *pictogram = [NSEntityDescription insertNewObjectForEntityForName:@"Pictogram" inManagedObjectContext:context];
+    Pictogram *pictogram = [NSEntityDescription insertNewObjectForEntityForName:@"Pictogram" inManagedObjectContext:self.sharedManagedObjectContext];
     [pictogram setTitle:title];
     NSString *url = [[UIApplication sharedApplication] uniqueFileNameWithPrefix:@"pictogram"];
     [pictogram setImageURL:url];
@@ -161,13 +160,12 @@ static id sharedInstance = nil;
 #pragma mark - Schedule
 
 - (Schedule *)scheduleWithTitle:(NSString *)title withPictogramAsLogo:(Pictogram *)image withBackgroundColour:(NSInteger)colourIndex {
-    NSManagedObjectContext *context = [[BBACoreDataStack sharedInstance] sharedManagedObjectContext];
-    Schedule *schedule = [NSEntityDescription insertNewObjectForEntityForName:@"Schedule" inManagedObjectContext:context];
+    Schedule *schedule = [NSEntityDescription insertNewObjectForEntityForName:@"Schedule" inManagedObjectContext:self.sharedManagedObjectContext];
     [schedule setTitle:title];
     [schedule setDate:[NSDate date]];
     [schedule setColour:[NSNumber numberWithInteger:colourIndex]];
     [schedule setLogo:image];
-    if (![context save:nil]) {
+    if (![self.sharedManagedObjectContext save:nil]) {
         // TODO: Deal with out of space, and different kind of errors.
         @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"Could not save schedule." userInfo:nil];
     }
@@ -176,12 +174,12 @@ static id sharedInstance = nil;
 
 - (NSFetchedResultsController *)fetchedResultsControllerForSchedule {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Schedule" inManagedObjectContext:[self managedObjectContext]];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Schedule" inManagedObjectContext:self.sharedManagedObjectContext];
     [fetchRequest setEntity:entity];
     [fetchRequest setFetchBatchSize:30];
     NSSortDescriptor* descriptor = [[NSSortDescriptor alloc]initWithKey:@"title" ascending:YES];
     [fetchRequest setSortDescriptors:@[descriptor]];
-    NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Schedule"];
+    NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.sharedManagedObjectContext sectionNameKeyPath:nil cacheName:@"Schedule"];
     return fetchedResultsController;
 }
 
