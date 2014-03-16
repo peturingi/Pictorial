@@ -1,5 +1,4 @@
 #import "AppDelegate.h"
-#import "../BBAModel/BBAModel/BBAModelStack.h"
 
 @interface AppDelegate ()
 
