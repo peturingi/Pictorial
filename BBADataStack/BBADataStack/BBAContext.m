@@ -15,17 +15,9 @@
 -(id)initWithStore:(NSPersistentStoreCoordinator*)store{
     self = [super init];
     if(self){
-        [self verifyStore:store];
         [self setupManagedObjectContextWithStore:store];
     }
     return self;
-}
-
--(void)verifyStore:(NSPersistentStoreCoordinator*)store{
-    if(!store){
-        [NSException raise:@"Persistent Store Coordinator was nil"
-                    format:@"Cannot initialize the context provided a nil Persistent Store Coordinator"];
-    }
 }
 
 -(void)setupManagedObjectContextWithStore:(NSPersistentStoreCoordinator*)store{

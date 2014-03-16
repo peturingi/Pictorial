@@ -37,6 +37,10 @@
                  @"Failed to get managedObjectContext");
 }
 
+- (void)testValidStore {
+    XCTAssertNotNil([[BBACoreDataStack sharedInstance] persistentStoreCoordinator], @"Core Data can not be used with a nil persistant store coordinator.");
+}
+
 - (void)testReturnsSharedManagedObjectContext {
     NSManagedObjectContext *firstManagedObjectContext = [self.sharedStack sharedManagedObjectContext];
     NSManagedObjectContext *secondManagedObjectContext = [self.sharedStack sharedManagedObjectContext];
