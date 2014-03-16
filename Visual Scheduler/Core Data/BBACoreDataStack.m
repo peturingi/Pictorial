@@ -183,6 +183,6 @@ static id sharedInstance = nil;
     return fetchedResultsController;
 }
 
-
+#pragma mark -
 
 @end
