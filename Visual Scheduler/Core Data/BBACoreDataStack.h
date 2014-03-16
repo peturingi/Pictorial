@@ -14,6 +14,9 @@
 - (NSURL *)applicationDocumentsDirectory;
 - (NSManagedObjectContext *)sharedManagedObjectContext;
 
+#pragma mark - Activity
+- (NSFetchedResultsController *)fetchedResultsControllerForActivity;
+
 #pragma mark - Pictogram
 - (NSFetchedResultsController *)fetchedResultsControllerForPictogram;
 - (Pictogram *)pictogramWithTitle:(NSString *)title withImage:(UIImage *)image;

@@ -10,8 +10,6 @@
 		683A56E118C7B82800752CEE /* BBAModelStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 683A56E018C7B82800752CEE /* BBAModelStack.m */; };
 		683A56E218C7B82800752CEE /* BBAModelStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 683A56E018C7B82800752CEE /* BBAModelStack.m */; };
 		683E440C18C71BDB001314EB /* PictoCategory+CDStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 683E440B18C71BDB001314EB /* PictoCategory+CDStack.m */; };
-		683E441418C71DDF001314EB /* Activity+CDStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 683E441318C71DDF001314EB /* Activity+CDStack.m */; };
-		683E441518C71DE9001314EB /* Activity+CDStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 683E441318C71DDF001314EB /* Activity+CDStack.m */; };
 		683E441618C71DEE001314EB /* PictoCategory+CDStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 683E440B18C71BDB001314EB /* PictoCategory+CDStack.m */; };
 		683E445A18C739A0001314EB /* libBBAFileManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 683E445918C739A0001314EB /* libBBAFileManager.a */; };
 		6865C89A18C7BDC5003D7EF5 /* libBBADataStack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6865C89918C7BDC5003D7EF5 /* libBBADataStack.a */; };
@@ -65,8 +63,6 @@
 		683E440A18C71BDB001314EB /* PictoCategory+CDStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PictoCategory+CDStack.h"; sourceTree = "<group>"; };
 		683E440B18C71BDB001314EB /* PictoCategory+CDStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PictoCategory+CDStack.m"; sourceTree = "<group>"; };
 		683E440D18C71C26001314EB /* ModelProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModelProtocol.h; sourceTree = "<group>"; };
-		683E441218C71DDF001314EB /* Activity+CDStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Activity+CDStack.h"; sourceTree = "<group>"; };
-		683E441318C71DDF001314EB /* Activity+CDStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Activity+CDStack.m"; sourceTree = "<group>"; };
 		683E445118C73951001314EB /* libBBADataStack.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBBADataStack.a; path = "../BBADataStack/build/Debug-iphoneos/libBBADataStack.a"; sourceTree = "<group>"; };
 		683E445218C73951001314EB /* libBBAFileManager.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBBAFileManager.a; path = "../BBAFileManager/build/Debug-iphoneos/libBBAFileManager.a"; sourceTree = "<group>"; };
 		683E445318C73951001314EB /* libBBAServiceProvider.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBBAServiceProvider.a; path = "../BBAServiceProvider/build/Debug-iphoneos/libBBAServiceProvider.a"; sourceTree = "<group>"; };
@@ -134,13 +130,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		683E440F18C71D55001314EB /* Pictogram */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Pictogram;
-			sourceTree = "<group>";
-		};
 		683E441018C71D66001314EB /* PictoCategory */ = {
 			isa = PBXGroup;
 			children = (
@@ -150,15 +139,6 @@
 				683E440B18C71BDB001314EB /* PictoCategory+CDStack.m */,
 			);
 			name = PictoCategory;
-			sourceTree = "<group>";
-		};
-		683E441118C71DB4001314EB /* Activity */ = {
-			isa = PBXGroup;
-			children = (
-				683E441218C71DDF001314EB /* Activity+CDStack.h */,
-				683E441318C71DDF001314EB /* Activity+CDStack.m */,
-			);
-			name = Activity;
 			sourceTree = "<group>";
 		};
 		6888798718C5DEC3008ED38A = {
@@ -216,9 +196,7 @@
 		688879F918C5DF39008ED38A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				683E441118C71DB4001314EB /* Activity */,
 				683E441018C71D66001314EB /* PictoCategory */,
-				683E440F18C71D55001314EB /* Pictogram */,
 				683E440D18C71C26001314EB /* ModelProtocol.h */,
 				683A56DF18C7B82800752CEE /* BBAModelStack.h */,
 				683A56E018C7B82800752CEE /* BBAModelStack.m */,
@@ -352,7 +330,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				683A56E118C7B82800752CEE /* BBAModelStack.m in Sources */,
-				683E441518C71DE9001314EB /* Activity+CDStack.m in Sources */,
 				68BAADCE18C88AD70040E86A /* PictoCategory.m in Sources */,
 				683E440C18C71BDB001314EB /* PictoCategory+CDStack.m in Sources */,
 			);
@@ -363,7 +340,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				683A56E218C7B82800752CEE /* BBAModelStack.m in Sources */,
-				683E441418C71DDF001314EB /* Activity+CDStack.m in Sources */,
 				68BAADCF18C88AD70040E86A /* PictoCategory.m in Sources */,
 				683E441618C71DEE001314EB /* PictoCategory+CDStack.m in Sources */,
 			);

@@ -110,6 +110,18 @@ static id sharedInstance = nil;
 }
 
 #pragma mark - Activity
+- (NSFetchedResultsController *)fetchedResultsControllerForActivity {
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Activity" inManagedObjectContext:[self managedObjectContext]];
+    [fetchRequest setEntity:entity];
+    [fetchRequest setFetchBatchSize:30];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES];
+    [fetchRequest setSortDescriptors:@[sortDescriptor]];
+    NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Activity"];
+    return fetchedResultsController;
+}
+
+
 #pragma mark - Pictogram
 
 - (Pictogram *)pictogramWithTitle:(NSString *)title withImage:(UIImage *)image {
