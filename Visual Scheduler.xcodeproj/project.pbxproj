@@ -31,7 +31,6 @@
 		D82838B318D5B9DF009C03A8 /* UIApplication+BBA.m in Sources */ = {isa = PBXBuildFile; fileRef = D82838B218D5B9DF009C03A8 /* UIApplication+BBA.m */; };
 		D82838B518D5BA39009C03A8 /* UIApplicationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D82838B418D5BA39009C03A8 /* UIApplicationTests.m */; };
 		D82D5FD418C616A6000A8FD3 /* UIView+BBASubviews.m in Sources */ = {isa = PBXBuildFile; fileRef = D82D5FD318C616A6000A8FD3 /* UIView+BBASubviews.m */; };
-		D82E748618B7E49C0031BF2B /* milk.png in Resources */ = {isa = PBXBuildFile; fileRef = D82E748518B7E49C0031BF2B /* milk.png */; };
 		D8315AF418D39DEA00C4A340 /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = D8315AF218D39DEA00C4A340 /* Camera.m */; };
 		D8315B0018D39E0600C4A340 /* CameraTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8315AF818D39E0600C4A340 /* CameraTests.m */; };
 		D8315B0218D39E0600C4A340 /* MockCameraDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8315AFC18D39E0600C4A340 /* MockCameraDelegate.m */; };
@@ -45,8 +44,6 @@
 		D83A62DC18B696DC00EC0773 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BB18B696DC00EC0773 /* Foundation.framework */; };
 		D83A62DD18B696DC00EC0773 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BF18B696DC00EC0773 /* UIKit.framework */; };
 		D83A62E518B696DC00EC0773 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D83A62E318B696DC00EC0773 /* InfoPlist.strings */; };
-		D83A62FA18B69D8600EC0773 /* beer.png in Resources */ = {isa = PBXBuildFile; fileRef = D83A62F918B69D8600EC0773 /* beer.png */; };
-		D83A62FD18B6D6E900EC0773 /* Bee.png in Resources */ = {isa = PBXBuildFile; fileRef = D83A62FC18B6D6E900EC0773 /* Bee.png */; };
 		D850E82618C86F420051CD51 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D850E82518C86F420051CD51 /* MobileCoreServices.framework */; };
 		D850E82818C8746A0051CD51 /* BBAShowScheduleViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D850E82718C8746A0051CD51 /* BBAShowScheduleViewControllerTests.m */; };
 		D850E82B18C87C3D0051CD51 /* MockManagedObjectContext.m in Sources */ = {isa = PBXBuildFile; fileRef = D850E82A18C87C3D0051CD51 /* MockManagedObjectContext.m */; };
@@ -101,7 +98,6 @@
 		D82838B418D5BA39009C03A8 /* UIApplicationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIApplicationTests.m; path = "Visual SchedulerTests/UIApplicationTests.m"; sourceTree = "<group>"; };
 		D82D5FD218C616A6000A8FD3 /* UIView+BBASubviews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+BBASubviews.h"; path = "Visual Scheduler/Category/UIView+BBASubviews.h"; sourceTree = "<group>"; };
 		D82D5FD318C616A6000A8FD3 /* UIView+BBASubviews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+BBASubviews.m"; path = "Visual Scheduler/Category/UIView+BBASubviews.m"; sourceTree = "<group>"; };
-		D82E748518B7E49C0031BF2B /* milk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = milk.png; sourceTree = "<group>"; };
 		D8315AF118D39DEA00C4A340 /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
 		D8315AF218D39DEA00C4A340 /* Camera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Camera.m; sourceTree = "<group>"; };
 		D8315AF318D39DEA00C4A340 /* CameraDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraDelegate.h; sourceTree = "<group>"; };
@@ -126,9 +122,7 @@
 		D83A62E418B696DC00EC0773 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D83A62F418B69BEC00EC0773 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchViewController.h; path = Controllers/SearchViewController.h; sourceTree = "<group>"; };
 		D83A62F518B69BEC00EC0773 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewController.m; path = Controllers/SearchViewController.m; sourceTree = "<group>"; };
-		D83A62F918B69D8600EC0773 /* beer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beer.png; sourceTree = "<group>"; };
 		D83A62FB18B6B69E00EC0773 /* ContainsImageAsData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ContainsImageAsData.h; path = Protocols/ContainsImageAsData.h; sourceTree = "<group>"; };
-		D83A62FC18B6D6E900EC0773 /* Bee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bee.png; sourceTree = "<group>"; };
 		D850E82518C86F420051CD51 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		D850E82718C8746A0051CD51 /* BBAShowScheduleViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBAShowScheduleViewControllerTests.m; path = "Visual SchedulerTests/BBAShowScheduleViewControllerTests.m"; sourceTree = SOURCE_ROOT; };
 		D850E82918C87C3D0051CD51 /* MockManagedObjectContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MockManagedObjectContext.h; path = "Visual SchedulerTests/MockManagedObjectContext.h"; sourceTree = SOURCE_ROOT; };
@@ -166,7 +160,7 @@
 		D8EA060218D3635A00F5D01F /* Pictogram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Pictogram.m; path = "Core Data/Pictogram.m"; sourceTree = "<group>"; };
 		D8EA060418D3635A00F5D01F /* Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Activity.h; path = "Core Data/Activity.h"; sourceTree = "<group>"; };
 		D8EA060518D3635A00F5D01F /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Activity.m; path = "Core Data/Activity.m"; sourceTree = "<group>"; };
-		D8EA060718D3635A00F5D01F /* PictoCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PictoCategory.h; path = "Visual Scheduler/Core Data/PictoCategory.h"; sourceTree = "<group>"; };
+		D8EA060718D3635A00F5D01F /* PictoCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PictoCategory.h; path = "Core Data/PictoCategory.h"; sourceTree = "<group>"; };
 		D8EA060818D3635A00F5D01F /* PictoCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PictoCategory.m; path = "Core Data/PictoCategory.m"; sourceTree = "<group>"; };
 		D8EC7D5118CA61E500B6A673 /* MockTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MockTableView.h; path = "Visual SchedulerTests/MockTableView.h"; sourceTree = SOURCE_ROOT; };
 		D8EC7D5218CA61E500B6A673 /* MockTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MockTableView.m; path = "Visual SchedulerTests/MockTableView.m"; sourceTree = SOURCE_ROOT; };
@@ -288,7 +282,6 @@
 			isa = PBXGroup;
 			children = (
 				D85E8CD418CA584200BB5F10 /* CoreData.xcdatamodeld */,
-				D8EA060718D3635A00F5D01F /* PictoCategory.h */,
 				D83A62C118B696DC00EC0773 /* Visual Scheduler */,
 				D83A62E018B696DC00EC0773 /* Visual SchedulerTests */,
 				D83A62BA18B696DC00EC0773 /* Frameworks */,
@@ -324,15 +317,14 @@
 		D83A62C118B696DC00EC0773 /* Visual Scheduler */ = {
 			isa = PBXGroup;
 			children = (
+				D83A62F718B69BEF00EC0773 /* Controllers */,
+				D83A62CA18B696DC00EC0773 /* AppDelegate.h */,
+				D83A62CB18B696DC00EC0773 /* AppDelegate.m */,
+				D83A62CD18B696DC00EC0773 /* Main.storyboard */,
 				D82838B018D5B85A009C03A8 /* Categories */,
 				D8315AF518D39DF000C4A340 /* Camera */,
 				D8EA05F818D355E900F5D01F /* Core Data */,
 				D8B49E6018B8077600788073 /* Protocols */,
-				D83A62F818B69D5100EC0773 /* Pictograms */,
-				D83A62CA18B696DC00EC0773 /* AppDelegate.h */,
-				D83A62CB18B696DC00EC0773 /* AppDelegate.m */,
-				D83A62CD18B696DC00EC0773 /* Main.storyboard */,
-				D83A62F718B69BEF00EC0773 /* Controllers */,
 				D83A62D318B696DC00EC0773 /* Images.xcassets */,
 				D83A62C218B696DC00EC0773 /* Supporting Files */,
 			);
@@ -391,17 +383,6 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
-		D83A62F818B69D5100EC0773 /* Pictograms */ = {
-			isa = PBXGroup;
-			children = (
-				D82E748518B7E49C0031BF2B /* milk.png */,
-				D83A62FC18B6D6E900EC0773 /* Bee.png */,
-				D83A62F918B69D8600EC0773 /* beer.png */,
-			);
-			name = Pictograms;
-			path = "Visual Scheduler/Pictograms";
-			sourceTree = SOURCE_ROOT;
-		};
 		D85EA1AA18C4B3DE00ACDBD6 /* Schedule Overview */ = {
 			isa = PBXGroup;
 			children = (
@@ -423,6 +404,7 @@
 				D8EA060218D3635A00F5D01F /* Pictogram.m */,
 				D8EA05FE18D3635900F5D01F /* Schedule.h */,
 				D8EA05FF18D3635900F5D01F /* Schedule.m */,
+				D8EA060718D3635A00F5D01F /* PictoCategory.h */,
 				D8EA060818D3635A00F5D01F /* PictoCategory.m */,
 			);
 			name = Models;
@@ -688,10 +670,7 @@
 			files = (
 				D850E82C18C885230051CD51 /* Main.storyboard in Resources */,
 				D83A62D418B696DC00EC0773 /* Images.xcassets in Resources */,
-				D83A62FA18B69D8600EC0773 /* beer.png in Resources */,
 				D83A62C618B696DC00EC0773 /* InfoPlist.strings in Resources */,
-				D82E748618B7E49C0031BF2B /* milk.png in Resources */,
-				D83A62FD18B6D6E900EC0773 /* Bee.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
