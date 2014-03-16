@@ -7,10 +7,4 @@
     return [[self documentDirectory] stringByAppendingPathComponent:filename];
 }
 
-+(NSString*)documentDirectory{
-    NSArray* directories = [[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
-    NSURL* documentsDir = [directories lastObject];
-    return [documentsDir path];
-}
-
 @end

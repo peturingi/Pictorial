@@ -36,6 +36,8 @@
 		D81AAA1F18B94F0A00E3B50C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D81AAA1E18B94F0A00E3B50C /* AVFoundation.framework */; };
 		D81AAA2018B9949D00E3B50C /* AudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = D81AAA1A18B9478600E3B50C /* AudioRecorder.m */; };
 		D82838AF18D5B850009C03A8 /* UIImage+BBA.m in Sources */ = {isa = PBXBuildFile; fileRef = D82838AE18D5B850009C03A8 /* UIImage+BBA.m */; };
+		D82838B318D5B9DF009C03A8 /* UIApplication+BBA.m in Sources */ = {isa = PBXBuildFile; fileRef = D82838B218D5B9DF009C03A8 /* UIApplication+BBA.m */; };
+		D82838B518D5BA39009C03A8 /* UIApplicationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D82838B418D5BA39009C03A8 /* UIApplicationTests.m */; };
 		D82D5FD418C616A6000A8FD3 /* UIView+BBASubviews.m in Sources */ = {isa = PBXBuildFile; fileRef = D82D5FD318C616A6000A8FD3 /* UIView+BBASubviews.m */; };
 		D82E748618B7E49C0031BF2B /* milk.png in Resources */ = {isa = PBXBuildFile; fileRef = D82E748518B7E49C0031BF2B /* milk.png */; };
 		D8315AF418D39DEA00C4A340 /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = D8315AF218D39DEA00C4A340 /* Camera.m */; };
@@ -118,6 +120,9 @@
 		D81AAA1E18B94F0A00E3B50C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D82838AD18D5B850009C03A8 /* UIImage+BBA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+BBA.h"; path = "Visual Scheduler/Category/UIImage+BBA.h"; sourceTree = "<group>"; };
 		D82838AE18D5B850009C03A8 /* UIImage+BBA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+BBA.m"; path = "Visual Scheduler/Category/UIImage+BBA.m"; sourceTree = "<group>"; };
+		D82838B118D5B9DF009C03A8 /* UIApplication+BBA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIApplication+BBA.h"; path = "Visual Scheduler/Category/UIApplication+BBA.h"; sourceTree = "<group>"; };
+		D82838B218D5B9DF009C03A8 /* UIApplication+BBA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIApplication+BBA.m"; path = "Visual Scheduler/Category/UIApplication+BBA.m"; sourceTree = "<group>"; };
+		D82838B418D5BA39009C03A8 /* UIApplicationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIApplicationTests.m; path = "Visual SchedulerTests/UIApplicationTests.m"; sourceTree = "<group>"; };
 		D82D5FD218C616A6000A8FD3 /* UIView+BBASubviews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+BBASubviews.h"; path = "Visual Scheduler/Category/UIView+BBASubviews.h"; sourceTree = "<group>"; };
 		D82D5FD318C616A6000A8FD3 /* UIView+BBASubviews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+BBASubviews.m"; path = "Visual Scheduler/Category/UIView+BBASubviews.m"; sourceTree = "<group>"; };
 		D82E748518B7E49C0031BF2B /* milk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = milk.png; sourceTree = "<group>"; };
@@ -319,6 +324,9 @@
 			children = (
 				D82838AD18D5B850009C03A8 /* UIImage+BBA.h */,
 				D82838AE18D5B850009C03A8 /* UIImage+BBA.m */,
+				D82838B118D5B9DF009C03A8 /* UIApplication+BBA.h */,
+				D82838B218D5B9DF009C03A8 /* UIApplication+BBA.m */,
+				D82838B418D5BA39009C03A8 /* UIApplicationTests.m */,
 			);
 			name = Categories;
 			path = ..;
@@ -809,6 +817,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8EA060918D3635A00F5D01F /* PictoCategory.m in Sources */,
+				D82838B318D5B9DF009C03A8 /* UIApplication+BBA.m in Sources */,
 				D81AAA2018B9949D00E3B50C /* AudioRecorder.m in Sources */,
 				D8EA060618D3635A00F5D01F /* Activity.m in Sources */,
 				D8EA060018D3635A00F5D01F /* Schedule.m in Sources */,
@@ -842,6 +851,7 @@
 				D850E82F18C88E7E0051CD51 /* MockViewController.m in Sources */,
 				D8EA060D18D37B2000F5D01F /* Pictogram.m in Sources */,
 				D887832E18C8E33300F13B28 /* BBAScheduleOverviewViewControllerTests.m in Sources */,
+				D82838B518D5BA39009C03A8 /* UIApplicationTests.m in Sources */,
 				D8EA05A718D3541400F5D01F /* BBACoreDataStackTests.m in Sources */,
 				D850E82818C8746A0051CD51 /* BBAShowScheduleViewControllerTests.m in Sources */,
 				D813A9D018D38B0E00D3515A /* ScheduleTableDataSourceTests.m in Sources */,
