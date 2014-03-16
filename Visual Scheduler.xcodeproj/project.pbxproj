@@ -26,15 +26,7 @@
 		D81AA9EA18B943C400E3B50C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BB18B696DC00EC0773 /* Foundation.framework */; };
 		D81AA9EB18B943C400E3B50C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BD18B696DC00EC0773 /* CoreGraphics.framework */; };
 		D81AA9EC18B943C400E3B50C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BF18B696DC00EC0773 /* UIKit.framework */; };
-		D81AA9F218B943C400E3B50C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D81AA9F018B943C400E3B50C /* InfoPlist.strings */; };
-		D81AA9F418B943C400E3B50C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D81AA9F318B943C400E3B50C /* main.m */; };
-		D81AA9F818B943C400E3B50C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D81AA9F718B943C400E3B50C /* AppDelegate.m */; };
-		D81AA9FB18B943C400E3B50C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D81AA9F918B943C400E3B50C /* Main.storyboard */; };
-		D81AA9FE18B943C400E3B50C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D81AA9FD18B943C400E3B50C /* ViewController.m */; };
-		D81AAA0018B943C400E3B50C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D81AA9FF18B943C400E3B50C /* Images.xcassets */; };
-		D81AAA1B18B9478600E3B50C /* AudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = D81AAA1A18B9478600E3B50C /* AudioRecorder.m */; };
 		D81AAA1F18B94F0A00E3B50C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D81AAA1E18B94F0A00E3B50C /* AVFoundation.framework */; };
-		D81AAA2018B9949D00E3B50C /* AudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = D81AAA1A18B9478600E3B50C /* AudioRecorder.m */; };
 		D82838AF18D5B850009C03A8 /* UIImage+BBA.m in Sources */ = {isa = PBXBuildFile; fileRef = D82838AE18D5B850009C03A8 /* UIImage+BBA.m */; };
 		D82838B318D5B9DF009C03A8 /* UIApplication+BBA.m in Sources */ = {isa = PBXBuildFile; fileRef = D82838B218D5B9DF009C03A8 /* UIApplication+BBA.m */; };
 		D82838B518D5BA39009C03A8 /* UIApplicationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D82838B418D5BA39009C03A8 /* UIApplicationTests.m */; };
@@ -101,22 +93,6 @@
 /* Begin PBXFileReference section */
 		D813A9D918D3995700D3515A /* Visual Scheduler-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Visual Scheduler-Prefix.pch"; sourceTree = "<group>"; };
 		D81AA9E918B943C400E3B50C /* AudioRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioRecorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D81AA9EF18B943C400E3B50C /* AudioRecorder-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AudioRecorder-Info.plist"; sourceTree = "<group>"; };
-		D81AA9F118B943C400E3B50C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		D81AA9F318B943C400E3B50C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		D81AA9F518B943C400E3B50C /* AudioRecorder-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AudioRecorder-Prefix.pch"; sourceTree = "<group>"; };
-		D81AA9F618B943C400E3B50C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		D81AA9F718B943C400E3B50C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		D81AA9FA18B943C400E3B50C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D81AA9FC18B943C400E3B50C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		D81AA9FD18B943C400E3B50C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		D81AA9FF18B943C400E3B50C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		D81AAA0D18B943C500E3B50C /* AudioRecorderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AudioRecorderTests-Info.plist"; sourceTree = "<group>"; };
-		D81AAA0F18B943C500E3B50C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		D81AAA1118B943C500E3B50C /* AudioRecorderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioRecorderTests.m; sourceTree = "<group>"; };
-		D81AAA1918B9478600E3B50C /* AudioRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioRecorder.h; path = AudioRecorder/AudioRecorder.h; sourceTree = "<group>"; };
-		D81AAA1A18B9478600E3B50C /* AudioRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioRecorder.m; path = AudioRecorder/AudioRecorder.m; sourceTree = "<group>"; };
-		D81AAA1C18B9479B00E3B50C /* AudioRecorderDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AudioRecorderDelegate.h; path = AudioRecorder/AudioRecorderDelegate.h; sourceTree = "<group>"; };
 		D81AAA1E18B94F0A00E3B50C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D82838AD18D5B850009C03A8 /* UIImage+BBA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+BBA.h"; path = "Visual Scheduler/Category/UIImage+BBA.h"; sourceTree = "<group>"; };
 		D82838AE18D5B850009C03A8 /* UIImage+BBA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+BBA.m"; path = "Visual Scheduler/Category/UIImage+BBA.m"; sourceTree = "<group>"; };
@@ -265,60 +241,6 @@
 			name = Tests;
 			sourceTree = "<group>";
 		};
-		D81AA9ED18B943C400E3B50C /* AudioRecorder */ = {
-			isa = PBXGroup;
-			children = (
-				D81AAA1D18B947A400E3B50C /* AudioRecorder */,
-				D81AA9F618B943C400E3B50C /* AppDelegate.h */,
-				D81AA9F718B943C400E3B50C /* AppDelegate.m */,
-				D81AA9F918B943C400E3B50C /* Main.storyboard */,
-				D81AA9FC18B943C400E3B50C /* ViewController.h */,
-				D81AA9FD18B943C400E3B50C /* ViewController.m */,
-				D81AA9FF18B943C400E3B50C /* Images.xcassets */,
-				D81AA9EE18B943C400E3B50C /* Supporting Files */,
-			);
-			path = AudioRecorder;
-			sourceTree = "<group>";
-		};
-		D81AA9EE18B943C400E3B50C /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				D81AA9EF18B943C400E3B50C /* AudioRecorder-Info.plist */,
-				D81AA9F018B943C400E3B50C /* InfoPlist.strings */,
-				D81AA9F318B943C400E3B50C /* main.m */,
-				D81AA9F518B943C400E3B50C /* AudioRecorder-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		D81AAA0B18B943C500E3B50C /* AudioRecorderTests */ = {
-			isa = PBXGroup;
-			children = (
-				D81AAA1118B943C500E3B50C /* AudioRecorderTests.m */,
-				D81AAA0C18B943C500E3B50C /* Supporting Files */,
-			);
-			path = AudioRecorderTests;
-			sourceTree = "<group>";
-		};
-		D81AAA0C18B943C500E3B50C /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				D81AAA0D18B943C500E3B50C /* AudioRecorderTests-Info.plist */,
-				D81AAA0E18B943C500E3B50C /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		D81AAA1D18B947A400E3B50C /* AudioRecorder */ = {
-			isa = PBXGroup;
-			children = (
-				D81AAA1918B9478600E3B50C /* AudioRecorder.h */,
-				D81AAA1A18B9478600E3B50C /* AudioRecorder.m */,
-				D81AAA1C18B9479B00E3B50C /* AudioRecorderDelegate.h */,
-			);
-			name = AudioRecorder;
-			sourceTree = "<group>";
-		};
 		D82838B018D5B85A009C03A8 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -369,8 +291,6 @@
 				D8EA060718D3635A00F5D01F /* PictoCategory.h */,
 				D83A62C118B696DC00EC0773 /* Visual Scheduler */,
 				D83A62E018B696DC00EC0773 /* Visual SchedulerTests */,
-				D81AA9ED18B943C400E3B50C /* AudioRecorder */,
-				D81AAA0B18B943C500E3B50C /* AudioRecorderTests */,
 				D83A62BA18B696DC00EC0773 /* Frameworks */,
 				D83A62B918B696DC00EC0773 /* Products */,
 			);
@@ -759,9 +679,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D81AAA0018B943C400E3B50C /* Images.xcassets in Resources */,
-				D81AA9F218B943C400E3B50C /* InfoPlist.strings in Resources */,
-				D81AA9FB18B943C400E3B50C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -813,10 +730,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D81AA9FE18B943C400E3B50C /* ViewController.m in Sources */,
-				D81AA9F818B943C400E3B50C /* AppDelegate.m in Sources */,
-				D81AAA1B18B9478600E3B50C /* AudioRecorder.m in Sources */,
-				D81AA9F418B943C400E3B50C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -826,7 +739,6 @@
 			files = (
 				D8EA060918D3635A00F5D01F /* PictoCategory.m in Sources */,
 				D82838B318D5B9DF009C03A8 /* UIApplication+BBA.m in Sources */,
-				D81AAA2018B9949D00E3B50C /* AudioRecorder.m in Sources */,
 				D8EA060618D3635A00F5D01F /* Activity.m in Sources */,
 				D8EA060018D3635A00F5D01F /* Schedule.m in Sources */,
 				D85E8CD618CA584200BB5F10 /* CoreData.xcdatamodeld in Sources */,
@@ -882,30 +794,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D81AA9F018B943C400E3B50C /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D81AA9F118B943C400E3B50C /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		D81AA9F918B943C400E3B50C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D81AA9FA18B943C400E3B50C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		D81AAA0E18B943C500E3B50C /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D81AAA0F18B943C500E3B50C /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		D83A62C418B696DC00EC0773 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
