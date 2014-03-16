@@ -17,6 +17,9 @@
 #pragma mark - Activity
 - (NSFetchedResultsController *)fetchedResultsControllerForActivity;
 
+#pragma mark - Category
+- (NSFetchedResultsController *)fetchedResultsControllerForCategory;
+
 #pragma mark - Pictogram
 - (NSFetchedResultsController *)fetchedResultsControllerForPictogram;
 - (Pictogram *)pictogramWithTitle:(NSString *)title withImage:(UIImage *)image;

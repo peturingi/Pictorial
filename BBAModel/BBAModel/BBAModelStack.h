@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "PictoCategory+CDStack.h"
+
 
 @interface BBAModelStack : NSObject
 
