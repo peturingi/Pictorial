@@ -1,5 +1,5 @@
 #import <UIKit/UIKit.h>
-@class Schedule;
+#import "Schedule.h"
 
 @interface BBAShowScheduleViewController : UITableViewController
 

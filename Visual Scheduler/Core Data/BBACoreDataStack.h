@@ -14,7 +14,11 @@
 - (NSURL *)applicationDocumentsDirectory;
 - (NSManagedObjectContext *)sharedManagedObjectContext;
 
-#pragma mark - Models
+#pragma mark - Pictogram
+- (NSFetchedResultsController *)fetchedResultsControllerForPictogram;
+- (Pictogram *)pictogramWithTitle:(NSString *)title withImage:(UIImage *)image;
+
+#pragma mark - Schedule
 - (NSFetchedResultsController *)fetchedResultsControllerForSchedule;
 - (Schedule *)scheduleWithTitle:(NSString *)title withPictogramAsLogo:(Pictogram *)pictogram withBackgroundColour:(NSInteger)colourIndex;
 @end

@@ -1,7 +1,7 @@
 #import "BBASelectPictogramViewController.h"
 #import "BBANewPictogramViewController.h"
-#import "../../BBAModel/BBAModel/BBAModelStack.h"
 #import "UIView+BBASubviews.h"
+#import "BBACoreDataStack.h"
 
 
 NSString * const kCellReusableIdentifier = @"pictogramSelector";
@@ -21,9 +21,9 @@ NSInteger const kCellTagForLabelView = 2;
 }
 
 - (void)setupCoreData {
-    _fetchedResultsController = [Pictogram fetchedResultsController];
+    _fetchedResultsController = [[BBACoreDataStack sharedInstance] fetchedResultsControllerForPictogram];
     [_fetchedResultsController setDelegate:self];
-    [_fetchedResultsController errorHandledFetch];
+    [_fetchedResultsController performFetch:nil];
 }
 
 #pragma mark - Camera

@@ -9,9 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "Activity+CDStack.h"
 #import "PictoCategory+CDStack.h"
-#import "Pictogram+CDStack.h"
-#import "Schedule+CDStack.h"
-#import "NSFetchedResultsController+SafeFetch.h"
 
 @interface BBAModelStack : NSObject
 

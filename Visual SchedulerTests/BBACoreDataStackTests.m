@@ -44,6 +44,10 @@
                           @"Failed to receive a shared instance. The two objects must not be unique.");
 }
 
+#pragma mark - Pictogram
+
+#pragma mark - Schedule
+
 - (void)testOffersSchedule {
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Schedule" inManagedObjectContext:[self.sharedStack sharedManagedObjectContext]];
     XCTAssertNotNil(entityDescription, @"The managed object context failed to return an entity named Schedule.");
@@ -80,5 +84,7 @@
 - (void)testFetchedResultsControllerForSchedule {
     XCTAssertNotNil([self.sharedStack fetchedResultsControllerForSchedule], @"Could not retrieve fetchedResultsControllerForSchedule.");
 }
+
+#pragma mark -
 
 @end

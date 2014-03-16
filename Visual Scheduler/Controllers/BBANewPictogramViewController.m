@@ -1,6 +1,5 @@
 #import "BBANewPictogramViewController.h"
-//#import "BBAPictogramCreator.h"
-#import "../../BBAModel/BBAModel/BBAModelStack.h"
+#import "BBACoreDataStack.h"
 
 @interface BBANewPictogramViewController ()
 @end
@@ -21,8 +20,7 @@
 
 - (IBAction)doneButton:(id)sender {
     if ([self verifyTitle]) {
-//        [BBAPictogramCreator savePictogramFromUserInputWith:photoTitle.text with:photoView.image];
-        [Pictogram insertWithTitle:photoTitle.text andImage:photoView.image];
+        [[BBACoreDataStack sharedInstance] pictogramWithTitle:photoTitle.text withImage:photoView.image];
         [self dismissViewController];
     } else {
         [self alertUserOfInvalidTitle];
