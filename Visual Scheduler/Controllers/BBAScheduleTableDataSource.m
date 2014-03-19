@@ -19,8 +19,19 @@ NSString * const kBBANotificationNameForNewDataAvailable = @"didUpdateScheduleTa
 
 - (void)setupDataSource {
     self.dataSource = [[BBACoreDataStack sharedInstance] fetchedResultsControllerForSchedule];
+
     [self.dataSource setDelegate:self];
     [self.dataSource performFetch:nil];
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSManagedObject *objectToDelete = [self.dataSource objectAtIndexPath:indexPath];
+    [[self.dataSource managedObjectContext] deleteObject:objectToDelete];
+    [[self.dataSource managedObjectContext] save:nil];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

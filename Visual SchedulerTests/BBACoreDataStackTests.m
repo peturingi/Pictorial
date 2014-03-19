@@ -48,18 +48,6 @@
                           @"Failed to receive a shared instance. The two objects must not be unique.");
 }
 
-#pragma mark - Activity
-
-- (void)testFetchedResultsControllerForActivity {
-    XCTAssertNotNil([self.sharedStack fetchedResultsControllerForActivity], @"Could not retrieve fetchedResultsControllerForActivity.");
-}
-
-#pragma mark - Category
-
-- (void)testFetchedResultsControllerForCategory {
-    XCTAssertNotNil([self.sharedStack fetchedResultsControllerForCategory], @"Could not retrieve fetchedResultsControllerForActivity.");
-}
-
 #pragma mark - Pictogram
 
 - (void)testFetchedResultsControllerForPictogram {

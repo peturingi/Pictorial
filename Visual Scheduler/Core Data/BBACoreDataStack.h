@@ -6,6 +6,16 @@
 
 @interface BBACoreDataStack : NSObject
 
+
+/**
+ 
+ [BBACoreData rollbackContext];
+ [BBACoreData saveContext];
+ [BBACoreData createObjectInContextOfClass: … ]
+ [BBACoreData deleteObjectFromContext: … ];
+ [BBACoreData fetchedResultsControllerForClass: … ]
+ */
+
 @property (strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 - (NSManagedObjectModel *)managedObjectModel;
 
