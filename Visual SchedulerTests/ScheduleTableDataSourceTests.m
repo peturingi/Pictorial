@@ -97,7 +97,7 @@
 }
 
 - (void)testDataSourceContainsOneObject {
-    [[BBACoreDataStack sharedInstance] scheduleWithTitle:@"Test Domain" withPictogramAsLogo:nil withBackgroundColour:0];
+    [[BBACoreDataStack sharedInstance] scheduleWithTitle:@"Test Domain" withBackgroundColour:0];
     XCTAssertTrue(self.tableDataSource.dataSource.fetchedObjects.count == 1,
                   @"The dataSource should only contain a single item at this point.");
 }
@@ -106,7 +106,7 @@
     XCTAssertTrue(self.tableDataSource.dataSource.fetchedObjects.count == 0,
                   @"The datasource must be empty before the test begins.");
     for (int i = 0; i < 100; i++) {
-        [[BBACoreDataStack sharedInstance] scheduleWithTitle:@"Test Domain" withPictogramAsLogo:nil withBackgroundColour:0];
+        [[BBACoreDataStack sharedInstance] scheduleWithTitle:@"Test Domain" withBackgroundColour:0];
     }
     XCTAssertTrue(self.tableDataSource.dataSource.fetchedObjects.count == 100,
                   @"The dataSource should contain 100 items at this point.");
@@ -123,7 +123,7 @@
 }
 
 - (void)testInformsDelegateOfRowSelection {
-    [[BBACoreDataStack sharedInstance] scheduleWithTitle:@"Test Domain" withPictogramAsLogo:nil withBackgroundColour:0];
+    [[BBACoreDataStack sharedInstance] scheduleWithTitle:@"Test Domain" withBackgroundColour:0];
     [self.tableDataSource tableView:nil didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     XCTAssertEqual([receivedNotification name], kBBANotificationNameForDidSelectItem,
                   @"The controller must report back to its delegate when user selects a row.");

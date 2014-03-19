@@ -19,7 +19,7 @@ static id sharedInstance = nil;
     self = [super init];
     return self;
 }
-        
+
 - (void)BBA_throwExceptionIfAlreadyInstantiated {
     if (sharedInstance != nil) {
         @throw [NSException exceptionWithName:NSObjectNotAvailableException reason:@"This is a shared object. New instantiations are not allowed." userInfo:nil];
@@ -159,12 +159,11 @@ static id sharedInstance = nil;
 
 #pragma mark - Schedule
 
-- (Schedule *)scheduleWithTitle:(NSString *)title withPictogramAsLogo:(Pictogram *)image withBackgroundColour:(NSInteger)colourIndex {
+- (Schedule *)scheduleWithTitle:(NSString *)title withBackgroundColour:(NSInteger)colourIndex {
     Schedule *schedule = [NSEntityDescription insertNewObjectForEntityForName:@"Schedule" inManagedObjectContext:self.sharedManagedObjectContext];
     [schedule setTitle:title];
     [schedule setDate:[NSDate date]];
     [schedule setColour:[NSNumber numberWithInteger:colourIndex]];
-    [schedule setLogo:image];
     if (![self.sharedManagedObjectContext save:nil]) {
         // TODO: Deal with out of space, and different kind of errors.
         @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"Could not save schedule." userInfo:nil];

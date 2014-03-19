@@ -26,5 +26,5 @@
 
 #pragma mark - Schedule
 - (NSFetchedResultsController *)fetchedResultsControllerForSchedule;
-- (Schedule *)scheduleWithTitle:(NSString *)title withPictogramAsLogo:(Pictogram *)pictogram withBackgroundColour:(NSInteger)colourIndex;
+- (Schedule *)scheduleWithTitle:(NSString *)title withBackgroundColour:(NSInteger)colourIndex;
 @end

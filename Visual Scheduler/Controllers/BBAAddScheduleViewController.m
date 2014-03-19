@@ -29,7 +29,7 @@
 
 - (void)createScheduleFromInput {
     // TODO No date is not inserted.
-    [[BBACoreDataStack sharedInstance] scheduleWithTitle:schedulesTitle.text withPictogramAsLogo:self.pictogramLogo withBackgroundColour:0];
+    [[BBACoreDataStack sharedInstance] scheduleWithTitle:schedulesTitle.text withBackgroundColour:0];
 }
 
 - (BOOL)verifyTitle {

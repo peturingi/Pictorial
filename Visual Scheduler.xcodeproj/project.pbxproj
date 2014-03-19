@@ -21,6 +21,8 @@
 		685146E118C49EE0002CF73F /* (null) in Sources */ = {isa = PBXBuildFile; };
 		685146E218C49EE0002CF73F /* (null) in Sources */ = {isa = PBXBuildFile; };
 		685146E318C49EE0002CF73F /* (null) in Sources */ = {isa = PBXBuildFile; };
+		D8045FAA18D9AF84006A3CB4 /* Pictogram.m in Sources */ = {isa = PBXBuildFile; fileRef = D8045FA918D9AF84006A3CB4 /* Pictogram.m */; };
+		D8045FAD18D9AF84006A3CB4 /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = D8045FAC18D9AF84006A3CB4 /* Schedule.m */; };
 		D813A9D018D38B0E00D3515A /* ScheduleTableDataSourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D889F7EB18C9054E008A497F /* ScheduleTableDataSourceTests.m */; };
 		D813A9D118D38BA100D3515A /* MockScheduleOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EC7D5518CA63C500B6A673 /* MockScheduleOverviewViewController.m */; };
 		D81AA9EA18B943C400E3B50C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BB18B696DC00EC0773 /* Foundation.framework */; };
@@ -62,11 +64,6 @@
 		D8EA05A718D3541400F5D01F /* BBACoreDataStackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EA05A618D3541400F5D01F /* BBACoreDataStackTests.m */; };
 		D8EA05F718D355E000F5D01F /* BBACoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EA05F618D355E000F5D01F /* BBACoreDataStack.m */; };
 		D8EA05F918D3578900F5D01F /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D85E8CD418CA584200BB5F10 /* CoreData.xcdatamodeld */; };
-		D8EA060018D3635A00F5D01F /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EA05FF18D3635900F5D01F /* Schedule.m */; };
-		D8EA060318D3635A00F5D01F /* Pictogram.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EA060218D3635A00F5D01F /* Pictogram.m */; };
-		D8EA060618D3635A00F5D01F /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EA060518D3635A00F5D01F /* Activity.m */; };
-		D8EA060918D3635A00F5D01F /* PictoCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EA060818D3635A00F5D01F /* PictoCategory.m */; };
-		D8EA060D18D37B2000F5D01F /* Pictogram.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EA060218D3635A00F5D01F /* Pictogram.m */; };
 		D8EC7D5318CA61E500B6A673 /* MockTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EC7D5218CA61E500B6A673 /* MockTableView.m */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +85,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D8045FA818D9AF84006A3CB4 /* Pictogram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pictogram.h; sourceTree = "<group>"; };
+		D8045FA918D9AF84006A3CB4 /* Pictogram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pictogram.m; sourceTree = "<group>"; };
+		D8045FAB18D9AF84006A3CB4 /* Schedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Schedule.h; sourceTree = "<group>"; };
+		D8045FAC18D9AF84006A3CB4 /* Schedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Schedule.m; sourceTree = "<group>"; };
 		D813A9D918D3995700D3515A /* Visual Scheduler-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Visual Scheduler-Prefix.pch"; sourceTree = "<group>"; };
 		D81AA9E918B943C400E3B50C /* AudioRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioRecorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D81AAA1E18B94F0A00E3B50C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -154,14 +155,6 @@
 		D8EA05A618D3541400F5D01F /* BBACoreDataStackTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBACoreDataStackTests.m; sourceTree = "<group>"; };
 		D8EA05F518D355E000F5D01F /* BBACoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBACoreDataStack.h; path = "Core Data/BBACoreDataStack.h"; sourceTree = "<group>"; };
 		D8EA05F618D355E000F5D01F /* BBACoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBACoreDataStack.m; path = "Core Data/BBACoreDataStack.m"; sourceTree = "<group>"; };
-		D8EA05FE18D3635900F5D01F /* Schedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Schedule.h; path = "Core Data/Schedule.h"; sourceTree = "<group>"; };
-		D8EA05FF18D3635900F5D01F /* Schedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Schedule.m; path = "Core Data/Schedule.m"; sourceTree = "<group>"; };
-		D8EA060118D3635A00F5D01F /* Pictogram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Pictogram.h; path = "Core Data/Pictogram.h"; sourceTree = "<group>"; };
-		D8EA060218D3635A00F5D01F /* Pictogram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Pictogram.m; path = "Core Data/Pictogram.m"; sourceTree = "<group>"; };
-		D8EA060418D3635A00F5D01F /* Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Activity.h; path = "Core Data/Activity.h"; sourceTree = "<group>"; };
-		D8EA060518D3635A00F5D01F /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Activity.m; path = "Core Data/Activity.m"; sourceTree = "<group>"; };
-		D8EA060718D3635A00F5D01F /* PictoCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PictoCategory.h; path = "Core Data/PictoCategory.h"; sourceTree = "<group>"; };
-		D8EA060818D3635A00F5D01F /* PictoCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PictoCategory.m; path = "Core Data/PictoCategory.m"; sourceTree = "<group>"; };
 		D8EC7D5118CA61E500B6A673 /* MockTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MockTableView.h; path = "Visual SchedulerTests/MockTableView.h"; sourceTree = SOURCE_ROOT; };
 		D8EC7D5218CA61E500B6A673 /* MockTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MockTableView.m; path = "Visual SchedulerTests/MockTableView.m"; sourceTree = SOURCE_ROOT; };
 		D8EC7D5418CA63C500B6A673 /* MockScheduleOverviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MockScheduleOverviewViewController.h; path = "Visual SchedulerTests/MockScheduleOverviewViewController.h"; sourceTree = SOURCE_ROOT; };
@@ -414,14 +407,10 @@
 		D864F1A018D3A02B00711986 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D8EA060418D3635A00F5D01F /* Activity.h */,
-				D8EA060518D3635A00F5D01F /* Activity.m */,
-				D8EA060118D3635A00F5D01F /* Pictogram.h */,
-				D8EA060218D3635A00F5D01F /* Pictogram.m */,
-				D8EA05FE18D3635900F5D01F /* Schedule.h */,
-				D8EA05FF18D3635900F5D01F /* Schedule.m */,
-				D8EA060718D3635A00F5D01F /* PictoCategory.h */,
-				D8EA060818D3635A00F5D01F /* PictoCategory.m */,
+				D8045FAB18D9AF84006A3CB4 /* Schedule.h */,
+				D8045FAC18D9AF84006A3CB4 /* Schedule.m */,
+				D8045FA818D9AF84006A3CB4 /* Pictogram.h */,
+				D8045FA918D9AF84006A3CB4 /* Pictogram.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -732,11 +721,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8EA060918D3635A00F5D01F /* PictoCategory.m in Sources */,
 				D82838B318D5B9DF009C03A8 /* UIApplication+BBA.m in Sources */,
-				D8EA060618D3635A00F5D01F /* Activity.m in Sources */,
-				D8EA060018D3635A00F5D01F /* Schedule.m in Sources */,
 				D85E8CD618CA584200BB5F10 /* CoreData.xcdatamodeld in Sources */,
+				D8045FAD18D9AF84006A3CB4 /* Schedule.m in Sources */,
 				D82D5FD418C616A6000A8FD3 /* UIView+BBASubviews.m in Sources */,
 				D8805F3F18C5DD01001BD35B /* BBANewPictogramViewController.m in Sources */,
 				D8DB7FF518C4DA2300BA2037 /* BBAAddScheduleViewController.m in Sources */,
@@ -745,8 +732,8 @@
 				D83A62C818B696DC00EC0773 /* main.m in Sources */,
 				D889F7EE18C9249A008A497F /* AppDelegate.m in Sources */,
 				D889F7EA18C90506008A497F /* BBAScheduleTableDataSource.m in Sources */,
-				D8EA060318D3635A00F5D01F /* Pictogram.m in Sources */,
 				D8DB7FFF18C50F4700BA2037 /* BBAShowScheduleViewController.m in Sources */,
+				D8045FAA18D9AF84006A3CB4 /* Pictogram.m in Sources */,
 				D8315AF418D39DEA00C4A340 /* Camera.m in Sources */,
 				D85EA1A918C4B12300ACDBD6 /* BBAScheduleOverviewViewController.m in Sources */,
 				D8EA05F718D355E000F5D01F /* BBACoreDataStack.m in Sources */,
@@ -764,7 +751,6 @@
 				D813A9D118D38BA100D3515A /* MockScheduleOverviewViewController.m in Sources */,
 				D850E82B18C87C3D0051CD51 /* MockManagedObjectContext.m in Sources */,
 				D850E82F18C88E7E0051CD51 /* MockViewController.m in Sources */,
-				D8EA060D18D37B2000F5D01F /* Pictogram.m in Sources */,
 				D887832E18C8E33300F13B28 /* BBAScheduleOverviewViewControllerTests.m in Sources */,
 				D82838B518D5BA39009C03A8 /* UIApplicationTests.m in Sources */,
 				D8EA05A718D3541400F5D01F /* BBACoreDataStackTests.m in Sources */,

@@ -1,36 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5063" systemVersion="13C64" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Activity" representedClassName="Activity" syncable="YES">
-        <attribute name="cancelled" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
-        <attribute name="done" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
-        <attribute name="title" attributeType="String" minValueString="1" maxValueString="50" syncable="YES"/>
-        <attribute name="type" attributeType="Integer 16" minValueString="0" maxValueString="2" defaultValueString="0" syncable="YES"/>
-        <relationship name="contains" toMany="YES" minCount="1" deletionRule="Nullify" ordered="YES" destinationEntity="Pictogram" inverseName="usedIn" inverseEntity="Pictogram" syncable="YES"/>
-        <relationship name="partOf" maxCount="1" deletionRule="Deny" destinationEntity="Schedule" inverseName="activity" inverseEntity="Schedule" syncable="YES"/>
-    </entity>
-    <entity name="Category" representedClassName="PictoCategory" syncable="YES">
-        <attribute name="title" attributeType="String" minValueString="1" maxValueString="50" indexed="YES" syncable="YES"/>
-        <relationship name="contains" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Pictogram" inverseName="memberOf" inverseEntity="Pictogram" syncable="YES"/>
-    </entity>
     <entity name="Pictogram" representedClassName="Pictogram" syncable="YES">
-        <attribute name="favorited" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="imageURL" attributeType="String" minValueString="1" indexed="YES" syncable="YES"/>
-        <attribute name="title" attributeType="String" minValueString="1" maxValueString="30" syncable="YES"/>
-        <relationship name="memberOf" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Category" inverseName="contains" inverseEntity="Category" syncable="YES"/>
-        <relationship name="usedAsLogo" optional="YES" maxCount="1" deletionRule="Deny" destinationEntity="Schedule" inverseName="logo" inverseEntity="Schedule" syncable="YES"/>
-        <relationship name="usedIn" optional="YES" maxCount="1" deletionRule="Deny" destinationEntity="Activity" inverseName="contains" inverseEntity="Activity" syncable="YES"/>
+        <attribute name="title" attributeType="String" minValueString="1" syncable="YES"/>
+        <relationship name="usedBy" optional="YES" maxCount="1" deletionRule="Deny" destinationEntity="Schedule" inverseName="pictograms" inverseEntity="Schedule" syncable="YES"/>
     </entity>
     <entity name="Schedule" representedClassName="Schedule" syncable="YES">
-        <attribute name="colour" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
+        <attribute name="colour" attributeType="Integer 16" minValueString="0" maxValueString="7" defaultValueString="0" syncable="YES"/>
         <attribute name="date" attributeType="Date" syncable="YES"/>
-        <attribute name="title" attributeType="String" minValueString="1" maxValueString="50" syncable="YES"/>
-        <relationship name="activity" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Activity" inverseName="partOf" inverseEntity="Activity" syncable="YES"/>
-        <relationship name="logo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pictogram" inverseName="usedAsLogo" inverseEntity="Pictogram" syncable="YES"/>
+        <attribute name="title" attributeType="String" minValueString="1" syncable="YES"/>
+        <relationship name="pictograms" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Pictogram" inverseName="usedBy" inverseEntity="Pictogram" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Activity" positionX="0" positionY="0" width="128" height="133"/>
-        <element name="Category" positionX="0" positionY="0" width="128" height="73"/>
-        <element name="Pictogram" positionX="0" positionY="0" width="128" height="133"/>
-        <element name="Schedule" positionX="0" positionY="0" width="128" height="118"/>
+        <element name="Pictogram" positionX="0" positionY="0" width="128" height="88"/>
+        <element name="Schedule" positionX="0" positionY="0" width="128" height="103"/>
     </elements>
 </model>
