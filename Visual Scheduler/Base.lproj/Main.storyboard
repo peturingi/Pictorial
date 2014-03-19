@@ -38,12 +38,25 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Schedules" id="bJ1-PE-WSj">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="tTD-CU-iKj">
+                            <attributedString key="userComments">
+                                <fragment content="Disabled on Guided Access.">
+                                    <attributes>
+                                        <font key="NSFont" metaFont="toolTip"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                    </attributes>
+                                </fragment>
+                            </attributedString>
                             <connections>
                                 <action selector="createSchedule:" destination="bnG-DL-C5g" id="eGG-p6-Thf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <keyCommands/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="navigationController.toolbarHidden" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
+                        <outlet property="addScheduleButton" destination="tTD-CU-iKj" id="lzp-XN-Pjw"/>
                         <segue destination="eVk-VY-uL6" kind="push" identifier="addSchedule" id="tWV-gF-v86"/>
                         <segue destination="gcU-7o-ixR" kind="push" identifier="showSchedule" id="Li7-Fv-5Lp"/>
                     </connections>
