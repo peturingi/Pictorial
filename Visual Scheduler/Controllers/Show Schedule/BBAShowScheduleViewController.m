@@ -6,6 +6,10 @@
 
 @implementation BBAShowScheduleViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [self setTitle:self.schedule.title];
+}
+
 - (void)BBA_dismissViewController {
     [[self presentingViewController] dismissViewControllerAnimated:YES completion:nil];
 }
