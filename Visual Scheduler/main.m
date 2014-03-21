@@ -12,7 +12,7 @@ int main(int argc, char * argv[]) {
 #ifdef DEBUG
         Schedule *schedule1 = (Schedule *)[BBACoreDataStack createObjectInContexOfClass:[Schedule class]];
         [schedule1 setTitle:@"Monday"];
-        [schedule1 setColour:[NSNumber numberWithInteger:[BBAColor indexForColor:[UIColor greenColor]]]];
+        [schedule1 setColour:[NSNumber numberWithInteger:[BBAColor indexForColor:[UIColor yellowColor]]]];
 
         NSString *fileName;
         
@@ -22,7 +22,7 @@ int main(int argc, char * argv[]) {
         fileName = [UIApplication uniqueFileNameWithPrefix:@"Pictogram"];
         [img saveAtLocation:fileName];
         [washhands setImageURL:fileName];
-        [washhands setUsedBy:schedule1];
+        [washhands addUsedByObject:schedule1];
         if (![[schedule1 pictograms] containsObject:washhands]) {
             [schedule1 insertObject:washhands inPictogramsAtIndex:schedule1.pictograms.count];
         }
@@ -33,7 +33,7 @@ int main(int argc, char * argv[]) {
         fileName = [UIApplication uniqueFileNameWithPrefix:@"Pictogram"];
         [img saveAtLocation:fileName];
         [preparetable setImageURL:fileName];
-        [preparetable setUsedBy:schedule1];
+        [preparetable addUsedByObject:schedule1];
         if (![[schedule1 pictograms] containsObject:preparetable]) {
             [schedule1 insertObject:preparetable inPictogramsAtIndex:schedule1.pictograms.count];
         }
@@ -44,7 +44,7 @@ int main(int argc, char * argv[]) {
         fileName = [UIApplication uniqueFileNameWithPrefix:@"Pictogram"];
         [img saveAtLocation:fileName];
         [eat setImageURL:fileName];
-        [eat setUsedBy:schedule1];
+        [eat addUsedByObject:schedule1];
         if (![[schedule1 pictograms] containsObject:eat]) {
             [schedule1 insertObject:eat inPictogramsAtIndex:schedule1.pictograms.count];
         }
@@ -55,7 +55,7 @@ int main(int argc, char * argv[]) {
         fileName = [UIApplication uniqueFileNameWithPrefix:@"Pictogram"];
         [img saveAtLocation:fileName];
         [brush setImageURL:fileName];
-        [brush setUsedBy:schedule1];
+        [brush addUsedByObject:schedule1];
         if (![[schedule1 pictograms] containsObject:brush]) {
             [schedule1 insertObject:brush inPictogramsAtIndex:schedule1.pictograms.count];
         }
@@ -66,7 +66,7 @@ int main(int argc, char * argv[]) {
         fileName = [UIApplication uniqueFileNameWithPrefix:@"Pictogram"];
         [img saveAtLocation:fileName];
         [wc setImageURL:fileName];
-        [wc setUsedBy:schedule1];
+        [wc addUsedByObject:schedule1];
         if (![[schedule1 pictograms] containsObject:wc]) {
             [schedule1 insertObject:wc inPictogramsAtIndex:schedule1.pictograms.count];
         }
@@ -77,7 +77,7 @@ int main(int argc, char * argv[]) {
         fileName = [UIApplication uniqueFileNameWithPrefix:@"Pictogram"];
         [img saveAtLocation:fileName];
         [play setImageURL:fileName];
-        [play setUsedBy:schedule1];
+        [play addUsedByObject:schedule1];
         if (![[schedule1 pictograms] containsObject:play]) {
             [schedule1 insertObject:play inPictogramsAtIndex:schedule1.pictograms.count];
         }
@@ -88,7 +88,7 @@ int main(int argc, char * argv[]) {
         fileName = [UIApplication uniqueFileNameWithPrefix:@"Pictogram"];
         [img saveAtLocation:fileName];
         [washhands2 setImageURL:fileName];
-        [washhands2 setUsedBy:schedule1];
+        [washhands2 addUsedByObject:schedule1];
         if (![[schedule1 pictograms] containsObject:washhands2]) {
             [schedule1 insertObject:washhands2 inPictogramsAtIndex:schedule1.pictograms.count];
         }
@@ -99,7 +99,7 @@ int main(int argc, char * argv[]) {
         fileName = [UIApplication uniqueFileNameWithPrefix:@"Pictogram"];
         [img saveAtLocation:fileName];
         [wc2 setImageURL:fileName];
-        [wc2 setUsedBy:schedule1];
+        [wc2 addUsedByObject:schedule1];
         if (![[schedule1 pictograms] containsObject:wc2]) {
             [schedule1 insertObject:wc2 inPictogramsAtIndex:schedule1.pictograms.count];
         }

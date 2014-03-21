@@ -37,6 +37,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Schedules" id="bJ1-PE-WSj">
+                        <barButtonItem key="backBarButtonItem" title=" " id="dYD-Xd-ML1"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="tTD-CU-iKj">
                             <attributedString key="userComments">
                                 <fragment content="Disabled on Guided Access.">
@@ -258,7 +259,7 @@
         <scene sceneID="neW-ja-5jt">
             <objects>
                 <tableViewController storyboardIdentifier="showSchedule" id="gcU-7o-ixR" userLabel="Show Schedule" customClass="BBAShowScheduleViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="194" sectionHeaderHeight="22" sectionFooterHeight="22" id="LTA-H5-XmH">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="194" sectionHeaderHeight="22" sectionFooterHeight="22" id="LTA-H5-XmH">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -270,13 +271,22 @@
                                     <rect key="frame" x="0.0" y="0.0" width="768" height="194"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" tag="1" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FO4-ov-Xk0" userLabel="pictogram">
-                                            <rect key="frame" x="309" y="20" width="150" height="151"/>
+                                        <imageView userInteractionEnabled="NO" tag="1" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FO4-ov-Xk0" userLabel="pictogram">
+                                            <rect key="frame" x="297" y="10" width="175" height="175"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="175" id="OLq-09-DRH"/>
+                                                <constraint firstAttribute="width" constant="175" id="kVO-oO-09P"/>
+                                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="175" id="tPE-KM-ZW2"/>
+                                            </constraints>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="centerX" secondItem="FO4-ov-Xk0" secondAttribute="centerX" id="LVN-HU-7P0"/>
+                                        <constraint firstAttribute="centerY" secondItem="FO4-ov-Xk0" secondAttribute="centerY" id="pA0-yI-8EP"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

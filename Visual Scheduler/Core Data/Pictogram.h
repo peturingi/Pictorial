@@ -2,7 +2,7 @@
 //  Pictogram.h
 //  Visual Scheduler
 //
-//  Created by Pétur Ingi Egilsson on 19/03/14.
+//  Created by Pétur Ingi Egilsson on 21/03/14.
 //  Copyright (c) 2014 Student Project. All rights reserved.
 //
 
@@ -15,7 +15,14 @@
 
 @property (nonatomic, retain) NSString * imageURL;
 @property (nonatomic, retain) NSString * title;
-@property (nonatomic, retain) Schedule *usedBy;
-@property (nonatomic, readonly) NSUInteger indexInSchedule;
+@property (nonatomic, retain) NSSet *usedBy;
+@end
+
+@interface Pictogram (CoreDataGeneratedAccessors)
+
+- (void)addUsedByObject:(Schedule *)value;
+- (void)removeUsedByObject:(Schedule *)value;
+- (void)addUsedBy:(NSSet *)values;
+- (void)removeUsedBy:(NSSet *)values;
 
 @end

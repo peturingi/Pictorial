@@ -16,10 +16,4 @@
 @dynamic title;
 @dynamic usedBy;
 
-- (NSUInteger)indexInSchedule {
-    NSAssert(self.usedBy, @"Cannot get index as this pictogram is not used by any schedule!");
-    NSUInteger index = [self.usedBy.pictograms indexOfObject:self];
-    return index;
-}
-
 @end
