@@ -1,13 +1,14 @@
 #import "BBAScheduleOverviewViewController.h"
 #import "Show Schedule/BBAShowScheduleViewController.h"
-#import "BBAScheduleTableDataSource.h"
 #import <CoreData/CoreData.h>
+#import "BBAScheduleTableDataSource.h"
 #import "Pictogram.h"
 
 static NSString * const kBBASortCellsBy = @"title";
 
 @implementation BBAScheduleOverviewViewController {
     Schedule *userSelectedSchedule;
+    __weak IBOutlet UIBarButtonItem *addScheduleButton;
 }
 
 - (void)viewDidLoad {
@@ -27,6 +28,11 @@ static NSString * const kBBASortCellsBy = @"title";
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(reloadTableViewData:)
                                                  name:kBBANotificationNameForNewDataAvailable
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(controlAccessToAddScheduleButton)
+                                                 name:UIAccessibilityGuidedAccessStatusDidChangeNotification
                                                object:nil];
 }
 
@@ -53,6 +59,14 @@ static NSString * const kBBASortCellsBy = @"title";
         BBAShowScheduleViewController *destination = [segue destinationViewController];
         [destination setSchedule:userSelectedSchedule];
     }
+}
+
+- (void)controlAccessToAddScheduleButton {
+    self.navigationItem.rightBarButtonItem.enabled = !UIAccessibilityIsGuidedAccessEnabled();
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

@@ -141,6 +141,7 @@
 		D8EA05A618D3541400F5D01F /* BBACoreDataStackTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBACoreDataStackTests.m; sourceTree = "<group>"; };
 		D8EA05F518D355E000F5D01F /* BBACoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBACoreDataStack.h; path = "Core Data/BBACoreDataStack.h"; sourceTree = "<group>"; };
 		D8EA05F618D355E000F5D01F /* BBACoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBACoreDataStack.m; path = "Core Data/BBACoreDataStack.m"; sourceTree = "<group>"; };
+		D8EAF2E118D9D8C7004CC1B1 /* Visual Scheduler copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Visual Scheduler copy-Info.plist"; path = "/Users/petur/Development/Visual Scheduler/Visual Scheduler copy-Info.plist"; sourceTree = "<absolute>"; };
 		D8EC7D5118CA61E500B6A673 /* MockTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MockTableView.h; path = "Visual SchedulerTests/MockTableView.h"; sourceTree = SOURCE_ROOT; };
 		D8EC7D5218CA61E500B6A673 /* MockTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MockTableView.m; path = "Visual SchedulerTests/MockTableView.m"; sourceTree = SOURCE_ROOT; };
 		D8EC7D5418CA63C500B6A673 /* MockScheduleOverviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MockScheduleOverviewViewController.h; path = "Visual SchedulerTests/MockScheduleOverviewViewController.h"; sourceTree = SOURCE_ROOT; };
@@ -252,6 +253,7 @@
 				D83A62E018B696DC00EC0773 /* Visual SchedulerTests */,
 				D83A62BA18B696DC00EC0773 /* Frameworks */,
 				D83A62B918B696DC00EC0773 /* Products */,
+				D8EAF2E118D9D8C7004CC1B1 /* Visual Scheduler copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
