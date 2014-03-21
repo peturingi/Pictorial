@@ -4,7 +4,7 @@
 
 int main(int argc, char * argv[]) {
     @autoreleasepool {
-        BBACoreDataStack *coreDataStack __attribute__((unused)) = [BBACoreDataStack sharedInstance];
+        [BBACoreDataStack installInMemory:YES];
         
 #ifdef DEBUG
         Schedule *schedule1 = [[BBACoreDataStack sharedInstance] scheduleWithTitle:@"Monday" withBackgroundColour:0];

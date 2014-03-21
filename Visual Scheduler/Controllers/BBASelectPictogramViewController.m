@@ -21,7 +21,8 @@ NSInteger const kCellTagForLabelView = 2;
 }
 
 - (void)setupCoreData {
-    _fetchedResultsController = [[BBACoreDataStack sharedInstance] fetchedResultsControllerForPictogram];
+    //_fetchedResultsController = [[BBACoreDataStack sharedInstance] fetchedResultsControllerForPictogram];
+    _fetchedResultsController = [BBACoreDataStack fetchedResultsControllerForClass:[Pictogram class]];
     [_fetchedResultsController setDelegate:self];
     [_fetchedResultsController performFetch:nil];
 }

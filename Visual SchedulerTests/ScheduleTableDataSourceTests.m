@@ -5,6 +5,7 @@
 #import "MockTableView.h"
 #import "MockScheduleOverviewViewController.h"
 #import "Schedule.h"
+#import "BBAServiceProvider.h"
 
 @interface ScheduleTableDataSourceTests : XCTestCase
 @property (strong, nonatomic) BBAScheduleTableDataSource *tableDataSource;
@@ -16,6 +17,8 @@
 
 - (void)setUp {
     [super setUp];
+    [BBAServiceProvider deleteServiceOfClass:[BBACoreDataStack class]];
+    [BBACoreDataStack installInMemory:YES];
     _tableDataSource = [[BBAScheduleTableDataSource alloc] init];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(didReceiveNotification:)
@@ -28,14 +31,6 @@
 }
 
 - (void)tearDown {
-    
-    NSManagedObjectContext * context = [[BBACoreDataStack sharedInstance] sharedManagedObjectContext];
-    NSFetchRequest * fetch = [[NSFetchRequest alloc] init];
-    [fetch setEntity:[NSEntityDescription entityForName:@"Schedule" inManagedObjectContext:context]];
-    NSArray * result = [context executeFetchRequest:fetch error:nil];
-    for (id entity in result)
-        [context deleteObject:entity];
-    
     _tableDataSource = nil;
     receivedNotification = nil;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -97,7 +92,11 @@
 }
 
 - (void)testDataSourceContainsOneObject {
-    [[BBACoreDataStack sharedInstance] scheduleWithTitle:@"Test Domain" withBackgroundColour:0];
+    Schedule* schedule = (Schedule*)[BBACoreDataStack createObjectInContexOfClass:[Schedule class]];
+    [schedule setTitle:@"SomeTitle"];
+    [schedule setColour:[NSNumber numberWithInt:0]];
+    [schedule setDate:[NSDate date]];
+    [BBACoreDataStack saveContext:nil];
     XCTAssertTrue(self.tableDataSource.dataSource.fetchedObjects.count == 1,
                   @"The dataSource should only contain a single item at this point.");
 }
@@ -106,11 +105,16 @@
     XCTAssertTrue(self.tableDataSource.dataSource.fetchedObjects.count == 0,
                   @"The datasource must be empty before the test begins.");
     for (int i = 0; i < 100; i++) {
-        [[BBACoreDataStack sharedInstance] scheduleWithTitle:@"Test Domain" withBackgroundColour:0];
+        Schedule* schedule = (Schedule*)[BBACoreDataStack createObjectInContexOfClass:[Schedule class]];
+        [schedule setTitle:@"SomeTitle"];
+        [schedule setColour:[NSNumber numberWithInt:0]];
+        [schedule setDate:[NSDate date]];
     }
+    [BBACoreDataStack saveContext:nil];
     XCTAssertTrue(self.tableDataSource.dataSource.fetchedObjects.count == 100,
                   @"The dataSource should contain 100 items at this point.");
 }
+
 
 - (void)testOneSectionInTableView {
     XCTAssertThrows([self.tableDataSource tableView:nil numberOfRowsInSection:1],
@@ -122,12 +126,18 @@
     XCTAssertThrows([self.tableDataSource tableView:nil cellForRowAtIndexPath:secondSection]);
 }
 
+
 - (void)testInformsDelegateOfRowSelection {
-    [[BBACoreDataStack sharedInstance] scheduleWithTitle:@"Test Domain" withBackgroundColour:0];
+    Schedule* schedule = (Schedule*)[BBACoreDataStack createObjectInContexOfClass:[Schedule class]];
+    [schedule setTitle:@"someTitle"];
+    [schedule setColour:@1];
+    [schedule setDate:[NSDate date]];
+    [BBACoreDataStack saveContext:nil];
     [self.tableDataSource tableView:nil didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     XCTAssertEqual([receivedNotification name], kBBANotificationNameForDidSelectItem,
                   @"The controller must report back to its delegate when user selects a row.");
 }
+
 
 #pragma mark - NSFetchedResultsController delegate
 

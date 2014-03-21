@@ -16,99 +16,82 @@ static id sharedInstance = nil;
 
 @implementation BBACoreDataStack
 
-- (id)init {
-    [self BBA_throwExceptionIfAlreadyInstantiated];
-    self = [super init];
-    return self;
-}
-
-- (void)BBA_throwExceptionIfAlreadyInstantiated {
-    if (sharedInstance != nil) {
-        @throw [NSException exceptionWithName:NSObjectNotAvailableException reason:@"This is a shared object. New instantiations are not allowed." userInfo:nil];
-    }
+-(id)init __deprecated{
+    @throw [NSException exceptionWithName:NSObjectNotAvailableException reason:@"Do not use -init. Use +installInMemory: instead" userInfo:nil];
+    return nil;
 }
 
 + (id)sharedInstance {
-    if (sharedInstance == nil) {
-        @try {
-            sharedInstance = [[BBACoreDataStack alloc] init];
-        }
-        @catch (NSException *e){
-            @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"Could not create a shared instance." userInfo:nil];
-        }
+    BBACoreDataStack* stack = [BBAServiceProvider serviceFromClass:[self class]];
+    return stack;
+}
+
++(void)installInMemory:(BOOL)yesno{
+    BBACoreDataStack* stack = [[BBACoreDataStack alloc]initInMemory:yesno];
+    [BBAServiceProvider insertService:stack];
+}
+
+-(id)initInMemory:(BOOL)yesno{
+    self = [super init];
+    if(self){
+        [self setupStack:yesno];
     }
-    return sharedInstance;
+    return self;
 }
 
-- (NSManagedObjectContext *)sharedManagedObjectContext {
-    return self.managedObjectContext;
-}
-
-- (void)saveContext {
-    NSError *error = nil;
-    NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
-    if (managedObjectContext != nil) {
-        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
-            [NSException raise:@"Save failed" format:@"The managed object context failed to perform a save. The generated error is: %@", error.userInfo];
-        }
+-(void)setupStack:(BOOL)inMemory{
+    BBAModel* model = [BBAModel modelFromModelNamed:@"CoreData"];
+    BBAStore* store;
+    if(inMemory){
+        store = [BBAStore inMemoryStoreWithModel:[model managedObjectModel]];
+    }else{
+        store = [BBAStore storeWithModel:[model managedObjectModel] andStoreFileURL:[self storeFileURL]];
     }
+    BBAContext* context = [BBAContext contextWithStore:[store persistentStoreCoordinator]];
+    _context = [context managedObjectContext];
 }
 
-- (NSManagedObjectContext *)managedObjectContext
-{
-    if (_managedObjectContext != nil) {
-        return _managedObjectContext;
-    }
-    
-    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
-    if (coordinator != nil) {
-        _managedObjectContext = [[NSManagedObjectContext alloc] init];
-        [_managedObjectContext setPersistentStoreCoordinator:coordinator];
-    }
-    return _managedObjectContext;
+-(NSURL*)storeFileURL{
+    NSURL* documentsDir = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory
+                                                                  inDomains:NSUserDomainMask] lastObject];
+    return [documentsDir URLByAppendingPathComponent:@"storeFile"];
 }
 
-- (NSManagedObjectModel *)managedObjectModel {
-    if (_managedObjectModel != nil) {
-        return _managedObjectModel;
-    }
-    [self setupManagedObjectModelFromFile];
-    return _managedObjectModel;
+
++(void)rollbackContext{
+    BBACoreDataStack* stack = [BBAServiceProvider serviceFromClass:[self class]];
+    [stack rollback];
 }
 
-- (void)setupManagedObjectModelFromFile {
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"CoreData" withExtension:@"momd"];
-    _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
++(BOOL)saveContext:(NSError**)error{
+    BBACoreDataStack* stack = [BBAServiceProvider serviceFromClass:[self class]];
+    return [stack saveAll:error];
 }
 
-- (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
-    if (_persistentStoreCoordinator != nil) {
-        return _persistentStoreCoordinator;
-    }
-    
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"CoreData.sqlite"];
-    
-    NSError *error = nil;
-    _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-
-    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSInMemoryStoreType configuration:nil URL:storeURL options:nil error:&error]) {
-
-        // TODO ERROR HANDLING
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
-    }
-    
-    return _persistentStoreCoordinator;
++(void)deleteObjectFromContext:(NSManagedObject*)managedObject{
+    BBACoreDataStack* stack = [BBAServiceProvider serviceFromClass:[self class]];
+    [stack deleteObject:managedObject];
 }
 
-#pragma mark - Application's Documents directory
-
-// Returns the URL to the application's Documents directory.
-- (NSURL *)applicationDocumentsDirectory {
-    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
++(NSManagedObject*)createObjectInContexOfClass:(Class)aClass{
+    BBACoreDataStack* stack = [BBAServiceProvider serviceFromClass:[self class]];
+    return [stack insertNewManagedObjectFromClass:aClass];
 }
 
-#pragma mark - Pictogram
++(NSFetchedResultsController*)fetchedResultsControllerForClass:(Class)aClass{
+    BBACoreDataStack* stack = [BBAServiceProvider serviceFromClass:[self class]];
+    NSFetchRequest* fetchRequest = [stack fetchRequestForEntityClass:aClass];
+    NSSortDescriptor* descriptor = [[NSSortDescriptor alloc]initWithKey:@"title" ascending:YES];
+    NSArray* sortDescriptors = @[descriptor];
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    [fetchRequest setFetchBatchSize:20];
+    return [stack fetchedResultsControllerFromFetchRequest:fetchRequest];
+}
+
++(NSManagedObjectContext*)managedObjectContext{
+    BBACoreDataStack* stack = [BBAServiceProvider serviceFromClass:[self class]];
+    return stack->_context;
+}
 
 - (Pictogram *)pictogramWithTitle:(NSString *)title withImage:(UIImage *)image {
     Pictogram *pictogram = [NSEntityDescription insertNewObjectForEntityForName:@"Pictogram" inManagedObjectContext:self.sharedManagedObjectContext];
@@ -135,31 +118,19 @@ static id sharedInstance = nil;
     return fetchedResultsController;
 }
 
-#pragma mark - Schedule
+-(void)rollback{
+    [_context rollback];
+}
 
-- (Schedule *)scheduleWithTitle:(NSString *)title withBackgroundColour:(NSInteger)colourIndex {
-    Schedule *schedule = [NSEntityDescription insertNewObjectForEntityForName:@"Schedule" inManagedObjectContext:self.sharedManagedObjectContext];
-    [schedule setTitle:title];
-    [schedule setDate:[NSDate date]];
-    [schedule setColour:[NSNumber numberWithInteger:colourIndex]];
-    if (![self.sharedManagedObjectContext save:nil]) {
-        // TODO: Deal with out of space, and different kind of errors.
-        @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"Could not save schedule." userInfo:nil];
+-(BOOL)saveAll:(NSError**)error{
+    if([_context hasChanges]){
+        return [_context save:error];
     }
-    return schedule;
+    return YES;
 }
 
-- (NSFetchedResultsController *)fetchedResultsControllerForSchedule {
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Schedule" inManagedObjectContext:self.sharedManagedObjectContext];
-    [fetchRequest setEntity:entity];
-    [fetchRequest setFetchBatchSize:30];
-    NSSortDescriptor* descriptor = [[NSSortDescriptor alloc]initWithKey:@"title" ascending:YES];
-    [fetchRequest setSortDescriptors:@[descriptor]];
-    NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.sharedManagedObjectContext sectionNameKeyPath:nil cacheName:@"Schedule"];
-    return fetchedResultsController;
+-(void)deleteObject:(NSManagedObject*)object{
+    [_context deleteObject:object];
 }
-
-#pragma mark -
 
 @end

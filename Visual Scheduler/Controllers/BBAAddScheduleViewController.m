@@ -29,7 +29,17 @@
 
 - (void)createScheduleFromInput {
     // TODO No date is not inserted.
-    [[BBACoreDataStack sharedInstance] scheduleWithTitle:schedulesTitle.text withBackgroundColour:0];
+    Schedule* schedule = (Schedule*)[BBACoreDataStack createObjectInContexOfClass:[Schedule class]];
+    [schedule setTitle:schedulesTitle.text];
+    [schedule setColour:[NSNumber numberWithInt:0]];
+    [schedule setDate:[NSDate date]];
+    NSError* saveError;
+    BOOL success;
+    success = [BBACoreDataStack saveContext:&saveError];
+    if(!success){
+        // Do something about it, eh!?
+        [NSException raise:@"CantSaveException" format:@"Fix, so that we can have nice things"];
+    }
 }
 
 - (BOOL)verifyTitle {
