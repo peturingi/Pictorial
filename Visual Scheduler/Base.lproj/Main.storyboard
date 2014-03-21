@@ -32,8 +32,8 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="TOr-82-2Iv" id="PcR-RD-Jsi"/>
-                            <outlet property="delegate" destination="TOr-82-2Iv" id="NWx-ht-C9G"/>
+                            <outlet property="dataSource" destination="TOr-82-2Iv" id="7o4-YO-K9j"/>
+                            <outlet property="delegate" destination="TOr-82-2Iv" id="ERn-A3-lKY"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Schedules" id="bJ1-PE-WSj">
@@ -258,19 +258,19 @@
         <scene sceneID="neW-ja-5jt">
             <objects>
                 <tableViewController storyboardIdentifier="showSchedule" id="gcU-7o-ixR" userLabel="Show Schedule" customClass="BBAShowScheduleViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="289" sectionHeaderHeight="22" sectionFooterHeight="22" id="LTA-H5-XmH">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="289" sectionHeaderHeight="22" sectionFooterHeight="22" id="LTA-H5-XmH">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="pictogram" rowHeight="240" id="RL9-FD-tpY">
+                            <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" restorationIdentifier="schedulesPictogram" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="schedulesPictogram" rowHeight="240" id="RL9-FD-tpY">
                                 <rect key="frame" x="0.0" y="86" width="768" height="240"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RL9-FD-tpY" id="P8n-2B-utw">
                                     <rect key="frame" x="0.0" y="0.0" width="768" height="239"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FO4-ov-Xk0" userLabel="pictogram">
+                                        <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FO4-ov-Xk0" userLabel="pictogram">
                                             <rect key="frame" x="284" y="20" width="200" height="192"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
@@ -279,8 +279,8 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="gcU-7o-ixR" id="3oB-Po-whn"/>
-                            <outlet property="delegate" destination="gcU-7o-ixR" id="hiL-Bp-jdg"/>
+                            <outlet property="dataSource" destination="uSW-in-Biz" id="5wQ-m0-Hxo"/>
+                            <outlet property="delegate" destination="uSW-in-Biz" id="kAd-RP-Zbi"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="K7d-ag-uvP">
@@ -295,6 +295,11 @@
                     </userDefinedRuntimeAttributes>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ajf-nH-jT2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="uSW-in-Biz" customClass="BBAShowScheduleTableDataSource">
+                    <connections>
+                        <outlet property="delegate" destination="gcU-7o-ixR" id="OGs-58-Hc7"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="928" y="-1595"/>
         </scene>

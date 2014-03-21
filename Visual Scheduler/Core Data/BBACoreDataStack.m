@@ -1,6 +1,8 @@
 #import "BBACoreDataStack.h"
 #import "UIApplication+BBA.h"
 #import "UIImage+BBA.h"
+#import "Pictogram.h"
+#import "Schedule.h"
 
 @interface BBACoreDataStack() {
     
@@ -111,7 +113,7 @@ static id sharedInstance = nil;
 - (Pictogram *)pictogramWithTitle:(NSString *)title withImage:(UIImage *)image {
     Pictogram *pictogram = [NSEntityDescription insertNewObjectForEntityForName:@"Pictogram" inManagedObjectContext:self.sharedManagedObjectContext];
     [pictogram setTitle:title];
-    NSString *url = [[UIApplication sharedApplication] uniqueFileNameWithPrefix:@"pictogram"];
+    NSString *url = [UIApplication uniqueFileNameWithPrefix:@"pictogram"];
     [pictogram setImageURL:url];
     [image saveAtLocation:url];
     // TODO this will save the entire context, also other changes we might not be interested in saving at this point in time.
@@ -120,16 +122,17 @@ static id sharedInstance = nil;
     return pictogram;
 }
 
-- (NSFetchedResultsController *)fetchedResultsControllerForPictogram {
+- (NSFetchedResultsController *)fetchedResultsControllerForPictograminSchedule:(Schedule *)schedule{
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Pictogram" inManagedObjectContext:[self managedObjectContext]];
     [fetchRequest setEntity:entity];
     [fetchRequest setFetchBatchSize:30];
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES];
+    NSPredicate *pictogramsFromSchedule = [NSPredicate predicateWithFormat:@"usedBy == %@", schedule];
+    [fetchRequest setPredicate:pictogramsFromSchedule];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"indexInSchedule" ascending:YES];
     [fetchRequest setSortDescriptors:@[sortDescriptor]];
     NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Pictogram"];
     return fetchedResultsController;
-     
 }
 
 #pragma mark - Schedule

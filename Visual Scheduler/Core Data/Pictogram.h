@@ -16,5 +16,6 @@
 @property (nonatomic, retain) NSString * imageURL;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) Schedule *usedBy;
+@property (nonatomic, readonly) NSUInteger indexInSchedule;
 
 @end

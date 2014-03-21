@@ -25,6 +25,7 @@
 - (NSManagedObjectContext *)sharedManagedObjectContext;
 
 #pragma mark - Pictogram
+- (NSFetchedResultsController *)fetchedResultsControllerForPictograminSchedule:(Schedule *)schedule;
 - (NSFetchedResultsController *)fetchedResultsControllerForPictogram;
 - (Pictogram *)pictogramWithTitle:(NSString *)title withImage:(UIImage *)image;
 
