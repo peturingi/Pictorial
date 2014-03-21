@@ -1,4 +1,5 @@
 #import "BBAShowScheduleViewController.h"
+#import "BBAColor.h"
 
 @interface BBAShowScheduleViewController ()
 
@@ -8,6 +9,12 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [self setTitle:self.schedule.title];
+    [self configureScheduleBackgroundColor];
+}
+
+- (void)configureScheduleBackgroundColor {
+    NSUInteger backgroundColorIndex = [[self.schedule colour] integerValue];
+    [[self tableView] setBackgroundColor:[BBAColor colorForIndex:backgroundColorIndex]];
 }
 
 - (void)BBA_dismissViewController {

@@ -3,6 +3,7 @@
 #import "Core Data/BBACoreDataStack.h"
 #import "Category/UIApplication+BBA.h"
 #import "Category/UIImage+BBA.h"
+#import "BBAColor.h"
 
 int main(int argc, char * argv[]) {
     @autoreleasepool {
@@ -11,7 +12,7 @@ int main(int argc, char * argv[]) {
 #ifdef DEBUG
         Schedule *schedule1 = (Schedule *)[BBACoreDataStack createObjectInContexOfClass:[Schedule class]];
         [schedule1 setTitle:@"Monday"];
-        [schedule1 setColour:[NSNumber numberWithInteger:0]];
+        [schedule1 setColour:[NSNumber numberWithInteger:[BBAColor indexForColor:[UIColor greenColor]]]];
 
         NSString *fileName;
         

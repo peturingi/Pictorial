@@ -27,6 +27,8 @@
     Pictogram *pictogramToDisplayInImageView = [self.dataSource objectAtIndex:indexPath.row];
     pictogramImageView.image = [UIImage imageWithContentsOfFile:pictogramToDisplayInImageView.imageURL];
     
+    [cell setBackgroundColor:[[cell superview] backgroundColor]];
+    
     return cell;
 }
 
