@@ -18,6 +18,7 @@ static NSString * const kBBASortCellsBy = @"title";
 
 - (void)viewWillAppear:(BOOL)animated {
     [[self tableView] reloadData];
+    [self controlAccessToAddScheduleButton];
 }
 
 - (void)registerForNotifications {

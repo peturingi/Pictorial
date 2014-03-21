@@ -297,10 +297,15 @@
                             <outlet property="delegate" destination="uSW-in-Biz" id="kAd-RP-Zbi"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="K7d-ag-uvP"/>
+                    <navigationItem key="navigationItem" id="K7d-ag-uvP">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="8Mb-Qt-IbS"/>
+                    </navigationItem>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="navigationController.toolbarHidden" value="YES"/>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="editButton" destination="8Mb-Qt-IbS" id="9Dj-mN-o0E"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ajf-nH-jT2" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="uSW-in-Biz" customClass="BBAShowScheduleTableDataSource">
