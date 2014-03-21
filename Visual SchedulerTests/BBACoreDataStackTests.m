@@ -17,6 +17,7 @@
 }
 
 - (void)tearDown {
+    [BBAServiceProvider deleteServiceOfClass:[BBACoreDataStack class]];
     [super tearDown];
 }
 
