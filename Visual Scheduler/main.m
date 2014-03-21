@@ -6,7 +6,7 @@
 
 int main(int argc, char * argv[]) {
     @autoreleasepool {
-        BBACoreDataStack *coreDataStack __attribute__((unused)) = [BBACoreDataStack sharedInstance];
+        [BBACoreDataStack installInMemory:YES];
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }
 }

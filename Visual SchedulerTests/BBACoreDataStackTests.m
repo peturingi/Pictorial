@@ -1,6 +1,7 @@
 #import <XCTest/XCTest.h>
 
 #import "BBACoreDataStack.h"
+#import "BBAServiceProvider.h"
 #import "Schedule.h"
 
 @interface BBACoreDataStackTests : XCTestCase
@@ -11,39 +12,28 @@
 
 - (void)setUp {
     [super setUp];
-    _sharedStack = [BBACoreDataStack sharedInstance];
+    [BBAServiceProvider deleteServiceOfClass:[BBACoreDataStack class]];
+    [BBACoreDataStack installInMemory:YES];
 }
 
 - (void)tearDown {
-    [[self.sharedStack sharedManagedObjectContext] reset];
-    _sharedStack = nil;
     [super tearDown];
 }
 
 - (void)testCanGetSharedStack {
-    XCTAssertNotNil(self.sharedStack,
+    XCTAssertNotNil([BBACoreDataStack sharedInstance],
                     @"Failed to setup sharedStack.");
 }
 
-- (void)testDoesNotReturnNewInstance {
-    BBACoreDataStack *stackNumberTwo = [BBACoreDataStack sharedInstance];
-    XCTAssertEqualObjects(self.sharedStack, stackNumberTwo,
-                          @"The same instance must always be returned.");
-}
-
 - (void)testReturnsManagedObjectContext {
-    NSManagedObjectContext *objectContext = [self.sharedStack sharedManagedObjectContext];
+    NSManagedObjectContext *objectContext = [BBACoreDataStack managedObjectContext];
     XCTAssertNotNil(objectContext,
                  @"Failed to get managedObjectContext");
 }
 
-- (void)testValidStore {
-    XCTAssertNotNil([[BBACoreDataStack sharedInstance] persistentStoreCoordinator], @"Core Data can not be used with a nil persistant store coordinator.");
-}
-
 - (void)testReturnsSharedManagedObjectContext {
-    NSManagedObjectContext *firstManagedObjectContext = [self.sharedStack sharedManagedObjectContext];
-    NSManagedObjectContext *secondManagedObjectContext = [self.sharedStack sharedManagedObjectContext];
+    NSManagedObjectContext *firstManagedObjectContext = [BBACoreDataStack managedObjectContext];
+    NSManagedObjectContext *secondManagedObjectContext = [BBACoreDataStack managedObjectContext];
     XCTAssertEqualObjects(firstManagedObjectContext, secondManagedObjectContext,
                           @"Failed to receive a shared instance. The two objects must not be unique.");
 }
@@ -51,46 +41,37 @@
 #pragma mark - Pictogram
 
 - (void)testFetchedResultsControllerForPictogram {
-    XCTAssertNotNil([self.sharedStack fetchedResultsControllerForPictogram], @"Could not retrieve fetchedResultsControllerForPictogram.");
+    XCTAssertNotNil([BBACoreDataStack fetchedResultsControllerForClass:[Pictogram class]], @"Could not retrieve fetchedResultsControllerForPictogram.");
 }
 
 #pragma mark - Schedule
 
-- (void)testOffersSchedule {
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Schedule" inManagedObjectContext:[self.sharedStack sharedManagedObjectContext]];
-    XCTAssertNotNil(entityDescription, @"The managed object context failed to return an entity named Schedule.");
-}
-
 - (void)testCanInsertScheduleToManagedObjectContext {
-    NSManagedObject *schedule = [NSEntityDescription insertNewObjectForEntityForName:@"Schedule" inManagedObjectContext:[self.sharedStack sharedManagedObjectContext]];
+    NSManagedObject *schedule = [BBACoreDataStack createObjectInContexOfClass:[Schedule class]];
     XCTAssertNotNil(schedule, @"Failed to insert object into the managed object context.");
 }
 
-- (void)testSaveSchedule {
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Schedule"
-                                              inManagedObjectContext:[[BBACoreDataStack sharedInstance] sharedManagedObjectContext]];
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    [fetchRequest setEntity:entity];
-    NSError *fetchError;
-    NSArray *items = [[[BBACoreDataStack sharedInstance] sharedManagedObjectContext]
-                      executeFetchRequest:fetchRequest error:&fetchError];
-    NSInteger numberOfSchedulesBeforeTest = [items count];
+-(void)testCanSaveContextForSchedule{
+    NSFetchedResultsController* frc = [BBACoreDataStack fetchedResultsControllerForClass:[Schedule class]];
+    [frc performFetch:nil];
+    int itemsBeforeSave = [[frc fetchedObjects]count];
     
-   Schedule *schedule = [NSEntityDescription insertNewObjectForEntityForName:@"Schedule" inManagedObjectContext:[self.sharedStack sharedManagedObjectContext]];
+    Schedule* schedule = (Schedule*)[BBACoreDataStack createObjectInContexOfClass:[Schedule class]];
+    [schedule setColour:[NSNumber numberWithInt:1]];
     [schedule setDate:[NSDate date]];
-    [schedule setTitle:@"Test Domain"];
-    [schedule setColour:[NSNumber numberWithInteger:0]];
-    NSError *saveError = nil;
-    BOOL saveSuccessful = [[self.sharedStack sharedManagedObjectContext] save:&saveError];
-    XCTAssertTrue(saveSuccessful == YES, @"Error while saving.");
+    [schedule setTitle:@"someTitle"];
+    NSError* saveError = nil;
+    BOOL saveSuccessful = [BBACoreDataStack saveContext:&saveError];
+    XCTAssertTrue(saveSuccessful, @"Error while saving");
     
+    [frc performFetch:nil];
+    int itemsAfterSave = [[frc fetchedObjects]count];
+    XCTAssertEqual(itemsBeforeSave, itemsAfterSave - 1, @"Expected increase in the number of items after saving a new item");
     
-    items = [[[BBACoreDataStack sharedInstance] sharedManagedObjectContext] executeFetchRequest:fetchRequest error:&fetchError];
-    XCTAssertTrue(numberOfSchedulesBeforeTest == [items count] - 1, @"Expected increase in the number of items after saving a new item.");
 }
 
 - (void)testFetchedResultsControllerForSchedule {
-    XCTAssertNotNil([self.sharedStack fetchedResultsControllerForSchedule], @"Could not retrieve fetchedResultsControllerForSchedule.");
+    XCTAssertNotNil([BBACoreDataStack fetchedResultsControllerForClass:[Schedule class]], @"Could not retrieve fetchedResultsControllerForSchedule.");
 }
 
 #pragma mark -

@@ -20,6 +20,20 @@
                ReferencedContainer = "container:Visual Scheduler.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "685146CA18C49EC4002CF73F"
+               BuildableName = "BBA Core Data StackTests"
+               BlueprintName = "BBA Core Data StackTests"
+               ReferencedContainer = "container:Visual Scheduler.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction

@@ -4,31 +4,20 @@
 #import "Schedule.h"
 #import "Pictogram.h"
 
-@interface BBACoreDataStack : NSObject
-
-
-/**
- 
- [BBACoreData rollbackContext];
- [BBACoreData saveContext];
- [BBACoreData createObjectInContextOfClass: … ]
- [BBACoreData deleteObjectFromContext: … ];
- [BBACoreData fetchedResultsControllerForClass: … ]
- */
-
-@property (strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
-- (NSManagedObjectModel *)managedObjectModel;
+@interface BBACoreDataStack : NSObject{
+    NSManagedObjectContext* _context;
+}
 
 + (id)sharedInstance;
-- (void)saveContext;
-- (NSURL *)applicationDocumentsDirectory;
-- (NSManagedObjectContext *)sharedManagedObjectContext;
 
-#pragma mark - Pictogram
-- (NSFetchedResultsController *)fetchedResultsControllerForPictogram;
-- (Pictogram *)pictogramWithTitle:(NSString *)title withImage:(UIImage *)image;
 
-#pragma mark - Schedule
-- (NSFetchedResultsController *)fetchedResultsControllerForSchedule;
-- (Schedule *)scheduleWithTitle:(NSString *)title withBackgroundColour:(NSInteger)colourIndex;
+/**** Refactoring - nothing to see here yet! ***/
+
++(void)installInMemory:(BOOL)yesno;
++(NSManagedObjectContext*)managedObjectContext;
++(void)rollbackContext;
++(BOOL)saveContext:(NSError**)error;
++(NSManagedObject*)createObjectInContexOfClass:(Class)aClass;
++(void)deleteObjectFromContext:(NSManagedObject*)managedObject;
++(NSFetchedResultsController*)fetchedResultsControllerForClass:(Class)aClass;
 @end
