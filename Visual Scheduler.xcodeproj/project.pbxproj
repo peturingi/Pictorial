@@ -44,8 +44,18 @@
 		D850E82F18C88E7E0051CD51 /* MockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D850E82E18C88E7E0051CD51 /* MockViewController.m */; };
 		D85E8CD618CA584200BB5F10 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D85E8CD418CA584200BB5F10 /* CoreData.xcdatamodeld */; };
 		D85EBDC818DC6B7700DF76B7 /* MockCameraDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8315AFC18D39E0600C4A340 /* MockCameraDelegate.m */; };
+		D85EBDD118DC804400DF76B7 /* brushteeth.png in Resources */ = {isa = PBXBuildFile; fileRef = D85EBDCA18DC804400DF76B7 /* brushteeth.png */; };
+		D85EBDD218DC804400DF76B7 /* eat.png in Resources */ = {isa = PBXBuildFile; fileRef = D85EBDCB18DC804400DF76B7 /* eat.png */; };
+		D85EBDD318DC804400DF76B7 /* karate.png in Resources */ = {isa = PBXBuildFile; fileRef = D85EBDCC18DC804400DF76B7 /* karate.png */; };
+		D85EBDD418DC804400DF76B7 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = D85EBDCD18DC804400DF76B7 /* play.png */; };
+		D85EBDD518DC804400DF76B7 /* preparetable.png in Resources */ = {isa = PBXBuildFile; fileRef = D85EBDCE18DC804400DF76B7 /* preparetable.png */; };
+		D85EBDD618DC804400DF76B7 /* toilet.png in Resources */ = {isa = PBXBuildFile; fileRef = D85EBDCF18DC804400DF76B7 /* toilet.png */; };
+		D85EBDD718DC804400DF76B7 /* washhands.png in Resources */ = {isa = PBXBuildFile; fileRef = D85EBDD018DC804400DF76B7 /* washhands.png */; };
+		D85EBDDA18DC833A00DF76B7 /* BBAColor.m in Sources */ = {isa = PBXBuildFile; fileRef = D85EBDD918DC833A00DF76B7 /* BBAColor.m */; };
+		D85EBDDF18DC83B200DF76B7 /* BBAColor.m in Sources */ = {isa = PBXBuildFile; fileRef = D85EBDD918DC833A00DF76B7 /* BBAColor.m */; };
 		D8777FB918D9EFE80006A263 /* bike.png in Resources */ = {isa = PBXBuildFile; fileRef = D8777FB718D9EFE80006A263 /* bike.png */; };
 		D8777FBA18D9EFE80006A263 /* bench.png in Resources */ = {isa = PBXBuildFile; fileRef = D8777FB818D9EFE80006A263 /* bench.png */; };
+		D878CAEB18DC868400DD1885 /* BBAColourTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D85EBDDC18DC839300DF76B7 /* BBAColourTests.m */; };
 		D8805F3F18C5DD01001BD35B /* BBANewPictogramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8805F3E18C5DD01001BD35B /* BBANewPictogramViewController.m */; };
 		D8805F4718C5E456001BD35B /* BBASelectPictogramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8805F4618C5E456001BD35B /* BBASelectPictogramViewController.m */; };
 		D887832E18C8E33300F13B28 /* BBAScheduleOverviewViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D887832D18C8E33300F13B28 /* BBAScheduleOverviewViewControllerTests.m */; };
@@ -127,6 +137,16 @@
 		D85E8CD518CA584200BB5F10 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 		D85EA1A718C4B12300ACDBD6 /* BBAScheduleOverviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBAScheduleOverviewViewController.h; path = Controllers/BBAScheduleOverviewViewController.h; sourceTree = "<group>"; };
 		D85EA1A818C4B12300ACDBD6 /* BBAScheduleOverviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBAScheduleOverviewViewController.m; path = Controllers/BBAScheduleOverviewViewController.m; sourceTree = "<group>"; };
+		D85EBDCA18DC804400DF76B7 /* brushteeth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brushteeth.png; sourceTree = "<group>"; };
+		D85EBDCB18DC804400DF76B7 /* eat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eat.png; sourceTree = "<group>"; };
+		D85EBDCC18DC804400DF76B7 /* karate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = karate.png; sourceTree = "<group>"; };
+		D85EBDCD18DC804400DF76B7 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
+		D85EBDCE18DC804400DF76B7 /* preparetable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = preparetable.png; sourceTree = "<group>"; };
+		D85EBDCF18DC804400DF76B7 /* toilet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toilet.png; sourceTree = "<group>"; };
+		D85EBDD018DC804400DF76B7 /* washhands.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = washhands.png; sourceTree = "<group>"; };
+		D85EBDD818DC833A00DF76B7 /* BBAColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBAColor.h; path = Components/BBAColor.h; sourceTree = "<group>"; };
+		D85EBDD918DC833A00DF76B7 /* BBAColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBAColor.m; path = Components/BBAColor.m; sourceTree = "<group>"; };
+		D85EBDDC18DC839300DF76B7 /* BBAColourTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBAColourTests.m; path = Components/BBAColourTests.m; sourceTree = "<group>"; };
 		D8777FB718D9EFE80006A263 /* bike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bike.png; sourceTree = "<group>"; };
 		D8777FB818D9EFE80006A263 /* bench.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bench.png; sourceTree = "<group>"; };
 		D8805F3D18C5DD01001BD35B /* BBANewPictogramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBANewPictogramViewController.h; path = Controllers/BBANewPictogramViewController.h; sourceTree = "<group>"; };
@@ -301,6 +321,7 @@
 		D83A62C118B696DC00EC0773 /* Visual Scheduler */ = {
 			isa = PBXGroup;
 			children = (
+				D85EBDDB18DC836700DF76B7 /* Color */,
 				D83A62CA18B696DC00EC0773 /* AppDelegate.h */,
 				D83A62CB18B696DC00EC0773 /* AppDelegate.m */,
 				D83A62CD18B696DC00EC0773 /* Main.storyboard */,
@@ -318,6 +339,7 @@
 		D83A62C218B696DC00EC0773 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D85EBDC918DC804400DF76B7 /* DevelopmentPictograms */,
 				D8777FB718D9EFE80006A263 /* bike.png */,
 				D8777FB818D9EFE80006A263 /* bench.png */,
 				D800895F18DC514A003EFD7E /* karate.png */,
@@ -377,6 +399,38 @@
 				D889F7E918C90506008A497F /* BBAScheduleTableDataSource.m */,
 			);
 			name = "Schedule Overview";
+			sourceTree = "<group>";
+		};
+		D85EBDC918DC804400DF76B7 /* DevelopmentPictograms */ = {
+			isa = PBXGroup;
+			children = (
+				D85EBDCA18DC804400DF76B7 /* brushteeth.png */,
+				D85EBDCB18DC804400DF76B7 /* eat.png */,
+				D85EBDCC18DC804400DF76B7 /* karate.png */,
+				D85EBDCD18DC804400DF76B7 /* play.png */,
+				D85EBDCE18DC804400DF76B7 /* preparetable.png */,
+				D85EBDCF18DC804400DF76B7 /* toilet.png */,
+				D85EBDD018DC804400DF76B7 /* washhands.png */,
+			);
+			path = DevelopmentPictograms;
+			sourceTree = "<group>";
+		};
+		D85EBDDB18DC836700DF76B7 /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				D85EBDDE18DC839600DF76B7 /* Tests */,
+				D85EBDD818DC833A00DF76B7 /* BBAColor.h */,
+				D85EBDD918DC833A00DF76B7 /* BBAColor.m */,
+			);
+			name = Color;
+			sourceTree = "<group>";
+		};
+		D85EBDDE18DC839600DF76B7 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				D85EBDDC18DC839300DF76B7 /* BBAColourTests.m */,
+			);
+			name = Tests;
 			sourceTree = "<group>";
 		};
 		D864F1A018D3A02B00711986 /* Models */ = {
@@ -577,10 +631,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				D850E82C18C885230051CD51 /* Main.storyboard in Resources */,
+				D85EBDD718DC804400DF76B7 /* washhands.png in Resources */,
+				D85EBDD418DC804400DF76B7 /* play.png in Resources */,
+				D85EBDD518DC804400DF76B7 /* preparetable.png in Resources */,
+				D85EBDD118DC804400DF76B7 /* brushteeth.png in Resources */,
 				D8777FBA18D9EFE80006A263 /* bench.png in Resources */,
 				D83A62D418B696DC00EC0773 /* Images.xcassets in Resources */,
+				D85EBDD318DC804400DF76B7 /* karate.png in Resources */,
+				D85EBDD218DC804400DF76B7 /* eat.png in Resources */,
 				D8777FB918D9EFE80006A263 /* bike.png in Resources */,
 				D800896018DC514A003EFD7E /* karate.png in Resources */,
+				D85EBDD618DC804400DF76B7 /* toilet.png in Resources */,
 				D83A62C618B696DC00EC0773 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -615,6 +676,7 @@
 				D83A62C818B696DC00EC0773 /* main.m in Sources */,
 				D889F7EE18C9249A008A497F /* AppDelegate.m in Sources */,
 				D889F7EA18C90506008A497F /* BBAScheduleTableDataSource.m in Sources */,
+				D85EBDDA18DC833A00DF76B7 /* BBAColor.m in Sources */,
 				D8DB7FFF18C50F4700BA2037 /* BBAShowScheduleViewController.m in Sources */,
 				D8DCF07218D9FFDF001370EE /* Pictogram.m in Sources */,
 				D8315AF418D39DEA00C4A340 /* Camera.m in Sources */,
@@ -633,10 +695,12 @@
 				6833530218D9E14F0027A507 /* BBAServiceProvider.m in Sources */,
 				D800896118DC67BA003EFD7E /* Pictogram.m in Sources */,
 				D8EA05F918D3578900F5D01F /* CoreData.xcdatamodeld in Sources */,
+				D878CAEB18DC868400DD1885 /* BBAColourTests.m in Sources */,
 				D8EC7D5318CA61E500B6A673 /* MockTableView.m in Sources */,
 				D813A9D118D38BA100D3515A /* MockScheduleOverviewViewController.m in Sources */,
 				D850E82B18C87C3D0051CD51 /* MockManagedObjectContext.m in Sources */,
 				D850E82F18C88E7E0051CD51 /* MockViewController.m in Sources */,
+				D85EBDDF18DC83B200DF76B7 /* BBAColor.m in Sources */,
 				D887832E18C8E33300F13B28 /* BBAScheduleOverviewViewControllerTests.m in Sources */,
 				D82838B518D5BA39009C03A8 /* UIApplicationTests.m in Sources */,
 				D8EA05A718D3541400F5D01F /* BBACoreDataStackTests.m in Sources */,

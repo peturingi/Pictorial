@@ -15,47 +15,93 @@ int main(int argc, char * argv[]) {
 
         NSString *fileName;
         
-        UIImage *bench = [UIImage imageNamed:@"bench.png"];
-        Pictogram *bench1 = (Pictogram *)[BBACoreDataStack createObjectInContexOfClass:[Pictogram class]];
-        [bench1 setTitle:@"Bench1"];
+        UIImage *img = [UIImage imageNamed:@"washhands.png"];
+        Pictogram *washhands = (Pictogram *)[BBACoreDataStack createObjectInContexOfClass:[Pictogram class]];
+        [washhands setTitle:@"Wash hands"];
         fileName = [UIApplication uniqueFileNameWithPrefix:@"Pictogram"];
-        [bench saveAtLocation:fileName];
-        [bench1 setImageURL:fileName];
-        [bench1 setUsedBy:schedule1];
-        if (![[schedule1 pictograms] containsObject:bench1]) {
-            [schedule1 insertObject:bench1 inPictogramsAtIndex:schedule1.pictograms.count];
-        }
-        /*
-        UIImage *karate = [UIImage imageNamed:@"karate.png"];
-        Pictogram *karate1 = [[BBACoreDataStack sharedInstance] pictogramWithTitle:@"Karate" withImage:karate];
-        [karate1 setUsedBy:schedule1];
-        if (![[schedule1 pictograms] containsObject:bench1]) {
-            [schedule1 insertObject:karate1 inPictogramsAtIndex:schedule1.pictograms.count];
-        }
-        Pictogram *bench2 = [[BBACoreDataStack sharedInstance] pictogramWithTitle:@"Bench" withImage:bench];
-        [bench2 setUsedBy:schedule1];
-        if (![[schedule1 pictograms] containsObject:bench2]) {
-            [schedule1 insertObject:bench2 inPictogramsAtIndex:schedule1.pictograms.count];
+        [img saveAtLocation:fileName];
+        [washhands setImageURL:fileName];
+        [washhands setUsedBy:schedule1];
+        if (![[schedule1 pictograms] containsObject:washhands]) {
+            [schedule1 insertObject:washhands inPictogramsAtIndex:schedule1.pictograms.count];
         }
         
-        Pictogram *karate2 = [[BBACoreDataStack sharedInstance] pictogramWithTitle:@"Karate" withImage:karate];
-        [karate2 setUsedBy:schedule1];
-        if (![[schedule1 pictograms] containsObject:bench2]) {
-            [schedule1 insertObject:karate2 inPictogramsAtIndex:schedule1.pictograms.count];
+        img = [UIImage imageNamed:@"preparetable.png"];
+        Pictogram *preparetable = (Pictogram *)[BBACoreDataStack createObjectInContexOfClass:[Pictogram class]];
+        [preparetable setTitle:@"Prepare table"];
+        fileName = [UIApplication uniqueFileNameWithPrefix:@"Pictogram"];
+        [img saveAtLocation:fileName];
+        [preparetable setImageURL:fileName];
+        [preparetable setUsedBy:schedule1];
+        if (![[schedule1 pictograms] containsObject:preparetable]) {
+            [schedule1 insertObject:preparetable inPictogramsAtIndex:schedule1.pictograms.count];
         }
         
-        Pictogram *bench3 = [[BBACoreDataStack sharedInstance] pictogramWithTitle:@"Bench" withImage:bench];
-        [bench3 setUsedBy:schedule1];
-        if (![[schedule1 pictograms] containsObject:bench3]) {
-            [schedule1 insertObject:bench3 inPictogramsAtIndex:schedule1.pictograms.count];
+        img = [UIImage imageNamed:@"eat.png"];
+        Pictogram *eat = (Pictogram *)[BBACoreDataStack createObjectInContexOfClass:[Pictogram class]];
+        [eat setTitle:@"Eat"];
+        fileName = [UIApplication uniqueFileNameWithPrefix:@"Pictogram"];
+        [img saveAtLocation:fileName];
+        [eat setImageURL:fileName];
+        [eat setUsedBy:schedule1];
+        if (![[schedule1 pictograms] containsObject:eat]) {
+            [schedule1 insertObject:eat inPictogramsAtIndex:schedule1.pictograms.count];
         }
         
-        Pictogram *karate3 = [[BBACoreDataStack sharedInstance] pictogramWithTitle:@"Karate" withImage:karate];
-        [karate3 setUsedBy:schedule1];
-        if (![[schedule1 pictograms] containsObject:bench3]) {
-            [schedule1 insertObject:karate3 inPictogramsAtIndex:schedule1.pictograms.count];
+        img = [UIImage imageNamed:@"brushteeth.png"];
+        Pictogram *brush = (Pictogram *)[BBACoreDataStack createObjectInContexOfClass:[Pictogram class]];
+        [brush setTitle:@"Toilet"];
+        fileName = [UIApplication uniqueFileNameWithPrefix:@"Pictogram"];
+        [img saveAtLocation:fileName];
+        [brush setImageURL:fileName];
+        [brush setUsedBy:schedule1];
+        if (![[schedule1 pictograms] containsObject:brush]) {
+            [schedule1 insertObject:brush inPictogramsAtIndex:schedule1.pictograms.count];
         }
-        */
+        
+        img = [UIImage imageNamed:@"toilet.png"];
+        Pictogram *wc = (Pictogram *)[BBACoreDataStack createObjectInContexOfClass:[Pictogram class]];
+        [wc setTitle:@"Toilet"];
+        fileName = [UIApplication uniqueFileNameWithPrefix:@"Pictogram"];
+        [img saveAtLocation:fileName];
+        [wc setImageURL:fileName];
+        [wc setUsedBy:schedule1];
+        if (![[schedule1 pictograms] containsObject:wc]) {
+            [schedule1 insertObject:wc inPictogramsAtIndex:schedule1.pictograms.count];
+        }
+        
+        img = [UIImage imageNamed:@"play.png"];
+        Pictogram *play = (Pictogram *)[BBACoreDataStack createObjectInContexOfClass:[Pictogram class]];
+        [play setTitle:@"Play"];
+        fileName = [UIApplication uniqueFileNameWithPrefix:@"Pictogram"];
+        [img saveAtLocation:fileName];
+        [play setImageURL:fileName];
+        [play setUsedBy:schedule1];
+        if (![[schedule1 pictograms] containsObject:play]) {
+            [schedule1 insertObject:play inPictogramsAtIndex:schedule1.pictograms.count];
+        }
+        
+        img = [UIImage imageNamed:@"washhands.png"];
+        Pictogram *washhands2 = (Pictogram *)[BBACoreDataStack createObjectInContexOfClass:[Pictogram class]];
+        [washhands2 setTitle:@"Wash hands"];
+        fileName = [UIApplication uniqueFileNameWithPrefix:@"Pictogram"];
+        [img saveAtLocation:fileName];
+        [washhands2 setImageURL:fileName];
+        [washhands2 setUsedBy:schedule1];
+        if (![[schedule1 pictograms] containsObject:washhands2]) {
+            [schedule1 insertObject:washhands2 inPictogramsAtIndex:schedule1.pictograms.count];
+        }
+        
+        img = [UIImage imageNamed:@"toilet.png"];
+        Pictogram *wc2 = (Pictogram *)[BBACoreDataStack createObjectInContexOfClass:[Pictogram class]];
+        [wc2 setTitle:@"Toilet"];
+        fileName = [UIApplication uniqueFileNameWithPrefix:@"Pictogram"];
+        [img saveAtLocation:fileName];
+        [wc2 setImageURL:fileName];
+        [wc2 setUsedBy:schedule1];
+        if (![[schedule1 pictograms] containsObject:wc2]) {
+            [schedule1 insertObject:wc2 inPictogramsAtIndex:schedule1.pictograms.count];
+        }
         
         [BBACoreDataStack saveContext:nil];
 #endif
