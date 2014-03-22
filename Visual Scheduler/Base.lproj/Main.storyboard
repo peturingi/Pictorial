@@ -264,14 +264,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" restorationIdentifier="schedulesPictogram" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="schedulesPictogram" rowHeight="194" id="RL9-FD-tpY">
+                            <tableViewCell autoresizesSubviews="NO" contentMode="scaleToFill" restorationIdentifier="schedulesPictogram" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="schedulesPictogram" rowHeight="194" id="RL9-FD-tpY">
                                 <rect key="frame" x="0.0" y="86" width="768" height="194"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RL9-FD-tpY" id="P8n-2B-utw">
                                     <rect key="frame" x="0.0" y="0.0" width="768" height="194"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" tag="1" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FO4-ov-Xk0" userLabel="pictogram">
+                                        <imageView tag="1" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FO4-ov-Xk0" userLabel="pictogram">
                                             <rect key="frame" x="297" y="10" width="175" height="175"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <constraints>
@@ -298,7 +298,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="K7d-ag-uvP">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="8Mb-Qt-IbS"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="8Mb-Qt-IbS">
+                            <connections>
+                                <action selector="toggleEditMode:" destination="gcU-7o-ixR" id="kKA-W7-JXe"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="navigationController.toolbarHidden" value="YES"/>

@@ -32,6 +32,10 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+    NSLog(@"Moved from %@ to %@", sourceIndexPath, destinationIndexPath);
+}
+
 - (NSArray *)dataSource {
     return self.delegate.schedule.pictograms.array;
 }
