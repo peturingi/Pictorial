@@ -38,6 +38,7 @@
 		D850E82B18C87C3D0051CD51 /* MockManagedObjectContext.m in Sources */ = {isa = PBXBuildFile; fileRef = D850E82A18C87C3D0051CD51 /* MockManagedObjectContext.m */; };
 		D850E82C18C885230051CD51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D83A62CD18B696DC00EC0773 /* Main.storyboard */; };
 		D850E82F18C88E7E0051CD51 /* MockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D850E82E18C88E7E0051CD51 /* MockViewController.m */; };
+		D8534F7D18DDB51D0055FA93 /* BBAShowScheduleCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8534F7C18DDB51D0055FA93 /* BBAShowScheduleCollectionViewController.m */; };
 		D85E8CD618CA584200BB5F10 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D85E8CD418CA584200BB5F10 /* CoreData.xcdatamodeld */; };
 		D85EBDC818DC6B7700DF76B7 /* MockCameraDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8315AFC18D39E0600C4A340 /* MockCameraDelegate.m */; };
 		D85EBDD118DC804400DF76B7 /* brushteeth.png in Resources */ = {isa = PBXBuildFile; fileRef = D85EBDCA18DC804400DF76B7 /* brushteeth.png */; };
@@ -128,6 +129,8 @@
 		D850E82D18C88E7E0051CD51 /* MockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockViewController.h; sourceTree = "<group>"; };
 		D850E82E18C88E7E0051CD51 /* MockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockViewController.m; sourceTree = "<group>"; };
 		D850E83018C890F00051CD51 /* BBAShowScheduleViewController_BBAShowScheduleViewControllerPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BBAShowScheduleViewController_BBAShowScheduleViewControllerPrivate.h; path = "Visual SchedulerTests/BBAShowScheduleViewController_BBAShowScheduleViewControllerPrivate.h"; sourceTree = SOURCE_ROOT; };
+		D8534F7B18DDB51D0055FA93 /* BBAShowScheduleCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBAShowScheduleCollectionViewController.h; path = "Controllers/Show Schedule/BBAShowScheduleCollectionViewController.h"; sourceTree = "<group>"; };
+		D8534F7C18DDB51D0055FA93 /* BBAShowScheduleCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBAShowScheduleCollectionViewController.m; path = "Controllers/Show Schedule/BBAShowScheduleCollectionViewController.m"; sourceTree = "<group>"; };
 		D85E8CD518CA584200BB5F10 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 		D85EA1A718C4B12300ACDBD6 /* BBAScheduleOverviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBAScheduleOverviewViewController.h; path = Controllers/BBAScheduleOverviewViewController.h; sourceTree = "<group>"; };
 		D85EA1A818C4B12300ACDBD6 /* BBAScheduleOverviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBAScheduleOverviewViewController.m; path = Controllers/BBAScheduleOverviewViewController.m; sourceTree = "<group>"; };
@@ -317,6 +320,8 @@
 				D83A62CA18B696DC00EC0773 /* AppDelegate.h */,
 				D83A62CB18B696DC00EC0773 /* AppDelegate.m */,
 				D83A62CD18B696DC00EC0773 /* Main.storyboard */,
+				D8534F7B18DDB51D0055FA93 /* BBAShowScheduleCollectionViewController.h */,
+				D8534F7C18DDB51D0055FA93 /* BBAShowScheduleCollectionViewController.m */,
 				D8315AF518D39DF000C4A340 /* Camera */,
 				D82838B018D5B85A009C03A8 /* Categories */,
 				D83A62F718B69BEF00EC0773 /* Controllers */,
@@ -660,6 +665,7 @@
 				D82838AF18D5B850009C03A8 /* UIImage+BBA.m in Sources */,
 				683352FC18D9DDA10027A507 /* BBAStore.m in Sources */,
 				D83A62C818B696DC00EC0773 /* main.m in Sources */,
+				D8534F7D18DDB51D0055FA93 /* BBAShowScheduleCollectionViewController.m in Sources */,
 				D889F7EE18C9249A008A497F /* AppDelegate.m in Sources */,
 				D889F7EA18C90506008A497F /* BBAScheduleTableDataSource.m in Sources */,
 				D85EBDDA18DC833A00DF76B7 /* BBAColor.m in Sources */,

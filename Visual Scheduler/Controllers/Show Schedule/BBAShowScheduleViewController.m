@@ -1,7 +1,9 @@
 #import "BBAShowScheduleViewController.h"
 #import "BBAColor.h"
+#import "BBAShowScheduleCollectionViewController.h"
 
 @interface BBAShowScheduleViewController ()
+@property (strong, nonatomic) BBAShowScheduleCollectionViewController *showScheduleCollectionViewController;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *editButton;
 @end
 
@@ -16,7 +18,7 @@
 
 - (void)configureScheduleBackgroundColor {
     NSUInteger backgroundColorIndex = [[self.schedule colour] integerValue];
-    [[self tableView] setBackgroundColor:[BBAColor colorForIndex:backgroundColorIndex]];
+    [[self view] setBackgroundColor:[BBAColor colorForIndex:backgroundColorIndex]];
 }
 
 - (void)registerForNotifications {
@@ -44,8 +46,12 @@
 - (void)viewDidDisappear:(BOOL)animated {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
-- (IBAction)toggleEditMode:(id)sender {
-    self.tableView.editing = !self.tableView.editing;
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"embedScheduleCollection"]) {
+        _showScheduleCollectionViewController = (BBAShowScheduleCollectionViewController *)segue.destinationViewController;
+        [_showScheduleCollectionViewController setSchedule:self.schedule];
+    }
 }
 
 @end

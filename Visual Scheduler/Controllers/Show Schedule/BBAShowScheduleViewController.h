@@ -1,7 +1,7 @@
 #import <UIKit/UIKit.h>
 #import "Schedule.h"
 
-@interface BBAShowScheduleViewController : UITableViewController
+@interface BBAShowScheduleViewController : UIViewController
 
 @property (strong, nonatomic) Schedule *schedule;
 
