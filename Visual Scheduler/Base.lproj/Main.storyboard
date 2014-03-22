@@ -332,16 +332,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <containerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e87-5T-1Rf">
+                            <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e87-5T-1Rf">
                                 <rect key="frame" x="284" y="0.0" width="200" height="1024"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="4bi-nG-854"/>
+                                </constraints>
                                 <connections>
                                     <segue destination="kmr-Fe-PZc" kind="embed" identifier="embedScheduleCollection" id="LZF-mv-2W0"/>
                                 </connections>
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="e87-5T-1Rf" firstAttribute="top" secondItem="9NN-vh-S35" secondAttribute="top" id="DOJ-68-pgC"/>
+                            <constraint firstItem="e87-5T-1Rf" firstAttribute="centerX" secondItem="9NN-vh-S35" secondAttribute="centerX" id="Grv-22-Lxn"/>
+                            <constraint firstAttribute="bottom" secondItem="e87-5T-1Rf" secondAttribute="bottom" id="W0o-Uc-9f7"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="tdX-9K-31m"/>
                 </viewController>
@@ -353,7 +361,7 @@
         <scene sceneID="i0W-vZ-VwY">
             <objects>
                 <collectionViewController autoresizesArchivedViewToFullSize="NO" id="kmr-Fe-PZc" customClass="BBAShowScheduleCollectionViewController" sceneMemberID="viewController">
-                    <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="Yh6-Wp-ppQ">
+                    <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="Yh6-Wp-ppQ">
                         <rect key="frame" x="0.0" y="0.0" width="200" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="2M3-Vn-sgg">
@@ -390,7 +398,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mwp-DE-A0U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1548" y="-1501"/>
+            <point key="canvasLocation" x="1571" y="-1501"/>
         </scene>
         <!--New Activity-->
         <scene sceneID="13z-Fo-S6C">
