@@ -104,6 +104,10 @@ int main(int argc, char * argv[]) {
             [schedule1 insertObject:wc2 inPictogramsAtIndex:schedule1.pictograms.count];
         }
         
+        Pictogram *notInUse = (Pictogram *)[BBACoreDataStack createObjectInContexOfClass:[Pictogram class]];
+        [notInUse setTitle:@"Not in use"];
+        [notInUse setImageURL:fileName];
+        
         [BBACoreDataStack saveContext:nil];
 #endif
         

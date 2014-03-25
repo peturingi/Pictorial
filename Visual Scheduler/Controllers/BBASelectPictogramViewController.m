@@ -21,7 +21,6 @@ NSInteger const kCellTagForLabelView = 2;
 }
 
 - (void)setupCoreData {
-    //_fetchedResultsController = [[BBACoreDataStack sharedInstance] fetchedResultsControllerForPictogram];
     _fetchedResultsController = [BBACoreDataStack fetchedResultsControllerForClass:[Pictogram class]];
     [_fetchedResultsController setDelegate:self];
     [_fetchedResultsController performFetch:nil];
@@ -62,7 +61,6 @@ NSInteger const kCellTagForLabelView = 2;
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     _selectedItem = [_fetchedResultsController objectAtIndexPath:indexPath];
     [self informDelegateWhichItemWasSelected];
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)informDelegateWhichItemWasSelected {

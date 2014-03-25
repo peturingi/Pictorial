@@ -19,6 +19,7 @@
 		D82838AF18D5B850009C03A8 /* UIImage+BBA.m in Sources */ = {isa = PBXBuildFile; fileRef = D82838AE18D5B850009C03A8 /* UIImage+BBA.m */; };
 		D82838B318D5B9DF009C03A8 /* UIApplication+BBA.m in Sources */ = {isa = PBXBuildFile; fileRef = D82838B218D5B9DF009C03A8 /* UIApplication+BBA.m */; };
 		D82838B518D5BA39009C03A8 /* UIApplicationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D82838B418D5BA39009C03A8 /* UIApplicationTests.m */; };
+		D829DDAA18E191C00039A449 /* vs.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = D829DDA918E191C00039A449 /* vs.sqlite3 */; };
 		D82D5FD418C616A6000A8FD3 /* UIView+BBASubviews.m in Sources */ = {isa = PBXBuildFile; fileRef = D82D5FD318C616A6000A8FD3 /* UIView+BBASubviews.m */; };
 		D8311D3C18D9F61D00DD6E2B /* BBAShowScheduleTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D8311D3B18D9F61D00DD6E2B /* BBAShowScheduleTableDataSource.m */; };
 		D8315AF418D39DEA00C4A340 /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = D8315AF218D39DEA00C4A340 /* Camera.m */; };
@@ -93,6 +94,7 @@
 		D82838B118D5B9DF009C03A8 /* UIApplication+BBA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIApplication+BBA.h"; path = "Visual Scheduler/Category/UIApplication+BBA.h"; sourceTree = "<group>"; };
 		D82838B218D5B9DF009C03A8 /* UIApplication+BBA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIApplication+BBA.m"; path = "Visual Scheduler/Category/UIApplication+BBA.m"; sourceTree = "<group>"; };
 		D82838B418D5BA39009C03A8 /* UIApplicationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIApplicationTests.m; path = "Visual SchedulerTests/UIApplicationTests.m"; sourceTree = "<group>"; };
+		D829DDA918E191C00039A449 /* vs.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = vs.sqlite3; sourceTree = "<group>"; };
 		D82D5FD218C616A6000A8FD3 /* UIView+BBASubviews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+BBASubviews.h"; path = "Visual Scheduler/Category/UIView+BBASubviews.h"; sourceTree = "<group>"; };
 		D82D5FD318C616A6000A8FD3 /* UIView+BBASubviews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+BBASubviews.m"; path = "Visual Scheduler/Category/UIView+BBASubviews.m"; sourceTree = "<group>"; };
 		D8311D3A18D9F61D00DD6E2B /* BBAShowScheduleTableDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBAShowScheduleTableDataSource.h; path = "Controllers/Show Schedule/BBAShowScheduleTableDataSource.h"; sourceTree = "<group>"; };
@@ -244,10 +246,19 @@
 		D82838B818D5D39F009C03A8 /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
+				D8DB800018C50FAC00BA2037 /* Show Schedule */,
 				D8DB7FF618C4DA2F00BA2037 /* Add Schedule */,
 				D85EA1AA18C4B3DE00ACDBD6 /* Schedule Overview */,
 			);
 			name = Schedule;
+			sourceTree = "<group>";
+		};
+		D829DDA818E191B60039A449 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				D829DDA918E191C00039A449 /* vs.sqlite3 */,
+			);
+			name = Database;
 			sourceTree = "<group>";
 		};
 		D8315AF518D39DF000C4A340 /* Camera */ = {
@@ -275,6 +286,7 @@
 		D83A62AF18B696DB00EC0773 = {
 			isa = PBXGroup;
 			children = (
+				D829DDA818E191B60039A449 /* Database */,
 				D85E8CD418CA584200BB5F10 /* CoreData.xcdatamodeld */,
 				D878CAEC18DC95EB00DD1885 /* Pictogram.h */,
 				D878CAED18DC95EB00DD1885 /* Pictogram.m */,
@@ -390,7 +402,6 @@
 				D85EA1A818C4B12300ACDBD6 /* BBAScheduleOverviewViewController.m */,
 				D889F7E818C90506008A497F /* BBAScheduleTableDataSource.h */,
 				D889F7E918C90506008A497F /* BBAScheduleTableDataSource.m */,
-				D8DB800018C50FAC00BA2037 /* Show Schedule */,
 			);
 			name = "Schedule Overview";
 			sourceTree = "<group>";
@@ -631,6 +642,7 @@
 				D85EBDD118DC804400DF76B7 /* brushteeth.png in Resources */,
 				D83A62D418B696DC00EC0773 /* Images.xcassets in Resources */,
 				D85EBDD318DC804400DF76B7 /* karate.png in Resources */,
+				D829DDAA18E191C00039A449 /* vs.sqlite3 in Resources */,
 				D85EBDD218DC804400DF76B7 /* eat.png in Resources */,
 				D85EBDD618DC804400DF76B7 /* toilet.png in Resources */,
 				D83A62C618B696DC00EC0773 /* InfoPlist.strings in Resources */,
