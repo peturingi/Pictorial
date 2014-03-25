@@ -35,11 +35,13 @@
 		D83A62DD18B696DC00EC0773 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BF18B696DC00EC0773 /* UIKit.framework */; };
 		D83A62E518B696DC00EC0773 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D83A62E318B696DC00EC0773 /* InfoPlist.strings */; };
 		D850E82618C86F420051CD51 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D850E82518C86F420051CD51 /* MobileCoreServices.framework */; };
-		D850E82818C8746A0051CD51 /* BBAShowScheduleViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D850E82718C8746A0051CD51 /* BBAShowScheduleViewControllerTests.m */; };
 		D850E82B18C87C3D0051CD51 /* MockManagedObjectContext.m in Sources */ = {isa = PBXBuildFile; fileRef = D850E82A18C87C3D0051CD51 /* MockManagedObjectContext.m */; };
 		D850E82C18C885230051CD51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D83A62CD18B696DC00EC0773 /* Main.storyboard */; };
 		D850E82F18C88E7E0051CD51 /* MockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D850E82E18C88E7E0051CD51 /* MockViewController.m */; };
 		D8534F7D18DDB51D0055FA93 /* BBAShowScheduleCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8534F7C18DDB51D0055FA93 /* BBAShowScheduleCollectionViewController.m */; };
+		D853A80E18E1DD3C0031E986 /* SQLiteStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D853A80D18E1DD3C0031E986 /* SQLiteStore.m */; };
+		D853A81018E1DD600031E986 /* SQLiteStoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D853A80F18E1DD600031E986 /* SQLiteStoreTests.m */; };
+		D853A81218E1E0280031E986 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D853A81118E1E0280031E986 /* libsqlite3.dylib */; };
 		D85E8CD618CA584200BB5F10 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D85E8CD418CA584200BB5F10 /* CoreData.xcdatamodeld */; };
 		D85EBDC818DC6B7700DF76B7 /* MockCameraDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8315AFC18D39E0600C4A340 /* MockCameraDelegate.m */; };
 		D85EBDD118DC804400DF76B7 /* brushteeth.png in Resources */ = {isa = PBXBuildFile; fileRef = D85EBDCA18DC804400DF76B7 /* brushteeth.png */; };
@@ -133,6 +135,11 @@
 		D850E83018C890F00051CD51 /* BBAShowScheduleViewController_BBAShowScheduleViewControllerPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BBAShowScheduleViewController_BBAShowScheduleViewControllerPrivate.h; path = "Visual SchedulerTests/BBAShowScheduleViewController_BBAShowScheduleViewControllerPrivate.h"; sourceTree = SOURCE_ROOT; };
 		D8534F7B18DDB51D0055FA93 /* BBAShowScheduleCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBAShowScheduleCollectionViewController.h; path = "Controllers/Show Schedule/BBAShowScheduleCollectionViewController.h"; sourceTree = "<group>"; };
 		D8534F7C18DDB51D0055FA93 /* BBAShowScheduleCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBAShowScheduleCollectionViewController.m; path = "Controllers/Show Schedule/BBAShowScheduleCollectionViewController.m"; sourceTree = "<group>"; };
+		D853A80B18E1DB850031E986 /* DataStoreProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataStoreProtocol.h; path = "Visual Scheduler/Database/DataStoreProtocol.h"; sourceTree = "<group>"; };
+		D853A80C18E1DD3C0031E986 /* SQLiteStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQLiteStore.h; path = "Visual Scheduler/Database/SQLiteStore.h"; sourceTree = "<group>"; };
+		D853A80D18E1DD3C0031E986 /* SQLiteStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQLiteStore.m; path = "Visual Scheduler/Database/SQLiteStore.m"; sourceTree = "<group>"; };
+		D853A80F18E1DD600031E986 /* SQLiteStoreTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQLiteStoreTests.m; path = "Visual Scheduler/Database/SQLiteStoreTests.m"; sourceTree = "<group>"; };
+		D853A81118E1E0280031E986 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		D85E8CD518CA584200BB5F10 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 		D85EA1A718C4B12300ACDBD6 /* BBAScheduleOverviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBAScheduleOverviewViewController.h; path = Controllers/BBAScheduleOverviewViewController.h; sourceTree = "<group>"; };
 		D85EA1A818C4B12300ACDBD6 /* BBAScheduleOverviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBAScheduleOverviewViewController.m; path = Controllers/BBAScheduleOverviewViewController.m; sourceTree = "<group>"; };
@@ -183,6 +190,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D853A81218E1E0280031E986 /* libsqlite3.dylib in Frameworks */,
 				D8E7A2C818CA52FE005F505C /* CoreData.framework in Frameworks */,
 				D850E82618C86F420051CD51 /* MobileCoreServices.framework in Frameworks */,
 				D83A62BE18B696DC00EC0773 /* CoreGraphics.framework in Frameworks */,
@@ -257,6 +265,10 @@
 			isa = PBXGroup;
 			children = (
 				D829DDA918E191C00039A449 /* vs.sqlite3 */,
+				D853A80B18E1DB850031E986 /* DataStoreProtocol.h */,
+				D853A80C18E1DD3C0031E986 /* SQLiteStore.h */,
+				D853A80D18E1DD3C0031E986 /* SQLiteStore.m */,
+				D853A80F18E1DD600031E986 /* SQLiteStoreTests.m */,
 			);
 			name = Database;
 			sourceTree = "<group>";
@@ -312,6 +324,7 @@
 		D83A62BA18B696DC00EC0773 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D853A81118E1E0280031E986 /* libsqlite3.dylib */,
 				D8E7A2C718CA52FE005F505C /* CoreData.framework */,
 				D8BD79D418CA04AD0004FD36 /* ocmock */,
 				D850E82518C86F420051CD51 /* MobileCoreServices.framework */,
@@ -687,6 +700,7 @@
 				D800896218DC6882003EFD7E /* BBAServiceProvider.m in Sources */,
 				683352FF18D9DDF70027A507 /* BBAContext.m in Sources */,
 				D8EA05F718D355E000F5D01F /* BBACoreDataStack.m in Sources */,
+				D853A80E18E1DD3C0031E986 /* SQLiteStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -700,13 +714,13 @@
 				D878CAEB18DC868400DD1885 /* BBAColourTests.m in Sources */,
 				D8EC7D5318CA61E500B6A673 /* MockTableView.m in Sources */,
 				D813A9D118D38BA100D3515A /* MockScheduleOverviewViewController.m in Sources */,
+				D853A81018E1DD600031E986 /* SQLiteStoreTests.m in Sources */,
 				D850E82B18C87C3D0051CD51 /* MockManagedObjectContext.m in Sources */,
 				D850E82F18C88E7E0051CD51 /* MockViewController.m in Sources */,
 				D85EBDDF18DC83B200DF76B7 /* BBAColor.m in Sources */,
 				D887832E18C8E33300F13B28 /* BBAScheduleOverviewViewControllerTests.m in Sources */,
 				D82838B518D5BA39009C03A8 /* UIApplicationTests.m in Sources */,
 				D8EA05A718D3541400F5D01F /* BBACoreDataStackTests.m in Sources */,
-				D850E82818C8746A0051CD51 /* BBAShowScheduleViewControllerTests.m in Sources */,
 				D85EBDC818DC6B7700DF76B7 /* MockCameraDelegate.m in Sources */,
 				D800896718DC694D003EFD7E /* BBAScheduleOverviewViewController.m in Sources */,
 				D813A9D018D38B0E00D3515A /* ScheduleTableDataSourceTests.m in Sources */,

@@ -27,6 +27,36 @@
             endingLineNumber = "38"
             landmarkName = "+serviceExists:"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "+[BBAServiceProvider serviceExists:]"
+                  moduleName = "Visual Scheduler"
+                  urlString = "file:///Users/petur/Development/Visual%20Scheduler/Visual%20Scheduler/BBAServiceProvider.m"
+                  timestampString = "417460703.283986"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "57">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "+[BBAServiceProvider serviceExists:]"
+                  moduleName = "Visual SchedulerTests"
+                  urlString = "file:///Users/petur/Development/Visual%20Scheduler/Visual%20Scheduler/BBAServiceProvider.m"
+                  timestampString = "417460703.739711"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "39">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -43,6 +73,36 @@
             endingLineNumber = "27"
             landmarkName = "+deleteServiceOfClass:"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "+[BBAServiceProvider deleteServiceOfClass:]"
+                  moduleName = "Visual Scheduler"
+                  urlString = "file:///Users/petur/Development/Visual%20Scheduler/Visual%20Scheduler/BBAServiceProvider.m"
+                  timestampString = "417460703.285055"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "+[BBAServiceProvider deleteServiceOfClass:]"
+                  moduleName = "Visual SchedulerTests"
+                  urlString = "file:///Users/petur/Development/Visual%20Scheduler/Visual%20Scheduler/BBAServiceProvider.m"
+                  timestampString = "417460703.740168"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -59,6 +119,36 @@
             endingLineNumber = "20"
             landmarkName = "+insertService:"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "+[BBAServiceProvider insertService:]"
+                  moduleName = "Visual Scheduler"
+                  urlString = "file:///Users/petur/Development/Visual%20Scheduler/Visual%20Scheduler/BBAServiceProvider.m"
+                  timestampString = "417460703.286343"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "57">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "+[BBAServiceProvider insertService:]"
+                  moduleName = "Visual SchedulerTests"
+                  urlString = "file:///Users/petur/Development/Visual%20Scheduler/Visual%20Scheduler/BBAServiceProvider.m"
+                  timestampString = "417460703.74053"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "39">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
