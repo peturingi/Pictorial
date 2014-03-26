@@ -55,10 +55,26 @@
     return schedules;
 }
 
-- (NSArray *)allPictograms {
+- (NSArray *)allPictogramsIncludingImages:(BOOL)value {
     NSMutableArray *pictograms = [NSMutableArray array];
-    NSArray *rawPictograms = [_dataStore contentOfAllPictogramsIncludingImageData:NO];
+    NSArray *rawPictograms = [_dataStore contentOfAllPictogramsIncludingImageData:value];
     for (NSDictionary *dict in rawPictograms) {
+        NSNumber *uniqueIdentifier = [dict valueForKey:@"id"];
+        NSString *title = [dict valueForKey:@"title"];
+        Pictogram *pictogram = [[Pictogram alloc] initWithTitle:title withUniqueIdentifier:uniqueIdentifier.integerValue withImage:nil];
+        [pictograms addObject:pictogram];
+    }
+    return pictograms;
+}
+
+-(void)addPictogram:(Pictogram *)pictogram toSchedule:(Schedule *)schedule atIndex:(NSInteger)index{
+    [_dataStore addPictogram:pictogram.uniqueIdentifier toSchedule:schedule.uniqueIdentifier atIndex:index];
+}
+
+-(NSArray*)pictogramsForSchedule:(Schedule *)schedule includingImages:(BOOL)value{
+    NSMutableArray* pictograms = [NSMutableArray array];
+    NSArray* contentForPictograms = [_dataStore contentOfAllPictogramsInSchedule:schedule.uniqueIdentifier includingImageData:value];
+    for(NSDictionary* dict in contentForPictograms){
         NSNumber *uniqueIdentifier = [dict valueForKey:@"id"];
         NSString *title = [dict valueForKey:@"title"];
         Pictogram *pictogram = [[Pictogram alloc] initWithTitle:title withUniqueIdentifier:uniqueIdentifier.integerValue withImage:nil];

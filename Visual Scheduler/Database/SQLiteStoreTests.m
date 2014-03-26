@@ -153,7 +153,7 @@
     [_dataStore addPictogram:pictogramIdentifier toSchedule:scheduleIdentifier atIndex:1];
 
     NSArray *pictograms;
-    XCTAssertNoThrow(pictograms = [_dataStore contentOfAllPictogramsInSchedule:scheduleIdentifier]);
+    XCTAssertNoThrow(pictograms = [_dataStore contentOfAllPictogramsInSchedule:scheduleIdentifier includingImageData:NO]);
     XCTAssertTrue([[pictogram valueForKey:@"title"] isEqualToString:[[pictograms objectAtIndex:0] valueForKey:@"title"]]);
     XCTAssertTrue(pictogramIdentifier == [[[pictograms objectAtIndex:0] valueForKey:@"id"] integerValue]);
 }

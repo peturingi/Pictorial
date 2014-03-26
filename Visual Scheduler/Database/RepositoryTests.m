@@ -54,9 +54,18 @@
 - (void)testCanGetAtleastTwoPictograms {
     [_repo pictogramWithTitle:@"Test Domain 1" withImage:[UIImage imageNamed:@"testImage"]];
     [_repo pictogramWithTitle:@"Test Domain 2" withImage:[UIImage imageNamed:@"testImage"]];
-    NSArray *pictograms = [_repo allPictograms];
+    NSArray *pictograms = [_repo allPictogramsIncludingImages:NO];
     XCTAssertTrue(pictograms.count >= 2, @"Expected atleast 2 pictograms.");
 }
 
+-(void)testCanAddPictogramsToSchedule{
+    Schedule* schedule = [_repo scheduleWithTitle:@"Test Domain" withColor:[UIColor whiteColor]];
+    Pictogram* pictogram1 = [_repo pictogramWithTitle:@"Test Domain 1" withImage:[UIImage imageNamed:@"testImage"]];
+    Pictogram* pictogram2 = [_repo pictogramWithTitle:@"Test Domain 2" withImage:[UIImage imageNamed:@"testImage"]];
+    [_repo addPictogram:pictogram1 toSchedule:schedule atIndex:0];
+    [_repo addPictogram:pictogram2 toSchedule:schedule atIndex:1];
+    NSArray* pictogramsInSchedule = [_repo pictogramsForSchedule:schedule includingImages:NO];
+    XCTAssert([pictogramsInSchedule count] >= 2, @"pictograms were not added");
+}
 
 @end
