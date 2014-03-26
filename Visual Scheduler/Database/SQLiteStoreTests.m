@@ -105,4 +105,38 @@
     XCTAssertThrows([_dataStore deletePictogramWithID:1000000], @"Expected an exception when attempting to delete a nonexcisting pictogram.");
 }
 
+- (void)testAddingPictogramToScheduleAtInvalidIndexThrows {
+    UIImage *testImage = [UIImage imageNamed:@"testImage"];
+    XCTAssertNotNil(testImage, @"Failed to load the test image.");
+    
+    NSDictionary *pictogram = @{@"title" : @"Test domain",
+                                @"image" : UIImagePNGRepresentation(testImage)};
+    NSInteger pictogramIdentifier = [_dataStore createPictogram:pictogram];
+
+    NSDictionary *schedule = @{@"title" : @"Test domain", @"color" : [NSNumber numberWithInt:0]};
+    NSInteger scheduleIdentifier = [_dataStore createSchedule:schedule];
+    
+   XCTAssertNoThrow([_dataStore addPictogram:pictogramIdentifier toSchedule:scheduleIdentifier atIndex:10000], @"Should not throw at valid index.");
+    XCTAssertThrows([_dataStore addPictogram:pictogramIdentifier toSchedule:scheduleIdentifier atIndex:10000], @"Expected throw at invalid index.");
+}
+
+- (void)testDeletingInvalidRelationThrows {
+    XCTAssertThrows([_dataStore removePictogram:999 fromSchedule:832 atIndex:121]);
+}
+
+- (void)testDeletingValidRelationNoThrow {
+    UIImage *testImage = [UIImage imageNamed:@"testImage"];
+    XCTAssertNotNil(testImage, @"Failed to load the test image.");
+    
+    NSDictionary *pictogram = @{@"title" : @"Test domain",
+                                @"image" : UIImagePNGRepresentation(testImage)};
+    NSInteger pictogramIdentifier = [_dataStore createPictogram:pictogram];
+    
+    NSDictionary *schedule = @{@"title" : @"Test domain", @"color" : [NSNumber numberWithInt:0]};
+    NSInteger scheduleIdentifier = [_dataStore createSchedule:schedule];
+    
+    [_dataStore addPictogram:pictogramIdentifier toSchedule:scheduleIdentifier atIndex:99];
+    XCTAssertNoThrow([_dataStore removePictogram:pictogramIdentifier fromSchedule:scheduleIdentifier atIndex:99], @"Expected no throw.");
+}
+
 @end

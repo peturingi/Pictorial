@@ -34,6 +34,26 @@
     return statement;
 }
 
+- (BOOL)relationExistsWithScheduleIdentifier:(NSInteger)scheduleIdentifier containingPictogramIdentifier:(NSInteger)pictogramIdentifier atIndex:(NSInteger)index {
+    BOOL exists = NO;
+    NSString *query = @"SELECT atIndex FROM ScheduleWithPictograms WHERE schedule = (?) AND pictogram = (?) AND atIndex = (?)";
+    sqlite3_stmt *statement = [self prepareStatementWithQuery:query];
+    if (sqlite3_bind_int64(statement, 1, scheduleIdentifier) != SQLITE_OK) {
+        @throw [NSException exceptionWithName:@"SQLite3 failed." reason:@"Unknown" userInfo:nil];
+    }
+    if (sqlite3_bind_int64(statement, 2, pictogramIdentifier) != SQLITE_OK) {
+        @throw [NSException exceptionWithName:@"SQLite3 failed." reason:@"Unknown" userInfo:nil];
+    }
+    if (sqlite3_bind_int64(statement, 3, index) != SQLITE_OK) {
+        @throw [NSException exceptionWithName:@"SQLite3 failed." reason:@"Unknown" userInfo:nil];
+    }
+    if (sqlite3_step(statement) == SQLITE_ROW) {
+        exists = YES;
+    }
+    sqlite3_finalize(statement);
+    return exists;
+}
+
 #pragma mark - Schedules
 
 - (NSArray *)contentOfAllSchedules {
@@ -92,6 +112,20 @@
         @throw [NSException exceptionWithName:@"SQLite3 failed to delete record." reason:@"Unknown" userInfo:nil];
     }
     sqlite3_finalize(statement);
+}
+
+- (BOOL)scheduleExistsWithIdentifier:(NSInteger)scheduleIdentifier {
+    BOOL exists = NO;
+    NSString *query = @"SELECT id FROM schedule WHERE id = (?)";
+    sqlite3_stmt *statement = [self prepareStatementWithQuery:query];
+    if (sqlite3_bind_int64(statement, 1, scheduleIdentifier) != SQLITE_OK) {
+        @throw [NSException exceptionWithName:@"SQLite3 query failed." reason:@"Unknown" userInfo:nil];
+    }
+    if (sqlite3_step(statement) == SQLITE_ROW) {
+        exists = YES;
+    }
+    sqlite3_finalize(statement);
+    return exists;
 }
 
 #pragma mark - Pictograms
@@ -192,6 +226,51 @@
     }
     sqlite3_finalize(statement);
     return exists;
+}
+
+#pragma mark - Relation
+
+- (void)addPictogram:(NSInteger)pictogramIdentifier toSchedule:(NSInteger)scheduleIdentifier atIndex:(NSInteger)index {
+    NSParameterAssert([self pictogramExistsWithIdentifier:pictogramIdentifier]);
+    NSParameterAssert([self scheduleExistsWithIdentifier:scheduleIdentifier]);
+    
+    NSString *query = @"INSERT INTO ScheduleWithPictograms (schedule, pictogram, atIndex) VALUES (?,?,?)";
+    sqlite3_stmt *statement = [self prepareStatementWithQuery:query];
+    
+    if (sqlite3_bind_int64(statement, 1, scheduleIdentifier) != SQLITE_OK) {
+        @throw [NSException exceptionWithName:@"SQlite3 query failed" reason:@"Unknown" userInfo:nil];
+    }
+    if (sqlite3_bind_int64(statement, 2, pictogramIdentifier) != SQLITE_OK) {
+        @throw [NSException exceptionWithName:@"Sqlite3 query failed" reason:@"Unknown" userInfo:nil];
+    }
+    if (sqlite3_bind_int64(statement, 3, index) != SQLITE_OK) {
+        @throw [NSException exceptionWithName:@"SQlite3 query failed." reason:@"Unknown" userInfo:nil];
+    }
+    if (sqlite3_step(statement) != SQLITE_DONE) {
+        @throw [NSException exceptionWithName:@"Failed to insert pictogram to schedule." reason:@"Index already in use." userInfo:nil];
+    }
+    sqlite3_finalize(statement);
+}
+
+- (void)removePictogram:(NSInteger)pictogramIdentifier fromSchedule:(NSInteger)scheduleIdentifier atIndex:(NSInteger)index {
+    if ([self relationExistsWithScheduleIdentifier:scheduleIdentifier containingPictogramIdentifier:pictogramIdentifier atIndex:index] != YES) {
+        @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"Trying to delete a relation which does not excist in the database." userInfo:nil];
+    }
+    NSString *query = @"DELETE FROM ScheduleWithPictograms WHERE schedule = (?) AND pictogram = (?) AND atIndex = (?)";
+    sqlite3_stmt *statement = [self prepareStatementWithQuery:query];
+    if (sqlite3_bind_int64(statement, 1, scheduleIdentifier) != SQLITE_OK) {
+        @throw [NSException exceptionWithName:@"SQlite3 query failed" reason:@"Unknown" userInfo:nil];
+    }
+    if (sqlite3_bind_int64(statement, 2, pictogramIdentifier) != SQLITE_OK) {
+        @throw [NSException exceptionWithName:@"Sqlite3 query failed" reason:@"Unknown" userInfo:nil];
+    }
+    if (sqlite3_bind_int64(statement, 3, index) != SQLITE_OK) {
+        @throw [NSException exceptionWithName:@"SQlite3 query failed." reason:@"Unknown" userInfo:nil];
+    }
+    if (sqlite3_step(statement) != SQLITE_DONE) {
+        @throw [NSException exceptionWithName:@"Failed to insert pictogram to schedule." reason:@"Index already in use." userInfo:nil];
+    }
+    sqlite3_finalize(statement);
 }
 
 
