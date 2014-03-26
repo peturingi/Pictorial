@@ -139,4 +139,23 @@
     XCTAssertNoThrow([_dataStore removePictogram:pictogramIdentifier fromSchedule:scheduleIdentifier atIndex:99], @"Expected no throw.");
 }
 
+- (void)testConcentOfAllPictogramsInSchedule {
+    UIImage *testImage = [UIImage imageNamed:@"testImage"];
+    XCTAssertNotNil(testImage, @"Failed to load the test image.");
+    
+    NSDictionary *pictogram = @{@"title" : @"Test domain",
+                                @"image" : UIImagePNGRepresentation(testImage)};
+    NSInteger pictogramIdentifier = [_dataStore createPictogram:pictogram];
+    
+    NSDictionary *schedule = @{@"title" : @"Test domain", @"color" : [NSNumber numberWithInt:0]};
+    NSInteger scheduleIdentifier = [_dataStore createSchedule:schedule];
+    
+    [_dataStore addPictogram:pictogramIdentifier toSchedule:scheduleIdentifier atIndex:1];
+
+    NSArray *pictograms;
+    XCTAssertNoThrow(pictograms = [_dataStore contentOfAllPictogramsInSchedule:scheduleIdentifier]);
+    XCTAssertTrue([[pictogram valueForKey:@"title"] isEqualToString:[[pictograms objectAtIndex:0] valueForKey:@"title"]]);
+    XCTAssertTrue(pictogramIdentifier == [[[pictograms objectAtIndex:0] valueForKey:@"id"] integerValue]);
+}
+
 @end

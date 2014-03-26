@@ -228,6 +228,34 @@
     return exists;
 }
 
+- (NSArray *)contentOfAllPictogramsInSchedule:(NSInteger)identifier {
+    NSParameterAssert([self scheduleExistsWithIdentifier:identifier]);
+    NSMutableArray *results = [NSMutableArray array];
+    
+    //NSString *query = @"SELECT id, title, image FROM pictogram ORDER BY title ASC";
+    NSString *query = @"SELECT P.id, P.title, P.image FROM pictogram AS P JOIN ScheduleWithPictograms AS SP ON P.id = SP.pictogram WHERE SP.schedule = (?) ORDER BY SP.atIndex";
+    sqlite3_stmt *statement = [self prepareStatementWithQuery:query];
+    if (sqlite3_bind_int64(statement, 1, identifier) != SQLITE_OK) {
+        @throw [NSException exceptionWithName:@"SQLite3 query failed." reason:@"Unknown" userInfo:nil];
+    }
+    while (sqlite3_step(statement) == SQLITE_ROW) {
+        int uid = sqlite3_column_int(statement, 0);
+        char *title = (char *)sqlite3_column_text(statement, 1);
+        
+        const void *ptrToImageData = sqlite3_column_blob(statement, 2);
+        int imageDataSize = sqlite3_column_bytes(statement, 2);
+        NSData *imageData = [[NSData alloc] initWithBytes:ptrToImageData length:imageDataSize];
+        
+        [results addObject:@{@"id" : [NSNumber numberWithInt:uid],
+                             @"title" : [NSString stringWithCString:title encoding:NSUTF8StringEncoding],
+                             @"image" : imageData}];
+    }
+    sqlite3_finalize(statement);
+    
+    return results;
+
+}
+
 #pragma mark - Relation
 
 - (void)addPictogram:(NSInteger)pictogramIdentifier toSchedule:(NSInteger)scheduleIdentifier atIndex:(NSInteger)index {
