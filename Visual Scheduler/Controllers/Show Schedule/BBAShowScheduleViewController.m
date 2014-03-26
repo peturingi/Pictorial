@@ -2,8 +2,8 @@
 #import "BBAColor.h"
 #import "BBAShowScheduleCollectionViewController.h"
 #import "BBASelectPictogramViewController.h"
-#import "Pictogram.h"
-#import "Schedule.h"
+//#import "Pictogram.h"
+//#import "Schedule.h"
 
 @interface BBAShowScheduleViewController ()
 @property (strong, nonatomic) BBAShowScheduleCollectionViewController *showScheduleCollectionViewController;
@@ -14,17 +14,17 @@
 
 @implementation BBAShowScheduleViewController
 
-- (void)viewWillAppear:(BOOL)animated {
-    [self setTitle:self.schedule.title];
-    [self configureScheduleBackgroundColor];
-    [self registerForNotifications];
-    [self controlAccessToEditButton];
-}
+//- (void)viewWillAppear:(BOOL)animated {
+//    [self setTitle:self.schedule.title];
+//    [self configureScheduleBackgroundColor];
+//    [self registerForNotifications];
+//    [self controlAccessToEditButton];
+//}
 
-- (void)configureScheduleBackgroundColor {
-    NSUInteger backgroundColorIndex = [[self.schedule colour] integerValue];
-    [[self view] setBackgroundColor:[BBAColor colorForIndex:backgroundColorIndex]];
-}
+//- (void)configureScheduleBackgroundColor {
+//    NSUInteger backgroundColorIndex = [[self.schedule colour] integerValue];
+//    [[self view] setBackgroundColor:[BBAColor colorForIndex:backgroundColorIndex]];
+//}
 
 - (void)registerForNotifications {
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -65,18 +65,18 @@
 
 #pragma mark Delegate
 
-- (void)BBASelectPictogramViewController:(BBASelectPictogramViewController *)controller didSelectItem:(Pictogram *)item {
-    NSLog(@"Selected pictogram: %@", item.title);
-    
-    if (![[self.schedule pictograms] containsObject:item]) {
-        [item addUsedByObject:self.schedule];
-        Schedule *s = self.schedule;
-        NSLog(@"Responds? %d", [s respondsToSelector:NSSelectorFromString(@"insertObject:inPictogramsAtIndex:")]);
-        [s insertObject:item inPictogramsAtIndex:self.schedule.pictograms.count];
-        NSLog(@"Added");
-    } else {
-        NSLog(@"Not added");
-    }
-}
+//- (void)BBASelectPictogramViewController:(BBASelectPictogramViewController *)controller didSelectItem:(Pictogram *)item {
+//    NSLog(@"Selected pictogram: %@", item.title);
+//    
+//    if (![[self.schedule pictograms] containsObject:item]) {
+//        [item addUsedByObject:self.schedule];
+//        Schedule *s = self.schedule;
+//        NSLog(@"Responds? %d", [s respondsToSelector:NSSelectorFromString(@"insertObject:inPictogramsAtIndex:")]);
+//        [s insertObject:item inPictogramsAtIndex:self.schedule.pictograms.count];
+//        NSLog(@"Added");
+//    } else {
+//        NSLog(@"Not added");
+//    }
+//}
 
 @end

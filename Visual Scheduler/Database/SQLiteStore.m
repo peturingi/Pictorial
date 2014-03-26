@@ -10,6 +10,10 @@
     return self;
 }
 
+- (void)dealloc {
+    [self closeStore];
+}
+
 #pragma mark - Database Connection
 
 - (void)establishDatabaseConnection {

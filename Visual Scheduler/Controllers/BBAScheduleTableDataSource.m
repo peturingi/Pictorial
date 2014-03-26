@@ -19,7 +19,7 @@ NSString * const kBBANotificationNameForNewDataAvailable = @"didUpdateScheduleTa
 
 - (void)setupDataSource {
     //self.dataSource = [[BBACoreDataStack sharedInstance] fetchedResultsControllerForSchedule];
-    self.dataSource = [BBACoreDataStack fetchedResultsControllerForClass:[Schedule class]];
+//    self.dataSource = [BBACoreDataStack fetchedResultsControllerForClass:[Schedule class]];
     [self.dataSource setDelegate:self];
     [self.dataSource performFetch:nil];
 }

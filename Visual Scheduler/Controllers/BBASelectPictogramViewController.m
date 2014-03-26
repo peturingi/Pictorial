@@ -21,7 +21,7 @@ NSInteger const kCellTagForLabelView = 2;
 }
 
 - (void)setupCoreData {
-    _fetchedResultsController = [BBACoreDataStack fetchedResultsControllerForClass:[Pictogram class]];
+//    _fetchedResultsController = [BBACoreDataStack fetchedResultsControllerForClass:[Pictogram class]];
     [_fetchedResultsController setDelegate:self];
     [_fetchedResultsController performFetch:nil];
 }
@@ -73,32 +73,32 @@ NSInteger const kCellTagForLabelView = 2;
     return [fetchedObjects count];
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *reusableCell = [collectionView dequeueReusableCellWithReuseIdentifier:kCellReusableIdentifier forIndexPath:indexPath];
-    [self configureCell:reusableCell atIndexPath:indexPath];
-    return reusableCell;
-}
+//- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+ //   UICollectionViewCell *reusableCell = [collectionView dequeueReusableCellWithReuseIdentifier:kCellReusableIdentifier forIndexPath:indexPath];
+ //   [self configureCell:reusableCell atIndexPath:indexPath];
+ //   return reusableCell;
+//}
 
-- (void)configureCell:(UICollectionViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    UIImageView *imageView = (UIImageView *)[cell.contentView firstSubviewWithTag:kCellTagForImageView];
-    UIImage *image = [self imageForPictogramAtIndexPath:indexPath];
-    [imageView setImage:image];
+//- (void)configureCell:(UICollectionViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+ //   UIImageView *imageView = (UIImageView *)[cell.contentView firstSubviewWithTag:kCellTagForImageView];
+//    UIImage *image = [self imageForPictogramAtIndexPath:indexPath];
+//    [imageView setImage:image];
     
-    UILabel *labelView = (UILabel *)[cell.contentView firstSubviewWithTag:kCellTagForLabelView];
-    NSString *title = [self titleForPictogramIndexPath:indexPath];
-    [labelView setText:title];
-}
+//    UILabel *labelView = (UILabel *)[cell.contentView firstSubviewWithTag:kCellTagForLabelView];
+ //   NSString *title = [self titleForPictogramIndexPath:indexPath];
+ //   [labelView setText:title];
+//}
 
-- (UIImage *)imageForPictogramAtIndexPath:(NSIndexPath *)indexPath {
-    Pictogram *pictogram = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    NSData *imageData = [NSData dataWithContentsOfFile:pictogram.imageURL];
-    return [UIImage imageWithData:imageData];
-}
+//- (UIImage *)imageForPictogramAtIndexPath:(NSIndexPath *)indexPath {
+ //   Pictogram *pictogram = [self.fetchedResultsController objectAtIndexPath:indexPath];
+//    NSData *imageData = [NSData dataWithContentsOfFile:pictogram.imageURL];
+//    return [UIImage imageWithData:imageData];
+//}
 
-- (NSString *)titleForPictogramIndexPath:(NSIndexPath *)indexPath {
-    Pictogram *pictogram = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    return pictogram.title;
-}
+//- (NSString *)titleForPictogramIndexPath:(NSIndexPath *)indexPath {
+ //   Pictogram *pictogram = [self.fetchedResultsController objectAtIndexPath:indexPath];
+//    return pictogram.title;
+//}
 
 #pragma mark - FetcheResultsController delegate
 

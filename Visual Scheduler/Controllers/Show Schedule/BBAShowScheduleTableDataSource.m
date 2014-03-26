@@ -24,8 +24,8 @@
             break;
         }
     }
-    Pictogram *pictogramToDisplayInImageView = [self.dataSource objectAtIndex:indexPath.row];
-    pictogramImageView.image = [UIImage imageWithContentsOfFile:pictogramToDisplayInImageView.imageURL];
+//    Pictogram *pictogramToDisplayInImageView = [self.dataSource objectAtIndex:indexPath.row];
+//    pictogramImageView.image = [UIImage imageWithContentsOfFile:pictogramToDisplayInImageView.imageURL];
     
     [cell setBackgroundColor:[[cell superview] backgroundColor]];
     
@@ -36,8 +36,8 @@
     NSLog(@"Moved from %@ to %@", sourceIndexPath, destinationIndexPath);
 }
 
-- (NSArray *)dataSource {
-    return self.delegate.schedule.pictograms.array;
-}
+//- (NSArray *)dataSource {
+//    return self.delegate.schedule.pictograms.array;
+//}
 
 @end

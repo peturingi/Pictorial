@@ -2,7 +2,7 @@
 #import "Show Schedule/BBAShowScheduleViewController.h"
 #import <CoreData/CoreData.h>
 #import "BBAScheduleTableDataSource.h"
-#import "Pictogram.h"
+//#import "Pictogram.h"
 
 static NSString * const kBBASortCellsBy = @"title";
 

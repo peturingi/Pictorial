@@ -2,7 +2,7 @@
 #import <CoreData/CoreData.h>
 
 #import "Schedule.h"
-#import "Pictogram.h"
+//#import "Pictogram.h"
 
 @interface BBACoreDataStack : NSObject{
     NSManagedObjectContext* _context;
@@ -13,7 +13,7 @@
 #pragma mark - Pictogram
 - (NSFetchedResultsController *)fetchedResultsControllerForPictograminSchedule:(Schedule *)schedule;
 - (NSFetchedResultsController *)fetchedResultsControllerForPictogram;
-- (Pictogram *)pictogramWithTitle:(NSString *)title withImage:(UIImage *)image;
+//- (Pictogram *)pictogramWithTitle:(NSString *)title withImage:(UIImage *)image;
 
 /**** Refactoring - nothing to see here yet! ***/
 
