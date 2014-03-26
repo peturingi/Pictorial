@@ -76,7 +76,7 @@
 #pragma mark - Pictograms
 
 - (void)testContentOfAllPictograms {
-    NSArray *content = [_dataStore contentOfAllPictograms];
+    NSArray *content = [_dataStore contentOfAllPictogramsIncludingImageData:YES];
     XCTAssertNotNil(content, @"Received invalid content.");
 }
 

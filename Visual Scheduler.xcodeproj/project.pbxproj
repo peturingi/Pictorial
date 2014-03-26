@@ -63,6 +63,7 @@
 		D8EB983118E33E4A00DA3A99 /* Repository.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EB983018E33E4A00DA3A99 /* Repository.m */; };
 		D8EB983418E33ECE00DA3A99 /* RepositoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EB983318E33ECE00DA3A99 /* RepositoryTests.m */; };
 		D8EB983718E340CF00DA3A99 /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EB983618E340CF00DA3A99 /* Schedule.m */; };
+		D8EB983B18E346DF00DA3A99 /* Pictogram.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EB983A18E346DF00DA3A99 /* Pictogram.m */; };
 		D8EC7D5318CA61E500B6A673 /* MockTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EC7D5218CA61E500B6A673 /* MockTableView.m */; };
 /* End PBXBuildFile section */
 
@@ -177,6 +178,8 @@
 		D8EB983318E33ECE00DA3A99 /* RepositoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RepositoryTests.m; path = "Visual Scheduler/Database/RepositoryTests.m"; sourceTree = "<group>"; };
 		D8EB983518E340CF00DA3A99 /* Schedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Schedule.h; path = "Visual Scheduler/Database/Schedule.h"; sourceTree = "<group>"; };
 		D8EB983618E340CF00DA3A99 /* Schedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Schedule.m; path = "Visual Scheduler/Database/Schedule.m"; sourceTree = "<group>"; };
+		D8EB983918E346DF00DA3A99 /* Pictogram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Pictogram.h; path = "Visual Scheduler/Database/Pictogram.h"; sourceTree = "<group>"; };
+		D8EB983A18E346DF00DA3A99 /* Pictogram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Pictogram.m; path = "Visual Scheduler/Database/Pictogram.m"; sourceTree = "<group>"; };
 		D8EC7D5118CA61E500B6A673 /* MockTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MockTableView.h; path = "Visual SchedulerTests/MockTableView.h"; sourceTree = SOURCE_ROOT; };
 		D8EC7D5218CA61E500B6A673 /* MockTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MockTableView.m; path = "Visual SchedulerTests/MockTableView.m"; sourceTree = SOURCE_ROOT; };
 		D8EC7D5418CA63C500B6A673 /* MockScheduleOverviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MockScheduleOverviewViewController.h; path = "Visual SchedulerTests/MockScheduleOverviewViewController.h"; sourceTree = SOURCE_ROOT; };
@@ -584,6 +587,8 @@
 			children = (
 				D8EB983518E340CF00DA3A99 /* Schedule.h */,
 				D8EB983618E340CF00DA3A99 /* Schedule.m */,
+				D8EB983918E346DF00DA3A99 /* Pictogram.h */,
+				D8EB983A18E346DF00DA3A99 /* Pictogram.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -700,6 +705,7 @@
 				D800896618DC6946003EFD7E /* BBAScheduleOverviewViewController.m in Sources */,
 				D82838B318D5B9DF009C03A8 /* UIApplication+BBA.m in Sources */,
 				D82D5FD418C616A6000A8FD3 /* UIView+BBASubviews.m in Sources */,
+				D8EB983B18E346DF00DA3A99 /* Pictogram.m in Sources */,
 				D8805F3F18C5DD01001BD35B /* BBANewPictogramViewController.m in Sources */,
 				D8DB7FF518C4DA2300BA2037 /* BBAAddScheduleViewController.m in Sources */,
 				D8805F4718C5E456001BD35B /* BBASelectPictogramViewController.m in Sources */,

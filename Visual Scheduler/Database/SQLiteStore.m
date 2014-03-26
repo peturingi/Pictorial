@@ -134,23 +134,31 @@
 
 #pragma mark - Pictograms
 
-- (NSArray *)contentOfAllPictograms {
+- (NSArray *)contentOfAllPictogramsIncludingImageData:(BOOL)value {
     NSMutableArray *results = [NSMutableArray array];
     
-    NSString *query = @"SELECT id, title, image FROM pictogram ORDER BY title ASC";
+    NSString *query;
+    if (value == YES) {
+        query = @"SELECT id, title, image FROM pictogram ORDER BY title ASC";
+    } else {
+        query = @"SELECT id, title FROM pictogram ORDER BY title ASC";
+    }
     sqlite3_stmt *statement = [self prepareStatementWithQuery:query];
     
     while (sqlite3_step(statement) == SQLITE_ROW) {
         int uid = sqlite3_column_int(statement, 0);
         char *title = (char *)sqlite3_column_text(statement, 1);
-        
-        const void *ptrToImageData = sqlite3_column_blob(statement, 2);
-        int imageDataSize = sqlite3_column_bytes(statement, 2);
-        NSData *imageData = [[NSData alloc] initWithBytes:ptrToImageData length:imageDataSize];
-        
-        [results addObject:@{@"id" : [NSNumber numberWithInt:uid],
-                                @"title" : [NSString stringWithCString:title encoding:NSUTF8StringEncoding],
-                                @"image" : imageData}];
+        if (value) {
+            const void *ptrToImageData = sqlite3_column_blob(statement, 2);
+            int imageDataSize = sqlite3_column_bytes(statement, 2);
+            NSData *imageData = [[NSData alloc] initWithBytes:ptrToImageData length:imageDataSize];
+            [results addObject:@{@"id" : [NSNumber numberWithInt:uid],
+                                 @"title" : [NSString stringWithCString:title encoding:NSUTF8StringEncoding],
+                                 @"image" : imageData}];
+        } else {
+            [results addObject:@{@"id" : [NSNumber numberWithInt:uid],
+                                 @"title" : [NSString stringWithCString:title encoding:NSUTF8StringEncoding]}];
+        }
     }
     sqlite3_finalize(statement);
 

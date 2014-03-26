@@ -7,7 +7,7 @@
 - (NSInteger)createSchedule:(NSDictionary *)content;
 - (void)deleteScheduleWithID:(NSInteger)identifier;
 
-- (NSArray *)contentOfAllPictograms;
+- (NSArray *)contentOfAllPictogramsIncludingImageData:(BOOL)value;
 - (NSInteger)createPictogram:(NSDictionary *)content;
 - (BOOL)deletePictogramWithID:(NSInteger)identifier;
 
