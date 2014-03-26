@@ -29,7 +29,7 @@
 - (sqlite3_stmt *)prepareStatementWithQuery:(NSString *)query {
     sqlite3_stmt *statement;
     if (sqlite3_prepare_v2(_databaseConnection, [query UTF8String], -1, &statement, NULL) != SQLITE_OK) {
-        @throw [NSException exceptionWithName:@"DB Error: Failed to prepare statement." reason:query userInfo:nil];
+        @throw [NSException exceptionWithName:@"DB Error:" reason:@"Invalid Query." userInfo:nil];
     }
     return statement;
 }
@@ -142,6 +142,56 @@
     }
     sqlite3_finalize(statement);
     return sqlite3_last_insert_rowid(_databaseConnection);
+}
+
+- (BOOL)deletePictogramWithID:(NSInteger)identifier {
+    NSParameterAssert(identifier >= 0);
+    if ([self isPictogramUsedByASchedule:identifier]) return NO;
+    if ([self pictogramExistsWithIdentifier:identifier] == NO) {
+        @throw [NSException exceptionWithName:@"Deletion failiure." reason:@"Trying to delete a nonexisting pictogram." userInfo:nil];
+    }
+    
+    NSString *query = @"DELETE FROM pictogram WHERE id IS (?)";
+    sqlite3_stmt *statement = [self prepareStatementWithQuery:query];
+        
+    if (sqlite3_bind_int64(statement, 1, identifier) != SQLITE_OK) {
+        @throw [NSException exceptionWithName:@"SQLite3 failed to mark record for deletion." reason:@"Unknown" userInfo:nil];
+    }
+    if (sqlite3_step(statement) != SQLITE_DONE) {
+        @throw [NSException exceptionWithName:@"SQLite3 failed to delete record." reason:@"Unknown" userInfo:nil];
+    }
+    sqlite3_finalize(statement);
+    return YES;
+}
+
+- (BOOL)isPictogramUsedByASchedule:(NSInteger)pictogramIdentifier {
+    NSParameterAssert(pictogramIdentifier >= 0);
+    BOOL isUsed = NO;
+    
+    NSString *query = @"SELECT pictogram FROM ScheduleWithPictograms WHERE pictogram = (?)";
+    sqlite3_stmt *statement = [self prepareStatementWithQuery:query];
+    if (sqlite3_bind_int64(statement, 1, pictogramIdentifier) != SQLITE_OK) {
+        @throw [NSException exceptionWithName:@"SQLite3 query failed." reason:@"Unknown" userInfo:nil];
+    }
+    if (sqlite3_step(statement) == SQLITE_ROW) {
+        isUsed = YES;
+    }
+    sqlite3_finalize(statement);
+    return isUsed;
+}
+
+- (BOOL)pictogramExistsWithIdentifier:(NSInteger)pictogramIdentifier {
+    BOOL exists = NO;
+    NSString *query = @"SELECT id FROM pictogram WHERE id = (?)";
+    sqlite3_stmt *statement = [self prepareStatementWithQuery:query];
+    if (sqlite3_bind_int64(statement, 1, pictogramIdentifier) != SQLITE_OK) {
+        @throw [NSException exceptionWithName:@"SQLite3 query failed." reason:@"Unknown" userInfo:nil];
+    }
+    if (sqlite3_step(statement) == SQLITE_ROW) {
+        exists = YES;
+    }
+    sqlite3_finalize(statement);
+    return exists;
 }
 
 

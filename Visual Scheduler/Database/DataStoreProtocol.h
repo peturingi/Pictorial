@@ -9,6 +9,7 @@
 
 - (NSArray *)contentOfAllPictograms;
 - (NSInteger)createPictogram:(NSDictionary *)content;
+- (BOOL)deletePictogramWithID:(NSInteger)identifier;
 
 @optional
 - (BOOL)closeStore;

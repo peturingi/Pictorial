@@ -6,7 +6,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             scope = "0"
@@ -16,7 +16,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Visual Scheduler/BBAServiceProvider.m"
@@ -29,13 +29,13 @@
             landmarkType = "5">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "+[BBAServiceProvider serviceExists:]"
                   moduleName = "Visual Scheduler"
                   urlString = "file:///Users/petur/Development/Visual%20Scheduler/Visual%20Scheduler/BBAServiceProvider.m"
-                  timestampString = "417527617.060285"
+                  timestampString = "417535091.974298"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "38"
@@ -43,13 +43,13 @@
                   offsetFromSymbolStart = "57">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "+[BBAServiceProvider serviceExists:]"
                   moduleName = "Visual SchedulerTests"
                   urlString = "file:///Users/petur/Development/Visual%20Scheduler/Visual%20Scheduler/BBAServiceProvider.m"
-                  timestampString = "417527618.307494"
+                  timestampString = "417535092.709132"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "38"
@@ -62,7 +62,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Visual Scheduler/BBAServiceProvider.m"
@@ -75,13 +75,13 @@
             landmarkType = "5">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "+[BBAServiceProvider deleteServiceOfClass:]"
                   moduleName = "Visual Scheduler"
                   urlString = "file:///Users/petur/Development/Visual%20Scheduler/Visual%20Scheduler/BBAServiceProvider.m"
-                  timestampString = "417527617.061718"
+                  timestampString = "417535091.976383"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "27"
@@ -89,13 +89,13 @@
                   offsetFromSymbolStart = "44">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "+[BBAServiceProvider deleteServiceOfClass:]"
                   moduleName = "Visual SchedulerTests"
                   urlString = "file:///Users/petur/Development/Visual%20Scheduler/Visual%20Scheduler/BBAServiceProvider.m"
-                  timestampString = "417527618.307971"
+                  timestampString = "417535092.709573"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "27"
@@ -108,7 +108,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Visual Scheduler/BBAServiceProvider.m"
@@ -121,13 +121,13 @@
             landmarkType = "5">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "+[BBAServiceProvider insertService:]"
                   moduleName = "Visual Scheduler"
                   urlString = "file:///Users/petur/Development/Visual%20Scheduler/Visual%20Scheduler/BBAServiceProvider.m"
-                  timestampString = "417527617.063337"
+                  timestampString = "417535091.991615"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "20"
@@ -135,13 +135,13 @@
                   offsetFromSymbolStart = "57">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "+[BBAServiceProvider insertService:]"
                   moduleName = "Visual SchedulerTests"
                   urlString = "file:///Users/petur/Development/Visual%20Scheduler/Visual%20Scheduler/BBAServiceProvider.m"
-                  timestampString = "417527618.308612"
+                  timestampString = "417535092.710298"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "20"
@@ -149,6 +149,15 @@
                   offsetFromSymbolStart = "39">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.IDETestFailureBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            breakpointStackSelectionBehavior = "1">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -89,4 +89,20 @@
     XCTAssertNoThrow([_dataStore createPictogram:pictogram], @"Failed to create a pictogram.");
 }
 
+- (void)testDeletePictogramWithID {
+    UIImage *testImage = [UIImage imageNamed:@"testImage"];
+    XCTAssertNotNil(testImage, @"Failed to load the test image.");
+    
+    NSDictionary *pictogram = @{@"title" : @"Test domain",
+                                @"image" : UIImagePNGRepresentation(testImage)};
+    NSInteger identifierOfNewPictogram = [_dataStore createPictogram:pictogram];
+    BOOL deleted = NO;
+    XCTAssertNoThrow(deleted = [_dataStore deletePictogramWithID:identifierOfNewPictogram], @"Failed to delete.");
+    XCTAssert(deleted == YES, @"Failed to delete.");
+}
+
+- (void)testDeleteNonExistingPictogramThrows {
+    XCTAssertThrows([_dataStore deletePictogramWithID:1000000], @"Expected an exception when attempting to delete a nonexcisting pictogram.");
+}
+
 @end
