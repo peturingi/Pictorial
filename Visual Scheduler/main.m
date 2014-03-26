@@ -6,7 +6,7 @@
 #import "BBAColor.h"
 
 int main(int argc, char * argv[]) {
-    @autoreleasepool {
+    @autoreleasepool {        
         [BBACoreDataStack installInMemory:YES];
         
 #ifdef DEBUG

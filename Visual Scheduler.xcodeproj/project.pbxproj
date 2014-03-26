@@ -63,6 +63,9 @@
 		D889F7EE18C9249A008A497F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D83A62CB18B696DC00EC0773 /* AppDelegate.m */; };
 		D8DB7FF518C4DA2300BA2037 /* BBAAddScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FF418C4DA2300BA2037 /* BBAAddScheduleViewController.m */; };
 		D8DB7FFF18C50F4700BA2037 /* BBAShowScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FFE18C50F4700BA2037 /* BBAShowScheduleViewController.m */; };
+		D8DCC45118E2F520004794C9 /* testImage.png in Resources */ = {isa = PBXBuildFile; fileRef = D8DCC45018E2F520004794C9 /* testImage.png */; };
+		D8DCC45218E2F57D004794C9 /* testImage.png in Resources */ = {isa = PBXBuildFile; fileRef = D8DCC45018E2F520004794C9 /* testImage.png */; };
+		D8DCC45318E2F69D004794C9 /* vs.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = D829DDA918E191C00039A449 /* vs.sqlite3 */; };
 		D8E7A2C818CA52FE005F505C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8E7A2C718CA52FE005F505C /* CoreData.framework */; };
 		D8EA05A718D3541400F5D01F /* BBACoreDataStackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EA05A618D3541400F5D01F /* BBACoreDataStackTests.m */; };
 		D8EA05F718D355E000F5D01F /* BBACoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EA05F618D355E000F5D01F /* BBACoreDataStack.m */; };
@@ -174,6 +177,7 @@
 		D8DB7FF418C4DA2300BA2037 /* BBAAddScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBAAddScheduleViewController.m; path = Controllers/BBAAddScheduleViewController.m; sourceTree = "<group>"; };
 		D8DB7FFD18C50F4700BA2037 /* BBAShowScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBAShowScheduleViewController.h; path = "Controllers/Show Schedule/BBAShowScheduleViewController.h"; sourceTree = "<group>"; };
 		D8DB7FFE18C50F4700BA2037 /* BBAShowScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBAShowScheduleViewController.m; path = "Controllers/Show Schedule/BBAShowScheduleViewController.m"; sourceTree = "<group>"; };
+		D8DCC45018E2F520004794C9 /* testImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = testImage.png; sourceTree = "<group>"; };
 		D8E7A2C718CA52FE005F505C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D8EA05A618D3541400F5D01F /* BBACoreDataStackTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBACoreDataStackTests.m; sourceTree = "<group>"; };
 		D8EA05F518D355E000F5D01F /* BBACoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBACoreDataStack.h; path = "Core Data/BBACoreDataStack.h"; sourceTree = "<group>"; };
@@ -372,6 +376,7 @@
 		D83A62E018B696DC00EC0773 /* Visual SchedulerTests */ = {
 			isa = PBXGroup;
 			children = (
+				D8DCC45018E2F520004794C9 /* testImage.png */,
 				D8EC7D5118CA61E500B6A673 /* MockTableView.h */,
 				D8EC7D5218CA61E500B6A673 /* MockTableView.m */,
 				D8EC7D5418CA63C500B6A673 /* MockScheduleOverviewViewController.h */,
@@ -651,6 +656,7 @@
 				D850E82C18C885230051CD51 /* Main.storyboard in Resources */,
 				D85EBDD718DC804400DF76B7 /* washhands.png in Resources */,
 				D85EBDD418DC804400DF76B7 /* play.png in Resources */,
+				D8DCC45218E2F57D004794C9 /* testImage.png in Resources */,
 				D85EBDD518DC804400DF76B7 /* preparetable.png in Resources */,
 				D85EBDD118DC804400DF76B7 /* brushteeth.png in Resources */,
 				D83A62D418B696DC00EC0773 /* Images.xcassets in Resources */,
@@ -666,7 +672,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8DCC45118E2F520004794C9 /* testImage.png in Resources */,
 				D83A62E518B696DC00EC0773 /* InfoPlist.strings in Resources */,
+				D8DCC45318E2F69D004794C9 /* vs.sqlite3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

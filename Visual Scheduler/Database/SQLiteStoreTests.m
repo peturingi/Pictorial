@@ -28,7 +28,7 @@
     XCTAssertNoThrow([[SQLiteStore alloc] init], @"Failed to establish database connection.");
 }
 
-- (void)testCanContentOfAllSchedules {
+- (void)testContentOfAllSchedules {
     NSArray *content = [_dataStore contentOfAllSchedules];
     XCTAssertNotNil(content, @"Received invalid content.");
 }
@@ -73,5 +73,20 @@
     XCTAssertTrue([_dataStore closeStore] == YES, @"Failed to close the store.");
 }
 
+#pragma mark - Pictograms
+
+- (void)testContentOfAllPictograms {
+    NSArray *content = [_dataStore contentOfAllPictograms];
+    XCTAssertNotNil(content, @"Received invalid content.");
+}
+
+- (void)testCreatePictogram {
+    UIImage *testImage = [UIImage imageNamed:@"testImage"];
+    XCTAssertNotNil(testImage, @"Failed to load the test image.");
+    
+    NSDictionary *pictogram = @{@"title" : @"Test domain",
+                                @"image" : UIImagePNGRepresentation(testImage)};
+    XCTAssertNoThrow([_dataStore createPictogram:pictogram], @"Failed to create a pictogram.");
+}
 
 @end

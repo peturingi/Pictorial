@@ -8,6 +8,7 @@
 - (void)deleteScheduleWithID:(NSInteger)identifier;
 
 - (NSArray *)contentOfAllPictograms;
+- (NSInteger)createPictogram:(NSDictionary *)content;
 
 @optional
 - (BOOL)closeStore;
