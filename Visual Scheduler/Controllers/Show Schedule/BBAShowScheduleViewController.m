@@ -8,6 +8,7 @@
 @interface BBAShowScheduleViewController ()
 @property (strong, nonatomic) BBAShowScheduleCollectionViewController *showScheduleCollectionViewController;
 @property (strong, nonatomic) BBASelectPictogramViewController *selectPictogramViewController;
+@property (weak, nonatomic) IBOutlet UIView *scheduleContainer;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *editButton;
 @end
@@ -65,8 +66,20 @@
         [_selectPictogramViewController setDelegate:self];
     }
 }
+- (IBAction)editButtonPressed:(id)sender {
+    [self moveScheduleToLeftSideOfScreen];
+}
+
+- (void)moveScheduleToLeftSideOfScreen {
+    [UIView animateWithDuration:0.5f animations:^{
+        CGRect currentFrame = self.scheduleContainer.frame;
+        currentFrame.origin.x = self.scheduleContainer.superview.frame.origin.x;
+        self.scheduleContainer.frame = currentFrame;
+    }];
+}
 
 #pragma mark Delegate
+
 
 //- (void)BBASelectPictogramViewController:(BBASelectPictogramViewController *)controller didSelectItem:(Pictogram *)item {
 //    NSLog(@"Selected pictogram: %@", item.title);

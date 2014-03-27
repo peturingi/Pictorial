@@ -339,7 +339,7 @@
 				D83A62CD18B696DC00EC0773 /* Main.storyboard */,
 				D8315AF518D39DF000C4A340 /* Camera */,
 				D82838B018D5B85A009C03A8 /* Categories */,
-				D83A62F718B69BEF00EC0773 /* Controllers */,
+				D83A62F718B69BEF00EC0773 /* View Controllers */,
 				D8EA05F818D355E900F5D01F /* Core Data */,
 				D8B49E6018B8077600788073 /* Protocols */,
 				D83A62D318B696DC00EC0773 /* Images.xcassets */,
@@ -388,7 +388,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		D83A62F718B69BEF00EC0773 /* Controllers */ = {
+		D83A62F718B69BEF00EC0773 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				D82838B718D5D396009C03A8 /* Pictogram */,
@@ -396,7 +396,7 @@
 				D864F1A218D3A08E00711986 /* Search */,
 				D864F1A118D3A08400711986 /* TagManagement */,
 			);
-			name = Controllers;
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 		D85EA1AA18C4B3DE00ACDBD6 /* Schedule Overview */ = {
