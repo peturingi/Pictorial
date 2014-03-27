@@ -1,7 +1,8 @@
 #import "BBASelectPictogramViewController.h"
 #import "BBANewPictogramViewController.h"
 #import "UIView+BBASubviews.h"
-#import "BBACoreDataStack.h"
+#import "../Database/Repository.h"
+#import "../Database/SQLiteStore.h"
 
 
 NSString * const kCellReusableIdentifier = @"pictogramSelector";
@@ -9,21 +10,22 @@ NSInteger const kCellTagForImageView = 1;
 NSInteger const kCellTagForLabelView = 2;
 
 @interface BBASelectPictogramViewController ()
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
-@property (strong, nonatomic) NSManagedObjectID *selectedItem;
+@property (strong, nonatomic) NSArray *dataSource;
+@property (weak, nonatomic) Repository *repository;
 @end
 
 @implementation BBASelectPictogramViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupCoreData];
+    [self setupDataSource];
 }
 
-- (void)setupCoreData {
-//    _fetchedResultsController = [BBACoreDataStack fetchedResultsControllerForClass:[Pictogram class]];
-    [_fetchedResultsController setDelegate:self];
-    [_fetchedResultsController performFetch:nil];
+- (void)setupDataSource {
+    id appDelegate = [[UIApplication sharedApplication] delegate];
+    _repository = [appDelegate valueForKey:@"sharedRepository"];
+    NSAssert(_repository != nil, @"Failed to get shared repository.");
+    _dataSource = [_repository allPictogramsIncludingImages:YES];
 }
 
 #pragma mark - Camera
@@ -59,7 +61,7 @@ NSInteger const kCellTagForLabelView = 2;
 #pragma mark - UICollectionView
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    _selectedItem = [_fetchedResultsController objectAtIndexPath:indexPath];
+    _selectedItem = [self.dataSource objectAtIndex:indexPath.row];
     [self informDelegateWhichItemWasSelected];
 }
 
@@ -69,36 +71,36 @@ NSInteger const kCellTagForLabelView = 2;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    NSArray *fetchedObjects = [[self fetchedResultsController] fetchedObjects];
-    return [fetchedObjects count];
+    NSAssert(_dataSource != nil, @"Must not be nil.");
+    return self.dataSource.count;
 }
 
-//- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
- //   UICollectionViewCell *reusableCell = [collectionView dequeueReusableCellWithReuseIdentifier:kCellReusableIdentifier forIndexPath:indexPath];
- //   [self configureCell:reusableCell atIndexPath:indexPath];
- //   return reusableCell;
-//}
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+   UICollectionViewCell *reusableCell = [collectionView dequeueReusableCellWithReuseIdentifier:kCellReusableIdentifier forIndexPath:indexPath];
+   [self configureCell:reusableCell atIndexPath:indexPath];
+   return reusableCell;
+}
 
-//- (void)configureCell:(UICollectionViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
- //   UIImageView *imageView = (UIImageView *)[cell.contentView firstSubviewWithTag:kCellTagForImageView];
-//    UIImage *image = [self imageForPictogramAtIndexPath:indexPath];
-//    [imageView setImage:image];
+- (void)configureCell:(UICollectionViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    UIImageView *imageView = (UIImageView *)[cell.contentView firstSubviewWithTag:kCellTagForImageView];
+    UIImage *image = [self imageForPictogramAtIndexPath:indexPath];
+    [imageView setImage:image];
     
-//    UILabel *labelView = (UILabel *)[cell.contentView firstSubviewWithTag:kCellTagForLabelView];
- //   NSString *title = [self titleForPictogramIndexPath:indexPath];
- //   [labelView setText:title];
-//}
+    UILabel *labelView = (UILabel *)[cell.contentView firstSubviewWithTag:kCellTagForLabelView];
+    NSString *title = [self titleForPictogramIndexPath:indexPath];
+    [labelView setText:title];
+}
 
-//- (UIImage *)imageForPictogramAtIndexPath:(NSIndexPath *)indexPath {
- //   Pictogram *pictogram = [self.fetchedResultsController objectAtIndexPath:indexPath];
-//    NSData *imageData = [NSData dataWithContentsOfFile:pictogram.imageURL];
-//    return [UIImage imageWithData:imageData];
-//}
+- (UIImage *)imageForPictogramAtIndexPath:(NSIndexPath *)indexPath {
+    Pictogram *pictogram = [self.dataSource objectAtIndex:indexPath.row];
+    NSAssert(pictogram.image != nil, @"Failed to load image from pictogram.");
+    return pictogram.image;
+}
 
-//- (NSString *)titleForPictogramIndexPath:(NSIndexPath *)indexPath {
- //   Pictogram *pictogram = [self.fetchedResultsController objectAtIndexPath:indexPath];
-//    return pictogram.title;
-//}
+- (NSString *)titleForPictogramIndexPath:(NSIndexPath *)indexPath {
+    Pictogram *pictogram = [self.dataSource objectAtIndex:indexPath.row];
+    return pictogram.title;
+}
 
 #pragma mark - FetcheResultsController delegate
 

@@ -9,6 +9,7 @@
 @property (strong, nonatomic) BBAShowScheduleCollectionViewController *showScheduleCollectionViewController;
 @property (strong, nonatomic) BBASelectPictogramViewController *selectPictogramViewController;
 @property (weak, nonatomic) IBOutlet UIView *scheduleContainer;
+@property (weak, nonatomic) IBOutlet UIView *pictogramsContainer;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *editButton;
 @end
@@ -67,15 +68,37 @@
     }
 }
 - (IBAction)editButtonPressed:(id)sender {
-    [self moveScheduleToLeftSideOfScreen];
+    [self toggleEditMode];
 }
 
-- (void)moveScheduleToLeftSideOfScreen {
-    [UIView animateWithDuration:0.5f animations:^{
-        CGRect currentFrame = self.scheduleContainer.frame;
-        currentFrame.origin.x = self.scheduleContainer.superview.frame.origin.x;
-        self.scheduleContainer.frame = currentFrame;
-    }];
+- (void)toggleEditMode {
+#warning does not handle if button is pressed multiple times.The animation will conflict.
+    static BOOL inEditMode = NO;
+    if (inEditMode == NO) {
+        inEditMode = YES;
+            [UIView animateWithDuration:0.5f animations:^{
+                CGRect currentFrame = self.scheduleContainer.frame;
+                currentFrame.origin.x = self.scheduleContainer.superview.frame.origin.x;
+                self.scheduleContainer.frame = currentFrame;
+            }];
+            [UIView animateWithDuration:0.5f animations:^{
+                CGRect currentFrame = self.pictogramsContainer.frame;
+                currentFrame.origin.x = 200;
+                self.pictogramsContainer.frame = currentFrame;
+            }];
+    } else {
+        inEditMode = NO;
+        [UIView animateWithDuration:0.5f animations:^{
+            CGRect currentFrame = self.scheduleContainer.frame;
+            currentFrame.origin.x = CGRectGetMidX(self.scheduleContainer.superview.frame) - CGRectGetWidth(self.scheduleContainer.frame) / 2;
+            self.scheduleContainer.frame = currentFrame;
+        }];
+        [UIView animateWithDuration:0.5f animations:^{
+            CGRect currentFrame = self.pictogramsContainer.frame;
+            currentFrame.origin.x = CGRectGetMaxX(self.pictogramsContainer.superview.frame);
+            self.pictogramsContainer.frame = currentFrame;
+        }];
+    }
 }
 
 #pragma mark Delegate

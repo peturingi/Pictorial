@@ -8,5 +8,6 @@
 }
 
 @property (weak, nonatomic) id<BBASelectPictogramViewControllerDelegate> delegate;
+@property (weak, nonatomic) Pictogram *selectedItem;
 
 @end
