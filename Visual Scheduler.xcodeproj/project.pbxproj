@@ -52,6 +52,7 @@
 		D887832E18C8E33300F13B28 /* BBAScheduleOverviewViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D887832D18C8E33300F13B28 /* BBAScheduleOverviewViewControllerTests.m */; };
 		D889F7EA18C90506008A497F /* BBAScheduleTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D889F7E918C90506008A497F /* BBAScheduleTableDataSource.m */; };
 		D889F7EE18C9249A008A497F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D83A62CB18B696DC00EC0773 /* AppDelegate.m */; };
+		D8D4011D18E4960D003F6F4F /* PictogramCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D4011C18E4960D003F6F4F /* PictogramCollectionViewCell.m */; };
 		D8DB7FF518C4DA2300BA2037 /* BBAAddScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FF418C4DA2300BA2037 /* BBAAddScheduleViewController.m */; };
 		D8DB7FFF18C50F4700BA2037 /* BBAShowScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FFE18C50F4700BA2037 /* BBAShowScheduleViewController.m */; };
 		D8DCC45118E2F520004794C9 /* testImage.png in Resources */ = {isa = PBXBuildFile; fileRef = D8DCC45018E2F520004794C9 /* testImage.png */; };
@@ -160,6 +161,8 @@
 		D8B49E5F18B8025500788073 /* SearchViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SearchViewControllerDelegate.h; path = Protocols/SearchViewControllerDelegate.h; sourceTree = "<group>"; };
 		D8B49E6518B823A000788073 /* TagManagementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TagManagementViewController.h; path = Controllers/TagManagementViewController.h; sourceTree = "<group>"; };
 		D8B49E6618B823A000788073 /* TagManagementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TagManagementViewController.m; path = Controllers/TagManagementViewController.m; sourceTree = "<group>"; };
+		D8D4011B18E4960D003F6F4F /* PictogramCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PictogramCollectionViewCell.h; path = Controllers/PictogramCollectionViewCell.h; sourceTree = "<group>"; };
+		D8D4011C18E4960D003F6F4F /* PictogramCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PictogramCollectionViewCell.m; path = Controllers/PictogramCollectionViewCell.m; sourceTree = "<group>"; };
 		D8DB7FF318C4DA2300BA2037 /* BBAAddScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBAAddScheduleViewController.h; path = Controllers/BBAAddScheduleViewController.h; sourceTree = "<group>"; };
 		D8DB7FF418C4DA2300BA2037 /* BBAAddScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBAAddScheduleViewController.m; path = Controllers/BBAAddScheduleViewController.m; sourceTree = "<group>"; };
 		D8DB7FFD18C50F4700BA2037 /* BBAShowScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBAShowScheduleViewController.h; path = "Controllers/Show Schedule/BBAShowScheduleViewController.h"; sourceTree = "<group>"; };
@@ -337,6 +340,8 @@
 				D83A62CA18B696DC00EC0773 /* AppDelegate.h */,
 				D83A62CB18B696DC00EC0773 /* AppDelegate.m */,
 				D83A62CD18B696DC00EC0773 /* Main.storyboard */,
+				D8D4011B18E4960D003F6F4F /* PictogramCollectionViewCell.h */,
+				D8D4011C18E4960D003F6F4F /* PictogramCollectionViewCell.m */,
 				D8315AF518D39DF000C4A340 /* Camera */,
 				D82838B018D5B85A009C03A8 /* Categories */,
 				D83A62F718B69BEF00EC0773 /* View Controllers */,
@@ -712,6 +717,7 @@
 				D85EBDDA18DC833A00DF76B7 /* BBAColor.m in Sources */,
 				D8DB7FFF18C50F4700BA2037 /* BBAShowScheduleViewController.m in Sources */,
 				D8EB983718E340CF00DA3A99 /* Schedule.m in Sources */,
+				D8D4011D18E4960D003F6F4F /* PictogramCollectionViewCell.m in Sources */,
 				D8315AF418D39DEA00C4A340 /* Camera.m in Sources */,
 				D853A80E18E1DD3C0031E986 /* SQLiteStore.m in Sources */,
 			);

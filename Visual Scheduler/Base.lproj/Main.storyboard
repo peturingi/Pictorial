@@ -121,7 +121,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1u7-j9-YdA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2702" y="-1428"/>
+            <point key="canvasLocation" x="2747" y="-1373"/>
         </scene>
         <!--Select Pictogram-->
         <scene sceneID="yQK-vJ-uJC">
@@ -173,7 +173,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P4c-Pq-GIs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2034" y="-1630"/>
+            <point key="canvasLocation" x="2016" y="-1575"/>
         </scene>
         <!--Show Schedule View Controller-->
         <scene sceneID="bh5-NC-PuQ">
@@ -229,7 +229,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UTs-Hv-KaD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="641" y="-1630"/>
+            <point key="canvasLocation" x="624" y="-1575"/>
         </scene>
         <!--Show Schedule Collection View Controller-->
         <scene sceneID="i0W-vZ-VwY">
@@ -245,7 +245,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="schedulesPictogram" id="mas-Ih-wNb">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="schedulesPictogram" id="mas-Ih-wNb" customClass="PictogramCollectionViewCell">
                                 <rect key="frame" x="13" y="0.0" width="175" height="175"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -264,12 +264,18 @@
                         <connections>
                             <outlet property="dataSource" destination="kmr-Fe-PZc" id="90P-es-7bt"/>
                             <outlet property="delegate" destination="kmr-Fe-PZc" id="maK-uG-BhF"/>
+                            <outletCollection property="gestureRecognizers" destination="PfP-Yu-QpM" appends="YES" id="hDD-zr-PG3"/>
                         </connections>
                     </collectionView>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mwp-DE-A0U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="PfP-Yu-QpM">
+                    <connections>
+                        <action selector="longPressGesture:" destination="kmr-Fe-PZc" id="8Df-EU-tJv"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1658" y="-1630"/>
+            <point key="canvasLocation" x="1629" y="-1575"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LMG-h6-PzK">
