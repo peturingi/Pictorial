@@ -160,7 +160,6 @@
 		D8B49E5F18B8025500788073 /* SearchViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SearchViewControllerDelegate.h; path = Protocols/SearchViewControllerDelegate.h; sourceTree = "<group>"; };
 		D8B49E6518B823A000788073 /* TagManagementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TagManagementViewController.h; path = Controllers/TagManagementViewController.h; sourceTree = "<group>"; };
 		D8B49E6618B823A000788073 /* TagManagementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TagManagementViewController.m; path = Controllers/TagManagementViewController.m; sourceTree = "<group>"; };
-		D8BD79D418CA04AD0004FD36 /* ocmock */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ocmock; sourceTree = "<group>"; };
 		D8DB7FF318C4DA2300BA2037 /* BBAAddScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBAAddScheduleViewController.h; path = Controllers/BBAAddScheduleViewController.h; sourceTree = "<group>"; };
 		D8DB7FF418C4DA2300BA2037 /* BBAAddScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBAAddScheduleViewController.m; path = Controllers/BBAAddScheduleViewController.m; sourceTree = "<group>"; };
 		D8DB7FFD18C50F4700BA2037 /* BBAShowScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBAShowScheduleViewController.h; path = "Controllers/Show Schedule/BBAShowScheduleViewController.h"; sourceTree = "<group>"; };
@@ -321,7 +320,6 @@
 			children = (
 				D853A81118E1E0280031E986 /* libsqlite3.dylib */,
 				D8E7A2C718CA52FE005F505C /* CoreData.framework */,
-				D8BD79D418CA04AD0004FD36 /* ocmock */,
 				D850E82518C86F420051CD51 /* MobileCoreServices.framework */,
 				D81AAA1E18B94F0A00E3B50C /* AVFoundation.framework */,
 				D83A62BB18B696DC00EC0773 /* Foundation.framework */,
