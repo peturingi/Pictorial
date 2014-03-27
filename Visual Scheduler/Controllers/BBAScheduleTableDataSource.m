@@ -1,5 +1,6 @@
 #import "BBAScheduleTableDataSource.h"
 #import "Schedule.h"
+#import "../Database/SharedRepositoryProtocol.h"
 
 NSString * const kBBACellIdentifier = @"ScheduleCell";
 NSString * const kBBANotificationNameForDidSelectItem = @"didSelectObjectInScheduleTableDataSource";
@@ -18,10 +19,10 @@ NSString * const kBBANotificationNameForNewDataAvailable = @"didUpdateScheduleTa
 }
 
 - (void)setupDataSource {
-    //self.dataSource = [[BBACoreDataStack sharedInstance] fetchedResultsControllerForSchedule];
-//    self.dataSource = [BBACoreDataStack fetchedResultsControllerForClass:[Schedule class]];
-    [self.dataSource setDelegate:self];
-    [self.dataSource performFetch:nil];
+    id appDelegate = [[UIApplication sharedApplication] delegate];
+    _repository = [appDelegate valueForKey:@"sharedRepository"];
+    NSAssert(_repository != nil, @"Failed to get the shared repository.");
+    _dataSource = [_repository allSchedules];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -29,28 +30,26 @@ NSString * const kBBANotificationNameForNewDataAvailable = @"didUpdateScheduleTa
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSManagedObject *objectToDelete = [self.dataSource objectAtIndexPath:indexPath];
-    [[self.dataSource managedObjectContext] deleteObject:objectToDelete];
-    [[self.dataSource managedObjectContext] save:nil];
+    Schedule *objToDelete = [self.dataSource objectAtIndex:indexPath.row];
+#warning NOT IMPLEMENTED
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     NSParameterAssert(section == 0);
-    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.dataSource sections] objectAtIndex:section];
-    NSUInteger count = [sectionInfo numberOfObjects];
-    return count;
+    NSAssert(self.dataSource != nil, @"The data source must not be nil. It is not possible to display a list of schedules.");
+    return [self.dataSource count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSParameterAssert(indexPath.section == 0);
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kBBACellIdentifier forIndexPath:indexPath];
-    Schedule *schedule = [self.dataSource objectAtIndexPath:indexPath];
+    Schedule *schedule = [self.dataSource objectAtIndex:indexPath.row];
     cell.textLabel.text = schedule.title;
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    Schedule *selectedSchedule = [self.dataSource objectAtIndexPath:indexPath];
+    Schedule *selectedSchedule = [self.dataSource objectAtIndex:indexPath.row];
     NSNotification *notification = [NSNotification notificationWithName:kBBANotificationNameForDidSelectItem object:selectedSchedule];
     [[NSNotificationCenter defaultCenter] postNotification:notification];
 }

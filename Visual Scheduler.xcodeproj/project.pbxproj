@@ -154,6 +154,7 @@
 		D8805F3E18C5DD01001BD35B /* BBANewPictogramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBANewPictogramViewController.m; path = Controllers/BBANewPictogramViewController.m; sourceTree = "<group>"; };
 		D8805F4518C5E456001BD35B /* BBASelectPictogramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBASelectPictogramViewController.h; path = "Visual Scheduler/Controllers/BBASelectPictogramViewController.h"; sourceTree = "<group>"; };
 		D8805F4618C5E456001BD35B /* BBASelectPictogramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBASelectPictogramViewController.m; path = "Visual Scheduler/Controllers/BBASelectPictogramViewController.m"; sourceTree = "<group>"; };
+		D885A62C18E466660063DB1A /* SharedRepositoryProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SharedRepositoryProtocol.h; path = "Visual Scheduler/Database/SharedRepositoryProtocol.h"; sourceTree = "<group>"; };
 		D887832D18C8E33300F13B28 /* BBAScheduleOverviewViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBAScheduleOverviewViewControllerTests.m; path = "Visual SchedulerTests/BBAScheduleOverviewViewControllerTests.m"; sourceTree = SOURCE_ROOT; };
 		D889F7E818C90506008A497F /* BBAScheduleTableDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBAScheduleTableDataSource.h; path = Controllers/BBAScheduleTableDataSource.h; sourceTree = "<group>"; };
 		D889F7E918C90506008A497F /* BBAScheduleTableDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBAScheduleTableDataSource.m; path = Controllers/BBAScheduleTableDataSource.m; sourceTree = "<group>"; };
@@ -574,6 +575,7 @@
 			isa = PBXGroup;
 			children = (
 				D853A80B18E1DB850031E986 /* DataStoreProtocol.h */,
+				D885A62C18E466660063DB1A /* SharedRepositoryProtocol.h */,
 				D853A80C18E1DD3C0031E986 /* SQLiteStore.h */,
 				D853A80D18E1DD3C0031E986 /* SQLiteStore.m */,
 				D853A80F18E1DD600031E986 /* SQLiteStoreTests.m */,
