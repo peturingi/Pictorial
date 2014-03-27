@@ -77,7 +77,12 @@
     for(NSDictionary* dict in contentForPictograms){
         NSNumber *uniqueIdentifier = [dict valueForKey:@"id"];
         NSString *title = [dict valueForKey:@"title"];
-        Pictogram *pictogram = [[Pictogram alloc] initWithTitle:title withUniqueIdentifier:uniqueIdentifier.integerValue withImage:nil];
+        UIImage *image = nil;
+        if (value) {
+            NSData *imageData = [dict valueForKey:@"image"];
+            image = [UIImage imageWithData:imageData];
+        }
+        Pictogram *pictogram = [[Pictogram alloc] initWithTitle:title withUniqueIdentifier:uniqueIdentifier.integerValue withImage:image];
         [pictograms addObject:pictogram];
     }
     return pictograms;

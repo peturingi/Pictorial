@@ -37,7 +37,7 @@ static NSString * const kBBASortCellsBy = @"title";
 }
 
 - (void)tableDataStoreDidSelectItem:(NSNotification *)notification {
-    if (![[notification object] isKindOfClass:[NSManagedObject class]]) {
+    if (![[notification object] isKindOfClass:[Schedule class]]) {
         @throw [NSException exceptionWithName:NSInvalidArgumentException reason:@"The receiver does not know what to do with an object of this type." userInfo:nil];
     }
     userSelectedSchedule = [notification object];

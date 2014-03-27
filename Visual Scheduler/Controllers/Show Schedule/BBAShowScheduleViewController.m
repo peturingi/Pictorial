@@ -2,8 +2,8 @@
 #import "BBAColor.h"
 #import "BBAShowScheduleCollectionViewController.h"
 #import "BBASelectPictogramViewController.h"
-//#import "Pictogram.h"
-//#import "Schedule.h"
+#import "Pictogram.h"
+#import "../../Database/Repository.h"
 
 @interface BBAShowScheduleViewController ()
 @property (strong, nonatomic) BBAShowScheduleCollectionViewController *showScheduleCollectionViewController;
@@ -14,17 +14,16 @@
 
 @implementation BBAShowScheduleViewController
 
-//- (void)viewWillAppear:(BOOL)animated {
-//    [self setTitle:self.schedule.title];
-//    [self configureScheduleBackgroundColor];
-//    [self registerForNotifications];
-//    [self controlAccessToEditButton];
-//}
+- (void)viewWillAppear:(BOOL)animated {
+    [self setTitle:self.schedule.title];
+    [self configureScheduleBackgroundColor];
+    [self registerForNotifications];
+    [self controlAccessToEditButton];
+}
 
-//- (void)configureScheduleBackgroundColor {
-//    NSUInteger backgroundColorIndex = [[self.schedule colour] integerValue];
-//    [[self view] setBackgroundColor:[BBAColor colorForIndex:backgroundColorIndex]];
-//}
+- (void)configureScheduleBackgroundColor {
+    [[self view] setBackgroundColor:[self.schedule color]];
+}
 
 - (void)registerForNotifications {
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -42,7 +41,7 @@
 }
 
 - (void)setSchedule:(Schedule *)schedule {
-    if (!schedule || ![schedule isKindOfClass:[NSManagedObject class]]) {
+    if (!schedule || ![schedule isKindOfClass:[Schedule class]]) {
         [[NSException exceptionWithName:NSInvalidArgumentException reason:@"A Schedule must be used as an argument." userInfo:nil] raise];
     }
     _schedule = schedule;
@@ -56,6 +55,10 @@
     if ([[segue identifier] isEqualToString:@"embedScheduleCollection"]) {
         _showScheduleCollectionViewController = (BBAShowScheduleCollectionViewController *)segue.destinationViewController;
         [_showScheduleCollectionViewController setSchedule:self.schedule];
+        id appDelegate = [[UIApplication sharedApplication] delegate];
+        id sharedRepository = [appDelegate valueForKey:@"sharedRepository"];
+        NSArray *pictogramsInSchedules = [sharedRepository pictogramsForSchedule:self.schedule includingImages:YES];
+        [_showScheduleCollectionViewController setDataSource:pictogramsInSchedules];
     }
     if ([[segue identifier] isEqualToString:@"pictogramSelector"]) {
         _selectPictogramViewController = (BBASelectPictogramViewController *)segue.destinationViewController;
