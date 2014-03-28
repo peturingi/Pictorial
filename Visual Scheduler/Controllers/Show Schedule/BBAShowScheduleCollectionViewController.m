@@ -40,43 +40,34 @@
     return cell;
 }
 - (IBAction)longPressGesture:(id)sender {
-    NSAssert([[sender class] isSubclassOfClass:[UIGestureRecognizer class]],
-             @"Only gesture recognizers should call this method.");
+    UIGestureRecognizer *gr = (UIGestureRecognizer *)sender;
     
     static PictogramCollectionViewCell *selectedCell;
     static Pictogram *selectedPictogram;
     static CGRect originalPosition;
     static UIImageView *selectedImage;
-    
-    UIGestureRecognizer *gr = (UIGestureRecognizer *)sender;
+
     if (gr.state == UIGestureRecognizerStateBegan) {
-        CGPoint gestureLocation = [gr locationInView:self.collectionView];
-        NSIndexPath *indexOfSelectedCell = [self.collectionView indexPathForItemAtPoint:gestureLocation];
+        NSIndexPath *indexOfSelectedCell = [self.collectionView indexPathForItemAtPoint:[gr locationInView:self.collectionView]];
         if (indexOfSelectedCell != nil) {
             selectedCell = (PictogramCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexOfSelectedCell];
             [self toggleMarkCellAsOldCell:selectedCell];
+            
             selectedPictogram = [selectedCell pictogram];
             selectedImage = [[UIImageView alloc] initWithFrame:selectedCell.frame];
             selectedImage.image = selectedPictogram.image;
+            
             [self markViewAsBeingDragged:selectedImage];
-            CGPoint touchLocation = [gr locationInView:self.view];
-            CGRect imageLocation = selectedImage.frame;
-            originalPosition = imageLocation;
-            imageLocation.origin = touchLocation;
-            imageLocation.origin.x -= imageLocation.size.width / 2.0f;
-            imageLocation.origin.y -= imageLocation.size.height / 2.0f;
-            [selectedImage setFrame:imageLocation];
+            
+            originalPosition = selectedImage.frame;
+        
+            selectedImage.frame = [self center:selectedImage.frame around:[gr locationInView:self.view]];
+            
             [self.view addSubview:selectedImage];
         }
     } else
         if (gr.state == UIGestureRecognizerStateChanged) {
-            CGPoint touchLocation = [gr locationInView:self.view];
-            CGRect imageLocation = selectedImage.frame;
-            imageLocation.origin = touchLocation;
-            imageLocation.origin.x -= imageLocation.size.width / 2.0f;
-            imageLocation.origin.y -= imageLocation.size.height / 2.0f;
-            [selectedImage setFrame:imageLocation];
-            
+            selectedImage.frame = [self center:selectedImage.frame around:[gr locationInView:self.view]];
     } else
     if (gr.state == UIGestureRecognizerStateEnded) {
         UICollectionViewCell *closestCell = [self cellInCollectionViewClosestTo:selectedImage];
@@ -154,6 +145,13 @@
     if (gr.state == UIGestureRecognizerStateCancelled) {
         // Abort
     }
+}
+
+- (CGRect)center:(CGRect)aRect around:(CGPoint)point {
+    aRect.origin = point;
+    aRect.origin.x -= aRect.size.width / 2.0f;
+    aRect.origin.y -= aRect.size.height / 2.0f;
+    return aRect;
 }
 
 - (void)toggleMarkCellAsOldCell:(UICollectionViewCell *)cell {
