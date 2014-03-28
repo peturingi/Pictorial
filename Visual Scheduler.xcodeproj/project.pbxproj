@@ -14,6 +14,7 @@
 		D82838AF18D5B850009C03A8 /* UIImage+BBA.m in Sources */ = {isa = PBXBuildFile; fileRef = D82838AE18D5B850009C03A8 /* UIImage+BBA.m */; };
 		D82838B318D5B9DF009C03A8 /* UIApplication+BBA.m in Sources */ = {isa = PBXBuildFile; fileRef = D82838B218D5B9DF009C03A8 /* UIApplication+BBA.m */; };
 		D82838B518D5BA39009C03A8 /* UIApplicationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D82838B418D5BA39009C03A8 /* UIApplicationTests.m */; };
+		D828EE6B18E5DB950084BE83 /* NSMutableArray+MoveObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D828EE6A18E5DB950084BE83 /* NSMutableArray+MoveObject.m */; };
 		D829DDAA18E191C00039A449 /* vs.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = D829DDA918E191C00039A449 /* vs.sqlite3 */; };
 		D82D5FD418C616A6000A8FD3 /* UIView+BBASubviews.m in Sources */ = {isa = PBXBuildFile; fileRef = D82D5FD318C616A6000A8FD3 /* UIView+BBASubviews.m */; };
 		D8315AF418D39DEA00C4A340 /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = D8315AF218D39DEA00C4A340 /* Camera.m */; };
@@ -93,6 +94,8 @@
 		D82838B118D5B9DF009C03A8 /* UIApplication+BBA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIApplication+BBA.h"; path = "Visual Scheduler/Category/UIApplication+BBA.h"; sourceTree = "<group>"; };
 		D82838B218D5B9DF009C03A8 /* UIApplication+BBA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIApplication+BBA.m"; path = "Visual Scheduler/Category/UIApplication+BBA.m"; sourceTree = "<group>"; };
 		D82838B418D5BA39009C03A8 /* UIApplicationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIApplicationTests.m; path = "Visual SchedulerTests/UIApplicationTests.m"; sourceTree = "<group>"; };
+		D828EE6918E5DB950084BE83 /* NSMutableArray+MoveObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSMutableArray+MoveObject.h"; path = "../Categories/Categories/NSMutableArray/NSMutableArray+MoveObject.h"; sourceTree = "<group>"; };
+		D828EE6A18E5DB950084BE83 /* NSMutableArray+MoveObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMutableArray+MoveObject.m"; path = "../Categories/Categories/NSMutableArray/NSMutableArray+MoveObject.m"; sourceTree = "<group>"; };
 		D829DDA918E191C00039A449 /* vs.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = vs.sqlite3; sourceTree = "<group>"; };
 		D82D5FD218C616A6000A8FD3 /* UIView+BBASubviews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+BBASubviews.h"; path = "Visual Scheduler/Category/UIView+BBASubviews.h"; sourceTree = "<group>"; };
 		D82D5FD318C616A6000A8FD3 /* UIView+BBASubviews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+BBASubviews.m"; path = "Visual Scheduler/Category/UIView+BBASubviews.m"; sourceTree = "<group>"; };
@@ -225,6 +228,8 @@
 		D82838B018D5B85A009C03A8 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				D828EE6918E5DB950084BE83 /* NSMutableArray+MoveObject.h */,
+				D828EE6A18E5DB950084BE83 /* NSMutableArray+MoveObject.m */,
 				D82838B618D5BBCE009C03A8 /* Tests */,
 				D82838AD18D5B850009C03A8 /* UIImage+BBA.h */,
 				D82838AE18D5B850009C03A8 /* UIImage+BBA.m */,
@@ -710,6 +715,7 @@
 				D8805F4718C5E456001BD35B /* BBASelectPictogramViewController.m in Sources */,
 				D82838AF18D5B850009C03A8 /* UIImage+BBA.m in Sources */,
 				D8EB983118E33E4A00DA3A99 /* Repository.m in Sources */,
+				D828EE6B18E5DB950084BE83 /* NSMutableArray+MoveObject.m in Sources */,
 				D83A62C818B696DC00EC0773 /* main.m in Sources */,
 				D8534F7D18DDB51D0055FA93 /* BBAShowScheduleCollectionViewController.m in Sources */,
 				D889F7EE18C9249A008A497F /* AppDelegate.m in Sources */,

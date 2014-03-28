@@ -2,6 +2,7 @@
 #import "PictogramCollectionViewCell.h"
 #import "BBAColor.h"
 #import "Pictogram.h"
+#import "NSMutableArray+MoveObject.h"
 
 @interface BBAShowScheduleCollectionViewController ()
 
@@ -90,18 +91,14 @@
                 NSInteger indexOfClosestPictogram = [self.dataSource indexOfObject:((PictogramCollectionViewCell *)closestCell).pictogram];
                 
                 NSMutableArray *newDataSource = [NSMutableArray arrayWithArray:self.dataSource];
-                if (indexOfSelectedCell < indexOfClosestPictogram) {
-                    if (destinationIsBelowClosestCell) {
-                        [self moveObject:selectedPictogram in:newDataSource toIndex:indexOfClosestPictogram];
-                    } else {
-                        [self moveObject:selectedPictogram in:newDataSource toIndex:indexOfClosestPictogram-1];
-                    }
-                } else if (indexOfSelectedCell > indexOfClosestPictogram) {
-                    if (destinationIsBelowClosestCell) {
-                        [self moveObject:selectedPictogram in:newDataSource toIndex:indexOfClosestPictogram+1];
-                    } else {
-                        [self moveObject:selectedPictogram in:newDataSource toIndex:indexOfClosestPictogram];
-                    }
+                BOOL moveDown = indexOfSelectedCell < indexOfClosestPictogram;
+                BOOL moveUp = indexOfSelectedCell > indexOfClosestPictogram;
+                if (moveDown && destinationIsBelowClosestCell == NO) {
+                    [newDataSource moveObject:selectedPictogram toIndex:indexOfClosestPictogram-1];
+                } else if (moveUp && destinationIsBelowClosestCell) {
+                    [newDataSource moveObject:selectedPictogram toIndex:indexOfClosestPictogram+1];
+                } else {
+                    [newDataSource moveObject:selectedPictogram toIndex:indexOfClosestPictogram];
                 }
                 [self setDataSource:newDataSource];
                 [self reloadCollectionViewWithAnimation];
@@ -125,7 +122,6 @@
                                      selectedPictogram = nil;
                                  }
                              }];
-
         }
     }
 }
