@@ -2,6 +2,7 @@
 #import "PictogramCollectionViewCell.h"
 #import "BBAColor.h"
 #import "Pictogram.h"
+#import "Schedule.h"
 #import "NSMutableArray+MoveObject.h"
 
 @interface BBAShowScheduleCollectionViewController ()
@@ -176,4 +177,12 @@
     return YES;
 }
 
+#pragma mark - Public
+
+- (void)addPictogram:(Pictogram *)pictogram {
+    NSMutableArray *mutableDataSource = [NSMutableArray arrayWithArray:self.dataSource];
+    [mutableDataSource addObject:pictogram];
+    self.dataSource = mutableDataSource;
+    [self reloadCollectionViewWithAnimation];
+}
 @end

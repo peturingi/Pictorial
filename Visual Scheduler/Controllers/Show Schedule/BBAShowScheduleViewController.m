@@ -103,19 +103,13 @@
 
 #pragma mark Delegate
 
-
-//- (void)BBASelectPictogramViewController:(BBASelectPictogramViewController *)controller didSelectItem:(Pictogram *)item {
-//    NSLog(@"Selected pictogram: %@", item.title);
-//    
-//    if (![[self.schedule pictograms] containsObject:item]) {
-//        [item addUsedByObject:self.schedule];
-//        Schedule *s = self.schedule;
-//        NSLog(@"Responds? %d", [s respondsToSelector:NSSelectorFromString(@"insertObject:inPictogramsAtIndex:")]);
-//        [s insertObject:item inPictogramsAtIndex:self.schedule.pictograms.count];
-//        NSLog(@"Added");
-//    } else {
-//        NSLog(@"Not added");
-//    }
-//}
+- (void)BBASelectPictogramViewController:(BBASelectPictogramViewController *)controller didSelectItem:(Pictogram *)item {
+    id appDelegate = [[UIApplication sharedApplication] delegate];
+    Repository *sharedRepository = [appDelegate valueForKey:@"sharedRepository"];
+    NSUInteger numberOfPictogramsInSchedule = [sharedRepository pictogramsForSchedule:self.schedule includingImages:NO].count;
+    [sharedRepository addPictogram:item toSchedule:self.schedule atIndex:numberOfPictogramsInSchedule];
+    NSArray *pictograms = [sharedRepository pictogramsForSchedule:self.schedule includingImages:YES];
+    [self.showScheduleCollectionViewController addPictogram:[pictograms objectAtIndex:numberOfPictogramsInSchedule]];
+}
 
 @end

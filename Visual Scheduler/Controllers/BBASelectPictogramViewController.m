@@ -30,16 +30,13 @@ NSInteger const kCellTagForLabelView = 2;
 
 #pragma mark - Camera
 
-- (IBAction)doneButton:(id)sender {
-}
-
 - (IBAction)cameraButton:(id)sender {
     [self setupCamera];
     [self showCamera];
 }
 
 - (void)setupCamera {
-        camera = [[Camera alloc] initWithViewController:self usingDelegate:self];
+    camera = [[Camera alloc] initWithViewController:self usingDelegate:self];
 }
 
 - (void)showCamera {
@@ -62,12 +59,11 @@ NSInteger const kCellTagForLabelView = 2;
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     _selectedItem = [self.dataSource objectAtIndex:indexPath.row];
-    [self informDelegateWhichItemWasSelected];
+    [self informDelegateOfSelection];
 }
 
-- (void)informDelegateWhichItemWasSelected {
+- (void)informDelegateOfSelection {
     [self.delegate BBASelectPictogramViewController:self didSelectItem:(Pictogram *)_selectedItem];
-    
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {

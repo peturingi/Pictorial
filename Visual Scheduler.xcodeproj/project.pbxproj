@@ -345,8 +345,6 @@
 				D83A62CA18B696DC00EC0773 /* AppDelegate.h */,
 				D83A62CB18B696DC00EC0773 /* AppDelegate.m */,
 				D83A62CD18B696DC00EC0773 /* Main.storyboard */,
-				D8D4011B18E4960D003F6F4F /* PictogramCollectionViewCell.h */,
-				D8D4011C18E4960D003F6F4F /* PictogramCollectionViewCell.m */,
 				D8315AF518D39DF000C4A340 /* Camera */,
 				D82838B018D5B85A009C03A8 /* Categories */,
 				D83A62F718B69BEF00EC0773 /* View Controllers */,
@@ -529,6 +527,8 @@
 			isa = PBXGroup;
 			children = (
 				D813A9CF18D388F900D3515A /* Tests */,
+				D8D4011B18E4960D003F6F4F /* PictogramCollectionViewCell.h */,
+				D8D4011C18E4960D003F6F4F /* PictogramCollectionViewCell.m */,
 				D8DB7FFD18C50F4700BA2037 /* BBAShowScheduleViewController.h */,
 				D8DB7FFE18C50F4700BA2037 /* BBAShowScheduleViewController.m */,
 				D8534F7B18DDB51D0055FA93 /* BBAShowScheduleCollectionViewController.h */,
