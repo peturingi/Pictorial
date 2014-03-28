@@ -126,11 +126,6 @@
     }
 }
 
-- (void)moveObject:(id)obj in:(NSMutableArray *)array toIndex:(NSInteger)index {
-    [array removeObject:obj];
-    [array insertObject:obj atIndex:index];
-}
-
 - (CGRect)center:(CGRect)aRect at:(CGPoint)aPoint {
     aRect.origin = aPoint;
     aRect.origin.x -= aRect.size.width / 2.0f;
