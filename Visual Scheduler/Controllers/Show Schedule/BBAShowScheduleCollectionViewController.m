@@ -162,21 +162,16 @@
     NSInteger shortedEuclidianDistanceFound = INT64_MAX;
     UIView *closestView;
     CGPoint centerOfSource = [self.collectionView convertPoint:source.center fromView:self.view];
-    NSLog(@"Center of source: %f,%f", centerOfSource.x, centerOfSource.y);
     for (UIView *subview in self.collectionView.subviews) {
         if ([self isViewAVisibleCollectionViewCell:subview] == YES) {
             CGPoint centerOfSubview = [self.view convertPoint:subview.center fromView:self.view];
-            PictogramCollectionViewCell *pv = (PictogramCollectionViewCell*)subview;
-            NSLog(@"%@ at %f,%f", pv.pictogram.title, centerOfSubview.x, centerOfSubview.y);
             CGFloat distanceToSubview = sqrtf(powf(centerOfSource.x - centerOfSubview.x, 2.0f) + powf(centerOfSource.y - centerOfSubview.y, 2.0f));
-            
             if (distanceToSubview < shortedEuclidianDistanceFound) {
                 shortedEuclidianDistanceFound = distanceToSubview;
                 closestView = subview;
             }
         }
     }
-    NSLog(@"Closest was %@", [(PictogramCollectionViewCell*)closestView pictogram].title);
     return (UICollectionViewCell *)closestView;
 }
 
