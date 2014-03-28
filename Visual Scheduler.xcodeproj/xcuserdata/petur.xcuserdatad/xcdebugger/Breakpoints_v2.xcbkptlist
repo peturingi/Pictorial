@@ -77,11 +77,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "Yes"
             filePath = "Visual Scheduler/Controllers/Show Schedule/BBAShowScheduleCollectionViewController.m"
-            timestampString = "417636147.411976"
+            timestampString = "417709178.627052"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "-longPressGesture:"
             landmarkType = "5">
             <Actions>
@@ -102,11 +102,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "Yes"
             filePath = "Visual Scheduler/Controllers/Show Schedule/BBAShowScheduleCollectionViewController.m"
-            timestampString = "417647573.681424"
+            timestampString = "417709178.627052"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
             landmarkName = "-longPressGesture:"
             landmarkType = "5">
             <Actions>
@@ -126,11 +126,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Visual Scheduler/Controllers/Show Schedule/BBAShowScheduleCollectionViewController.m"
-            timestampString = "417637982.189034"
+            timestampString = "417709178.627052"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "-longPressGesture:"
             landmarkType = "5">
          </BreakpointContent>

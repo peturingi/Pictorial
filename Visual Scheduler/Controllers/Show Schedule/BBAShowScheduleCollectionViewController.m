@@ -7,6 +7,9 @@
 
 @end
 
+#define VERTICAL_DISTANCE_FROM_TOP_BEFORE_AUTOSCROLL 100
+#define VERTICAL_DISTANCE_FROM_BOTTOM_BEFORE_AUTOSCROLL 100
+
 @implementation BBAShowScheduleCollectionViewController
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -76,6 +79,7 @@
             imageLocation.origin.x -= imageLocation.size.width / 2.0f;
             imageLocation.origin.y -= imageLocation.size.height / 2.0f;
             [selectedImage setFrame:imageLocation];
+            
     } else
     if (gr.state == UIGestureRecognizerStateEnded) {
         UICollectionViewCell *closestCell = [self cellInCollectionViewClosestTo:selectedImage];
@@ -149,7 +153,6 @@
                              }];
 
         }
-
     } else
     if (gr.state == UIGestureRecognizerStateCancelled) {
         // Abort
