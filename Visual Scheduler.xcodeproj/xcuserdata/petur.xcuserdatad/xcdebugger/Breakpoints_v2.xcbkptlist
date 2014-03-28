@@ -73,7 +73,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "Yes"
             filePath = "Visual Scheduler/Controllers/Show Schedule/BBAShowScheduleCollectionViewController.m"
@@ -102,64 +102,21 @@
             ignoreCount = "0"
             continueAfterRunningActions = "Yes"
             filePath = "Visual Scheduler/Controllers/Show Schedule/BBAShowScheduleCollectionViewController.m"
-            timestampString = "417640414.84206"
+            timestampString = "417647573.681424"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "-longPressGesture:"
             landmarkType = "5">
             <Actions>
                <BreakpointActionProxy
-                  ActionExtensionID = "Xcode.BreakpointAction.Log">
+                  ActionExtensionID = "Xcode.BreakpointAction.DebuggerCommand">
                   <ActionContent
-                     message = "Ended"
-                     conveyanceType = "0">
+                     consoleCommand = "po selectedCell">
                   </ActionContent>
                </BreakpointActionProxy>
             </Actions>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "Yes"
-            filePath = "Visual Scheduler/Controllers/Show Schedule/BBAShowScheduleCollectionViewController.m"
-            timestampString = "417640414.84206"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
-            landmarkName = "-longPressGesture:"
-            landmarkType = "5">
-            <Actions>
-               <BreakpointActionProxy
-                  ActionExtensionID = "Xcode.BreakpointAction.Log">
-                  <ActionContent
-                     message = "Aborted"
-                     conveyanceType = "0">
-                  </ActionContent>
-               </BreakpointActionProxy>
-            </Actions>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            condition = "indexOfSelectedCell == nil"
-            continueAfterRunningActions = "No"
-            filePath = "Visual Scheduler/Controllers/Show Schedule/BBAShowScheduleCollectionViewController.m"
-            timestampString = "417637904.742484"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "-longPressGesture:"
-            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -185,19 +142,18 @@
             ignoreCount = "0"
             continueAfterRunningActions = "Yes"
             filePath = "Visual Scheduler/Controllers/Show Schedule/BBAShowScheduleCollectionViewController.m"
-            timestampString = "417641808.760862"
+            timestampString = "417703552.00563"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
-            landmarkName = "-longPressGesture:"
+            startingLineNumber = "201"
+            endingLineNumber = "201"
+            landmarkName = "-cellInCollectionViewClosestTo:"
             landmarkType = "5">
             <Actions>
                <BreakpointActionProxy
-                  ActionExtensionID = "Xcode.BreakpointAction.Log">
+                  ActionExtensionID = "Xcode.BreakpointAction.DebuggerCommand">
                   <ActionContent
-                     message = "Lower Part"
-                     conveyanceType = "0">
+                     consoleCommand = "po centerOfSource">
                   </ActionContent>
                </BreakpointActionProxy>
             </Actions>

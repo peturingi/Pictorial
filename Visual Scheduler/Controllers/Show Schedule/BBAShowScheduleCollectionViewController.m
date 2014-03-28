@@ -78,27 +78,86 @@
             [selectedImage setFrame:imageLocation];
     } else
     if (gr.state == UIGestureRecognizerStateEnded) {
-        CGPoint touchUpLocation = [gr locationInView:self.collectionView];
+        UICollectionViewCell *closestCell = [self cellInCollectionViewClosestTo:selectedImage];
+        NSIndexPath *indexOfClosestCell = [self.collectionView indexPathForCell:closestCell];
+//        NSIndexPath *indexOfSelectedImage;
         
-        NSIndexPath *indexOfCellNearTouchup = [self.collectionView indexPathForItemAtPoint:touchUpLocation];
-        PictogramCollectionViewCell *cellUnderTouch = (PictogramCollectionViewCell*)[self.collectionView cellForItemAtIndexPath:indexOfCellNearTouchup];
-        if (!cellUnderTouch) {
-            NSLog(@"No cell");
-            // Find closest cell.
-        }
-        
-        if (cellUnderTouch != selectedCell) {
-            CGPoint gesturesLocationInCell = [gr locationInView:cellUnderTouch.contentView];
-            NSInteger cellsHeight = cellUnderTouch.contentView.frame.size.height;
-            BOOL upperPartOfCell = gesturesLocationInCell.y < (cellsHeight / 2);
+        if (closestCell != selectedCell) {
+            CGPoint centerOfSelectedImageRelativeToCollectionView = [self.collectionView convertPoint:selectedImage.center fromView:self.view];
+            NSLog(@"selected: %f,%f", centerOfSelectedImageRelativeToCollectionView.x, centerOfSelectedImageRelativeToCollectionView.y);
+            CGPoint centerOfClosestCellRelativeToCollectionView = [self.view convertPoint:closestCell.center fromView:self.view];
+            NSLog(@"closest: %f,%f", centerOfClosestCellRelativeToCollectionView.x, centerOfClosestCellRelativeToCollectionView.y);
+
+            BOOL isSelectedImageBelowClosestCell = centerOfSelectedImageRelativeToCollectionView.y > centerOfClosestCellRelativeToCollectionView.y ? YES : NO;
+            NSLog(@"Below? %d", isSelectedImageBelowClosestCell);
+            
+            
+            NSInteger arrayPositionOfSelectedCell = [self.dataSource indexOfObject:selectedPictogram];
+            NSInteger arrayPosOfClosestPictogram = [self.dataSource indexOfObject:((PictogramCollectionViewCell *)closestCell).pictogram];
+            NSInteger arrayPosTargetForPictogram = -1; // To throw exception if failed to be changed.
+            
             NSMutableArray *newDataSource = [NSMutableArray arrayWithArray:self.dataSource];
             
-            BOOL movingUpTheSchedule = [newDataSource indexOfObject:selectedPictogram]  < indexOfCellNearTouchup.row ? NO : YES;
-            NSUInteger targetIndexForPictogram = upperPartOfCell ? indexOfCellNearTouchup.row-1 : indexOfCellNearTouchup.row;
-            if (movingUpTheSchedule) targetIndexForPictogram++;
-            [newDataSource removeObject:selectedPictogram];
-            [newDataSource insertObject:selectedPictogram atIndex:targetIndexForPictogram];
+            if (arrayPositionOfSelectedCell < arrayPosOfClosestPictogram) {
+            /* Moving pictogram down the list */
+            /*
+             on lower part
+             x = pos of target item
+             delete current item
+             insert current item at x
+             */
+                /*
+                 on upper part
+                 x = pos of target item - 1
+                 delete current item
+                 insert current item at x
+                 
+                 ..
+                 */
+                if (isSelectedImageBelowClosestCell) {
+                    arrayPosTargetForPictogram = arrayPosOfClosestPictogram;
+                    [newDataSource removeObject:selectedPictogram];
+                    [newDataSource insertObject:selectedPictogram atIndex:arrayPosTargetForPictogram];
+                } else {
+                    arrayPosTargetForPictogram = arrayPosOfClosestPictogram - 1;
+                    [newDataSource removeObject:selectedPictogram];
+                    [newDataSource insertObject:selectedPictogram atIndex:arrayPosTargetForPictogram];
+                }
+
+
+            } else if (arrayPositionOfSelectedCell > arrayPosOfClosestPictogram) {
+                /* Moving pictogram up the list */
+                /*
+                 is below, moved up
+                 
+                 on lower part
+                 x = pos of target item
+                 delete current item
+                 insert current item at x+1
+                 
+                 on upper part
+                 x = pos of target item
+                 delete current item
+                 insert current item at x
+                 */
+                if (isSelectedImageBelowClosestCell) {
+                    arrayPosTargetForPictogram = arrayPosOfClosestPictogram + 1;
+                    [newDataSource removeObject:selectedPictogram];
+                    [newDataSource insertObject:selectedPictogram atIndex:arrayPosTargetForPictogram];
+                } else {
+                    arrayPosTargetForPictogram = arrayPosOfClosestPictogram;
+                    [newDataSource removeObject:selectedPictogram];
+                    [newDataSource insertObject:selectedPictogram atIndex:arrayPosTargetForPictogram];
+                }
+
+            } else {
+                // Closest pictogram was the pictogram being dragged. Could indicate that user wanted to abort. Do Nothing.
+            }
             
+            
+            
+            
+
             [self setDataSource:newDataSource];
 
             [self reloadCollectionViewWithAnimation];
@@ -133,6 +192,38 @@
     [self.collectionView performBatchUpdates:^{
         [self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:0]];
     } completion:nil];
+}
+
+- (UICollectionViewCell *)cellInCollectionViewClosestTo:(UIView *)source {
+    NSInteger shortedEuclidianDistanceFound = INT64_MAX;
+    UIView *closestView;
+    CGPoint centerOfSource = [self.collectionView convertPoint:source.center fromView:self.view];
+    NSLog(@"Center of source: %f,%f", centerOfSource.x, centerOfSource.y);
+    for (UIView *subview in self.collectionView.subviews) {
+        if ([self isViewAVisibleCollectionViewCell:subview] == YES) {
+            CGPoint centerOfSubview = [self.view convertPoint:subview.center fromView:self.view];
+            PictogramCollectionViewCell *pv = (PictogramCollectionViewCell*)subview;
+            NSLog(@"%@ at %f,%f", pv.pictogram.title, centerOfSubview.x, centerOfSubview.y);
+            CGFloat distanceToSubview = sqrtf(powf(centerOfSource.x - centerOfSubview.x, 2.0f) + powf(centerOfSource.y - centerOfSubview.y, 2.0f));
+            
+            if (distanceToSubview < shortedEuclidianDistanceFound) {
+                shortedEuclidianDistanceFound = distanceToSubview;
+                closestView = subview;
+            }
+        }
+    }
+    NSLog(@"Closest was %@", [(PictogramCollectionViewCell*)closestView pictogram].title);
+    return (UICollectionViewCell *)closestView;
+}
+
+- (BOOL)isViewAVisibleCollectionViewCell:(UIView *)aView {
+    if ([aView isKindOfClass:[UICollectionViewCell class]] == NO) {
+        return NO;
+    }
+    if (aView.isHidden == YES) {
+        return NO;
+    }
+    return YES;
 }
 
 
