@@ -39,6 +39,14 @@
     [(PictogramCollectionViewCell *)cell setPictogram:pictogramToDisplay];
     return cell;
 }
+
+- (UIImageView *)imageViewWithPictogramIn:(PictogramCollectionViewCell *)cell {
+    NSParameterAssert(cell != nil);
+    UIImage *pictogram = [cell.pictogram image];
+    NSAssert(pictogram != nil, @"Failed to get image for pictogram.");
+    return [[UIImageView alloc] initWithImage:pictogram];
+}
+
 - (IBAction)longPressGesture:(id)sender {
     UIGestureRecognizer *gr = (UIGestureRecognizer *)sender;
     
@@ -53,21 +61,17 @@
             selectedCell = (PictogramCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexOfSelectedCell];
             [self toggleMarkCellAsOldCell:selectedCell];
             
-            selectedPictogram = [selectedCell pictogram];
-            selectedImage = [[UIImageView alloc] initWithFrame:selectedCell.frame];
-            selectedImage.image = selectedPictogram.image;
+            originalPosition = selectedCell.frame;
+            selectedPictogram = selectedCell.pictogram;
             
+            selectedImage = [self imageViewWithPictogramIn:selectedCell];
+            selectedImage.frame = [self center:selectedCell.frame at:[gr locationInView:self.view]];
             [self markViewAsBeingDragged:selectedImage];
-            
-            originalPosition = selectedImage.frame;
-        
-            selectedImage.frame = [self center:selectedImage.frame around:[gr locationInView:self.view]];
-            
             [self.view addSubview:selectedImage];
         }
     } else
         if (gr.state == UIGestureRecognizerStateChanged) {
-            selectedImage.frame = [self center:selectedImage.frame around:[gr locationInView:self.view]];
+            selectedImage.frame = [self center:selectedImage.frame at:[gr locationInView:self.view]];
     } else
     if (gr.state == UIGestureRecognizerStateEnded) {
         UICollectionViewCell *closestCell = [self cellInCollectionViewClosestTo:selectedImage];
@@ -147,8 +151,8 @@
     }
 }
 
-- (CGRect)center:(CGRect)aRect around:(CGPoint)point {
-    aRect.origin = point;
+- (CGRect)center:(CGRect)aRect at:(CGPoint)aPoint {
+    aRect.origin = aPoint;
     aRect.origin.x -= aRect.size.width / 2.0f;
     aRect.origin.y -= aRect.size.height / 2.0f;
     return aRect;
