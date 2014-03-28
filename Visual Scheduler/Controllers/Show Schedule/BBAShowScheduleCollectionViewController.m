@@ -79,8 +79,6 @@
     } else
     if (gr.state == UIGestureRecognizerStateEnded) {
         UICollectionViewCell *closestCell = [self cellInCollectionViewClosestTo:selectedImage];
-        NSIndexPath *indexOfClosestCell = [self.collectionView indexPathForCell:closestCell];
-//        NSIndexPath *indexOfSelectedImage;
         
         if (closestCell != selectedCell) {
             CGPoint centerOfSelectedImageRelativeToCollectionView = [self.collectionView convertPoint:selectedImage.center fromView:self.view];
@@ -91,7 +89,6 @@
             BOOL isSelectedImageBelowClosestCell = centerOfSelectedImageRelativeToCollectionView.y > centerOfClosestCellRelativeToCollectionView.y ? YES : NO;
             NSLog(@"Below? %d", isSelectedImageBelowClosestCell);
             
-            
             NSInteger arrayPositionOfSelectedCell = [self.dataSource indexOfObject:selectedPictogram];
             NSInteger arrayPosOfClosestPictogram = [self.dataSource indexOfObject:((PictogramCollectionViewCell *)closestCell).pictogram];
             NSInteger arrayPosTargetForPictogram = -1; // To throw exception if failed to be changed.
@@ -99,21 +96,6 @@
             NSMutableArray *newDataSource = [NSMutableArray arrayWithArray:self.dataSource];
             
             if (arrayPositionOfSelectedCell < arrayPosOfClosestPictogram) {
-            /* Moving pictogram down the list */
-            /*
-             on lower part
-             x = pos of target item
-             delete current item
-             insert current item at x
-             */
-                /*
-                 on upper part
-                 x = pos of target item - 1
-                 delete current item
-                 insert current item at x
-                 
-                 ..
-                 */
                 if (isSelectedImageBelowClosestCell) {
                     arrayPosTargetForPictogram = arrayPosOfClosestPictogram;
                     [newDataSource removeObject:selectedPictogram];
@@ -123,23 +105,7 @@
                     [newDataSource removeObject:selectedPictogram];
                     [newDataSource insertObject:selectedPictogram atIndex:arrayPosTargetForPictogram];
                 }
-
-
             } else if (arrayPositionOfSelectedCell > arrayPosOfClosestPictogram) {
-                /* Moving pictogram up the list */
-                /*
-                 is below, moved up
-                 
-                 on lower part
-                 x = pos of target item
-                 delete current item
-                 insert current item at x+1
-                 
-                 on upper part
-                 x = pos of target item
-                 delete current item
-                 insert current item at x
-                 */
                 if (isSelectedImageBelowClosestCell) {
                     arrayPosTargetForPictogram = arrayPosOfClosestPictogram + 1;
                     [newDataSource removeObject:selectedPictogram];
@@ -149,29 +115,19 @@
                     [newDataSource removeObject:selectedPictogram];
                     [newDataSource insertObject:selectedPictogram atIndex:arrayPosTargetForPictogram];
                 }
-
             } else {
                 // Closest pictogram was the pictogram being dragged. Could indicate that user wanted to abort. Do Nothing.
             }
-            
-            
-            
-            
-
             [self setDataSource:newDataSource];
-
             [self reloadCollectionViewWithAnimation];
         } else {
             [self toggleMarkCellAsOldCell:selectedCell];
         }
-        
         selectedCell = nil;
         selectedPictogram = nil;
         originalPosition = CGRectZero;
         [selectedImage removeFromSuperview];
         selectedImage = nil;
-        
-            // Check if can relocate
     } else
     if (gr.state == UIGestureRecognizerStateCancelled) {
         // Abort
@@ -225,9 +181,5 @@
     }
     return YES;
 }
-
-
-
-
 
 @end
