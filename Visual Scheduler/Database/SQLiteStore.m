@@ -294,7 +294,8 @@
         @throw [NSException exceptionWithName:@"SQlite3 query failed." reason:@"Unknown" userInfo:nil];
     }
     if (sqlite3_step(statement) != SQLITE_DONE) {
-        @throw [NSException exceptionWithName:@"Failed to insert pictogram to schedule." reason:@"Index already in use." userInfo:nil];
+        NSString *errorMsg = [NSString stringWithCString:sqlite3_errmsg(_databaseConnection) encoding:NSUTF8StringEncoding];
+        @throw [NSException exceptionWithName:@"Failed to insert pictogram to schedule." reason:errorMsg userInfo:nil];
     }
     sqlite3_finalize(statement);
 }

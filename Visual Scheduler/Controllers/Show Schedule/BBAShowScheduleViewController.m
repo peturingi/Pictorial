@@ -60,7 +60,6 @@
 
         Repository *sharedRepository = [Repository sharedStore];
         NSArray *pictogramsInSchedules = [sharedRepository pictogramsForSchedule:self.schedule includingImages:YES];
-        [_showScheduleCollectionViewController setDataSource:pictogramsInSchedules];
     }
     if ([[segue identifier] isEqualToString:@"pictogramSelector"]) {
         _selectPictogramViewController = (BBASelectPictogramViewController *)segue.destinationViewController;
@@ -104,11 +103,7 @@
 #pragma mark Delegate
 
 - (void)BBASelectPictogramViewController:(BBASelectPictogramViewController *)controller didSelectItem:(Pictogram *)item {
-    Repository *sharedRepository = [Repository sharedStore];
-    NSUInteger numberOfPictogramsInSchedule = [sharedRepository pictogramsForSchedule:self.schedule includingImages:NO].count;
-    [sharedRepository addPictogram:item toSchedule:self.schedule atIndex:numberOfPictogramsInSchedule];
-    NSArray *pictograms = [sharedRepository pictogramsForSchedule:self.schedule includingImages:YES];
-    [self.showScheduleCollectionViewController addPictogram:[pictograms objectAtIndex:numberOfPictogramsInSchedule]];
+    [self.showScheduleCollectionViewController addPictogram:item];
 }
 
 @end

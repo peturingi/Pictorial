@@ -21,7 +21,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     NSParameterAssert(section == 0);
-    return self.dataSource.count;
+    return [self.schedule pictograms].count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -36,7 +36,7 @@
             break;
         }
     }
-    Pictogram *pictogramToDisplay = [self.dataSource objectAtIndex:indexPath.row];
+    Pictogram *pictogramToDisplay = [self.schedule.pictograms objectAtIndex:indexPath.row];
     [pictogramImage setImage:pictogramToDisplay.image];
     [(PictogramCollectionViewCell *)cell setPictogram:pictogramToDisplay];
     return cell;
@@ -88,10 +88,10 @@
                 CGPoint centerOfClosestCell = [self.view convertPoint:closestCell.center fromView:self.view];
                 BOOL destinationIsBelowClosestCell = centerOfSelectedImage.y > centerOfClosestCell.y ? YES : NO;
                 
-                NSInteger indexOfSelectedCell = [self.dataSource indexOfObject:selectedPictogram];
-                NSInteger indexOfClosestPictogram = [self.dataSource indexOfObject:((PictogramCollectionViewCell *)closestCell).pictogram];
+                NSInteger indexOfSelectedCell = [self.schedule.pictograms indexOfObject:selectedPictogram];
+                NSInteger indexOfClosestPictogram = [self.schedule.pictograms indexOfObject:((PictogramCollectionViewCell *)closestCell).pictogram];
                 
-                NSMutableArray *newDataSource = [NSMutableArray arrayWithArray:self.dataSource];
+                NSMutableArray *newDataSource = [NSMutableArray arrayWithArray:self.schedule.pictograms];
                 BOOL moveDown = indexOfSelectedCell < indexOfClosestPictogram;
                 BOOL moveUp = indexOfSelectedCell > indexOfClosestPictogram;
                 if (moveDown && destinationIsBelowClosestCell == NO) {
@@ -101,7 +101,7 @@
                 } else {
                     [newDataSource moveObject:selectedPictogram toIndex:indexOfClosestPictogram];
                 }
-                [self setDataSource:newDataSource];
+                [[self schedule] setPictograms:newDataSource];
                 [self reloadCollectionViewWithAnimation];
             } else {
                 [self toggleMarkCellAsOldCell:selectedCell];
@@ -180,9 +180,9 @@
 #pragma mark - Public
 
 - (void)addPictogram:(Pictogram *)pictogram {
-    NSMutableArray *mutableDataSource = [NSMutableArray arrayWithArray:self.dataSource];
+    NSMutableArray *mutableDataSource = [NSMutableArray arrayWithArray:self.schedule.pictograms];
     [mutableDataSource addObject:pictogram];
-    self.dataSource = mutableDataSource;
+    [self.schedule setPictograms: mutableDataSource];
     [self reloadCollectionViewWithAnimation];
 }
 @end
