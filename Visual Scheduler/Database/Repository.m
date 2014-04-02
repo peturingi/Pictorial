@@ -1,9 +1,18 @@
 #import "Repository.h"
 #import "BBAColor.h"
+#import "SQLiteStore.h"
 
 @implementation Repository
 
 #pragma mark - Constructor / Deconstructor
+
++ (instancetype)sharedStore {
+    static Repository *sharedStore = nil;
+    if (sharedStore == nil) {
+        sharedStore = [[Repository alloc] initWithStore:[[SQLiteStore alloc] init]];
+    }
+    return sharedStore;
+}
 
 - (id)initWithStore:(id<DataStoreProtocol>)store {
     NSParameterAssert(store != nil);
@@ -87,6 +96,15 @@
         [pictograms addObject:pictogram];
     }
     return pictograms;
+}
+
+- (void)removeAllPictogramsFromSchedule:(Schedule *)schedule {
+    NSParameterAssert(schedule != nil);
+    NSParameterAssert(schedule.pictograms != nil);
+    
+    for (Pictogram *pictogram in schedule.pictograms) {
+        [_dataStore removePictogram:pictogram.uniqueIdentifier fromSchedule:schedule.uniqueIdentifier atIndex:[schedule.pictograms indexOfObject:pictogram]];
+    }
 }
 
 @end

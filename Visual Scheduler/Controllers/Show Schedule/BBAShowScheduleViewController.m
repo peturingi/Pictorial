@@ -57,8 +57,8 @@
     if ([[segue identifier] isEqualToString:@"embedScheduleCollection"]) {
         _showScheduleCollectionViewController = (BBAShowScheduleCollectionViewController *)segue.destinationViewController;
         [_showScheduleCollectionViewController setSchedule:self.schedule];
-        id appDelegate = [[UIApplication sharedApplication] delegate];
-        id sharedRepository = [appDelegate valueForKey:@"sharedRepository"];
+
+        Repository *sharedRepository = [Repository sharedStore];
         NSArray *pictogramsInSchedules = [sharedRepository pictogramsForSchedule:self.schedule includingImages:YES];
         [_showScheduleCollectionViewController setDataSource:pictogramsInSchedules];
     }
@@ -104,8 +104,7 @@
 #pragma mark Delegate
 
 - (void)BBASelectPictogramViewController:(BBASelectPictogramViewController *)controller didSelectItem:(Pictogram *)item {
-    id appDelegate = [[UIApplication sharedApplication] delegate];
-    Repository *sharedRepository = [appDelegate valueForKey:@"sharedRepository"];
+    Repository *sharedRepository = [Repository sharedStore];
     NSUInteger numberOfPictogramsInSchedule = [sharedRepository pictogramsForSchedule:self.schedule includingImages:NO].count;
     [sharedRepository addPictogram:item toSchedule:self.schedule atIndex:numberOfPictogramsInSchedule];
     NSArray *pictograms = [sharedRepository pictogramsForSchedule:self.schedule includingImages:YES];

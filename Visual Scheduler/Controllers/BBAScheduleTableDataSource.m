@@ -1,6 +1,6 @@
 #import "BBAScheduleTableDataSource.h"
 #import "Schedule.h"
-#import "../Database/SharedRepositoryProtocol.h"
+#import "../Database/Repository.h"
 
 NSString * const kBBACellIdentifier = @"ScheduleCell";
 NSString * const kBBANotificationNameForDidSelectItem = @"didSelectObjectInScheduleTableDataSource";
@@ -19,8 +19,7 @@ NSString * const kBBANotificationNameForNewDataAvailable = @"didUpdateScheduleTa
 }
 
 - (void)setupDataSource {
-    id appDelegate = [[UIApplication sharedApplication] delegate];
-    _repository = [appDelegate valueForKey:@"sharedRepository"];
+    _repository = [Repository sharedStore];
     NSAssert(_repository != nil, @"Failed to get the shared repository.");
     _dataSource = [_repository allSchedules];
 }

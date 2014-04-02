@@ -15,8 +15,7 @@
 - (void)setUp
 {
     [super setUp];
-    SQLiteStore *store = [[SQLiteStore alloc] init];
-    _repo = [[Repository alloc] initWithStore:store];
+    _repo = [Repository sharedStore];
 }
 
 - (void)tearDown {
@@ -68,4 +67,20 @@
     XCTAssert([pictogramsInSchedule count] >= 2, @"pictograms were not added");
 }
 
+- (void)testDoesRemoveAllPictogramsFromSchedule {
+    Schedule* schedule = [_repo scheduleWithTitle:@"Test Domain" withColor:[UIColor whiteColor]];
+    Pictogram* pictogram1 = [_repo pictogramWithTitle:@"Test Domain 1" withImage:[UIImage imageNamed:@"testImage"]];
+    Pictogram* pictogram2 = [_repo pictogramWithTitle:@"Test Domain 2" withImage:[UIImage imageNamed:@"testImage"]];
+    [_repo addPictogram:pictogram1 toSchedule:schedule atIndex:0];
+    [_repo addPictogram:pictogram2 toSchedule:schedule atIndex:1];
+    NSArray* pictogramsInSchedule = [_repo pictogramsForSchedule:schedule includingImages:NO];
+    XCTAssert([pictogramsInSchedule count] >= 2, @"pictograms were not added");
+    
+    [_repo removeAllPictogramsFromSchedule:schedule];
+    pictogramsInSchedule = [_repo pictogramsForSchedule:schedule includingImages:NO];
+    XCTAssert(pictogramsInSchedule.count == 0, @"Failed to remove all pictograms from schedule.");
+}
+
+
 @end
+
