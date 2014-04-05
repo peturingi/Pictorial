@@ -25,8 +25,8 @@
 - (void)setPictograms:(NSArray *)pictograms {
     // TODO possible race condition.
     [[Repository sharedStore]removeAllPictogramsFromSchedule:self];
-    for (Pictogram *pictogram in pictograms) {
-        [[Repository sharedStore] addPictogram:pictogram toSchedule:self atIndex:[pictograms indexOfObject:pictogram]];
+    for (NSUInteger i = 0; i < pictograms.count; i++) {
+        [[Repository sharedStore] addPictogram:[pictograms objectAtIndex:i] toSchedule:self atIndex:i];
     }
     _pictograms = pictograms;
 }

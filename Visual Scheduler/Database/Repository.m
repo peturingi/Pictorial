@@ -102,9 +102,11 @@
     NSParameterAssert(schedule != nil);
     NSParameterAssert(schedule.pictograms != nil);
     
-    for (Pictogram *pictogram in schedule.pictograms) {
-        [_dataStore removePictogram:pictogram.uniqueIdentifier fromSchedule:schedule.uniqueIdentifier atIndex:[schedule.pictograms indexOfObject:pictogram]];
+    for (NSUInteger i = 0; i < schedule.pictograms.count; i++) {
+        Pictogram *pictogramToRemoved = [schedule.pictograms objectAtIndex:i];
+        [_dataStore removePictogram:pictogramToRemoved.uniqueIdentifier fromSchedule:schedule.uniqueIdentifier atIndex:i];
     }
+
 }
 
 @end

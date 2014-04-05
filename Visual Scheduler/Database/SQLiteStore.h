@@ -4,6 +4,7 @@
 
 @interface SQLiteStore : NSObject <DataStoreProtocol> {
     sqlite3 *_databaseConnection;
+    
 }
 
 @end

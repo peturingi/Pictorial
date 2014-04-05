@@ -278,6 +278,7 @@
 #pragma mark - Relation
 
 - (void)addPictogram:(NSInteger)pictogramIdentifier toSchedule:(NSInteger)scheduleIdentifier atIndex:(NSInteger)index {
+    NSLog(@"adding pictogram");
     NSParameterAssert([self pictogramExistsWithIdentifier:pictogramIdentifier]);
     NSParameterAssert([self scheduleExistsWithIdentifier:scheduleIdentifier]);
     
@@ -293,14 +294,18 @@
     if (sqlite3_bind_int64(statement, 3, index) != SQLITE_OK) {
         @throw [NSException exceptionWithName:@"SQlite3 query failed." reason:@"Unknown" userInfo:nil];
     }
-    if (sqlite3_step(statement) != SQLITE_DONE) {
+    NSInteger returnCode = sqlite3_step(statement);
+    if (returnCode != SQLITE_DONE) {
         NSString *errorMsg = [NSString stringWithCString:sqlite3_errmsg(_databaseConnection) encoding:NSUTF8StringEncoding];
+        errorMsg = [errorMsg stringByAppendingString:[NSString stringWithFormat:@"error: %ld", returnCode]];
         @throw [NSException exceptionWithName:@"Failed to insert pictogram to schedule." reason:errorMsg userInfo:nil];
+        
     }
     sqlite3_finalize(statement);
 }
 
 - (void)removePictogram:(NSInteger)pictogramIdentifier fromSchedule:(NSInteger)scheduleIdentifier atIndex:(NSInteger)index {
+    NSLog(@"Reemoving pictogram");
     if ([self relationExistsWithScheduleIdentifier:scheduleIdentifier containingPictogramIdentifier:pictogramIdentifier atIndex:index] != YES) {
         @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"Trying to delete a relation which does not excist in the database." userInfo:nil];
     }
