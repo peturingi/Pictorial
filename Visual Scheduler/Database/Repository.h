@@ -15,4 +15,5 @@
 -(void)addPictogram:(Pictogram*)pictogram toSchedule:(Schedule*)schedule atIndex:(NSInteger)index;
 - (NSArray *)allSchedules;
 - (NSArray *)allPictogramsIncludingImages:(BOOL)value;
+- (void)deleteSchedule:(Schedule *)aSchedule;
 @end

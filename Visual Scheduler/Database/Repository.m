@@ -49,6 +49,13 @@
     return pictogram;
 }
 
+#pragma mark - Delete
+
+- (void)deleteSchedule:(Schedule *)aSchedule {
+    NSParameterAssert(aSchedule != nil);
+    [_dataStore deleteScheduleWithID:aSchedule.uniqueIdentifier];
+}
+
 #pragma mark - Retrieve
 
 - (NSArray *)allSchedules {
@@ -78,6 +85,9 @@
 }
 
 -(void)addPictogram:(Pictogram *)pictogram toSchedule:(Schedule *)schedule atIndex:(NSInteger)index{
+    NSParameterAssert(pictogram != nil);
+    NSParameterAssert(schedule != nil);
+    NSParameterAssert(index >= 0);
     [_dataStore addPictogram:pictogram.uniqueIdentifier toSchedule:schedule.uniqueIdentifier atIndex:index];
 }
 
