@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>8C9FC366-F569-43EB-8758-D2E8AC089D37</string>
+	<string>42F017D6-695C-4237-A0C3-146ECCF18148</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Visual Scheduler</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>64BD26CA-26B2-4101-9152-B0ADE72D608C</key>
-		<string>ssh://github.com/peturingi/VisualScheduler.git</string>
+		<key>CA29C0FC-7F08-4F8B-B93F-3F4D42D87839</key>
+		<string>petur@epsoftware.dk:/usr/local/git/base/sw610f14/VisualScheduler.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Visual Scheduler.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>64BD26CA-26B2-4101-9152-B0ADE72D608C</key>
+		<key>CA29C0FC-7F08-4F8B-B93F-3F4D42D87839</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/peturingi/VisualScheduler.git</string>
+	<string>petur@epsoftware.dk:/usr/local/git/base/sw610f14/VisualScheduler.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>64BD26CA-26B2-4101-9152-B0ADE72D608C</string>
+	<string>CA29C0FC-7F08-4F8B-B93F-3F4D42D87839</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>64BD26CA-26B2-4101-9152-B0ADE72D608C</string>
+			<string>CA29C0FC-7F08-4F8B-B93F-3F4D42D87839</string>
 			<key>IDESourceControlWCCName</key>
-			<string>VisualScheduler</string>
+			<string>Visual Scheduler</string>
 		</dict>
 	</array>
 </dict>

@@ -27,7 +27,7 @@
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIMainStoryboardFile~ipad</key>
-	<string>Main</string>
+	<string>Calendar</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
@@ -38,8 +38,6 @@
 	<array>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
-		<string>UIInterfaceOrientationPortraitUpsideDown</string>
-		<string>UIInterfaceOrientationPortrait</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>

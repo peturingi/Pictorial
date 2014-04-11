@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6833530218D9E14F0027A507 /* BBAServiceProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6833530118D9E14F0027A507 /* BBAServiceProvider.m */; };
 		D800896618DC6946003EFD7E /* BBAScheduleOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D85EA1A818C4B12300ACDBD6 /* BBAScheduleOverviewViewController.m */; };
 		D800896718DC694D003EFD7E /* BBAScheduleOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D85EA1A818C4B12300ACDBD6 /* BBAScheduleOverviewViewController.m */; };
 		D813A9D118D38BA100D3515A /* MockScheduleOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EC7D5518CA63C500B6A673 /* MockScheduleOverviewViewController.m */; };
@@ -15,6 +14,11 @@
 		D82838B318D5B9DF009C03A8 /* UIApplication+BBA.m in Sources */ = {isa = PBXBuildFile; fileRef = D82838B218D5B9DF009C03A8 /* UIApplication+BBA.m */; };
 		D82838B518D5BA39009C03A8 /* UIApplicationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D82838B418D5BA39009C03A8 /* UIApplicationTests.m */; };
 		D829DDAA18E191C00039A449 /* vs.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = D829DDA918E191C00039A449 /* vs.sqlite3 */; };
+		D82C0CD318F7F128005B5569 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D82C0CD218F7F128005B5569 /* Calendar.storyboard */; };
+		D82C0CD618F7F344005B5569 /* CalendarCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D82C0CD518F7F344005B5569 /* CalendarCollectionViewLayout.m */; };
+		D82C0CD918F80D70005B5569 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D82C0CD818F80D6F005B5569 /* CalendarViewController.m */; };
+		D82C0CDC18F80DFB005B5569 /* CalendarDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D82C0CDB18F80DFB005B5569 /* CalendarDataSource.m */; };
+		D82C0CE218F8813F005B5569 /* ImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D82C0CE118F8813F005B5569 /* ImageCollectionViewCell.m */; };
 		D82D5FD418C616A6000A8FD3 /* UIView+BBASubviews.m in Sources */ = {isa = PBXBuildFile; fileRef = D82D5FD318C616A6000A8FD3 /* UIView+BBASubviews.m */; };
 		D8315AF418D39DEA00C4A340 /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = D8315AF218D39DEA00C4A340 /* Camera.m */; };
 		D8315B0018D39E0600C4A340 /* CameraTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8315AF818D39E0600C4A340 /* CameraTests.m */; };
@@ -60,7 +64,6 @@
 		D8DCC45218E2F57D004794C9 /* testImage.png in Resources */ = {isa = PBXBuildFile; fileRef = D8DCC45018E2F520004794C9 /* testImage.png */; };
 		D8DCC45318E2F69D004794C9 /* vs.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = D829DDA918E191C00039A449 /* vs.sqlite3 */; };
 		D8E7A2C818CA52FE005F505C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8E7A2C718CA52FE005F505C /* CoreData.framework */; };
-		D8EA05F918D3578900F5D01F /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D85E8CD418CA584200BB5F10 /* CoreData.xcdatamodeld */; };
 		D8EB983118E33E4A00DA3A99 /* Repository.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EB983018E33E4A00DA3A99 /* Repository.m */; };
 		D8EB983418E33ECE00DA3A99 /* RepositoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EB983318E33ECE00DA3A99 /* RepositoryTests.m */; };
 		D8EB983718E340CF00DA3A99 /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EB983618E340CF00DA3A99 /* Schedule.m */; };
@@ -79,14 +82,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		683352F718D9DCB60027A507 /* BBAModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAModel.h; sourceTree = "<group>"; };
-		683352F818D9DCB60027A507 /* BBAModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAModel.m; sourceTree = "<group>"; };
-		683352FA18D9DDA10027A507 /* BBAStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAStore.h; sourceTree = "<group>"; };
-		683352FB18D9DDA10027A507 /* BBAStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAStore.m; sourceTree = "<group>"; };
-		683352FD18D9DDF70027A507 /* BBAContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAContext.h; sourceTree = "<group>"; };
-		683352FE18D9DDF70027A507 /* BBAContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAContext.m; sourceTree = "<group>"; };
-		6833530018D9E14F0027A507 /* BBAServiceProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAServiceProvider.h; sourceTree = "<group>"; };
-		6833530118D9E14F0027A507 /* BBAServiceProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAServiceProvider.m; sourceTree = "<group>"; };
 		D813A9D918D3995700D3515A /* Visual Scheduler-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Visual Scheduler-Prefix.pch"; sourceTree = "<group>"; };
 		D81AAA1E18B94F0A00E3B50C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D82838AD18D5B850009C03A8 /* UIImage+BBA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+BBA.h"; path = "Visual Scheduler/Category/UIImage+BBA.h"; sourceTree = "<group>"; };
@@ -95,6 +90,18 @@
 		D82838B218D5B9DF009C03A8 /* UIApplication+BBA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIApplication+BBA.m"; path = "Visual Scheduler/Category/UIApplication+BBA.m"; sourceTree = "<group>"; };
 		D82838B418D5BA39009C03A8 /* UIApplicationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIApplicationTests.m; path = "Visual SchedulerTests/UIApplicationTests.m"; sourceTree = "<group>"; };
 		D829DDA918E191C00039A449 /* vs.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = vs.sqlite3; sourceTree = "<group>"; };
+		D82C0CD218F7F128005B5569 /* Calendar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
+		D82C0CD418F7F344005B5569 /* CalendarCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarCollectionViewLayout.h; path = "Visual Scheduler/CalendarView/CalendarCollectionViewLayout.h"; sourceTree = "<group>"; };
+		D82C0CD518F7F344005B5569 /* CalendarCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarCollectionViewLayout.m; path = "Visual Scheduler/CalendarView/CalendarCollectionViewLayout.m"; sourceTree = "<group>"; };
+		D82C0CD718F80D6F005B5569 /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarViewController.h; path = "Visual Scheduler/CalendarView/CalendarViewController.h"; sourceTree = "<group>"; };
+		D82C0CD818F80D6F005B5569 /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarViewController.m; path = "Visual Scheduler/CalendarView/CalendarViewController.m"; sourceTree = "<group>"; };
+		D82C0CDA18F80DFB005B5569 /* CalendarDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarDataSource.h; path = "Visual Scheduler/CalendarView/CalendarDataSource.h"; sourceTree = "<group>"; };
+		D82C0CDB18F80DFB005B5569 /* CalendarDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarDataSource.m; path = "Visual Scheduler/CalendarView/CalendarDataSource.m"; sourceTree = "<group>"; };
+		D82C0CDD18F87C42005B5569 /* ContainsImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ContainsImage.h; path = Protocols/ContainsImage.h; sourceTree = "<group>"; };
+		D82C0CDE18F87CAA005B5569 /* ImplementsCount.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ImplementsCount.h; path = Protocols/ImplementsCount.h; sourceTree = "<group>"; };
+		D82C0CDF18F87F05005B5569 /* ImplementsObjectAtIndex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ImplementsObjectAtIndex.h; path = Protocols/ImplementsObjectAtIndex.h; sourceTree = "<group>"; };
+		D82C0CE018F8813F005B5569 /* ImageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageCollectionViewCell.h; path = "Visual Scheduler/CalendarView/ImageCollectionViewCell.h"; sourceTree = "<group>"; };
+		D82C0CE118F8813F005B5569 /* ImageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageCollectionViewCell.m; path = "Visual Scheduler/CalendarView/ImageCollectionViewCell.m"; sourceTree = "<group>"; };
 		D82D5FD218C616A6000A8FD3 /* UIView+BBASubviews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+BBASubviews.h"; path = "Visual Scheduler/Category/UIView+BBASubviews.h"; sourceTree = "<group>"; };
 		D82D5FD318C616A6000A8FD3 /* UIView+BBASubviews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+BBASubviews.m"; path = "Visual Scheduler/Category/UIView+BBASubviews.m"; sourceTree = "<group>"; };
 		D8315AF118D39DEA00C4A340 /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
@@ -136,7 +143,6 @@
 		D853A80D18E1DD3C0031E986 /* SQLiteStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQLiteStore.m; path = "Visual Scheduler/Database/SQLiteStore.m"; sourceTree = "<group>"; };
 		D853A80F18E1DD600031E986 /* SQLiteStoreTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQLiteStoreTests.m; path = "Visual Scheduler/Database/SQLiteStoreTests.m"; sourceTree = "<group>"; };
 		D853A81118E1E0280031E986 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		D85E8CD518CA584200BB5F10 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 		D85EA1A718C4B12300ACDBD6 /* BBAScheduleOverviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBAScheduleOverviewViewController.h; path = Controllers/BBAScheduleOverviewViewController.h; sourceTree = "<group>"; };
 		D85EA1A818C4B12300ACDBD6 /* BBAScheduleOverviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBAScheduleOverviewViewController.m; path = Controllers/BBAScheduleOverviewViewController.m; sourceTree = "<group>"; };
 		D85EBDCA18DC804400DF76B7 /* brushteeth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brushteeth.png; sourceTree = "<group>"; };
@@ -172,9 +178,6 @@
 		D8DB7FFE18C50F4700BA2037 /* BBAShowScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBAShowScheduleViewController.m; path = "Controllers/Show Schedule/BBAShowScheduleViewController.m"; sourceTree = "<group>"; };
 		D8DCC45018E2F520004794C9 /* testImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = testImage.png; sourceTree = "<group>"; };
 		D8E7A2C718CA52FE005F505C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		D8EA05A618D3541400F5D01F /* BBACoreDataStackTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBACoreDataStackTests.m; sourceTree = "<group>"; };
-		D8EA05F518D355E000F5D01F /* BBACoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBACoreDataStack.h; path = "Core Data/BBACoreDataStack.h"; sourceTree = "<group>"; };
-		D8EA05F618D355E000F5D01F /* BBACoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBACoreDataStack.m; path = "Core Data/BBACoreDataStack.m"; sourceTree = "<group>"; };
 		D8EAF2E118D9D8C7004CC1B1 /* Visual Scheduler copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Visual Scheduler copy-Info.plist"; path = "/Users/petur/Development/Visual Scheduler/Visual Scheduler copy-Info.plist"; sourceTree = "<absolute>"; };
 		D8EB982F18E33E4A00DA3A99 /* Repository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Repository.h; path = "Visual Scheduler/Database/Repository.h"; sourceTree = "<group>"; };
 		D8EB983018E33E4A00DA3A99 /* Repository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Repository.m; path = "Visual Scheduler/Database/Repository.m"; sourceTree = "<group>"; };
@@ -304,8 +307,16 @@
 		D83A62AF18B696DB00EC0773 = {
 			isa = PBXGroup;
 			children = (
+				D82C0CD218F7F128005B5569 /* Calendar.storyboard */,
+				D82C0CD718F80D6F005B5569 /* CalendarViewController.h */,
+				D82C0CD818F80D6F005B5569 /* CalendarViewController.m */,
+				D82C0CDA18F80DFB005B5569 /* CalendarDataSource.h */,
+				D82C0CDB18F80DFB005B5569 /* CalendarDataSource.m */,
+				D82C0CE018F8813F005B5569 /* ImageCollectionViewCell.h */,
+				D82C0CE118F8813F005B5569 /* ImageCollectionViewCell.m */,
+				D82C0CD418F7F344005B5569 /* CalendarCollectionViewLayout.h */,
+				D82C0CD518F7F344005B5569 /* CalendarCollectionViewLayout.m */,
 				D829DDA818E191B60039A449 /* Database */,
-				D85E8CD418CA584200BB5F10 /* CoreData.xcdatamodeld */,
 				D83A62C118B696DC00EC0773 /* Visual Scheduler */,
 				D83A62E018B696DC00EC0773 /* Visual SchedulerTests */,
 				D83A62BA18B696DC00EC0773 /* Frameworks */,
@@ -348,7 +359,6 @@
 				D8315AF518D39DF000C4A340 /* Camera */,
 				D82838B018D5B85A009C03A8 /* Categories */,
 				D83A62F718B69BEF00EC0773 /* View Controllers */,
-				D8EA05F818D355E900F5D01F /* Core Data */,
 				D8B49E6018B8077600788073 /* Protocols */,
 				D83A62D318B696DC00EC0773 /* Images.xcassets */,
 				D83A62C218B696DC00EC0773 /* Supporting Files */,
@@ -451,13 +461,6 @@
 			name = Tests;
 			sourceTree = "<group>";
 		};
-		D864F1A018D3A02B00711986 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Models;
-			sourceTree = "<group>";
-		};
 		D864F1A118D3A08400711986 /* TagManagement */ = {
 			isa = PBXGroup;
 			children = (
@@ -501,6 +504,9 @@
 		D8B49E6018B8077600788073 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				D82C0CDF18F87F05005B5569 /* ImplementsObjectAtIndex.h */,
+				D82C0CDE18F87CAA005B5569 /* ImplementsCount.h */,
+				D82C0CDD18F87C42005B5569 /* ContainsImage.h */,
 				D83A62FB18B6B69E00EC0773 /* ContainsImageAsData.h */,
 				D8B49E5F18B8025500788073 /* SearchViewControllerDelegate.h */,
 			);
@@ -535,34 +541,6 @@
 				D8534F7C18DDB51D0055FA93 /* BBAShowScheduleCollectionViewController.m */,
 			);
 			name = "Show Schedule";
-			sourceTree = "<group>";
-		};
-		D8EA05A518D353E400F5D01F /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				D8EA05A618D3541400F5D01F /* BBACoreDataStackTests.m */,
-			);
-			name = Tests;
-			path = "Visual SchedulerTests";
-			sourceTree = SOURCE_ROOT;
-		};
-		D8EA05F818D355E900F5D01F /* Core Data */ = {
-			isa = PBXGroup;
-			children = (
-				6833530018D9E14F0027A507 /* BBAServiceProvider.h */,
-				6833530118D9E14F0027A507 /* BBAServiceProvider.m */,
-				D8EA05A518D353E400F5D01F /* Tests */,
-				D8EA05F518D355E000F5D01F /* BBACoreDataStack.h */,
-				D8EA05F618D355E000F5D01F /* BBACoreDataStack.m */,
-				683352FA18D9DDA10027A507 /* BBAStore.h */,
-				683352FB18D9DDA10027A507 /* BBAStore.m */,
-				683352FD18D9DDF70027A507 /* BBAContext.h */,
-				683352FE18D9DDF70027A507 /* BBAContext.m */,
-				683352F718D9DCB60027A507 /* BBAModel.h */,
-				683352F818D9DCB60027A507 /* BBAModel.m */,
-				D864F1A018D3A02B00711986 /* Models */,
-			);
-			name = "Core Data";
 			sourceTree = "<group>";
 		};
 		D8EA060E18D3883100F5D01F /* Tests */ = {
@@ -685,6 +663,7 @@
 				D829DDAA18E191C00039A449 /* vs.sqlite3 in Resources */,
 				D85EBDD218DC804400DF76B7 /* eat.png in Resources */,
 				D85EBDD618DC804400DF76B7 /* toilet.png in Resources */,
+				D82C0CD318F7F128005B5569 /* Calendar.storyboard in Resources */,
 				D83A62C618B696DC00EC0773 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -716,15 +695,19 @@
 				D82838AF18D5B850009C03A8 /* UIImage+BBA.m in Sources */,
 				D8EB983118E33E4A00DA3A99 /* Repository.m in Sources */,
 				D8BABEC018EC6839009E562E /* NSMutableArray+MoveObject.m in Sources */,
+				D82C0CD918F80D70005B5569 /* CalendarViewController.m in Sources */,
+				D82C0CDC18F80DFB005B5569 /* CalendarDataSource.m in Sources */,
 				D83A62C818B696DC00EC0773 /* main.m in Sources */,
 				D8534F7D18DDB51D0055FA93 /* BBAShowScheduleCollectionViewController.m in Sources */,
 				D889F7EE18C9249A008A497F /* AppDelegate.m in Sources */,
 				D889F7EA18C90506008A497F /* BBAScheduleTableDataSource.m in Sources */,
 				D85EBDDA18DC833A00DF76B7 /* BBAColor.m in Sources */,
 				D8DB7FFF18C50F4700BA2037 /* BBAShowScheduleViewController.m in Sources */,
+				D82C0CD618F7F344005B5569 /* CalendarCollectionViewLayout.m in Sources */,
 				D8EB983718E340CF00DA3A99 /* Schedule.m in Sources */,
 				D8D4011D18E4960D003F6F4F /* PictogramCollectionViewCell.m in Sources */,
 				D8315AF418D39DEA00C4A340 /* Camera.m in Sources */,
+				D82C0CE218F8813F005B5569 /* ImageCollectionViewCell.m in Sources */,
 				D853A80E18E1DD3C0031E986 /* SQLiteStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -735,8 +718,6 @@
 			files = (
 				D8EB983418E33ECE00DA3A99 /* RepositoryTests.m in Sources */,
 				D8315B0018D39E0600C4A340 /* CameraTests.m in Sources */,
-				6833530218D9E14F0027A507 /* BBAServiceProvider.m in Sources */,
-				D8EA05F918D3578900F5D01F /* CoreData.xcdatamodeld in Sources */,
 				D878CAEB18DC868400DD1885 /* BBAColourTests.m in Sources */,
 				D8EC7D5318CA61E500B6A673 /* MockTableView.m in Sources */,
 				D813A9D118D38BA100D3515A /* MockScheduleOverviewViewController.m in Sources */,
@@ -1016,20 +997,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		D85E8CD418CA584200BB5F10 /* CoreData.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				D85E8CD518CA584200BB5F10 /* CoreData.xcdatamodel */,
-			);
-			currentVersion = D85E8CD518CA584200BB5F10 /* CoreData.xcdatamodel */;
-			name = CoreData.xcdatamodeld;
-			path = "Visual Scheduler/CoreData.xcdatamodeld";
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = D83A62B018B696DB00EC0773 /* Project object */;
 }

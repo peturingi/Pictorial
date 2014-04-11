@@ -11,4 +11,8 @@
     }
     return self;
 }
+
+- (NSString *)description {
+    return [NSString stringWithFormat:@"Title: %@", self.title];
+}
 @end

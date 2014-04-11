@@ -31,4 +31,25 @@
     _pictograms = pictograms;
 }
 
+- (NSString *)description {
+    NSString *myDescription = [NSString stringWithFormat:@"Title:%@, Color:%@, Pictograms:%@", self.title, self.color.description, self.pictograms];
+    return myDescription;
+}
+
+#pragma mark - ImplementsCount
+
+- (NSInteger)count {
+    return self.pictograms.count;
+}
+
+#pragma mark - ImplementsObjectAtIndex
+- (id)objectAtIndex:(NSUInteger)index {
+    @try {
+        return [self.pictograms objectAtIndex:index];
+    }
+    @catch (NSException *e) {
+        @throw e;
+    }
+}
+
 @end
