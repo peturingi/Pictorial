@@ -77,11 +77,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Visual Scheduler/CalendarView/CalendarCollectionViewLayout.m"
-            timestampString = "419019354.07944"
+            timestampString = "419020001.060288"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
             landmarkName = "-shouldInvalidateLayoutForBoundsChange:"
             landmarkType = "5">
          </BreakpointContent>
