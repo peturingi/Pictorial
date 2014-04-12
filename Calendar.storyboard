@@ -13,7 +13,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                        <collectionViewLayout key="collectionViewLayout" id="Kn3-RV-3le" customClass="CalendarCollectionViewLayout"/>
+                        <collectionViewLayout key="collectionViewLayout" id="Kn3-RV-3le" customClass="CalendarCollectionViewLayout">
+                            <connections>
+                                <outlet property="dataSource" destination="N1b-Th-trI" id="1NC-uW-rYg"/>
+                            </connections>
+                        </collectionViewLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="PICTOGRAM_CELL" id="0iO-Sh-0Ak" customClass="ImageCollectionViewCell">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
