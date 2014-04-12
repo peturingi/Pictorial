@@ -14,7 +14,6 @@
 		D82838B318D5B9DF009C03A8 /* UIApplication+BBA.m in Sources */ = {isa = PBXBuildFile; fileRef = D82838B218D5B9DF009C03A8 /* UIApplication+BBA.m */; };
 		D82838B518D5BA39009C03A8 /* UIApplicationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D82838B418D5BA39009C03A8 /* UIApplicationTests.m */; };
 		D829DDAA18E191C00039A449 /* vs.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = D829DDA918E191C00039A449 /* vs.sqlite3 */; };
-		D82C0CD318F7F128005B5569 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D82C0CD218F7F128005B5569 /* Calendar.storyboard */; };
 		D82C0CD618F7F344005B5569 /* CalendarCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D82C0CD518F7F344005B5569 /* CalendarCollectionViewLayout.m */; };
 		D82C0CDC18F80DFB005B5569 /* CalendarDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D82C0CDB18F80DFB005B5569 /* CalendarDataSource.m */; };
 		D82C0CE218F8813F005B5569 /* CalendarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D82C0CE118F8813F005B5569 /* CalendarCell.m */; };
@@ -89,7 +88,6 @@
 		D82838B218D5B9DF009C03A8 /* UIApplication+BBA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIApplication+BBA.m"; path = "Visual Scheduler/Category/UIApplication+BBA.m"; sourceTree = "<group>"; };
 		D82838B418D5BA39009C03A8 /* UIApplicationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIApplicationTests.m; path = "Visual SchedulerTests/UIApplicationTests.m"; sourceTree = "<group>"; };
 		D829DDA918E191C00039A449 /* vs.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = vs.sqlite3; sourceTree = "<group>"; };
-		D82C0CD218F7F128005B5569 /* Calendar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
 		D82C0CD418F7F344005B5569 /* CalendarCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarCollectionViewLayout.h; path = "Visual Scheduler/CalendarView/CalendarCollectionViewLayout.h"; sourceTree = "<group>"; };
 		D82C0CD518F7F344005B5569 /* CalendarCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarCollectionViewLayout.m; path = "Visual Scheduler/CalendarView/CalendarCollectionViewLayout.m"; sourceTree = "<group>"; };
 		D82C0CDA18F80DFB005B5569 /* CalendarDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarDataSource.h; path = "Visual Scheduler/CalendarView/CalendarDataSource.h"; sourceTree = "<group>"; };
@@ -304,7 +302,6 @@
 		D8387DBF18F9A94A00DD716C /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
-				D82C0CD218F7F128005B5569 /* Calendar.storyboard */,
 				D8387DC218F9BE6B00DD716C /* Cell */,
 				D8387DC018F9BE5B00DD716C /* DataSource */,
 				D8387DC118F9BE6400DD716C /* Layout */,
@@ -690,7 +687,6 @@
 				D829DDAA18E191C00039A449 /* vs.sqlite3 in Resources */,
 				D85EBDD218DC804400DF76B7 /* eat.png in Resources */,
 				D85EBDD618DC804400DF76B7 /* toilet.png in Resources */,
-				D82C0CD318F7F128005B5569 /* Calendar.storyboard in Resources */,
 				D83A62C618B696DC00EC0773 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
