@@ -2,13 +2,13 @@
 
 static const NSInteger DAYS_IN_WEEK = 7;
 
-static const NSInteger ITEM_WIDTH   = 200;
-static const NSInteger ITEM_HEIGHT  = 200;
+static const NSInteger ITEM_WIDTH   = 120;
+static const NSInteger ITEM_HEIGHT  = 120;
 
-static const NSInteger INSET_TOP    = 0;
-static const NSInteger INSET_LEFT   = 0;
-static const NSInteger INSET_RIGHT  = 0;
-static const NSInteger INSET_BOTTOM = 0;
+static const NSInteger INSET_TOP    = 2;
+static const NSInteger INSET_LEFT   = 2;
+static const NSInteger INSET_RIGHT  = 2;
+static const NSInteger INSET_BOTTOM = 2;
 
 @interface CalendarCollectionViewLayout ()
 
@@ -62,28 +62,11 @@ static const NSInteger INSET_BOTTOM = 0;
         if (self.maxNumRows < numItems) self.maxNumRows = numItems;
         for (NSInteger item = 0; item < numItems; item++) {
             indexPath = [NSIndexPath indexPathForItem:item inSection:section];
-            UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];;//[self attributesWithChildrenAtIndexPath:indexPath];
+            UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
             attributes.frame = [self frameForItemAtIndexPath:indexPath];
             [cellInformation setObject:attributes forKey:indexPath];
         }
     }
-    /*
-    for (NSInteger section = 0; section < numSections; section++) {
-        NSInteger numItems = [self.collectionView numberOfItemsInSection:section];
-        NSInteger totalHeight = 0;
-        for (NSInteger item = 0; item < numItems; item++) {
-            indexPath = [NSIndexPath indexPathForItem:item inSection:section];
-            //UICollectionViewLayoutAttributes *attributes = [cellInformation objectForKey:indexPath];
-            //attributes.frame = CGRectMake(100,100,100,100); //hack replacing : [self frameForCellAtIndexPath:indexPath withHeight:totalHeight];
-            // adjust frames of children .... skipped
-            
-            //cellInformation[indexPath] = attributes;
-            totalHeight++; // different from apple guide
-        }
-        if (self.maxNumRows < totalHeight) {
-            self.maxNumRows = totalHeight;
-        }
-    }*/
     [layoutInformation setObject:cellInformation forKey:@"MyCellKind"];
     self.layoutInformation = layoutInformation;
 }
@@ -91,25 +74,26 @@ static const NSInteger INSET_BOTTOM = 0;
 - (CGRect)frameForItemAtIndexPath:(NSIndexPath *)indexPath {
     CGRect rect;
     rect.origin = [self locationForItemAtIndexPath:indexPath];
-    rect.size = [self sizeForItemAtIndexPath:indexPath];
+    rect.size = [self sizeForItems];
     return rect;
 }
 
-- (CGSize)sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(ITEM_WIDTH, ITEM_HEIGHT);
-}
-
 - (CGPoint)locationForItemAtIndexPath:(NSIndexPath *)indexPath {
-    CGSize contentSize = [self collectionViewContentSize];
-    CGFloat horizontalOffset = contentSize.width / DAYS_IN_WEEK;
-    CGFloat x = indexPath.section * horizontalOffset;
-    CGFloat y = indexPath.item * 50;
+    CGSize itemSize = [self sizeForItems];
+    CGFloat x = INSET_LEFT + indexPath.section * (itemSize.width + INSET_LEFT + INSET_RIGHT) ;
+    CGFloat y = INSET_TOP + indexPath.item * (itemSize.height + INSET_TOP + INSET_BOTTOM);
     return CGPointMake(x, y);
 }
 
+- (CGSize)sizeForItems {
+    CGFloat edge = ([self collectionViewContentSize].width / DAYS_IN_WEEK) - (INSET_RIGHT+INSET_LEFT);
+   return CGSizeMake(edge, edge);
+}
+
 - (CGSize)collectionViewContentSize {
-    CGFloat width = self.collectionView.numberOfSections * (ITEM_WIDTH + self.insets.left + self.insets.right);
-    CGFloat height = self.maxNumRows * (ITEM_HEIGHT + _insets.top + _insets.bottom);
+    CGFloat width = self.collectionView.frame.size.width;
+    CGFloat itemHeight = width / DAYS_IN_WEEK;
+    CGFloat height = self.maxNumRows * itemHeight;
     return CGSizeMake(width, height);
 }
 

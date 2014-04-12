@@ -7,6 +7,7 @@
 }
 
 - (void)prepareForReuse {
+    [super prepareForReuse];
     self.pictogram = nil;
     imageView.image = nil;
 }

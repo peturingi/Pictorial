@@ -2,6 +2,8 @@
 
 @interface ImageCollectionViewCell : UICollectionViewCell
 
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (strong, nonatomic) UIImageView *imageView;
 
+- (id)init __unavailable;
+- (id)initWithFrame:(CGRect)frame __unavailable;
 @end

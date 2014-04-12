@@ -77,11 +77,11 @@
             ignoreCount = "1"
             continueAfterRunningActions = "Yes"
             filePath = "Visual Scheduler/CalendarView/CalendarCollectionViewLayout.m"
-            timestampString = "418996950.450081"
+            timestampString = "418997965.142033"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "-prepareLayout"
             landmarkType = "5">
             <Actions>
@@ -101,11 +101,11 @@
             ignoreCount = "1"
             continueAfterRunningActions = "No"
             filePath = "Visual Scheduler/CalendarView/CalendarCollectionViewLayout.m"
-            timestampString = "418996950.450081"
+            timestampString = "418997965.142033"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
             landmarkName = "-prepareLayout"
             landmarkType = "5">
          </BreakpointContent>
@@ -113,47 +113,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "4"
-            continueAfterRunningActions = "No"
-            filePath = "Visual Scheduler/CalendarView/CalendarCollectionViewLayout.m"
-            timestampString = "418996950.450081"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
-            landmarkName = "-prepareLayout"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "4"
-            continueAfterRunningActions = "No"
-            filePath = "Visual Scheduler/CalendarView/CalendarCollectionViewLayout.m"
-            timestampString = "418996950.450081"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "-prepareLayout"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "1"
             continueAfterRunningActions = "No"
             filePath = "Visual Scheduler/CalendarView/CalendarCollectionViewLayout.m"
-            timestampString = "418997244.094036"
+            timestampString = "419004303.912898"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
             landmarkName = "-collectionViewContentSize"
             landmarkType = "5">
          </BreakpointContent>
@@ -161,15 +129,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Visual Scheduler/CalendarView/CalendarCollectionViewLayout.m"
-            timestampString = "418997244.094036"
+            timestampString = "419004303.912898"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
             landmarkName = "-layoutAttributesForElementsInRect:"
             landmarkType = "5">
          </BreakpointContent>
@@ -177,15 +145,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Visual Scheduler/CalendarView/CalendarCollectionViewLayout.m"
-            timestampString = "418997244.094036"
+            timestampString = "419004303.912898"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
             landmarkName = "-shouldInvalidateLayoutForBoundsChange:"
             landmarkType = "5">
          </BreakpointContent>
@@ -193,15 +161,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Visual Scheduler/CalendarView/CalendarCollectionViewLayout.m"
-            timestampString = "418997244.094036"
+            timestampString = "419004303.912898"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
             landmarkName = "-layoutAttributesForItemAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -209,44 +177,44 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Visual Scheduler/CalendarView/CalendarCollectionViewLayout.m"
-            timestampString = "418997244.094036"
+            timestampString = "419004303.912898"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
             landmarkName = "-layoutAttributesForElementsInRect:"
             landmarkType = "5">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "-[CalendarCollectionViewLayout layoutAttributesForElementsInRect:]"
                   moduleName = "Visual Scheduler"
                   urlString = "file:///Users/petur/Development/Visual%20Scheduler/Visual%20Scheduler/CalendarView/CalendarCollectionViewLayout.m"
-                  timestampString = "418996549.955916"
+                  timestampString = "418999857.911119"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "126"
-                  endingLineNumber = "126"
+                  startingLineNumber = "116"
+                  endingLineNumber = "116"
                   offsetFromSymbolStart = "1122">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "-[CalendarCollectionViewLayout layoutAttributesForElementsInRect:]"
                   moduleName = "Visual Scheduler"
                   urlString = "file:///Users/petur/Development/Visual%20Scheduler/Visual%20Scheduler/CalendarView/CalendarCollectionViewLayout.m"
-                  timestampString = "418996549.956261"
+                  timestampString = "418999857.911496"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "126"
-                  endingLineNumber = "126"
+                  startingLineNumber = "116"
+                  endingLineNumber = "116"
                   offsetFromSymbolStart = "1266">
                </Location>
             </Locations>
@@ -258,13 +226,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Visual Scheduler/CalendarView/CalendarCollectionViewLayout.m"
-            timestampString = "418997244.094036"
+            filePath = "Visual Scheduler/CalendarView/CalendarDataSource.m"
+            timestampString = "419001609.509771"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
-            landmarkName = "-locationForItemAtIndexPath:"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "-collectionView:cellForItemAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
