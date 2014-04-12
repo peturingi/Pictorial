@@ -91,7 +91,7 @@ static const NSInteger INSET_BOTTOM = 2;
 }
 
 - (CGSize)collectionViewContentSize {
-    CGFloat width = self.collectionView.frame.size.width;
+    CGFloat width = self.collectionView.bounds.size.width;
     CGFloat itemHeight = width / DAYS_IN_WEEK;
     CGFloat height = self.maxNumRows * itemHeight;
     return CGSizeMake(width, height);
