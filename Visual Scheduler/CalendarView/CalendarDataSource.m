@@ -4,10 +4,11 @@
 #import "../Protocols/ImplementsCount.h"
 #import "../Protocols/ContainsImage.h"
 
+#define CELL_IDENTIFIER @"CALENDAR_CELL"
+
 @implementation CalendarDataSource
 
 - (void)awakeFromNib {
-    // TODO This class should not konw about the Repository. Refactor ASAP.
     _sections = [[Repository sharedStore] allSchedules];
 }
 
@@ -23,7 +24,7 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    CalendarCell *cell = (CalendarCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"PICTOGRAM_CELL" forIndexPath:indexPath];
+    CalendarCell *cell = (CalendarCell *)[collectionView dequeueReusableCellWithReuseIdentifier:CELL_IDENTIFIER forIndexPath:indexPath];
     id<ImplementsObjectAtIndex> selectedSection = [_sections objectAtIndex:indexPath.section];
     id<ContainsImage> objcontainingImage = [selectedSection objectAtIndex:indexPath.item];
     cell.imageView.image = objcontainingImage.image;
