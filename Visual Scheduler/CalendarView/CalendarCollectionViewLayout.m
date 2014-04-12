@@ -1,21 +1,17 @@
 #import "CalendarCollectionViewLayout.h"
 
-static const NSInteger DAYS_IN_WEEK = 7;
-
-static const NSInteger ITEM_WIDTH   = 120;
-static const NSInteger ITEM_HEIGHT  = 120;
-
+static const NSInteger NUMBER_OF_COLUMNS = 7;
 static const NSInteger INSET_TOP    = 2;
 static const NSInteger INSET_LEFT   = 2;
 static const NSInteger INSET_RIGHT  = 2;
 static const NSInteger INSET_BOTTOM = 2;
 
+#define CELL_KEY @"ImageCell"
+
 @interface CalendarCollectionViewLayout ()
-
-@property (nonatomic) NSDictionary *layoutInformation;
-@property (nonatomic) NSInteger maxNumRows;
-@property (nonatomic) UIEdgeInsets insets;
-
+    @property (nonatomic) NSDictionary *layoutInformation;
+    @property (nonatomic) NSInteger maxNumRows;
+    @property (nonatomic) UIEdgeInsets insets;
 @end
 
 @implementation CalendarCollectionViewLayout
@@ -27,114 +23,122 @@ static const NSInteger INSET_BOTTOM = 2;
     return self;
 }
 
-#pragma mark - UICollectionViewLayout
-
+#pragma mark - UICollectionViewLayout Process
 /*
  During the layout process, the collection view calls specific methods of this layout object.
  The methods calculate the position of items and provide the collection view with the primary information it needs.
- 
- There are three primary methods which are always called in this order:
- 
- 1. prepareLayout
-    Performs up-front calculations needed to provide layout information (such as the position of cells and views). This information is used by the collection view in order to determine its scoll view.
- 
- 2. collectionViewContentSize
-    Return the overall size of the entire content, based on initial calculations.
- 
- 3. layoutAttributesForElementsInRect
-    Returns attributes for cells and views that are in a specified rectangle.
-    The specified rectangle passed in is dependent on the collectionview scrollview position.
- 
- Other methods may be called by the collection view, on need to use basis.
+ There are three primary methods which are always called in the same three step order.
  */
 
-// After calling this method, the layout must have enouth information to calculate the collection view's content size (step 2.)
+
+#pragma mark Step 1
+/*
+ Performs up-front calculations needed to provide layout information (such as the position of cells and views).
+ This information is used by the collection view in order to determine its scoll view size.
+ After calling this method, the layout must have enouth information to calculate the collection view's content size.
+ */
+
 - (void)prepareLayout {
-    // Create the attributes, instances of UICollectionViewLayoutAttributes and cache them, as we are dealing with less than 1000s of items.
-    // After creating each attribute, set the attributes relevant for the view. At minimum: size and position of the view in the layout.
-    
-    NSMutableDictionary *layoutInformation = [NSMutableDictionary dictionary];
     NSMutableDictionary *cellInformation = [NSMutableDictionary dictionary];
-    NSIndexPath *indexPath;
-    NSInteger numSections = [self.collectionView numberOfSections];
-    for (NSInteger section = 0; section < numSections; section++) {
-        NSInteger numItems = [self.collectionView numberOfItemsInSection:section];
-        if (self.maxNumRows < numItems) self.maxNumRows = numItems;
-        for (NSInteger item = 0; item < numItems; item++) {
-            indexPath = [NSIndexPath indexPathForItem:item inSection:section];
-            UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
-            attributes.frame = [self frameForItemAtIndexPath:indexPath];
-            [cellInformation setObject:attributes forKey:indexPath];
+    
+    for (NSInteger section = 0; section < self.collectionView.numberOfSections; section++) {
+        NSInteger numberOfItems = [self.collectionView numberOfItemsInSection:section];
+        if (self.maxNumRows < numberOfItems) {
+            self.maxNumRows = numberOfItems;
+        }
+        
+        for (NSInteger item = 0; item < numberOfItems; item++) {
+            NSIndexPath *pathToItem = [NSIndexPath indexPathForItem:item inSection:section];
+            UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:pathToItem];
+            attributes.frame = [self frameForItemAtIndexPath:pathToItem];
+            [cellInformation setObject:attributes forKey:pathToItem];
         }
     }
-    [layoutInformation setObject:cellInformation forKey:@"MyCellKind"];
-    self.layoutInformation = layoutInformation;
+    self.layoutInformation = @{CELL_KEY : cellInformation};
 }
 
 - (CGRect)frameForItemAtIndexPath:(NSIndexPath *)indexPath {
     CGRect rect;
-    rect.origin = [self locationForItemAtIndexPath:indexPath];
-    rect.size = [self sizeForItems];
+    rect.origin = [self originForItemAtIndexPath:indexPath];
+    rect.size = [self sizeOfItems];
     return rect;
 }
 
-- (CGPoint)locationForItemAtIndexPath:(NSIndexPath *)indexPath {
-    CGSize itemSize = [self sizeForItems];
+- (CGPoint)originForItemAtIndexPath:(NSIndexPath *)indexPath {
+    CGSize itemSize = [self sizeOfItems];
     CGFloat x = INSET_LEFT + indexPath.section * (itemSize.width + INSET_LEFT + INSET_RIGHT) ;
     CGFloat y = INSET_TOP + indexPath.item * (itemSize.height + INSET_TOP + INSET_BOTTOM);
     return CGPointMake(x, y);
 }
 
-- (CGSize)sizeForItems {
-    CGFloat edge = ([self collectionViewContentSize].width / DAYS_IN_WEEK) - (INSET_RIGHT+INSET_LEFT);
+- (CGSize)sizeOfItems {
+    CGFloat edge = (self.collectionViewContentSize.width / NUMBER_OF_COLUMNS) - (INSET_RIGHT+INSET_LEFT);
    return CGSizeMake(edge, edge);
 }
 
+#pragma mark Step 2
+/* 
+ Return the overall size of the entire content, based on initial calculations.
+ */
+
 - (CGSize)collectionViewContentSize {
-    CGFloat width = self.collectionView.bounds.size.width;
-    CGFloat itemHeight = width / DAYS_IN_WEEK;
-    CGFloat height = self.maxNumRows * itemHeight;
-    return CGSizeMake(width, height);
+    CGFloat contentWidth = self.collectionView.bounds.size.width;
+    CGFloat contentHeight = self.maxNumRows * [self rowHeight];
+    return CGSizeMake(contentWidth, contentHeight);
 }
 
-// Final step (3).
-// Provide layout attributes for every cell and every supplementary or decoration view that intersects the specified rectangle.
+- (CGFloat)rowHeight {
+    return [self columnWidth];
+}
+
+- (CGFloat)columnWidth {
+    return self.collectionView.bounds.size.width / NUMBER_OF_COLUMNS;
+}
+
+#pragma mark Step 3
+/*
+ Provide layout attributes for every cell and every supplementary or decoration view that
+ intersects the area currently shown (sometimes not shown!) by the collectionview's scrollview.
+ 
+ The implementation of this step is defined by Apple as:
+ 1. Iterate over the data generated by prepareLayout, to either access cached attributes or create new ones as needed.
+ 2. Check the frame of each item to see whether it intersects the rectangle passsed to the layoutAttributesForElementsInRect.
+ 3. For each intersecting item, add a corresponding UICollectionViewLayoutAttributeObject to the array to be returned.
+ 4. Return the array of layout attributes to the collection view.
+*/
+
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect {
-    /* Implementation:
-        1. Iterate over the data generated by prepareLayout, to either access cached attributes or create new ones as needed.
-        2. Check the frame of each item to see whether it intersects the rectangle passsed to the layoutAttributesForElementsInRect.
-        3. For each intersecting item, add a corresponding UICollectionViewLayoutAttributeObject to the array to be returned.
-        4. Return the array of layout attributes to the collection view.
-     */
-    NSMutableArray *myAttributes = [NSMutableArray arrayWithCapacity:self.layoutInformation.count];
+    NSMutableArray *results = [NSMutableArray arrayWithCapacity:self.layoutInformation.count];
     for (NSString *key in self.layoutInformation) {
-        NSDictionary *attributesDict = [self.layoutInformation objectForKey:key];
-        for (NSIndexPath *key in attributesDict) {
-            UICollectionViewLayoutAttributes *attributes = [attributesDict objectForKey:key];
-            if (CGRectIntersectsRect(rect, attributes.frame)) {
-                [myAttributes addObject:attributes]; // I think apples code has errors here. They want attributes: instead of myAttributes.
-            }
+        NSDictionary *attributes = [self.layoutInformation objectForKey:key];
+        NSArray *intersectingAttributes = [self attributesIn:attributes intersecting:rect];
+        [results addObjectsFromArray:intersectingAttributes];
+    }
+    return results;
+}
+
+- (NSArray *)attributesIn:(NSDictionary *)dictionary intersecting:(CGRect)rect {
+    NSMutableArray *results = [NSMutableArray arrayWithCapacity:dictionary.count];
+    for (NSIndexPath *key in dictionary) {
+        UICollectionViewLayoutAttributes *attributes = [dictionary objectForKey:key];
+        if (CGRectIntersectsRect(rect, attributes.frame)) {
+            [results addObject:attributes];
         }
     }
-    return myAttributes;
+    return results;
 }
 
-// Called by the collectionview before it scrolls, in order to ask for a new layout.
+#pragma mark -
+
+/* Invalidate the layout on scrolling and orientation change. */
 - (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds {
     return YES;
 }
 
-// The collection view preiodically asks the layout object to provide attributes for individual items outside of the formal layout process.
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath {
-    // Implementation: Retrieve the current layout attributes for the given cell or view.
-    // DO NOT UPDATE THE LAYOUT ATTRIBUTES!
-    return nil;
+    NSDictionary *cellInformation = [self.layoutInformation objectForKey:CELL_KEY];
+    UICollectionViewLayoutAttributes *attributes = [cellInformation objectForKey:indexPath];
+    return attributes;
 }
-
-
-/*
- targetContentOffsetForProposedContentOffset:withScrollingVelocity: (page 51)
- Adjust the scoll view, such as to aligh the layout so no pictograms are cut in half when scrolling stops.
- */
 
 @end

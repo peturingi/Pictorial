@@ -15,30 +15,20 @@
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    id<ImplementsCount> selectedSection = [self.sections objectAtIndex:section];
-    return selectedSection.count;
+    id<ImplementsCount> obj = [_sections objectAtIndex:section];
+    return obj.count;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return self.sections.count;
+    return _sections.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ImageCollectionViewCell *cell = (ImageCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"PICTOGRAM_CELL" forIndexPath:indexPath];
-    id<ImplementsObjectAtIndex> selectedSection = [self.sections objectAtIndex:indexPath.section];
-    id<ContainsImage> objWithImage = [selectedSection objectAtIndex:indexPath.item];
-    cell.imageView.image = objWithImage.image;
+    id<ImplementsObjectAtIndex> selectedSection = [_sections objectAtIndex:indexPath.section];
+    id<ContainsImage> objcontainingImage = [selectedSection objectAtIndex:indexPath.item];
+    cell.imageView.image = objcontainingImage.image;
     return cell;
-}
-
-#pragma mark - Helpers
-
-- (NSInteger)pictogramCount {
-    NSInteger counter = 0;
-    for (Schedule *s in self.sections) {
-        counter += s.pictograms.count;
-    }
-    return counter;
 }
 
 @end

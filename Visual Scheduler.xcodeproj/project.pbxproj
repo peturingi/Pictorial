@@ -304,10 +304,9 @@
 			path = "Visual SchedulerTests/BBACameraTests";
 			sourceTree = SOURCE_ROOT;
 		};
-		D83A62AF18B696DB00EC0773 = {
+		D8387DBF18F9A94A00DD716C /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
-				D82C0CD218F7F128005B5569 /* Calendar.storyboard */,
 				D82C0CD718F80D6F005B5569 /* CalendarViewController.h */,
 				D82C0CD818F80D6F005B5569 /* CalendarViewController.m */,
 				D82C0CDA18F80DFB005B5569 /* CalendarDataSource.h */,
@@ -316,6 +315,15 @@
 				D82C0CE118F8813F005B5569 /* ImageCollectionViewCell.m */,
 				D82C0CD418F7F344005B5569 /* CalendarCollectionViewLayout.h */,
 				D82C0CD518F7F344005B5569 /* CalendarCollectionViewLayout.m */,
+			);
+			name = Calendar;
+			sourceTree = "<group>";
+		};
+		D83A62AF18B696DB00EC0773 = {
+			isa = PBXGroup;
+			children = (
+				D82C0CD218F7F128005B5569 /* Calendar.storyboard */,
+				D8387DBF18F9A94A00DD716C /* Calendar */,
 				D829DDA818E191B60039A449 /* Database */,
 				D83A62C118B696DC00EC0773 /* Visual Scheduler */,
 				D83A62E018B696DC00EC0773 /* Visual SchedulerTests */,

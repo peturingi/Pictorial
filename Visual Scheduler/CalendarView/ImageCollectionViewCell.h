@@ -6,4 +6,5 @@
 
 - (id)init __unavailable;
 - (id)initWithFrame:(CGRect)frame __unavailable;
+
 @end
