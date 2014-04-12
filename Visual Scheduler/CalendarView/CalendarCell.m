@@ -1,6 +1,6 @@
-#import "ImageCollectionViewCell.h"
+#import "CalendarCell.h"
 
-@implementation ImageCollectionViewCell
+@implementation CalendarCell
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];

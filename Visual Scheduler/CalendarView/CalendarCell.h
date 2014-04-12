@@ -1,6 +1,6 @@
 #import <UIKit/UIKit.h>
 
-@interface ImageCollectionViewCell : UICollectionViewCell
+@interface CalendarCell : UICollectionViewCell
 
 @property (strong, nonatomic) UIImageView *imageView;
 

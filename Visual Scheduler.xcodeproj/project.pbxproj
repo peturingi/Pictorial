@@ -16,9 +16,8 @@
 		D829DDAA18E191C00039A449 /* vs.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = D829DDA918E191C00039A449 /* vs.sqlite3 */; };
 		D82C0CD318F7F128005B5569 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D82C0CD218F7F128005B5569 /* Calendar.storyboard */; };
 		D82C0CD618F7F344005B5569 /* CalendarCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D82C0CD518F7F344005B5569 /* CalendarCollectionViewLayout.m */; };
-		D82C0CD918F80D70005B5569 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D82C0CD818F80D6F005B5569 /* CalendarViewController.m */; };
 		D82C0CDC18F80DFB005B5569 /* CalendarDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D82C0CDB18F80DFB005B5569 /* CalendarDataSource.m */; };
-		D82C0CE218F8813F005B5569 /* ImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D82C0CE118F8813F005B5569 /* ImageCollectionViewCell.m */; };
+		D82C0CE218F8813F005B5569 /* CalendarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D82C0CE118F8813F005B5569 /* CalendarCell.m */; };
 		D82D5FD418C616A6000A8FD3 /* UIView+BBASubviews.m in Sources */ = {isa = PBXBuildFile; fileRef = D82D5FD318C616A6000A8FD3 /* UIView+BBASubviews.m */; };
 		D8315AF418D39DEA00C4A340 /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = D8315AF218D39DEA00C4A340 /* Camera.m */; };
 		D8315B0018D39E0600C4A340 /* CameraTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8315AF818D39E0600C4A340 /* CameraTests.m */; };
@@ -93,15 +92,13 @@
 		D82C0CD218F7F128005B5569 /* Calendar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
 		D82C0CD418F7F344005B5569 /* CalendarCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarCollectionViewLayout.h; path = "Visual Scheduler/CalendarView/CalendarCollectionViewLayout.h"; sourceTree = "<group>"; };
 		D82C0CD518F7F344005B5569 /* CalendarCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarCollectionViewLayout.m; path = "Visual Scheduler/CalendarView/CalendarCollectionViewLayout.m"; sourceTree = "<group>"; };
-		D82C0CD718F80D6F005B5569 /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarViewController.h; path = "Visual Scheduler/CalendarView/CalendarViewController.h"; sourceTree = "<group>"; };
-		D82C0CD818F80D6F005B5569 /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarViewController.m; path = "Visual Scheduler/CalendarView/CalendarViewController.m"; sourceTree = "<group>"; };
 		D82C0CDA18F80DFB005B5569 /* CalendarDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarDataSource.h; path = "Visual Scheduler/CalendarView/CalendarDataSource.h"; sourceTree = "<group>"; };
 		D82C0CDB18F80DFB005B5569 /* CalendarDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarDataSource.m; path = "Visual Scheduler/CalendarView/CalendarDataSource.m"; sourceTree = "<group>"; };
 		D82C0CDD18F87C42005B5569 /* ContainsImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ContainsImage.h; path = Protocols/ContainsImage.h; sourceTree = "<group>"; };
 		D82C0CDE18F87CAA005B5569 /* ImplementsCount.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ImplementsCount.h; path = Protocols/ImplementsCount.h; sourceTree = "<group>"; };
 		D82C0CDF18F87F05005B5569 /* ImplementsObjectAtIndex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ImplementsObjectAtIndex.h; path = Protocols/ImplementsObjectAtIndex.h; sourceTree = "<group>"; };
-		D82C0CE018F8813F005B5569 /* ImageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageCollectionViewCell.h; path = "Visual Scheduler/CalendarView/ImageCollectionViewCell.h"; sourceTree = "<group>"; };
-		D82C0CE118F8813F005B5569 /* ImageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageCollectionViewCell.m; path = "Visual Scheduler/CalendarView/ImageCollectionViewCell.m"; sourceTree = "<group>"; };
+		D82C0CE018F8813F005B5569 /* CalendarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarCell.h; path = "Visual Scheduler/CalendarView/CalendarCell.h"; sourceTree = "<group>"; };
+		D82C0CE118F8813F005B5569 /* CalendarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarCell.m; path = "Visual Scheduler/CalendarView/CalendarCell.m"; sourceTree = "<group>"; };
 		D82D5FD218C616A6000A8FD3 /* UIView+BBASubviews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+BBASubviews.h"; path = "Visual Scheduler/Category/UIView+BBASubviews.h"; sourceTree = "<group>"; };
 		D82D5FD318C616A6000A8FD3 /* UIView+BBASubviews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+BBASubviews.m"; path = "Visual Scheduler/Category/UIView+BBASubviews.m"; sourceTree = "<group>"; };
 		D8315AF118D39DEA00C4A340 /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
@@ -307,22 +304,44 @@
 		D8387DBF18F9A94A00DD716C /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
-				D82C0CD718F80D6F005B5569 /* CalendarViewController.h */,
-				D82C0CD818F80D6F005B5569 /* CalendarViewController.m */,
+				D82C0CD218F7F128005B5569 /* Calendar.storyboard */,
+				D8387DC218F9BE6B00DD716C /* Cell */,
+				D8387DC018F9BE5B00DD716C /* DataSource */,
+				D8387DC118F9BE6400DD716C /* Layout */,
+			);
+			name = Calendar;
+			sourceTree = "<group>";
+		};
+		D8387DC018F9BE5B00DD716C /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
 				D82C0CDA18F80DFB005B5569 /* CalendarDataSource.h */,
 				D82C0CDB18F80DFB005B5569 /* CalendarDataSource.m */,
-				D82C0CE018F8813F005B5569 /* ImageCollectionViewCell.h */,
-				D82C0CE118F8813F005B5569 /* ImageCollectionViewCell.m */,
+			);
+			name = DataSource;
+			sourceTree = "<group>";
+		};
+		D8387DC118F9BE6400DD716C /* Layout */ = {
+			isa = PBXGroup;
+			children = (
 				D82C0CD418F7F344005B5569 /* CalendarCollectionViewLayout.h */,
 				D82C0CD518F7F344005B5569 /* CalendarCollectionViewLayout.m */,
 			);
-			name = Calendar;
+			name = Layout;
+			sourceTree = "<group>";
+		};
+		D8387DC218F9BE6B00DD716C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D82C0CE018F8813F005B5569 /* CalendarCell.h */,
+				D82C0CE118F8813F005B5569 /* CalendarCell.m */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 		D83A62AF18B696DB00EC0773 = {
 			isa = PBXGroup;
 			children = (
-				D82C0CD218F7F128005B5569 /* Calendar.storyboard */,
 				D8387DBF18F9A94A00DD716C /* Calendar */,
 				D829DDA818E191B60039A449 /* Database */,
 				D83A62C118B696DC00EC0773 /* Visual Scheduler */,
@@ -703,7 +722,6 @@
 				D82838AF18D5B850009C03A8 /* UIImage+BBA.m in Sources */,
 				D8EB983118E33E4A00DA3A99 /* Repository.m in Sources */,
 				D8BABEC018EC6839009E562E /* NSMutableArray+MoveObject.m in Sources */,
-				D82C0CD918F80D70005B5569 /* CalendarViewController.m in Sources */,
 				D82C0CDC18F80DFB005B5569 /* CalendarDataSource.m in Sources */,
 				D83A62C818B696DC00EC0773 /* main.m in Sources */,
 				D8534F7D18DDB51D0055FA93 /* BBAShowScheduleCollectionViewController.m in Sources */,
@@ -715,7 +733,7 @@
 				D8EB983718E340CF00DA3A99 /* Schedule.m in Sources */,
 				D8D4011D18E4960D003F6F4F /* PictogramCollectionViewCell.m in Sources */,
 				D8315AF418D39DEA00C4A340 /* Camera.m in Sources */,
-				D82C0CE218F8813F005B5569 /* ImageCollectionViewCell.m in Sources */,
+				D82C0CE218F8813F005B5569 /* CalendarCell.m in Sources */,
 				D853A80E18E1DD3C0031E986 /* SQLiteStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

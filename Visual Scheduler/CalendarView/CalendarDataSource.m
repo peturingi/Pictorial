@@ -1,7 +1,6 @@
 #import "CalendarDataSource.h"
 #import "../Database/Repository.h"
-#import "ImageCollectionViewCell.h"
-
+#import "CalendarCell.h"
 #import "../Protocols/ImplementsCount.h"
 #import "../Protocols/ContainsImage.h"
 
@@ -24,7 +23,7 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    ImageCollectionViewCell *cell = (ImageCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"PICTOGRAM_CELL" forIndexPath:indexPath];
+    CalendarCell *cell = (CalendarCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"PICTOGRAM_CELL" forIndexPath:indexPath];
     id<ImplementsObjectAtIndex> selectedSection = [_sections objectAtIndex:indexPath.section];
     id<ContainsImage> objcontainingImage = [selectedSection objectAtIndex:indexPath.item];
     cell.imageView.image = objcontainingImage.image;
