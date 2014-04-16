@@ -61,7 +61,7 @@
 #pragma mark - Schedules
 
 - (NSArray *)contentOfAllSchedules {
-    NSString *query = @"SELECT id, title, color FROM schedule ORDER BY title ASC";
+    NSString *query = @"SELECT id, title, color FROM schedule ORDER BY id ASC";
     NSMutableArray *results = [NSMutableArray array];
     sqlite3_stmt *statement = [self prepareStatementWithQuery:query];
     
