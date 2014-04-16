@@ -13,6 +13,8 @@
 - (void)setupImageView {
     _imageView = [[UIImageView alloc] initWithFrame:self.contentView.bounds];
     [self setBackgroundView:_imageView];
+    self.contentView.layer.borderWidth = 2.0f;
+    self.contentView.layer.cornerRadius = 5.0f;
 }
 
 - (void)prepareForReuse {
