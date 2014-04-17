@@ -7,6 +7,7 @@ static const NSInteger INSET_TOP    = 2;
 static const NSInteger INSET_LEFT   = 2;
 static const NSInteger INSET_RIGHT  = 2;
 static const NSInteger INSET_BOTTOM = 2;
+static const NSUInteger HEADER_HEIGHT = 30;
 
 @interface CalendarCollectionViewLayout ()
     @property (nonatomic) NSDictionary *layoutInformation;
@@ -33,7 +34,7 @@ static const NSInteger INSET_BOTTOM = 2;
  There are three primary methods which are always called in the same three step order.
  */
 
-#pragma mark Step 1
+#pragma mark Step 1 - Initial Calculations
 /*
  Performs up-front calculations needed to provide layout information (such as the position of cells and views).
  This information is used by the collection view in order to determine its scoll view size.
@@ -41,10 +42,16 @@ static const NSInteger INSET_BOTTOM = 2;
  */
 
 - (void)prepareLayout {
+    NSDictionary *cellInformation = [self cellAttributes];
+    NSDictionary *headerInformation = [self headerAttributes];
+    self.layoutInformation = @{CELL_KEY     : cellInformation,
+                               HEADER_KEY   : headerInformation};
+}
+
+#pragma mark Cell Layout
+
+- (NSDictionary *)cellAttributes {
     NSMutableDictionary *cellInformation = [NSMutableDictionary dictionary];
-    NSDictionary *headerInformation = [NSMutableDictionary dictionary];
-    
-    // Cell
     for (NSInteger section = 0; section < self.collectionView.numberOfSections; section++) {
         NSInteger numberOfItems = [self.collectionView numberOfItemsInSection:section];
         if (self.maxNumRows < numberOfItems) {
@@ -57,13 +64,8 @@ static const NSInteger INSET_BOTTOM = 2;
             [cellInformation setObject:attributes forKey:pathToItem];
         }
     }
-    headerInformation = [self headerAttributes];
-    
-    self.layoutInformation = @{CELL_KEY             : cellInformation,
-                               HEADER_KEY    : headerInformation};
+    return cellInformation;
 }
-
-#pragma mark Cell
 
 - (CGRect)frameForItemAtIndexPath:(NSIndexPath *)indexPath {
     CGRect rect;
@@ -84,7 +86,7 @@ static const NSInteger INSET_BOTTOM = 2;
    return CGSizeMake(edge, edge);
 }
 
-#pragma mark Header
+#pragma mark Header Layout
 
 - (NSDictionary *)headerAttributes {
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithCapacity:self.collectionView.numberOfSections];
@@ -113,12 +115,13 @@ static const NSInteger INSET_BOTTOM = 2;
 }
 
 - (CGSize)headerSize {
-    CGFloat width = (self.collectionViewContentSize.width / self.collectionView.numberOfSections);
-    CGFloat height = 30;
-    return CGSizeMake(width, height); // TODO remove magic value.
+    CGFloat width = [self columnWidth];
+    CGFloat height = HEADER_HEIGHT;
+    return CGSizeMake(width, height);
 }
 
-#pragma mark Step 2
+#pragma mark Step 2 - CollectionView Size and Grid configuration
+
 /* 
  Return the overall size of the entire content, based on initial calculations.
  */
@@ -165,9 +168,7 @@ static const NSInteger INSET_BOTTOM = 2;
                 [results addObject:[headerAttributes objectForKey:key]];
             }
         }
-        
     }
-    
     return results;
 }
 
@@ -196,6 +197,19 @@ static const NSInteger INSET_BOTTOM = 2;
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath {
     NSDictionary *cellInformation = [self.layoutInformation objectForKey:CELL_KEY];
     UICollectionViewLayoutAttributes *attributes = [cellInformation objectForKey:indexPath];
+    return attributes;
+}
+
+/*
+ Called by the collection view when it needs information about cells that might currently not be visible.
+ */
+- (UICollectionViewLayoutAttributes *)layoutAttributesForSupplementaryViewOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    UICollectionViewLayoutAttributes *attributes = nil;
+    if ([kind isEqualToString:HEADER_KEY]) {
+        NSDictionary *headerAttributes = [self.layoutInformation objectForKey:HEADER_KEY];
+        attributes = [headerAttributes objectForKey:indexPath];
+        
+    }
     return attributes;
 }
 
