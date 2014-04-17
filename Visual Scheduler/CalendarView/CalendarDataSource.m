@@ -31,4 +31,12 @@
     return cell;
 }
 
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    UICollectionReusableView *view = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"DayOfWeekColour" forIndexPath:indexPath];
+    //TODO get correct color from schedule.
+    view.backgroundColor = [[_sections objectAtIndex:indexPath.section] valueForKey:@"color"];
+    return view;
+}
+
+
 @end
