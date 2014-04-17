@@ -7,7 +7,7 @@ static const NSInteger INSET_TOP    = 2;
 static const NSInteger INSET_LEFT   = 2;
 static const NSInteger INSET_RIGHT  = 2;
 static const NSInteger INSET_BOTTOM = 2;
-static const NSUInteger HEADER_HEIGHT = 30;
+static const NSUInteger HEADER_HEIGHT = 20;
 
 @interface CalendarCollectionViewLayout ()
     @property (nonatomic) NSDictionary *layoutInformation;
@@ -20,8 +20,6 @@ static const NSUInteger HEADER_HEIGHT = 30;
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
-
-        
         self.insets = UIEdgeInsetsMake(INSET_TOP, INSET_LEFT, INSET_BOTTOM, INSET_RIGHT);
     }
     return self;
