@@ -6,6 +6,7 @@
     self = [super init];
     if (self) {
         [self establishDatabaseConnection];
+        //_dbcon = [[SQLiteDatabaseConnection alloc]initWithDatabaseFileNamed:@"vs"];
     }
     return self;
 }
@@ -13,6 +14,7 @@
 - (void)dealloc {
     [self closeStore];
 }
+
 
 #pragma mark - Database Connection
 - (void)establishDatabaseConnection {
@@ -25,9 +27,12 @@
     }
 }
 
+
+
 - (BOOL)closeStore {
     return sqlite3_close(_databaseConnection) == SQLITE_OK ? YES : NO;
 }
+
 
 - (sqlite3_stmt *)prepareStatementWithQuery:(NSString *)query {
     sqlite3_stmt *statement;

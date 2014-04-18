@@ -9,9 +9,10 @@
 
 #import <Foundation/Foundation.h>
 #import <sqlite3.h>
+#import "SQLiteDatabaseConnection.h"
 
 @interface SettingsManager : NSObject {
-    sqlite3* _databaseConnection;
+    SQLiteDatabaseConnection* _dbcon;
 }
 
 -(void)setStringValue:(NSString*)value forKey:(NSString*)key;
