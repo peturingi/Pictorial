@@ -1,10 +1,11 @@
-//
-//  SettingsManager.h
-//  Visual Scheduler
-//
-//  Created by Brian Pedersen on 17/04/14.
-//  Copyright (c) 2014 Student Project. All rights reserved.
-//
+#define SM_ESTABLISH_DATABASE_CONNECTION_FAILED_EXCEPTION @"SMEstablishDatabaseConnection"
+#define SM_LOCATE_SETTINGS_FILE_FAILED_EXCEPTION @"SMLocateSettingsFileFailed"
+#define SM_STRING_INVALID_EXCEPTION @"SMKeyOrValueStringInvalid"
+#define SM_NIL_OBJECT_PARAMETER_EXCEPTION @"SMNilObjectParameter"
+#define SM_NOT_CONFORMING_TO_NSCODING_EXCEPTION @"SMObjectNotConformingToNSCoding"
+#define SM_STATEMENT_STEP_FAILED_EXCEPTION @"SMStatementStepFailed"
+#define SM_BIND_TO_STATEMENT_FAILED_EXCEPTION @"SMBindToStatementFailed"
+#define SM_PREPARE_STATEMENT_WITH_QUERY_FAILED_EXCEPTION @"SMPrepareStatementWithQueryFailed"
 
 #import <Foundation/Foundation.h>
 #import <sqlite3.h>
@@ -13,12 +14,13 @@
     sqlite3* _databaseConnection;
 }
 
--(void)setIntegerValue:(NSInteger)value forKey:(NSString*)key;
--(NSInteger)integerValueForKey:(NSString*)key;
-
 -(void)setStringValue:(NSString*)value forKey:(NSString*)key;
 -(NSString*)stringValueForKey:(NSString*)key;
 
 -(void)setNumber:(NSNumber*)number forKey:(NSString*)key;
 -(NSNumber*)numberForKey:(NSString*)key;
+
+-(void)setObject:(id)anObject forKey:(NSString*)key;
+-(id)objectForKey:(NSString*)key;
+
 @end

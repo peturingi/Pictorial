@@ -15,7 +15,6 @@
 }
 
 #pragma mark - Database Connection
-
 - (void)establishDatabaseConnection {
     NSString *sqlite3File = [[NSBundle mainBundle] pathForResource:@"vs" ofType:@"sqlite3"];
     if (sqlite3_open([sqlite3File UTF8String], &_databaseConnection) != SQLITE_OK) {
@@ -204,7 +203,7 @@
         @throw [NSException exceptionWithName:@"SQLite3 failed to mark record for deletion." reason:@"Unknown" userInfo:nil];
     }
     if (sqlite3_step(statement) != SQLITE_DONE) {
-        @throw [NSException exceptionWithName:@"SQLite3 failed to delete record." reason:@"Unknown" userInfo:nil];
+        @throw [NSException exceptionWithName:@"SQLiteStoreStepFailedException" reason:@"Unknown" userInfo:nil];
     }
     sqlite3_finalize(statement);
     return YES;
