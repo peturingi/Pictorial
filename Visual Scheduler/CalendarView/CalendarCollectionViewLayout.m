@@ -12,12 +12,6 @@ static const NSInteger INSET_RIGHT  = 2;
 static const NSInteger INSET_BOTTOM = 2;
 static const NSUInteger HEADER_HEIGHT = 20;
 
-@interface CalendarCollectionViewLayout ()
-    @property (nonatomic) NSDictionary *layoutInformation;
-    @property (nonatomic) NSInteger maxNumRows;
-    @property (nonatomic) UIEdgeInsets insets;
-@end
-
 @implementation CalendarCollectionViewLayout
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
@@ -25,18 +19,9 @@ static const NSUInteger HEADER_HEIGHT = 20;
     if (self) {
         self.insets = UIEdgeInsetsMake(INSET_TOP, INSET_LEFT, INSET_BOTTOM, INSET_RIGHT);
         _viewMode = Week;
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleCalendarViewMode:) name:NOTIFICATION_CALENDAR_VIEW object:nil];
+
     }
     return self;
-}
-
-- (void)handleCalendarViewMode:(NSNotification *)notification {
-    if ([notification.name isEqualToString:NOTIFICATION_CALENDAR_VIEW]) {
-        NSNumber *viewMode = [notification object];
-        _viewMode = viewMode.integerValue;
-        [self invalidateLayout];
-    }
 }
 
 #pragma mark - UICollectionViewLayout Process
@@ -65,19 +50,8 @@ static const NSUInteger HEADER_HEIGHT = 20;
 - (NSDictionary *)cellAttributes {
     NSMutableDictionary *cellInformation = [NSMutableDictionary dictionary];
     
-    NSInteger firstDay;
-    NSInteger lastDay;
-    switch (_viewMode) {
-        case Now:
-        case Day:
-            firstDay = lastDay = [self sectionRepresentingToday];
-            break;
-            
-        case Week:
-            firstDay = MONDAY;
-            lastDay = SUNDAY;
-            break;
-    }
+    NSInteger firstDay = MONDAY;
+    NSInteger lastDay  = SUNDAY;
     
     for (NSInteger day = firstDay; day <= lastDay; day++) {
         NSInteger numberOfItems = [self.collectionView numberOfItemsInSection:day];
@@ -95,6 +69,8 @@ static const NSUInteger HEADER_HEIGHT = 20;
 }
 
 - (NSInteger)sectionRepresentingToday {
+#warning not implemented
+    // TODO implement
     return 0;
 }
 
@@ -107,39 +83,14 @@ static const NSUInteger HEADER_HEIGHT = 20;
 
 - (CGPoint)originForItemAtIndexPath:(NSIndexPath *)indexPath {
     CGSize itemSize = [self sizeOfItems];
-    
-    CGFloat x;
-    switch (_viewMode) {
-        case Now:
-        case Day:
-            x = [self collectionViewContentSize].width / 2.0f + self.collectionView.contentOffset.x - itemSize.width / 2.0f;
-            break;
-            
-        case Week:
-            x = INSET_LEFT + indexPath.section * (itemSize.width + self.insets.top + self.insets.right);
-            break;
-    }
-    
+    CGFloat x = INSET_LEFT + indexPath.section * (itemSize.width + self.insets.top + self.insets.right);
     CGFloat y = ([self headerSize].height + self.insets.top) + indexPath.item * (itemSize.height + self.insets.top + self.insets.bottom);
     return CGPointMake(x, y);
 }
 
 - (CGSize)sizeOfItems {
-    CGFloat edge;
-    
-    switch (_viewMode) {
-        case Now:
-            edge = (self.collectionView.bounds.size.height / 3.0f) - (INSET_RIGHT+INSET_LEFT) - [self headerSize].height / 3.0f;
-            break;
-            
-        case Day:
-        case Week:
-            
-            edge = (self.collectionView.bounds.size.width / self.collectionView.numberOfSections) - (INSET_RIGHT+INSET_LEFT);
-            break;
-    }
-    
-   return CGSizeMake(edge, edge);
+    CGFloat edge = (self.collectionView.bounds.size.width / self.collectionView.numberOfSections) - (INSET_RIGHT+INSET_LEFT);
+    return CGSizeMake(edge, edge);
 }
 
 #pragma mark Header Layout
@@ -147,20 +98,8 @@ static const NSUInteger HEADER_HEIGHT = 20;
 - (NSDictionary *)headerAttributes {
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithCapacity:DAYS_IN_WEEK];
     
-    NSInteger firstDay;
-    NSInteger lastDay;
-    switch (_viewMode) {
-        case Now:
-        case Day:
-            firstDay = lastDay = [self sectionRepresentingToday];
-            break;
-            
-        case Week:
-            firstDay = MONDAY;
-            lastDay = SUNDAY;
-            break;
-    }
-
+    NSInteger firstDay = MONDAY;
+    NSInteger lastDay = SUNDAY;
     
     for (NSInteger day = firstDay; day <= lastDay; day++) {
         NSIndexPath *path = [NSIndexPath indexPathForItem:0 inSection:day]; // assume there is always an item, so we can calculate offset of header.
@@ -181,19 +120,7 @@ static const NSUInteger HEADER_HEIGHT = 20;
 
 - (CGPoint)originForHeaderOfSection:(NSUInteger)section {
     CGSize headerSize = [self headerSize];
-    
-    CGFloat x;
-    switch (_viewMode) {
-        case Now:
-        case Day:
-            x = [self collectionViewContentSize].width / 2.0f - headerSize.width / 2.0f + self.collectionView.contentOffset.x;
-            break;
-            
-        case Week:
-            x = section * headerSize.width;
-            break;
-    }
-    
+    CGFloat x = section * headerSize.width;
     CGFloat y = self.collectionView.contentOffset.y; // Moves the headers location up, so it is drawn above the first item
     return CGPointMake(x, y);
 }
@@ -281,6 +208,12 @@ static const NSUInteger HEADER_HEIGHT = 20;
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath {
     NSDictionary *cellInformation = [self.layoutInformation objectForKey:CELL_KEY];
     UICollectionViewLayoutAttributes *attributes = [cellInformation objectForKey:indexPath];
+    
+    /* hack? put unkonwn indexpaths in top left corner. */
+    if (attributes == nil) {
+        attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
+    }
+    
     return attributes;
 }
 
@@ -317,6 +250,10 @@ static const NSUInteger HEADER_HEIGHT = 20;
     CGPoint offset = CGPointMake(proposedContentOffset.x, proposedContentOffset.y + offsetAdjustment);
     offset.y -= [self headerSize].height;
     return offset;
+}
+
+- (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset {
+    return CGPointMake(0, 0);
 }
 
 @end

@@ -289,16 +289,16 @@
             </objects>
             <point key="canvasLocation" x="-1021" y="-1678"/>
         </scene>
-        <!--Collection View Controller-->
+        <!--Calendar Collection View Controller-->
         <scene sceneID="S6t-Ex-nqq">
             <objects>
-                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="AY6-U8-5dL" sceneMemberID="viewController">
+                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="AY6-U8-5dL" customClass="CalendarCollectionViewController" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="iK9-y2-K6s" customClass="CalendarView">
                         <rect key="frame" x="0.0" y="0.0" width="916" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                        <collectionViewLayout key="collectionViewLayout" id="ftg-cT-xFl" customClass="CalendarCollectionViewLayout">
+                        <collectionViewLayout key="collectionViewLayout" id="ftg-cT-xFl" customClass="TodayCollectionViewLayout">
                             <connections>
                                 <outlet property="dataSource" destination="Kqc-Sg-yGo" id="8Zs-Pf-QEi"/>
                             </connections>

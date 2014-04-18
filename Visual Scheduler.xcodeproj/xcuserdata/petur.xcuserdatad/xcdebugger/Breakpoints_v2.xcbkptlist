@@ -76,14 +76,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Visual Scheduler/CalendarView/DayCollectionViewLayout.m"
-            timestampString = "419525059.202092"
+            filePath = "Visual Scheduler/CalendarView/NowCollectionViewLayout.m"
+            timestampString = "419543243.187891"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
-            landmarkName = "-frameForItemAtIndexPath:"
-            landmarkType = "5">
+            startingLineNumber = "106"
+            endingLineNumber = "106">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -93,11 +91,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "Yes"
             filePath = "Visual Scheduler/CalendarView/CalendarCollectionViewLayout.m"
-            timestampString = "419540678.632964"
+            timestampString = "419548712.579782"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "319"
-            endingLineNumber = "319"
+            startingLineNumber = "249"
+            endingLineNumber = "249"
             landmarkName = "-targetContentOffsetForProposedContentOffset:withScrollingVelocity:"
             landmarkType = "5">
             <Actions>
