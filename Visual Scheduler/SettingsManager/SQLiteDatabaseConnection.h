@@ -22,4 +22,8 @@
 -(void)bindObjectDataBlobToStatement:(sqlite3_stmt*)statement anObject:(id)object atPosition:(NSInteger)position;
 -(NSData*)dataFromStatement:(sqlite3_stmt*)statement atColumnIndex:(NSInteger)index;
 -(NSString*)stringFromStatement:(sqlite3_stmt*)statement atColumnIndex:(NSInteger)index;
+-(NSInteger)integerFromStatement:(sqlite3_stmt*)statement atColumnIndex:(NSInteger)index;
+-(NSInteger)lastInsertRowID;
+-(BOOL)closeConnection;
+-(BOOL)rowExistsFromStatement:(sqlite3_stmt*)statement;
 @end

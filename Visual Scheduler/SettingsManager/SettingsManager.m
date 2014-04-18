@@ -7,6 +7,11 @@
     }
     return self;
 }
+
+-(void)dealloc{
+    [_dbcon closeConnection];
+}
+
 -(void)checkIfStringIsValid:(NSString*)string{
     if(string == nil || [string length] == 0){
         @throw [NSException exceptionWithName:SM_STRING_INVALID_EXCEPTION reason:@"Either a key or value string is either empty or nil" userInfo:nil];
@@ -44,14 +49,13 @@
     sqlite3_stmt* statement = [_dbcon prepareStatementWithQuery:query];
     [_dbcon bindTextToStatement:statement text:key atPosition:1];
     id value = nil;
-    if (sqlite3_step(statement) == SQLITE_ROW) {
+    if ([_dbcon rowExistsFromStatement:statement]) {
         NSData* data = [_dbcon dataFromStatement:statement atColumnIndex:0];
         value = [NSKeyedUnarchiver unarchiveObjectWithData:data];
     }
     [_dbcon finalizeStatement:statement];
     return value;
 }
-
 
 #pragma mark - NSNumber value
 -(void)setNumber:(NSNumber*)number forKey:(NSString*)key{
@@ -72,7 +76,7 @@
     sqlite3_stmt* statement = [_dbcon prepareStatementWithQuery:query];
     [_dbcon bindTextToStatement:statement text:key atPosition:1];
     NSNumber* value = nil;
-    if (sqlite3_step(statement) == SQLITE_ROW) {
+    if ([_dbcon rowExistsFromStatement:statement]) {
         NSData *data = [_dbcon dataFromStatement:statement atColumnIndex:0];
         value = [NSKeyedUnarchiver unarchiveObjectWithData:data];
     }
@@ -98,7 +102,7 @@
     sqlite3_stmt* statement = [_dbcon prepareStatementWithQuery:query];
     [_dbcon bindTextToStatement:statement text:key atPosition:1];
     NSString* value = nil;
-    if (sqlite3_step(statement) == SQLITE_ROW) {
+    if ([_dbcon rowExistsFromStatement:statement]) {
         value = [_dbcon stringFromStatement:statement atColumnIndex:0];
     }
     [_dbcon finalizeStatement:statement];

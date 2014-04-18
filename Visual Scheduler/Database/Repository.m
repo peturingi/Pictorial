@@ -5,7 +5,6 @@
 @implementation Repository
 
 #pragma mark - Constructor / Deconstructor
-
 + (instancetype)sharedStore {
     static Repository *sharedStore = nil;
     if (sharedStore == nil) {
@@ -28,7 +27,6 @@
 }
 
 #pragma mark - Create
-
 - (Schedule *)scheduleWithTitle:(NSString *)title withColor:(UIColor *)color {
     NSParameterAssert(title != nil);
     NSParameterAssert(color != nil);
@@ -45,19 +43,17 @@
     NSDictionary *content = @{@"title" : title,
                               @"image" : UIImagePNGRepresentation(image)};
     NSInteger uniqueIdentifier = [_dataStore createPictogram:content];
-    Pictogram *pictogram = [[Pictogram alloc] initWithTitle:title withUniqueIdentifier:uniqueIdentifier withImage:image ];
+    Pictogram *pictogram = [[Pictogram alloc] initWithTitle:title withUniqueIdentifier:uniqueIdentifier withImage:image];
     return pictogram;
 }
 
 #pragma mark - Delete
-
 - (void)deleteSchedule:(Schedule *)aSchedule {
     NSParameterAssert(aSchedule != nil);
     [_dataStore deleteScheduleWithID:aSchedule.uniqueIdentifier];
 }
 
 #pragma mark - Retrieve
-
 - (NSArray *)allSchedules {
     NSMutableArray *schedules = [NSMutableArray array];
     NSArray *rawSchedules = [_dataStore contentOfAllSchedules];
@@ -111,12 +107,10 @@
 - (void)removeAllPictogramsFromSchedule:(Schedule *)schedule {
     NSParameterAssert(schedule != nil);
     NSParameterAssert(schedule.pictograms != nil);
-    
     for (NSUInteger i = 0; i < schedule.pictograms.count; i++) {
         Pictogram *pictogramToRemoved = [schedule.pictograms objectAtIndex:i];
         [_dataStore removePictogram:pictogramToRemoved.uniqueIdentifier fromSchedule:schedule.uniqueIdentifier atIndex:i];
     }
-
 }
 
 @end

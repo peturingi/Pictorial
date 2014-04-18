@@ -84,4 +84,20 @@
     value = [NSString stringWithCString:title encoding:NSUTF8StringEncoding];
     return value;
 }
+
+-(NSInteger)integerFromStatement:(sqlite3_stmt *)statement atColumnIndex:(NSInteger)index{
+    return sqlite3_column_int(statement, index);
+}
+
+-(NSInteger)lastInsertRowID{
+    return (NSInteger)sqlite3_last_insert_rowid(_connection);
+}
+
+-(BOOL)closeConnection{
+    return sqlite3_close(_connection) == SQLITE_OK;
+}
+
+-(BOOL)rowExistsFromStatement:(sqlite3_stmt *)statement{
+    return sqlite3_step(statement) == SQLITE_ROW;
+}
 @end
