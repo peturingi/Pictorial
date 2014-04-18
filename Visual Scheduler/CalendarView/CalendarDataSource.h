@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
 
 @interface CalendarDataSource : NSObject <UICollectionViewDataSource> {
-    NSArray *_sections;
+    NSArray *_schedules;
 }
 
 @end
