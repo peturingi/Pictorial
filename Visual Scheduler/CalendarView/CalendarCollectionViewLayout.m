@@ -125,7 +125,20 @@ static const NSUInteger HEADER_HEIGHT = 20;
 }
 
 - (CGSize)sizeOfItems {
-    CGFloat edge = (self.collectionViewContentSize.width / self.collectionView.numberOfSections) - (INSET_RIGHT+INSET_LEFT);
+    CGFloat edge;
+    
+    switch (_viewMode) {
+        case Now:
+            edge = (self.collectionView.bounds.size.height / 3.0f) - (INSET_RIGHT+INSET_LEFT) - [self headerSize].height / 3.0f;
+            break;
+            
+        case Day:
+        case Week:
+            
+            edge = (self.collectionView.bounds.size.width / self.collectionView.numberOfSections) - (INSET_RIGHT+INSET_LEFT);
+            break;
+    }
+    
    return CGSizeMake(edge, edge);
 }
 
@@ -204,7 +217,7 @@ static const NSUInteger HEADER_HEIGHT = 20;
 }
 
 - (CGFloat)rowHeight {
-    return [self columnWidth];
+    return [self sizeOfItems].height + self.insets.top + self.insets.bottom;
 }
 
 - (CGFloat)columnWidth {
@@ -282,6 +295,28 @@ static const NSUInteger HEADER_HEIGHT = 20;
         
     }
     return attributes;
+}
+
+#pragma mark - Scrolling
+
+- (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset withScrollingVelocity:(CGPoint)velocity
+{
+    CGFloat offsetAdjustment = MAXFLOAT;
+    CGFloat verticalOffset = proposedContentOffset.y;
+    
+    CGRect targetRect = CGRectMake(0, proposedContentOffset.y, self.collectionView.bounds.size.width, self.collectionView.bounds.size.height);
+    
+    NSArray *array = [self layoutAttributesForElementsInRect:targetRect];
+    
+    for (UICollectionViewLayoutAttributes *layoutAttributes in array) {
+        CGFloat itemOffset = layoutAttributes.frame.origin.y;
+        if (ABS(itemOffset - verticalOffset) < ABS(offsetAdjustment)) {
+            offsetAdjustment = itemOffset - verticalOffset;
+        }
+    }
+    CGPoint offset = CGPointMake(proposedContentOffset.x, proposedContentOffset.y + offsetAdjustment);
+    offset.y -= [self headerSize].height;
+    return offset;
 }
 
 @end
