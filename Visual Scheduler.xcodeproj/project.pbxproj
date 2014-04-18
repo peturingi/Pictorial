@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6835651B19002A4700FCA28A /* SettingsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6835651A19002A4700FCA28A /* SettingsManager.m */; };
+		683565231900307300FCA28A /* SettingsManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 683565221900307300FCA28A /* SettingsManagerTests.m */; };
+		6835652B1900330600FCA28A /* settings.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = 6835652A1900330300FCA28A /* settings.sqlite3 */; };
+		6835652C1900330600FCA28A /* settings.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = 6835652A1900330300FCA28A /* settings.sqlite3 */; };
 		D800896618DC6946003EFD7E /* BBAScheduleOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D85EA1A818C4B12300ACDBD6 /* BBAScheduleOverviewViewController.m */; };
 		D800896718DC694D003EFD7E /* BBAScheduleOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D85EA1A818C4B12300ACDBD6 /* BBAScheduleOverviewViewController.m */; };
 		D813A9D118D38BA100D3515A /* MockScheduleOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EC7D5518CA63C500B6A673 /* MockScheduleOverviewViewController.m */; };
@@ -80,6 +84,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6835651919002A4700FCA28A /* SettingsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsManager.h; path = SettingsManager/SettingsManager.h; sourceTree = "<group>"; };
+		6835651A19002A4700FCA28A /* SettingsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsManager.m; path = SettingsManager/SettingsManager.m; sourceTree = "<group>"; };
+		683565221900307300FCA28A /* SettingsManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsManagerTests.m; path = SettingsManager/SettingsManagerTests.m; sourceTree = "<group>"; };
+		6835652A1900330300FCA28A /* settings.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; name = settings.sqlite3; path = SettingsManager/settings.sqlite3; sourceTree = "<group>"; };
 		D813A9D918D3995700D3515A /* Visual Scheduler-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Visual Scheduler-Prefix.pch"; sourceTree = "<group>"; };
 		D81AAA1E18B94F0A00E3B50C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D82838AD18D5B850009C03A8 /* UIImage+BBA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+BBA.h"; path = "Visual Scheduler/Category/UIImage+BBA.h"; sourceTree = "<group>"; };
@@ -214,6 +222,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6835651819002A2500FCA28A /* SettingsManager */ = {
+			isa = PBXGroup;
+			children = (
+				6835652A1900330300FCA28A /* settings.sqlite3 */,
+				6835651919002A4700FCA28A /* SettingsManager.h */,
+				6835651A19002A4700FCA28A /* SettingsManager.m */,
+				683565221900307300FCA28A /* SettingsManagerTests.m */,
+			);
+			name = SettingsManager;
+			sourceTree = "<group>";
+		};
 		D813A9CF18D388F900D3515A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -376,6 +395,7 @@
 		D83A62C118B696DC00EC0773 /* Visual Scheduler */ = {
 			isa = PBXGroup;
 			children = (
+				6835651819002A2500FCA28A /* SettingsManager */,
 				D85EBDDB18DC836700DF76B7 /* Color */,
 				D83A62CA18B696DC00EC0773 /* AppDelegate.h */,
 				D83A62CB18B696DC00EC0773 /* AppDelegate.m */,
@@ -684,6 +704,7 @@
 				D85EBDD118DC804400DF76B7 /* brushteeth.png in Resources */,
 				D83A62D418B696DC00EC0773 /* Images.xcassets in Resources */,
 				D85EBDD318DC804400DF76B7 /* karate.png in Resources */,
+				6835652B1900330600FCA28A /* settings.sqlite3 in Resources */,
 				D829DDAA18E191C00039A449 /* vs.sqlite3 in Resources */,
 				D85EBDD218DC804400DF76B7 /* eat.png in Resources */,
 				D85EBDD618DC804400DF76B7 /* toilet.png in Resources */,
@@ -695,6 +716,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6835652C1900330600FCA28A /* settings.sqlite3 in Resources */,
 				D8DCC45118E2F520004794C9 /* testImage.png in Resources */,
 				D83A62E518B696DC00EC0773 /* InfoPlist.strings in Resources */,
 				D8DCC45318E2F69D004794C9 /* vs.sqlite3 in Resources */,
@@ -724,6 +746,7 @@
 				D889F7EE18C9249A008A497F /* AppDelegate.m in Sources */,
 				D889F7EA18C90506008A497F /* BBAScheduleTableDataSource.m in Sources */,
 				D85EBDDA18DC833A00DF76B7 /* BBAColor.m in Sources */,
+				6835651B19002A4700FCA28A /* SettingsManager.m in Sources */,
 				D8DB7FFF18C50F4700BA2037 /* BBAShowScheduleViewController.m in Sources */,
 				D82C0CD618F7F344005B5569 /* CalendarCollectionViewLayout.m in Sources */,
 				D8EB983718E340CF00DA3A99 /* Schedule.m in Sources */,
@@ -738,6 +761,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				683565231900307300FCA28A /* SettingsManagerTests.m in Sources */,
 				D8EB983418E33ECE00DA3A99 /* RepositoryTests.m in Sources */,
 				D8315B0018D39E0600C4A340 /* CameraTests.m in Sources */,
 				D878CAEB18DC868400DD1885 /* BBAColourTests.m in Sources */,
