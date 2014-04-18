@@ -8,3 +8,7 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 #endif
+
+#pragma mark Notifications
+
+#define NOTIFICATION_CALENDAR_VIEW  @"handleCalendarViewMode"

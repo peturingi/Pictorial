@@ -3,6 +3,9 @@
 #define CELL_KEY    @"ImageCell"
 #define HEADER_KEY  @"DayOfWeekColour"
 
+static const NSInteger MONDAY       = 0;
+static const NSInteger SUNDAY       = 6;
+static const NSInteger DAYS_IN_WEEK = SUNDAY - MONDAY;
 static const NSInteger INSET_TOP    = 2;
 static const NSInteger INSET_LEFT   = 2;
 static const NSInteger INSET_RIGHT  = 2;
@@ -21,8 +24,19 @@ static const NSUInteger HEADER_HEIGHT = 20;
     self = [super initWithCoder:aDecoder];
     if (self) {
         self.insets = UIEdgeInsetsMake(INSET_TOP, INSET_LEFT, INSET_BOTTOM, INSET_RIGHT);
+        _viewMode = Week;
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleCalendarViewMode:) name:NOTIFICATION_CALENDAR_VIEW object:nil];
     }
     return self;
+}
+
+- (void)handleCalendarViewMode:(NSNotification *)notification {
+    if ([notification.name isEqualToString:NOTIFICATION_CALENDAR_VIEW]) {
+        NSNumber *viewMode = [notification object];
+        _viewMode = viewMode.integerValue;
+        [self invalidateLayout];
+    }
 }
 
 #pragma mark - UICollectionViewLayout Process
@@ -50,19 +64,38 @@ static const NSUInteger HEADER_HEIGHT = 20;
 
 - (NSDictionary *)cellAttributes {
     NSMutableDictionary *cellInformation = [NSMutableDictionary dictionary];
-    for (NSInteger section = 0; section < self.collectionView.numberOfSections; section++) {
-        NSInteger numberOfItems = [self.collectionView numberOfItemsInSection:section];
+    
+    NSInteger firstDay;
+    NSInteger lastDay;
+    switch (_viewMode) {
+        case Now:
+        case Day:
+            firstDay = lastDay = [self sectionRepresentingToday];
+            break;
+            
+        case Week:
+            firstDay = MONDAY;
+            lastDay = SUNDAY;
+            break;
+    }
+    
+    for (NSInteger day = firstDay; day <= lastDay; day++) {
+        NSInteger numberOfItems = [self.collectionView numberOfItemsInSection:day];
         if (self.maxNumRows < numberOfItems) {
             self.maxNumRows = numberOfItems;
         }
         for (NSInteger item = 0; item < numberOfItems; item++) {
-            NSIndexPath *pathToItem = [NSIndexPath indexPathForItem:item inSection:section];
+            NSIndexPath *pathToItem = [NSIndexPath indexPathForItem:item inSection:day];
             UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:pathToItem];
             attributes.frame = [self frameForItemAtIndexPath:pathToItem];
             [cellInformation setObject:attributes forKey:pathToItem];
         }
     }
     return cellInformation;
+}
+
+- (NSInteger)sectionRepresentingToday {
+    return 0;
 }
 
 - (CGRect)frameForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -74,8 +107,20 @@ static const NSUInteger HEADER_HEIGHT = 20;
 
 - (CGPoint)originForItemAtIndexPath:(NSIndexPath *)indexPath {
     CGSize itemSize = [self sizeOfItems];
-    CGFloat x = INSET_LEFT + indexPath.section * (itemSize.width + self.insets.top + self.insets.right) ;
-    CGFloat y = indexPath.item * (itemSize.height + self.insets.top + self.insets.bottom);
+    
+    CGFloat x;
+    switch (_viewMode) {
+        case Now:
+        case Day:
+            x = [self collectionViewContentSize].width / 2.0f + self.collectionView.contentOffset.x - itemSize.width / 2.0f;
+            break;
+            
+        case Week:
+            x = INSET_LEFT + indexPath.section * (itemSize.width + self.insets.top + self.insets.right);
+            break;
+    }
+    
+    CGFloat y = ([self headerSize].height + self.insets.top) + indexPath.item * (itemSize.height + self.insets.top + self.insets.bottom);
     return CGPointMake(x, y);
 }
 
@@ -87,11 +132,27 @@ static const NSUInteger HEADER_HEIGHT = 20;
 #pragma mark Header Layout
 
 - (NSDictionary *)headerAttributes {
-    NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithCapacity:self.collectionView.numberOfSections];
-    for (NSInteger section = 0; section < self.collectionView.numberOfSections; section++) {
-        NSIndexPath *path = [NSIndexPath indexPathForItem:0 inSection:section]; // assume there is always an item, so we can calculate offset of header.
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithCapacity:DAYS_IN_WEEK];
+    
+    NSInteger firstDay;
+    NSInteger lastDay;
+    switch (_viewMode) {
+        case Now:
+        case Day:
+            firstDay = lastDay = [self sectionRepresentingToday];
+            break;
+            
+        case Week:
+            firstDay = MONDAY;
+            lastDay = SUNDAY;
+            break;
+    }
+
+    
+    for (NSInteger day = firstDay; day <= lastDay; day++) {
+        NSIndexPath *path = [NSIndexPath indexPathForItem:0 inSection:day]; // assume there is always an item, so we can calculate offset of header.
         UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionHeader withIndexPath:path];
-        attributes.frame = [self frameForHeaderOfSection:section];
+        attributes.frame = [self frameForHeaderOfSection:day];
         attributes.zIndex = 1024;
         [dictionary setObject:attributes forKey:path];
     }
@@ -107,7 +168,19 @@ static const NSUInteger HEADER_HEIGHT = 20;
 
 - (CGPoint)originForHeaderOfSection:(NSUInteger)section {
     CGSize headerSize = [self headerSize];
-    CGFloat x = section * headerSize.width;// + self.collectionView.contentOffset.x;
+    
+    CGFloat x;
+    switch (_viewMode) {
+        case Now:
+        case Day:
+            x = [self collectionViewContentSize].width / 2.0f - headerSize.width / 2.0f + self.collectionView.contentOffset.x;
+            break;
+            
+        case Week:
+            x = section * headerSize.width;
+            break;
+    }
+    
     CGFloat y = self.collectionView.contentOffset.y; // Moves the headers location up, so it is drawn above the first item
     return CGPointMake(x, y);
 }
@@ -126,7 +199,7 @@ static const NSUInteger HEADER_HEIGHT = 20;
 
 - (CGSize)collectionViewContentSize {
     CGFloat contentWidth = self.collectionView.bounds.size.width;
-    CGFloat contentHeight = self.maxNumRows * [self rowHeight];
+    CGFloat contentHeight = self.maxNumRows * [self rowHeight] + ([self headerSize].height + self.insets.top + self.insets.bottom);
     return CGSizeMake(contentWidth, contentHeight);
 }
 

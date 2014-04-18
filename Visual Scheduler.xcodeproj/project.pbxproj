@@ -31,6 +31,7 @@
 		D83A62DD18B696DC00EC0773 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BF18B696DC00EC0773 /* UIKit.framework */; };
 		D83A62E518B696DC00EC0773 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D83A62E318B696DC00EC0773 /* InfoPlist.strings */; };
 		D8401AAA1900312A00BAF82F /* BackgroundColour.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8401AA91900312A00BAF82F /* BackgroundColour.xib */; };
+		D8401B471901846100BAF82F /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8401B461901846100BAF82F /* ScheduleViewController.m */; };
 		D850E82618C86F420051CD51 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D850E82518C86F420051CD51 /* MobileCoreServices.framework */; };
 		D850E82B18C87C3D0051CD51 /* MockManagedObjectContext.m in Sources */ = {isa = PBXBuildFile; fileRef = D850E82A18C87C3D0051CD51 /* MockManagedObjectContext.m */; };
 		D850E82C18C885230051CD51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D83A62CD18B696DC00EC0773 /* Main.storyboard */; };
@@ -127,6 +128,8 @@
 		D83A62F518B69BEC00EC0773 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewController.m; path = Controllers/SearchViewController.m; sourceTree = "<group>"; };
 		D83A62FB18B6B69E00EC0773 /* ContainsImageAsData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ContainsImageAsData.h; path = Protocols/ContainsImageAsData.h; sourceTree = "<group>"; };
 		D8401AA91900312A00BAF82F /* BackgroundColour.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BackgroundColour.xib; path = "Visual Scheduler/CalendarView/BackgroundColour.xib"; sourceTree = "<group>"; };
+		D8401B451901846100BAF82F /* ScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScheduleViewController.h; path = CalendarView/ScheduleViewController.h; sourceTree = "<group>"; };
+		D8401B461901846100BAF82F /* ScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScheduleViewController.m; path = CalendarView/ScheduleViewController.m; sourceTree = "<group>"; };
 		D850E82518C86F420051CD51 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		D850E82718C8746A0051CD51 /* BBAShowScheduleViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBAShowScheduleViewControllerTests.m; path = "Visual SchedulerTests/BBAShowScheduleViewControllerTests.m"; sourceTree = SOURCE_ROOT; };
 		D850E82918C87C3D0051CD51 /* MockManagedObjectContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MockManagedObjectContext.h; path = "Visual SchedulerTests/MockManagedObjectContext.h"; sourceTree = SOURCE_ROOT; };
@@ -388,6 +391,8 @@
 				D83A62CA18B696DC00EC0773 /* AppDelegate.h */,
 				D83A62CB18B696DC00EC0773 /* AppDelegate.m */,
 				D83A62CD18B696DC00EC0773 /* Main.storyboard */,
+				D8401B451901846100BAF82F /* ScheduleViewController.h */,
+				D8401B461901846100BAF82F /* ScheduleViewController.m */,
 				D8315AF518D39DF000C4A340 /* Camera */,
 				D82838B018D5B85A009C03A8 /* Categories */,
 				D83A62F718B69BEF00EC0773 /* View Controllers */,
@@ -734,6 +739,7 @@
 				D889F7EE18C9249A008A497F /* AppDelegate.m in Sources */,
 				D889F7EA18C90506008A497F /* BBAScheduleTableDataSource.m in Sources */,
 				D85EBDDA18DC833A00DF76B7 /* BBAColor.m in Sources */,
+				D8401B471901846100BAF82F /* ScheduleViewController.m in Sources */,
 				D8DB7FFF18C50F4700BA2037 /* BBAShowScheduleViewController.m in Sources */,
 				D82C0CD618F7F344005B5569 /* CalendarCollectionViewLayout.m in Sources */,
 				D8EB983718E340CF00DA3A99 /* Schedule.m in Sources */,
