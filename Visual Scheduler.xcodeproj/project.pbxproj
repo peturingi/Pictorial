@@ -784,6 +784,7 @@
 				6835652F1901B4FD00FCA28A /* SQLiteDatabaseConnection.m in Sources */,
 				D85EBDDA18DC833A00DF76B7 /* BBAColor.m in Sources */,
 				D8401B471901846100BAF82F /* ScheduleViewController.m in Sources */,
+                6835651B19002A4700FCA28A /* SettingsManager.m in Sources */,
 				D8DB7FFF18C50F4700BA2037 /* BBAShowScheduleViewController.m in Sources */,
 				D82C0CD618F7F344005B5569 /* CalendarCollectionViewLayout.m in Sources */,
 				D8AFD99B1901B98300A294D5 /* TodayCollectionViewLayout.m in Sources */,

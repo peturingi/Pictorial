@@ -91,11 +91,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "Yes"
             filePath = "Visual Scheduler/CalendarView/CalendarCollectionViewLayout.m"
-            timestampString = "419548712.579782"
+            timestampString = "419550663.81122"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "249"
-            endingLineNumber = "249"
+            startingLineNumber = "250"
+            endingLineNumber = "250"
             landmarkName = "-targetContentOffsetForProposedContentOffset:withScrollingVelocity:"
             landmarkType = "5">
             <Actions>
