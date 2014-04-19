@@ -2,7 +2,6 @@
 
 @implementation NowCollectionViewLayout
 
-
 - (NSDictionary *)cellAttributes {
     NSMutableDictionary *cellInformation = [NSMutableDictionary dictionaryWithCapacity:1];
     NSInteger today = [self sectionRepresentingToday];

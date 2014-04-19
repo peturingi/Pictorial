@@ -5,8 +5,8 @@
 
 @implementation CalendarCell
 
-- (id)initWithCoder:(NSCoder *)aDecoder {
-    self = [super initWithCoder:aDecoder];
+- (id)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
     if (self) {
         [self setupImageView];
         [self setupBorder];

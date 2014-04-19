@@ -11,12 +11,12 @@ static const NSUInteger HEADER_HEIGHT = 20;
 
 @implementation CalendarCollectionViewLayout
 
-- (id)initWithCoder:(NSCoder *)aDecoder {
-    self = [super initWithCoder:aDecoder];
+- (id)init {
+    self = [super init];
     if (self) {
         self.insets = UIEdgeInsetsMake(INSET_TOP, INSET_LEFT, INSET_BOTTOM, INSET_RIGHT);
         _viewMode = Week;
-
+        
     }
     return self;
 }

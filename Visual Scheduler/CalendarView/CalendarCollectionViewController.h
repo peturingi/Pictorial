@@ -1,5 +1,8 @@
 #import <UIKit/UIKit.h>
+#import "CalendarDataSource.h"
 
-@interface CalendarCollectionViewController : UICollectionViewController
+@interface CalendarCollectionViewController : UICollectionViewController {
+    CalendarDataSource *dataSource;
+}
 
 @end
