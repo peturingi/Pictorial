@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>CE5F9C97-6B2B-49D8-B8DE-C1CFBD59C0D9</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Visual Scheduler</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>1B90DDFB-6C9B-44FB-90B7-C220089ABAE6</key>
+		<string>petur@epsoftware.dk:/usr/local/git/base/sw610f14/VisualScheduler.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Visual Scheduler.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>1B90DDFB-6C9B-44FB-90B7-C220089ABAE6</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>petur@epsoftware.dk:/usr/local/git/base/sw610f14/VisualScheduler.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>1B90DDFB-6C9B-44FB-90B7-C220089ABAE6</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>1B90DDFB-6C9B-44FB-90B7-C220089ABAE6</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Visual Scheduler</string>
+		</dict>
+	</array>
+</dict>
+</plist>

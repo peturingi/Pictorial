@@ -40,4 +40,9 @@
     return CGPointMake(x, y);
 }
 
+- (CGSize)sizeOfItems {
+    CGFloat edge = (self.collectionView.bounds.size.width / self.collectionView.numberOfSections) - (self.insets.right +self.insets.left);
+    return CGSizeMake(edge, edge);
+}
+
 @end

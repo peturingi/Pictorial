@@ -66,6 +66,7 @@
 		D8AFD99E1901BF2400A294D5 /* CalendarCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8AFD99D1901BF2400A294D5 /* CalendarCollectionViewController.m */; };
 		D8B016EF18FEB85700017D76 /* CalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B016EE18FEB85700017D76 /* CalendarView.m */; };
 		D8BABEC018EC6839009E562E /* NSMutableArray+MoveObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D8BABEBF18EC6839009E562E /* NSMutableArray+MoveObject.m */; };
+		D8C7BDE7190287E800128FA7 /* WeekCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C7BDE6190287E800128FA7 /* WeekCollectionViewLayout.m */; };
 		D8D4011D18E4960D003F6F4F /* PictogramCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D4011C18E4960D003F6F4F /* PictogramCollectionViewCell.m */; };
 		D8DB7FF518C4DA2300BA2037 /* BBAAddScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FF418C4DA2300BA2037 /* BBAAddScheduleViewController.m */; };
 		D8DB7FFF18C50F4700BA2037 /* BBAShowScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7FFE18C50F4700BA2037 /* BBAShowScheduleViewController.m */; };
@@ -193,6 +194,8 @@
 		D8B49E6618B823A000788073 /* TagManagementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TagManagementViewController.m; path = Controllers/TagManagementViewController.m; sourceTree = "<group>"; };
 		D8BABEBE18EC6839009E562E /* NSMutableArray+MoveObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+MoveObject.h"; sourceTree = "<group>"; };
 		D8BABEBF18EC6839009E562E /* NSMutableArray+MoveObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+MoveObject.m"; sourceTree = "<group>"; };
+		D8C7BDE5190287E800128FA7 /* WeekCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeekCollectionViewLayout.h; path = "Visual Scheduler/CalendarView/WeekCollectionViewLayout.h"; sourceTree = "<group>"; };
+		D8C7BDE6190287E800128FA7 /* WeekCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeekCollectionViewLayout.m; path = "Visual Scheduler/CalendarView/WeekCollectionViewLayout.m"; sourceTree = "<group>"; };
 		D8D4011B18E4960D003F6F4F /* PictogramCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PictogramCollectionViewCell.h; path = Controllers/PictogramCollectionViewCell.h; sourceTree = "<group>"; };
 		D8D4011C18E4960D003F6F4F /* PictogramCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PictogramCollectionViewCell.m; path = Controllers/PictogramCollectionViewCell.m; sourceTree = "<group>"; };
 		D8DB7FF318C4DA2300BA2037 /* BBAAddScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBAAddScheduleViewController.h; path = Controllers/BBAAddScheduleViewController.h; sourceTree = "<group>"; };
@@ -343,6 +346,10 @@
 		D8387DBF18F9A94A00DD716C /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
+				D8AFD99C1901BF2400A294D5 /* CalendarCollectionViewController.h */,
+				D8AFD99D1901BF2400A294D5 /* CalendarCollectionViewController.m */,
+				D8B016ED18FEB85700017D76 /* CalendarView.h */,
+				D8B016EE18FEB85700017D76 /* CalendarView.m */,
 				D8387DC218F9BE6B00DD716C /* Cell */,
 				D8387DC018F9BE5B00DD716C /* DataSource */,
 				D8387DC118F9BE6400DD716C /* Layout */,
@@ -362,17 +369,15 @@
 		D8387DC118F9BE6400DD716C /* Layout */ = {
 			isa = PBXGroup;
 			children = (
+				D8401AA91900312A00BAF82F /* BackgroundColour.xib */,
 				D82C0CD418F7F344005B5569 /* CalendarCollectionViewLayout.h */,
 				D82C0CD518F7F344005B5569 /* CalendarCollectionViewLayout.m */,
+				D8C7BDE5190287E800128FA7 /* WeekCollectionViewLayout.h */,
+				D8C7BDE6190287E800128FA7 /* WeekCollectionViewLayout.m */,
 				D8401B481901B08300BAF82F /* NowCollectionViewLayout.h */,
 				D8401B491901B08300BAF82F /* NowCollectionViewLayout.m */,
 				D8AFD9991901B98300A294D5 /* TodayCollectionViewLayout.h */,
 				D8AFD99A1901B98300A294D5 /* TodayCollectionViewLayout.m */,
-				D8AFD99C1901BF2400A294D5 /* CalendarCollectionViewController.h */,
-				D8AFD99D1901BF2400A294D5 /* CalendarCollectionViewController.m */,
-				D8401AA91900312A00BAF82F /* BackgroundColour.xib */,
-				D8B016ED18FEB85700017D76 /* CalendarView.h */,
-				D8B016EE18FEB85700017D76 /* CalendarView.m */,
 			);
 			name = Layout;
 			sourceTree = "<group>";
@@ -776,6 +781,7 @@
 				D8EB983118E33E4A00DA3A99 /* Repository.m in Sources */,
 				D8BABEC018EC6839009E562E /* NSMutableArray+MoveObject.m in Sources */,
 				D8401B4A1901B08300BAF82F /* NowCollectionViewLayout.m in Sources */,
+				D8C7BDE7190287E800128FA7 /* WeekCollectionViewLayout.m in Sources */,
 				D82C0CDC18F80DFB005B5569 /* CalendarDataSource.m in Sources */,
 				D83A62C818B696DC00EC0773 /* main.m in Sources */,
 				D8534F7D18DDB51D0055FA93 /* BBAShowScheduleCollectionViewController.m in Sources */,
@@ -784,7 +790,7 @@
 				6835652F1901B4FD00FCA28A /* SQLiteDatabaseConnection.m in Sources */,
 				D85EBDDA18DC833A00DF76B7 /* BBAColor.m in Sources */,
 				D8401B471901846100BAF82F /* ScheduleViewController.m in Sources */,
-                6835651B19002A4700FCA28A /* SettingsManager.m in Sources */,
+				6835651B19002A4700FCA28A /* SettingsManager.m in Sources */,
 				D8DB7FFF18C50F4700BA2037 /* BBAShowScheduleViewController.m in Sources */,
 				D82C0CD618F7F344005B5569 /* CalendarCollectionViewLayout.m in Sources */,
 				D8AFD99B1901B98300A294D5 /* TodayCollectionViewLayout.m in Sources */,
