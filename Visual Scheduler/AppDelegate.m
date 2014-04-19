@@ -31,12 +31,4 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
 }
-
-- (Repository *)sharedRepository {
-    if (_sharedRepository == nil) {
-        _sharedRepository = [[Repository alloc] initWithStore:[[SQLiteStore alloc] init]];
-    }
-    return _sharedRepository;
-}
-
 @end
