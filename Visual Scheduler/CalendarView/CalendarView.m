@@ -6,10 +6,15 @@
 - (id)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout {
     self = [super initWithFrame:frame collectionViewLayout:layout];
     if (self) {
-        [self registerNib:[UINib nibWithNibName:@"BackgroundColour" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"DayOfWeekColour"];
-        [self registerClass:[CalendarCell class] forCellWithReuseIdentifier:@"CALENDAR_CELL"];
+        [self registerViews];
     }
     return self;
+}
+
+- (void)registerViews {
+    UINib *headerView = [UINib nibWithNibName:@"BackgroundColour" bundle:nil];
+    [self registerNib:headerView forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"DayOfWeekColour"];
+    [self registerClass:[CalendarCell class] forCellWithReuseIdentifier:@"CALENDAR_CELL"];
 }
 
 @end

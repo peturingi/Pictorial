@@ -1,10 +1,13 @@
 #import "CalendarCollectionViewController.h"
-
+#import "CalendarDataSource.h"
 #import "CalendarView.h"
 #import "NowCollectionViewLayout.h"
 #import "TodayCollectionViewLayout.h"
 #import "WeekCollectionViewLayout.h"
 
+@interface CalendarCollectionViewController ()
+    @property (nonatomic, strong) CalendarDataSource *dataSource;
+@end
 
 @implementation CalendarCollectionViewController
 
@@ -12,16 +15,18 @@
     self = [super initWithCollectionViewLayout:layout];
     if (self) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleCalendarViewMode:) name:NOTIFICATION_CALENDAR_VIEW object:nil];
-        self.collectionView = [[CalendarView alloc] initWithFrame:self.view.frame collectionViewLayout:self.collectionViewLayout];
-        dataSource = [[CalendarDataSource alloc] init];
-        [self.collectionView setDataSource:dataSource];
-        [self.collectionView setDelegate:dataSource];
-        
-        self.collectionView.backgroundColor = [UIColor whiteColor];
+        self.dataSource = [[CalendarDataSource alloc] init];
+        [self setupCollectionView];
     }
     return self;
 }
 
+- (void)setupCollectionView {
+    self.collectionView = [[CalendarView alloc] initWithFrame:self.view.frame collectionViewLayout:self.collectionViewLayout];
+    self.collectionView.dataSource = self.dataSource;
+    self.collectionView.delegate = self.dataSource;
+    self.collectionView.backgroundColor = [UIColor whiteColor];
+}
 
 - (void)loadView {
     [super loadView];

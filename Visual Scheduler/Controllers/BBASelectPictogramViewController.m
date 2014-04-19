@@ -20,6 +20,7 @@ NSInteger const kCellTagForLabelView = 2;
     self = [super initWithCollectionViewLayout:layout];
     if (self) {
         [self.collectionView registerNib:[UINib nibWithNibName:@"SelectPictogramCell" bundle:nil] forCellWithReuseIdentifier:@"pictogramSelector"];
+        self.collectionView.backgroundColor = [UIColor grayColor];
     }
     return self;
 }
@@ -112,12 +113,6 @@ NSInteger const kCellTagForLabelView = 2;
     return pictogram.title;
 }
 
-#pragma mark - FetcheResultsController delegate
-
-- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
-    [self.collectionView reloadData];
-}
-
 #pragma mark - Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -151,5 +146,13 @@ NSInteger const kCellTagForLabelView = 2;
     }
 }
 
+- (UIImage *)pictogramAtPoint:(CGPoint)point {
+    NSIndexPath *selection = [self.collectionView indexPathForItemAtPoint:point];
+    UIImage *image = nil;
+    if (selection != nil) {
+        image = [self imageForPictogramAtIndexPath:selection];
+    }
+    return image;
+}
 
 @end

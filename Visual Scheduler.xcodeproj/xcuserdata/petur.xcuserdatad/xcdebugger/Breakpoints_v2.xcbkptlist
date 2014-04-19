@@ -77,11 +77,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Visual Scheduler/CalendarView/NowCollectionViewLayout.m"
-            timestampString = "419598721.651339"
+            timestampString = "419630192.279717"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
             landmarkName = "@implementation NowCollectionViewLayout"
             landmarkType = "3">
          </BreakpointContent>
@@ -113,41 +113,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
-            continueAfterRunningActions = "Yes"
-            filePath = "Visual Scheduler/Controllers/BBASelectPictogramViewController.m"
-            timestampString = "419618886.647838"
+            continueAfterRunningActions = "No"
+            filePath = "Visual Scheduler/CalendarView/CalendarCollectionViewController.m"
+            timestampString = "419638145.435238"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "-viewDidLoad"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "-initWithCollectionViewLayout:"
             landmarkType = "5">
-            <Actions>
-               <BreakpointActionProxy
-                  ActionExtensionID = "Xcode.BreakpointAction.Log">
-                  <ActionContent
-                     message = "In viewDidLoad"
-                     conveyanceType = "0">
-                  </ActionContent>
-               </BreakpointActionProxy>
-            </Actions>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Visual Scheduler/CalendarView/CalendarCollectionViewController.m"
-            timestampString = "419621203.239969"
+            filePath = "Visual Scheduler/Controllers/ContainerViewController.m"
+            timestampString = "419636040.30757"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "12"
-            endingLineNumber = "12"
-            landmarkName = "-initWithCollectionViewLayout:"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "-longPressGesture:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

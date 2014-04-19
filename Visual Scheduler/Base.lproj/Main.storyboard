@@ -191,12 +191,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JYp-WD-aeM">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="687"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JYp-WD-aeM" userLabel="Top">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="745"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.88627457620000005" green="0.97254908080000002" blue="0.97254908080000002" alpha="1" colorSpace="deviceRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wbq-XC-rxL">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wbq-XC-rxL" userLabel="Bottom">
                                 <rect key="frame" x="0.0" y="765" width="768" height="259"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.88627457620000005" green="0.97254908080000002" blue="0.97254908080000002" alpha="1" colorSpace="deviceRGB"/>
@@ -204,14 +204,20 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Wbq-XC-rxL" firstAttribute="leading" secondItem="JYp-WD-aeM" secondAttribute="leading" id="2yI-g5-3Ju"/>
-                            <constraint firstItem="Wbq-XC-rxL" firstAttribute="trailing" secondItem="JYp-WD-aeM" secondAttribute="trailing" id="362-Fb-koB"/>
-                            <constraint firstItem="JYp-WD-aeM" firstAttribute="leading" secondItem="Xpr-rL-KhE" secondAttribute="leading" id="9st-Xe-bih"/>
-                            <constraint firstItem="JYp-WD-aeM" firstAttribute="top" secondItem="Xpr-rL-KhE" secondAttribute="top" id="UQb-dU-LTn"/>
-                            <constraint firstAttribute="bottom" secondItem="Wbq-XC-rxL" secondAttribute="bottom" id="ZB6-zu-YmW"/>
-                            <constraint firstItem="Wbq-XC-rxL" firstAttribute="top" secondItem="Xpr-rL-KhE" secondAttribute="top" constant="765" id="b7j-K4-s31"/>
-                            <constraint firstAttribute="trailing" secondItem="Wbq-XC-rxL" secondAttribute="trailing" id="i0J-he-x5L"/>
-                            <constraint firstItem="Wbq-XC-rxL" firstAttribute="top" secondItem="JYp-WD-aeM" secondAttribute="bottom" constant="78" id="zjY-V2-Kew"/>
+                            <constraint firstAttribute="trailing" secondItem="Wbq-XC-rxL" secondAttribute="trailing" id="0n4-jQ-P3I"/>
+                            <constraint firstItem="Fe9-k7-1yp" firstAttribute="top" secondItem="Wbq-XC-rxL" secondAttribute="bottom" id="1WC-Db-JBy"/>
+                            <constraint firstAttribute="centerX" secondItem="Wbq-XC-rxL" secondAttribute="centerX" id="2HO-0y-jzE"/>
+                            <constraint firstItem="JYp-WD-aeM" firstAttribute="leading" secondItem="Xpr-rL-KhE" secondAttribute="leading" id="37r-1d-xcZ"/>
+                            <constraint firstAttribute="centerX" secondItem="JYp-WD-aeM" secondAttribute="centerX" id="3HV-I4-BnU"/>
+                            <constraint firstAttribute="bottom" secondItem="JYp-WD-aeM" secondAttribute="bottom" constant="279" id="7gg-Zr-j4f"/>
+                            <constraint firstAttribute="trailing" secondItem="JYp-WD-aeM" secondAttribute="trailing" id="BPk-08-yAo"/>
+                            <constraint firstItem="JYp-WD-aeM" firstAttribute="top" secondItem="Xpr-rL-KhE" secondAttribute="top" id="JCq-bq-xKz"/>
+                            <constraint firstItem="JYp-WD-aeM" firstAttribute="width" secondItem="Xpr-rL-KhE" secondAttribute="width" id="PXO-FP-wCc"/>
+                            <constraint firstItem="Wbq-XC-rxL" firstAttribute="leading" secondItem="Xpr-rL-KhE" secondAttribute="leading" id="Q6c-UF-t3O"/>
+                            <constraint firstItem="Wbq-XC-rxL" firstAttribute="top" secondItem="JYp-WD-aeM" secondAttribute="bottom" constant="20" id="RN6-b3-K5k"/>
+                            <constraint firstItem="Wbq-XC-rxL" firstAttribute="leading" secondItem="Xpr-rL-KhE" secondAttribute="leading" id="TRZ-Ua-H2T"/>
+                            <constraint firstAttribute="width" secondItem="Wbq-XC-rxL" secondAttribute="width" id="ZVl-XQ-916"/>
+                            <constraint firstAttribute="trailing" secondItem="Wbq-XC-rxL" secondAttribute="trailing" id="fkf-4d-Sc6"/>
                         </constraints>
                     </view>
                     <connections>
