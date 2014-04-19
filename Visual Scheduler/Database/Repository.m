@@ -113,4 +113,10 @@
     }
 }
 
+-(UIImage*)imageForPictogram:(Pictogram *)pictogram{
+    NSParameterAssert(pictogram);
+    NSArray* contentForPictogram = [_dataStore contentOfPictogramWithID:pictogram.uniqueIdentifier];
+    UIImage* image = [UIImage imageWithData:[contentForPictogram objectAtIndex:0]];
+    return image;
+}
 @end

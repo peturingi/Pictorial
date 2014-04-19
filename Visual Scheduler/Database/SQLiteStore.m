@@ -197,10 +197,23 @@
     return results;
 }
 
+-(NSArray*)contentOfPictogramWithID:(NSInteger)identifier{
+    NSParameterAssert([self pictogramExistsWithIdentifier:identifier]);
+    NSMutableArray* results = [NSMutableArray array];
+    NSString* query = @"SELECT image FROM pictogram WHERE id IS (?)";
+    sqlite3_stmt* statement = [_dbcon prepareStatementWithQuery:query];
+    [_dbcon bindIntegerToStatement:statement integer:identifier atPosition:1];
+    while([_dbcon rowExistsFromStatement:statement]){
+        NSData* imageData = [_dbcon dataFromStatement:statement atColumnIndex:0];
+        [results addObject:imageData];
+    }
+    [_dbcon finalizeStatement:statement];
+    return results;
+}
+
 #pragma mark - Relation
 
 - (void)addPictogram:(NSInteger)pictogramIdentifier toSchedule:(NSInteger)scheduleIdentifier atIndex:(NSInteger)index {
-    NSLog(@"adding pictogram");
     NSParameterAssert([self pictogramExistsWithIdentifier:pictogramIdentifier]);
     NSParameterAssert([self scheduleExistsWithIdentifier:scheduleIdentifier]);
     NSString *query = @"INSERT INTO ScheduleWithPictograms (schedule, pictogram, atIndex) VALUES (?,?,?)";
@@ -213,7 +226,6 @@
 }
 
 - (void)removePictogram:(NSInteger)pictogramIdentifier fromSchedule:(NSInteger)scheduleIdentifier atIndex:(NSInteger)index {
-    NSLog(@"Reemoving pictogram");
     if ([self relationExistsWithScheduleIdentifier:scheduleIdentifier containingPictogramIdentifier:pictogramIdentifier atIndex:index] != YES) {
         @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"Trying to delete a relation which does not excist in the database." userInfo:nil];
     }
