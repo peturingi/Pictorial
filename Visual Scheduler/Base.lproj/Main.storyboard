@@ -59,36 +59,36 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1u7-j9-YdA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2747" y="-1373"/>
+            <point key="canvasLocation" x="949" y="-1476"/>
         </scene>
         <!--Select Pictogram-->
         <scene sceneID="yQK-vJ-uJC">
             <objects>
                 <collectionViewController autoresizesArchivedViewToFullSize="NO" id="y0V-LV-Sxe" userLabel="Select Pictogram" customClass="BBASelectPictogramViewController" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="e9H-99-qyo">
-                        <rect key="frame" x="0.0" y="0.0" width="568" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="274"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dbz-rU-W2Q">
-                            <size key="itemSize" width="175" height="206"/>
+                            <size key="itemSize" width="100" height="135"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="10" minY="15" maxX="10" maxY="15"/>
+                            <inset key="sectionInset" minX="2" minY="2" maxX="2" maxY="2"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="pictogramSelector" id="rLe-sd-dbw">
-                                <rect key="frame" x="10" y="15" width="175" height="206"/>
+                                <rect key="frame" x="2" y="2" width="100" height="135"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="175" height="206"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="100" height="135"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xEE-BW-hCy" userLabel="image of pictogram">
-                                            <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YJh-3s-aEj" userLabel="title of pictogram">
-                                            <rect key="frame" x="30" y="178" width="114" height="21"/>
+                                            <rect key="frame" x="8" y="108" width="84" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -98,6 +98,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="customSize" width="100" height="135"/>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -112,7 +113,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P4c-Pq-GIs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2016" y="-1575"/>
+            <point key="canvasLocation" x="-33" y="-859"/>
         </scene>
         <!--Show Schedule View Controller-->
         <scene sceneID="bh5-NC-PuQ">
@@ -138,9 +139,6 @@
                                         </attributes>
                                     </fragment>
                                 </attributedString>
-                                <connections>
-                                    <segue destination="y0V-LV-Sxe" kind="embed" identifier="pictogramSelector" id="uzR-eX-fSw"/>
-                                </connections>
                             </containerView>
                             <containerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e87-5T-1Rf">
                                 <rect key="frame" x="284" y="0.0" width="200" height="1024"/>
@@ -168,7 +166,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UTs-Hv-KaD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="14" y="-1749"/>
+            <point key="canvasLocation" x="-581" y="-181"/>
         </scene>
         <!--Show Schedule Collection View Controller-->
         <scene sceneID="i0W-vZ-VwY">
@@ -214,7 +212,7 @@
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1629" y="-1575"/>
+            <point key="canvasLocation" x="263" y="-181"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LMG-h6-PzK">
@@ -248,20 +246,32 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="euQ-ye-tuJ">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="916"/>
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="634"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="AY6-U8-5dL" kind="embed" id="K55-An-UGK"/>
                                 </connections>
                             </containerView>
+                            <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3b6-1V-TMk">
+                                <rect key="frame" x="0.0" y="642" width="768" height="274"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="y0V-LV-Sxe" kind="embed" id="drp-fO-UX8"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" red="0.96862751250000001" green="0.96862751250000001" blue="0.96862751250000001" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
                             <constraint firstItem="euQ-ye-tuJ" firstAttribute="width" secondItem="3Ug-ui-Wfq" secondAttribute="width" id="7aH-sZ-t2t"/>
-                            <constraint firstItem="SOY-Yw-pmc" firstAttribute="top" secondItem="euQ-ye-tuJ" secondAttribute="bottom" id="NpW-MC-8PS"/>
+                            <constraint firstItem="SOY-Yw-pmc" firstAttribute="top" secondItem="3b6-1V-TMk" secondAttribute="bottom" id="FUs-cd-eAm"/>
                             <constraint firstItem="euQ-ye-tuJ" firstAttribute="top" secondItem="Do1-eR-VBi" secondAttribute="bottom" id="O3C-zY-F36"/>
-                            <constraint firstAttribute="centerX" secondItem="euQ-ye-tuJ" secondAttribute="centerX" id="R8e-3q-Omn"/>
+                            <constraint firstItem="3b6-1V-TMk" firstAttribute="width" secondItem="3Ug-ui-Wfq" secondAttribute="width" id="RCp-wg-HjN"/>
+                            <constraint firstItem="3b6-1V-TMk" firstAttribute="top" secondItem="euQ-ye-tuJ" secondAttribute="bottom" constant="8" symbolic="YES" id="SNP-ZC-Hgo"/>
+                            <constraint firstItem="euQ-ye-tuJ" firstAttribute="leading" secondItem="3Ug-ui-Wfq" secondAttribute="leading" id="V4d-dX-fdE"/>
+                            <constraint firstItem="euQ-ye-tuJ" firstAttribute="leading" secondItem="3b6-1V-TMk" secondAttribute="leading" id="cwg-yw-z54"/>
+                            <constraint firstItem="3b6-1V-TMk" firstAttribute="top" secondItem="3Ug-ui-Wfq" secondAttribute="top" constant="642" id="kKy-cK-E8L"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -282,6 +292,9 @@
                         </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="64g-Ej-m6D">
                             <color key="tintColor" red="1" green="0.051676359249999998" blue="0.10486219419999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="edit:" destination="Xfv-XK-laj" id="NfL-kd-wLl"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
@@ -294,7 +307,7 @@
             <objects>
                 <collectionViewController autoresizesArchivedViewToFullSize="NO" id="AY6-U8-5dL" customClass="CalendarCollectionViewController" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="iK9-y2-K6s" customClass="CalendarView">
-                        <rect key="frame" x="0.0" y="0.0" width="916" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="634" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -327,7 +340,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NfY-uL-7S4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="Kqc-Sg-yGo" customClass="CalendarDataSource"/>
             </objects>
-            <point key="canvasLocation" x="249" y="-326"/>
+            <point key="canvasLocation" x="-33" y="-1774"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
