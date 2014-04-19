@@ -17,7 +17,7 @@
 
 - (NSArray *)pictograms {
     if (_pictograms == nil) {
-        _pictograms = [[Repository sharedStore] pictogramsForSchedule:self includingImages:YES];
+        _pictograms = [[Repository sharedStore] pictogramsForSchedule:self includingImages:NO];
     }
     return _pictograms;
 }

@@ -16,4 +16,5 @@
 - (NSArray *)allSchedules;
 - (NSArray *)allPictogramsIncludingImages:(BOOL)value;
 - (void)deleteSchedule:(Schedule *)aSchedule;
+-(UIImage*)imageForPictogram:(Pictogram*)pictogram;
 @end

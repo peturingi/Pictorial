@@ -1,4 +1,5 @@
 #import "Pictogram.h"
+#import "Repository.h"
 
 @implementation Pictogram
 
@@ -7,12 +8,19 @@
     if (self) {
         _uniqueIdentifier = identifier;
         self.title = title;
-        self.image = image;
+        _image = image;
     }
     return self;
 }
 
 - (NSString *)description {
     return [NSString stringWithFormat:@"Title: %@", self.title];
+}
+
+-(UIImage*)image{
+    if(_image == nil){
+        _image = [[Repository sharedStore] imageForPictogram:self];
+    }
+    return _image;
 }
 @end
