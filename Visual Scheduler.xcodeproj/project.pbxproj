@@ -12,11 +12,10 @@
 		6835652B1900330600FCA28A /* settings.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = 6835652A1900330300FCA28A /* settings.sqlite3 */; };
 		6835652C1900330600FCA28A /* settings.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = 6835652A1900330300FCA28A /* settings.sqlite3 */; };
 		6835652F1901B4FD00FCA28A /* SQLiteDatabaseConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6835652E1901B4FD00FCA28A /* SQLiteDatabaseConnection.m */; };
+		68AA188B19029C41002BE754 /* UIImage+Filters.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AA188A19029C41002BE754 /* UIImage+Filters.m */; };
 		D800896618DC6946003EFD7E /* BBAScheduleOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D85EA1A818C4B12300ACDBD6 /* BBAScheduleOverviewViewController.m */; };
 		D800896718DC694D003EFD7E /* BBAScheduleOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D85EA1A818C4B12300ACDBD6 /* BBAScheduleOverviewViewController.m */; };
 		D813A9D118D38BA100D3515A /* MockScheduleOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EC7D5518CA63C500B6A673 /* MockScheduleOverviewViewController.m */; };
-		D82838AF18D5B850009C03A8 /* UIImage+BBA.m in Sources */ = {isa = PBXBuildFile; fileRef = D82838AE18D5B850009C03A8 /* UIImage+BBA.m */; };
-		D82838B318D5B9DF009C03A8 /* UIApplication+BBA.m in Sources */ = {isa = PBXBuildFile; fileRef = D82838B218D5B9DF009C03A8 /* UIApplication+BBA.m */; };
 		D82838B518D5BA39009C03A8 /* UIApplicationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D82838B418D5BA39009C03A8 /* UIApplicationTests.m */; };
 		D829DDAA18E191C00039A449 /* vs.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = D829DDA918E191C00039A449 /* vs.sqlite3 */; };
 		D82C0CD618F7F344005B5569 /* CalendarCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D82C0CD518F7F344005B5569 /* CalendarCollectionViewLayout.m */; };
@@ -98,12 +97,10 @@
 		6835652A1900330300FCA28A /* settings.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; name = settings.sqlite3; path = SettingsManager/settings.sqlite3; sourceTree = "<group>"; };
 		6835652D1901B4FD00FCA28A /* SQLiteDatabaseConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQLiteDatabaseConnection.h; path = SettingsManager/SQLiteDatabaseConnection.h; sourceTree = "<group>"; };
 		6835652E1901B4FD00FCA28A /* SQLiteDatabaseConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQLiteDatabaseConnection.m; path = SettingsManager/SQLiteDatabaseConnection.m; sourceTree = "<group>"; };
+		68AA188919029C41002BE754 /* UIImage+Filters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Filters.h"; path = "Visual Scheduler/Category/UIImage+Filters.h"; sourceTree = "<group>"; };
+		68AA188A19029C41002BE754 /* UIImage+Filters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Filters.m"; path = "Visual Scheduler/Category/UIImage+Filters.m"; sourceTree = "<group>"; };
 		D813A9D918D3995700D3515A /* Visual Scheduler-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Visual Scheduler-Prefix.pch"; sourceTree = "<group>"; };
 		D81AAA1E18B94F0A00E3B50C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		D82838AD18D5B850009C03A8 /* UIImage+BBA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+BBA.h"; path = "Visual Scheduler/Category/UIImage+BBA.h"; sourceTree = "<group>"; };
-		D82838AE18D5B850009C03A8 /* UIImage+BBA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+BBA.m"; path = "Visual Scheduler/Category/UIImage+BBA.m"; sourceTree = "<group>"; };
-		D82838B118D5B9DF009C03A8 /* UIApplication+BBA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIApplication+BBA.h"; path = "Visual Scheduler/Category/UIApplication+BBA.h"; sourceTree = "<group>"; };
-		D82838B218D5B9DF009C03A8 /* UIApplication+BBA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIApplication+BBA.m"; path = "Visual Scheduler/Category/UIApplication+BBA.m"; sourceTree = "<group>"; };
 		D82838B418D5BA39009C03A8 /* UIApplicationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIApplicationTests.m; path = "Visual SchedulerTests/UIApplicationTests.m"; sourceTree = "<group>"; };
 		D829DDA918E191C00039A449 /* vs.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = vs.sqlite3; sourceTree = "<group>"; };
 		D82C0CD418F7F344005B5569 /* CalendarCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarCollectionViewLayout.h; path = "Visual Scheduler/CalendarView/CalendarCollectionViewLayout.h"; sourceTree = "<group>"; };
@@ -272,11 +269,9 @@
 			children = (
 				D8BABEBE18EC6839009E562E /* NSMutableArray+MoveObject.h */,
 				D8BABEBF18EC6839009E562E /* NSMutableArray+MoveObject.m */,
+				68AA188919029C41002BE754 /* UIImage+Filters.h */,
+				68AA188A19029C41002BE754 /* UIImage+Filters.m */,
 				D82838B618D5BBCE009C03A8 /* Tests */,
-				D82838AD18D5B850009C03A8 /* UIImage+BBA.h */,
-				D82838AE18D5B850009C03A8 /* UIImage+BBA.m */,
-				D82838B118D5B9DF009C03A8 /* UIApplication+BBA.h */,
-				D82838B218D5B9DF009C03A8 /* UIApplication+BBA.m */,
 			);
 			name = Categories;
 			path = ..;
@@ -770,13 +765,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D800896618DC6946003EFD7E /* BBAScheduleOverviewViewController.m in Sources */,
-				D82838B318D5B9DF009C03A8 /* UIApplication+BBA.m in Sources */,
+				68AA188B19029C41002BE754 /* UIImage+Filters.m in Sources */,
 				D82D5FD418C616A6000A8FD3 /* UIView+BBASubviews.m in Sources */,
 				D8EB983B18E346DF00DA3A99 /* Pictogram.m in Sources */,
 				D8805F3F18C5DD01001BD35B /* BBANewPictogramViewController.m in Sources */,
 				D8DB7FF518C4DA2300BA2037 /* BBAAddScheduleViewController.m in Sources */,
 				D8805F4718C5E456001BD35B /* BBASelectPictogramViewController.m in Sources */,
-				D82838AF18D5B850009C03A8 /* UIImage+BBA.m in Sources */,
 				D8B016EF18FEB85700017D76 /* CalendarView.m in Sources */,
 				D8EB983118E33E4A00DA3A99 /* Repository.m in Sources */,
 				D8BABEC018EC6839009E562E /* NSMutableArray+MoveObject.m in Sources */,

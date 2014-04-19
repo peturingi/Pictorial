@@ -1,6 +1,5 @@
 #import "Pictogram.h"
 #import "Repository.h"
-
 @implementation Pictogram
 
 - (id)initWithTitle:(NSString *)title withUniqueIdentifier:(NSInteger)identifier withImage:(UIImage *)image {
