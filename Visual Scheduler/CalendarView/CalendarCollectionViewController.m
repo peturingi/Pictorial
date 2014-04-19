@@ -2,7 +2,7 @@
 
 #import "NowCollectionViewLayout.h"
 #import "TodayCollectionViewLayout.h"
-#import "CalendarCollectionViewLayout.h"
+#import "WeekCollectionViewLayout.h"
 
 @implementation CalendarCollectionViewController
 
@@ -32,7 +32,7 @@
                 break;
                 
             case 2:
-                layout = [[CalendarCollectionViewLayout alloc] initWithCoder:nil];
+                layout = [[WeekCollectionViewLayout alloc] initWithCoder:nil];
                 break;
         }
         

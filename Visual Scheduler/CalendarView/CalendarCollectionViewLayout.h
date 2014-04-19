@@ -6,6 +6,10 @@ typedef NS_ENUM(NSUInteger, ViewMode) {
     Week,
 };
 
+static const NSInteger MONDAY       = 0;
+static const NSInteger SUNDAY       = 6;
+static const NSInteger DAYS_IN_WEEK = SUNDAY - MONDAY;
+
 @interface CalendarCollectionViewLayout : UICollectionViewLayout {
     ViewMode _viewMode;
 }
