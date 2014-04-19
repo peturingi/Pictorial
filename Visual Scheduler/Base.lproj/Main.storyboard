@@ -235,20 +235,20 @@
             </objects>
             <point key="canvasLocation" x="-1977" y="-1687"/>
         </scene>
-        <!--View Controller-->
+        <!--Schedule View Controller-->
         <scene sceneID="ZQS-c9-YlW">
             <objects>
-                <viewController id="Xfv-XK-laj" sceneMemberID="viewController">
+                <viewController id="Xfv-XK-laj" customClass="ScheduleViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Do1-eR-VBi"/>
                         <viewControllerLayoutGuide type="bottom" id="SOY-Yw-pmc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3Ug-ui-Wfq">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="64" width="768" height="916"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <containerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="euQ-ye-tuJ">
-                                <rect key="frame" x="0.0" y="63" width="768" height="960"/>
+                            <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="euQ-ye-tuJ">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="916"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <connections>
@@ -257,7 +257,14 @@
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" red="0.96862751250000001" green="0.96862751250000001" blue="0.96862751250000001" alpha="1" colorSpace="deviceRGB"/>
+                        <constraints>
+                            <constraint firstItem="euQ-ye-tuJ" firstAttribute="width" secondItem="3Ug-ui-Wfq" secondAttribute="width" id="7aH-sZ-t2t"/>
+                            <constraint firstItem="SOY-Yw-pmc" firstAttribute="top" secondItem="euQ-ye-tuJ" secondAttribute="bottom" id="NpW-MC-8PS"/>
+                            <constraint firstItem="euQ-ye-tuJ" firstAttribute="top" secondItem="Do1-eR-VBi" secondAttribute="bottom" id="O3C-zY-F36"/>
+                            <constraint firstAttribute="centerX" secondItem="euQ-ye-tuJ" secondAttribute="centerX" id="R8e-3q-Omn"/>
+                        </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="kqo-Vj-Gd5">
                         <nil key="title"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="2" id="mCy-3k-gPU">
@@ -269,6 +276,9 @@
                                 <segment title="Week"/>
                             </segments>
                             <color key="tintColor" red="1" green="0.051676359249999998" blue="0.10486219419999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="switchCalendarRepresentation:" destination="Xfv-XK-laj" eventType="valueChanged" id="COQ-Eq-WSj"/>
+                            </connections>
                         </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="64g-Ej-m6D">
                             <color key="tintColor" red="1" green="0.051676359249999998" blue="0.10486219419999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -279,16 +289,16 @@
             </objects>
             <point key="canvasLocation" x="-1021" y="-1678"/>
         </scene>
-        <!--Collection View Controller-->
+        <!--Calendar Collection View Controller-->
         <scene sceneID="S6t-Ex-nqq">
             <objects>
-                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="AY6-U8-5dL" sceneMemberID="viewController">
+                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="AY6-U8-5dL" customClass="CalendarCollectionViewController" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="iK9-y2-K6s" customClass="CalendarView">
-                        <rect key="frame" x="0.0" y="0.0" width="960" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="916" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                        <collectionViewLayout key="collectionViewLayout" id="ftg-cT-xFl" customClass="CalendarCollectionViewLayout">
+                        <collectionViewLayout key="collectionViewLayout" id="ftg-cT-xFl" customClass="TodayCollectionViewLayout">
                             <connections>
                                 <outlet property="dataSource" destination="Kqc-Sg-yGo" id="8Zs-Pf-QEi"/>
                             </connections>
@@ -311,12 +321,13 @@
                             <outlet property="delegate" destination="AY6-U8-5dL" id="4nG-dz-373"/>
                         </connections>
                     </collectionView>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NfY-uL-7S4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="Kqc-Sg-yGo" customClass="CalendarDataSource"/>
             </objects>
-            <point key="canvasLocation" x="598" y="-41"/>
+            <point key="canvasLocation" x="249" y="-326"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
