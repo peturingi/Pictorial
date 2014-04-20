@@ -1,11 +1,11 @@
 #import "SQLiteStore.h"
-
+#define DB_FILENAME @"vs"
 @implementation SQLiteStore
 
 - (id)init {
     self = [super init];
     if (self) {
-        _dbcon = [[SQLiteDatabaseConnection alloc]initWithDatabaseFileNamed:@"vs"];
+        _dbcon = [[SQLiteDatabaseConnection alloc]initWithDatabaseFileNamed:DB_FILENAME];
     }
     return self;
 }
@@ -38,12 +38,14 @@
     NSMutableArray *results = [NSMutableArray array];
     sqlite3_stmt *statement = [_dbcon prepareStatementWithQuery:query];
     while ([_dbcon rowExistsFromStatement:statement]) {
+        NSMutableDictionary* content = [NSMutableDictionary dictionary];
         int uid = [_dbcon integerFromStatement:statement atColumnIndex:0];
+        [content setValue:[NSNumber numberWithInt:uid] forKey:ID_KEY];
         NSString* title = [_dbcon stringFromStatement:statement atColumnIndex:1];
+        [content setValue:title forKey:TITLE_KEY];
         int color = [_dbcon integerFromStatement:statement atColumnIndex:2];
-        [results addObject:@{@"id" : [NSNumber numberWithInt:uid],
-                                @"title" : title,
-                                @"color" : [NSNumber numberWithInt:color]}];
+        [content setValue:[NSNumber numberWithInt:color] forKey:COLOR_KEY];
+        [results addObject:content];
     }
     [_dbcon finalizeStatement:statement];
     return results;
@@ -51,12 +53,16 @@
 
 - (NSInteger)createSchedule:(NSDictionary *)content {
     NSParameterAssert(content != nil);
-    NSString *titleForSchedule = [content valueForKey:@"title"];
-    NSNumber *colorForSchedule = [content valueForKey:@"color"];
-    if (titleForSchedule == nil) @throw [NSException exceptionWithName:NSInvalidArgumentException
-                                                                reason:@"titleForSchedule is nil." userInfo:nil];
-    if (colorForSchedule == nil) @throw [NSException exceptionWithName:NSInvalidArgumentException
-                                                                reason:@"colorForSchedule is nil." userInfo:nil];
+    NSString *titleForSchedule = [content valueForKey:TITLE_KEY];
+    NSNumber *colorForSchedule = [content valueForKey:COLOR_KEY];
+    if (titleForSchedule == nil){
+        @throw [NSException exceptionWithName:NSInvalidArgumentException
+                                       reason:@"titleForSchedule is nil." userInfo:nil];
+    }
+    if (colorForSchedule == nil){
+        @throw [NSException exceptionWithName:NSInvalidArgumentException
+                                       reason:@"colorForSchedule is nil." userInfo:nil];
+    }
     NSString *query = @"INSERT INTO schedule (title, color) VALUES (?,?)";
     sqlite3_stmt *statement = [_dbcon prepareStatementWithQuery:query];
     [_dbcon bindTextToStatement:statement text:titleForSchedule atPosition:1];
@@ -88,27 +94,25 @@
 }
 
 #pragma mark - Pictograms
-- (NSArray *)contentOfAllPictogramsIncludingImageData:(BOOL)value {
-    NSMutableArray *results = [NSMutableArray array];
-    NSString *query;
-    if(value == YES){
-        query = @"SELECT id, title, image FROM pictogram ORDER BY title ASC";
-    }else{
-        query = @"SELECT id, title FROM pictogram ORDER BY title ASC";
+- (NSArray *)contentOfAllPictogramsIncludingImageData:(BOOL)includesData {
+    NSString* imageString = @"";
+    if(includesData){
+        imageString = @", image";
     }
+    NSString *query = [NSString stringWithFormat:@"SELECT id, title%@ FROM pictogram ORDER BY title ASC", imageString];
     sqlite3_stmt *statement = [_dbcon prepareStatementWithQuery:query];
+    NSMutableArray *results = [NSMutableArray array];
     while ([_dbcon rowExistsFromStatement:statement]) {
+        NSMutableDictionary* content = [NSMutableDictionary dictionary];
         int uid = [_dbcon integerFromStatement:statement atColumnIndex:0];
+        [content setValue:[NSNumber numberWithInt:uid] forKey:ID_KEY];
         NSString *title = [_dbcon stringFromStatement:statement atColumnIndex:1];
-        if (value) {
+        [content setValue:title forKey:TITLE_KEY];
+        if (includesData) {
             NSData* imageData = [_dbcon dataFromStatement:statement atColumnIndex:2];
-            [results addObject:@{@"id" : [NSNumber numberWithInt:uid],
-                                 @"title" : title,
-                                 @"image" : imageData}];
-        } else {
-            [results addObject:@{@"id" : [NSNumber numberWithInt:uid],
-                                 @"title" : title}];
+            [content setValue:imageData forKey:IMAGE_KEY];
         }
+        [results addObject:content];
     }
     [_dbcon finalizeStatement:statement];
     return results;
@@ -116,8 +120,8 @@
 
 - (NSInteger)createPictogram:(NSDictionary *)content {
     NSParameterAssert(content != nil);
-    NSString *titleForPictogram = [content valueForKey:@"title"];
-    NSData *imageDataForPictogram = [content valueForKey:@"image"];
+    NSString *titleForPictogram = [content valueForKey:TITLE_KEY];
+    NSData *imageDataForPictogram = [content valueForKey:IMAGE_KEY];
     if (titleForPictogram == nil) @throw [NSException exceptionWithName:NSInvalidArgumentException reason:@"titleForPictogram is nil." userInfo:nil];
     if (imageDataForPictogram == nil) @throw [NSException exceptionWithName:NSInvalidArgumentException reason:@"imageDataForPictogram is nil." userInfo:nil];
     NSString *query = @"INSERT INTO pictogram (title, image) VALUES (?,?)";
@@ -131,9 +135,11 @@
 
 - (BOOL)deletePictogramWithID:(NSInteger)identifier {
     NSParameterAssert(identifier >= 0);
-    if ([self isPictogramUsedByASchedule:identifier]) return NO;
+    if ([self isPictogramUsedByASchedule:identifier]){
+        return NO;
+    }
     if ([self pictogramExistsWithIdentifier:identifier] == NO) {
-        @throw [NSException exceptionWithName:@"Deletion failiure." reason:@"Trying to delete a nonexisting pictogram." userInfo:nil];
+        @throw [NSException exceptionWithName:@"Deletion failure." reason:@"Trying to delete a nonexisting pictogram." userInfo:nil];
     }
     NSString *query = @"DELETE FROM pictogram WHERE id IS (?)";
     sqlite3_stmt *statement = [_dbcon prepareStatementWithQuery:query];
@@ -145,11 +151,10 @@
 
 - (BOOL)isPictogramUsedByASchedule:(NSInteger)pictogramIdentifier {
     NSParameterAssert(pictogramIdentifier >= 0);
-    BOOL isUsed = NO;
-    
     NSString *query = @"SELECT pictogram FROM ScheduleWithPictograms WHERE pictogram = (?)";
     sqlite3_stmt *statement = [_dbcon prepareStatementWithQuery:query];
     [_dbcon bindIntegerToStatement:statement integer:pictogramIdentifier atPosition:1];
+    BOOL isUsed = NO;
     if ([_dbcon rowExistsFromStatement:statement]) {
         isUsed = YES;
     }
@@ -158,10 +163,10 @@
 }
 
 - (BOOL)pictogramExistsWithIdentifier:(NSInteger)pictogramIdentifier {
-    BOOL exists = NO;
     NSString *query = @"SELECT id FROM pictogram WHERE id = (?)";
     sqlite3_stmt *statement = [_dbcon prepareStatementWithQuery:query];
     [_dbcon bindIntegerToStatement:statement integer:pictogramIdentifier atPosition:1];
+    BOOL exists = NO;
     if ([_dbcon rowExistsFromStatement:statement]) {
         exists = YES;
     }
@@ -169,29 +174,27 @@
     return exists;
 }
 
-- (NSArray *)contentOfAllPictogramsInSchedule:(NSInteger)identifier includingImageData:(BOOL)value {
+- (NSArray *)contentOfAllPictogramsInSchedule:(NSInteger)identifier includingImageData:(BOOL)includesData {
     NSParameterAssert([self scheduleExistsWithIdentifier:identifier]);
-    NSMutableArray *results = [NSMutableArray array];
-    NSString* query;
-    if(value == YES){
-        query = @"SELECT P.id, P.title, P.image FROM pictogram AS P JOIN ScheduleWithPictograms AS SP ON P.id = SP.pictogram WHERE SP.schedule = (?) ORDER BY SP.atIndex";
-    }else{
-        query = @"SELECT P.id, P.title FROM pictogram AS P JOIN ScheduleWithPictograms AS SP ON P.id = SP.pictogram WHERE SP.schedule = (?) ORDER BY SP.atIndex";
+    NSString* pImage = @"";
+    if(includesData){
+        pImage = @", P.image";
     }
+    NSString* query = [NSString stringWithFormat:@"SELECT P.id, P.title%@ FROM pictogram AS P JOIN ScheduleWithPictograms AS SP ON P.id = SP.pictogram WHERE SP.schedule = (?) ORDER BY SP.atIndex", pImage];
     sqlite3_stmt *statement = [_dbcon prepareStatementWithQuery:query];
     [_dbcon bindIntegerToStatement:statement integer:identifier atPosition:1];
+    NSMutableArray *results = [NSMutableArray array];
     while ([_dbcon rowExistsFromStatement:statement]) {
+        NSMutableDictionary* content = [NSMutableDictionary dictionary];
         int uid = [_dbcon integerFromStatement:statement atColumnIndex:0];
+        [content setValue:[NSNumber numberWithInt:uid] forKey:ID_KEY];
         NSString *title = [_dbcon stringFromStatement:statement atColumnIndex:1];
-        if(value == YES){
-            NSData *imageData = [_dbcon dataFromStatement:statement atColumnIndex:2];
-            [results addObject:@{@"id" : [NSNumber numberWithInt:uid],
-                                 @"title" : title,
-                                 @"image" : imageData}];
-        }else{
-            [results addObject:@{@"id": [NSNumber numberWithInt:uid],
-                                 @"title": title}];
+        [content setValue:title forKey:TITLE_KEY];
+        if(includesData == YES){
+            NSData* imageData = [_dbcon dataFromStatement:statement atColumnIndex:2];
+            [content setValue:imageData forKey:IMAGE_KEY];
         }
+        [results addObject:content];
     }
     [_dbcon finalizeStatement:statement];
     return results;
@@ -227,7 +230,7 @@
 
 - (void)removePictogram:(NSInteger)pictogramIdentifier fromSchedule:(NSInteger)scheduleIdentifier atIndex:(NSInteger)index {
     if ([self relationExistsWithScheduleIdentifier:scheduleIdentifier containingPictogramIdentifier:pictogramIdentifier atIndex:index] != YES) {
-        @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"Trying to delete a relation which does not excist in the database." userInfo:nil];
+        @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"Trying to delete a relation which does not exist in the database." userInfo:nil];
     }
     NSString *query = @"DELETE FROM ScheduleWithPictograms WHERE schedule = (?) AND pictogram = (?) AND atIndex = (?)";
     sqlite3_stmt *statement = [_dbcon prepareStatementWithQuery:query];

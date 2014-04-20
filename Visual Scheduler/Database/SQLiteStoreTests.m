@@ -77,6 +77,14 @@
 
 - (void)testContentOfAllPictograms {
     NSArray *content = [_dataStore contentOfAllPictogramsIncludingImageData:YES];
+    XCTAssert([[content objectAtIndex:0]isKindOfClass:[NSDictionary class]], @"did not contain dictionaries");
+    NSDictionary* dict = [content objectAtIndex:0];
+    NSString* title = [dict valueForKey:@"title"];
+    XCTAssert(title, @"did not contain a title");
+    NSNumber* uidNumber = [dict valueForKey:@"id"];
+    XCTAssert(uidNumber, @"did not contain an NSNumber for the uid");
+    NSData* imageData = [dict valueForKey:@"image"];
+    XCTAssert(imageData, @"did not contain NSData for an image");
     XCTAssertNotNil(content, @"Received invalid content.");
 }
 
@@ -102,7 +110,7 @@
 }
 
 - (void)testDeleteNonExistingPictogramThrows {
-    XCTAssertThrows([_dataStore deletePictogramWithID:1000000], @"Expected an exception when attempting to delete a nonexcisting pictogram.");
+    XCTAssertThrows([_dataStore deletePictogramWithID:1000000], @"Expected an exception when attempting to delete a nonexisting pictogram.");
 }
 
 - (void)testAddingPictogramToScheduleAtInvalidIndexThrows {

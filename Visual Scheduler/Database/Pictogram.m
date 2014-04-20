@@ -18,7 +18,7 @@
 
 -(UIImage*)image{
     if(_image == nil){
-        _image = [[Repository sharedStore] imageForPictogram:self];
+        _image = [[Repository defaultRepository] imageForPictogram:self];
     }
     return _image;
 }

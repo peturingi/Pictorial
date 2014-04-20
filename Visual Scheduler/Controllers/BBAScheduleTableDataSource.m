@@ -19,7 +19,7 @@ NSString * const kBBANotificationNameForNewDataAvailable = @"didUpdateScheduleTa
 }
 
 - (void)setupDataSource {
-    _repository = [Repository sharedStore];
+    _repository = [Repository defaultRepository];
     NSAssert(_repository != nil, @"Failed to get the shared repository.");
     _dataSource = [_repository allSchedules];
 }

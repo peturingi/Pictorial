@@ -53,7 +53,13 @@
             </BuildableReference>
             <SkippedTests>
                <Test
+                  Identifier = "BBAScheduleOverviewViewControllerTests">
+               </Test>
+               <Test
                   Identifier = "CameraTests">
+               </Test>
+               <Test
+                  Identifier = "UIApplicationTests">
                </Test>
             </SkippedTests>
             <LocationScenarioReference

@@ -15,7 +15,7 @@
 - (void)setUp
 {
     [super setUp];
-    _repo = [Repository sharedStore];
+    _repo = [Repository defaultRepository];
 }
 
 - (void)tearDown {

@@ -7,11 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6818B6EA1903EB5C009F0742 /* SQLiteDatabaseConnectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6818B6E91903EB5C009F0742 /* SQLiteDatabaseConnectionTests.m */; };
+		682012351902C3A700CE0C91 /* Localizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 682012341902C3A700CE0C91 /* Localizer.m */; };
+		682012371902C8B000CE0C91 /* localeDb.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = 682012361902C8B000CE0C91 /* localeDb.sqlite3 */; };
+		682012391902C8D900CE0C91 /* LocalizerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 682012381902C8D900CE0C91 /* LocalizerTests.m */; };
 		6835651B19002A4700FCA28A /* SettingsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6835651A19002A4700FCA28A /* SettingsManager.m */; };
 		683565231900307300FCA28A /* SettingsManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 683565221900307300FCA28A /* SettingsManagerTests.m */; };
 		6835652B1900330600FCA28A /* settings.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = 6835652A1900330300FCA28A /* settings.sqlite3 */; };
 		6835652C1900330600FCA28A /* settings.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = 6835652A1900330300FCA28A /* settings.sqlite3 */; };
 		6835652F1901B4FD00FCA28A /* SQLiteDatabaseConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6835652E1901B4FD00FCA28A /* SQLiteDatabaseConnection.m */; };
+		683941091903D0F500C05F3C /* NSString+CapitalizeSentence.m in Sources */ = {isa = PBXBuildFile; fileRef = 683941081903D0F500C05F3C /* NSString+CapitalizeSentence.m */; };
 		68AA188B19029C41002BE754 /* UIImage+Filters.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AA188A19029C41002BE754 /* UIImage+Filters.m */; };
 		D800896618DC6946003EFD7E /* BBAScheduleOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D85EA1A818C4B12300ACDBD6 /* BBAScheduleOverviewViewController.m */; };
 		D800896718DC694D003EFD7E /* BBAScheduleOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D85EA1A818C4B12300ACDBD6 /* BBAScheduleOverviewViewController.m */; };
@@ -93,12 +98,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6818B6E91903EB5C009F0742 /* SQLiteDatabaseConnectionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQLiteDatabaseConnectionTests.m; path = SettingsManager/SQLiteDatabaseConnectionTests.m; sourceTree = "<group>"; };
+		682012331902C3A700CE0C91 /* Localizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Localizer.h; path = "Visual Scheduler/Localization/Localizer.h"; sourceTree = "<group>"; };
+		682012341902C3A700CE0C91 /* Localizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Localizer.m; path = "Visual Scheduler/Localization/Localizer.m"; sourceTree = "<group>"; };
+		682012361902C8B000CE0C91 /* localeDb.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; name = localeDb.sqlite3; path = "Visual Scheduler/Localization/localeDb.sqlite3"; sourceTree = "<group>"; };
+		682012381902C8D900CE0C91 /* LocalizerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocalizerTests.m; path = "Visual Scheduler/Localization/LocalizerTests.m"; sourceTree = "<group>"; };
 		6835651919002A4700FCA28A /* SettingsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsManager.h; path = SettingsManager/SettingsManager.h; sourceTree = "<group>"; };
 		6835651A19002A4700FCA28A /* SettingsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsManager.m; path = SettingsManager/SettingsManager.m; sourceTree = "<group>"; };
 		683565221900307300FCA28A /* SettingsManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsManagerTests.m; path = SettingsManager/SettingsManagerTests.m; sourceTree = "<group>"; };
 		6835652A1900330300FCA28A /* settings.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; name = settings.sqlite3; path = SettingsManager/settings.sqlite3; sourceTree = "<group>"; };
 		6835652D1901B4FD00FCA28A /* SQLiteDatabaseConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQLiteDatabaseConnection.h; path = SettingsManager/SQLiteDatabaseConnection.h; sourceTree = "<group>"; };
 		6835652E1901B4FD00FCA28A /* SQLiteDatabaseConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQLiteDatabaseConnection.m; path = SettingsManager/SQLiteDatabaseConnection.m; sourceTree = "<group>"; };
+		683941071903D0F500C05F3C /* NSString+CapitalizeSentence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+CapitalizeSentence.h"; path = "Visual Scheduler/Category/NSString+CapitalizeSentence.h"; sourceTree = "<group>"; };
+		683941081903D0F500C05F3C /* NSString+CapitalizeSentence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+CapitalizeSentence.m"; path = "Visual Scheduler/Category/NSString+CapitalizeSentence.m"; sourceTree = "<group>"; };
 		68AA188919029C41002BE754 /* UIImage+Filters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Filters.h"; path = "Visual Scheduler/Category/UIImage+Filters.h"; sourceTree = "<group>"; };
 		68AA188A19029C41002BE754 /* UIImage+Filters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Filters.m"; path = "Visual Scheduler/Category/UIImage+Filters.m"; sourceTree = "<group>"; };
 		D813A9D918D3995700D3515A /* Visual Scheduler-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Visual Scheduler-Prefix.pch"; sourceTree = "<group>"; };
@@ -247,6 +259,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		682012321902C38600CE0C91 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				682012361902C8B000CE0C91 /* localeDb.sqlite3 */,
+				682012331902C3A700CE0C91 /* Localizer.h */,
+				682012341902C3A700CE0C91 /* Localizer.m */,
+				682012381902C8D900CE0C91 /* LocalizerTests.m */,
+			);
+			name = Localization;
+			sourceTree = "<group>";
+		};
 		6835651819002A2500FCA28A /* SettingsManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,6 +279,7 @@
 				683565221900307300FCA28A /* SettingsManagerTests.m */,
 				6835652D1901B4FD00FCA28A /* SQLiteDatabaseConnection.h */,
 				6835652E1901B4FD00FCA28A /* SQLiteDatabaseConnection.m */,
+				6818B6E91903EB5C009F0742 /* SQLiteDatabaseConnectionTests.m */,
 			);
 			name = SettingsManager;
 			sourceTree = "<group>";
@@ -277,6 +301,8 @@
 				68AA188919029C41002BE754 /* UIImage+Filters.h */,
 				68AA188A19029C41002BE754 /* UIImage+Filters.m */,
 				D82838B618D5BBCE009C03A8 /* Tests */,
+				683941071903D0F500C05F3C /* NSString+CapitalizeSentence.h */,
+				683941081903D0F500C05F3C /* NSString+CapitalizeSentence.m */,
 			);
 			name = Categories;
 			path = ..;
@@ -410,6 +436,7 @@
 		D83A62AF18B696DB00EC0773 = {
 			isa = PBXGroup;
 			children = (
+				682012321902C38600CE0C91 /* Localization */,
 				D8387DBF18F9A94A00DD716C /* Calendar */,
 				D829DDA818E191B60039A449 /* Database */,
 				D83A62C118B696DC00EC0773 /* Visual Scheduler */,
@@ -657,7 +684,6 @@
 			isa = PBXGroup;
 			children = (
 				D853A80B18E1DB850031E986 /* DataStoreProtocol.h */,
-				D885A62C18E466660063DB1A /* SharedRepositoryProtocol.h */,
 				D853A80C18E1DD3C0031E986 /* SQLiteStore.h */,
 				D853A80D18E1DD3C0031E986 /* SQLiteStore.m */,
 				D853A80F18E1DD600031E986 /* SQLiteStoreTests.m */,
@@ -759,6 +785,7 @@
 				D85EBDD418DC804400DF76B7 /* play.png in Resources */,
 				D8DCC45218E2F57D004794C9 /* testImage.png in Resources */,
 				D85EBDD518DC804400DF76B7 /* preparetable.png in Resources */,
+				682012371902C8B000CE0C91 /* localeDb.sqlite3 in Resources */,
 				D85EBDD118DC804400DF76B7 /* brushteeth.png in Resources */,
 				D83A62D418B696DC00EC0773 /* Images.xcassets in Resources */,
 				D85EBDD318DC804400DF76B7 /* karate.png in Resources */,
@@ -789,6 +816,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				682012351902C3A700CE0C91 /* Localizer.m in Sources */,
 				D800896618DC6946003EFD7E /* BBAScheduleOverviewViewController.m in Sources */,
 				68AA188B19029C41002BE754 /* UIImage+Filters.m in Sources */,
 				D82D5FD418C616A6000A8FD3 /* UIView+BBASubviews.m in Sources */,
@@ -810,6 +838,7 @@
 				D85EBDDA18DC833A00DF76B7 /* BBAColor.m in Sources */,
 				D8401B471901846100BAF82F /* ScheduleViewController.m in Sources */,
 				6835651B19002A4700FCA28A /* SettingsManager.m in Sources */,
+				683941091903D0F500C05F3C /* NSString+CapitalizeSentence.m in Sources */,
 				D832357D1902D80800FA4DFF /* ContainerViewController.m in Sources */,
 				D8DB7FFF18C50F4700BA2037 /* BBAShowScheduleViewController.m in Sources */,
 				D82C0CD618F7F344005B5569 /* CalendarCollectionViewLayout.m in Sources */,
@@ -831,6 +860,7 @@
 				D8EB983418E33ECE00DA3A99 /* RepositoryTests.m in Sources */,
 				D8315B0018D39E0600C4A340 /* CameraTests.m in Sources */,
 				D878CAEB18DC868400DD1885 /* BBAColourTests.m in Sources */,
+				6818B6EA1903EB5C009F0742 /* SQLiteDatabaseConnectionTests.m in Sources */,
 				D8EC7D5318CA61E500B6A673 /* MockTableView.m in Sources */,
 				D813A9D118D38BA100D3515A /* MockScheduleOverviewViewController.m in Sources */,
 				D853A81018E1DD600031E986 /* SQLiteStoreTests.m in Sources */,
@@ -839,6 +869,7 @@
 				D85EBDDF18DC83B200DF76B7 /* BBAColor.m in Sources */,
 				D887832E18C8E33300F13B28 /* BBAScheduleOverviewViewControllerTests.m in Sources */,
 				D82838B518D5BA39009C03A8 /* UIApplicationTests.m in Sources */,
+				682012391902C8D900CE0C91 /* LocalizerTests.m in Sources */,
 				D85EBDC818DC6B7700DF76B7 /* MockCameraDelegate.m in Sources */,
 				D800896718DC694D003EFD7E /* BBAScheduleOverviewViewController.m in Sources */,
 			);

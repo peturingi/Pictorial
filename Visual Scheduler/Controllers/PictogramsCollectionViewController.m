@@ -2,7 +2,6 @@
 #import "BBANewPictogramViewController.h"
 #import "UIView+BBASubviews.h"
 #import "../Database/Repository.h"
-#import "../Database/SQLiteStore.h"
 
 
 NSString * const kCellReusableIdentifier = @"pictogramSelector";
@@ -43,10 +42,9 @@ NSInteger const kCellTagForLabelView = 2;
 }
 
 - (void)setupDataSource {
-    id appDelegate = [[UIApplication sharedApplication] delegate];
-    _repository = [appDelegate valueForKey:@"sharedRepository"];
+    _repository = [Repository defaultRepository];
     NSAssert(_repository != nil, @"Failed to get shared repository.");
-    _dataSource = [_repository allPictogramsIncludingImages:YES];
+    _dataSource = [_repository allPictogramsIncludingImages:NO];
 }
 
 #pragma mark - Camera
