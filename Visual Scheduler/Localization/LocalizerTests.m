@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "Localizer.h"
+#import "NSString+CapitalizeSentence.h"
 
 @interface LocalizerTests : XCTestCase
 
@@ -37,18 +38,26 @@
 }
 
 -(void)testCanLocalizeToDanish{
-    Localizer* localizeManager = [[Localizer alloc]initLocalizerForLocale:@"da_DK"];
+    Localizer* localizer = [[Localizer alloc]initLocalizerForLocale:@"da_DK"];
     NSString* milk = @"milk";
     NSString* expected = @"mælk";
-    NSString* translatedString = [localizeManager localizeString:milk];
+    NSString* translatedString = [localizer localizeString:milk];
     XCTAssert([translatedString isEqualToString:expected], @"was not properly translated");
 }
 
+-(void)testCanLocalizeSentenceToDanish{
+    Localizer* localizer = [[Localizer alloc]initLocalizerForLocale:@"da_DK"];
+    NSString* clearMsg = @"Are you sure you want to clear the schedule?";
+    NSString* danishClearMsg = @"Er du sikker på at du vil rydde skemaet?";
+    NSString* translatedString = [[localizer localizeString:clearMsg] capitalizedSentence];
+    XCTAssert([translatedString isEqualToString:danishClearMsg], @"was not properly translated");
+}
+
 -(void)testCanLocalizeToIslandic{
-    Localizer* localizeManager = [[Localizer alloc]initLocalizerForLocale:@"is_IS"];
+    Localizer* localizer = [[Localizer alloc]initLocalizerForLocale:@"is_IS"];
     NSString* milk = @"milk";
     NSString* expected = @"mjólk";
-    NSString* translatedString = [localizeManager localizeString:milk];
+    NSString* translatedString = [localizer localizeString:milk];
     XCTAssert([translatedString isEqualToString:expected], @"was not properly translated");
 }
 
