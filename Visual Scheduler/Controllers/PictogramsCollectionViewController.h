@@ -13,5 +13,6 @@
  @note The image is from the data source and is as such not of the same size as presented by this controllers collectionview.
  */
 - (UIImage *)pictogramAtPoint:(CGPoint)point;
+- (Pictogram *)pictogramAtIndexPath:(NSIndexPath *)indexPath;
 
 @end

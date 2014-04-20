@@ -47,7 +47,8 @@
 }
 
 -(void)stepStatement:(sqlite3_stmt*)statement{
-    if (sqlite3_step(statement) != SQLITE_DONE) {
+    int ret = sqlite3_step(statement);// != SQLITE_DONE;
+    if (ret != SQLITE_DONE) {
         @throw [NSException exceptionWithName:STATEMENT_STEP_FAILED_EXCEPTION reason:@"Failed to process statement" userInfo:nil];
     }
 }

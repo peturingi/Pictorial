@@ -128,4 +128,9 @@ NSInteger const kCellTagForLabelView = 2;
     return image;
 }
 
+- (Pictogram *)pictogramAtIndexPath:(NSIndexPath *)indexPath {
+    NSParameterAssert(indexPath.section == 0);
+    return [self.dataSource objectAtIndex:indexPath.item];
+}
+
 @end

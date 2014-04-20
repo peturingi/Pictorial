@@ -5,6 +5,9 @@
 #import "TodayCollectionViewLayout.h"
 #import "WeekCollectionViewLayout.h"
 
+#import "Schedule.h"
+#import "Pictogram.h"
+
 @interface CalendarCollectionViewController ()
     @property (nonatomic, strong) CalendarDataSource *dataSource;
 @end
@@ -23,6 +26,22 @@
 - (void)loadView {
     [super loadView];
     [self setupCollectionView];
+}
+
+- (void)viewDidLoad {
+    // TODO REMOVE
+    NSLog(@"Entering edit mode");
+    [self setEditing:YES animated:YES];
+}
+
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+    [super setEditing:editing animated:animated];
+    if (editing) {
+        [self.dataSource setEditing:YES];
+    } else {
+        [self.dataSource setEditing:NO];
+        // TODO save the dat
+    }
 }
 
 - (void)setupCollectionView {
@@ -60,6 +79,24 @@
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)sectionAtPoint:(CGPoint)point {
+    NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:point];
+    NSLog(@"Section: %ld, Item: %ld", (long)indexPath.section, (long)indexPath.item);
+}
+
+- (void)addPictogram:(Pictogram *)pictogram atIndexPath:(NSIndexPath *)indexPath {
+    NSParameterAssert(indexPath.section < self.collectionView.numberOfSections);
+    NSParameterAssert(indexPath.item < [self.collectionView numberOfItemsInSection:indexPath.section]);
+    
+    if (indexPath.item == [self.collectionView numberOfItemsInSection:indexPath.section] - 1) {
+        Schedule *schedule = [self.dataSource.data objectAtIndex:indexPath.section];
+        NSMutableArray *pictograms = [NSMutableArray arrayWithArray:schedule.pictograms];
+        [pictograms addObject:pictogram];
+        [schedule setPictograms:pictograms];
+        [self.collectionView insertItemsAtIndexPaths:@[indexPath]];
+    }
 }
 
 @end
