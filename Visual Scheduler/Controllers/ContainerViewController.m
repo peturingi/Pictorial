@@ -54,7 +54,7 @@
 }
 
 - (void)longPressGesture:(UILongPressGestureRecognizer *)gestureRecognizer {
-    static UIImageView *imageBeingDragged = nil; // remove, this can be receieved from the pictogram.
+    static UIView *draggedView = nil;
     static Pictogram *pictogramBeingDragged = nil;
     
     if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
@@ -64,24 +64,41 @@
     
         CGPoint locationInBottomView = [gestureRecognizer locationInView:self.bottomView];
         if ([self.bottomView pointInside:locationInBottomView withEvent:nil]) {
-            NSLog(@"bottom");
             
             NSIndexPath *pathToPictogram = [self.pictogramViewController.collectionView indexPathForItemAtPoint:locationInBottomView];
-            // Make sure path is not nil.
             pictogramBeingDragged = [self.pictogramViewController pictogramAtIndexPath:pathToPictogram];
             
-            imageBeingDragged = [[UIImageView alloc] init];
-            imageBeingDragged.frame = CGRectMake([gestureRecognizer locationInView:self.view].x - 50,
-                                                 [gestureRecognizer locationInView:self.view].y - 50,
-                                                 100,
-                                                 100);
-            imageBeingDragged.image = [self.pictogramViewController pictogramAtPoint:locationInBottomView];
-            [imageBeingDragged.layer setZPosition:2000];
-            [self.view addSubview:imageBeingDragged];
+            CGPoint gestureLocationInView = [gestureRecognizer locationInView:self.view];
+            CGRect frame = CGRectMake(gestureLocationInView.x - 50,
+                                      gestureLocationInView.y - 50,
+                                      100,
+                                      100);
+            
+            /*  ImageView is placed within a View in order to mask to bounds
+                without masking the desired shadow effect. */
+            
+            
+            draggedView = [[UIView alloc] initWithFrame:frame];
+            /* Shadow */
+            [draggedView.layer setShadowColor:[UIColor blackColor].CGColor];
+            [draggedView.layer setShadowOffset:CGSizeMake(0, 0)];
+            [draggedView.layer setShadowOpacity:0.8f];
+            [draggedView.layer setShadowRadius:10.0f];
+            
+            UIImageView *imageView = [[UIImageView alloc] initWithFrame:draggedView.bounds];
+            [imageView setImage:pictogramBeingDragged.image];
+            /* Border */
+            [imageView.layer setBorderWidth:2.0f];
+            [imageView.layer setCornerRadius:5.0f];
+            [imageView.layer setBorderColor:[UIColor blackColor].CGColor];
+            [imageView.layer setMasksToBounds:YES];
+            
+            [draggedView addSubview:imageView];
+            [self.view addSubview:draggedView];
         }
     } else if (gestureRecognizer.state == UIGestureRecognizerStateChanged) {
-        if (imageBeingDragged != nil) {
-            imageBeingDragged.frame = [self center:imageBeingDragged.frame at:[gestureRecognizer locationInView:self.view]];
+        if (draggedView != nil) {
+            draggedView.frame = [self center:draggedView.frame at:[gestureRecognizer locationInView:self.view]];
         }
     } else if (gestureRecognizer.state == UIGestureRecognizerStateEnded && pictogramBeingDragged != nil) {
         
@@ -94,10 +111,17 @@
             NSLog(@"Touchup at: %f,%f", locationInCollectionView.x, locationInCollectionView.y);
             [self.calendarViewController sectionAtPoint:locationInCollectionView];
             [self.calendarViewController addPictogram:pictogramBeingDragged atIndexPath:[self.calendarViewController.collectionView indexPathForItemAtPoint:locationInCollectionView]];
+        } else {
+            // Pictogram was not placed in a valid location. Destroy it.
+
         }
         
-        [imageBeingDragged removeFromSuperview];
-        imageBeingDragged = nil;
+        [draggedView removeFromSuperview];
+        draggedView = nil;
+        pictogramBeingDragged = nil;
+    } else if (gestureRecognizer.state == UIGestureRecognizerStateCancelled || gestureRecognizer.state == UIGestureRecognizerStateFailed) {
+        [draggedView removeFromSuperview];
+        draggedView = nil;
         pictogramBeingDragged = nil;
     }
 }
