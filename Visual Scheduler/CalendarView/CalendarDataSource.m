@@ -11,7 +11,7 @@
 - (id)init {
     self = [super init];
     if (self) {
-        _data = [NSMutableArray arrayWithArray:[[Repository sharedStore] allSchedules]];
+        _data = [NSMutableArray arrayWithArray:[[Repository defaultRepository] allSchedules]];
     }
     return self;
 }

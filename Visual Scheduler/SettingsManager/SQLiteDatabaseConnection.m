@@ -28,12 +28,36 @@
 }
 
 -(NSString*)locateSettingsFile:(NSString*)filename{
-    NSString *settingsFile = [[NSBundle mainBundle] pathForResource:filename ofType:@"sqlite3"];
-    if (settingsFile == nil) {
-        @throw [NSException exceptionWithName:LOCATE_SETTINGS_FILE_FAILED_EXCEPTION reason:@"Could not locate settings file, or the file is corrupt. The required file is settings.sqlite3, and should be available in mainbundle" userInfo:nil];
+    //NSString *settingsFile = [[NSBundle mainBundle] pathForResource:filename ofType:@"sqlite3"];
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths firstObject];
+    NSString *databasePath = [documentsDirectory stringByAppendingPathComponent:filename];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:databasePath] == NO) {
+        @throw [NSException exceptionWithName:@"File not found." reason:@"The database was not found." userInfo:nil];
     }
-    return settingsFile;
+    return databasePath;
 }
+
+/*
+ NSParameterAssert(file != nil);
+ BOOL success;
+ NSFileManager *fileManager = [NSFileManager defaultManager];
+ NSError *error;
+ NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+ NSString *documentsDirectory = [paths objectAtIndex:0];
+ NSString *writableDBPath = [documentsDirectory stringByAppendingPathComponent:file];
+ success = [fileManager fileExistsAtPath:writableDBPath];
+ if (success)
+ return;
+ // The writable database does not exist, so copy the default to the appropriate location.
+ NSString *defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:file];
+ success = [fileManager copyItemAtPath:defaultDBPath toPath:writableDBPath error:&error];
+ if (!success) {
+ NSAssert1(0, @"Failed to create writable file with message '%@'.", [error localizedDescription]);
+ }
+
+ */
 
 -(sqlite3_stmt*)prepareStatementWithQuery:(NSString *)query {
     sqlite3_stmt *statement;
@@ -50,8 +74,8 @@
 }
 
 -(void)stepStatement:(sqlite3_stmt*)statement{
-    int ret = sqlite3_step(statement);// != SQLITE_DONE;
-    if (ret != SQLITE_DONE) {
+    [self validateStatement:statement];
+    if (sqlite3_step(statement) != SQLITE_DONE) {
         @throw [NSException exceptionWithName:STATEMENT_STEP_FAILED_EXCEPTION reason:@"Failed to process statement" userInfo:nil];
     }
 }

@@ -3,7 +3,7 @@
 -(id)init{
     self = [super init];
     if(self){
-        _dbcon = [[SQLiteDatabaseConnection alloc]initWithDatabaseFileNamed:@"settings"];
+        _dbcon = [[SQLiteDatabaseConnection alloc]initWithDatabaseFileNamed:@"settings.sqlite3"];
     }
     return self;
 }

@@ -14,21 +14,30 @@
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [self createEditableCopyOfFileIfNeeded:@"localeDb.sqlite3"];
+    [self createEditableCopyOfFileIfNeeded:@"settings.sqlite3"];
+    [self createEditableCopyOfFileIfNeeded:@"vs.sqlite3"];
     return YES;
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application {
+// Creates a writable copy of the bundled default database in the application Documents directory.
+- (void)createEditableCopyOfFileIfNeeded:(NSString *)file {
+    NSParameterAssert(file != nil);
+    BOOL success;
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSError *error;
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *writableDBPath = [documentsDirectory stringByAppendingPathComponent:file];
+    success = [fileManager fileExistsAtPath:writableDBPath];
+    if (success)
+        return;
+    // The writable database does not exist, so copy the default to the appropriate location.
+    NSString *defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:file];
+    success = [fileManager copyItemAtPath:defaultDBPath toPath:writableDBPath error:&error];
+    if (!success) {
+        NSAssert1(0, @"Failed to create writable file with message '%@'.", [error localizedDescription]);
+    }
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application {
-}
 @end

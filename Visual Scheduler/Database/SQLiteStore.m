@@ -1,5 +1,5 @@
 #import "SQLiteStore.h"
-#define DB_FILENAME @"vs"
+#define DB_FILENAME @"vs.sqlite3"
 @implementation SQLiteStore
 
 - (id)init {

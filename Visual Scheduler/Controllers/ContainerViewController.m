@@ -48,11 +48,13 @@
 
 - (void)setupGestureRecognizer {
     UILongPressGestureRecognizer *gr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGesture:)];
+    CFTimeInterval requiredPressDuration = 0.1f;
+    gr.minimumPressDuration = requiredPressDuration;
     [self.view addGestureRecognizer:gr];
 }
 
 - (void)longPressGesture:(UILongPressGestureRecognizer *)gestureRecognizer {
-    static UIImageView *imageBeingDragged = nil;
+    static UIImageView *imageBeingDragged = nil; // remove, this can be receieved from the pictogram.
     static Pictogram *pictogramBeingDragged = nil;
     
     if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
@@ -81,7 +83,7 @@
         if (imageBeingDragged != nil) {
             imageBeingDragged.frame = [self center:imageBeingDragged.frame at:[gestureRecognizer locationInView:self.view]];
         }
-    } else if (gestureRecognizer.state == UIGestureRecognizerStateEnded) {
+    } else if (gestureRecognizer.state == UIGestureRecognizerStateEnded && pictogramBeingDragged != nil) {
         
         // Convert the point of the gesture recognizer, to the collection view, sinze the collection view is a scroll view
         // which might have been offset by scrolling.
@@ -96,6 +98,7 @@
         
         [imageBeingDragged removeFromSuperview];
         imageBeingDragged = nil;
+        pictogramBeingDragged = nil;
     }
 }
 
