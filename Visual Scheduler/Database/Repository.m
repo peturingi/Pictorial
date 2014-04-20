@@ -57,29 +57,13 @@
 
 #pragma mark - Retrieve
 - (NSArray *)allSchedules {
-    NSMutableArray *schedules = [NSMutableArray array];
-    NSArray *rawSchedules = [_dataStore contentOfAllSchedules];
-    for (NSDictionary *dict in rawSchedules) {
-        NSNumber *uniqueIdentifier = [dict valueForKey:@"id"];
-        NSString *title = [dict valueForKey:@"title"];
-        UIColor *color = [BBAColor colorForIndex:[[dict valueForKey:@"color"] integerValue]];
-        Schedule *schedule = [[Schedule alloc] initWithTitle:title withColor:color withUniqueIdentifier:uniqueIdentifier.integerValue];
-        [schedules addObject:schedule];
-    }
-    return schedules;
+    NSArray *contents = [_dataStore contentOfAllSchedules];
+    return [self schedulesFromContentArray:contents];
 }
 
-- (NSArray *)allPictogramsIncludingImages:(BOOL)value {
-    NSMutableArray *pictograms = [NSMutableArray array];
-    NSArray *rawPictograms = [_dataStore contentOfAllPictogramsIncludingImageData:value];
-    for (NSDictionary *dict in rawPictograms) {
-        NSNumber *uniqueIdentifier = [dict valueForKey:@"id"];
-        NSString *title = [dict valueForKey:@"title"];
-        UIImage *image = value ? [UIImage imageWithData:[dict valueForKey:@"image"]] : nil;
-        Pictogram *pictogram = [[Pictogram alloc] initWithTitle:title withUniqueIdentifier:uniqueIdentifier.integerValue withImage:image];
-        [pictograms addObject:pictogram];
-    }
-    return pictograms;
+- (NSArray *)allPictogramsIncludingImages:(BOOL)includesImages {
+    NSArray *contents = [_dataStore contentOfAllPictogramsIncludingImageData:includesImages];
+    return [self pictogramsFromContentArray:contents];
 }
 
 -(void)addPictogram:(Pictogram *)pictogram toSchedule:(Schedule *)schedule atIndex:(NSInteger)index{
@@ -89,21 +73,9 @@
     [_dataStore addPictogram:pictogram.uniqueIdentifier toSchedule:schedule.uniqueIdentifier atIndex:index];
 }
 
--(NSArray*)pictogramsForSchedule:(Schedule *)schedule includingImages:(BOOL)value{
-    NSMutableArray* pictograms = [NSMutableArray array];
-    NSArray* contentForPictograms = [_dataStore contentOfAllPictogramsInSchedule:schedule.uniqueIdentifier includingImageData:value];
-    for(NSDictionary* dict in contentForPictograms){
-        NSNumber *uniqueIdentifier = [dict valueForKey:@"id"];
-        NSString *title = [dict valueForKey:@"title"];
-        UIImage *image = nil;
-        if (value) {
-            NSData *imageData = [dict valueForKey:@"image"];
-            image = [UIImage imageWithData:imageData];
-        }
-        Pictogram *pictogram = [[Pictogram alloc] initWithTitle:title withUniqueIdentifier:uniqueIdentifier.integerValue withImage:image];
-        [pictograms addObject:pictogram];
-    }
-    return pictograms;
+-(NSArray*)pictogramsForSchedule:(Schedule *)schedule includingImages:(BOOL)includesImages{
+    NSArray* contents = [_dataStore contentOfAllPictogramsInSchedule:schedule.uniqueIdentifier includingImageData:includesImages];
+    return [self pictogramsFromContentArray:contents];
 }
 
 - (void)removeAllPictogramsFromSchedule:(Schedule *)schedule {
@@ -118,7 +90,31 @@
 -(UIImage*)imageForPictogram:(Pictogram *)pictogram{
     NSParameterAssert(pictogram);
     NSArray* contentForPictogram = [_dataStore contentOfPictogramWithID:pictogram.uniqueIdentifier];
-    UIImage* image = [UIImage imageWithData:[contentForPictogram objectAtIndex:0]];
-    return image;
+    return [UIImage imageWithData:[contentForPictogram objectAtIndex:0]];
+}
+
+#pragma mark - private methods
+-(NSArray*)pictogramsFromContentArray:(NSArray*)contents{
+    NSMutableArray* pictograms = [NSMutableArray array];
+    for(NSDictionary* dict in contents){
+        NSNumber *uniqueIdentifier = [dict valueForKey:@"id"];
+        NSString *title = [dict valueForKey:@"title"];
+        UIImage *image = [UIImage imageWithData:[dict valueForKey:@"image"]];
+        Pictogram *pictogram = [[Pictogram alloc] initWithTitle:title withUniqueIdentifier:uniqueIdentifier.integerValue withImage:image];
+        [pictograms addObject:pictogram];
+    }
+    return pictograms;
+}
+
+-(NSArray*)schedulesFromContentArray:(NSArray*)contents{
+    NSMutableArray *schedules = [NSMutableArray array];
+    for (NSDictionary *dict in contents) {
+        NSNumber *uniqueIdentifier = [dict valueForKey:@"id"];
+        NSString *title = [dict valueForKey:@"title"];
+        UIColor *color = [BBAColor colorForIndex:[[dict valueForKey:@"color"] integerValue]];
+        Schedule *schedule = [[Schedule alloc] initWithTitle:title withColor:color withUniqueIdentifier:uniqueIdentifier.integerValue];
+        [schedules addObject:schedule];
+    }
+    return schedules;
 }
 @end
