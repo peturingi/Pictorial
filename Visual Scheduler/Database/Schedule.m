@@ -17,16 +17,15 @@
 
 - (NSArray *)pictograms {
     if (_pictograms == nil) {
-        _pictograms = [[Repository sharedStore] pictogramsForSchedule:self includingImages:NO];
+        _pictograms = [[Repository defaultRepository] pictogramsForSchedule:self includingImages:NO];
     }
     return _pictograms;
 }
 
 - (void)setPictograms:(NSArray *)pictograms {
-    // TODO possible race condition.
-    [[Repository sharedStore]removeAllPictogramsFromSchedule:self];
+    [[Repository defaultRepository]removeAllPictogramsFromSchedule:self];
     for (NSUInteger i = 0; i < pictograms.count; i++) {
-        [[Repository sharedStore] addPictogram:[pictograms objectAtIndex:i] toSchedule:self atIndex:i];
+        [[Repository defaultRepository] addPictogram:[pictograms objectAtIndex:i] toSchedule:self atIndex:i];
     }
     _pictograms = pictograms;
 }

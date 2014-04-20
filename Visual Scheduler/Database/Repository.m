@@ -5,12 +5,14 @@
 @implementation Repository
 
 #pragma mark - Constructor / Deconstructor
-+ (instancetype)sharedStore {
-    static Repository *sharedStore = nil;
-    if (sharedStore == nil) {
-        sharedStore = [[Repository alloc] initWithStore:[[SQLiteStore alloc] init]];
-    }
-    return sharedStore;
++ (instancetype)defaultRepository {
+    static dispatch_once_t once;
+    static id sharedRepository;
+    dispatch_once(&once, ^{
+        SQLiteStore* store = [[SQLiteStore alloc]init];
+        sharedRepository = [[Repository alloc]initWithStore:store];
+    });
+    return sharedRepository;
 }
 
 - (id)initWithStore:(id<DataStoreProtocol>)store {

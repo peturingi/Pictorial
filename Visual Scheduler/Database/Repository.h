@@ -7,7 +7,7 @@
     id<DataStoreProtocol> _dataStore;
 }
 - (id)initWithStore:(id<DataStoreProtocol>)store;
-+ (instancetype)sharedStore;
++ (instancetype)defaultRepository;
 - (Schedule *)scheduleWithTitle:(NSString *)title withColor:(UIColor *)color;
 - (Pictogram *)pictogramWithTitle:(NSString *)title withImage:(UIImage *)image;
 -(NSArray*)pictogramsForSchedule:(Schedule*)schedule includingImages:(BOOL)value;

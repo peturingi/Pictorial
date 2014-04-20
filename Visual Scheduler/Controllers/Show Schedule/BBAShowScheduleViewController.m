@@ -58,7 +58,7 @@
         _showScheduleCollectionViewController = (BBAShowScheduleCollectionViewController *)segue.destinationViewController;
         [_showScheduleCollectionViewController setSchedule:self.schedule];
 
-        Repository *sharedRepository = [Repository sharedStore];
+        Repository *sharedRepository = [Repository defaultRepository];
         NSArray *pictogramsInSchedules = [sharedRepository pictogramsForSchedule:self.schedule includingImages:YES];
     }
     if ([[segue identifier] isEqualToString:@"pictogramSelector"]) {

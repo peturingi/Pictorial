@@ -11,7 +11,7 @@
 - (id)init {
     self = [super init];
     if (self) {
-        _schedules = [[Repository sharedStore] allSchedules];
+        _schedules = [[Repository defaultRepository] allSchedules];
     }
     return self;
 }
