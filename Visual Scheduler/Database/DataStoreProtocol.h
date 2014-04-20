@@ -1,4 +1,8 @@
 #import <Foundation/Foundation.h>
+#define ID_KEY @"id"
+#define COLOR_KEY @"color"
+#define TITLE_KEY @"title"
+#define IMAGE_KEY @"image"
 
 @protocol DataStoreProtocol <NSObject>
 

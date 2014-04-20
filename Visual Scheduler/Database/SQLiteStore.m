@@ -1,11 +1,5 @@
 #import "SQLiteStore.h"
-
-#define ID_KEY @"id"
-#define COLOR_KEY @"color"
-#define TITLE_KEY @"title"
-#define IMAGE_KEY @"image"
 #define DB_FILENAME @"vs"
-
 @implementation SQLiteStore
 
 - (id)init {
@@ -111,12 +105,12 @@
     while ([_dbcon rowExistsFromStatement:statement]) {
         NSMutableDictionary* content = [NSMutableDictionary dictionary];
         int uid = [_dbcon integerFromStatement:statement atColumnIndex:0];
-        [content setValue:[NSNumber numberWithInt:uid] forKey:@"id"];
+        [content setValue:[NSNumber numberWithInt:uid] forKey:ID_KEY];
         NSString *title = [_dbcon stringFromStatement:statement atColumnIndex:1];
-        [content setValue:title forKey:@"title"];
+        [content setValue:title forKey:TITLE_KEY];
         if (includesData) {
             NSData* imageData = [_dbcon dataFromStatement:statement atColumnIndex:2];
-            [content setValue:imageData forKey:@"image"];
+            [content setValue:imageData forKey:IMAGE_KEY];
         }
         [results addObject:content];
     }
@@ -126,8 +120,8 @@
 
 - (NSInteger)createPictogram:(NSDictionary *)content {
     NSParameterAssert(content != nil);
-    NSString *titleForPictogram = [content valueForKey:@"title"];
-    NSData *imageDataForPictogram = [content valueForKey:@"image"];
+    NSString *titleForPictogram = [content valueForKey:TITLE_KEY];
+    NSData *imageDataForPictogram = [content valueForKey:IMAGE_KEY];
     if (titleForPictogram == nil) @throw [NSException exceptionWithName:NSInvalidArgumentException reason:@"titleForPictogram is nil." userInfo:nil];
     if (imageDataForPictogram == nil) @throw [NSException exceptionWithName:NSInvalidArgumentException reason:@"imageDataForPictogram is nil." userInfo:nil];
     NSString *query = @"INSERT INTO pictogram (title, image) VALUES (?,?)";
@@ -193,12 +187,12 @@
     while ([_dbcon rowExistsFromStatement:statement]) {
         NSMutableDictionary* content = [NSMutableDictionary dictionary];
         int uid = [_dbcon integerFromStatement:statement atColumnIndex:0];
-        [content setValue:[NSNumber numberWithInt:uid] forKey:@"id"];
+        [content setValue:[NSNumber numberWithInt:uid] forKey:ID_KEY];
         NSString *title = [_dbcon stringFromStatement:statement atColumnIndex:1];
-        [content setValue:title forKey:@"title"];
+        [content setValue:title forKey:TITLE_KEY];
         if(includesData == YES){
             NSData* imageData = [_dbcon dataFromStatement:statement atColumnIndex:2];
-            [content setValue:imageData forKey:@"image"];
+            [content setValue:imageData forKey:IMAGE_KEY];
         }
         [results addObject:content];
     }

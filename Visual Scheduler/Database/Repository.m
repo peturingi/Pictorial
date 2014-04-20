@@ -1,7 +1,6 @@
 #import "Repository.h"
 #import "BBAColor.h"
 #import "SQLiteStore.h"
-
 @implementation Repository
 
 #pragma mark - Constructor / Deconstructor
@@ -32,8 +31,8 @@
 - (Schedule *)scheduleWithTitle:(NSString *)title withColor:(UIColor *)color {
     NSParameterAssert(title != nil);
     NSParameterAssert(color != nil);
-    NSDictionary *content = @{@"title" : title,
-                              @"color" : [NSNumber numberWithInteger:[BBAColor indexForColor:color]]};
+    NSDictionary *content = @{TITLE_KEY : title,
+                              COLOR_KEY : [NSNumber numberWithInteger:[BBAColor indexForColor:color]]};
     NSInteger uniqueIdentifier = [_dataStore createSchedule:content];
     Schedule *schedule = [[Schedule alloc] initWithTitle:title withColor:color withUniqueIdentifier:uniqueIdentifier];
     return schedule;
@@ -42,8 +41,8 @@
 - (Pictogram *)pictogramWithTitle:(NSString *)title withImage:(UIImage *)image {
     NSParameterAssert(title != nil);
     NSParameterAssert(image != nil);
-    NSDictionary *content = @{@"title" : title,
-                              @"image" : UIImagePNGRepresentation(image)};
+    NSDictionary *content = @{TITLE_KEY : title,
+                              IMAGE_KEY : UIImagePNGRepresentation(image)};
     NSInteger uniqueIdentifier = [_dataStore createPictogram:content];
     Pictogram *pictogram = [[Pictogram alloc] initWithTitle:title withUniqueIdentifier:uniqueIdentifier withImage:image];
     return pictogram;
@@ -97,9 +96,9 @@
 -(NSArray*)pictogramsFromContentArray:(NSArray*)contents{
     NSMutableArray* pictograms = [NSMutableArray array];
     for(NSDictionary* dict in contents){
-        NSNumber *uniqueIdentifier = [dict valueForKey:@"id"];
-        NSString *title = [dict valueForKey:@"title"];
-        UIImage *image = [UIImage imageWithData:[dict valueForKey:@"image"]];
+        NSNumber *uniqueIdentifier = [dict valueForKey:ID_KEY];
+        NSString *title = [dict valueForKey:TITLE_KEY];
+        UIImage *image = [UIImage imageWithData:[dict valueForKey:IMAGE_KEY]];
         Pictogram *pictogram = [[Pictogram alloc] initWithTitle:title withUniqueIdentifier:uniqueIdentifier.integerValue withImage:image];
         [pictograms addObject:pictogram];
     }
@@ -109,9 +108,9 @@
 -(NSArray*)schedulesFromContentArray:(NSArray*)contents{
     NSMutableArray *schedules = [NSMutableArray array];
     for (NSDictionary *dict in contents) {
-        NSNumber *uniqueIdentifier = [dict valueForKey:@"id"];
-        NSString *title = [dict valueForKey:@"title"];
-        UIColor *color = [BBAColor colorForIndex:[[dict valueForKey:@"color"] integerValue]];
+        NSNumber *uniqueIdentifier = [dict valueForKey:ID_KEY];
+        NSString *title = [dict valueForKey:TITLE_KEY];
+        UIColor *color = [BBAColor colorForIndex:[[dict valueForKey:COLOR_KEY] integerValue]];
         Schedule *schedule = [[Schedule alloc] initWithTitle:title withColor:color withUniqueIdentifier:uniqueIdentifier.integerValue];
         [schedules addObject:schedule];
     }
