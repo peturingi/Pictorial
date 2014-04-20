@@ -3,11 +3,10 @@
 #import "BBASelectPictogramViewControllerDelegate.h"
 #import "Camera.h"
 
-@interface BBASelectPictogramViewController : UICollectionViewController <CameraDelegate> {
+@interface PictogramsCollectionViewController : UICollectionViewController <CameraDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate> {
     Camera *camera;
 }
 
-@property (weak, nonatomic) id<BBASelectPictogramViewControllerDelegate> delegate;
 @property (weak, nonatomic) Pictogram *selectedItem;
 
 /** Returns the pictograms image at the given point.

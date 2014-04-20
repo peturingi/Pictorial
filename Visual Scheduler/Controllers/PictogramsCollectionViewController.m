@@ -1,4 +1,4 @@
-#import "BBASelectPictogramViewController.h"
+#import "PictogramsCollectionViewController.h"
 #import "BBANewPictogramViewController.h"
 #import "UIView+BBASubviews.h"
 #import "../Database/Repository.h"
@@ -9,12 +9,12 @@ NSString * const kCellReusableIdentifier = @"pictogramSelector";
 NSInteger const kCellTagForImageView = 1;
 NSInteger const kCellTagForLabelView = 2;
 
-@interface BBASelectPictogramViewController ()
+@interface PictogramsCollectionViewController ()
 @property (strong, nonatomic) NSArray *dataSource;
 @property (weak, nonatomic) Repository *repository;
 @end
 
-@implementation BBASelectPictogramViewController
+@implementation PictogramsCollectionViewController
 
 - (id)initWithCollectionViewLayout:(UICollectionViewLayout *)layout {
     self = [super initWithCollectionViewLayout:layout];
@@ -27,8 +27,14 @@ NSInteger const kCellTagForLabelView = 2;
 
 - (void)loadView {
     [super loadView];
+    
+    self.collectionView = [[UICollectionView alloc] initWithFrame:self.view.frame collectionViewLayout:self.collectionViewLayout];
+    self.collectionView.dataSource = self;
+    self.collectionView.delegate = self;
+    self.collectionView.backgroundColor = [UIColor whiteColor];
+    
     // Makes the collectionView flexible in size, so its size can be managed by a container.
-    self.collectionView.autoresizingMask = UIViewAutoresizingFlexibleWidth |UIViewAutoresizingFlexibleHeight;
+    //self.collectionView.autoresizingMask = UIViewAutoresizingFlexibleWidth |UIViewAutoresizingFlexibleHeight;
 }
 
 - (void)viewDidLoad {
@@ -70,16 +76,14 @@ NSInteger const kCellTagForLabelView = 2;
     [self performSegueWithIdentifier:@"newPictogramAskForTitle" sender:nil];
 }
 
+#pragma mark - UICollectionViewDelegateFlowLayout
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    CGSize size = CGSizeMake(100, 135);
+    return size;
+}
+
 #pragma mark - UICollectionView
-
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    _selectedItem = [self.dataSource objectAtIndex:indexPath.row];
-    [self informDelegateOfSelection];
-}
-
-- (void)informDelegateOfSelection {
-    [self.delegate BBASelectPictogramViewController:self didSelectItem:(Pictogram *)_selectedItem];
-}
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     NSAssert(_dataSource != nil, @"Must not be nil.");
@@ -113,38 +117,7 @@ NSInteger const kCellTagForLabelView = 2;
     return pictogram.title;
 }
 
-#pragma mark - Segues
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"newPictogramAskForTitle"]) {
-        BBANewPictogramViewController *newPictogramViewController = (BBANewPictogramViewController *)segue.destinationViewController;
-        [newPictogramViewController setDelegate:self];
-        [newPictogramViewController setPhoto:[camera developPhoto]];
-    }
-}
-
-#pragma mark - Gestures
-- (IBAction)longPressPictogram:(id)sender {
-    UIGestureRecognizer *gr = (UIGestureRecognizer *)sender;
-    static NSIndexPath *selection = nil;
-    
-    if (gr.state == UIGestureRecognizerStateBegan) {
-        CGPoint location = [gr locationInView:self.collectionView];
-        selection = [self.collectionView indexPathForItemAtPoint:location];
-        NSLog(@"selected index: %@", selection.description);
-
-    } else
-    if (gr.state == UIGestureRecognizerStateChanged) {
-        // Follow Finger
-    } else
-    if (gr.state == UIGestureRecognizerStateEnded) {
-        // Place in location if they are over the calnedar, else throw away.
-        // This should be done by this controllers delegate.
-    } else
-    if (gr.state == gr.state == UIGestureRecognizerStateCancelled) {
-        // Aborg
-    }
-}
+#pragma mark Public
 
 - (UIImage *)pictogramAtPoint:(CGPoint)point {
     NSIndexPath *selection = [self.collectionView indexPathForItemAtPoint:point];

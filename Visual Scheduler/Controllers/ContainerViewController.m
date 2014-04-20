@@ -1,11 +1,11 @@
 #import "ContainerViewController.h"
-#import "BBASelectPictogramViewController.h"
+#import "PictogramsCollectionViewController.h"
 #import "../CalendarView/CalendarCollectionViewController.h"
 #import "../CalendarView/WeekCollectionViewLayout.h"
 
 @interface ContainerViewController ()
 
-@property (weak, nonatomic) BBASelectPictogramViewController *pictogramViewController;
+@property (weak, nonatomic) PictogramsCollectionViewController *pictogramViewController;
 @property (weak, nonatomic) CalendarCollectionViewController *calendarViewController;
 
 @end
@@ -14,7 +14,34 @@
 
 - (void)viewDidLoad {
     [self setupChildViewControllers];
-    [self setupGestureRecognizer];
+            [self setupGestureRecognizer];
+}
+
+- (void)setupChildViewControllers {
+    [self setupCalendar];
+    [self setupPictogramSelectorViewController];
+}
+
+- (void)setupCalendar {
+    WeekCollectionViewLayout *layout = [[WeekCollectionViewLayout alloc] init];
+    CalendarCollectionViewController *vc = [[CalendarCollectionViewController alloc] initWithCollectionViewLayout:layout];
+    self.calendarViewController = vc;
+    [self addChildViewController:vc];
+    [self.topView addSubview:vc.view];
+    
+    // Fit the view within its contained view.
+    self.calendarViewController.view.frame = self.topView.bounds;
+}
+
+- (void)setupPictogramSelectorViewController {
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    PictogramsCollectionViewController *vc = [[PictogramsCollectionViewController alloc] initWithCollectionViewLayout:layout];
+    self.pictogramViewController = vc;
+    [self addChildViewController:vc];
+    [self.bottomView addSubview:vc.view];
+    
+    // Fit the view of each controller within their contained views.
+    self.pictogramViewController.view.frame = self.bottomView.bounds;
 }
 
 #pragma mark Gestures
@@ -58,28 +85,6 @@
     aRect.origin.x -= aRect.size.width / 2.0f;
     aRect.origin.y -= aRect.size.height / 2.0f;
     return aRect;
-}
-
-#pragma mark Setup Contained Controllers
-
-- (void)setupChildViewControllers {
-    [self setupCalendar];
-    [self setupPictogramSelectorViewController];
-}
-
-- (void)setupCalendar {
-    WeekCollectionViewLayout *layout = [[WeekCollectionViewLayout alloc] init];
-    CalendarCollectionViewController *vc = [[CalendarCollectionViewController alloc] initWithCollectionViewLayout:layout];
-    [self addChildViewController:vc];
-    [self.topView addSubview:vc.view];
-}
-
-- (void)setupPictogramSelectorViewController {
-    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    BBASelectPictogramViewController *vc = [[BBASelectPictogramViewController alloc] initWithCollectionViewLayout:layout];
-    self.pictogramViewController = vc;
-    [self addChildViewController:vc];
-    [self.bottomView addSubview:vc.view];
 }
 
 @end

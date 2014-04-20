@@ -16,9 +16,13 @@
     if (self) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleCalendarViewMode:) name:NOTIFICATION_CALENDAR_VIEW object:nil];
         self.dataSource = [[CalendarDataSource alloc] init];
-        [self setupCollectionView];
     }
     return self;
+}
+
+- (void)loadView {
+    [super loadView];
+    [self setupCollectionView];
 }
 
 - (void)setupCollectionView {
@@ -26,12 +30,7 @@
     self.collectionView.dataSource = self.dataSource;
     self.collectionView.delegate = self.dataSource;
     self.collectionView.backgroundColor = [UIColor whiteColor];
-}
-
-- (void)loadView {
-    [super loadView];
-    // Makes the collectionView flexible in size, so its size can be managed by a container.
-    self.collectionView.autoresizingMask = UIViewAutoresizingFlexibleWidth |UIViewAutoresizingFlexibleHeight;
+    
 }
 
 - (void)handleCalendarViewMode:(NSNotification *)notification {
