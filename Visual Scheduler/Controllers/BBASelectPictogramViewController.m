@@ -16,6 +16,21 @@ NSInteger const kCellTagForLabelView = 2;
 
 @implementation BBASelectPictogramViewController
 
+- (id)initWithCollectionViewLayout:(UICollectionViewLayout *)layout {
+    self = [super initWithCollectionViewLayout:layout];
+    if (self) {
+        [self.collectionView registerNib:[UINib nibWithNibName:@"SelectPictogramCell" bundle:nil] forCellWithReuseIdentifier:@"pictogramSelector"];
+        self.collectionView.backgroundColor = [UIColor grayColor];
+    }
+    return self;
+}
+
+- (void)loadView {
+    [super loadView];
+    // Makes the collectionView flexible in size, so its size can be managed by a container.
+    self.collectionView.autoresizingMask = UIViewAutoresizingFlexibleWidth |UIViewAutoresizingFlexibleHeight;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupDataSource];
@@ -98,12 +113,6 @@ NSInteger const kCellTagForLabelView = 2;
     return pictogram.title;
 }
 
-#pragma mark - FetcheResultsController delegate
-
-- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
-    [self.collectionView reloadData];
-}
-
 #pragma mark - Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -112,6 +121,38 @@ NSInteger const kCellTagForLabelView = 2;
         [newPictogramViewController setDelegate:self];
         [newPictogramViewController setPhoto:[camera developPhoto]];
     }
+}
+
+#pragma mark - Gestures
+- (IBAction)longPressPictogram:(id)sender {
+    UIGestureRecognizer *gr = (UIGestureRecognizer *)sender;
+    static NSIndexPath *selection = nil;
+    
+    if (gr.state == UIGestureRecognizerStateBegan) {
+        CGPoint location = [gr locationInView:self.collectionView];
+        selection = [self.collectionView indexPathForItemAtPoint:location];
+        NSLog(@"selected index: %@", selection.description);
+
+    } else
+    if (gr.state == UIGestureRecognizerStateChanged) {
+        // Follow Finger
+    } else
+    if (gr.state == UIGestureRecognizerStateEnded) {
+        // Place in location if they are over the calnedar, else throw away.
+        // This should be done by this controllers delegate.
+    } else
+    if (gr.state == gr.state == UIGestureRecognizerStateCancelled) {
+        // Aborg
+    }
+}
+
+- (UIImage *)pictogramAtPoint:(CGPoint)point {
+    NSIndexPath *selection = [self.collectionView indexPathForItemAtPoint:point];
+    UIImage *image = nil;
+    if (selection != nil) {
+        image = [self imageForPictogramAtIndexPath:selection];
+    }
+    return image;
 }
 
 @end

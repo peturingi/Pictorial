@@ -8,8 +8,12 @@
 
 @implementation CalendarDataSource
 
-- (void)awakeFromNib {
-    _schedules = [[Repository sharedStore] allSchedules];
+- (id)init {
+    self = [super init];
+    if (self) {
+        _schedules = [[Repository sharedStore] allSchedules];
+    }
+    return self;
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -36,6 +40,5 @@
     view.backgroundColor = [[_schedules objectAtIndex:indexPath.section] valueForKey:@"color"]; // TODO fix this. Not very safe to use KVC here.
     return view;
 }
-
 
 @end
