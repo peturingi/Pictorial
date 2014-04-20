@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6818B6EA1903EB5C009F0742 /* SQLiteDatabaseConnectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6818B6E91903EB5C009F0742 /* SQLiteDatabaseConnectionTests.m */; };
 		682012351902C3A700CE0C91 /* Localizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 682012341902C3A700CE0C91 /* Localizer.m */; };
 		682012371902C8B000CE0C91 /* localeDb.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = 682012361902C8B000CE0C91 /* localeDb.sqlite3 */; };
 		682012391902C8D900CE0C91 /* LocalizerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 682012381902C8D900CE0C91 /* LocalizerTests.m */; };
@@ -97,6 +98,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6818B6E91903EB5C009F0742 /* SQLiteDatabaseConnectionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQLiteDatabaseConnectionTests.m; path = SettingsManager/SQLiteDatabaseConnectionTests.m; sourceTree = "<group>"; };
 		682012331902C3A700CE0C91 /* Localizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Localizer.h; path = "Visual Scheduler/Localization/Localizer.h"; sourceTree = "<group>"; };
 		682012341902C3A700CE0C91 /* Localizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Localizer.m; path = "Visual Scheduler/Localization/Localizer.m"; sourceTree = "<group>"; };
 		682012361902C8B000CE0C91 /* localeDb.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; name = localeDb.sqlite3; path = "Visual Scheduler/Localization/localeDb.sqlite3"; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 				683565221900307300FCA28A /* SettingsManagerTests.m */,
 				6835652D1901B4FD00FCA28A /* SQLiteDatabaseConnection.h */,
 				6835652E1901B4FD00FCA28A /* SQLiteDatabaseConnection.m */,
+				6818B6E91903EB5C009F0742 /* SQLiteDatabaseConnectionTests.m */,
 			);
 			name = SettingsManager;
 			sourceTree = "<group>";
@@ -856,6 +859,7 @@
 				D8EB983418E33ECE00DA3A99 /* RepositoryTests.m in Sources */,
 				D8315B0018D39E0600C4A340 /* CameraTests.m in Sources */,
 				D878CAEB18DC868400DD1885 /* BBAColourTests.m in Sources */,
+				6818B6EA1903EB5C009F0742 /* SQLiteDatabaseConnectionTests.m in Sources */,
 				D8EC7D5318CA61E500B6A673 /* MockTableView.m in Sources */,
 				D813A9D118D38BA100D3515A /* MockScheduleOverviewViewController.m in Sources */,
 				D853A81018E1DD600031E986 /* SQLiteStoreTests.m in Sources */,
