@@ -51,16 +51,18 @@
 
 -(void)stepStatement:(sqlite3_stmt*)statement{
     [self validateStatement:statement];
-    if (sqlite3_step(statement) != SQLITE_DONE) {
-        @throw [NSException exceptionWithName:STATEMENT_STEP_FAILED_EXCEPTION reason:@"Failed to process statement" userInfo:nil];
+    int result = sqlite3_step(statement);
+    if (result != SQLITE_DONE) {
+        @throw [NSException exceptionWithName:STATEMENT_STEP_FAILED_EXCEPTION reason:[NSString stringWithFormat:@"Failed to process statement with sqlite3 errorcode: %d", result] userInfo:nil];
     }
 }
 
 -(void)bindIntegerToStatement:(sqlite3_stmt*)statement integer:(NSInteger)value atPosition:(NSInteger)position{
     [self validateStatement:statement];
     [self validateBindPosition:position];
-    if (sqlite3_bind_int64(statement, position, value) != SQLITE_OK) {
-        @throw [NSException exceptionWithName:BIND_TO_STATEMENT_FAILED_EXCEPTION reason:@"Failed to bind integer to statement" userInfo:nil];
+    int result = sqlite3_bind_int64(statement, position, value);
+    if (result != SQLITE_OK) {
+        @throw [NSException exceptionWithName:BIND_TO_STATEMENT_FAILED_EXCEPTION reason:[NSString stringWithFormat:@"Failed to bind integer to statement wiht sqlite3 errorcode: %d", result] userInfo:nil];
     }
 }
 
@@ -68,8 +70,9 @@
     [self validateStatement:statement];
     [self validateString:value];
     [self validateBindPosition:position];
-    if (sqlite3_bind_text(statement, position, [value UTF8String], -1, SQLITE_TRANSIENT) != SQLITE_OK) {
-        @throw [NSException exceptionWithName:BIND_TO_STATEMENT_FAILED_EXCEPTION reason:@"Failed to bind text to statement" userInfo:nil];
+    int result = sqlite3_bind_text(statement, position, [value UTF8String], -1, SQLITE_TRANSIENT);
+    if (result != SQLITE_OK) {
+        @throw [NSException exceptionWithName:BIND_TO_STATEMENT_FAILED_EXCEPTION reason:[NSString stringWithFormat:@"Failed to bind text to statement with sqlite3 errorcode: %d", result] userInfo:nil];
     }
 }
 
@@ -80,8 +83,9 @@
         @throw [NSException exceptionWithName:@"NilObjectException" reason:@"Object was nil" userInfo:nil];
     }
     NSData* data = [NSKeyedArchiver archivedDataWithRootObject:object];
-    if (sqlite3_bind_blob(statement, position, [data bytes], (int)data.length, NULL) != SQLITE_OK) {
-        @throw [NSException exceptionWithName:BIND_TO_STATEMENT_FAILED_EXCEPTION reason:@"Failed to bind datablob to statement" userInfo:nil];
+    int result = sqlite3_bind_blob(statement, position, [data bytes], (int)data.length, NULL);
+    if (result != SQLITE_OK) {
+        @throw [NSException exceptionWithName:BIND_TO_STATEMENT_FAILED_EXCEPTION reason:[NSString stringWithFormat:@"Failed to bind datablob to statement with sqlite3 errorcode: %d", result] userInfo:nil];
     }
 }
 
