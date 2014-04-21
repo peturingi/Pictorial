@@ -14,6 +14,11 @@
 @implementation ContainerViewController
 
 - (void)viewDidLoad {
+    
+    self.bottomView.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.bottomView.layer.shadowOpacity = 0.8f;
+    self.bottomView.layer.shadowRadius = 5.0f;
+    
     [self setupChildViewControllers];
 #warning possible race condition, if childViewControllers are not initialized before the gestureRecognizers try to addthemselfs.
     [self setupGestureRecognizer];
@@ -49,11 +54,61 @@
 #pragma mark - User Interaction
 
 - (IBAction)toggleEditing:(id)sender {
-    self.editing = !self.editing;
+    if (self.editing == NO) {
+        [self showPictogramSelector];
+        self.editing = YES;
+    } else {
+        [self restoreCalendarHeight];
+        [self hidePictogramSelector];
+        self.editing = NO;
+    }
+
     [self.calendarViewController setEditing:self.editing animated:YES];
-    
     topViewGestureRecognizer.enabled = self.editing;
     bottomViewGestureRecognizer.enabled = self.editing;
+}
+
+- (void)showPictogramSelector {
+    CGRect frame = self.view.frame;
+    // Cover 1/3 of the screen
+    frame.origin = CGPointMake(self.view.frame.origin.x,
+                               self.view.bounds.origin.y + self.view.bounds.size.height/3.0f * 2.0f);
+    frame.size = CGSizeMake(self.view.frame.size.width,
+                            self.view.bounds.origin.y + self.view.frame.size.height/3.0f);
+    self.navigationItem.rightBarButtonItem.enabled = NO;
+    [UIView animateWithDuration:0.3f animations:^{
+        self.bottomView.frame = frame;
+    }completion:^(BOOL completed){
+        if (completed) {
+            self.bottomView.frame = frame;
+            [self shrinkCalendarbyOneThirdItsHeightFromBottom];
+            self.navigationItem.rightBarButtonItem.enabled = YES;
+        }
+    }];
+}
+
+- (void)shrinkCalendarbyOneThirdItsHeightFromBottom {
+    CGRect frame = self.topView.frame;
+    frame.size.height -= frame.size.height / 3.0f;
+    self.topView.frame = frame;
+}
+
+- (void)restoreCalendarHeight {
+    self.topView.frame = self.view.bounds;
+}
+
+- (void)hidePictogramSelector {
+    CGRect frame = self.view.frame;
+    frame.origin = CGPointMake(self.view.frame.origin.x,
+                               self.view.bounds.origin.y + self.view.bounds.size.height);
+    frame.size = self.bottomView.frame.size;
+    self.navigationItem.rightBarButtonItem.enabled = NO;
+    [UIView animateWithDuration:0.3f animations:^{
+        self.bottomView.frame = frame;
+    }completion:^(BOOL completed){
+        self.bottomView.frame = frame;
+        self.navigationItem.rightBarButtonItem.enabled = YES;
+    }];
 }
 
 #pragma mark Gestures

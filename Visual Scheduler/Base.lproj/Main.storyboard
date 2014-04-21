@@ -180,14 +180,14 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="CIY-By-uiY" userLabel="Top">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="586"/>
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="916"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.88627457620000005" green="0.97254908080000002" blue="0.97254908080000002" alpha="1" colorSpace="deviceRGB"/>
                             </view>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" id="K7V-1q-b0O" userLabel="Bottom">
-                                <rect key="frame" x="0.0" y="657" width="768" height="259"/>
+                            <view contentMode="scaleToFill" id="K7V-1q-b0O" userLabel="Bottom">
+                                <rect key="frame" x="0.0" y="880" width="768" height="259"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="0.88627457620000005" green="0.97254908080000002" blue="0.97254908080000002" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="backgroundColor" red="1" green="0.051676359249999998" blue="0.10486219419999999" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
