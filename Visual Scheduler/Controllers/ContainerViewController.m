@@ -1,3 +1,4 @@
+#import <QuartzCore/CAAnimation.h>
 #import "ContainerViewController.h"
 #import "PictogramsCollectionViewController.h"
 #import "../CalendarView/CalendarCollectionViewController.h"
@@ -65,7 +66,6 @@
     switch (gestureRecognizer.state) {
         case UIGestureRecognizerStateBegan:
             touchedItem = [self.calendarViewController.collectionView indexPathForItemAtPoint:locationInTopView];
-            NSLog(@"Touchdown at: %ld, %ld", (long)touchedItem.section, (long)touchedItem.item);
             [self.calendarViewController deleteItemAtIndexPath:touchedItem];
             touchedItem = nil;
             break;
@@ -154,13 +154,56 @@
         CGPoint locationInCollectionView = [self.calendarViewController.collectionView convertPoint:locationInTopView fromView:self.topView];
         
         if ([self.topView pointInside:locationInTopView withEvent:nil]) {
-            [self.calendarViewController sectionAtPoint:locationInCollectionView];
-            [self.calendarViewController addPictogram:pictogramBeingDragged atIndexPath:[self.calendarViewController.collectionView indexPathForItemAtPoint:locationInCollectionView]];
+            NSIndexPath *destination = [self.calendarViewController.collectionView indexPathForItemAtPoint:locationInCollectionView];
+            // Ensure target destination is valid.
+            if (destination) {
+                CGRect destinationFrame = [self.calendarViewController.collectionView cellForItemAtIndexPath:destination].frame;
+                destinationFrame = [self.view convertRect:destinationFrame fromView:self.calendarViewController.collectionView];
+                
+                
+                /* Animation */
+                CGFloat duration = 0.3;
+                CGFloat animationTargetShadowOpacity = 0.0f;
+                // Animate shadow removal, to give effect like layer is moving down
+                CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"shadowOpacity"];
+                animation.fromValue = [NSNumber numberWithFloat:draggedView.layer.shadowOpacity];
+                animation.toValue = [NSNumber numberWithFloat:animationTargetShadowOpacity];
+                animation.duration = duration;
+                [draggedView.layer addAnimation:animation forKey:@"shadowOpacity"];
+                // Animate layer moving in place
+                [UIView animateWithDuration:duration
+                                 animations:^{
+                                     draggedView.frame = destinationFrame;
+                                     draggedView.layer.shadowOpacity = animationTargetShadowOpacity; // Triggers the above defined shadow animation.
+                                     for (UIView *subview in draggedView.subviews) {
+                                         CGRect frame = subview.frame;
+                                         CGSize size = destinationFrame.size;
+                                         frame.size = size;
+                                         subview.frame = frame;
+                                     }
+                                 }completion:^(BOOL finished){
+                                     [self.calendarViewController addPictogram:pictogramBeingDragged atIndexPath:destination];
+                                     [draggedView removeFromSuperview];
+                                     draggedView = nil;
+                                     pictogramBeingDragged = nil;
+                                     pictogramOriginInBottomView = CGRectNull;
+                                 }];
+
+            } else {
+                [UIView animateWithDuration:0.3f
+                                 animations:^{
+                                     draggedView.frame = pictogramOriginInBottomView;
+                                 }completion:^(BOOL finished){
+                                     if (finished) {
+                                         [draggedView removeFromSuperview];
+                                         draggedView = nil;
+                                         pictogramBeingDragged = nil;
+                                         pictogramOriginInBottomView = CGRectNull;
+                                     }
+                                 }];
+            }
             
-            [draggedView removeFromSuperview];
-            draggedView = nil;
-            pictogramBeingDragged = nil;
-            pictogramOriginInBottomView = CGRectNull;
+
         } else {
             [UIView animateWithDuration:0.3f
                              animations:^{

@@ -86,14 +86,13 @@
 }
 
 - (void)addPictogram:(Pictogram *)pictogram atIndexPath:(NSIndexPath *)indexPath {
+    NSParameterAssert(indexPath != nil);
     NSParameterAssert(indexPath.section < self.collectionView.numberOfSections);
     NSParameterAssert(indexPath.item < [self.collectionView numberOfItemsInSection:indexPath.section]);
     
-    if (indexPath.item == [self.collectionView numberOfItemsInSection:indexPath.section] - 1) {
-        Schedule *schedule = [self.dataSource.data objectAtIndex:indexPath.section];
-        [schedule addPictogram:pictogram atIndex:indexPath.item];
-        [self.collectionView insertItemsAtIndexPaths:@[indexPath]];
-    }
+    Schedule *schedule = [self.dataSource.data objectAtIndex:indexPath.section];
+    [schedule addPictogram:pictogram atIndex:indexPath.item];
+    [self.collectionView insertItemsAtIndexPaths:@[indexPath]];
 }
 
 - (void)deleteItemAtIndexPath:(NSIndexPath *)touchedItem {
