@@ -1,6 +1,6 @@
-#include "WeekCollectionViewLayout.h"
-#include "CalendarCollectionViewController.h"
 #import "ExternalScreen.h"
+#import "ExternalViewController.h"
+#include "WeekCollectionViewLayout.h"
 @implementation ExternalScreen
 -(id)init{
     self = [super init];
@@ -19,12 +19,10 @@
 
 -(void)screenDidConnectNotification:(NSNotification*)notification{
     UIScreen* screen = [notification object];
-    NSLog(@"screen did connect");
     [self prepareScreen:screen];
 }
 
 -(void)screenDidDisconnectNotification:(NSNotification*)notification{
-    NSLog(@"screen did disconnect");
     if(_window){
         _window.hidden = YES;
         _window = nil;
@@ -32,8 +30,8 @@
 }
 
 -(void)connectScreenIfAvailable{
-    if([[UIScreen screens]count] > 1){
-        NSLog(@"connection to initial available screen");
+    int count = [[UIScreen screens]count];
+    if(count > 1){
         [self prepareScreen:[[UIScreen screens]lastObject]];
     }
 }
@@ -46,12 +44,12 @@
     _window = [[UIWindow alloc] initWithFrame:screenBounds];
     _window.screen = screen;
     _window.rootViewController = [self destinationViewController];
+    [_window makeKeyAndVisible];
     _window.hidden = NO;
 }
 
 -(UIViewController*)destinationViewController{
-    WeekCollectionViewLayout *layout = [[WeekCollectionViewLayout alloc] init];
-    CalendarCollectionViewController *vc = [[CalendarCollectionViewController alloc] initWithCollectionViewLayout:layout];
-    return vc;
+    UICollectionViewLayout* layout = [[UICollectionViewLayout alloc]init];
+    return [[ExternalViewController alloc]initWithCollectionViewLayout:layout];
 }
 @end
