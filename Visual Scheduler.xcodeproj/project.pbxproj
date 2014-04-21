@@ -10,6 +10,7 @@
 		6818B6EA1903EB5C009F0742 /* SQLiteDatabaseConnectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6818B6E91903EB5C009F0742 /* SQLiteDatabaseConnectionTests.m */; };
 		6818B6EE19050E0C009F0742 /* ExternalScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 6818B6ED19050E0C009F0742 /* ExternalScreen.m */; };
 		6818B6F119052C3F009F0742 /* ExternalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6818B6F019052C3F009F0742 /* ExternalViewController.m */; };
+		6818B6F319054FC6009F0742 /* ScheduleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6818B6F219054FC6009F0742 /* ScheduleTests.m */; };
 		682012351902C3A700CE0C91 /* Localizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 682012341902C3A700CE0C91 /* Localizer.m */; };
 		682012371902C8B000CE0C91 /* localeDb.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = 682012361902C8B000CE0C91 /* localeDb.sqlite3 */; };
 		682012391902C8D900CE0C91 /* LocalizerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 682012381902C8D900CE0C91 /* LocalizerTests.m */; };
@@ -105,6 +106,7 @@
 		6818B6ED19050E0C009F0742 /* ExternalScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExternalScreen.m; path = "Visual Scheduler/ExternalScreen/ExternalScreen.m"; sourceTree = "<group>"; };
 		6818B6EF19052C3F009F0742 /* ExternalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExternalViewController.h; path = "Visual Scheduler/ExternalScreen/ExternalViewController.h"; sourceTree = "<group>"; };
 		6818B6F019052C3F009F0742 /* ExternalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExternalViewController.m; path = "Visual Scheduler/ExternalScreen/ExternalViewController.m"; sourceTree = "<group>"; };
+		6818B6F219054FC6009F0742 /* ScheduleTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScheduleTests.m; path = "Visual Scheduler/Database/ScheduleTests.m"; sourceTree = "<group>"; };
 		682012331902C3A700CE0C91 /* Localizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Localizer.h; path = "Visual Scheduler/Localization/Localizer.h"; sourceTree = "<group>"; };
 		682012341902C3A700CE0C91 /* Localizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Localizer.m; path = "Visual Scheduler/Localization/Localizer.m"; sourceTree = "<group>"; };
 		682012361902C8B000CE0C91 /* localeDb.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; name = localeDb.sqlite3; path = "Visual Scheduler/Localization/localeDb.sqlite3"; sourceTree = "<group>"; };
@@ -714,6 +716,7 @@
 				D8EB983618E340CF00DA3A99 /* Schedule.m */,
 				D8EB983918E346DF00DA3A99 /* Pictogram.h */,
 				D8EB983A18E346DF00DA3A99 /* Pictogram.m */,
+				6818B6F219054FC6009F0742 /* ScheduleTests.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -887,6 +890,7 @@
 				D887832E18C8E33300F13B28 /* (null) in Sources */,
 				D82838B518D5BA39009C03A8 /* UIApplicationTests.m in Sources */,
 				682012391902C8D900CE0C91 /* LocalizerTests.m in Sources */,
+				6818B6F319054FC6009F0742 /* ScheduleTests.m in Sources */,
 				D85EBDC818DC6B7700DF76B7 /* MockCameraDelegate.m in Sources */,
 				D800896718DC694D003EFD7E /* BBAScheduleOverviewViewController.m in Sources */,
 			);
