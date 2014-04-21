@@ -115,20 +115,32 @@ NSInteger const kCellTagForLabelView = 2;
     return pictogram.title;
 }
 
-#pragma mark Public
+#pragma mark Public - used by container
 
-- (UIImage *)pictogramAtPoint:(CGPoint)point {
+- (Pictogram *)pictogramAtPoint:(CGPoint)point {
+    point.x += self.collectionView.contentOffset.x;
+    point.y += self.collectionView.contentOffset.y;
+    
     NSIndexPath *selection = [self.collectionView indexPathForItemAtPoint:point];
-    UIImage *image = nil;
-    if (selection != nil) {
-        image = [self imageForPictogramAtIndexPath:selection];
-    }
-    return image;
+    return [self.dataSource objectAtIndex:selection.item];
 }
 
-- (Pictogram *)pictogramAtIndexPath:(NSIndexPath *)indexPath {
-    NSParameterAssert(indexPath.section == 0);
-    return [self.dataSource objectAtIndex:indexPath.item];
+- (CGRect)frameOfPictogramAtPoint:(CGPoint)point {
+    CGPoint contentPoint = point;
+    contentPoint.x += self.collectionView.contentOffset.x;
+    contentPoint.y += self.collectionView.contentOffset.y;
+    
+    NSIndexPath *selection = [self.collectionView indexPathForItemAtPoint:contentPoint];
+    
+    UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:selection];
+    UIImageView *image = (UIImageView *)[cell.contentView firstSubviewWithTag:kCellTagForImageView];
+    
+    CGPoint origin = cell.frame.origin;
+    origin = [self.view convertPoint:origin fromView:self.collectionView];
+    CGSize size = image.frame.size;
+    CGRect frame = { origin, size };
+    
+    return frame;
 }
 
 @end

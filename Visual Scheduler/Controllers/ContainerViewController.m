@@ -47,13 +47,45 @@
 #pragma mark Gestures
 
 - (void)setupGestureRecognizer {
-    UILongPressGestureRecognizer *gr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGesture:)];
+    UILongPressGestureRecognizer *gr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(bottomViewGesture:)];
     CFTimeInterval requiredPressDuration = 0.1f;
     gr.minimumPressDuration = requiredPressDuration;
-    [self.view addGestureRecognizer:gr];
+    [self.bottomView addGestureRecognizer:gr];
+    
+    UILongPressGestureRecognizer *deleteGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(topViewGesture:)];
+    CFTimeInterval timeBeforeDelete = 0.1f;
+    deleteGesture.minimumPressDuration = timeBeforeDelete;
+    [self.topView addGestureRecognizer:deleteGesture];
 }
 
-- (void)longPressGesture:(UILongPressGestureRecognizer *)gestureRecognizer {
+- (void)topViewGesture:(UILongPressGestureRecognizer *)gestureRecognizer {
+    static NSIndexPath *touchedItem = nil;
+    CGPoint locationInTopView = [gestureRecognizer locationInView:self.calendarViewController.collectionView]; // Point in scrollview
+
+    switch (gestureRecognizer.state) {
+        case UIGestureRecognizerStateBegan:
+            touchedItem = [self.calendarViewController.collectionView indexPathForItemAtPoint:locationInTopView];
+            NSLog(@"Touchdown at: %ld, %ld", (long)touchedItem.section, (long)touchedItem.item);
+            [self.calendarViewController deleteItemAtIndexPath:touchedItem];
+            touchedItem = nil;
+            break;
+            
+        case UIGestureRecognizerStateChanged:
+            break;
+            
+        case UIGestureRecognizerStateEnded:
+            break;
+            
+        case UIGestureRecognizerStateFailed:
+        case UIGestureRecognizerStateCancelled:
+            break;
+            
+        case UIGestureRecognizerStatePossible:
+            break;
+    }
+}
+
+- (void)bottomViewGesture:(UILongPressGestureRecognizer *)gestureRecognizer {
     static UIView *draggedView = nil;
     static Pictogram *pictogramBeingDragged = nil;
     
@@ -65,19 +97,15 @@
         CGPoint locationInBottomView = [gestureRecognizer locationInView:self.bottomView];
         if ([self.bottomView pointInside:locationInBottomView withEvent:nil]) {
             
-            NSIndexPath *pathToPictogram = [self.pictogramViewController.collectionView indexPathForItemAtPoint:locationInBottomView];
-            pictogramBeingDragged = [self.pictogramViewController pictogramAtIndexPath:pathToPictogram];
+            /* get pictogram being dragged */
+            pictogramBeingDragged = [self.pictogramViewController pictogramAtPoint:locationInBottomView];
+            CGRect frame = [self.pictogramViewController frameOfPictogramAtPoint:locationInBottomView];
+            frame = [self.view convertRect:frame fromView:self.bottomView];
             
             CGPoint gestureLocationInView = [gestureRecognizer locationInView:self.view];
-            CGRect frame = CGRectMake(gestureLocationInView.x - 50,
-                                      gestureLocationInView.y - 50,
-                                      100,
-                                      100);
             
             /*  ImageView is placed within a View in order to mask to bounds
                 without masking the desired shadow effect. */
-            
-            
             draggedView = [[UIView alloc] initWithFrame:frame];
             /* Shadow */
             [draggedView.layer setShadowColor:[UIColor blackColor].CGColor];
@@ -95,6 +123,23 @@
             
             [draggedView addSubview:imageView];
             [self.view addSubview:draggedView];
+            
+            CGRect destinationFrameForAnimation;
+            destinationFrameForAnimation = CGRectMake(gestureLocationInView.x, gestureLocationInView.y, frame.size.width, frame.size.height);
+            
+            /* The pictogram to be dragged animates to the fingers position. */
+            // Center around the finger
+            destinationFrameForAnimation.origin.x -= destinationFrameForAnimation.size.width / 2.0f;
+            destinationFrameForAnimation.origin.y -= destinationFrameForAnimation.size.width / 2.0f;
+            // Animate to finger
+            [UIView animateWithDuration:0.1f
+                             animations:^{
+                                 draggedView.frame = destinationFrameForAnimation;
+                             }completion:^(BOOL finished){
+                                 if (finished) {
+                                     draggedView.frame = destinationFrameForAnimation;
+                                 }
+                             }];
         }
     } else if (gestureRecognizer.state == UIGestureRecognizerStateChanged) {
         if (draggedView != nil) {

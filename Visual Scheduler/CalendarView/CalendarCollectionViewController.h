@@ -5,5 +5,6 @@
 
 - (void)sectionAtPoint:(CGPoint)point;
 - (void)addPictogram:(Pictogram *)pictogram atIndexPath:(NSIndexPath *)indexPath;
+- (void)deleteItemAtIndexPath:(NSIndexPath *)touchedItem;
 
 @end

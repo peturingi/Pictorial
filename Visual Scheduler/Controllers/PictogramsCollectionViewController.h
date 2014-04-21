@@ -9,10 +9,11 @@
 
 @property (weak, nonatomic) Pictogram *selectedItem;
 
-/** Returns the pictograms image at the given point.
- @note The image is from the data source and is as such not of the same size as presented by this controllers collectionview.
+- (Pictogram *)pictogramAtPoint:(CGPoint)point;
+
+/** Returns a frame for the pictograms image.
+ @note The frame 'cuts' the text from below the pictograms and its size is only that of the image.
  */
-- (UIImage *)pictogramAtPoint:(CGPoint)point;
-- (Pictogram *)pictogramAtIndexPath:(NSIndexPath *)indexPath;
+- (CGRect)frameOfPictogramAtPoint:(CGPoint)point;
 
 @end
