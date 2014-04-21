@@ -211,7 +211,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="64g-Ej-m6D">
                             <color key="tintColor" red="1" green="0.051676359249999998" blue="0.10486219419999999" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="edit:" destination="Xfv-XK-laj" id="NfL-kd-wLl"/>
+                                <action selector="toggleEditing:" destination="Xfv-XK-laj" id="fZI-t7-ryg"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

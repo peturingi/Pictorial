@@ -15,7 +15,8 @@
 
 - (void)viewDidLoad {
     [self setupChildViewControllers];
-            [self setupGestureRecognizer];
+#warning possible race condition, if childViewControllers are not initialized before the gestureRecognizers try to addthemselfs.
+    [self setupGestureRecognizer];
 }
 
 - (void)setupChildViewControllers {
@@ -45,18 +46,30 @@
     self.pictogramViewController.view.frame = self.bottomView.bounds;
 }
 
+#pragma mark - User Interaction
+
+- (IBAction)toggleEditing:(id)sender {
+    self.editing = !self.editing;
+    [self.calendarViewController setEditing:self.editing animated:YES];
+    
+    topViewGestureRecognizer.enabled = self.editing;
+    bottomViewGestureRecognizer.enabled = self.editing;
+}
+
 #pragma mark Gestures
 
 - (void)setupGestureRecognizer {
-    UILongPressGestureRecognizer *gr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(bottomViewGesture:)];
+    bottomViewGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(bottomViewGesture:)];
     CFTimeInterval requiredPressDuration = 0.1f;
-    gr.minimumPressDuration = requiredPressDuration;
-    [self.bottomView addGestureRecognizer:gr];
+    bottomViewGestureRecognizer.minimumPressDuration = requiredPressDuration;
+    bottomViewGestureRecognizer.enabled = NO;
+    [self.bottomView addGestureRecognizer:bottomViewGestureRecognizer];
     
-    UILongPressGestureRecognizer *deleteGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(topViewGesture:)];
+    topViewGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(topViewGesture:)];
     CFTimeInterval timeBeforeDelete = 0.1f;
-    deleteGesture.minimumPressDuration = timeBeforeDelete;
-    [self.topView addGestureRecognizer:deleteGesture];
+    topViewGestureRecognizer.minimumPressDuration = timeBeforeDelete;
+    topViewGestureRecognizer.enabled = NO;
+    [self.topView addGestureRecognizer:topViewGestureRecognizer];
 }
 
 - (void)topViewGesture:(UILongPressGestureRecognizer *)gestureRecognizer {
@@ -86,6 +99,7 @@
 }
 
 - (void)bottomViewGesture:(UILongPressGestureRecognizer *)gestureRecognizer {
+    NSAssert(self.editing, @"It must not be possible to reach this method unless in edit mode.");
     static UIView *draggedView = nil;
     static Pictogram *pictogramBeingDragged = nil;
     static CGRect pictogramOriginInBottomView;
@@ -238,5 +252,12 @@
     aRect.origin.y -= aRect.size.height / 2.0f;
     return aRect;
 }
+
+#pragma mark - 
+
+- (NSString *)description {
+    return [NSString stringWithFormat:@"ViewController\nisEditing: %d", self.isEditing];
+}
+
 
 @end

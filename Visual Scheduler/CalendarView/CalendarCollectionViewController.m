@@ -28,18 +28,27 @@
     [self setupCollectionView];
 }
 
-- (void)viewDidLoad {
-    // TODO REMOVE
-    NSLog(@"Entering edit mode");
-    [self setEditing:YES animated:YES];
-}
-
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {
     [super setEditing:editing animated:animated];
     if (editing) {
         [self.dataSource setEditing:YES];
+        // Inform collectionview that mock-fields are available from datasource.
+        NSMutableArray *mockItemsAtEndOfSchedule = [NSMutableArray array];
+        for (NSInteger section = 0; section < self.collectionView.numberOfSections; section++) {
+            NSInteger numberOfItemsInSection = [self.collectionView numberOfItemsInSection:section];
+            [mockItemsAtEndOfSchedule addObject:[NSIndexPath indexPathForItem:numberOfItemsInSection inSection:section]];
+        }
+        [self.collectionView insertItemsAtIndexPaths:mockItemsAtEndOfSchedule];
+        
     } else {
         [self.dataSource setEditing:NO];
+        NSMutableArray *mockItemsToRemoveFromSchedule = [NSMutableArray array];
+        for (NSInteger section = 0; section < self.collectionView.numberOfSections; section++) {
+            NSInteger numberOfItemsInSection = [self.collectionView numberOfItemsInSection:section];
+            numberOfItemsInSection--;
+            [mockItemsToRemoveFromSchedule addObject:[NSIndexPath indexPathForItem:numberOfItemsInSection inSection:section]];
+        }
+        [self.collectionView deleteItemsAtIndexPaths:mockItemsToRemoveFromSchedule];
     }
 }
 
@@ -96,9 +105,11 @@
 }
 
 - (void)deleteItemAtIndexPath:(NSIndexPath *)touchedItem {
+    NSAssert(self.editing == YES, @"Cannot delete item as the collection view is not in edit mode.");
     NSMutableArray *data = self.dataSource.data;
     Schedule *schedule = [data objectAtIndex:touchedItem.section];
     [schedule removePictogramAtIndex:touchedItem.item];
+
     [self.collectionView deleteItemsAtIndexPaths:@[touchedItem]];
 }
 
