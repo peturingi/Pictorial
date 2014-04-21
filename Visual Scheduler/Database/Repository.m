@@ -19,6 +19,7 @@
     self = [super init];
     if (self) {
         _dataStore = store;
+        _imageCache = [[ImageCache alloc]init];
     }
     return self;
 }
@@ -52,6 +53,13 @@
 - (void)deleteSchedule:(Schedule *)aSchedule {
     NSParameterAssert(aSchedule != nil);
     [_dataStore deleteScheduleWithID:aSchedule.uniqueIdentifier];
+}
+
+-(void)removePictogram:(Pictogram *)pictogram fromSchedule:(Schedule *)schedule atIndex:(NSInteger)index{
+    NSParameterAssert(pictogram);
+    NSParameterAssert(schedule);
+    NSParameterAssert(index >= 0);
+    [_dataStore removePictogram:pictogram.uniqueIdentifier fromSchedule:schedule.uniqueIdentifier atIndex:index];
 }
 
 #pragma mark - Retrieve
@@ -88,8 +96,14 @@
 
 -(UIImage*)imageForPictogram:(Pictogram *)pictogram{
     NSParameterAssert(pictogram);
-    NSArray* contentForPictogram = [_dataStore contentOfPictogramWithID:pictogram.uniqueIdentifier];
-    return [UIImage imageWithData:[contentForPictogram objectAtIndex:0]];
+    NSInteger index = [pictogram uniqueIdentifier];
+    UIImage* image = [_imageCache imageAtIndex:index];
+    if(image == nil){
+        NSArray* contentForPictogram = [_dataStore contentOfPictogramWithID:index];
+        image = [UIImage imageWithData:[contentForPictogram objectAtIndex:0]];
+        [_imageCache insertImage:image atIndex:index];
+    }
+    return image;
 }
 
 #pragma mark - private methods

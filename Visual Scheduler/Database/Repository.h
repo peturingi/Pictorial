@@ -2,9 +2,11 @@
 #import "DataStoreProtocol.h"
 #import "Schedule.h"
 #import "Pictogram.h"
+#import "ImageCache.h"
 
 @interface Repository : NSObject {
     id<DataStoreProtocol> _dataStore;
+    ImageCache* _imageCache;
 }
 - (id)initWithStore:(id<DataStoreProtocol>)store;
 + (instancetype)defaultRepository;
@@ -13,6 +15,7 @@
 -(NSArray*)pictogramsForSchedule:(Schedule*)schedule includingImages:(BOOL)includesImages;
 - (void)removeAllPictogramsFromSchedule:(Schedule *)schedule;
 -(void)addPictogram:(Pictogram*)pictogram toSchedule:(Schedule*)schedule atIndex:(NSInteger)index;
+-(void)removePictogram:(Pictogram*)pictogram fromSchedule:(Schedule*)schedule atIndex:(NSInteger)index;
 - (NSArray *)allSchedules;
 - (NSArray *)allPictogramsIncludingImages:(BOOL)includesImages;
 - (void)deleteSchedule:(Schedule *)aSchedule;
