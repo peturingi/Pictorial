@@ -4,10 +4,7 @@
 #define BIND_TO_STATEMENT_FAILED_EXCEPTION @"SMBindToStatementFailed"
 #define STATEMENT_STEP_FAILED_EXCEPTION @"SMStatementStepFailed"
 
-
-
 #import "SQLiteDatabaseConnection.h"
-
 @implementation SQLiteDatabaseConnection
 
 -(id)initWithDatabaseFileNamed:(NSString *)filename{
@@ -28,8 +25,6 @@
 }
 
 -(NSString*)locateSettingsFile:(NSString*)filename{
-    //NSString *settingsFile = [[NSBundle mainBundle] pathForResource:filename ofType:@"sqlite3"];
-    
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths firstObject];
     NSString *databasePath = [documentsDirectory stringByAppendingPathComponent:filename];
@@ -38,26 +33,6 @@
     }
     return databasePath;
 }
-
-/*
- NSParameterAssert(file != nil);
- BOOL success;
- NSFileManager *fileManager = [NSFileManager defaultManager];
- NSError *error;
- NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
- NSString *documentsDirectory = [paths objectAtIndex:0];
- NSString *writableDBPath = [documentsDirectory stringByAppendingPathComponent:file];
- success = [fileManager fileExistsAtPath:writableDBPath];
- if (success)
- return;
- // The writable database does not exist, so copy the default to the appropriate location.
- NSString *defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:file];
- success = [fileManager copyItemAtPath:defaultDBPath toPath:writableDBPath error:&error];
- if (!success) {
- NSAssert1(0, @"Failed to create writable file with message '%@'.", [error localizedDescription]);
- }
-
- */
 
 -(sqlite3_stmt*)prepareStatementWithQuery:(NSString *)query {
     sqlite3_stmt *statement;

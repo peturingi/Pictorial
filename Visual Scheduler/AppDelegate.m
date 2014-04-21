@@ -6,6 +6,9 @@
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [self createEditableCopyOfFileIfNeeded:@"localeDb.sqlite3"];
+    [self createEditableCopyOfFileIfNeeded:@"settings.sqlite3"];
+    [self createEditableCopyOfFileIfNeeded:@"vs.sqlite3"];
     _externalScreen = [[ExternalScreen alloc]init];
     return YES;
 }
