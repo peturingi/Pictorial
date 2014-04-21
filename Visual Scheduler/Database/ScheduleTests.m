@@ -35,12 +35,29 @@
 }
 
 -(void)testCanAddPictogramToEndOfSchedule{
-    Schedule* schedule = [[Repository defaultRepository]scheduleWithTitle:@"someSchedule" withColor:[UIColor whiteColor]];
-    NSString *title = @"Test domain";
     UIImage *testImage = [UIImage imageNamed:@"testImage"];
-    Pictogram *pictogram = [[Repository defaultRepository] pictogramWithTitle:title withImage:testImage];
-    [[Repository defaultRepository]addPictogram:pictogram toSchedule:schedule atIndex:0];
+    Pictogram* pic = [[Repository defaultRepository] pictogramWithTitle:@"pic" withImage:testImage];
+    Schedule* schedule = [[Repository defaultRepository]scheduleWithTitle:@"someSchedule" withColor:[UIColor whiteColor]];
+    [[Repository defaultRepository]addPictogram:pic toSchedule:schedule atIndex:0];
     XCTAssert([[schedule pictograms] count] == 1, @"did not contain one pictogram");
+    [schedule addPictogram:pic atIndex:1];
+    XCTAssert([[schedule pictograms] count] == 2, @"did not contain both pictograms");
+}
+
+-(void)testCanAddPictogramToMiddleOfSchedule{
+    UIImage *testImage = [UIImage imageNamed:@"testImage"];
+    Pictogram* pic = [[Repository defaultRepository]pictogramWithTitle:@"pic" withImage:testImage];
+    Schedule* schedule = [[Repository defaultRepository]scheduleWithTitle:@"someSchedule" withColor:[UIColor whiteColor]];
+    [[Repository defaultRepository]addPictogram:pic toSchedule:schedule atIndex:0];
+    [[Repository defaultRepository]addPictogram:pic toSchedule:schedule atIndex:1];
+    [[Repository defaultRepository]addPictogram:pic toSchedule:schedule atIndex:2];
+    Pictogram* insertedPic = [[Repository defaultRepository]pictogramWithTitle:@"insertPic" withImage:testImage];
+    [schedule addPictogram:insertedPic atIndex:1];
+    XCTAssert([[schedule pictograms] count] == 4, @"did not contain 4 items");
+    XCTAssert([[schedule pictograms] objectAtIndex:1] == insertedPic, @"was not inserted at the correct index");
+    NSString* expectedTitle = [insertedPic title];
+    NSString* result = [[[schedule pictograms]objectAtIndex:1] title];
+    XCTAssert([result isEqualToString:expectedTitle], @"was expected pictogram at index");
 }
 
 @end

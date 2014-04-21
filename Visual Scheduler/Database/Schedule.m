@@ -32,24 +32,20 @@
 }
 
 -(void)addPictogram:(Pictogram *)pictogram atIndex:(NSInteger)index{
-    if(index > [_pictograms count]){
+    if(index > [self.pictograms count]){
         @throw [NSException exceptionWithName:@"OutOfBounds" reason:@"Cannot add pictogram beyond end of array" userInfo:nil];
     }
-    if(index == [_pictograms count]){
+    if(index == [self.pictograms count]){
         [_pictograms addObject:pictogram];
         [[Repository defaultRepository]addPictogram:pictogram toSchedule:self atIndex:index];
         return;
     }
-    
-    if(index < [_pictograms count]){
-        NSRange firstRange = NSMakeRange(0,index - 1);
-        NSRange secondRange = NSMakeRange(index, [_pictograms count] - index - 1);
-        NSArray* firstPart = [_pictograms subarrayWithRange:firstRange];
-        NSArray* secondPart = [_pictograms subarrayWithRange:secondRange];
-        _pictograms = [NSMutableArray arrayWithArray:firstPart];
-        [_pictograms addObject:pictogram];
-        [_pictograms addObjectsFromArray:secondPart];
-        [[Repository defaultRepository]addPictogram:pictogram toSchedule:self atIndex:index];
+    if(index < [self.pictograms count]){
+        [[Repository defaultRepository]removeAllPictogramsFromSchedule:self];
+        [_pictograms insertObject:pictogram atIndex:index];
+        for (NSUInteger i = 0; i < _pictograms.count; i++) {
+            [[Repository defaultRepository] addPictogram:[_pictograms objectAtIndex:i] toSchedule:self atIndex:i];
+        }
     }
 }
 

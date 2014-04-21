@@ -91,9 +91,7 @@
     
     if (indexPath.item == [self.collectionView numberOfItemsInSection:indexPath.section] - 1) {
         Schedule *schedule = [self.dataSource.data objectAtIndex:indexPath.section];
-        NSMutableArray *pictograms = [NSMutableArray arrayWithArray:schedule.pictograms];
-        [pictograms addObject:pictogram];
-        [schedule setPictograms:pictograms];
+        [schedule addPictogram:pictogram atIndex:indexPath.item];
         [self.collectionView insertItemsAtIndexPaths:@[indexPath]];
     }
 }
