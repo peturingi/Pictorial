@@ -2,9 +2,11 @@
 #import "DataStoreProtocol.h"
 #import "Schedule.h"
 #import "Pictogram.h"
+#import "ImageCache.h"
 
 @interface Repository : NSObject {
     id<DataStoreProtocol> _dataStore;
+    ImageCache* _imageCache;
 }
 - (id)initWithStore:(id<DataStoreProtocol>)store;
 + (instancetype)defaultRepository;

@@ -19,6 +19,7 @@
     self = [super init];
     if (self) {
         _dataStore = store;
+        _imageCache = [[ImageCache alloc]init];
     }
     return self;
 }
@@ -95,8 +96,14 @@
 
 -(UIImage*)imageForPictogram:(Pictogram *)pictogram{
     NSParameterAssert(pictogram);
-    NSArray* contentForPictogram = [_dataStore contentOfPictogramWithID:pictogram.uniqueIdentifier];
-    return [UIImage imageWithData:[contentForPictogram objectAtIndex:0]];
+    NSInteger index = [pictogram uniqueIdentifier];
+    UIImage* image = [_imageCache imageAtIndex:index];
+    if(image == nil){
+        NSArray* contentForPictogram = [_dataStore contentOfPictogramWithID:index];
+        image = [UIImage imageWithData:[contentForPictogram objectAtIndex:0]];
+        [_imageCache insertImage:image atIndex:index];
+    }
+    return image;
 }
 
 #pragma mark - private methods
