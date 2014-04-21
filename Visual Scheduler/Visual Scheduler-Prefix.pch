@@ -12,3 +12,6 @@
 #pragma mark Notifications
 
 #define NOTIFICATION_CALENDAR_VIEW  @"handleCalendarViewMode"
+
+#define PICTOGRAM_BORDER_WIDTH  2
+#define PICTOGRAM_CORNER_RADIUS 5
