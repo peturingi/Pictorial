@@ -54,6 +54,13 @@
     [_dataStore deleteScheduleWithID:aSchedule.uniqueIdentifier];
 }
 
+-(void)removePictogram:(Pictogram *)pictogram fromSchedule:(Schedule *)schedule atIndex:(NSInteger)index{
+    NSParameterAssert(pictogram);
+    NSParameterAssert(schedule);
+    NSParameterAssert(index >= 0);
+    [_dataStore removePictogram:pictogram.uniqueIdentifier fromSchedule:schedule.uniqueIdentifier atIndex:index];
+}
+
 #pragma mark - Retrieve
 - (NSArray *)allSchedules {
     NSArray *contents = [_dataStore contentOfAllSchedules];

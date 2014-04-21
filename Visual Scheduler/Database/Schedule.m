@@ -33,7 +33,7 @@
 
 -(void)addPictogram:(Pictogram *)pictogram atIndex:(NSInteger)index{
     if(index > [self.pictograms count]){
-        @throw [NSException exceptionWithName:@"OutOfBounds" reason:@"Cannot add pictogram beyond end of array" userInfo:nil];
+        @throw [NSException exceptionWithName:@"OutOfBounds" reason:@"Cannot add pictogram beyond the bounds of the array" userInfo:nil];
     }
     if(index == [self.pictograms count]){
         [_pictograms addObject:pictogram];
@@ -46,6 +46,36 @@
         for (NSUInteger i = 0; i < _pictograms.count; i++) {
             [[Repository defaultRepository] addPictogram:[_pictograms objectAtIndex:i] toSchedule:self atIndex:i];
         }
+    }
+}
+
+-(void)removePictogramAtIndex:(NSInteger)index{
+    if(index > [self.pictograms count]){
+        @throw [NSException exceptionWithName:@"OutOfBounds" reason:@"Cannot remove pictogram which is beyond the bounds of the array" userInfo:nil];
+    }
+    if(index == [self.pictograms count]){
+        Pictogram* pictogram = [_pictograms objectAtIndex:index];
+        [_pictograms removeObjectAtIndex:index];
+        [[Repository defaultRepository] removePictogram:pictogram fromSchedule:self atIndex:index];
+        return;
+    }
+    if(index < [[self pictograms]count]){
+        [[Repository defaultRepository]removeAllPictogramsFromSchedule:self];
+        [_pictograms removeObjectAtIndex:index];
+        for (NSUInteger i = 0; i < _pictograms.count; i++) {
+            [[Repository defaultRepository] addPictogram:[_pictograms objectAtIndex:i] toSchedule:self atIndex:i];
+        }
+    }
+}
+
+-(void)exchangePictogramsAtIndex:(NSInteger)indexOne andIndex:(NSInteger)indexTwo{
+    if(indexOne > [self.pictograms count] || indexTwo > [self.pictograms count]){
+        @throw [NSException exceptionWithName:@"InvalidIndex" reason:@"One or both indecies was out of bounds" userInfo:nil];
+    }
+    [[Repository defaultRepository]removeAllPictogramsFromSchedule:self];
+    [_pictograms exchangeObjectAtIndex:indexOne withObjectAtIndex:indexTwo];
+    for (NSUInteger i = 0; i < _pictograms.count; i++) {
+        [[Repository defaultRepository] addPictogram:[_pictograms objectAtIndex:i] toSchedule:self atIndex:i];
     }
 }
 

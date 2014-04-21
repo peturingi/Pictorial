@@ -12,5 +12,6 @@
 - (NSArray *)pictograms;
 - (NSInteger)count;
 -(void)addPictogram:(Pictogram*)pictogram atIndex:(NSInteger)index;
-
+-(void)removePictogramAtIndex:(NSInteger)index;
+-(void)exchangePictogramsAtIndex:(NSInteger)indexOne andIndex:(NSInteger)indexTwo;
 @end
