@@ -40,7 +40,6 @@
         [self.dataSource setEditing:YES];
     } else {
         [self.dataSource setEditing:NO];
-        // TODO save the dat
     }
 }
 
