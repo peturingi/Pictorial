@@ -102,6 +102,9 @@ NSInteger const kCellTagForLabelView = 2;
     UILabel *labelView = (UILabel *)[cell.contentView firstSubviewWithTag:kCellTagForLabelView];
     NSString *title = [self titleForPictogramIndexPath:indexPath];
     [labelView setText:title];
+    
+    imageView.layer.borderWidth = PICTOGRAM_BORDER_WIDTH;
+    imageView.layer.cornerRadius = PICTOGRAM_CORNER_RADIUS;
 }
 
 - (UIImage *)imageForPictogramAtIndexPath:(NSIndexPath *)indexPath {
