@@ -49,7 +49,6 @@
 		D850E82B18C87C3D0051CD51 /* MockManagedObjectContext.m in Sources */ = {isa = PBXBuildFile; fileRef = D850E82A18C87C3D0051CD51 /* MockManagedObjectContext.m */; };
 		D850E82C18C885230051CD51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D83A62CD18B696DC00EC0773 /* Main.storyboard */; };
 		D850E82F18C88E7E0051CD51 /* MockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D850E82E18C88E7E0051CD51 /* MockViewController.m */; };
-		D8534F7D18DDB51D0055FA93 /* BBAShowScheduleCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8534F7C18DDB51D0055FA93 /* BBAShowScheduleCollectionViewController.m */; };
 		D853A80E18E1DD3C0031E986 /* SQLiteStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D853A80D18E1DD3C0031E986 /* SQLiteStore.m */; };
 		D853A81018E1DD600031E986 /* SQLiteStoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D853A80F18E1DD600031E986 /* SQLiteStoreTests.m */; };
 		D853A81218E1E0280031E986 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D853A81118E1E0280031E986 /* libsqlite3.dylib */; };
@@ -850,7 +849,6 @@
 				D8C7BDE7190287E800128FA7 /* WeekCollectionViewLayout.m in Sources */,
 				D82C0CDC18F80DFB005B5569 /* CalendarDataSource.m in Sources */,
 				D83A62C818B696DC00EC0773 /* main.m in Sources */,
-				D8534F7D18DDB51D0055FA93 /* BBAShowScheduleCollectionViewController.m in Sources */,
 				D889F7EE18C9249A008A497F /* AppDelegate.m in Sources */,
 				D889F7EA18C90506008A497F /* BBAScheduleTableDataSource.m in Sources */,
 				6835652F1901B4FD00FCA28A /* SQLiteDatabaseConnection.m in Sources */,
