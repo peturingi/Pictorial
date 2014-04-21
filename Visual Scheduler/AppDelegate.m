@@ -1,19 +1,12 @@
 #import "AppDelegate.h"
-
-@interface AppDelegate ()
-
-@end
-
-
+#import "ExternalScreen/ExternalScreen.h"
 @implementation AppDelegate
-
-#pragma mark -
-
 - (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     return YES;
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    _externalScreen = [[ExternalScreen alloc]init];
     return YES;
 }
 
