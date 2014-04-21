@@ -4,8 +4,8 @@
 #define HEADER_KEY  @"DayOfWeekColour"
 
 static const NSInteger INSET_TOP    = 2;
-static const NSInteger INSET_LEFT   = 2;
-static const NSInteger INSET_RIGHT  = 2;
+static const NSInteger INSET_LEFT   = 15;
+static const NSInteger INSET_RIGHT  = 15;
 static const NSInteger INSET_BOTTOM = 2;
 static const NSUInteger HEADER_HEIGHT = 20;
 

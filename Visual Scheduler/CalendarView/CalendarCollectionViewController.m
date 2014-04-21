@@ -98,4 +98,14 @@
     }
 }
 
+- (void)deleteItemAtIndexPath:(NSIndexPath *)touchedItem {
+    NSMutableArray *data = [NSMutableArray arrayWithArray:self.dataSource.data];
+    Schedule *schedule = [data objectAtIndex:touchedItem.section];
+    NSMutableArray *pictograms = [NSMutableArray arrayWithArray:schedule.pictograms];
+    [pictograms removeObjectAtIndex:touchedItem.item];
+    schedule.pictograms = pictograms;
+    [data replaceObjectAtIndex:touchedItem.section withObject:schedule];
+    [self.collectionView deleteItemsAtIndexPaths:@[touchedItem]];
+}
+
 @end

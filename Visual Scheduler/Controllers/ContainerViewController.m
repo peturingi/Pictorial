@@ -47,13 +47,45 @@
 #pragma mark Gestures
 
 - (void)setupGestureRecognizer {
-    UILongPressGestureRecognizer *gr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGesture:)];
+    UILongPressGestureRecognizer *gr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(bottomViewGesture:)];
     CFTimeInterval requiredPressDuration = 0.1f;
     gr.minimumPressDuration = requiredPressDuration;
-    [self.view addGestureRecognizer:gr];
+    [self.bottomView addGestureRecognizer:gr];
+    
+    UILongPressGestureRecognizer *deleteGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(topViewGesture:)];
+    CFTimeInterval timeBeforeDelete = 0.1f;
+    deleteGesture.minimumPressDuration = timeBeforeDelete;
+    [self.topView addGestureRecognizer:deleteGesture];
 }
 
-- (void)longPressGesture:(UILongPressGestureRecognizer *)gestureRecognizer {
+- (void)topViewGesture:(UILongPressGestureRecognizer *)gestureRecognizer {
+    static NSIndexPath *touchedItem = nil;
+    CGPoint locationInTopView = [gestureRecognizer locationInView:self.calendarViewController.collectionView]; // Point in scrollview
+
+    switch (gestureRecognizer.state) {
+        case UIGestureRecognizerStateBegan:
+            touchedItem = [self.calendarViewController.collectionView indexPathForItemAtPoint:locationInTopView];
+            NSLog(@"Touchdown at: %ld, %ld", (long)touchedItem.section, (long)touchedItem.item);
+            [self.calendarViewController deleteItemAtIndexPath:touchedItem];
+            touchedItem = nil;
+            break;
+            
+        case UIGestureRecognizerStateChanged:
+            break;
+            
+        case UIGestureRecognizerStateEnded:
+            break;
+            
+        case UIGestureRecognizerStateFailed:
+        case UIGestureRecognizerStateCancelled:
+            break;
+            
+        case UIGestureRecognizerStatePossible:
+            break;
+    }
+}
+
+- (void)bottomViewGesture:(UILongPressGestureRecognizer *)gestureRecognizer {
     static UIView *draggedView = nil;
     static Pictogram *pictogramBeingDragged = nil;
     

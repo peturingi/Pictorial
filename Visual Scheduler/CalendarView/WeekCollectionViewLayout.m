@@ -28,7 +28,7 @@
 
 - (CGPoint)originForItemAtIndexPath:(NSIndexPath *)indexPath {
     CGSize itemSize = [self sizeOfItems];
-    CGFloat x = self.insets.left + indexPath.section * (itemSize.width + self.insets.top + self.insets.right);
+    CGFloat x = self.insets.left + indexPath.section * (itemSize.width + self.insets.left + self.insets.right);
     CGFloat y = ([self headerSize].height + self.insets.top) + indexPath.item * (itemSize.height + self.insets.top + self.insets.bottom);
     return CGPointMake(x, y);
 }
