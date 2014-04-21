@@ -1,14 +1,6 @@
 #import "AppDelegate.h"
-
-@interface AppDelegate ()
-
-@end
-
-
+#import "ExternalScreen/ExternalScreen.h"
 @implementation AppDelegate
-
-#pragma mark -
-
 - (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     return YES;
 }
@@ -17,6 +9,7 @@
     [self createEditableCopyOfFileIfNeeded:@"localeDb.sqlite3"];
     [self createEditableCopyOfFileIfNeeded:@"settings.sqlite3"];
     [self createEditableCopyOfFileIfNeeded:@"vs.sqlite3"];
+    _externalScreen = [[ExternalScreen alloc]init];
     return YES;
 }
 
