@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="BaM-Wv-hhy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="BaM-Wv-hhy">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -8,15 +8,11 @@
         <scene sceneID="GJ8-lK-fDS">
             <objects>
                 <viewController id="Vl8-8o-MeU" customClass="BBANewPictogramViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="3Zy-hZ-kmo"/>
-                        <viewControllerLayoutGuide type="bottom" id="qEn-2b-vee"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ZoV-bi-vCM">
                         <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sng-4R-ooB">
+                            <navigationBar contentMode="scaleToFill" id="sng-4R-ooB">
                                 <rect key="frame" x="0.0" y="0.0" width="540" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
@@ -34,12 +30,12 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y0B-3y-XRC">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="y0B-3y-XRC">
                                 <rect key="frame" x="170" y="82" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q6h-Dr-Tf4">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="center" minimumFontSize="17" id="Q6h-Dr-Tf4">
                                 <rect key="frame" x="170" y="290" width="200" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -65,15 +61,11 @@
         <scene sceneID="bh5-NC-PuQ">
             <objects>
                 <viewController id="wl4-za-AMb" customClass="BBAShowScheduleViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="zKX-pg-Hz9"/>
-                        <viewControllerLayoutGuide type="bottom" id="EWx-T0-wvI"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="9NN-vh-S35">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <containerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RiE-kg-Uh6">
+                            <containerView contentMode="scaleToFill" id="RiE-kg-Uh6">
                                 <rect key="frame" x="786" y="0.0" width="568" height="1024"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -86,7 +78,7 @@
                                     </fragment>
                                 </attributedString>
                             </containerView>
-                            <containerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e87-5T-1Rf">
+                            <containerView contentMode="scaleToFill" id="e87-5T-1Rf">
                                 <rect key="frame" x="284" y="0.0" width="200" height="1024"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -135,7 +127,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" tag="6472" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z7s-wb-nXo">
+                                        <imageView userInteractionEnabled="NO" tag="6472" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Z7s-wb-nXo">
                                             <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
@@ -183,42 +175,22 @@
         <scene sceneID="BTD-20-WsY">
             <objects>
                 <viewController id="BaM-Wv-hhy" customClass="ContainerViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="HRB-a4-ThX"/>
-                        <viewControllerLayoutGuide type="bottom" id="Fe9-k7-1yp"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Xpr-rL-KhE">
+                    <view key="view" autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" id="Xpr-rL-KhE">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JYp-WD-aeM" userLabel="Top">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" id="JYp-WD-aeM" userLabel="Top">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="745"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.88627457620000005" green="0.97254908080000002" blue="0.97254908080000002" alpha="1" colorSpace="deviceRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wbq-XC-rxL" userLabel="Bottom">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" id="Wbq-XC-rxL" userLabel="Bottom">
                                 <rect key="frame" x="0.0" y="765" width="768" height="259"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.88627457620000005" green="0.97254908080000002" blue="0.97254908080000002" alpha="1" colorSpace="deviceRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Wbq-XC-rxL" secondAttribute="trailing" id="0n4-jQ-P3I"/>
-                            <constraint firstItem="Fe9-k7-1yp" firstAttribute="top" secondItem="Wbq-XC-rxL" secondAttribute="bottom" id="1WC-Db-JBy"/>
-                            <constraint firstAttribute="centerX" secondItem="Wbq-XC-rxL" secondAttribute="centerX" id="2HO-0y-jzE"/>
-                            <constraint firstItem="JYp-WD-aeM" firstAttribute="leading" secondItem="Xpr-rL-KhE" secondAttribute="leading" id="37r-1d-xcZ"/>
-                            <constraint firstAttribute="centerX" secondItem="JYp-WD-aeM" secondAttribute="centerX" id="3HV-I4-BnU"/>
-                            <constraint firstAttribute="bottom" secondItem="JYp-WD-aeM" secondAttribute="bottom" constant="279" id="7gg-Zr-j4f"/>
-                            <constraint firstAttribute="trailing" secondItem="JYp-WD-aeM" secondAttribute="trailing" id="BPk-08-yAo"/>
-                            <constraint firstItem="JYp-WD-aeM" firstAttribute="top" secondItem="Xpr-rL-KhE" secondAttribute="top" id="JCq-bq-xKz"/>
-                            <constraint firstItem="JYp-WD-aeM" firstAttribute="width" secondItem="Xpr-rL-KhE" secondAttribute="width" id="PXO-FP-wCc"/>
-                            <constraint firstItem="Wbq-XC-rxL" firstAttribute="leading" secondItem="Xpr-rL-KhE" secondAttribute="leading" id="Q6c-UF-t3O"/>
-                            <constraint firstItem="Wbq-XC-rxL" firstAttribute="top" secondItem="JYp-WD-aeM" secondAttribute="bottom" constant="20" id="RN6-b3-K5k"/>
-                            <constraint firstItem="Wbq-XC-rxL" firstAttribute="leading" secondItem="Xpr-rL-KhE" secondAttribute="leading" id="TRZ-Ua-H2T"/>
-                            <constraint firstAttribute="width" secondItem="Wbq-XC-rxL" secondAttribute="width" id="ZVl-XQ-916"/>
-                            <constraint firstAttribute="trailing" secondItem="Wbq-XC-rxL" secondAttribute="trailing" id="fkf-4d-Sc6"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="bottomView" destination="Wbq-XC-rxL" id="eSa-ZF-K9B"/>
@@ -233,20 +205,16 @@
         <scene sceneID="ZQS-c9-YlW">
             <objects>
                 <viewController id="Xfv-XK-laj" customClass="ScheduleViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="UFW-h1-BZr"/>
-                        <viewControllerLayoutGuide type="bottom" id="IMG-k0-0X2"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3Ug-ui-Wfq">
                         <rect key="frame" x="0.0" y="64" width="768" height="916"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <containerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="euQ-ye-tuJ">
+                            <containerView contentMode="scaleToFill" id="euQ-ye-tuJ">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="634"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </containerView>
-                            <containerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3b6-1V-TMk">
+                            <containerView contentMode="scaleToFill" id="3b6-1V-TMk">
                                 <rect key="frame" x="0.0" y="642" width="768" height="274"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -286,10 +254,10 @@
             </objects>
             <point key="canvasLocation" x="-1021" y="-1678"/>
         </scene>
-        <!--Select Pictogram View Controller-->
+        <!--Pictograms Collection View Controller-->
         <scene sceneID="dyy-ZI-r1L">
             <objects>
-                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="KN4-Ck-bwX" customClass="BBASelectPictogramViewController" sceneMemberID="viewController">
+                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="KN4-Ck-bwX" customClass="PictogramsCollectionViewController" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="KfA-FS-MCy">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="274"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -1,5 +1,5 @@
 #import "BBAAddScheduleViewController.h"
-#import "BBASelectPictogramViewController.h"
+#import "PictogramsCollectionViewController.h"
 
 @interface BBAAddScheduleViewController ()
 
@@ -64,12 +64,11 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([[segue identifier] isEqualToString:@"showPictogramSelector"]) {
-        BBASelectPictogramViewController *destinationView = [segue destinationViewController];
-        [destinationView setDelegate:self];
+        PictogramsCollectionViewController *destinationView = [segue destinationViewController];
     }
 }
 
-- (void)BBASelectPictogramViewController:(BBASelectPictogramViewController *)controller didSelectItem:(Pictogram *)item {
+- (void)BBASelectPictogramViewController:(PictogramsCollectionViewController *)controller didSelectItem:(Pictogram *)item {
 //    UIImage *pictogramImage = [UIImage imageWithContentsOfFile:item.imageURL];
 //    [imageView setImage:pictogramImage];
     [self setPictogramLogo:item];

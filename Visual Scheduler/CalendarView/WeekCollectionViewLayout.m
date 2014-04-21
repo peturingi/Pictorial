@@ -5,15 +5,18 @@
 - (NSDictionary *)cellAttributes {
     NSMutableDictionary *cellInformation = [NSMutableDictionary dictionary];
     
+    self.maxNumRows = 0;
+    for (NSInteger section = 0; section < [self.collectionView numberOfSections]; section++){
+        NSInteger numberOfItemsInSection = [self.collectionView numberOfItemsInSection:section];
+        self.maxNumRows = MAX(numberOfItemsInSection, self.maxNumRows);
+    }
+    
     NSInteger firstDay = MONDAY;
     NSInteger lastDay  = SUNDAY;
     
     for (NSInteger day = firstDay; day <= lastDay; day++) {
-        NSInteger numberOfItems = [self.collectionView numberOfItemsInSection:day];
-        if (self.maxNumRows < numberOfItems) {
-            self.maxNumRows = numberOfItems;
-        }
-        for (NSInteger item = 0; item < numberOfItems; item++) {
+        NSInteger numberOfItemsToday = [self.collectionView numberOfItemsInSection:day];
+        for (NSInteger item = 0; item < numberOfItemsToday; item++) {
             NSIndexPath *pathToItem = [NSIndexPath indexPathForItem:item inSection:day];
             UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:pathToItem];
             attributes.frame = [self frameForItemAtIndexPath:pathToItem];

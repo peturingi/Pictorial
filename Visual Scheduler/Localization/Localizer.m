@@ -1,5 +1,5 @@
 #define ENG_LOOKUPTABLE @"en_GB_lookup"
-#define DB_FILENAME @"localeDb"
+#define DB_FILENAME @"localeDb.sqlite3"
 #import "Localizer.h"
 
 @implementation Localizer

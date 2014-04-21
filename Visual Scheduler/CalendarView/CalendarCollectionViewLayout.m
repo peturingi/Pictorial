@@ -69,7 +69,6 @@ static const NSUInteger HEADER_HEIGHT = 20;
     return CGPointMake(0,0);
 }
 
-
 - (CGSize)sizeOfItems {
     @throw [NSException exceptionWithName:@"Abstract method." reason:@"This method should be overwritten by a subclass" userInfo:nil];
 }

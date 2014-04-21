@@ -1,13 +1,13 @@
 #import "BBAShowScheduleViewController.h"
 #import "BBAColor.h"
 #import "BBAShowScheduleCollectionViewController.h"
-#import "BBASelectPictogramViewController.h"
+#import "PictogramsCollectionViewController.h"
 #import "Pictogram.h"
 #import "../../Database/Repository.h"
 
 @interface BBAShowScheduleViewController ()
 @property (strong, nonatomic) BBAShowScheduleCollectionViewController *showScheduleCollectionViewController;
-@property (strong, nonatomic) BBASelectPictogramViewController *selectPictogramViewController;
+@property (strong, nonatomic) PictogramsCollectionViewController *selectPictogramViewController;
 @property (weak, nonatomic) IBOutlet UIView *scheduleContainer;
 @property (weak, nonatomic) IBOutlet UIView *pictogramsContainer;
 
@@ -62,8 +62,7 @@
         NSArray *pictogramsInSchedules = [sharedRepository pictogramsForSchedule:self.schedule includingImages:YES];
     }
     if ([[segue identifier] isEqualToString:@"pictogramSelector"]) {
-        _selectPictogramViewController = (BBASelectPictogramViewController *)segue.destinationViewController;
-        [_selectPictogramViewController setDelegate:self];
+        _selectPictogramViewController = (PictogramsCollectionViewController *)segue.destinationViewController;
     }
 }
 - (IBAction)editButtonPressed:(id)sender {
@@ -102,7 +101,7 @@
 
 #pragma mark Delegate
 
-- (void)BBASelectPictogramViewController:(BBASelectPictogramViewController *)controller didSelectItem:(Pictogram *)item {
+- (void)BBASelectPictogramViewController:(PictogramsCollectionViewController *)controller didSelectItem:(Pictogram *)item {
     [self.showScheduleCollectionViewController addPictogram:item];
 }
 
