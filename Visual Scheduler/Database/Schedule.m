@@ -2,7 +2,7 @@
 #import "Repository.h"
 
 @implementation Schedule {
-    NSArray *_pictograms;
+    NSMutableArray *_pictograms;
 }
 
 - (id)initWithTitle:(NSString *)title withColor:(UIColor *)color withUniqueIdentifier:(NSInteger)identifier {
@@ -15,9 +15,10 @@
     return self;
 }
 
-- (NSArray *)pictograms {
+- (NSArray*)pictograms {
     if (_pictograms == nil) {
-        _pictograms = [[Repository defaultRepository] pictogramsForSchedule:self includingImages:NO];
+        NSArray* associatedPictograms = [[Repository defaultRepository] pictogramsForSchedule:self includingImages:NO];
+        _pictograms = [NSMutableArray arrayWithArray:associatedPictograms];
     }
     return _pictograms;
 }
@@ -27,7 +28,25 @@
     for (NSUInteger i = 0; i < pictograms.count; i++) {
         [[Repository defaultRepository] addPictogram:[pictograms objectAtIndex:i] toSchedule:self atIndex:i];
     }
-    _pictograms = pictograms;
+    _pictograms = [NSMutableArray arrayWithArray:pictograms];
+}
+
+-(void)addPictogram:(Pictogram *)pictogram atIndex:(NSInteger)index{
+    if(index > [self.pictograms count]){
+        @throw [NSException exceptionWithName:@"OutOfBounds" reason:@"Cannot add pictogram beyond end of array" userInfo:nil];
+    }
+    if(index == [self.pictograms count]){
+        [_pictograms addObject:pictogram];
+        [[Repository defaultRepository]addPictogram:pictogram toSchedule:self atIndex:index];
+        return;
+    }
+    if(index < [self.pictograms count]){
+        [[Repository defaultRepository]removeAllPictogramsFromSchedule:self];
+        [_pictograms insertObject:pictogram atIndex:index];
+        for (NSUInteger i = 0; i < _pictograms.count; i++) {
+            [[Repository defaultRepository] addPictogram:[_pictograms objectAtIndex:i] toSchedule:self atIndex:i];
+        }
+    }
 }
 
 - (NSString *)description {
