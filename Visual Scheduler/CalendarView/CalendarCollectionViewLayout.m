@@ -219,8 +219,4 @@ static const NSUInteger HEADER_HEIGHT = 20;
     return offset;
 }
 
-- (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset {
-    return CGPointMake(0, 0);
-}
-
 @end
