@@ -81,6 +81,12 @@
     XCTAssert(pictogramsInSchedule.count == 0, @"Failed to remove all pictograms from schedule.");
 }
 
+-(void)testCanInsertAndRetrievePictogram{
+    Pictogram* pictogram = [_repo pictogramWithTitle:@"Test Domain 1" withImage:[UIImage imageNamed:@"testImage"]];
+    UIImage* image = [pictogram image];
+    XCTAssert(image, @"could not retrieve image");
+}
+
 
 @end
 
