@@ -3,6 +3,7 @@
 #import "PictogramsCollectionViewController.h"
 #import "../CalendarView/CalendarCollectionViewController.h"
 #import "../CalendarView/WeekCollectionViewLayout.h"
+#import "CreatePictogram.h"
 
 @interface ContainerViewController ()
 
@@ -331,12 +332,6 @@
     return aRect;
 }
 
-#pragma mark - 
-
-- (NSString *)description {
-    return [NSString stringWithFormat:@"ViewController\nisEditing: %d", self.isEditing];
-}
-
 #pragma mark - Device Rotation
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
@@ -352,11 +347,44 @@
 }
 
 #pragma mark -
+
 - (IBAction)changeCalendarViewMode:(id)sender {
     UISegmentedControl *control = sender;
     [self.calendarViewController switchToViewMode:control.selectedSegmentIndex];
 }
 
+#pragma mark - Camera
 
+- (IBAction)cameraButton:(id)sender {
+    [self setupCamera];
+    [self showCamera];
+}
+
+- (void)setupCamera {
+    camera = [[Camera alloc] initWithViewController:self usingDelegate:self];
+}
+
+- (void)showCamera {
+    if (![camera show]) {
+        [self alertUserCameraIsNotAvailable];
+    }
+}
+#pragma mark Delegate
+
+- (void)cameraDidSnapPhoto:(Camera *)aCamera {
+    CreatePictogram *cameraViewController = [[CreatePictogram alloc] init];
+    cameraViewController.photo = [aCamera developPhoto];
+    [self.navigationController presentViewController:cameraViewController animated:YES completion:NULL];
+}
+
+- (void)alertUserCameraIsNotAvailable {
+    [[[UIAlertView alloc] initWithTitle:@"Error" message:@"The camera is unavailable" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+}
+
+#pragma mark -
+
+- (NSString *)description {
+    return [NSString stringWithFormat:@"ViewController\nisEditing: %d", self.isEditing];
+}
 
 @end

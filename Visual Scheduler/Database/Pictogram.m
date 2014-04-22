@@ -20,6 +20,7 @@
     if(_image == nil){
         _image = [[Repository defaultRepository] imageForPictogram:self];
     }
+    NSAssert(_image, @"Must never return nil");
     return _image;
 }
 @end

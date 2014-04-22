@@ -4,154 +4,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--New Pictogram View Controller-->
-        <scene sceneID="GJ8-lK-fDS">
-            <objects>
-                <viewController id="Vl8-8o-MeU" customClass="BBANewPictogramViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ZoV-bi-vCM">
-                        <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" id="sng-4R-ooB">
-                                <rect key="frame" x="0.0" y="0.0" width="540" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="New Pictogram" id="skd-T7-Suc">
-                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="KdD-LE-qzx">
-                                            <connections>
-                                                <action selector="cancelButton:" destination="Vl8-8o-MeU" id="zbk-hz-CDg"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Done" id="6Jy-L1-oXO">
-                                            <connections>
-                                                <action selector="doneButton:" destination="Vl8-8o-MeU" id="aOG-Bf-NSR"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="y0B-3y-XRC">
-                                <rect key="frame" x="170" y="82" width="200" height="200"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="center" minimumFontSize="17" id="Q6h-Dr-Tf4">
-                                <rect key="frame" x="170" y="290" width="200" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <toolbarItems/>
-                    <nil key="simulatedStatusBarMetrics"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <modalFormSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <connections>
-                        <outlet property="photoTitle" destination="Q6h-Dr-Tf4" id="Uun-CT-udg"/>
-                        <outlet property="photoView" destination="y0B-3y-XRC" id="cEX-6J-bJV"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1u7-j9-YdA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="949" y="-1476"/>
-        </scene>
-        <!--Show Schedule View Controller-->
-        <scene sceneID="bh5-NC-PuQ">
-            <objects>
-                <viewController id="wl4-za-AMb" customClass="BBAShowScheduleViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="9NN-vh-S35">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <containerView contentMode="scaleToFill" id="RiE-kg-Uh6">
-                                <rect key="frame" x="786" y="0.0" width="568" height="1024"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <attributedString key="userComments">
-                                    <fragment content="Stored off screen.">
-                                        <attributes>
-                                            <font key="NSFont" metaFont="toolTip"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                            </containerView>
-                            <containerView contentMode="scaleToFill" id="e87-5T-1Rf">
-                                <rect key="frame" x="284" y="0.0" width="200" height="1024"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <connections>
-                                    <segue destination="kmr-Fe-PZc" kind="embed" identifier="embedScheduleCollection" id="LZF-mv-2W0"/>
-                                </connections>
-                            </containerView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="tdX-9K-31m">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="6uX-Bh-a7O">
-                            <connections>
-                                <action selector="editButtonPressed:" destination="wl4-za-AMb" id="NSE-ra-S8q"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="editButton" destination="6uX-Bh-a7O" id="cyJ-xu-of1"/>
-                        <outlet property="pictogramsContainer" destination="RiE-kg-Uh6" id="qba-gW-Ick"/>
-                        <outlet property="scheduleContainer" destination="e87-5T-1Rf" id="TV4-qo-vCE"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UTs-Hv-KaD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-581" y="-181"/>
-        </scene>
-        <!--Show Schedule Collection View Controller-->
-        <scene sceneID="i0W-vZ-VwY">
-            <objects>
-                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="kmr-Fe-PZc" customClass="BBAShowScheduleCollectionViewController" sceneMemberID="viewController">
-                    <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="Yh6-Wp-ppQ">
-                        <rect key="frame" x="0.0" y="0.0" width="200" height="1024"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="2M3-Vn-sgg">
-                            <size key="itemSize" width="175" height="175"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="60" maxX="0.0" maxY="15"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="schedulesPictogram" id="mas-Ih-wNb" customClass="PictogramCollectionViewCell">
-                                <rect key="frame" x="13" y="60" width="175" height="175"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" tag="6472" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Z7s-wb-nXo">
-                                            <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        </imageView>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="kmr-Fe-PZc" id="90P-es-7bt"/>
-                            <outlet property="delegate" destination="kmr-Fe-PZc" id="maK-uG-BhF"/>
-                            <outletCollection property="gestureRecognizers" destination="PfP-Yu-QpM" appends="YES" id="hDD-zr-PG3"/>
-                        </connections>
-                    </collectionView>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mwp-DE-A0U" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="PfP-Yu-QpM">
-                    <connections>
-                        <action selector="longPressGesture:" destination="kmr-Fe-PZc" id="8Df-EU-tJv"/>
-                    </connections>
-                </pongPressGestureRecognizer>
-            </objects>
-            <point key="canvasLocation" x="263" y="-181"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="LMG-h6-PzK">
             <objects>
@@ -195,6 +47,12 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="kqo-Vj-Gd5">
                         <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="camera" id="6CY-p3-DqZ">
+                            <color key="tintColor" red="1" green="0.051676359249999998" blue="0.10486219419999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="cameraButton:" destination="Xfv-XK-laj" id="qPT-dh-Vad"/>
+                            </connections>
+                        </barButtonItem>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="2" id="mCy-3k-gPU">
                             <rect key="frame" x="231" y="7" width="307" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -224,40 +82,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EM5-ug-Ix7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1021" y="-1678"/>
-        </scene>
-        <!--Pictograms Collection View Controller-->
-        <scene sceneID="dyy-ZI-r1L">
-            <objects>
-                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="KN4-Ck-bwX" customClass="PictogramsCollectionViewController" sceneMemberID="viewController">
-                    <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="KfA-FS-MCy">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pjm-wo-79y">
-                            <size key="itemSize" width="110" height="127"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="T2P-pO-W16">
-                                <rect key="frame" x="0.0" y="0.0" width="110" height="127"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="110" height="127"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="KN4-Ck-bwX" id="oBt-1G-cqo"/>
-                            <outlet property="delegate" destination="KN4-Ck-bwX" id="Yxx-NC-ChX"/>
-                        </connections>
-                    </collectionView>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xQr-dw-WjR" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-27" y="-818"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

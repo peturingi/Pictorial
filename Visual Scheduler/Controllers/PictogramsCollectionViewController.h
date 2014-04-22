@@ -1,10 +1,8 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 #import "BBASelectPictogramViewControllerDelegate.h"
-#import "Camera.h"
 
-@interface PictogramsCollectionViewController : UICollectionViewController <CameraDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate> {
-    Camera *camera;
+@interface PictogramsCollectionViewController : UICollectionViewController < UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate> {
 }
 
 @property (weak, nonatomic) Pictogram *selectedItem;

@@ -1,5 +1,5 @@
 #import "PictogramsCollectionViewController.h"
-#import "BBANewPictogramViewController.h"
+#import "CreatePictogram.h"
 #import "UIView+BBASubviews.h"
 #import "../Database/Repository.h"
 
@@ -17,7 +17,6 @@ NSInteger const kCellTagForLabelView = 2;
 @implementation PictogramsCollectionViewController
 
 - (void)dealloc {
-    camera = nil;
     self.dataSource = nil;
     self.repository = nil;
 }
@@ -53,33 +52,6 @@ NSInteger const kCellTagForLabelView = 2;
     _repository = [Repository defaultRepository];
     NSAssert(_repository != nil, @"Failed to get shared repository.");
     _dataSource = [_repository allPictogramsIncludingImages:NO];
-}
-
-#pragma mark - Camera
-
-- (IBAction)cameraButton:(id)sender {
-    [self setupCamera];
-    [self showCamera];
-}
-
-- (void)setupCamera {
-    camera = [[Camera alloc] initWithViewController:self usingDelegate:self];
-}
-
-- (void)showCamera {
-    if (![camera show]) {
-        [self alertUserCameraIsNotAvailable];
-    }
-}
-
-- (void)alertUserCameraIsNotAvailable {
-    [[[UIAlertView alloc] initWithTitle:@"Error" message:@"The camera is unavailable" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-}
-
-#pragma mark Camera Delegate
-
-- (void)cameraDidSnapPhoto:(Camera *)camera {
-    [self performSegueWithIdentifier:@"newPictogramAskForTitle" sender:nil];
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout

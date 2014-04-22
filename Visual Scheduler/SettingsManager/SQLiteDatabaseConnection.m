@@ -82,6 +82,7 @@
         @throw [NSException exceptionWithName:@"NilObjectException" reason:@"Object was nil" userInfo:nil];
     }
     NSData* data = [NSKeyedArchiver archivedDataWithRootObject:object];
+    data = object;
     int result = sqlite3_bind_blob(statement, position, [data bytes], (int)data.length, NULL);
     if (result != SQLITE_OK) {
         @throw [NSException exceptionWithName:BIND_TO_STATEMENT_FAILED_EXCEPTION reason:[NSString stringWithFormat:@"Failed to bind datablob to statement with sqlite3 errorcode: %d", result] userInfo:nil];
