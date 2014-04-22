@@ -145,8 +145,8 @@
 		D8315AF818D39E0600C4A340 /* CameraTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraTests.m; sourceTree = "<group>"; };
 		D8315AFB18D39E0600C4A340 /* MockCameraDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockCameraDelegate.h; sourceTree = "<group>"; };
 		D8315AFC18D39E0600C4A340 /* MockCameraDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockCameraDelegate.m; sourceTree = "<group>"; };
-		D832357B1902D80800FA4DFF /* ContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContainerViewController.h; path = Controllers/ContainerViewController.h; sourceTree = "<group>"; };
-		D832357C1902D80800FA4DFF /* ContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContainerViewController.m; path = Controllers/ContainerViewController.m; sourceTree = "<group>"; usesTabs = 0; };
+		D832357B1902D80800FA4DFF /* ContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContainerViewController.h; path = "Visual Scheduler/Controllers/ContainerViewController.h"; sourceTree = "<group>"; };
+		D832357C1902D80800FA4DFF /* ContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContainerViewController.m; path = "Visual Scheduler/Controllers/ContainerViewController.m"; sourceTree = "<group>"; usesTabs = 0; };
 		D83A62B818B696DC00EC0773 /* Visual Scheduler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Visual Scheduler.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D83A62BB18B696DC00EC0773 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D83A62BD18B696DC00EC0773 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -503,9 +503,6 @@
 				D85EBDDB18DC836700DF76B7 /* Color */,
 				D83A62CA18B696DC00EC0773 /* AppDelegate.h */,
 				D83A62CB18B696DC00EC0773 /* AppDelegate.m */,
-				D83A62CD18B696DC00EC0773 /* Main.storyboard */,
-				D832357B1902D80800FA4DFF /* ContainerViewController.h */,
-				D832357C1902D80800FA4DFF /* ContainerViewController.m */,
 				D8401B451901846100BAF82F /* ScheduleViewController.h */,
 				D8401B461901846100BAF82F /* ScheduleViewController.m */,
 				D8315AF518D39DF000C4A340 /* Camera */,
@@ -634,6 +631,8 @@
 		D87964B91906A09500333CD1 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				D83A62CD18B696DC00EC0773 /* Main.storyboard */,
+				D87964BD1906E26500333CD1 /* Container View */,
 				D87964BC1906E23000333CD1 /* Create Pictograms */,
 			);
 			name = UI;
@@ -647,6 +646,15 @@
 				D8805F3E18C5DD01001BD35B /* CreatePictogram.m */,
 			);
 			name = "Create Pictograms";
+			sourceTree = "<group>";
+		};
+		D87964BD1906E26500333CD1 /* Container View */ = {
+			isa = PBXGroup;
+			children = (
+				D832357B1902D80800FA4DFF /* ContainerViewController.h */,
+				D832357C1902D80800FA4DFF /* ContainerViewController.m */,
+			);
+			name = "Container View";
 			sourceTree = "<group>";
 		};
 		D8805F4018C5DD07001BD35B /* New Pictogram */ = {
@@ -945,6 +953,7 @@
 				D83A62CE18B696DC00EC0773 /* Base */,
 			);
 			name = Main.storyboard;
+			path = "Visual Scheduler";
 			sourceTree = "<group>";
 		};
 		D83A62E318B696DC00EC0773 /* InfoPlist.strings */ = {
