@@ -207,6 +207,31 @@
     static Pictogram *pictogramBeingDragged = nil;
     static CGRect pictogramOriginInBottomView;
     
+    switch (gestureRecognizer.state) {
+        case UIGestureRecognizerStateBegan:
+            break;
+            
+        case UIGestureRecognizerStateChanged:
+            if (draggedView != nil) {
+                CGPoint gestureLocation = [gestureRecognizer locationInView:self.view];
+                draggedView.frame = [self center:draggedView.frame at:gestureLocation];
+            }
+            break;
+            
+        case UIGestureRecognizerStateEnded:
+            break;
+            
+        case UIGestureRecognizerStateFailed:
+        case UIGestureRecognizerStateCancelled:
+            [draggedView removeFromSuperview];
+            draggedView = nil;
+            pictogramBeingDragged = nil;
+            break;
+            
+        case UIGestureRecognizerStatePossible:
+            break;
+    }
+    
     if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
         CGPoint locationInTopView = [gestureRecognizer locationInView:self.topView];
         if ([self.topView pointInside:locationInTopView withEvent:nil])
@@ -258,10 +283,6 @@
                                      draggedView.frame = destinationFrameForAnimation;
                                  }
                              }];
-        }
-    } else if (gestureRecognizer.state == UIGestureRecognizerStateChanged) {
-        if (draggedView != nil) {
-            draggedView.frame = [self center:draggedView.frame at:[gestureRecognizer locationInView:self.view]];
         }
     } else if (gestureRecognizer.state == UIGestureRecognizerStateEnded && pictogramBeingDragged != nil) {
         
@@ -336,10 +357,6 @@
         }
         
 
-    } else if (gestureRecognizer.state == UIGestureRecognizerStateCancelled || gestureRecognizer.state == UIGestureRecognizerStateFailed) {
-        [draggedView removeFromSuperview];
-        draggedView = nil;
-        pictogramBeingDragged = nil;
     }
 }
 
