@@ -32,12 +32,12 @@
 }
 
 -(void)testPrepareStatementWithNilStringThrows{
-    SQLiteDatabaseConnection* dbcon = [[SQLiteDatabaseConnection alloc]initWithDatabaseFileNamed:@"settings"];
+    SQLiteDatabaseConnection* dbcon = [[SQLiteDatabaseConnection alloc]initWithDatabaseFileNamed:@"settings.sqlite3"];
     XCTAssertThrows([dbcon prepareStatementWithQuery:nil], @"did not throw");
 }
 
 -(void)testPrepareStatementWithEmptyStringThrows{
-    SQLiteDatabaseConnection* dbcon = [[SQLiteDatabaseConnection alloc]initWithDatabaseFileNamed:@"settings"];
+    SQLiteDatabaseConnection* dbcon = [[SQLiteDatabaseConnection alloc]initWithDatabaseFileNamed:@"settings.sqlite3"];
     XCTAssertThrows([dbcon prepareStatementWithQuery:@""], @"did not throw");
 }
 

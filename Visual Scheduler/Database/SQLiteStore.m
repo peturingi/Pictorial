@@ -127,7 +127,7 @@
     NSString *query = @"INSERT INTO pictogram (title, image) VALUES (?,?)";
     sqlite3_stmt *statement = [_dbcon prepareStatementWithQuery:query];
     [_dbcon bindTextToStatement:statement text:titleForPictogram atPosition:1];
-    [_dbcon bindObjectDataBlobToStatement:statement anObject:imageDataForPictogram atPosition:2];
+    [_dbcon bindDataToStatement:statement data:imageDataForPictogram atPosition:2];
     [_dbcon stepStatement:statement];
     [_dbcon finalizeStatement:statement];
     return [_dbcon lastInsertRowID];

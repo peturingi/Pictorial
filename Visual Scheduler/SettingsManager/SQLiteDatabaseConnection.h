@@ -10,7 +10,7 @@
 -(void)stepStatement:(sqlite3_stmt*)statement;
 -(void)bindIntegerToStatement:(sqlite3_stmt*)statement integer:(NSInteger)value atPosition:(NSInteger)position;
 -(void)bindTextToStatement:(sqlite3_stmt*)statement text:(NSString*)value atPosition:(NSInteger)position;
--(void)bindObjectDataBlobToStatement:(sqlite3_stmt*)statement anObject:(id)object atPosition:(NSInteger)position;
+-(void)bindDataToStatement:(sqlite3_stmt*)statement data:(NSData*)data atPosition:(NSInteger)position;
 -(NSData*)dataFromStatement:(sqlite3_stmt*)statement atColumnIndex:(NSInteger)index;
 -(NSString*)stringFromStatement:(sqlite3_stmt*)statement atColumnIndex:(NSInteger)index;
 -(NSInteger)integerFromStatement:(sqlite3_stmt*)statement atColumnIndex:(NSInteger)index;
