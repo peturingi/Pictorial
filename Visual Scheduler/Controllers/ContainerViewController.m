@@ -13,20 +13,27 @@
 
 @implementation ContainerViewController
 
-- (void)viewDidLoad {
-    
-    self.bottomView.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.bottomView.layer.shadowOpacity = 0.8f;
-    self.bottomView.layer.shadowRadius = 5.0f;
-    
-    [self setupChildViewControllers];
-#warning possible race condition, if childViewControllers are not initialized before the gestureRecognizers try to addthemselfs.
-    [self setupGestureRecognizer];
+- (id)init {
+    NSAssert(false, @"Use initWithCoder");
+    return nil;
+}
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    NSAssert(false, @"Use initWithCoder");
+    return nil;
 }
 
-- (void)setupChildViewControllers {
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        isShowingBottomView = NO;
+    }
+    return self;
+}
+
+- (void)viewDidLoad {
     [self setupCalendar];
-    [self setupPictogramSelectorViewController];
+#warning possible race condition, if childViewControllers are not initialized before the gestureRecognizers try to addthemselfs.
+    [self setupGestureRecognizer];
 }
 
 - (void)setupCalendar {
@@ -38,17 +45,6 @@
     
     // Fit the view within its contained view.
     self.calendarViewController.view.frame = self.topView.bounds;
-}
-
-- (void)setupPictogramSelectorViewController {
-    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    PictogramsCollectionViewController *vc = [[PictogramsCollectionViewController alloc] initWithCollectionViewLayout:layout];
-    self.pictogramViewController = vc;
-    [self addChildViewController:vc];
-    [self.bottomView addSubview:vc.view];
-    
-    // Fit the view of each controller within their contained views.
-    self.pictogramViewController.view.frame = self.bottomView.bounds;
 }
 
 #pragma mark - User Interaction
@@ -68,7 +64,26 @@
     bottomViewGestureRecognizer.enabled = self.editing;
 }
 
+- (void)setupPictogramSelectorViewController {
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    PictogramsCollectionViewController *vc = [[PictogramsCollectionViewController alloc] initWithCollectionViewLayout:layout];
+    vc.view.frame = self.bottomView.bounds;
+    [self addChildViewController:vc];
+    [self.bottomView addSubview:vc.view];
+    self.pictogramViewController = vc;
+    
+    // Shadow
+    self.bottomView.layer.shadowRadius = 10.0f;
+    self.bottomView.layer.shadowColor = [UIColor blackColor].CGColor;    
+}
+
 - (void)showPictogramSelector {
+    if (self.pictogramViewController == nil) {
+        [self setupPictogramSelectorViewController];
+    }
+    isShowingBottomView = YES;
+    self.bottomView.layer.shadowOpacity = 0.8f;
+    
     CGRect frame = self.view.frame;
     // Cover 1/3 of the screen
     frame.origin = CGPointMake(self.view.frame.origin.x,
@@ -98,16 +113,24 @@
 }
 
 - (void)hidePictogramSelector {
+    isShowingBottomView = NO;
     CGRect frame = self.view.frame;
     frame.origin = CGPointMake(self.view.frame.origin.x,
                                self.view.bounds.origin.y + self.view.bounds.size.height);
     frame.size = self.bottomView.frame.size;
     self.navigationItem.rightBarButtonItem.enabled = NO;
+
     [UIView animateWithDuration:0.3f animations:^{
         self.bottomView.frame = frame;
     }completion:^(BOOL completed){
-        self.bottomView.frame = frame;
-        self.navigationItem.rightBarButtonItem.enabled = YES;
+        if (completed) {
+            self.bottomView.layer.shadowOpacity = 0.0f;
+            self.bottomView.frame = frame;
+            self.navigationItem.rightBarButtonItem.enabled = YES;
+            
+            [self.pictogramViewController removeFromParentViewController];
+            self.pictogramViewController = nil;
+        }
     }];
 }
 
@@ -312,6 +335,20 @@
 
 - (NSString *)description {
     return [NSString stringWithFormat:@"ViewController\nisEditing: %d", self.isEditing];
+}
+
+#pragma mark - Device Rotation
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    [self restoreCalendarHeight];
+}
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+    if (isShowingBottomView) {
+        [self showPictogramSelector];
+    } else {
+        [self hidePictogramSelector];
+    }
 }
 
 

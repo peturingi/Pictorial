@@ -3,6 +3,7 @@
 #import "UIView+BBASubviews.h"
 #import "../Database/Repository.h"
 
+#define INSETS  30
 
 NSString * const kCellReusableIdentifier = @"pictogramSelector";
 NSInteger const kCellTagForImageView = 1;
@@ -15,11 +16,17 @@ NSInteger const kCellTagForLabelView = 2;
 
 @implementation PictogramsCollectionViewController
 
+- (void)dealloc {
+    camera = nil;
+    self.dataSource = nil;
+    self.repository = nil;
+}
+
 - (id)initWithCollectionViewLayout:(UICollectionViewLayout *)layout {
     self = [super initWithCollectionViewLayout:layout];
     if (self) {
         [self.collectionView registerNib:[UINib nibWithNibName:@"SelectPictogramCell" bundle:nil] forCellWithReuseIdentifier:@"pictogramSelector"];
-        self.collectionView.backgroundColor = [UIColor grayColor];
+        
     }
     return self;
 }
@@ -31,6 +38,7 @@ NSInteger const kCellTagForLabelView = 2;
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     self.collectionView.backgroundColor = [UIColor whiteColor];
+    self.collectionView.contentInset = UIEdgeInsetsMake(INSETS, INSETS, INSETS, INSETS);
     
     // Makes the collectionView flexible in size, so its size can be managed by a container.
     //self.collectionView.autoresizingMask = UIViewAutoresizingFlexibleWidth |UIViewAutoresizingFlexibleHeight;
