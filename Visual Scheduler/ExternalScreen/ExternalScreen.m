@@ -1,6 +1,9 @@
 #import "ExternalScreen.h"
 #import "ExternalViewController.h"
-#include "WeekCollectionViewLayout.h"
+#import "ExternalViewLayout.h"
+#import "CalendarCollectionViewController.h"
+#import "WeekCollectionViewLayout.h"
+
 @implementation ExternalScreen
 -(id)init{
     self = [super init];
@@ -15,6 +18,11 @@
     NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
     [nc addObserver:self selector:@selector(screenDidConnectNotification:) name:UIScreenDidConnectNotification object:nil];
     [nc addObserver:self selector:@selector(screenDidDisconnectNotification:) name:UIScreenDidDisconnectNotification object:nil];
+}
+
+-(void)dealloc{
+    NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
+    [nc removeObserver:self];
 }
 
 -(void)screenDidConnectNotification:(NSNotification*)notification{
@@ -49,7 +57,8 @@
 }
 
 -(UIViewController*)destinationViewController{
-    UICollectionViewLayout* layout = [[UICollectionViewLayout alloc]init];
-    return [[ExternalViewController alloc]initWithCollectionViewLayout:layout];
+    UICollectionViewLayout* layout = [[WeekCollectionViewLayout alloc]init];
+    UIViewController* vs = [[CalendarCollectionViewController alloc]initWithCollectionViewLayout:layout];
+    return vs;
 }
 @end

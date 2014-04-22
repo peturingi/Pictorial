@@ -14,7 +14,8 @@
 - (NSArray *)contentOfAllPictogramsIncludingImageData:(BOOL)includesData;
 - (NSInteger)createPictogram:(NSDictionary *)content;
 - (BOOL)deletePictogramWithID:(NSInteger)identifier;
-- (NSArray*)contentOfPictogramWithID:(NSInteger)identifier;
+- (NSArray*)imageContentOfPictogramWithID:(NSInteger)identifier;
+-(NSArray*)contentOfPictogramWithID:(NSInteger)identifier;
 - (NSArray *)contentOfAllPictogramsInSchedule:(NSInteger)identifier includingImageData:(BOOL)includesData;
 
 - (void)addPictogram:(NSInteger)pictogramIdentifier toSchedule:(NSInteger)scheduleIdentifier atIndex:(NSInteger)index;

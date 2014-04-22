@@ -38,7 +38,8 @@
     NSString* query = @"INSERT OR REPLACE INTO objects (id_key, value) VALUES (?,?)";
     sqlite3_stmt* statement = [_dbcon prepareStatementWithQuery:query];
     [_dbcon bindTextToStatement:statement text:key atPosition:1];
-    [_dbcon bindObjectDataBlobToStatement:statement anObject:anObject atPosition:2];
+    NSData* data = [NSKeyedArchiver archivedDataWithRootObject:anObject];
+    [_dbcon bindDataToStatement:statement data:data atPosition:2];
     [_dbcon stepStatement:statement];
     [_dbcon finalizeStatement:statement];
 }
@@ -64,7 +65,8 @@
     NSString* query = @"INSERT OR REPLACE INTO numbers (id_key, value) VALUES (?,?)";
     sqlite3_stmt* statement = [_dbcon prepareStatementWithQuery:query];
     [_dbcon bindTextToStatement:statement text:key atPosition:1];
-    [_dbcon bindObjectDataBlobToStatement:statement anObject:number atPosition:2];
+    NSData* data = [NSKeyedArchiver archivedDataWithRootObject:number];
+    [_dbcon bindDataToStatement:statement data:data atPosition:2];
     [_dbcon stepStatement:statement];
     [_dbcon finalizeStatement:statement];
     

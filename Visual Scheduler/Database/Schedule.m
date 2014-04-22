@@ -14,7 +14,7 @@
 
 - (NSArray*)pictograms {
     if (_pictograms == nil) {
-        NSArray* associatedPictograms = [_repo pictogramsForSchedule:self includingImages:NO];
+        NSArray* associatedPictograms = [_repo pictogramsForSchedule:self];
         _pictograms = [NSMutableArray arrayWithArray:associatedPictograms];
     }
     return _pictograms;

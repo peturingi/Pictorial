@@ -59,7 +59,7 @@
         [_showScheduleCollectionViewController setSchedule:self.schedule];
 
         Repository *sharedRepository = [Repository defaultRepository];
-        NSArray *pictogramsInSchedules = [sharedRepository pictogramsForSchedule:self.schedule includingImages:YES];
+        NSArray *pictogramsInSchedules = [sharedRepository pictogramsForSchedule:self.schedule];
     }
     if ([[segue identifier] isEqualToString:@"pictogramSelector"]) {
         _selectPictogramViewController = (PictogramsCollectionViewController *)segue.destinationViewController;

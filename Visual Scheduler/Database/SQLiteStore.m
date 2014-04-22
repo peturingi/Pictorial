@@ -127,7 +127,7 @@
     NSString *query = @"INSERT INTO pictogram (title, image) VALUES (?,?)";
     sqlite3_stmt *statement = [_dbcon prepareStatementWithQuery:query];
     [_dbcon bindTextToStatement:statement text:titleForPictogram atPosition:1];
-    [_dbcon bindObjectDataBlobToStatement:statement anObject:imageDataForPictogram atPosition:2];
+    [_dbcon bindDataToStatement:statement data:imageDataForPictogram atPosition:2];
     [_dbcon stepStatement:statement];
     [_dbcon finalizeStatement:statement];
     return [_dbcon lastInsertRowID];
@@ -200,7 +200,7 @@
     return results;
 }
 
--(NSArray*)contentOfPictogramWithID:(NSInteger)identifier{
+-(NSArray*)imageContentOfPictogramWithID:(NSInteger)identifier{
     NSParameterAssert([self pictogramExistsWithIdentifier:identifier]);
     NSMutableArray* results = [NSMutableArray array];
     NSString* query = @"SELECT image FROM pictogram WHERE id IS (?)";
@@ -209,6 +209,24 @@
     while([_dbcon rowExistsFromStatement:statement]){
         NSData* imageData = [_dbcon dataFromStatement:statement atColumnIndex:0];
         [results addObject:imageData];
+    }
+    [_dbcon finalizeStatement:statement];
+    return results;
+}
+
+-(NSArray*)contentOfPictogramWithID:(NSInteger)identifier{
+    NSParameterAssert([self pictogramExistsWithIdentifier:identifier]);
+    NSMutableArray* results = [NSMutableArray array];
+    NSString* query = @"SELECT id, title FROM pictogram WHERE id IS (?)";
+    sqlite3_stmt* statement = [_dbcon prepareStatementWithQuery:query];
+    [_dbcon bindIntegerToStatement:statement integer:identifier atPosition:1];
+    NSMutableDictionary* content = [NSMutableDictionary dictionary];
+    while([_dbcon rowExistsFromStatement:statement]){
+        NSInteger uid = [_dbcon integerFromStatement:statement atColumnIndex:0];
+        NSString* title = [_dbcon stringFromStatement:statement atColumnIndex:1];
+        [content setValue:[NSNumber numberWithInteger:uid] forKey:ID_KEY];
+        [content setValue:title forKey:TITLE_KEY];
+        [results addObject:content];
     }
     [_dbcon finalizeStatement:statement];
     return results;

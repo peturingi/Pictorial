@@ -75,7 +75,7 @@
     for(Pictogram* pictogram in [schedule pictograms]){
         XCTAssert(![[pictogram title]isEqualToString:@"insertPic"], @"removed pictogram was still present in schedule");
     }
-    NSArray* pictogramArray = [[Repository defaultRepository]pictogramsForSchedule:schedule includingImages:NO];
+    NSArray* pictogramArray = [[Repository defaultRepository]pictogramsForSchedule:schedule];
     for(Pictogram* pictogram in pictogramArray){
         XCTAssert(![[pictogram title]isEqualToString:@"insertPic"], @"removed pictogram was still present in schedule");
     }
