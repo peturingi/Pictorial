@@ -19,6 +19,7 @@
 }
 
 -(void)insertImage:(UIImage *)image atIndex:(NSInteger)index{
+    NSParameterAssert(image);
     [_cache setObject:image forKey:[NSNumber numberWithInteger:index]];
 }
 

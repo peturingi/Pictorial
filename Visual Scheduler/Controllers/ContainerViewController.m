@@ -1,7 +1,9 @@
+#import <QuartzCore/CAAnimation.h>
 #import "ContainerViewController.h"
 #import "PictogramsCollectionViewController.h"
 #import "../CalendarView/CalendarCollectionViewController.h"
 #import "../CalendarView/WeekCollectionViewLayout.h"
+#import "CreatePictogram.h"
 
 @interface ContainerViewController ()
 
@@ -12,14 +14,27 @@
 
 @implementation ContainerViewController
 
-- (void)viewDidLoad {
-    [self setupChildViewControllers];
-            [self setupGestureRecognizer];
+- (id)init {
+    NSAssert(false, @"Use initWithCoder");
+    return nil;
+}
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    NSAssert(false, @"Use initWithCoder");
+    return nil;
 }
 
-- (void)setupChildViewControllers {
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        isShowingBottomView = NO;
+    }
+    return self;
+}
+
+- (void)viewDidLoad {
     [self setupCalendar];
-    [self setupPictogramSelectorViewController];
+#warning possible race condition, if childViewControllers are not initialized before the gestureRecognizers try to addthemselfs.
+    [self setupGestureRecognizer];
 }
 
 - (void)setupCalendar {
@@ -33,29 +48,107 @@
     self.calendarViewController.view.frame = self.topView.bounds;
 }
 
+#pragma mark - User Interaction
+
+- (IBAction)toggleEditing:(id)sender {
+    if (self.editing == NO) {
+        [self showPictogramSelector];
+        self.editing = YES;
+    } else {
+        [self restoreCalendarHeight];
+        [self hidePictogramSelector];
+        self.editing = NO;
+    }
+
+    [self.calendarViewController setEditing:self.editing animated:YES];
+    topViewGestureRecognizer.enabled = self.editing;
+    bottomViewGestureRecognizer.enabled = self.editing;
+}
+
 - (void)setupPictogramSelectorViewController {
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     PictogramsCollectionViewController *vc = [[PictogramsCollectionViewController alloc] initWithCollectionViewLayout:layout];
-    self.pictogramViewController = vc;
+    vc.view.frame = self.bottomView.bounds;
     [self addChildViewController:vc];
     [self.bottomView addSubview:vc.view];
+    self.pictogramViewController = vc;
     
-    // Fit the view of each controller within their contained views.
-    self.pictogramViewController.view.frame = self.bottomView.bounds;
+    // Shadow
+    self.bottomView.layer.shadowRadius = 10.0f;
+    self.bottomView.layer.shadowColor = [UIColor blackColor].CGColor;    
+}
+
+- (void)showPictogramSelector {
+    if (self.pictogramViewController == nil) {
+        [self setupPictogramSelectorViewController];
+    }
+    isShowingBottomView = YES;
+    self.bottomView.layer.shadowOpacity = 0.8f;
+    
+    CGRect frame = self.view.frame;
+    // Cover 1/3 of the screen
+    frame.origin = CGPointMake(self.view.frame.origin.x,
+                               self.view.bounds.origin.y + self.view.bounds.size.height/3.0f * 2.0f);
+    frame.size = CGSizeMake(self.view.frame.size.width,
+                            self.view.bounds.origin.y + self.view.frame.size.height/3.0f);
+    self.navigationItem.rightBarButtonItem.enabled = NO;
+    [UIView animateWithDuration:0.3f animations:^{
+        self.bottomView.frame = frame;
+    }completion:^(BOOL completed){
+        if (completed) {
+            self.bottomView.frame = frame;
+            [self shrinkCalendarbyOneThirdItsHeightFromBottom];
+            self.navigationItem.rightBarButtonItem.enabled = YES;
+        }
+    }];
+}
+
+- (void)shrinkCalendarbyOneThirdItsHeightFromBottom {
+    CGRect frame = self.topView.frame;
+    frame.size.height -= frame.size.height / 3.0f;
+    self.topView.frame = frame;
+}
+
+- (void)restoreCalendarHeight {
+    self.topView.frame = self.view.bounds;
+}
+
+- (void)hidePictogramSelector {
+    isShowingBottomView = NO;
+    CGRect frame = self.view.frame;
+    frame.origin = CGPointMake(self.view.frame.origin.x,
+                               self.view.bounds.origin.y + self.view.bounds.size.height);
+    frame.size = self.bottomView.frame.size;
+    self.navigationItem.rightBarButtonItem.enabled = NO;
+
+    [UIView animateWithDuration:0.3f animations:^{
+        self.bottomView.frame = frame;
+    }completion:^(BOOL completed){
+        if (completed) {
+            self.bottomView.layer.shadowOpacity = 0.0f;
+            self.bottomView.frame = frame;
+            self.navigationItem.rightBarButtonItem.enabled = YES;
+            
+            [self.pictogramViewController removeFromParentViewController];
+            self.pictogramViewController = nil;
+        }
+    }];
 }
 
 #pragma mark Gestures
 
 - (void)setupGestureRecognizer {
-    UILongPressGestureRecognizer *gr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(bottomViewGesture:)];
+    bottomViewGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(bottomViewGesture:)];
     CFTimeInterval requiredPressDuration = 0.1f;
-    gr.minimumPressDuration = requiredPressDuration;
-    [self.bottomView addGestureRecognizer:gr];
+    bottomViewGestureRecognizer.minimumPressDuration = requiredPressDuration;
+    bottomViewGestureRecognizer.enabled = NO;
+    [self.bottomView addGestureRecognizer:bottomViewGestureRecognizer];
     
-    UILongPressGestureRecognizer *deleteGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(topViewGesture:)];
+    topViewGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(topViewGesture:)];
     CFTimeInterval timeBeforeDelete = 0.1f;
-    deleteGesture.minimumPressDuration = timeBeforeDelete;
-    [self.topView addGestureRecognizer:deleteGesture];
+    topViewGestureRecognizer.minimumPressDuration = timeBeforeDelete;
+    topViewGestureRecognizer.enabled = NO;
+    [self.topView addGestureRecognizer:topViewGestureRecognizer];
 }
 
 - (void)topViewGesture:(UILongPressGestureRecognizer *)gestureRecognizer {
@@ -65,7 +158,6 @@
     switch (gestureRecognizer.state) {
         case UIGestureRecognizerStateBegan:
             touchedItem = [self.calendarViewController.collectionView indexPathForItemAtPoint:locationInTopView];
-            NSLog(@"Touchdown at: %ld, %ld", (long)touchedItem.section, (long)touchedItem.item);
             [self.calendarViewController deleteItemAtIndexPath:touchedItem];
             touchedItem = nil;
             break;
@@ -86,6 +178,7 @@
 }
 
 - (void)bottomViewGesture:(UILongPressGestureRecognizer *)gestureRecognizer {
+    NSAssert(self.editing, @"It must not be possible to reach this method unless in edit mode.");
     static UIView *draggedView = nil;
     static Pictogram *pictogramBeingDragged = nil;
     static CGRect pictogramOriginInBottomView;
@@ -154,13 +247,56 @@
         CGPoint locationInCollectionView = [self.calendarViewController.collectionView convertPoint:locationInTopView fromView:self.topView];
         
         if ([self.topView pointInside:locationInTopView withEvent:nil]) {
-            [self.calendarViewController sectionAtPoint:locationInCollectionView];
-            [self.calendarViewController addPictogram:pictogramBeingDragged atIndexPath:[self.calendarViewController.collectionView indexPathForItemAtPoint:locationInCollectionView]];
+            NSIndexPath *destination = [self.calendarViewController.collectionView indexPathForItemAtPoint:locationInCollectionView];
+            // Ensure target destination is valid.
+            if (destination) {
+                CGRect destinationFrame = [self.calendarViewController.collectionView cellForItemAtIndexPath:destination].frame;
+                destinationFrame = [self.view convertRect:destinationFrame fromView:self.calendarViewController.collectionView];
+                
+                
+                /* Animation */
+                CGFloat duration = 0.3;
+                CGFloat animationTargetShadowOpacity = 0.0f;
+                // Animate shadow removal, to give effect like layer is moving down
+                CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"shadowOpacity"];
+                animation.fromValue = [NSNumber numberWithFloat:draggedView.layer.shadowOpacity];
+                animation.toValue = [NSNumber numberWithFloat:animationTargetShadowOpacity];
+                animation.duration = duration;
+                [draggedView.layer addAnimation:animation forKey:@"shadowOpacity"];
+                // Animate layer moving in place
+                [UIView animateWithDuration:duration
+                                 animations:^{
+                                     draggedView.frame = destinationFrame;
+                                     draggedView.layer.shadowOpacity = animationTargetShadowOpacity; // Triggers the above defined shadow animation.
+                                     for (UIView *subview in draggedView.subviews) {
+                                         CGRect frame = subview.frame;
+                                         CGSize size = destinationFrame.size;
+                                         frame.size = size;
+                                         subview.frame = frame;
+                                     }
+                                 }completion:^(BOOL finished){
+                                     [self.calendarViewController addPictogram:pictogramBeingDragged atIndexPath:destination];
+                                     [draggedView removeFromSuperview];
+                                     draggedView = nil;
+                                     pictogramBeingDragged = nil;
+                                     pictogramOriginInBottomView = CGRectNull;
+                                 }];
+
+            } else {
+                [UIView animateWithDuration:0.3f
+                                 animations:^{
+                                     draggedView.frame = pictogramOriginInBottomView;
+                                 }completion:^(BOOL finished){
+                                     if (finished) {
+                                         [draggedView removeFromSuperview];
+                                         draggedView = nil;
+                                         pictogramBeingDragged = nil;
+                                         pictogramOriginInBottomView = CGRectNull;
+                                     }
+                                 }];
+            }
             
-            [draggedView removeFromSuperview];
-            draggedView = nil;
-            pictogramBeingDragged = nil;
-            pictogramOriginInBottomView = CGRectNull;
+
         } else {
             [UIView animateWithDuration:0.3f
                              animations:^{
@@ -194,6 +330,61 @@
     aRect.origin.x -= aRect.size.width / 2.0f;
     aRect.origin.y -= aRect.size.height / 2.0f;
     return aRect;
+}
+
+#pragma mark - Device Rotation
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    [self restoreCalendarHeight];
+}
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+    if (isShowingBottomView) {
+        [self showPictogramSelector];
+    } else {
+        [self hidePictogramSelector];
+    }
+}
+
+#pragma mark -
+
+- (IBAction)changeCalendarViewMode:(id)sender {
+    UISegmentedControl *control = sender;
+    [self.calendarViewController switchToViewMode:control.selectedSegmentIndex];
+}
+
+#pragma mark - Camera
+
+- (IBAction)cameraButton:(id)sender {
+    [self setupCamera];
+    [self showCamera];
+}
+
+- (void)setupCamera {
+    camera = [[Camera alloc] initWithViewController:self usingDelegate:self];
+}
+
+- (void)showCamera {
+    if (![camera show]) {
+        [self alertUserCameraIsNotAvailable];
+    }
+}
+#pragma mark Delegate
+
+- (void)cameraDidSnapPhoto:(Camera *)aCamera {
+    CreatePictogram *cameraViewController = [[CreatePictogram alloc] init];
+    cameraViewController.photo = [aCamera developPhoto];
+    [self.navigationController presentViewController:cameraViewController animated:YES completion:NULL];
+}
+
+- (void)alertUserCameraIsNotAvailable {
+    [[[UIAlertView alloc] initWithTitle:@"Error" message:@"The camera is unavailable" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+}
+
+#pragma mark -
+
+- (NSString *)description {
+    return [NSString stringWithFormat:@"ViewController\nisEditing: %d", self.isEditing];
 }
 
 @end

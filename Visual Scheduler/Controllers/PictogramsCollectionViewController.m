@@ -1,8 +1,9 @@
 #import "PictogramsCollectionViewController.h"
-#import "BBANewPictogramViewController.h"
+#import "CreatePictogram.h"
 #import "UIView+BBASubviews.h"
 #import "../Database/Repository.h"
 
+#define INSETS  30
 
 NSString * const kCellReusableIdentifier = @"pictogramSelector";
 NSInteger const kCellTagForImageView = 1;
@@ -15,11 +16,16 @@ NSInteger const kCellTagForLabelView = 2;
 
 @implementation PictogramsCollectionViewController
 
+- (void)dealloc {
+    self.dataSource = nil;
+    self.repository = nil;
+}
+
 - (id)initWithCollectionViewLayout:(UICollectionViewLayout *)layout {
     self = [super initWithCollectionViewLayout:layout];
     if (self) {
         [self.collectionView registerNib:[UINib nibWithNibName:@"SelectPictogramCell" bundle:nil] forCellWithReuseIdentifier:@"pictogramSelector"];
-        self.collectionView.backgroundColor = [UIColor grayColor];
+        
     }
     return self;
 }
@@ -31,6 +37,7 @@ NSInteger const kCellTagForLabelView = 2;
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     self.collectionView.backgroundColor = [UIColor whiteColor];
+    self.collectionView.contentInset = UIEdgeInsetsMake(INSETS, INSETS, INSETS, INSETS);
     
     // Makes the collectionView flexible in size, so its size can be managed by a container.
     //self.collectionView.autoresizingMask = UIViewAutoresizingFlexibleWidth |UIViewAutoresizingFlexibleHeight;
@@ -45,33 +52,6 @@ NSInteger const kCellTagForLabelView = 2;
     _repository = [Repository defaultRepository];
     NSAssert(_repository != nil, @"Failed to get shared repository.");
     _dataSource = [_repository allPictogramsIncludingImages:NO];
-}
-
-#pragma mark - Camera
-
-- (IBAction)cameraButton:(id)sender {
-    [self setupCamera];
-    [self showCamera];
-}
-
-- (void)setupCamera {
-    camera = [[Camera alloc] initWithViewController:self usingDelegate:self];
-}
-
-- (void)showCamera {
-    if (![camera show]) {
-        [self alertUserCameraIsNotAvailable];
-    }
-}
-
-- (void)alertUserCameraIsNotAvailable {
-    [[[UIAlertView alloc] initWithTitle:@"Error" message:@"The camera is unavailable" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-}
-
-#pragma mark Camera Delegate
-
-- (void)cameraDidSnapPhoto:(Camera *)camera {
-    [self performSegueWithIdentifier:@"newPictogramAskForTitle" sender:nil];
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout
