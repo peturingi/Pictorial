@@ -1,13 +1,12 @@
 #import "CreatePictogram.h"
-#import "../Database/Pictogram.h"
-#import "../Database/Repository.h"
-
-@interface CreatePictogram ()
-@end
+#import "Repository.h"
+#import "Pictogram.h"
 
 @implementation CreatePictogram
 
 - (void)viewWillAppear:(BOOL)animated {
+    NSAssert(self.photo, @"Missing photo.");
+    
     [self.photoView setImage:self.photo];
 }
 
@@ -24,23 +23,38 @@
 }
 
 - (void)createPictogram {
-    NSAssert(self.photoView.image != nil, @"Invalid photo");
-    NSAssert(self.photoTitle.text.length > 0, @"Photo must have a title.");
+    NSAssert(self.photoView.image != nil, @"Cannot create a pictogram without a photo.");
+    NSAssert(self.photoTitle.text.length > 0, @"Cannot create a pictogram without a title.");
     
-    if ([self verifyTitle]) {
-        [[Repository defaultRepository] pictogramWithTitle:self.photoTitle.text withImage:self.photoView.image];
+    if ([self validInputTitle]) {
+        id createdPictogram = [[Repository defaultRepository] pictogramWithTitle:self.photoTitle.text withImage:self.photoView.image];
+        if (!createdPictogram) {
+            [self throwErrorCreatingPictogram];
+        }
+        
         [self dismissViewController];
-    } else {
+    }
+    else {
         [self alertUserOfInvalidTitle];
     }
 }
 
-- (BOOL)verifyTitle {
+- (BOOL)validInputTitle {
     return ([self.photoTitle.text length] > 0) ? YES : NO;
 }
 
+#pragma mark -
+
 - (void)alertUserOfInvalidTitle {
-    [[[UIAlertView alloc] initWithTitle:@"Error" message:@"You must specify a title." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You must specify a title." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+}
+
+- (void)throwErrorCreatingPictogram {
+    NSDictionary *userInfo = @{TITLE_KEY : self.photoTitle.text,
+                              IMAGE_KEY : self.photoView.image};
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"Expected to receive a pictogram." userInfo:userInfo];
+
 }
 
 @end

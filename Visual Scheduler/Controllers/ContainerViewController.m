@@ -374,7 +374,11 @@
 - (void)cameraDidSnapPhoto:(Camera *)aCamera {
     CreatePictogram *cameraViewController = [[CreatePictogram alloc] init];
     cameraViewController.photo = [aCamera developPhoto];
-    [self.navigationController presentViewController:cameraViewController animated:YES completion:NULL];
+    cameraViewController.modalPresentationStyle = UIModalPresentationFormSheet;
+    [self.navigationController presentViewController:cameraViewController animated:YES completion:^{
+        camera = nil;
+        
+    }];
 }
 
 - (void)alertUserCameraIsNotAvailable {
