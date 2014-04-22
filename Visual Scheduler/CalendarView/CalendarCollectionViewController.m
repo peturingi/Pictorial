@@ -60,12 +60,9 @@
     
 }
 
-- (void)handleCalendarViewMode:(NSNotification *)notification {
-    if ([notification.name isEqualToString:NOTIFICATION_CALENDAR_VIEW]) {
-        NSNumber *viewMode = [notification object];
+- (void)switchToViewMode:(NSInteger)viewMode {
         UICollectionViewLayout *layout;
-
-        switch (viewMode.integerValue) {
+        switch (viewMode) {
             case 0:
                 layout = [[NowCollectionViewLayout alloc] initWithCoder:nil];
                 break;
@@ -77,16 +74,14 @@
             case 2:
                 layout = [[WeekCollectionViewLayout alloc] initWithCoder:nil];
                 break;
+            
+            default:
+                    @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"Unknown view mode selected." userInfo:nil];
+                break;
         }
-        
         [layout prepareForTransitionFromLayout:self.collectionView.collectionViewLayout];
         [self.collectionViewLayout prepareForTransitionToLayout:layout];
         [self.collectionView setCollectionViewLayout:layout animated:YES];
-    }
-}
-
-- (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)sectionAtPoint:(CGPoint)point {

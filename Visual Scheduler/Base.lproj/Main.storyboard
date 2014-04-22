@@ -205,7 +205,7 @@
                             </segments>
                             <color key="tintColor" red="1" green="0.051676359249999998" blue="0.10486219419999999" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="switchCalendarRepresentation:" destination="Xfv-XK-laj" eventType="valueChanged" id="COQ-Eq-WSj"/>
+                                <action selector="changeCalendarViewMode:" destination="Xfv-XK-laj" eventType="valueChanged" id="mdp-2a-qwa"/>
                             </connections>
                         </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="64g-Ej-m6D">

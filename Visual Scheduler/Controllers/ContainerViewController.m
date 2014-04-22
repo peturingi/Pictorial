@@ -351,5 +351,12 @@
     }
 }
 
+#pragma mark -
+- (IBAction)changeCalendarViewMode:(id)sender {
+    UISegmentedControl *control = sender;
+    [self.calendarViewController switchToViewMode:control.selectedSegmentIndex];
+}
+
+
 
 @end

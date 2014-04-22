@@ -8,5 +8,5 @@
 - (void)deleteItemAtIndexPath:(NSIndexPath *)touchedItem;
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated;
-
+- (void)switchToViewMode:(NSInteger)viewMode;
 @end
