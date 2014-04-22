@@ -12,12 +12,15 @@
 + (instancetype)defaultRepository;
 - (Schedule *)scheduleWithTitle:(NSString *)title withColor:(UIColor *)color;
 - (Pictogram *)pictogramWithTitle:(NSString *)title withImage:(UIImage *)image;
--(NSArray*)pictogramsForSchedule:(Schedule*)schedule includingImages:(BOOL)includesImages;
+-(NSArray*)pictogramsForSchedule:(Schedule*)schedule;
 - (void)removeAllPictogramsFromSchedule:(Schedule *)schedule;
 -(void)addPictogram:(Pictogram*)pictogram toSchedule:(Schedule*)schedule atIndex:(NSInteger)index;
 -(void)removePictogram:(Pictogram*)pictogram fromSchedule:(Schedule*)schedule atIndex:(NSInteger)index;
 - (NSArray *)allSchedules;
-- (NSArray *)allPictogramsIncludingImages:(BOOL)includesImages;
+- (NSArray *)allPictograms;
 - (void)deleteSchedule:(Schedule *)aSchedule;
 -(UIImage*)imageForPictogram:(Pictogram*)pictogram;
+
+
+-(Pictogram*)pictogramForIdentifier:(NSInteger)identifier;
 @end

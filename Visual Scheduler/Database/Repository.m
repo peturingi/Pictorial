@@ -46,6 +46,8 @@
                               IMAGE_KEY : UIImagePNGRepresentation(image)};
     NSInteger uniqueIdentifier = [_dataStore createPictogram:content];
     Pictogram *pictogram = [[Pictogram alloc] initWithTitle:title withUniqueIdentifier:uniqueIdentifier withImage:image];
+    NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
+    [nc postNotificationName:NOTIFICATION_PICTOGRAM_INSERTED object:[NSNumber numberWithInteger:uniqueIdentifier]];
     return pictogram;
 }
 
@@ -68,8 +70,8 @@
     return [self schedulesFromContentArray:contents];
 }
 
-- (NSArray *)allPictogramsIncludingImages:(BOOL)includesImages {
-    NSArray *contents = [_dataStore contentOfAllPictogramsIncludingImageData:includesImages];
+- (NSArray *)allPictograms{
+    NSArray *contents = [_dataStore contentOfAllPictogramsIncludingImageData:NO];
     return [self pictogramsFromContentArray:contents];
 }
 
@@ -80,8 +82,8 @@
     [_dataStore addPictogram:pictogram.uniqueIdentifier toSchedule:schedule.uniqueIdentifier atIndex:index];
 }
 
--(NSArray*)pictogramsForSchedule:(Schedule *)schedule includingImages:(BOOL)includesImages{
-    NSArray* contents = [_dataStore contentOfAllPictogramsInSchedule:schedule.uniqueIdentifier includingImageData:includesImages];
+-(NSArray*)pictogramsForSchedule:(Schedule *)schedule{
+    NSArray* contents = [_dataStore contentOfAllPictogramsInSchedule:schedule.uniqueIdentifier includingImageData:NO];
     return [self pictogramsFromContentArray:contents];
 }
 
@@ -99,12 +101,21 @@
     NSInteger index = [pictogram uniqueIdentifier];
     UIImage* image = [_imageCache imageAtIndex:index];
     if(image == nil){
-        NSArray* contentForPictogram = [_dataStore contentOfPictogramWithID:index];
+        NSArray* contentForPictogram = [_dataStore imageContentOfPictogramWithID:index];
         image = [UIImage imageWithData:[contentForPictogram objectAtIndex:0]];
         [_imageCache insertImage:image atIndex:index];
     }
     return image;
 }
+
+
+-(Pictogram*)pictogramForIdentifier:(NSInteger)identifier{
+    NSParameterAssert(identifier > 0);
+    NSArray* contentForPictogram = [_dataStore contentOfPictogramWithID:identifier];
+    Pictogram* pictogram = [[self pictogramsFromContentArray:contentForPictogram]objectAtIndex:0];
+    return pictogram;
+}
+
 
 #pragma mark - private methods
 -(NSArray*)pictogramsFromContentArray:(NSArray*)contents{

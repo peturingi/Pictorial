@@ -53,7 +53,7 @@
 - (void)testCanGetAtleastTwoPictograms {
     [_repo pictogramWithTitle:@"Test Domain 1" withImage:[UIImage imageNamed:@"testImage"]];
     [_repo pictogramWithTitle:@"Test Domain 2" withImage:[UIImage imageNamed:@"testImage"]];
-    NSArray *pictograms = [_repo allPictogramsIncludingImages:NO];
+    NSArray *pictograms = [_repo allPictograms];
     XCTAssertTrue(pictograms.count >= 2, @"Expected atleast 2 pictograms.");
 }
 
@@ -63,7 +63,7 @@
     Pictogram* pictogram2 = [_repo pictogramWithTitle:@"Test Domain 2" withImage:[UIImage imageNamed:@"testImage"]];
     [_repo addPictogram:pictogram1 toSchedule:schedule atIndex:0];
     [_repo addPictogram:pictogram2 toSchedule:schedule atIndex:1];
-    NSArray* pictogramsInSchedule = [_repo pictogramsForSchedule:schedule includingImages:NO];
+    NSArray* pictogramsInSchedule = [_repo pictogramsForSchedule:schedule];
     XCTAssert([pictogramsInSchedule count] >= 2, @"pictograms were not added");
 }
 
@@ -73,11 +73,11 @@
     Pictogram* pictogram2 = [_repo pictogramWithTitle:@"Test Domain 2" withImage:[UIImage imageNamed:@"testImage"]];
     [_repo addPictogram:pictogram1 toSchedule:schedule atIndex:0];
     [_repo addPictogram:pictogram2 toSchedule:schedule atIndex:1];
-    NSArray* pictogramsInSchedule = [_repo pictogramsForSchedule:schedule includingImages:NO];
+    NSArray* pictogramsInSchedule = [_repo pictogramsForSchedule:schedule];
     XCTAssert([pictogramsInSchedule count] >= 2, @"pictograms were not added");
     
     [_repo removeAllPictogramsFromSchedule:schedule];
-    pictogramsInSchedule = [_repo pictogramsForSchedule:schedule includingImages:NO];
+    pictogramsInSchedule = [_repo pictogramsForSchedule:schedule];
     XCTAssert(pictogramsInSchedule.count == 0, @"Failed to remove all pictograms from schedule.");
 }
 
@@ -87,6 +87,13 @@
     XCTAssert(image, @"could not retrieve image");
 }
 
+-(void)testCanGetPictogramForIdentifier{
+    Pictogram* pictogram = [_repo pictogramWithTitle:@"Test Domain 1" withImage:[UIImage imageNamed:@"testImage"]];
+    Pictogram* result = [_repo pictogramForIdentifier:pictogram.uniqueIdentifier];
+    XCTAssert([[pictogram title]isEqualToString:result.title], @"title did not match");
+    XCTAssert(pictogram.uniqueIdentifier == result.uniqueIdentifier, @"was not same object");
+    
+}
 
 @end
 

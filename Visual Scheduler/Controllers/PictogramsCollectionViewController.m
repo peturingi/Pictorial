@@ -51,7 +51,7 @@ NSInteger const kCellTagForLabelView = 2;
 - (void)setupDataSource {
     _repository = [Repository defaultRepository];
     NSAssert(_repository != nil, @"Failed to get shared repository.");
-    _dataSource = [_repository allPictogramsIncludingImages:NO];
+    _dataSource = [_repository allPictograms];
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout
