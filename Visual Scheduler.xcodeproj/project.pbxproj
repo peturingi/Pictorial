@@ -620,10 +620,10 @@
 		D87964B91906A09500333CD1 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				D87964BC1906E23000333CD1 /* Create Pictograms */,
 				D8805F4818C5E459001BD35B /* Select Pictogram */,
 				D83A62CD18B696DC00EC0773 /* Main.storyboard */,
 				D87964BD1906E26500333CD1 /* Container View */,
-				D87964BC1906E23000333CD1 /* Create Pictograms */,
 			);
 			name = UI;
 			sourceTree = "<group>";

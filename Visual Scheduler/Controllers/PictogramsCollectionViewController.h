@@ -3,7 +3,7 @@
 #import "SelectPictogramViewControllerDelegate.h"
 #import "PictogramsCollectionDataSource.h"
 
-@interface PictogramsCollectionViewController : UICollectionViewController <UICollectionViewDelegateFlowLayout, UICollectionViewDelegate>
+@interface PictogramsCollectionViewController : UICollectionViewController
 
 - (Pictogram *)pictogramAtPoint:(CGPoint)point;
 
