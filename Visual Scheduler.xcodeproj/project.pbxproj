@@ -44,6 +44,8 @@
 		D83A62DD18B696DC00EC0773 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BF18B696DC00EC0773 /* UIKit.framework */; };
 		D83A62E518B696DC00EC0773 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D83A62E318B696DC00EC0773 /* InfoPlist.strings */; };
 		D83BFE4B1907CAE600F72646 /* UIView+HoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = D83BFE4A1907CAE600F72646 /* UIView+HoverView.m */; };
+		D83BFE4E1907EDCE00F72646 /* PictogramsCollectionDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D83BFE4D1907EDCE00F72646 /* PictogramsCollectionDataSource.m */; };
+		D83BFE541907FC7F00F72646 /* PictogramsCollectionViewDelegateFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D83BFE531907FC7F00F72646 /* PictogramsCollectionViewDelegateFlowLayout.m */; };
 		D8401AAA1900312A00BAF82F /* BackgroundColour.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8401AA91900312A00BAF82F /* BackgroundColour.xib */; };
 		D8401B471901846100BAF82F /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8401B461901846100BAF82F /* ScheduleViewController.m */; };
 		D8401B4A1901B08300BAF82F /* NowCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D8401B491901B08300BAF82F /* NowCollectionViewLayout.m */; };
@@ -168,6 +170,10 @@
 		D83A62E418B696DC00EC0773 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D83BFE491907CAE600F72646 /* UIView+HoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+HoverView.h"; path = "Visual Scheduler/Category/UIView+HoverView.h"; sourceTree = "<group>"; };
 		D83BFE4A1907CAE600F72646 /* UIView+HoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+HoverView.m"; path = "Visual Scheduler/Category/UIView+HoverView.m"; sourceTree = "<group>"; };
+		D83BFE4C1907EDCE00F72646 /* PictogramsCollectionDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PictogramsCollectionDataSource.h; path = "Visual Scheduler/Controllers/PictogramsCollectionDataSource.h"; sourceTree = "<group>"; };
+		D83BFE4D1907EDCE00F72646 /* PictogramsCollectionDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PictogramsCollectionDataSource.m; path = "Visual Scheduler/Controllers/PictogramsCollectionDataSource.m"; sourceTree = "<group>"; };
+		D83BFE521907FC7F00F72646 /* PictogramsCollectionViewDelegateFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PictogramsCollectionViewDelegateFlowLayout.h; path = "Visual Scheduler/Controllers/PictogramsCollectionViewDelegateFlowLayout.h"; sourceTree = "<group>"; };
+		D83BFE531907FC7F00F72646 /* PictogramsCollectionViewDelegateFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PictogramsCollectionViewDelegateFlowLayout.m; path = "Visual Scheduler/Controllers/PictogramsCollectionViewDelegateFlowLayout.m"; sourceTree = "<group>"; };
 		D8401AA91900312A00BAF82F /* BackgroundColour.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BackgroundColour.xib; path = "Visual Scheduler/CalendarView/BackgroundColour.xib"; sourceTree = "<group>"; };
 		D8401B451901846100BAF82F /* ScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScheduleViewController.h; path = CalendarView/ScheduleViewController.h; sourceTree = "<group>"; };
 		D8401B461901846100BAF82F /* ScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScheduleViewController.m; path = CalendarView/ScheduleViewController.m; sourceTree = "<group>"; };
@@ -202,7 +208,7 @@
 		D8805F3E18C5DD01001BD35B /* CreatePictogram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CreatePictogram.m; path = "Visual Scheduler/Controllers/CreatePictogram.m"; sourceTree = "<group>"; };
 		D8805F4518C5E456001BD35B /* PictogramsCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PictogramsCollectionViewController.h; path = "Visual Scheduler/Controllers/PictogramsCollectionViewController.h"; sourceTree = "<group>"; };
 		D8805F4618C5E456001BD35B /* PictogramsCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PictogramsCollectionViewController.m; path = "Visual Scheduler/Controllers/PictogramsCollectionViewController.m"; sourceTree = "<group>"; };
-		D88CF2B618C71B5300AF0CC1 /* BBASelectPictogramViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BBASelectPictogramViewControllerDelegate.h; path = "Visual Scheduler/Controllers/BBASelectPictogramViewControllerDelegate.h"; sourceTree = "<group>"; };
+		D88CF2B618C71B5300AF0CC1 /* SelectPictogramViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SelectPictogramViewControllerDelegate.h; path = "Visual Scheduler/Controllers/SelectPictogramViewControllerDelegate.h"; sourceTree = "<group>"; };
 		D8A28F061902CD4B0003BA94 /* SelectPictogramCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SelectPictogramCell.xib; path = "Visual Scheduler/Controllers/SelectPictogramCell.xib"; sourceTree = "<group>"; };
 		D8AFD9991901B98300A294D5 /* TodayCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TodayCollectionViewLayout.h; path = "Visual Scheduler/CalendarView/TodayCollectionViewLayout.h"; sourceTree = "<group>"; };
 		D8AFD99A1901B98300A294D5 /* TodayCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TodayCollectionViewLayout.m; path = "Visual Scheduler/CalendarView/TodayCollectionViewLayout.m"; sourceTree = "<group>"; };
@@ -536,6 +542,49 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		D83BFE551908052300F72646 /* Data Source */ = {
+			isa = PBXGroup;
+			children = (
+				D83BFE4C1907EDCE00F72646 /* PictogramsCollectionDataSource.h */,
+				D83BFE4D1907EDCE00F72646 /* PictogramsCollectionDataSource.m */,
+			);
+			name = "Data Source";
+			sourceTree = "<group>";
+		};
+		D83BFE561908053300F72646 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				D83BFE521907FC7F00F72646 /* PictogramsCollectionViewDelegateFlowLayout.h */,
+				D83BFE531907FC7F00F72646 /* PictogramsCollectionViewDelegateFlowLayout.m */,
+			);
+			name = Delegate;
+			sourceTree = "<group>";
+		};
+		D83BFE571908054400F72646 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D8805F4618C5E456001BD35B /* PictogramsCollectionViewController.m */,
+				D8805F4518C5E456001BD35B /* PictogramsCollectionViewController.h */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		D83BFE581908055D00F72646 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				D88CF2B618C71B5300AF0CC1 /* SelectPictogramViewControllerDelegate.h */,
+			);
+			name = Protocol;
+			sourceTree = "<group>";
+		};
+		D83BFE591908056E00F72646 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				D8A28F061902CD4B0003BA94 /* SelectPictogramCell.xib */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
 		D85EBDC918DC804400DF76B7 /* DevelopmentPictograms */ = {
 			isa = PBXGroup;
 			children = (
@@ -601,10 +650,11 @@
 		D8805F4818C5E459001BD35B /* Select Pictogram */ = {
 			isa = PBXGroup;
 			children = (
-				D8805F4518C5E456001BD35B /* PictogramsCollectionViewController.h */,
-				D8805F4618C5E456001BD35B /* PictogramsCollectionViewController.m */,
-				D8A28F061902CD4B0003BA94 /* SelectPictogramCell.xib */,
-				D88CF2B618C71B5300AF0CC1 /* BBASelectPictogramViewControllerDelegate.h */,
+				D83BFE591908056E00F72646 /* UI */,
+				D83BFE581908055D00F72646 /* Protocol */,
+				D83BFE561908053300F72646 /* Delegate */,
+				D83BFE571908054400F72646 /* Controller */,
+				D83BFE551908052300F72646 /* Data Source */,
 			);
 			name = "Select Pictogram";
 			sourceTree = "<group>";
@@ -779,6 +829,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				682012351902C3A700CE0C91 /* Localizer.m in Sources */,
+				D83BFE541907FC7F00F72646 /* PictogramsCollectionViewDelegateFlowLayout.m in Sources */,
 				68AA188B19029C41002BE754 /* UIImage+Filters.m in Sources */,
 				D82D5FD418C616A6000A8FD3 /* UIView+BBASubviews.m in Sources */,
 				6818B6EE19050E0C009F0742 /* ExternalScreen.m in Sources */,
@@ -788,6 +839,7 @@
 				D8B016EF18FEB85700017D76 /* CalendarView.m in Sources */,
 				D8EB983118E33E4A00DA3A99 /* Repository.m in Sources */,
 				D8BABEC018EC6839009E562E /* NSMutableArray+MoveObject.m in Sources */,
+				D83BFE4E1907EDCE00F72646 /* PictogramsCollectionDataSource.m in Sources */,
 				D8401B4A1901B08300BAF82F /* NowCollectionViewLayout.m in Sources */,
 				D8C7BDE7190287E800128FA7 /* WeekCollectionViewLayout.m in Sources */,
 				6818B6FF19059475009F0742 /* ExternalViewDataSource.m in Sources */,

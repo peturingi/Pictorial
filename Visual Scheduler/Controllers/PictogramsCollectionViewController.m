@@ -1,130 +1,92 @@
 #import "PictogramsCollectionViewController.h"
 #import "CreatePictogram.h"
-#import "UIView+BBASubviews.h"
 #import "../Database/Repository.h"
+#import "UIView+BBASubviews.h"
+#import "PictogramsCollectionViewDelegateFlowLayout.h"
 
-#define INSETS  30
-
-NSString * const kCellReusableIdentifier = @"pictogramSelector";
-NSInteger const kCellTagForImageView = 1;
-NSInteger const kCellTagForLabelView = 2;
+#define INSETS 30
+#define BACKGROUND_COLOR [UIColor whiteColor]
+#define CELL_REUSE_IDENTIFIER @"pictogramSelector"
 
 @interface PictogramsCollectionViewController ()
-@property (strong, nonatomic) NSArray *dataSource;
-@property (weak, nonatomic) Repository *repository;
+@property (strong, nonatomic) PictogramsCollectionDataSource *dataSource;
+@property (strong, nonatomic) PictogramsCollectionViewDelegateFlowLayout *layoutDelegate;
 @end
 
 @implementation PictogramsCollectionViewController
 
-- (void)dealloc {
-    self.dataSource = nil;
-    self.repository = nil;
-}
-
 - (id)initWithCollectionViewLayout:(UICollectionViewLayout *)layout {
+    NSParameterAssert(layout);
     self = [super initWithCollectionViewLayout:layout];
     if (self) {
-        [self.collectionView registerNib:[UINib nibWithNibName:@"SelectPictogramCell" bundle:nil] forCellWithReuseIdentifier:@"pictogramSelector"];
-        
+        [self registerCollectionViewCell];
     }
     return self;
 }
 
+- (void)registerCollectionViewCell {
+    NSString * const nibName = @"SelectPictogramCell";
+    if ([[NSBundle mainBundle] pathForResource:nibName ofType:@"nib"] != nil) {
+        [self.collectionView registerNib:[UINib nibWithNibName:nibName bundle:nil] forCellWithReuseIdentifier:CELL_REUSE_IDENTIFIER];
+    }
+    else {
+        @throw [NSException exceptionWithName:@"Could not regsiter nib." reason:@"File not found." userInfo:nil];
+    }
+}
+
 - (void)loadView {
     [super loadView];
-    
     self.collectionView = [[UICollectionView alloc] initWithFrame:self.view.frame collectionViewLayout:self.collectionViewLayout];
-    self.collectionView.dataSource = self;
-    self.collectionView.delegate = self;
-    self.collectionView.backgroundColor = [UIColor whiteColor];
+    _dataSource = [[PictogramsCollectionDataSource alloc] init];
+    self.collectionView.dataSource = self.dataSource;
+    _layoutDelegate = [[PictogramsCollectionViewDelegateFlowLayout alloc] init];
+    self.collectionView.delegate = self.layoutDelegate;
+    self.collectionView.backgroundColor = BACKGROUND_COLOR;
     self.collectionView.contentInset = UIEdgeInsetsMake(INSETS, INSETS, INSETS, INSETS);
-    
-    // Makes the collectionView flexible in size, so its size can be managed by a container.
-    //self.collectionView.autoresizingMask = UIViewAutoresizingFlexibleWidth |UIViewAutoresizingFlexibleHeight;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    [self setupDataSource];
-}
-
-- (void)setupDataSource {
-    _repository = [Repository defaultRepository];
-    NSAssert(_repository != nil, @"Failed to get shared repository.");
-    _dataSource = [_repository allPictograms];
-}
-
-#pragma mark - UICollectionViewDelegateFlowLayout
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    CGSize size = CGSizeMake(100, 135);
-    return size;
-}
-
-#pragma mark - UICollectionView
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    NSAssert(_dataSource != nil, @"Must not be nil.");
-    return self.dataSource.count;
-}
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-   UICollectionViewCell *reusableCell = [collectionView dequeueReusableCellWithReuseIdentifier:kCellReusableIdentifier forIndexPath:indexPath];
-   [self configureCell:reusableCell atIndexPath:indexPath];
-   return reusableCell;
-}
-
-- (void)configureCell:(UICollectionViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    UIImageView *imageView = (UIImageView *)[cell.contentView firstSubviewWithTag:kCellTagForImageView];
-    UIImage *image = [self imageForPictogramAtIndexPath:indexPath];
-    [imageView setImage:image];
-    
-    UILabel *labelView = (UILabel *)[cell.contentView firstSubviewWithTag:kCellTagForLabelView];
-    NSString *title = [self titleForPictogramIndexPath:indexPath];
-    [labelView setText:title];
-    
-    imageView.layer.borderWidth = PICTOGRAM_BORDER_WIDTH;
-    imageView.layer.cornerRadius = PICTOGRAM_CORNER_RADIUS;
-}
-
-- (UIImage *)imageForPictogramAtIndexPath:(NSIndexPath *)indexPath {
-    Pictogram *pictogram = [self.dataSource objectAtIndex:indexPath.row];
-    NSAssert(pictogram.image != nil, @"Failed to load image from pictogram.");
-    return pictogram.image;
-}
-
-- (NSString *)titleForPictogramIndexPath:(NSIndexPath *)indexPath {
-    Pictogram *pictogram = [self.dataSource objectAtIndex:indexPath.row];
-    return pictogram.title;
-}
-
-#pragma mark Public - used by container
+#pragma mark - Public
 
 - (Pictogram *)pictogramAtPoint:(CGPoint)point {
-    point.x += self.collectionView.contentOffset.x;
-    point.y += self.collectionView.contentOffset.y;
-    
-    NSIndexPath *selection = [self.collectionView indexPathForItemAtPoint:point];
-    return [self.dataSource objectAtIndex:selection.item];
+    CGPoint itemPoint = [self addPoint:point toPoint:self.collectionView.contentOffset];
+    NSIndexPath *selection = [self.collectionView indexPathForItemAtPoint:itemPoint];
+    Pictogram *pictogram = [self.dataSource pictogramAtIndexPath:selection];
+    return pictogram;
 }
 
 - (CGRect)frameOfPictogramAtPoint:(CGPoint)point {
-    CGPoint contentPoint = point;
-    contentPoint.x += self.collectionView.contentOffset.x;
-    contentPoint.y += self.collectionView.contentOffset.y;
-    
+    CGPoint contentPoint = [self addPoint:point toPoint:self.collectionView.contentOffset];
     NSIndexPath *selection = [self.collectionView indexPathForItemAtPoint:contentPoint];
-    
     UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:selection];
-    UIImageView *image = (UIImageView *)[cell.contentView firstSubviewWithTag:kCellTagForImageView];
-    
-    CGPoint origin = cell.frame.origin;
-    origin = [self.view convertPoint:origin fromView:self.collectionView];
-    CGSize size = image.frame.size;
-    CGRect frame = { origin, size };
-    
+    UIImageView *image = (UIImageView *)[cell.contentView firstSubviewWithTag:CELL_TAG_FOR_IMAGE_VIEW];
+    CGPoint origin = [self.view convertPoint:cell.frame.origin fromView:self.collectionView];
+    CGRect frame = { origin, image.frame.size };
     return frame;
 }
 
+- (CGPoint)addPoint:(CGPoint)first toPoint:(CGPoint)second {
+    CGPoint result;
+    result.x = first.x + second.x;
+    result.y = first.y + second.y;
+    return result;
+}
+
+#pragma mark - dealloc
+
+- (void)dealloc {
+    [self nilIvars];
+    [self deRegisterCollectionViewCell];
+}
+
+- (void)nilIvars {
+    self.dataSource = nil;
+    self.layoutDelegate = nil;
+}
+
+- (void)deRegisterCollectionViewCell {
+    [self.collectionView registerNib:nil forCellWithReuseIdentifier:CELL_REUSE_IDENTIFIER];
+}
+
+#pragma mark -
 
 @end

@@ -1,11 +1,9 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
-#import "BBASelectPictogramViewControllerDelegate.h"
+#import "SelectPictogramViewControllerDelegate.h"
+#import "PictogramsCollectionDataSource.h"
 
-@interface PictogramsCollectionViewController : UICollectionViewController < UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate> {
-}
-
-@property (weak, nonatomic) Pictogram *selectedItem;
+@interface PictogramsCollectionViewController : UICollectionViewController <UICollectionViewDelegateFlowLayout, UICollectionViewDelegate>
 
 - (Pictogram *)pictogramAtPoint:(CGPoint)point;
 
