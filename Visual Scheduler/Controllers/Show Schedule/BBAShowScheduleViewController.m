@@ -101,7 +101,7 @@
 
 #pragma mark Delegate
 
-- (void)BBASelectPictogramViewController:(PictogramsCollectionViewController *)controller didSelectItem:(Pictogram *)item {
+- (void)SelectPictogramViewController:(PictogramsCollectionViewController *)controller didSelectItem:(Pictogram *)item {
     [self.showScheduleCollectionViewController addPictogram:item];
 }
 

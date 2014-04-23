@@ -2,7 +2,7 @@
 #import "Schedule.h"
 #import "BBASelectPictogramViewControllerDelegate.h"
 
-@interface BBAShowScheduleViewController : UIViewController <BBASelectPictogramViewControllerDelegate>
+@interface BBAShowScheduleViewController : UIViewController <SelectPictogramViewControllerDelegate>
 
 @property (strong, nonatomic) Schedule *schedule;
 

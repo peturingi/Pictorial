@@ -1,8 +1,9 @@
 @class PictogramsCollectionViewController;
-@class NSManagedObjectID;
 @class Pictogram;
 
-@protocol BBASelectPictogramViewControllerDelegate
+@protocol SelectPictogramViewControllerDelegate
+
 @required
-- (void)BBASelectPictogramViewController:(PictogramsCollectionViewController *)controller didSelectItem:(Pictogram *)item;
+- (void)SelectPictogramViewController:(PictogramsCollectionViewController *)controller didSelectItem:(Pictogram *)item;
+
 @end
