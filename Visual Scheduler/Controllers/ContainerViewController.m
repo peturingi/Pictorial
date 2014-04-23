@@ -5,15 +5,7 @@
 #import "WeekCollectionViewLayout.h"
 #import "CreatePictogram.h"
 
-#define PICTOGRAM_SHADOW_COLOR [UIColor blackColor].CGColor
-#define PICTOGRAM_SHADOW_RADIUS 10.0f
-#define PICTOGRAM_SHADOW_OPACITY 0.8f
-#define PICTOGRAM_SHADOW_OFFSET CGSizeMake(0, 0)
-#define PICTOGRAM_BORDER_COLOR [UIColor blackColor].CGColor
-
-#define PRESS_DURATION_BEFORE_DRAG 0.1f
-
-#define ANIMATION_DURATION_INSERT_PICTOGRAM 0.3f
+#import "UIView+HoverView.h"
 
 @interface ContainerViewController ()
 @property (weak, nonatomic) PictogramsCollectionViewController *pictogramViewController;
@@ -25,7 +17,7 @@
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        isShowingBottomView = NO;
+        _isShowingBottomView = NO;
     }
     return self;
 }
@@ -75,7 +67,7 @@
 #pragma mark - Show Pictogram Selector
 
 - (void)showPictogramSelector {
-    isShowingBottomView = YES;
+    _isShowingBottomView = YES;
     [self animateInBottomView];
 }
 
@@ -111,7 +103,7 @@
 #pragma mark - Hide Pictrogram Selector
 
 - (void)hidePictogramSelector {
-    isShowingBottomView = NO;
+    _isShowingBottomView = NO;
     [self setEditButtonEnabled:NO];
     [self animateOutBottomView];
 }
@@ -140,8 +132,8 @@
 }
 
 - (void)setEditGestureRecognizersEnabled:(BOOL)value {
-    topViewGestureRecognizer.enabled = value;
-    bottomViewGestureRecognizer.enabled = value;
+    _topViewGestureRecognizer.enabled = value;
+    _bottomViewGestureRecognizer.enabled = value;
 }
 
 - (void)setupPictogramSelectorViewController {
@@ -172,19 +164,19 @@
 }
 
 - (void)setupTopViewGestureRecognizer {
-    bottomViewGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(bottomViewGesture:)];
+    _bottomViewGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(bottomViewGesture:)];
     CFTimeInterval requiredPressDuration = PRESS_DURATION_BEFORE_DRAG;
-    bottomViewGestureRecognizer.minimumPressDuration = requiredPressDuration;
-    bottomViewGestureRecognizer.enabled = NO;
-    [self.bottomView addGestureRecognizer:bottomViewGestureRecognizer];
+    _bottomViewGestureRecognizer.minimumPressDuration = requiredPressDuration;
+    _bottomViewGestureRecognizer.enabled = NO;
+    [self.bottomView addGestureRecognizer:_bottomViewGestureRecognizer];
 }
 
 - (void)setupBottomViewGestureRecognizer {
-    topViewGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(topViewGesture:)];
+    _topViewGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(topViewGesture:)];
     CFTimeInterval timeBeforeDelete = 0.1f;
-    topViewGestureRecognizer.minimumPressDuration = timeBeforeDelete;
-    topViewGestureRecognizer.enabled = NO;
-    [self.topView addGestureRecognizer:topViewGestureRecognizer];
+    _topViewGestureRecognizer.minimumPressDuration = timeBeforeDelete;
+    _topViewGestureRecognizer.enabled = NO;
+    [self.topView addGestureRecognizer:_topViewGestureRecognizer];
 }
 
 - (void)topViewGesture:(UILongPressGestureRecognizer *)gestureRecognizer {
@@ -216,48 +208,18 @@
     
     switch (gestureRecognizer.state) {
         case UIGestureRecognizerStateBegan:
-        {
-            CGPoint locationInBottomView = [gestureRecognizer locationInView:self.bottomView];
-            if ([self.bottomView pointInside:locationInBottomView withEvent:nil]) {
-                
-                /* get pictogram being dragged */
-                pictogramBeingDragged = [self.pictogramViewController pictogramAtPoint:locationInBottomView];
-                CGRect frameOfTouchedPictogram = [self.pictogramViewController frameOfPictogramAtPoint:locationInBottomView];
-                originOfTouchedPictogram = [self.view convertRect:frameOfTouchedPictogram fromView:self.bottomView];
-                
-                viewFollowingFinger = [self draggablePictogramWith:originOfTouchedPictogram usingImage:pictogramBeingDragged.image];
-                [self.view addSubview:viewFollowingFinger];
-                
-                CGPoint gestureLocationInView = [gestureRecognizer locationInView:self.view];
-                CGRect destinationFrameForAnimation = CGRectMake(gestureLocationInView.x,
-                                                                 gestureLocationInView.y,
-                                                                 originOfTouchedPictogram.size.width,
-                                                                 originOfTouchedPictogram.size.height);
-                /* The pictogram to be dragged animates to the fingers position, as its touched for the first time. */
-                // Center around the finger
-                destinationFrameForAnimation.origin = [self centerOfRect:destinationFrameForAnimation];
-                // Animate to finger
-                [UIView animateWithDuration:0.1f
-                                 animations:^{
-                                     viewFollowingFinger.frame = destinationFrameForAnimation;
-                                 }completion:^(BOOL finished){
-                                     if (finished) {
-                                         viewFollowingFinger.frame = destinationFrameForAnimation;
-                                     }
-                                 }];
-            }
-        }
+            [self ifPictogramWasTouchedAnimateItToTheFingerLocation:gestureRecognizer];
             break;
             
         case UIGestureRecognizerStateChanged:
-            if (viewFollowingFinger != nil) {
+            if (_viewFollowingFinger != nil) {
                 CGPoint gestureLocation = [gestureRecognizer locationInView:self.view];
-                viewFollowingFinger.frame = [self center:viewFollowingFinger.frame at:gestureLocation];
+                _viewFollowingFinger.frame = [self center:_viewFollowingFinger.frame at:gestureLocation];
             }
             break;
             
         case UIGestureRecognizerStateEnded:
-            if (pictogramBeingDragged != nil) {
+            if (_pictogramBeingDragged != nil) {
                 CGPoint locationInTopView = [gestureRecognizer locationInView:self.topView];
                 CGPoint locationInCollectionView = [self.calendarViewController.collectionView convertPoint:locationInTopView fromView:self.topView];
                 if ([self.topView pointInside:locationInTopView withEvent:nil]) {
@@ -275,26 +237,26 @@
                         
                         CABasicAnimation* (^removeShadow)(void) = ^CABasicAnimation*(void){
                             CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:shadowOpacity];
-                            animation.fromValue = [NSNumber numberWithFloat:viewFollowingFinger.layer.shadowOpacity];
+                            animation.fromValue = [NSNumber numberWithFloat:_viewFollowingFinger.layer.shadowOpacity];
                             animation.toValue = [NSNumber numberWithFloat:0];
                             animation.duration = ANIMATION_DURATION_INSERT_PICTOGRAM;
                             return animation;
                         };
-                        [viewFollowingFinger.layer addAnimation:removeShadow() forKey:shadowOpacity];
+                        [_viewFollowingFinger.layer addAnimation:removeShadow() forKey:shadowOpacity];
                         
                         // Animate layer moving in place
                         [UIView animateWithDuration:ANIMATION_DURATION_INSERT_PICTOGRAM
                                          animations:^{
-                                             viewFollowingFinger.frame = destinationFrame;
-                                             viewFollowingFinger.layer.shadowOpacity = 0;
-                                             for (UIView *subview in viewFollowingFinger.subviews) {
+                                             _viewFollowingFinger.frame = destinationFrame;
+                                             _viewFollowingFinger.layer.shadowOpacity = 0;
+                                             for (UIView *subview in _viewFollowingFinger.subviews) {
                                                  CGRect frame = subview.frame;
                                                  CGSize size = destinationFrame.size;
                                                  frame.size = size;
                                                  subview.frame = frame;
                                              }
                                          }completion:^(BOOL finished){
-                                             [self.calendarViewController addPictogram:pictogramBeingDragged atIndexPath:destination];
+                                             [self.calendarViewController addPictogram:_pictogramBeingDragged atIndexPath:destination];
                                              [self resetPictogramDragging];
                                          }];
                     }
@@ -318,12 +280,38 @@
     }
 }
 
+- (void)ifPictogramWasTouchedAnimateItToTheFingerLocation:(UIGestureRecognizer *)gestureRecognizer {
+    CGPoint locationInBottomView = [gestureRecognizer locationInView:self.bottomView];
+    if ([self.bottomView pointInside:locationInBottomView withEvent:nil]) {
+        
+        /* get pictogram being dragged */
+        _pictogramBeingDragged = [self.pictogramViewController pictogramAtPoint:locationInBottomView];
+        CGRect frameOfTouchedPictogram = [self.pictogramViewController frameOfPictogramAtPoint:locationInBottomView];
+        _originOfTouchedPictogram = [self.view convertRect:frameOfTouchedPictogram fromView:self.bottomView];
+        
+        _viewFollowingFinger = [self draggablePictogramWith:_originOfTouchedPictogram usingImage:_pictogramBeingDragged.image];
+        [self.view addSubview:_viewFollowingFinger];
+        
+        // Animate to finger
+        CGPoint gestureLocationInView = [gestureRecognizer locationInView:self.view];
+        CGRect destinationFrameForAnimation = [self rectWithSize:_originOfTouchedPictogram.size withCenter:gestureLocationInView];
+        [UIView animateWithDuration:0.1f
+                         animations:^{
+                             _viewFollowingFinger.frame = destinationFrameForAnimation;
+                         }completion:^(BOOL finished){
+                             if (finished) {
+                                 _viewFollowingFinger.frame = destinationFrameForAnimation;
+                             }
+                         }];
+    }
+}
+
 #pragma mark - Abort Dragging Pictogram
 
 - (void)animatePictogramBeingDraggedBackToWhereItCameFrom {
     [UIView animateWithDuration:0.3f
                      animations:^{
-                         viewFollowingFinger.frame = originOfTouchedPictogram;
+                         _viewFollowingFinger.frame = _originOfTouchedPictogram;
                      }completion:^(BOOL finished){
                          if (finished) {
                              [self resetPictogramDragging];
@@ -332,10 +320,10 @@
 }
 
 - (void)resetPictogramDragging {
-    [viewFollowingFinger removeFromSuperview];
-    viewFollowingFinger = nil;
-    pictogramBeingDragged = nil;
-    originOfTouchedPictogram = CGRectNull;
+    [_viewFollowingFinger removeFromSuperview];
+    _viewFollowingFinger = nil;
+    _pictogramBeingDragged = nil;
+    _originOfTouchedPictogram = CGRectNull;
 }
 
 
@@ -349,12 +337,12 @@
     
     /* A container */
     UIView *container = [[UIView alloc] initWithFrame:frame];
-    [self addHoverShadowTo:container];
+    [container addHoverShadow];
     
     /* Round the corners */
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:container.bounds];
     imageView.image = image;
-    [self addRoundedBorderTo:imageView];
+    [imageView roundBorder];
     
     /* Embed the rounded view in a container, as a workaround;
        rounding corners on a shadowed view will cut away outward
@@ -363,30 +351,15 @@
     return container;
 }
 
-/** Adds shadow to the view's layer.
- *  The view appears to be raised above whatever is under it.
- */
-- (void)addHoverShadowTo:(UIView *)view {
-    NSParameterAssert(view);
-    view.layer.shadowColor = PICTOGRAM_SHADOW_COLOR;
-    view.layer.shadowOffset = PICTOGRAM_SHADOW_OFFSET;
-    view.layer.shadowOpacity = PICTOGRAM_SHADOW_OPACITY;
-    view.layer.shadowRadius = PICTOGRAM_SHADOW_RADIUS;
-}
-
-- (void)addRoundedBorderTo:(UIView *)view {
-    [view.layer setBorderWidth:PICTOGRAM_BORDER_WIDTH];
-    [view.layer setCornerRadius:PICTOGRAM_CORNER_RADIUS];
-    [view.layer setBorderColor:PICTOGRAM_BORDER_COLOR];
-    [view.layer setMasksToBounds:YES];
-}
-
 #pragma mark -
 
-- (CGPoint)centerOfRect:(CGRect)aRect {
-    aRect.origin.x -= aRect.size.width / 2.0f;
-    aRect.origin.y -= aRect.size.height / 2.0f;
-    return aRect.origin;
+- (CGRect)rectWithSize:(CGSize)size withCenter:(CGPoint)center {
+    CGRect rect = CGRectMake(center.x,
+                             center.y,
+                             size.width,
+                             size.height);
+    rect = [self center:rect at:center];
+    return rect;
 }
 
 - (CGRect)center:(CGRect)rect at:(CGPoint)point {
@@ -403,7 +376,7 @@
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
-    if (isShowingBottomView) {
+    if (_isShowingBottomView) {
         [self showPictogramSelector];
     } else {
         [self hidePictogramSelector];
@@ -418,11 +391,11 @@
 }
 
 - (void)setupCamera {
-    camera = [[Camera alloc] initWithViewController:self usingDelegate:self];
+    _camera = [[Camera alloc] initWithViewController:self usingDelegate:self];
 }
 
 - (void)showCamera {
-    BOOL success = [camera show];
+    BOOL success = [_camera show];
     if (!success) {
         [self alertUserCameraIsNotAvailable];
     }
@@ -435,12 +408,12 @@
 }
 
 - (void)showCreatePictogramView {
-    NSAssert(camera, @"The camera must not be nil.");
+    NSAssert(_camera, @"The camera must not be nil.");
     CreatePictogram *viewController = [[CreatePictogram alloc] init];
-    viewController.photo = [camera developPhoto];
+    viewController.photo = [_camera developPhoto];
     viewController.modalPresentationStyle = UIModalPresentationFormSheet;
     [self.navigationController presentViewController:viewController animated:YES completion:^{
-        camera = nil;
+        _camera = nil;
     }];
 }
 

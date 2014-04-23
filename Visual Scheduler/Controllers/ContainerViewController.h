@@ -3,14 +3,14 @@
 #import "Camera.h"
 
 @interface ContainerViewController : UIViewController <CameraDelegate> {
-    UILongPressGestureRecognizer *topViewGestureRecognizer;
-    UILongPressGestureRecognizer *bottomViewGestureRecognizer;
-    BOOL isShowingBottomView;
-    Camera *camera;
+    UILongPressGestureRecognizer *_topViewGestureRecognizer;
+    UILongPressGestureRecognizer *_bottomViewGestureRecognizer;
+    BOOL _isShowingBottomView;
+    Camera *_camera;
     
-    UIView *viewFollowingFinger;
-    Pictogram *pictogramBeingDragged;
-    CGRect originOfTouchedPictogram;
+    UIView *_viewFollowingFinger;
+    Pictogram *_pictogramBeingDragged;
+    CGRect _originOfTouchedPictogram;
 }
 
 /** Container view for the calendar. */

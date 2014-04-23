@@ -45,6 +45,7 @@
 		D83A62DC18B696DC00EC0773 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BB18B696DC00EC0773 /* Foundation.framework */; };
 		D83A62DD18B696DC00EC0773 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BF18B696DC00EC0773 /* UIKit.framework */; };
 		D83A62E518B696DC00EC0773 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D83A62E318B696DC00EC0773 /* InfoPlist.strings */; };
+		D83BFE4B1907CAE600F72646 /* UIView+HoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = D83BFE4A1907CAE600F72646 /* UIView+HoverView.m */; };
 		D8401AAA1900312A00BAF82F /* BackgroundColour.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8401AA91900312A00BAF82F /* BackgroundColour.xib */; };
 		D8401B471901846100BAF82F /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8401B461901846100BAF82F /* ScheduleViewController.m */; };
 		D8401B4A1901B08300BAF82F /* NowCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D8401B491901B08300BAF82F /* NowCollectionViewLayout.m */; };
@@ -172,6 +173,8 @@
 		D83A62F418B69BEC00EC0773 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchViewController.h; path = Controllers/SearchViewController.h; sourceTree = "<group>"; };
 		D83A62F518B69BEC00EC0773 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewController.m; path = Controllers/SearchViewController.m; sourceTree = "<group>"; };
 		D83A62FB18B6B69E00EC0773 /* ContainsImageAsData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ContainsImageAsData.h; path = Protocols/ContainsImageAsData.h; sourceTree = "<group>"; };
+		D83BFE491907CAE600F72646 /* UIView+HoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+HoverView.h"; path = "Visual Scheduler/Category/UIView+HoverView.h"; sourceTree = "<group>"; };
+		D83BFE4A1907CAE600F72646 /* UIView+HoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+HoverView.m"; path = "Visual Scheduler/Category/UIView+HoverView.m"; sourceTree = "<group>"; };
 		D8401AA91900312A00BAF82F /* BackgroundColour.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BackgroundColour.xib; path = "Visual Scheduler/CalendarView/BackgroundColour.xib"; sourceTree = "<group>"; };
 		D8401B451901846100BAF82F /* ScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScheduleViewController.h; path = CalendarView/ScheduleViewController.h; sourceTree = "<group>"; };
 		D8401B461901846100BAF82F /* ScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScheduleViewController.m; path = CalendarView/ScheduleViewController.m; sourceTree = "<group>"; };
@@ -663,6 +666,8 @@
 			children = (
 				D832357B1902D80800FA4DFF /* ContainerViewController.h */,
 				D832357C1902D80800FA4DFF /* ContainerViewController.m */,
+				D83BFE491907CAE600F72646 /* UIView+HoverView.h */,
+				D83BFE4A1907CAE600F72646 /* UIView+HoverView.m */,
 			);
 			name = "Container View";
 			sourceTree = "<group>";
@@ -912,6 +917,7 @@
 				D8315AF418D39DEA00C4A340 /* Camera.m in Sources */,
 				D82C0CE218F8813F005B5569 /* CalendarCell.m in Sources */,
 				D8AFD99E1901BF2400A294D5 /* CalendarCollectionViewController.m in Sources */,
+				D83BFE4B1907CAE600F72646 /* UIView+HoverView.m in Sources */,
 				D853A80E18E1DD3C0031E986 /* SQLiteStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
