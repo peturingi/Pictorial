@@ -1,4 +1,4 @@
-#import "CalendarDataSource.h"
+#import "DayDataSource.h"
 #import "../Database/Repository.h"
 #import "CalendarCell.h"
 #import "../Protocols/ImplementsCount.h"
@@ -6,12 +6,17 @@
 
 #define CELL_IDENTIFIER @"CALENDAR_CELL"
 
-@implementation CalendarDataSource
+@implementation DayDataSource
 
 - (id)init {
+    NSAssert(NO, @"Use initWithScheduleNumber:");
+    return self;
+}
+
+- (id)initWithScheduleNumber:(NSUInteger)number {
     self = [super init];
     if (self) {
-        _data = [NSMutableArray arrayWithArray:[[Repository defaultRepository] allSchedules]];
+        schedule = [[Repository defaultRepository] scheduleNumber:number];
     }
     return self;
 }
@@ -19,23 +24,21 @@
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    id<ImplementsCount> obj = [_data objectAtIndex:section];
-    return (self.editing ? obj.count + 1 : obj.count);
+    return (self.editing ? schedule.pictograms.count + 1 : schedule.pictograms.count);
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return _data.count;
+    return 1;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CalendarCell *cell = (CalendarCell *)[collectionView dequeueReusableCellWithReuseIdentifier:CELL_IDENTIFIER forIndexPath:indexPath];
-    id<ImplementsObjectAtIndex> selectedSection = [_data objectAtIndex:indexPath.section];
     
     // Shows empty box below each schedule in edit mode.
-    if (indexPath.item < ((NSArray *)selectedSection).count) {
-        id<ContainsImage> objcontainingImage = [selectedSection objectAtIndex:indexPath.item];
-        cell.imageView.image = objcontainingImage.image;
-    } else if (self.editing && indexPath.item == ((NSArray *)selectedSection).count) {
+    if (indexPath.item < schedule.pictograms.count) {
+        Pictogram *pictogram = [schedule.pictograms objectAtIndex:indexPath.item];
+        cell.imageView.image = pictogram.image;
+    } else if (self.editing && indexPath.item == schedule.pictograms.count) {
         cell.imageView.image = nil;
     }
     
@@ -44,8 +47,13 @@
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     UICollectionReusableView *view = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"DayOfWeekColour" forIndexPath:indexPath];
-    view.backgroundColor = [[_data objectAtIndex:indexPath.section] valueForKey:@"color"]; // TODO fix this. Not very safe to use KVC here.
+    view.backgroundColor = schedule.color;
     return view;
+}
+
+- (void)addPictogram:(Pictogram *)pictogram toCollectionView:(UICollectionView *)collectionView atIndexPath:(NSIndexPath *)indexPath {
+    [schedule addPictogram:pictogram atIndex:indexPath.item];
+    [collectionView reloadData]; // TODO replace with animation
 }
 
 @end

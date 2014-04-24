@@ -1,8 +1,6 @@
 #import "CalendarCollectionViewController.h"
-#import "CalendarDataSource.h"
+#import "WeekDataSource.h"
 #import "CalendarView.h"
-#import "NowCollectionViewLayout.h"
-#import "TodayCollectionViewLayout.h"
 #import "WeekCollectionViewLayout.h"
 #import "Schedule.h"
 #import "Pictogram.h"
@@ -16,8 +14,8 @@
 - (id)initWithCollectionViewLayout:(UICollectionViewLayout *)layout {
     self = [super initWithCollectionViewLayout:layout];
     if (self) {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleCalendarViewMode:) name:NOTIFICATION_CALENDAR_VIEW object:nil];
-        self.dataSource = [[CalendarDataSource alloc] init];
+#warning shows schedule for 0
+        self.dataSource = [[WeekDataSource alloc] init];
     }
     return self;
 }
@@ -28,6 +26,7 @@
 }
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+    
     [super setEditing:editing animated:animated];
     if (editing) {
         [self.dataSource setEditing:YES];
@@ -56,31 +55,39 @@
     self.collectionView.dataSource = self.dataSource;
     self.collectionView.delegate = self.dataSource;
     self.collectionView.backgroundColor = [UIColor whiteColor];
-    
 }
 
 - (void)switchToViewMode:(NSInteger)viewMode {
-        UICollectionViewLayout *layout;
+    UICollectionViewLayout *layout;
+    CalendarView *view;
+    CGRect oldFrame = self.view.bounds;
         switch (viewMode) {
             case 0:
-                layout = [[NowCollectionViewLayout alloc] initWithCoder:nil];
+                layout = [[NowCollectionViewLayout alloc] init];
+                view = [[CalendarView alloc] initWithFrame:oldFrame collectionViewLayout:layout];
+                self.dataSource = [[DayDataSource alloc] initWithScheduleNumber:0];
                 break;
                 
             case 1:
-                layout = [[TodayCollectionViewLayout alloc] initWithCoder:nil];
+                layout = [[DayCollectionViewLayout alloc] init];
+                view = [[CalendarView alloc] initWithFrame:oldFrame collectionViewLayout:layout];
+                self.dataSource = [[DayDataSource alloc] initWithScheduleNumber:0]; // TODO set correct date
                 break;
                 
             case 2:
-                layout = [[WeekCollectionViewLayout alloc] initWithCoder:nil];
+                layout = [[WeekCollectionViewLayout alloc] init];
+                view = [[CalendarView alloc] initWithFrame:oldFrame collectionViewLayout:layout];
+                self.dataSource = [[WeekDataSource alloc] init];
                 break;
             
             default:
-                    @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"Unknown view mode selected." userInfo:nil];
+                    @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                                   reason:@"Unknown view mode selected." userInfo:nil];
                 break;
         }
-        [layout prepareForTransitionFromLayout:self.collectionView.collectionViewLayout];
-        [self.collectionViewLayout prepareForTransitionToLayout:layout];
-        [self.collectionView setCollectionViewLayout:layout animated:YES];
+    view.dataSource = self.dataSource;
+    view.backgroundColor = [UIColor whiteColor];
+    self.collectionView = view;
 }
 
 - (void)sectionAtPoint:(CGPoint)point {
@@ -92,15 +99,12 @@
     NSParameterAssert(indexPath != nil);
     NSParameterAssert(indexPath.section < self.collectionView.numberOfSections);
     NSParameterAssert(indexPath.item < [self.collectionView numberOfItemsInSection:indexPath.section]);
-    
-    Schedule *schedule = [self.dataSource.data objectAtIndex:indexPath.section];
-    [schedule addPictogram:pictogram atIndex:indexPath.item];
-    [self.collectionView insertItemsAtIndexPaths:@[indexPath]];
+    [self.dataSource addPictogram:pictogram toCollectionView:self.collectionView atIndexPath:indexPath];
 }
 
 - (void)deleteItemAtIndexPath:(NSIndexPath *)touchedItem {
     NSAssert(self.editing == YES, @"Cannot delete item as the collection view is not in edit mode.");
-    NSMutableArray *data = self.dataSource.data;
+    NSMutableArray *data = self.dataSource;
     Schedule *schedule = [data objectAtIndex:touchedItem.section];
     [schedule removePictogramAtIndex:touchedItem.item];
 

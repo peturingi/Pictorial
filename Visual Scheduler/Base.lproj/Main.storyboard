@@ -75,6 +75,7 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="bottomView" destination="K7V-1q-b0O" id="zOn-TL-kdl"/>
+                        <outlet property="dayWeekSegment" destination="mCy-3k-gPU" id="Oix-ng-kUB"/>
                         <outlet property="topView" destination="CIY-By-uiY" id="8kB-JH-oqg"/>
                     </connections>
                 </viewController>

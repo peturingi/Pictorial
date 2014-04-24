@@ -65,6 +65,12 @@
 }
 
 #pragma mark - Retrieve
+- (Schedule *)scheduleNumber:(NSInteger)number {
+#warning needs to be optimized such that this method does not fetch everything.
+    NSArray *allSchedules = [self allSchedules];
+    return [allSchedules objectAtIndex:number];
+}
+
 - (NSArray *)allSchedules {
     NSArray *contents = [_dataStore contentOfAllSchedules];
     return [self schedulesFromContentArray:contents];

@@ -20,7 +20,6 @@
 - (NSArray *)allPictograms;
 - (void)deleteSchedule:(Schedule *)aSchedule;
 -(UIImage*)imageForPictogram:(Pictogram*)pictogram;
-
-
 -(Pictogram*)pictogramForIdentifier:(NSInteger)identifier;
+- (Schedule *)scheduleNumber:(NSInteger)number;
 @end
