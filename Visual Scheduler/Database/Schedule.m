@@ -71,7 +71,7 @@
 
 -(void)addPictogram:(Pictogram *)pictogram{
     NSParameterAssert(pictogram);
-    int index = [[self pictograms]count];
+    NSUInteger index = [[self pictograms]count];
     [_pictograms addObject:pictogram];
     [_repo addPictogram:pictogram toSchedule:self atIndex:index];
 }

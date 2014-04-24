@@ -24,6 +24,17 @@
 		6835652F1901B4FD00FCA28A /* SQLiteDatabaseConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6835652E1901B4FD00FCA28A /* SQLiteDatabaseConnection.m */; };
 		683941091903D0F500C05F3C /* NSString+CapitalizeSentence.m in Sources */ = {isa = PBXBuildFile; fileRef = 683941081903D0F500C05F3C /* NSString+CapitalizeSentence.m */; };
 		68AA188B19029C41002BE754 /* UIImage+Filters.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AA188A19029C41002BE754 /* UIImage+Filters.m */; };
+		68D7963419092D130047A0CE /* UIView+Wiggle.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D7963319092D130047A0CE /* UIView+Wiggle.m */; };
+		68D7963719092D2D0047A0CE /* UIView+CenterPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D7963619092D2D0047A0CE /* UIView+CenterPoint.m */; };
+		68D7963D19092DE50047A0CE /* CALayer+WithSizeAndPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D7963C19092DE50047A0CE /* CALayer+WithSizeAndPosition.m */; };
+		68D7964019092DF10047A0CE /* CALayer+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D7963F19092DF10047A0CE /* CALayer+Rotate.m */; };
+		68D7964419092E490047A0CE /* NSString+TimeFormatted.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D7964319092E490047A0CE /* NSString+TimeFormatted.m */; };
+		68D7964819092E690047A0CE /* MathUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D7964719092E690047A0CE /* MathUtils.m */; };
+		68D796551909479E0047A0CE /* TimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D796541909479E0047A0CE /* TimerViewController.m */; };
+		68D7965C190947CB0047A0CE /* Timer.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D79657190947CB0047A0CE /* Timer.m */; };
+		68D7965D190947CB0047A0CE /* TimerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D79659190947CB0047A0CE /* TimerView.m */; };
+		68D7965E190947CB0047A0CE /* WatchDialView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D7965B190947CB0047A0CE /* WatchDialView.m */; };
+		68D796A319094E920047A0CE /* ding.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 68D7964119092E080047A0CE /* ding.m4a */; };
 		D813A9D118D38BA100D3515A /* MockScheduleOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EC7D5518CA63C500B6A673 /* MockScheduleOverviewViewController.m */; };
 		D82838B518D5BA39009C03A8 /* UIApplicationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D82838B418D5BA39009C03A8 /* UIApplicationTests.m */; };
 		D82C0CD618F7F344005B5569 /* CalendarCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D82C0CD518F7F344005B5569 /* CalendarCollectionViewLayout.m */; };
@@ -129,6 +140,27 @@
 		683941081903D0F500C05F3C /* NSString+CapitalizeSentence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+CapitalizeSentence.m"; path = "Visual Scheduler/Category/NSString+CapitalizeSentence.m"; sourceTree = "<group>"; };
 		68AA188919029C41002BE754 /* UIImage+Filters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Filters.h"; path = "Visual Scheduler/Category/UIImage+Filters.h"; sourceTree = "<group>"; };
 		68AA188A19029C41002BE754 /* UIImage+Filters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Filters.m"; path = "Visual Scheduler/Category/UIImage+Filters.m"; sourceTree = "<group>"; };
+		68D7963219092D130047A0CE /* UIView+Wiggle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Wiggle.h"; sourceTree = "<group>"; };
+		68D7963319092D130047A0CE /* UIView+Wiggle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Wiggle.m"; sourceTree = "<group>"; };
+		68D7963519092D2D0047A0CE /* UIView+CenterPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CenterPoint.h"; sourceTree = "<group>"; };
+		68D7963619092D2D0047A0CE /* UIView+CenterPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CenterPoint.m"; sourceTree = "<group>"; };
+		68D7963B19092DE50047A0CE /* CALayer+WithSizeAndPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+WithSizeAndPosition.h"; sourceTree = "<group>"; };
+		68D7963C19092DE50047A0CE /* CALayer+WithSizeAndPosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+WithSizeAndPosition.m"; sourceTree = "<group>"; };
+		68D7963E19092DF10047A0CE /* CALayer+Rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Rotate.h"; sourceTree = "<group>"; };
+		68D7963F19092DF10047A0CE /* CALayer+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Rotate.m"; sourceTree = "<group>"; };
+		68D7964119092E080047A0CE /* ding.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = ding.m4a; sourceTree = "<group>"; };
+		68D7964219092E490047A0CE /* NSString+TimeFormatted.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TimeFormatted.h"; sourceTree = "<group>"; };
+		68D7964319092E490047A0CE /* NSString+TimeFormatted.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TimeFormatted.m"; sourceTree = "<group>"; };
+		68D7964619092E690047A0CE /* MathUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathUtils.h; sourceTree = "<group>"; };
+		68D7964719092E690047A0CE /* MathUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MathUtils.m; sourceTree = "<group>"; };
+		68D796531909479E0047A0CE /* TimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimerViewController.h; path = Timer/TimerViewController.h; sourceTree = "<group>"; };
+		68D796541909479E0047A0CE /* TimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimerViewController.m; path = Timer/TimerViewController.m; sourceTree = "<group>"; };
+		68D79656190947CB0047A0CE /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Timer.h; path = Timer/Timer.h; sourceTree = "<group>"; };
+		68D79657190947CB0047A0CE /* Timer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Timer.m; path = Timer/Timer.m; sourceTree = "<group>"; };
+		68D79658190947CB0047A0CE /* TimerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimerView.h; path = Timer/TimerView.h; sourceTree = "<group>"; };
+		68D79659190947CB0047A0CE /* TimerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimerView.m; path = Timer/TimerView.m; sourceTree = "<group>"; };
+		68D7965A190947CB0047A0CE /* WatchDialView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WatchDialView.h; path = Timer/WatchDialView.h; sourceTree = "<group>"; };
+		68D7965B190947CB0047A0CE /* WatchDialView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WatchDialView.m; path = Timer/WatchDialView.m; sourceTree = "<group>"; };
 		D813A9D918D3995700D3515A /* Visual Scheduler-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Visual Scheduler-Prefix.pch"; sourceTree = "<group>"; };
 		D81AAA1E18B94F0A00E3B50C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D82838B418D5BA39009C03A8 /* UIApplicationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIApplicationTests.m; path = "Visual SchedulerTests/UIApplicationTests.m"; sourceTree = "<group>"; };
@@ -307,6 +339,31 @@
 			name = SettingsManager;
 			sourceTree = "<group>";
 		};
+		68D7963119092CDB0047A0CE /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				68D79656190947CB0047A0CE /* Timer.h */,
+				68D79657190947CB0047A0CE /* Timer.m */,
+				68D79658190947CB0047A0CE /* TimerView.h */,
+				68D79659190947CB0047A0CE /* TimerView.m */,
+				68D7965A190947CB0047A0CE /* WatchDialView.h */,
+				68D7965B190947CB0047A0CE /* WatchDialView.m */,
+				68D7964119092E080047A0CE /* ding.m4a */,
+				68D796531909479E0047A0CE /* TimerViewController.h */,
+				68D796541909479E0047A0CE /* TimerViewController.m */,
+			);
+			name = Timer;
+			sourceTree = "<group>";
+		};
+		68D7964519092E590047A0CE /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				68D7964619092E690047A0CE /* MathUtils.h */,
+				68D7964719092E690047A0CE /* MathUtils.m */,
+			);
+			name = Misc;
+			sourceTree = "<group>";
+		};
 		D813A9CF18D388F900D3515A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -319,6 +376,16 @@
 		D82838B018D5B85A009C03A8 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				68D7964219092E490047A0CE /* NSString+TimeFormatted.h */,
+				68D7964319092E490047A0CE /* NSString+TimeFormatted.m */,
+				68D7963E19092DF10047A0CE /* CALayer+Rotate.h */,
+				68D7963F19092DF10047A0CE /* CALayer+Rotate.m */,
+				68D7963B19092DE50047A0CE /* CALayer+WithSizeAndPosition.h */,
+				68D7963C19092DE50047A0CE /* CALayer+WithSizeAndPosition.m */,
+				68D7963519092D2D0047A0CE /* UIView+CenterPoint.h */,
+				68D7963619092D2D0047A0CE /* UIView+CenterPoint.m */,
+				68D7963219092D130047A0CE /* UIView+Wiggle.h */,
+				68D7963319092D130047A0CE /* UIView+Wiggle.m */,
 				D82D5FD218C616A6000A8FD3 /* UIView+BBASubviews.h */,
 				D82D5FD318C616A6000A8FD3 /* UIView+BBASubviews.m */,
 				D83BFE491907CAE600F72646 /* UIView+HoverView.h */,
@@ -446,6 +513,7 @@
 		D83A62AF18B696DB00EC0773 = {
 			isa = PBXGroup;
 			children = (
+				68D7964519092E590047A0CE /* Misc */,
 				D87964B91906A09500333CD1 /* UI */,
 				6818B6EB19050DE8009F0742 /* ExternalScreen */,
 				682012321902C38600CE0C91 /* Localization */,
@@ -486,6 +554,7 @@
 		D83A62C118B696DC00EC0773 /* Visual Scheduler */ = {
 			isa = PBXGroup;
 			children = (
+				68D7963119092CDB0047A0CE /* Timer */,
 				D8DB800018C50FAC00BA2037 /* Show Schedule */,
 				6835651819002A2500FCA28A /* SettingsManager */,
 				D85EBDDB18DC836700DF76B7 /* Color */,
@@ -800,6 +869,7 @@
 				682012371902C8B000CE0C91 /* localeDb.sqlite3 in Resources */,
 				D85EBDD118DC804400DF76B7 /* brushteeth.png in Resources */,
 				D83A62D418B696DC00EC0773 /* Images.xcassets in Resources */,
+				68D796A319094E920047A0CE /* ding.m4a in Resources */,
 				D85EBDD318DC804400DF76B7 /* karate.png in Resources */,
 				D87964B81906A05A00333CD1 /* CreatePictogram.xib in Resources */,
 				6835652B1900330600FCA28A /* settings.sqlite3 in Resources */,
@@ -831,19 +901,26 @@
 				682012351902C3A700CE0C91 /* Localizer.m in Sources */,
 				D83BFE541907FC7F00F72646 /* PictogramsCollectionViewDelegateFlowLayout.m in Sources */,
 				68AA188B19029C41002BE754 /* UIImage+Filters.m in Sources */,
+				68D7964819092E690047A0CE /* MathUtils.m in Sources */,
 				D82D5FD418C616A6000A8FD3 /* UIView+BBASubviews.m in Sources */,
 				6818B6EE19050E0C009F0742 /* ExternalScreen.m in Sources */,
+				68D7964419092E490047A0CE /* NSString+TimeFormatted.m in Sources */,
+				68D7963419092D130047A0CE /* UIView+Wiggle.m in Sources */,
 				D8EB983B18E346DF00DA3A99 /* Pictogram.m in Sources */,
 				D8805F3F18C5DD01001BD35B /* CreatePictogram.m in Sources */,
 				D8805F4718C5E456001BD35B /* PictogramsCollectionViewController.m in Sources */,
 				D8B016EF18FEB85700017D76 /* CalendarView.m in Sources */,
+				68D7964019092DF10047A0CE /* CALayer+Rotate.m in Sources */,
 				D8EB983118E33E4A00DA3A99 /* Repository.m in Sources */,
 				D8BABEC018EC6839009E562E /* NSMutableArray+MoveObject.m in Sources */,
+				68D7965C190947CB0047A0CE /* Timer.m in Sources */,
 				D83BFE4E1907EDCE00F72646 /* PictogramsCollectionDataSource.m in Sources */,
 				D8401B4A1901B08300BAF82F /* NowCollectionViewLayout.m in Sources */,
+				68D7965E190947CB0047A0CE /* WatchDialView.m in Sources */,
 				D8C7BDE7190287E800128FA7 /* WeekCollectionViewLayout.m in Sources */,
 				6818B6FF19059475009F0742 /* ExternalViewDataSource.m in Sources */,
 				D82C0CDC18F80DFB005B5569 /* CalendarDataSource.m in Sources */,
+				68D796551909479E0047A0CE /* TimerViewController.m in Sources */,
 				6818B6FC19059319009F0742 /* ExternalViewLayout.m in Sources */,
 				D83A62C818B696DC00EC0773 /* main.m in Sources */,
 				D889F7EE18C9249A008A497F /* AppDelegate.m in Sources */,
@@ -852,6 +929,7 @@
 				D8401B471901846100BAF82F /* ScheduleViewController.m in Sources */,
 				6835651B19002A4700FCA28A /* SettingsManager.m in Sources */,
 				6818B6F119052C3F009F0742 /* ExternalViewController.m in Sources */,
+				68D7965D190947CB0047A0CE /* TimerView.m in Sources */,
 				683941091903D0F500C05F3C /* NSString+CapitalizeSentence.m in Sources */,
 				D832357D1902D80800FA4DFF /* ContainerViewController.m in Sources */,
 				D8DB7FFF18C50F4700BA2037 /* BBAShowScheduleViewController.m in Sources */,
@@ -862,8 +940,10 @@
 				D8D4011D18E4960D003F6F4F /* PictogramCollectionViewCell.m in Sources */,
 				D8315AF418D39DEA00C4A340 /* Camera.m in Sources */,
 				D82C0CE218F8813F005B5569 /* CalendarCell.m in Sources */,
+				68D7963D19092DE50047A0CE /* CALayer+WithSizeAndPosition.m in Sources */,
 				D8AFD99E1901BF2400A294D5 /* CalendarCollectionViewController.m in Sources */,
 				D83BFE4B1907CAE600F72646 /* UIView+HoverView.m in Sources */,
+				68D7963719092D2D0047A0CE /* UIView+CenterPoint.m in Sources */,
 				D853A80E18E1DD3C0031E986 /* SQLiteStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

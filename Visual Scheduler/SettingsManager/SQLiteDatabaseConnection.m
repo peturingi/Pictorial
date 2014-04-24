@@ -59,7 +59,8 @@
 -(void)bindIntegerToStatement:(sqlite3_stmt*)statement integer:(NSInteger)value atPosition:(NSInteger)position{
     [self validateStatement:statement];
     [self validateBindPosition:position];
-    int result = sqlite3_bind_int64(statement, position, value);
+    int integerPosition = (int)position;
+    int result = sqlite3_bind_int64(statement, integerPosition, value);
     if (result != SQLITE_OK) {
         @throw [NSException exceptionWithName:BIND_TO_STATEMENT_FAILED_EXCEPTION reason:[NSString stringWithFormat:@"Failed to bind integer to statement wiht sqlite3 errorcode: %d", result] userInfo:nil];
     }
@@ -69,7 +70,8 @@
     [self validateStatement:statement];
     [self validateString:value];
     [self validateBindPosition:position];
-    int result = sqlite3_bind_text(statement, position, [value UTF8String], -1, SQLITE_TRANSIENT);
+    int integerPosition = (int)position;
+    int result = sqlite3_bind_text(statement, integerPosition, [value UTF8String], -1, SQLITE_TRANSIENT);
     if (result != SQLITE_OK) {
         @throw [NSException exceptionWithName:BIND_TO_STATEMENT_FAILED_EXCEPTION reason:[NSString stringWithFormat:@"Failed to bind text to statement with sqlite3 errorcode: %d", result] userInfo:nil];
     }
@@ -81,7 +83,8 @@
     if(data == nil){
         @throw [NSException exceptionWithName:@"NilObjectException" reason:@"Object was nil" userInfo:nil];
     }
-    int result = sqlite3_bind_blob(statement, position, [data bytes], (int)data.length, NULL);
+    int integerPosition = (int)position;
+    int result = sqlite3_bind_blob(statement, integerPosition, [data bytes], (int)data.length, NULL);
     if (result != SQLITE_OK) {
         @throw [NSException exceptionWithName:BIND_TO_STATEMENT_FAILED_EXCEPTION reason:[NSString stringWithFormat:@"Failed to bind datablob to statement with sqlite3 errorcode: %d", result] userInfo:nil];
     }
@@ -90,22 +93,25 @@
 -(NSData*)dataFromStatement:(sqlite3_stmt*)statement atColumnIndex:(NSInteger)index{
     [self validateStatement:statement];
     [self validateColumnIndex:index];
-    const void *ptrToData = sqlite3_column_blob(statement, index);
-    int dataSize = sqlite3_column_bytes(statement, index);
+    int integerIndex = (int)index;
+    const void *ptrToData = sqlite3_column_blob(statement, integerIndex);
+    int dataSize = sqlite3_column_bytes(statement, integerIndex);
     return [[NSData alloc] initWithBytes:ptrToData length:dataSize];
 }
 
 -(NSString*)stringFromStatement:(sqlite3_stmt*)statement atColumnIndex:(NSInteger)index{
     [self validateStatement:statement];
     [self validateColumnIndex:index];
-    char *title = (char *)sqlite3_column_text(statement, index);
+    int integerIndex = (int)index;
+    char *title = (char *)sqlite3_column_text(statement, integerIndex);
     return [NSString stringWithCString:title encoding:NSUTF8StringEncoding];
 }
 
 -(NSInteger)integerFromStatement:(sqlite3_stmt *)statement atColumnIndex:(NSInteger)index{
     [self validateStatement:statement];
     [self validateColumnIndex:index];
-    return sqlite3_column_int(statement, index);
+    int integerIndex = (int)index;
+    return sqlite3_column_int(statement, integerIndex);
 }
 
 -(NSInteger)lastInsertRowID{

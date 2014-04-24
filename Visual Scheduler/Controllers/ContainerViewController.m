@@ -4,6 +4,7 @@
 #import "CalendarCollectionViewController.h"
 #import "WeekCollectionViewLayout.h"
 #import "CreatePictogram.h"
+#import "TimerViewController.h"
 
 #import "UIView+HoverView.h"
 
@@ -381,6 +382,11 @@
     } else {
         [self hidePictogramSelector];
     }
+}
+
+#pragma mark - Timer
+-(IBAction)showTimer:(id)sender{
+    [[self navigationController]pushViewController:[[TimerViewController alloc]init] animated:YES];
 }
 
 #pragma mark - Camera

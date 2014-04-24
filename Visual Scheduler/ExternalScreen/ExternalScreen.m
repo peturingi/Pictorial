@@ -38,7 +38,7 @@
 }
 
 -(void)connectScreenIfAvailable{
-    int count = [[UIScreen screens]count];
+    NSUInteger count = [[UIScreen screens]count];
     if(count > 1){
         [self prepareScreen:[[UIScreen screens]lastObject]];
     }

@@ -39,12 +39,12 @@
     sqlite3_stmt *statement = [_dbcon prepareStatementWithQuery:query];
     while ([_dbcon rowExistsFromStatement:statement]) {
         NSMutableDictionary* content = [NSMutableDictionary dictionary];
-        int uid = [_dbcon integerFromStatement:statement atColumnIndex:0];
-        [content setValue:[NSNumber numberWithInt:uid] forKey:ID_KEY];
+        NSInteger uid = [_dbcon integerFromStatement:statement atColumnIndex:0];
+        [content setValue:[NSNumber numberWithInteger:uid] forKey:ID_KEY];
         NSString* title = [_dbcon stringFromStatement:statement atColumnIndex:1];
         [content setValue:title forKey:TITLE_KEY];
-        int color = [_dbcon integerFromStatement:statement atColumnIndex:2];
-        [content setValue:[NSNumber numberWithInt:color] forKey:COLOR_KEY];
+        NSInteger color = [_dbcon integerFromStatement:statement atColumnIndex:2];
+        [content setValue:[NSNumber numberWithInteger:color] forKey:COLOR_KEY];
         [results addObject:content];
     }
     [_dbcon finalizeStatement:statement];
@@ -104,8 +104,8 @@
     NSMutableArray *results = [NSMutableArray array];
     while ([_dbcon rowExistsFromStatement:statement]) {
         NSMutableDictionary* content = [NSMutableDictionary dictionary];
-        int uid = [_dbcon integerFromStatement:statement atColumnIndex:0];
-        [content setValue:[NSNumber numberWithInt:uid] forKey:ID_KEY];
+        NSInteger uid = [_dbcon integerFromStatement:statement atColumnIndex:0];
+        [content setValue:[NSNumber numberWithInteger:uid] forKey:ID_KEY];
         NSString *title = [_dbcon stringFromStatement:statement atColumnIndex:1];
         [content setValue:title forKey:TITLE_KEY];
         if (includesData) {
@@ -186,8 +186,8 @@
     NSMutableArray *results = [NSMutableArray array];
     while ([_dbcon rowExistsFromStatement:statement]) {
         NSMutableDictionary* content = [NSMutableDictionary dictionary];
-        int uid = [_dbcon integerFromStatement:statement atColumnIndex:0];
-        [content setValue:[NSNumber numberWithInt:uid] forKey:ID_KEY];
+        NSInteger uid = [_dbcon integerFromStatement:statement atColumnIndex:0];
+        [content setValue:[NSNumber numberWithInteger:uid] forKey:ID_KEY];
         NSString *title = [_dbcon stringFromStatement:statement atColumnIndex:1];
         [content setValue:title forKey:TITLE_KEY];
         if(includesData == YES){

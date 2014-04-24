@@ -4,12 +4,11 @@
 #import "NowCollectionViewLayout.h"
 #import "TodayCollectionViewLayout.h"
 #import "WeekCollectionViewLayout.h"
-
 #import "Schedule.h"
 #import "Pictogram.h"
 
 @interface CalendarCollectionViewController ()
-    @property (nonatomic, strong) CalendarDataSource *dataSource;
+@property (nonatomic, strong) CalendarDataSource *dataSource;
 @end
 
 @implementation CalendarCollectionViewController
