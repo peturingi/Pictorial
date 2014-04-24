@@ -10,20 +10,14 @@
     [self setupTimer];
     [self setupAudioPlayer];
     [self setupTimerView];
-    
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [_timerView setHidden:YES];
+}
 -(void)viewDidAppear:(BOOL)animated{
     [_timerView didRotateNewFrame:self.view.frame];
-}
-
--(void)viewDidDisappear:(BOOL)animated{
-    [_audioPlayer stop];
-    [_audioPlayer setCurrentTime:0];
-    if([_timer isStarted]){
-        [_timer stop];
-    }
-    [_startStopButton setEnabled:YES];
+    [_timerView setHidden:NO];
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
@@ -98,5 +92,4 @@
     [_timerView didRotateNewFrame:self.view.frame];
     [_timerView setHidden:NO];
 }
-
 @end

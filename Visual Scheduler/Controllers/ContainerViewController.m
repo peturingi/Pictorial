@@ -6,10 +6,13 @@
 #import "WeekCollectionViewLayout.h"
 #import "CreatePictogram.h"
 #import "TimerViewController.h"
+#import "TimerViewController.h"
 
 #import "UIView+HoverView.h"
 
-@interface ContainerViewController ()
+@interface ContainerViewController (){
+    TimerViewController* _timerViewController;
+}
 @property (weak, nonatomic) PictogramsCollectionViewController *pictogramViewController;
 @property (weak, nonatomic) CalendarCollectionViewController *calendarViewController;
 @end
@@ -397,7 +400,10 @@
 
 #pragma mark - Timer
 -(IBAction)showTimer:(id)sender{
-    [[self navigationController]pushViewController:[[TimerViewController alloc]init] animated:YES];
+    if(_timerViewController == nil){
+        _timerViewController = [[TimerViewController alloc]init];
+    }
+    [[self navigationController]pushViewController:_timerViewController animated:YES];
 }
 
 #pragma mark - Camera
