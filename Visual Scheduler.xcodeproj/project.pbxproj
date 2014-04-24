@@ -355,7 +355,7 @@
 			name = Misc;
 			sourceTree = "<group>";
 		};
-		D813A9CF18D388F900D3515A /* Tests */ = {
+		D81ABB8119096B66000B81F3 /* Day */ = {
 			isa = PBXGroup;
 			children = (
 				D81ABB7B1909583B000B81F3 /* DayDataSource.h */,
@@ -856,6 +856,7 @@
 				D8805F4718C5E456001BD35B /* PictogramsCollectionViewController.m in Sources */,
 				D8B016EF18FEB85700017D76 /* CalendarView.m in Sources */,
 				68D7964019092DF10047A0CE /* CALayer+Rotate.m in Sources */,
+				D81ABB80190966C5000B81F3 /* DayCollectionViewLayout.m in Sources */,
 				D8EB983118E33E4A00DA3A99 /* Repository.m in Sources */,
 				D8BABEC018EC6839009E562E /* NSMutableArray+MoveObject.m in Sources */,
 				68D7965C190947CB0047A0CE /* Timer.m in Sources */,
@@ -864,8 +865,8 @@
 				68D7965E190947CB0047A0CE /* WatchDialView.m in Sources */,
 				D8C7BDE7190287E800128FA7 /* WeekCollectionViewLayout.m in Sources */,
 				6818B6FF19059475009F0742 /* ExternalViewDataSource.m in Sources */,
-				D82C0CDC18F80DFB005B5569 /* CalendarDataSource.m in Sources */,
 				68D796551909479E0047A0CE /* TimerViewController.m in Sources */,
+				D82C0CDC18F80DFB005B5569 /* WeekDataSource.m in Sources */,
 				6818B6FC19059319009F0742 /* ExternalViewLayout.m in Sources */,
 				D83A62C818B696DC00EC0773 /* main.m in Sources */,
 				D889F7EE18C9249A008A497F /* AppDelegate.m in Sources */,

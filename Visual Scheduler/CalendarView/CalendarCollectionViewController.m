@@ -2,11 +2,16 @@
 #import "WeekDataSource.h"
 #import "CalendarView.h"
 #import "WeekCollectionViewLayout.h"
+#import "DayDataSource.h"
+#import "DayCollectionViewLayout.h"
+#import "NowCollectionViewLayout.h"
+#import "DataSourceCanAddPictogram.h"
+
 #import "Schedule.h"
 #import "Pictogram.h"
 
 @interface CalendarCollectionViewController ()
-@property (nonatomic, strong) CalendarDataSource *dataSource;
+    @property (nonatomic, strong) id<DataSourceCanAddPictogram> dataSource;
 @end
 
 @implementation CalendarCollectionViewController
