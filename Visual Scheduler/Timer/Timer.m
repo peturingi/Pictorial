@@ -16,7 +16,7 @@
     NSAssert(_isStarted == NO, @"Timer was already started");
     _seconds = seconds;
     _isStarted = YES;
-    _timer = [NSTimer scheduledTimerWithTimeInterval:0.01f target:self selector:@selector(tick) userInfo:nil repeats:YES];
+    _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(tick) userInfo:nil repeats:YES];
 }
 
 -(void)tick{

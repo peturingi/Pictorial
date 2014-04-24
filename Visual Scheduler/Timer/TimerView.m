@@ -43,9 +43,13 @@
 }
 
 -(void)drawRect:(CGRect)rect{
-    CGFloat radius = [self frame].size.height / 3.8f;
-    UIBezierPath* arch = [UIBezierPath bezierPathWithArcCenter:[self centerPoint] radius:radius startAngle:START_ANGLE endAngle:START_ANGLE - _archAngle clockwise:NO];
-    [arch addLineToPoint:[self centerPoint]];
+    //CGFloat radius = [self frame].size.height / 3.8f;
+    CGFloat radiusY = [self centerPoint].y * 0.7f;
+    CGFloat radiusX = [self centerPoint].x * 0.7f;
+    CGFloat radius = MIN(radiusX, radiusY);
+    CGPoint center = CGPointMake([self centerPoint].x, [self centerPoint].y + 22);
+    UIBezierPath* arch = [UIBezierPath bezierPathWithArcCenter:center radius:radius startAngle:START_ANGLE endAngle:START_ANGLE - _archAngle clockwise:NO];
+    [arch addLineToPoint:center];
     [[UIColor redColor] setFill];
     [arch stroke];
     [arch fill];

@@ -1,6 +1,5 @@
 #import "MathUtils.h"
 #define FACTOR (60 / M_PI / 2.0f * 60)
-#define TWO_M_PI (2.0f * M_PI)
 @implementation MathUtils
 +(CGFloat)angleBetweenCenter:(CGPoint)center andPoint:(CGPoint)point{
     float angle = atan2(center.x - point.x, center.y - point.y);

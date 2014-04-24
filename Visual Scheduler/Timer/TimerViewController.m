@@ -58,7 +58,7 @@
 }
 
 -(void)setupTimerView{
-    _timerView = [[TimerView alloc]initWithFrame:[self.view frame]];
+    _timerView = [[TimerView alloc]initWithFrame:self.view.frame];
     [_timerView setLabelToUpdate:_titleLabel];
     [[self view] addSubview:_timerView];
 }
@@ -66,6 +66,8 @@
 -(void)setupTitleLabel{
     _titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
     [_titleLabel setText:[NSString timeFormattedStringFromSeconds:0]];
+    [_titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:20]];
+    [_titleLabel setTextColor:[UIColor blueColor]];
     [_titleLabel setTextAlignment:NSTextAlignmentCenter];
     [[self navigationItem]setTitleView:_titleLabel];
 }
@@ -88,11 +90,13 @@
 }
 
 -(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
+    [_timerView setHidden:YES];
 
 }
 
 -(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
     [_timerView didRotateNewFrame:self.view.frame];
+    [_timerView setHidden:NO];
 }
 
 @end

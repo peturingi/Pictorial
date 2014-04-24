@@ -24,7 +24,7 @@
     for (NSUInteger i = 0; i < [dialNumbers count]; i++) {
         CATextLayer* layer = [self textLayerForDialWithString:[dialNumbers objectAtIndex:i]];
         [self.layer addSublayer:layer];
-        CGFloat vertice = [self verticeForTransformForLayer:layer amount:1.4f];
+        CGFloat vertice = [self verticeForTransformForLayer:layer amount:2.3f];
         [layer setAnchorPoint:CGPointMake(0.5f, vertice)];
         if(i == 0){
             continue;
@@ -38,7 +38,7 @@
 
 -(CATextLayer*)textLayerForDialWithString:(NSString*)string{
     CATextLayer* layer = [CATextLayer new];
-    CGPoint position = CGPointMake([self centerPoint].x,[self centerPoint].y);
+    CGPoint position = CGPointMake([self centerPoint].x,[self centerPoint].y + 30);
     [layer setContentsScale:[[UIScreen mainScreen] scale]];
     [layer setString:string];
     [layer setAlignmentMode:kCAAlignmentCenter];
@@ -57,14 +57,15 @@
 }
 
 -(void)setupDialLines{
-    [self renderDialLines:NUM_BIG_LINES withSize:[self sizeForBigDialLine] fromCenter:1.8f];
-    [self renderDialLines:NUM_SMALL_LINES withSize:[self sizeForSmallDialLine] fromCenter:1.8f];
+    [self renderDialLines:NUM_BIG_LINES withSize:[self sizeForBigDialLine] amountFromCenter:2.6f];
+    [self renderDialLines:NUM_SMALL_LINES withSize:[self sizeForSmallDialLine] amountFromCenter:2.7f];
 }
 
--(void)renderDialLines:(NSUInteger)count withSize:(CGRect)size fromCenter:(CGFloat)amount{
+-(void)renderDialLines:(NSUInteger)count withSize:(CGRect)size amountFromCenter:(CGFloat)amount{
     CGFloat sliceForEach = TWO_M_PI / count;
     for(NSUInteger i = 0; i < count; i++){
-        CALayer* layer = [CALayer layerWithSize:size andPosition:[self centerPoint]];
+        CGPoint position = CGPointMake([self centerPoint].x, [self centerPoint].y + 22);
+        CALayer* layer = [CALayer layerWithSize:size andPosition:position];
         [layer setBackgroundColor:[[UIColor blackColor]CGColor]];
         CGFloat vertice = [self verticeForTransformForLayer:layer amount:amount];
         [layer setAnchorPoint:CGPointMake(0.5f, vertice)];
@@ -72,6 +73,14 @@
         [[self layer] addSublayer:layer];
     }
 }
+
+/*
+-(CGPoint)adjustedCenterPoint{
+    CGPoint point = [self centerPoint];
+    point.y -= 22;
+    return point;
+}
+ */
 
 -(CGRect)sizeForSmallDialLine{
     return CGRectMake(0, 0, 2, 20);
@@ -82,6 +91,17 @@
 }
 
 -(CGFloat)verticeForTransformForLayer:(CALayer*)layer amount:(CGFloat)amount{
-    return [self centerPoint].y / (CGRectGetHeight(layer.bounds) * amount);
+//    return [self centerPoint].y / (CGRectGetHeight(layer.bounds) * amount);
+    
+    CGFloat height = self.frame.size.height;
+    CGFloat width = self.frame.size.width;
+    
+    CGFloat factor = MIN(height, width);
+    return factor / (CGRectGetHeight(layer.bounds) * amount);
+    
+    //CGFloat height = [self centerPoint].y / (CGRectGetHeight(layer.bounds) * amount);
+    //CGFloat width = [self centerPoint].x / (CGRectGetHeight(layer.bounds) * amount);
+    //return MIN(height, width);
+    //return MIN(CGRectGetHeight(self.frame), CGRectGetWidth(self.frame));
 }
 @end
