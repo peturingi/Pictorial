@@ -2,6 +2,7 @@
 #import <QuartzCore/CAAnimation.h>
 #import "PictogramsCollectionViewController.h"
 #import "CalendarCollectionViewController.h"
+#import "DayCollectionViewLayout.h"
 #import "WeekCollectionViewLayout.h"
 #import "CreatePictogram.h"
 
@@ -43,7 +44,7 @@
 
 - (IBAction)toggleEditing:(id)sender {
     if (self.editing == NO) {
-        [self setEditButtonEnabled:NO];
+        [self setDayWeekSegmentEnabled:NO];
         if (self.pictogramViewController == nil) {
             [self setupPictogramSelectorViewController];
             [self addShadowToBottomView];
@@ -58,10 +59,19 @@
         self.editing = NO;
     }
     [self.calendarViewController setEditing:self.editing animated:YES];
+    [self setDayWeekSegmentEnabled:!self.editing]; // Race condition. Assertion thrown if edit button is presed repeatetly while segments buttons are also pressed repeatetly.
 }
 
 - (void)setEditButtonEnabled:(BOOL)value {
     self.navigationItem.rightBarButtonItem.enabled = value;
+}
+
+- (void)setDayWeekSegmentEnabled:(BOOL)value {
+    for (NSInteger button = dayWeekSegment.numberOfSegments-1; button >= 0; button--) {
+        if (button != dayWeekSegment.selectedSegmentIndex) {
+            [dayWeekSegment setEnabled:value forSegmentAtIndex:button];
+        }
+    }
 }
 
 #pragma mark - Show Pictogram Selector

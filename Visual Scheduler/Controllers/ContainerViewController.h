@@ -11,6 +11,7 @@
     UIView *_viewFollowingFinger;
     Pictogram *_pictogramBeingDragged;
     CGRect _originOfTouchedPictogram;
+    __weak IBOutlet UISegmentedControl *dayWeekSegment;
 }
 
 /** Container view for the calendar. */
