@@ -59,7 +59,8 @@
         self.editing = NO;
     }
     [self.calendarViewController setEditing:self.editing animated:YES];
-    [self setDayWeekSegmentEnabled:!self.editing]; // Race condition. Assertion thrown if edit button is presed repeatetly while segments buttons are also pressed repeatetly.
+#warning Race condition. Assertion thrown if edit button is presed repeatetly while segments buttons are also pressed repeatetly.
+    [self setDayWeekSegmentEnabled:!self.editing];
 }
 
 - (void)setEditButtonEnabled:(BOOL)value {
