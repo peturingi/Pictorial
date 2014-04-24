@@ -1,6 +1,6 @@
 #import "PictogramsCollectionViewController.h"
 #import "CreatePictogram.h"
-#import "../Database/Repository.h"
+#import "Repository.h"
 #import "UIView+BBASubviews.h"
 #import "PictogramsCollectionViewDelegateFlowLayout.h"
 
@@ -19,6 +19,7 @@
     NSParameterAssert(layout);
     self = [super initWithCollectionViewLayout:layout];
     if (self) {
+        ((UICollectionViewFlowLayout*)self.collectionViewLayout).itemSize = CGSizeMake(100, 135);
         [self registerCollectionViewCell];
     }
     return self;
@@ -38,9 +39,9 @@
     [super loadView];
     self.collectionView = [[UICollectionView alloc] initWithFrame:self.view.frame collectionViewLayout:self.collectionViewLayout];
     _dataSource = [[PictogramsCollectionDataSource alloc] init];
-    self.collectionView.dataSource = self.dataSource;
+    self.collectionView.dataSource = _dataSource;
     _layoutDelegate = [[PictogramsCollectionViewDelegateFlowLayout alloc] init];
-    self.collectionView.delegate = self.layoutDelegate;
+    self.collectionView.delegate = _layoutDelegate;
     self.collectionView.backgroundColor = BACKGROUND_COLOR;
     self.collectionView.contentInset = UIEdgeInsetsMake(INSETS, INSETS, INSETS, INSETS);
 }
@@ -86,7 +87,5 @@
 - (void)deRegisterCollectionViewCell {
     [self.collectionView registerNib:nil forCellWithReuseIdentifier:CELL_REUSE_IDENTIFIER];
 }
-
-#pragma mark -
 
 @end

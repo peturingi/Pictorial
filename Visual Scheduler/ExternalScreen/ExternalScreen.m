@@ -1,7 +1,7 @@
 #import "ExternalScreen.h"
 #import "ExternalViewController.h"
 #import "ExternalViewLayout.h"
-#import "CalendarCollectionViewController.h"
+#import "DayCollectionViewController.h"
 #import "WeekCollectionViewLayout.h"
 
 @implementation ExternalScreen
@@ -58,7 +58,7 @@
 
 -(UIViewController*)destinationViewController{
     UICollectionViewLayout* layout = [[WeekCollectionViewLayout alloc]init];
-    UIViewController* vs = [[CalendarCollectionViewController alloc]initWithCollectionViewLayout:layout];
+    UIViewController* vs = [[DayCollectionViewController alloc]initWithCollectionViewLayout:layout];
     return vs;
 }
 @end

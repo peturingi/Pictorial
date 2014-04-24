@@ -45,13 +45,13 @@
     
     // Shows empty box below each schedule in edit mode.
     if (indexPath.item < schedule.count) {
-        
         Pictogram *pictogram = [schedule.pictograms objectAtIndex:indexPath.item];
         cell.imageView.image = pictogram.image;
     }
     else if (self.editing && indexPath.item == schedule.count) {
         cell.imageView.image = nil;
-    } else {
+    }
+    else {
         [NSException raise:NSInternalInconsistencyException
                     format:@"Invalid state: editing:%d, number of pictograms:%ld", self.editing, (long)schedule.count];
     }
@@ -68,7 +68,17 @@
 - (void)addPictogram:(Pictogram *)pictogram toCollectionView:(UICollectionView *)collectionView atIndexPath:(NSIndexPath *)indexPath {
     Schedule *schedule = [self.schedules objectAtIndex:indexPath.section];
     [schedule addPictogram:pictogram atIndex:indexPath.item];
-    [collectionView reloadData]; // TODO replace with animation
+    [collectionView insertItemsAtIndexPaths:@[indexPath]];
+}
+
+- (void)deletePictogramInCollectionView:(UICollectionView *)collectionView atIndexPath:(NSIndexPath *)indexPath {
+    Schedule *schedule = [self.schedules objectAtIndex:indexPath.section];
+    [schedule removePictogramAtIndex:indexPath.item];
+    [collectionView deleteItemsAtIndexPaths:@[indexPath]];
+}
+
+- (void)dealloc {
+    _schedules = nil;
 }
 
 @end

@@ -5,7 +5,6 @@
 @interface ContainerViewController : UIViewController <CameraDelegate> {
     UILongPressGestureRecognizer *_topViewGestureRecognizer;
     UILongPressGestureRecognizer *_bottomViewGestureRecognizer;
-    BOOL _isShowingBottomView;
     Camera *_camera;
     
     UIView *_viewFollowingFinger;

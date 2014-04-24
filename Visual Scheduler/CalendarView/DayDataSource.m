@@ -53,7 +53,12 @@
 
 - (void)addPictogram:(Pictogram *)pictogram toCollectionView:(UICollectionView *)collectionView atIndexPath:(NSIndexPath *)indexPath {
     [schedule addPictogram:pictogram atIndex:indexPath.item];
-    [collectionView reloadData]; // TODO replace with animation
+    [collectionView insertItemsAtIndexPaths:@[indexPath]];
+}
+
+- (void)deletePictogramInCollectionView:(UICollectionView *)collectionView atIndexPath:(NSIndexPath *)indexPath {
+    [schedule removePictogramAtIndex:indexPath.item];
+    [collectionView deleteItemsAtIndexPaths:@[indexPath]];
 }
 
 @end
