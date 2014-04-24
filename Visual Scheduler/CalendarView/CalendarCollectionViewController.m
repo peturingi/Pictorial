@@ -11,7 +11,7 @@
 #import "Pictogram.h"
 
 @interface CalendarCollectionViewController ()
-    @property (nonatomic, strong) id<DataSourceCanAddPictogram> dataSource;
+    @property (nonatomic, strong) id<DataSourceCanAddPictogram, UICollectionViewDelegate, UICollectionViewDataSource> dataSource;
 @end
 
 @implementation CalendarCollectionViewController
