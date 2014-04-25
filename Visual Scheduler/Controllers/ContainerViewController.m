@@ -8,10 +8,15 @@
 #import "WeekCollectionViewLayout.h"
 #import "CreatePictogram.h"
 #import "TimerViewController.h"
+#import "TimerViewController.h"
 #import "WeekCollectionViewController.h"
 
 #import "UIView+HoverView.h"
 
+@interface ContainerViewController (){
+    TimerViewController* _timerViewController;
+}
+@end
 @interface ContainerViewController ()
 /** Controller manageing the view whtin the bottomView
  */
@@ -395,7 +400,10 @@
 
 #pragma mark - Timer
 -(IBAction)showTimer:(id)sender{
-    [[self navigationController]pushViewController:[[TimerViewController alloc]init] animated:YES];
+    if(_timerViewController == nil){
+        _timerViewController = [[TimerViewController alloc]init];
+    }
+    [[self navigationController]pushViewController:_timerViewController animated:YES];
 }
 
 #pragma mark -
