@@ -22,7 +22,7 @@
 }
 
 +(NSUInteger)normalizeSecondsToWholeMinutesForSeconds:(NSUInteger)seconds{
-    if(seconds < 50){
+    if(seconds < 30){
         return 0;
     }
     return (seconds / 60) * 60.0f + 60;

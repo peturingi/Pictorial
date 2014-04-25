@@ -43,9 +43,8 @@
 }
 
 -(void)drawRect:(CGRect)rect{
-    //CGFloat radius = [self frame].size.height / 3.8f;
-    CGFloat radiusY = [self centerPoint].y * 0.7f;
-    CGFloat radiusX = [self centerPoint].x * 0.7f;
+    CGFloat radiusY = [self centerPoint].y * 0.74f;
+    CGFloat radiusX = [self centerPoint].x * 0.74f;
     CGFloat radius = MIN(radiusX, radiusY);
     CGPoint center = CGPointMake([self centerPoint].x, [self centerPoint].y + 22);
     UIBezierPath* arch = [UIBezierPath bezierPathWithArcCenter:center radius:radius startAngle:START_ANGLE endAngle:START_ANGLE - _archAngle clockwise:NO];
