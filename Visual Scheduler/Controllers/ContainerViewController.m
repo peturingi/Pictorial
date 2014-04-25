@@ -9,12 +9,17 @@
 #import "CreatePictogram.h"
 #import "TimerViewController.h"
 #import "TimerViewController.h"
+#import "WeekCollectionViewController.h"
 
 #import "UIView+HoverView.h"
 
 @interface ContainerViewController (){
     TimerViewController* _timerViewController;
 }
+@end
+@interface ContainerViewController ()
+/** Controller manageing the view whtin the bottomView
+ */
 @property (weak, nonatomic) PictogramsCollectionViewController *pictogramViewController;
 
 @property (weak, nonatomic) UICollectionViewController *currentCollectionViewController;

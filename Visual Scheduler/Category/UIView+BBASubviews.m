@@ -10,7 +10,7 @@
         }
     }
     if (!subview) {
-        NSString *reasonForException = [NSString stringWithFormat:@"No subview found matching tag: %ld", tagOfView];
+        NSString *reasonForException = [NSString stringWithFormat:@"No subview found matching tag: %ld", (long)tagOfView];
         @throw [NSException exceptionWithName:@"View not found" reason:reasonForException userInfo:nil];
     }
     return nil;
