@@ -188,13 +188,15 @@
 }
 
 - (void)topViewGesture:(UILongPressGestureRecognizer *)gestureRecognizer {
-    static NSIndexPath *recentlyTouchedItem = nil;
+    static NSIndexPath *touchedItem = nil;
     CGPoint locationInTopView = [gestureRecognizer locationInView:self.weekViewController.collectionView];
 
     switch (gestureRecognizer.state) {
         case UIGestureRecognizerStateBegan:
-            recentlyTouchedItem = [self.weekViewController.collectionView indexPathForItemAtPoint:locationInTopView];
-            [self.weekViewController deleteItemAtIndexPath:recentlyTouchedItem];
+            touchedItem = [self.weekViewController.collectionView indexPathForItemAtPoint:locationInTopView];
+            if (touchedItem) {
+                [self.weekViewController deleteItemAtIndexPath:touchedItem];
+            }
             break;
             
         case UIGestureRecognizerStateChanged:
@@ -203,7 +205,7 @@
         case UIGestureRecognizerStateEnded:
         case UIGestureRecognizerStateFailed:
         case UIGestureRecognizerStateCancelled:
-            recentlyTouchedItem = nil;
+            touchedItem = nil;
             break;
             
         case UIGestureRecognizerStatePossible:

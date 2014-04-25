@@ -72,10 +72,23 @@
 }
 
 - (void)deletePictogramInCollectionView:(UICollectionView *)collectionView atIndexPath:(NSIndexPath *)indexPath {
-    Schedule *schedule = [self.schedules objectAtIndex:indexPath.section];
-    [schedule removePictogramAtIndex:indexPath.item];
-    [collectionView deleteItemsAtIndexPaths:@[indexPath]];
+    NSParameterAssert(collectionView);
+    NSParameterAssert(indexPath);
+    
+    if (!self.editing) {
+        [NSException raise:NSInternalInconsistencyException format:@"Trying to modify the datasource while it is not in edit mode."];
+    } else  if (indexPath && collectionView) {
+        const NSUInteger numberOfItemsInSection = [self collectionView:collectionView numberOfItemsInSection:indexPath.section];
+        const NSUInteger itemToDelete = indexPath.item;
+        const NSUInteger sectionToDeleteFrom = indexPath.section;
+        if (itemToDelete < numberOfItemsInSection-1) {
+            Schedule *schedule = [self.schedules objectAtIndex:sectionToDeleteFrom];
+            [schedule removePictogramAtIndex:itemToDelete];
+            [collectionView deleteItemsAtIndexPaths:@[indexPath]];
+        }
+    }
 }
+
 
 - (void)dealloc {
     _schedules = nil;

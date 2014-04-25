@@ -66,6 +66,7 @@
 }
 
 - (void)deleteItemAtIndexPath:(NSIndexPath *)touchedItem {
+    NSParameterAssert(touchedItem);
     NSAssert(self.editing == YES, @"Cannot delete item as the collection view is not in edit mode.");
     [self.dataSource deletePictogramInCollectionView:self.collectionView atIndexPath:touchedItem];
 }
