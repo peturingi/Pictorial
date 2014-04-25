@@ -2,7 +2,7 @@
 #import "Schedule.h"
 #import "DataSourceCanAddPictogram.h"
 
-@interface DayDataSource : NSObject  <UICollectionViewDataSource, UICollectionViewDelegate, DataSourceCanAddPictogram> {
+@interface DayDataSource : NSObject  <UICollectionViewDataSource, UICollectionViewDelegate, EditableDataSource> {
     Schedule *schedule;
 }
 

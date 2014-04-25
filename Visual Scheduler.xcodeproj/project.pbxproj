@@ -39,6 +39,8 @@
 		D81ABB7D1909583B000B81F3 /* DayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D81ABB7C1909583B000B81F3 /* DayDataSource.m */; };
 		D81ABB80190966C5000B81F3 /* DayCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D81ABB7F190966C5000B81F3 /* DayCollectionViewLayout.m */; };
 		D81ABB8719097F62000B81F3 /* NowCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D81ABB8619097F62000B81F3 /* NowCollectionViewLayout.m */; };
+		D81ABB8B1909AEC0000B81F3 /* WeekCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D81ABB8A1909AEC0000B81F3 /* WeekCollectionViewController.m */; };
+		D81ABB8E1909C308000B81F3 /* ContainerViewController+Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = D81ABB8D1909C308000B81F3 /* ContainerViewController+Camera.m */; };
 		D82838B518D5BA39009C03A8 /* UIApplicationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D82838B418D5BA39009C03A8 /* UIApplicationTests.m */; };
 		D82C0CDC18F80DFB005B5569 /* WeekDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D82C0CDB18F80DFB005B5569 /* WeekDataSource.m */; };
 		D82C0CE218F8813F005B5569 /* CalendarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D82C0CE118F8813F005B5569 /* CalendarCell.m */; };
@@ -86,7 +88,7 @@
 		D887832E18C8E33300F13B28 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		D889F7EE18C9249A008A497F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D83A62CB18B696DC00EC0773 /* AppDelegate.m */; };
 		D8A28F071902CD4B0003BA94 /* SelectPictogramCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8A28F061902CD4B0003BA94 /* SelectPictogramCell.xib */; };
-		D8AFD99E1901BF2400A294D5 /* CalendarCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8AFD99D1901BF2400A294D5 /* CalendarCollectionViewController.m */; };
+		D8AFD99E1901BF2400A294D5 /* DayCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8AFD99D1901BF2400A294D5 /* DayCollectionViewController.m */; };
 		D8B016EF18FEB85700017D76 /* CalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B016EE18FEB85700017D76 /* CalendarView.m */; };
 		D8BABEC018EC6839009E562E /* NSMutableArray+MoveObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D8BABEBF18EC6839009E562E /* NSMutableArray+MoveObject.m */; };
 		D8C7BDE7190287E800128FA7 /* WeekCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C7BDE6190287E800128FA7 /* WeekCollectionViewLayout.m */; };
@@ -168,6 +170,10 @@
 		D81ABB8519097F62000B81F3 /* NowCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NowCollectionViewLayout.h; path = "Visual Scheduler/Controllers/NowCollectionViewLayout.h"; sourceTree = "<group>"; };
 		D81ABB8619097F62000B81F3 /* NowCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NowCollectionViewLayout.m; path = "Visual Scheduler/Controllers/NowCollectionViewLayout.m"; sourceTree = "<group>"; };
 		D81ABB8819098B5D000B81F3 /* DataSourceCanAddPictogram.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DataSourceCanAddPictogram.h; path = "Visual Scheduler/Controllers/DataSourceCanAddPictogram.h"; sourceTree = "<group>"; };
+		D81ABB891909AEC0000B81F3 /* WeekCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeekCollectionViewController.h; path = "Visual Scheduler/UI/WeekCollectionViewController.h"; sourceTree = "<group>"; };
+		D81ABB8A1909AEC0000B81F3 /* WeekCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeekCollectionViewController.m; path = "Visual Scheduler/UI/WeekCollectionViewController.m"; sourceTree = "<group>"; };
+		D81ABB8C1909C308000B81F3 /* ContainerViewController+Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ContainerViewController+Camera.h"; path = "Visual Scheduler/UI/ContainerViewController+Camera.h"; sourceTree = "<group>"; };
+		D81ABB8D1909C308000B81F3 /* ContainerViewController+Camera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ContainerViewController+Camera.m"; path = "Visual Scheduler/UI/ContainerViewController+Camera.m"; sourceTree = "<group>"; };
 		D82838B418D5BA39009C03A8 /* UIApplicationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIApplicationTests.m; path = "Visual SchedulerTests/UIApplicationTests.m"; sourceTree = "<group>"; };
 		D829DDA918E191C00039A449 /* vs.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = vs.sqlite3; sourceTree = "<group>"; };
 		D82C0CDA18F80DFB005B5569 /* WeekDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeekDataSource.h; path = "Visual Scheduler/CalendarView/WeekDataSource.h"; sourceTree = "<group>"; };
@@ -239,8 +245,8 @@
 		D8805F4618C5E456001BD35B /* PictogramsCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PictogramsCollectionViewController.m; path = "Visual Scheduler/Controllers/PictogramsCollectionViewController.m"; sourceTree = "<group>"; };
 		D88CF2B618C71B5300AF0CC1 /* SelectPictogramViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SelectPictogramViewControllerDelegate.h; path = "Visual Scheduler/Controllers/SelectPictogramViewControllerDelegate.h"; sourceTree = "<group>"; };
 		D8A28F061902CD4B0003BA94 /* SelectPictogramCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SelectPictogramCell.xib; path = "Visual Scheduler/Controllers/SelectPictogramCell.xib"; sourceTree = "<group>"; };
-		D8AFD99C1901BF2400A294D5 /* CalendarCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarCollectionViewController.h; path = "Visual Scheduler/CalendarView/CalendarCollectionViewController.h"; sourceTree = "<group>"; };
-		D8AFD99D1901BF2400A294D5 /* CalendarCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarCollectionViewController.m; path = "Visual Scheduler/CalendarView/CalendarCollectionViewController.m"; sourceTree = "<group>"; };
+		D8AFD99C1901BF2400A294D5 /* DayCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DayCollectionViewController.h; path = "Visual Scheduler/CalendarView/DayCollectionViewController.h"; sourceTree = "<group>"; };
+		D8AFD99D1901BF2400A294D5 /* DayCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DayCollectionViewController.m; path = "Visual Scheduler/CalendarView/DayCollectionViewController.m"; sourceTree = "<group>"; };
 		D8B016ED18FEB85700017D76 /* CalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarView.h; path = "Visual Scheduler/CalendarView/CalendarView.h"; sourceTree = "<group>"; };
 		D8B016EE18FEB85700017D76 /* CalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarView.m; path = "Visual Scheduler/CalendarView/CalendarView.m"; sourceTree = "<group>"; };
 		D8BABEBE18EC6839009E562E /* NSMutableArray+MoveObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+MoveObject.h"; sourceTree = "<group>"; };
@@ -358,6 +364,8 @@
 		D81ABB8119096B66000B81F3 /* Day */ = {
 			isa = PBXGroup;
 			children = (
+				D8AFD99C1901BF2400A294D5 /* DayCollectionViewController.h */,
+				D8AFD99D1901BF2400A294D5 /* DayCollectionViewController.m */,
 				D81ABB7B1909583B000B81F3 /* DayDataSource.h */,
 				D81ABB7C1909583B000B81F3 /* DayDataSource.m */,
 				D81ABB8819098B5D000B81F3 /* DataSourceCanAddPictogram.h */,
@@ -372,6 +380,8 @@
 		D81ABB8219096C10000B81F3 /* Week */ = {
 			isa = PBXGroup;
 			children = (
+				D81ABB891909AEC0000B81F3 /* WeekCollectionViewController.h */,
+				D81ABB8A1909AEC0000B81F3 /* WeekCollectionViewController.m */,
 				D82C0CDA18F80DFB005B5569 /* WeekDataSource.h */,
 				D82C0CDB18F80DFB005B5569 /* WeekDataSource.m */,
 				D8C7BDE5190287E800128FA7 /* WeekCollectionViewLayout.h */,
@@ -456,8 +466,6 @@
 		D8387DBF18F9A94A00DD716C /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
-				D8AFD99C1901BF2400A294D5 /* CalendarCollectionViewController.h */,
-				D8AFD99D1901BF2400A294D5 /* CalendarCollectionViewController.m */,
 				D8401AA91900312A00BAF82F /* BackgroundColour.xib */,
 				D81ABB8219096C10000B81F3 /* Week */,
 				D81ABB8119096B66000B81F3 /* Day */,
@@ -521,7 +529,6 @@
 			isa = PBXGroup;
 			children = (
 				68D7963119092CDB0047A0CE /* Timer */,
-				D8DB800018C50FAC00BA2037 /* Show Schedule */,
 				6835651819002A2500FCA28A /* SettingsManager */,
 				D85EBDDB18DC836700DF76B7 /* Color */,
 				D83A62CA18B696DC00EC0773 /* AppDelegate.h */,
@@ -657,6 +664,8 @@
 			children = (
 				D832357B1902D80800FA4DFF /* ContainerViewController.h */,
 				D832357C1902D80800FA4DFF /* ContainerViewController.m */,
+				D81ABB8C1909C308000B81F3 /* ContainerViewController+Camera.h */,
+				D81ABB8D1909C308000B81F3 /* ContainerViewController+Camera.m */,
 				D8387DBF18F9A94A00DD716C /* Calendar */,
 				D87964BC1906E23000333CD1 /* Create Pictograms */,
 				D8805F4818C5E459001BD35B /* Select Pictogram */,
@@ -861,11 +870,11 @@
 				D8BABEC018EC6839009E562E /* NSMutableArray+MoveObject.m in Sources */,
 				68D7965C190947CB0047A0CE /* Timer.m in Sources */,
 				D83BFE4E1907EDCE00F72646 /* PictogramsCollectionDataSource.m in Sources */,
-				D8401B4A1901B08300BAF82F /* NowCollectionViewLayout.m in Sources */,
 				68D7965E190947CB0047A0CE /* WatchDialView.m in Sources */,
 				D8C7BDE7190287E800128FA7 /* WeekCollectionViewLayout.m in Sources */,
 				6818B6FF19059475009F0742 /* ExternalViewDataSource.m in Sources */,
 				68D796551909479E0047A0CE /* TimerViewController.m in Sources */,
+				D81ABB8E1909C308000B81F3 /* ContainerViewController+Camera.m in Sources */,
 				D82C0CDC18F80DFB005B5569 /* WeekDataSource.m in Sources */,
 				6818B6FC19059319009F0742 /* ExternalViewLayout.m in Sources */,
 				D83A62C818B696DC00EC0773 /* main.m in Sources */,
@@ -884,8 +893,9 @@
 				D8EB983718E340CF00DA3A99 /* Schedule.m in Sources */,
 				D8315AF418D39DEA00C4A340 /* Camera.m in Sources */,
 				D82C0CE218F8813F005B5569 /* CalendarCell.m in Sources */,
+				D81ABB8B1909AEC0000B81F3 /* WeekCollectionViewController.m in Sources */,
 				68D7963D19092DE50047A0CE /* CALayer+WithSizeAndPosition.m in Sources */,
-				D8AFD99E1901BF2400A294D5 /* CalendarCollectionViewController.m in Sources */,
+				D8AFD99E1901BF2400A294D5 /* DayCollectionViewController.m in Sources */,
 				D83BFE4B1907CAE600F72646 /* UIView+HoverView.m in Sources */,
 				68D7963719092D2D0047A0CE /* UIView+CenterPoint.m in Sources */,
 				D853A80E18E1DD3C0031E986 /* SQLiteStore.m in Sources */,

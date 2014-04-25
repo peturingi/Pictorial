@@ -2,7 +2,7 @@
 #import "DataSourceCanAddPictogram.h"
 @class Pictogram;
 
-@interface WeekDataSource : NSObject <UICollectionViewDataSource, UICollectionViewDelegate, DataSourceCanAddPictogram>
+@interface WeekDataSource : NSObject <UICollectionViewDataSource, EditableDataSource>
 
 @property (strong, nonatomic) NSMutableArray *schedules;
 @property BOOL editing;

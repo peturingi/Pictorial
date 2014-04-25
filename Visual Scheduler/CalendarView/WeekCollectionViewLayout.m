@@ -4,8 +4,8 @@
 #define HEADER_KEY  @"DayOfWeekColour"
 
 static const NSInteger INSET_TOP    = 2;
-static const NSInteger INSET_LEFT   = 15;
-static const NSInteger INSET_RIGHT  = 15;
+static const NSInteger INSET_LEFT   = 18;
+static const NSInteger INSET_RIGHT  = 18;
 static const NSInteger INSET_BOTTOM = 2;
 static const NSUInteger HEADER_HEIGHT = 20;
 
@@ -248,6 +248,10 @@ static const NSUInteger HEADER_HEIGHT = 20;
                                  proposedContentOffset.y + offsetAdjustment);
     offset.y -= [self headerSize].height;
     return offset;
+}
+
+- (void)dealloc {
+    _layoutInformation = nil;
 }
 
 @end
