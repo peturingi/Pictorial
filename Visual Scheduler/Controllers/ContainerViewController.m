@@ -36,6 +36,10 @@
     return self;
 }
 
+- (void)loadView {
+    [super loadView];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupWeekViewController];
@@ -53,11 +57,20 @@
     
     WeekCollectionViewLayout *weekLayout = [[WeekCollectionViewLayout alloc] init];
     WeekCollectionViewController *weekController = [[WeekCollectionViewController alloc] initWithCollectionViewLayout:weekLayout];
-    weekController.view.frame = self.topView.bounds;
-    
-    [self addChildViewController:weekController];
     self.weekViewController = weekController;
-    [self.topView addSubview:weekController.view];
+    [self addChildViewController:weekController];
+    
+    [self.topView addSubview:weekController.collectionView];
+    
+    // Constraints, fill the view our in its superview.
+    UIView *weekView = weekController.collectionView;
+    weekView.translatesAutoresizingMaskIntoConstraints = NO;
+    NSDictionary *views = NSDictionaryOfVariableBindings(weekView);
+    UIView *superView = self.view;
+    [superView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[weekView]|" options:0 metrics:nil views:views]];
+    [superView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[weekView]|" options:0 metrics:nil views:views]];
+    [superView updateConstraintsIfNeeded];
+    
 }
 
 #pragma mark -
@@ -72,7 +85,6 @@
         [self animateInBottomView];
     }
     else {
-        [self restoreCalendarHeight];
         [self animateOutBottomView];
     }
     
@@ -97,50 +109,25 @@
 
 - (void)animateInBottomView {
     self.bottomView.layer.shadowOpacity = PICTOGRAM_SHADOW_OPACITY;
-    CGRect frame = [self rectCoveringOneThirdOfBottomScreen];
-    [UIView animateWithDuration:0.3f animations:^{
-        self.bottomView.frame = frame;
-    }completion:^(BOOL completed){
-        if (completed) {
-            [self shrinkCalendarbyOneThirdItsHeightFromBottom];
-        }
-    }];
+    [UIView animateWithDuration:0.3f
+                     animations:^{
+                         heightOfBottomView.constant = self.view.frame.size.height / 3.0f;
+                         [self.view layoutIfNeeded];
+                     }];
 }
 
-- (CGRect)rectCoveringOneThirdOfBottomScreen {
-    CGRect frame = self.view.frame;
-    frame.origin = CGPointMake(self.view.frame.origin.x,
-                               self.view.bounds.origin.y + self.view.bounds.size.height/3.0f * 2.0f);
-    frame.size = CGSizeMake(self.view.frame.size.width,
-                            self.view.bounds.origin.y + self.view.frame.size.height/3.0f);
-    return frame;
-}
-
-#pragma mark -
-
-- (void)restoreCalendarHeight {
-    self.topView.frame = self.view.bounds;
-}
 
 #pragma mark - Hide Pictrogram Selector
 
 - (void)animateOutBottomView {
-    CGRect frame = [self outOfBoundsBottomViewFrame];
-    [UIView animateWithDuration:0.3f animations:^{
-        self.bottomView.frame = frame;
+       [UIView animateWithDuration:0.3f animations:^{
+        heightOfBottomView.constant = 0.0f;
+           [self.view layoutIfNeeded];
     }completion:^(BOOL completed){
         if (completed) {
             self.bottomView.layer.shadowOpacity = 0.0f;
         }
     }];
-}
-
-- (CGRect)outOfBoundsBottomViewFrame {
-    CGRect frame = self.view.frame;
-    frame.origin = CGPointMake(self.view.frame.origin.x,
-                               self.view.bounds.origin.y + self.view.bounds.size.height);
-    frame.size = self.bottomView.frame.size;
-    return frame;
 }
 
 - (void)setEditGestureRecognizersEnabled:(BOOL)value {
@@ -161,12 +148,6 @@
 - (void)addShadowToBottomView {
     self.bottomView.layer.shadowRadius = PICTOGRAM_SHADOW_RADIUS;
     self.bottomView.layer.shadowColor = [UIColor blackColor].CGColor;
-}
-
-- (void)shrinkCalendarbyOneThirdItsHeightFromBottom {
-    CGRect frame = self.topView.frame;
-    frame.size.height -= frame.size.height / 3.0f;
-    self.topView.frame = frame;
 }
 
 #pragma mark Gestures
@@ -382,20 +363,6 @@
     rect.origin.x -= rect.size.width / 2.0f;
     rect.origin.y -= rect.size.height / 2.0f;
     return rect;
-}
-
-#pragma mark - Device Rotation
-
-- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
-    //[self restoreCalendarHeight];
-}
-
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
-    //if (_isShowingBottomView) {
-    //    [self showPictogramSelector];
-    //} else {
-    //    [self hidePictogramSelector];
-    //}
 }
 
 #pragma mark - Timer
