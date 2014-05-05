@@ -1,6 +1,5 @@
 #import "CreatePictogram.h"
 #import "Repository.h"
-#import "Pictogram.h"
 
 @implementation CreatePictogram
 
