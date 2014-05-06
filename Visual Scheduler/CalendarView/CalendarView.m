@@ -16,4 +16,14 @@
     [self registerClass:[CalendarCell class] forCellWithReuseIdentifier:@"CALENDAR_CELL"];
 }
 
+- (CalendarCell *)dequeueReusableCalendarCellForIndexPath:(NSIndexPath *)indexPath {
+    CalendarCell *cell = (CalendarCell *)[self dequeueReusableCellWithReuseIdentifier:@"CALENDAR_CELL" forIndexPath:indexPath];
+    return cell;
+}
+
+- (UICollectionReusableView *)dequeueReusableBackgroundColourViewforIndexPath:indexPath {
+    UICollectionReusableView *view = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader  withReuseIdentifier:@"DayOfWeekColour" forIndexPath:indexPath];
+    return view;
+}
+
 @end

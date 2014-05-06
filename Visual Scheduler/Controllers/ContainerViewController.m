@@ -29,17 +29,6 @@
 
 @implementation ContainerViewController
 
-- (id)initWithCoder:(NSCoder *)aDecoder {
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-    }
-    return self;
-}
-
-- (void)loadView {
-    [super loadView];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupWeekViewController];
@@ -211,6 +200,13 @@
             if (_viewFollowingFinger != nil) {
                 CGPoint gestureLocation = [gestureRecognizer locationInView:self.view];
                 _viewFollowingFinger.frame = [self center:_viewFollowingFinger.frame at:gestureLocation];
+                
+                /* animate shifting while moving */
+                CGPoint locationInCollectionView = [gestureRecognizer locationInView:self.weekViewController.collectionView];
+                NSIndexPath *fingerIsOverPictogram = [self.weekViewController.collectionView indexPathForItemAtPoint:locationInCollectionView];
+                if (fingerIsOverPictogram) {
+                    NSLog(@"Finger over %@", fingerIsOverPictogram);
+                }
             }
             break;
             

@@ -32,6 +32,7 @@
 -(void)setupAudioPlayer{
     NSString *path = [[NSBundle mainBundle] pathForResource:@"ding" ofType:@"m4a"];
     _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:path] error:NULL];
+#warning magic number
     [_audioPlayer setNumberOfLoops:-1];
     [_audioPlayer prepareToPlay];
 }
@@ -52,7 +53,7 @@
 }
 
 -(void)setupTimerView{
-    _timerView = [[TimerView alloc]initWithFrame:self.view.frame];
+    _timerView = [[TimerView alloc]initWithFrame:self.view.frame]; // TODO try self.view.frame þpetur
     [_timerView setLabelToUpdate:_titleLabel];
     [[self view] addSubview:_timerView];
 }

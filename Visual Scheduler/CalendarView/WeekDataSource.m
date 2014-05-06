@@ -1,11 +1,8 @@
 #import "WeekDataSource.h"
 #import "../Database/Repository.h"
 #import "CalendarCell.h"
-#import "../Protocols/ImplementsCount.h"
-#import "../Protocols/ContainsImage.h"
 #import "Schedule.h"
-
-#define CELL_IDENTIFIER @"CALENDAR_CELL"
+#import "CalendarView.h"
 
 #define NUMBER_OF_DAYS_IN_WEEK 7
 
@@ -40,7 +37,7 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    CalendarCell *cell = (CalendarCell *)[collectionView dequeueReusableCellWithReuseIdentifier:CELL_IDENTIFIER forIndexPath:indexPath];
+    CalendarCell *cell = [(CalendarView *)collectionView dequeueReusableCalendarCellForIndexPath:indexPath];
     Schedule *schedule = [self.schedules objectAtIndex:indexPath.section];
     
     // Shows empty box below each schedule in edit mode.
@@ -59,7 +56,7 @@
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
-    UICollectionReusableView *view = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"DayOfWeekColour" forIndexPath:indexPath];
+    UICollectionReusableView *view = [(CalendarView *)collectionView dequeueReusableBackgroundColourViewforIndexPath:indexPath];
     Schedule *schedule = [_schedules objectAtIndex:indexPath.section];
     view.backgroundColor = schedule.color;
     return view;

@@ -3,6 +3,7 @@
 -(id)init{
     self = [super init];
     if(self){
+#warning code smell, hardcoded string!
         _dbcon = [[SQLiteDatabaseConnection alloc]initWithDatabaseFileNamed:@"settings.sqlite3"];
     }
     return self;
