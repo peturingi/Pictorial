@@ -17,4 +17,5 @@
 -(void)removePictogramAtIndex:(NSInteger)index;
 -(void)exchangePictogramsAtIndex:(NSInteger)indexOne andIndex:(NSInteger)indexTwo;
 -(void)addPictogram:(Pictogram*)pictogram;
++ (NSArray *)allSchedules;
 @end

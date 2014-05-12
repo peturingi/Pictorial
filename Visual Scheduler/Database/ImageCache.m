@@ -26,4 +26,11 @@
 -(UIImage*)imageAtIndex:(NSInteger)index{
     return [_cache objectForKey:[NSNumber numberWithInteger:index]];
 }
+
+- (BOOL)containsImageAtIndex:(NSInteger)index {
+    BOOL cacheHit;
+    id obj = [_cache objectForKey:[NSNumber numberWithInteger:index]];
+    cacheHit = (obj == nil ? NO : YES);
+    return cacheHit;
+}
 @end

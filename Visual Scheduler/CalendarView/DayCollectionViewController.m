@@ -5,9 +5,6 @@
 #import "NowCollectionViewLayout.h"
 #import "DataSourceCanAddPictogram.h"
 
-#import "Schedule.h"
-#import "Pictogram.h"
-
 @interface DayCollectionViewController ()
     @property (nonatomic, strong) id<EditableDataSource, UICollectionViewDelegate, UICollectionViewDataSource> dataSource;
 @end

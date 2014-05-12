@@ -14,5 +14,6 @@
 
 -(void)insertImage:(UIImage*)image atIndex:(NSInteger)index;
 -(UIImage*)imageAtIndex:(NSInteger)index;
+- (BOOL)containsImageAtIndex:(NSInteger)index;
 
 @end

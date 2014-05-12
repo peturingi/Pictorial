@@ -1,5 +1,5 @@
 #import <UIKit/UIKit.h>
-#import "../Database/Pictogram.h"
+@class Pictogram;
 
 @interface DayCollectionViewController : UICollectionViewController
 

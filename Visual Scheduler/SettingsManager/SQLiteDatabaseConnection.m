@@ -90,7 +90,7 @@
     }
 }
 
--(NSData*)dataFromStatement:(sqlite3_stmt*)statement atColumnIndex:(NSInteger)index{
+- (NSData *)dataFromStatement:(sqlite3_stmt *)statement atColumnIndex:(NSInteger)index{
     [self validateStatement:statement];
     [self validateColumnIndex:index];
     int integerIndex = (int)index;
@@ -99,7 +99,7 @@
     return [[NSData alloc] initWithBytes:ptrToData length:dataSize];
 }
 
--(NSString*)stringFromStatement:(sqlite3_stmt*)statement atColumnIndex:(NSInteger)index{
+- (NSString*)stringFromStatement:(sqlite3_stmt *)statement atColumnIndex:(NSInteger)index{
     [self validateStatement:statement];
     [self validateColumnIndex:index];
     int integerIndex = (int)index;
@@ -107,7 +107,7 @@
     return [NSString stringWithCString:title encoding:NSUTF8StringEncoding];
 }
 
--(NSInteger)integerFromStatement:(sqlite3_stmt *)statement atColumnIndex:(NSInteger)index{
+- (NSInteger)integerFromStatement:(sqlite3_stmt *)statement atColumnIndex:(NSInteger)index{
     [self validateStatement:statement];
     [self validateColumnIndex:index];
     int integerIndex = (int)index;

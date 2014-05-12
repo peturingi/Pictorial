@@ -12,7 +12,7 @@
     self = [super init];
     if (self) {
 // TODO here we should not assume that there are only 7 schedules. Must get only 7 schedules.
-        _schedules = [NSMutableArray arrayWithArray:[[Repository defaultRepository] allSchedules]];
+        _schedules = [NSMutableArray arrayWithArray:[Schedule allSchedules]];
         NSAssert(self.schedules.count == NUMBER_OF_DAYS_IN_WEEK, @"A week must consist of 7 schedules.");
     }
     return self;

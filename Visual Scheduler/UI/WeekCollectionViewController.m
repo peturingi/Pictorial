@@ -1,7 +1,6 @@
 #import "WeekCollectionViewController.h"
 #import "WeekCollectionViewLayout.h"
 #import "WeekDataSource.h"
-#import "DataSourceCanAddPictogram.h"
 #import "CalendarView.h"
 
 @interface WeekCollectionViewController ()

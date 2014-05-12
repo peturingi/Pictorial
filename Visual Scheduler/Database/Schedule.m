@@ -98,4 +98,10 @@
     }
 }
 
+#pragma Class Methods
+
++ (NSArray *)allSchedules {
+    return [[Repository defaultRepository] allSchedules];
+}
+
 @end
