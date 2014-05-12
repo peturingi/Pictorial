@@ -11,5 +11,5 @@
 }
 
 - (Pictogram *)pictogramAtIndexPath:(NSIndexPath *)indexPath;
-
+- (void)reloadData;
 @end

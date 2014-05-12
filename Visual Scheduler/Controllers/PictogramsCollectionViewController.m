@@ -21,6 +21,7 @@
     if (self) {
         ((UICollectionViewFlowLayout*)self.collectionViewLayout).itemSize = CGSizeMake(100, 135);
         [self registerCollectionViewCell];
+        [self registerForUpdateNotificationsFromDataSource];
     }
     return self;
 }
@@ -33,6 +34,15 @@
     else {
         @throw [NSException exceptionWithName:@"Could not regsiter nib." reason:@"File not found." userInfo:nil];
     }
+}
+
+- (void)registerForUpdateNotificationsFromDataSource {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name:NOTIFICATION_PICTOGRAM_INSERTED object:nil];
+}
+
+- (void)reloadData {
+    [self.dataSource reloadData];
+    [self.collectionView reloadData];
 }
 
 - (void)loadView {

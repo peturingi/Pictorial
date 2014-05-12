@@ -3,5 +3,5 @@
 @interface ContainerViewController (Camera) <CameraDelegate>
 
 @property (strong, nonatomic) Camera *camera;
-
+- (void)showCamera;
 @end

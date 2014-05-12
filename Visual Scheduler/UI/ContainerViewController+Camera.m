@@ -4,16 +4,13 @@
 @implementation ContainerViewController (Camera)
 @dynamic camera;
 
-- (IBAction)cameraButton:(id)sender {
-    [self setupCamera];
-    [self showCamera];
-}
-
 - (void)setupCamera {
     _camera = [[Camera alloc] initWithViewController:self usingDelegate:self];
 }
 
 - (void)showCamera {
+    [self setupCamera];
+    
     BOOL success = [_camera show];
     if (!success) {
         [self alertUserCameraIsNotAvailable];

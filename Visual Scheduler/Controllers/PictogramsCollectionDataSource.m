@@ -67,4 +67,8 @@
     return pictogram;
 }
 
+- (void)reloadData {
+    [self setupDataSource];
+}
+
 @end

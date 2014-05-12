@@ -11,11 +11,11 @@
 #import "WeekCollectionViewController.h"
 #import "UIView+HoverView.h"
 
-@interface ContainerViewController (){
+@interface ContainerViewController () {
     TimerViewController* _timerViewController;
+    UIBarButtonItem *cameraButton;
+    UIBarButtonItem *timerButton;
 }
-@end
-@interface ContainerViewController ()
 /** Controller manageing the view whtin the bottomView
  */
 @property (weak, nonatomic) PictogramsCollectionViewController *pictogramViewController;
@@ -36,7 +36,11 @@
     
     UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(toggleEditing:)];
     [self.navigationItem setRightBarButtonItem:editButton];
-
+    
+    cameraButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(showCamera)];
+    
+    timerButton = [[UIBarButtonItem alloc] initWithTitle:@"Timer" style:UIBarButtonItemStylePlain target:self action:@selector(showTimer:)];
+    [self.navigationItem setLeftBarButtonItem:timerButton];
     
     _currentCollectionViewController = self.weekViewController;
     
@@ -81,7 +85,11 @@
     
     [self setEditButtonText:
         (self.editing) ? @"Done" : @"Edit"
-     ];
+    ];
+    
+    [self.navigationItem setLeftBarButtonItem:
+        (self.editing) ? cameraButton : timerButton
+    ];
     
     [self.weekViewController setEditing:self.editing animated:YES];
     [self setDayWeekSegmentEnabled:!self.editing];
