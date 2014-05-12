@@ -6,13 +6,10 @@
     UILongPressGestureRecognizer *_topViewGestureRecognizer;
     UILongPressGestureRecognizer *_bottomViewGestureRecognizer;
     Camera *_camera;
-    
     UIView *_viewFollowingFinger;
     Pictogram *_pictogramBeingDragged;
     CGRect _originOfTouchedPictogram;
     __weak IBOutlet UISegmentedControl *dayWeekSegment;
-    
-    
     __weak IBOutlet NSLayoutConstraint *heightOfBottomView;
 }
 

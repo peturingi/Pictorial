@@ -1,6 +1,5 @@
 #import "ContainerViewController.h"
 #import "ContainerViewController+Camera.h"
-
 #import <QuartzCore/CAAnimation.h>
 #import "PictogramsCollectionViewController.h"
 #import "DayCollectionViewLayout.h"
@@ -10,7 +9,6 @@
 #import "TimerViewController.h"
 #import "TimerViewController.h"
 #import "WeekCollectionViewController.h"
-
 #import "UIView+HoverView.h"
 
 @interface ContainerViewController (){
@@ -35,6 +33,10 @@
     
     [self setupPictogramSelectorViewController];
     [self addShadowToBottomView];
+    
+    UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(toggleEditing:)];
+    [self.navigationItem setRightBarButtonItem:editButton];
+
     
     _currentCollectionViewController = self.weekViewController;
     
@@ -77,16 +79,24 @@
         [self animateOutBottomView];
     }
     
+    [self setEditButtonText:
+        (self.editing) ? @"Done" : @"Edit"
+     ];
+    
     [self.weekViewController setEditing:self.editing animated:YES];
     [self setDayWeekSegmentEnabled:!self.editing];
     [self setEditGestureRecognizersEnabled:editing];
 }
 
-- (void)setEditButtonEnabled:(BOOL)value {
-    self.navigationItem.rightBarButtonItem.enabled = value;
+- (void)setEditButtonText:(NSString *)value {
+    NSParameterAssert(value);
+    UIBarButtonItem *button = self.navigationItem.rightBarButtonItem;
+    button.title = value;
+    NSAssert([button.title isEqualToString:value], @"Failed to set edit button's string.");
 }
 
 - (void)setDayWeekSegmentEnabled:(BOOL)value {
+    // Toggle all segments, except the one representing the current selection.
     for (NSInteger button = dayWeekSegment.numberOfSegments-1; button >= 0; button--) {
         if (button != dayWeekSegment.selectedSegmentIndex) {
             [dayWeekSegment setEnabled:value forSegmentAtIndex:button];

@@ -81,12 +81,6 @@
                                 <action selector="changeCalendarViewMode:" destination="Xfv-XK-laj" eventType="valueChanged" id="mdp-2a-qwa"/>
                             </connections>
                         </segmentedControl>
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="64g-Ej-m6D">
-                            <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="toggleEditing:" destination="Xfv-XK-laj" id="fZI-t7-ryg"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="768" height="1024"/>
