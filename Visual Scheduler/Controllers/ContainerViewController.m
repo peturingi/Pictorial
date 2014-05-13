@@ -16,7 +16,7 @@
     UIBarButtonItem *cameraButton;
     UIBarButtonItem *timerButton;
 }
-/** Controller manageing the view whtin the bottomView
+/** Controller for the view within the bottomView.
  */
 @property (weak, nonatomic) PictogramsCollectionViewController *pictogramViewController;
 
@@ -34,7 +34,7 @@
     [self setupPictogramSelectorViewController];
     [self addShadowToBottomView];
     
-    UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(toggleEditing:)];
+    UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(toggleEditing)];
     [self.navigationItem setRightBarButtonItem:editButton];
     
     cameraButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(showCamera)];
@@ -70,7 +70,7 @@
 
 #pragma mark -
 
-- (IBAction)toggleEditing:(id)sender {
+- (void)toggleEditing {
     [self setEditing:!self.editing animated:YES];
 }
 
