@@ -1,8 +1,8 @@
-#import "WeekDataSource.h"
-#import "../Database/Repository.h"
 #import "CalendarCell.h"
-#import "Schedule.h"
 #import "CalendarView.h"
+#import "Repository.h"
+#import "Schedule.h"
+#import "WeekDataSource.h"
 
 #define NUMBER_OF_DAYS_IN_WEEK 7
 
@@ -11,11 +11,14 @@
 - (id)init {
     self = [super init];
     if (self) {
-// TODO here we should not assume that there are only 7 schedules. Must get only 7 schedules.
         _schedules = [NSMutableArray arrayWithArray:[Schedule allSchedules]];
         NSAssert(self.schedules.count == NUMBER_OF_DAYS_IN_WEEK, @"A week must consist of 7 schedules.");
     }
     return self;
+}
+
+- (void)dealloc {
+    _schedules = nil;
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -23,8 +26,9 @@
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     Schedule *schedule = [self.schedules objectAtIndex:section];
     NSInteger numberOfItems = schedule.pictograms.count;
-    NSAssert(numberOfItems >= 0, @"Invalid number of items. Must be >=0");
-    if (self.editing ) {
+    NSAssert(numberOfItems >= 0, @"Invalid number of items: %ld. Must be >=0", (long)numberOfItems);
+    if (self.editing) {
+        // Make space for 'drag here' pictogram.
         numberOfItems++;
     }
     return numberOfItems;
@@ -57,38 +61,10 @@
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     UICollectionReusableView *view = [(CalendarView *)collectionView dequeueReusableBackgroundColourViewforIndexPath:indexPath];
+    NSAssert(view, @"Failed to dequeue reusable view.");
     Schedule *schedule = [_schedules objectAtIndex:indexPath.section];
     view.backgroundColor = schedule.color;
     return view;
-}
-
-- (void)addPictogram:(Pictogram *)pictogram toCollectionView:(UICollectionView *)collectionView atIndexPath:(NSIndexPath *)indexPath {
-    Schedule *schedule = [self.schedules objectAtIndex:indexPath.section];
-    [schedule addPictogram:pictogram atIndex:indexPath.item];
-    [collectionView insertItemsAtIndexPaths:@[indexPath]];
-}
-
-- (void)deletePictogramInCollectionView:(UICollectionView *)collectionView atIndexPath:(NSIndexPath *)indexPath {
-    NSParameterAssert(collectionView);
-    NSParameterAssert(indexPath);
-    
-    if (!self.editing) {
-        [NSException raise:NSInternalInconsistencyException format:@"Trying to modify the datasource while it is not in edit mode."];
-    } else  if (indexPath && collectionView) {
-        const NSUInteger numberOfItemsInSection = [self collectionView:collectionView numberOfItemsInSection:indexPath.section];
-        const NSUInteger itemToDelete = indexPath.item;
-        const NSUInteger sectionToDeleteFrom = indexPath.section;
-        if (itemToDelete < numberOfItemsInSection-1) {
-            Schedule *schedule = [self.schedules objectAtIndex:sectionToDeleteFrom];
-            [schedule removePictogramAtIndex:itemToDelete];
-            [collectionView deleteItemsAtIndexPaths:@[indexPath]];
-        }
-    }
-}
-
-
-- (void)dealloc {
-    _schedules = nil;
 }
 
 @end

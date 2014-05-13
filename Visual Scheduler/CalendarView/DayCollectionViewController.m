@@ -1,5 +1,5 @@
 #import "CalendarView.h"
-#import "DataSourceCanAddPictogram.h"
+#import "DataSourceCanAddRemovePictogram.h"
 #import "DayCollectionViewController.h"
 #import "DayCollectionViewLayout.h"
 #import "DayDataSource.h"

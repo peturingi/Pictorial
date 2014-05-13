@@ -251,7 +251,7 @@
             touchedItem = [self.currentCollectionViewController.collectionView indexPathForItemAtPoint:locationInTopView];
             if (touchedItem) {
                 // Todo, make static type check instead of magic.
-                [self.currentCollectionViewController performSelector:@selector(deleteItemAtIndexPath:) withObject:touchedItem];
+                [self.currentCollectionViewController performSelector:@selector(deletePictogramAtIndexPath:) withObject:touchedItem];
             }
             break;
             

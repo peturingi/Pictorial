@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "Schedule.h"
-#import "DataSourceCanAddPictogram.h"
+#import "DataSourceCanAddRemovePictogram.h"
 
 @interface DayDataSource : NSObject  <UICollectionViewDataSource, UICollectionViewDelegate, EditableDataSource> {
     Schedule *schedule;
