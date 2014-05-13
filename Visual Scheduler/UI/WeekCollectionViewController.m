@@ -1,7 +1,7 @@
+#import "CalendarView.h"
 #import "WeekCollectionViewController.h"
 #import "WeekCollectionViewLayout.h"
 #import "WeekDataSource.h"
-#import "CalendarView.h"
 
 @interface WeekCollectionViewController ()
 @property (nonatomic, strong) id<EditableDataSource, UICollectionViewDataSource> dataSource;

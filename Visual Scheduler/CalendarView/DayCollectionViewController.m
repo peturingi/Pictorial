@@ -1,12 +1,13 @@
-#import "DayCollectionViewController.h"
 #import "CalendarView.h"
-#import "DayDataSource.h"
-#import "DayCollectionViewLayout.h"
-#import "NowCollectionViewLayout.h"
 #import "DataSourceCanAddPictogram.h"
+#import "DayCollectionViewController.h"
+#import "DayCollectionViewLayout.h"
+#import "DayDataSource.h"
+#import "NowCollectionViewLayout.h"
+#import "NSDate+VisualScheduler.h"
 
 @interface DayCollectionViewController ()
-    @property (nonatomic, strong) id<EditableDataSource, UICollectionViewDelegate, UICollectionViewDataSource> dataSource;
+@property (nonatomic, strong) id<EditableDataSource, UICollectionViewDelegate, UICollectionViewDataSource> dataSource;
 @end
 
 @implementation DayCollectionViewController
@@ -14,8 +15,8 @@
 - (id)initWithCollectionViewLayout:(UICollectionViewLayout *)layout {
     self = [super initWithCollectionViewLayout:layout];
     if (self) {
-#warning shows schedule for 0
-        self.dataSource = [[DayDataSource alloc] init];
+        const NSUInteger indexOfScheduleToShow = [NSDate dayOfWeekInDenmark] - 1;
+        self.dataSource = [[DayDataSource alloc] initWithScheduleNumber:indexOfScheduleToShow];
     }
     return self;
 }

@@ -21,18 +21,17 @@
 @property (weak, nonatomic) PictogramsCollectionViewController *pictogramViewController;
 
 @property (weak, nonatomic) UICollectionViewController *currentCollectionViewController;
-@property (weak, nonatomic) WeekCollectionViewController *weekViewController;
-@property (weak, nonatomic) DayCollectionViewController *dayViewController;
 @end
 
 @implementation ContainerViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupWeekViewController];
+    
+    self.currentCollectionViewController = [self setupWeekViewController];
+    [self presentSchedule];
     
     [self setupPictogramSelectorViewController];
-    [self addShadowToBottomView];
     
     UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(toggleEditing)];
     [self.navigationItem setRightBarButtonItem:editButton];
@@ -41,34 +40,89 @@
     
     timerButton = [[UIBarButtonItem alloc] initWithTitle:@"Timer" style:UIBarButtonItemStylePlain target:self action:@selector(showTimer:)];
     [self.navigationItem setLeftBarButtonItem:timerButton];
-    
-    _currentCollectionViewController = self.weekViewController;
-    
     [self setupGestureRecognizer];
 }
 
-- (void)setupWeekViewController {
+#pragma mark View Modes (now,day,week)
+
+- (IBAction)changeCalendarViewMode:(id)sender {
+    NSParameterAssert([sender isKindOfClass:[UISegmentedControl class]]);
+    UISegmentedControl *control = sender;
+    switch (control.selectedSegmentIndex) {
+        case 0:
+        case 1:
+        {
+            if ([self.currentCollectionViewController isMemberOfClass:[DayCollectionViewController class]] == NO) {
+                self.currentCollectionViewController = [self setupDayViewController];
+            }
+            DayCollectionViewController *controller = (DayCollectionViewController *)self.currentCollectionViewController;
+            [controller switchToViewMode:control.selectedSegmentIndex];
+            break;
+        }
+        case 2:
+        {
+            self.currentCollectionViewController = [self setupWeekViewController];
+            break;
+        }
+        default:
+        {
+            NSAssert(NO, @"Invalid selection.");
+        }
+    }
+    
+    [self presentSchedule];
+}
+
+#pragma mark Week View
+
+- (UICollectionViewController *)setupWeekViewController {
     NSAssert(self.topView, @"topView must not be nil.");
     
     WeekCollectionViewLayout *weekLayout = [[WeekCollectionViewLayout alloc] init];
     WeekCollectionViewController *weekController = [[WeekCollectionViewController alloc] initWithCollectionViewLayout:weekLayout];
-    self.weekViewController = weekController;
+    NSAssert(weekController, @"Failed to get controller");
     [self addChildViewController:weekController];
-    
-    [self.topView addSubview:weekController.collectionView];
-    
-    // Constraints, fill the view our in its superview.
-    UIView *weekView = weekController.collectionView;
-    weekView.translatesAutoresizingMaskIntoConstraints = NO;
-    NSDictionary *views = NSDictionaryOfVariableBindings(weekView);
-    UIView *superView = self.view;
-    [superView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[weekView]|" options:0 metrics:nil views:views]];
-    [superView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[weekView]|" options:0 metrics:nil views:views]];
-    [superView updateConstraintsIfNeeded];
-    
+    return weekController;
 }
 
-#pragma mark -
+#pragma mark Day View
+
+- (UICollectionViewController *)setupDayViewController {
+    NSAssert(self.topView, @"topView must not be nil.");
+    
+    DayCollectionViewLayout *layout = [[DayCollectionViewLayout alloc] init];
+    DayCollectionViewController *controller = [[DayCollectionViewController alloc] initWithCollectionViewLayout:layout];
+    NSAssert(controller, @"Failed to get controller");
+    [self addChildViewController:controller];
+    return controller;
+}
+
+#pragma mark Helpers
+
+- (void)presentSchedule {
+    [self removeAllSubviewsFrom:self.topView];
+    [self.topView addSubview:self.currentCollectionViewController.collectionView];
+    [self addConstraintsTo:self.view fillViewInSuperView:self.currentCollectionViewController.collectionView];
+}
+
+- (void)addConstraintsTo:(UIView *)superview fillViewInSuperView:(UIView *)view {
+    NSParameterAssert(view);
+    view.translatesAutoresizingMaskIntoConstraints = NO;
+    NSDictionary *views = NSDictionaryOfVariableBindings(view);
+    [superview addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[view]|" options:0 metrics:nil views:views]];
+    [superview addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[view]|" options:0 metrics:nil views:views]];
+    [superview updateConstraintsIfNeeded];
+}
+
+- (void)removeAllSubviewsFrom:(UIView *)view {
+    NSParameterAssert(view);
+    for (UIView *subview in view.subviews) {
+        [subview removeFromSuperview];
+    }
+    NSAssert(self.topView.subviews.count == 0, @"Not all subviews have been removed.");
+}
+
+#pragma mark - Edit Mode
 
 - (void)toggleEditing {
     [self setEditing:!self.editing animated:YES];
@@ -91,7 +145,7 @@
         (self.editing) ? cameraButton : timerButton
     ];
     
-    [self.weekViewController setEditing:self.editing animated:YES];
+    [self.currentCollectionViewController setEditing:self.editing animated:YES];
     [self setDayWeekSegmentEnabled:!self.editing];
     [self setEditGestureRecognizersEnabled:editing];
 }
@@ -112,8 +166,26 @@
     }
 }
 
-#pragma mark - Show Pictogram Selector
+#pragma mark - Bottom View (Pictogram Selector Slide)
 
+- (void)setupPictogramSelectorViewController {
+    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+    PictogramsCollectionViewController *viewController = [[PictogramsCollectionViewController alloc] initWithCollectionViewLayout:flowLayout];
+    viewController.view.frame = self.bottomView.bounds;
+    
+    [self addChildViewController:viewController];
+    [self.bottomView addSubview:viewController.view];
+    [self addShadowToBottomView];
+    
+    self.pictogramViewController = viewController;
+}
+
+- (void)addShadowToBottomView {
+    self.bottomView.layer.shadowRadius = PICTOGRAM_SHADOW_RADIUS;
+    self.bottomView.layer.shadowColor = [UIColor blackColor].CGColor;
+}
+
+#pragma mark Animation
 - (void)animateInBottomView {
     self.bottomView.layer.shadowOpacity = PICTOGRAM_SHADOW_OPACITY;
     [UIView animateWithDuration:0.3f
@@ -122,9 +194,6 @@
                          [self.view layoutIfNeeded];
                      }];
 }
-
-
-#pragma mark - Hide Pictrogram Selector
 
 - (void)animateOutBottomView {
        [UIView animateWithDuration:0.3f animations:^{
@@ -137,27 +206,20 @@
     }];
 }
 
+
+
+#pragma mark -
+
+
+
+
+
+#pragma mark Gesture Recognizers
+
 - (void)setEditGestureRecognizersEnabled:(BOOL)value {
     _topViewGestureRecognizer.enabled = value;
     _bottomViewGestureRecognizer.enabled = value;
 }
-
-- (void)setupPictogramSelectorViewController {
-    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-    PictogramsCollectionViewController *viewController = [[PictogramsCollectionViewController alloc] initWithCollectionViewLayout:flowLayout];
-    viewController.view.frame = self.bottomView.bounds;
-
-    [self addChildViewController:viewController];
-    [self.bottomView addSubview:viewController.view];
-    self.pictogramViewController = viewController;
-}
-
-- (void)addShadowToBottomView {
-    self.bottomView.layer.shadowRadius = PICTOGRAM_SHADOW_RADIUS;
-    self.bottomView.layer.shadowColor = [UIColor blackColor].CGColor;
-}
-
-#pragma mark Gestures
 
 - (void)setupGestureRecognizer {
     [self setupTopViewGestureRecognizer];
@@ -182,13 +244,14 @@
 
 - (void)topViewGesture:(UILongPressGestureRecognizer *)gestureRecognizer {
     static NSIndexPath *touchedItem = nil;
-    CGPoint locationInTopView = [gestureRecognizer locationInView:self.weekViewController.collectionView];
+    CGPoint locationInTopView = [gestureRecognizer locationInView:self.currentCollectionViewController.collectionView];
 
     switch (gestureRecognizer.state) {
         case UIGestureRecognizerStateBegan:
-            touchedItem = [self.weekViewController.collectionView indexPathForItemAtPoint:locationInTopView];
+            touchedItem = [self.currentCollectionViewController.collectionView indexPathForItemAtPoint:locationInTopView];
             if (touchedItem) {
-                [self.weekViewController deleteItemAtIndexPath:touchedItem];
+                // Todo, make static type check instead of magic.
+                [self.currentCollectionViewController performSelector:@selector(deleteItemAtIndexPath:) withObject:touchedItem];
             }
             break;
             
@@ -220,8 +283,8 @@
                 _viewFollowingFinger.frame = [self center:_viewFollowingFinger.frame at:gestureLocation];
                 
                 /* animate shifting while moving */
-                CGPoint locationInCollectionView = [gestureRecognizer locationInView:self.weekViewController.collectionView];
-                NSIndexPath *fingerIsOverPictogram = [self.weekViewController.collectionView indexPathForItemAtPoint:locationInCollectionView];
+                CGPoint locationInCollectionView = [gestureRecognizer locationInView:self.currentCollectionViewController.collectionView];
+                NSIndexPath *fingerIsOverPictogram = [self.currentCollectionViewController.collectionView indexPathForItemAtPoint:locationInCollectionView];
                 if (fingerIsOverPictogram) {
                     NSLog(@"Finger over %@", fingerIsOverPictogram);
                 }
@@ -231,16 +294,16 @@
         case UIGestureRecognizerStateEnded:
             if (_pictogramBeingDragged != nil) {
                 CGPoint locationInTopView = [gestureRecognizer locationInView:self.topView];
-                CGPoint locationInCollectionView = [self.weekViewController.collectionView convertPoint:locationInTopView fromView:self.topView];
+                CGPoint locationInCollectionView = [self.currentCollectionViewController.collectionView convertPoint:locationInTopView fromView:self.topView];
                 if ([self.topView pointInside:locationInTopView withEvent:nil]) {
                     /* If the pictogram was released in a schedule, animate it into place. */
-                    NSIndexPath *destination = [self.weekViewController.collectionView indexPathForItemAtPoint:locationInCollectionView];
+                    NSIndexPath *destination = [self.currentCollectionViewController.collectionView indexPathForItemAtPoint:locationInCollectionView];
                     if (destination) {
                         
                         
                         /* Animation */
                         CGRect destinationFrame = [self.currentCollectionViewController.collectionView cellForItemAtIndexPath:destination].frame;
-                        destinationFrame = [self.view convertRect:destinationFrame fromView:self.weekViewController.collectionView];
+                        destinationFrame = [self.view convertRect:destinationFrame fromView:self.currentCollectionViewController.collectionView];
                         
                         // Animate shadow removal, to give effect like layer is moving down
                         NSString *const shadowOpacity = @"shadowOpacity";
@@ -266,7 +329,7 @@
                                                  subview.frame = frame;
                                              }
                                          }completion:^(BOOL finished){
-                                             [self.weekViewController addPictogram:_pictogramBeingDragged atIndexPath:destination];
+                                             [self.currentCollectionViewController performSelector:@selector(addPictogram:atIndexPath:) withObject:_pictogramBeingDragged withObject:destination];
                                              [self resetPictogramDragging];
                                          }];
                     }
@@ -380,17 +443,12 @@
 }
 
 #pragma mark - Timer
+
 -(IBAction)showTimer:(id)sender{
     if(_timerViewController == nil){
         _timerViewController = [[TimerViewController alloc]init];
     }
     [[self navigationController]pushViewController:_timerViewController animated:YES];
-}
-
-#pragma mark -
-
-- (IBAction)changeCalendarViewMode:(id)sender {
-    NSParameterAssert([sender isKindOfClass:[UISegmentedControl class]]);
 }
 
 @end

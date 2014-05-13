@@ -1,4 +1,5 @@
 #import "WeekCollectionViewLayout.h"
+#import "NSDate+VisualScheduler.h"
 
 #define CELL_KEY    @"ImageCell"
 #define HEADER_KEY  @"DayOfWeekColour"
@@ -62,14 +63,6 @@ static const NSUInteger HEADER_HEIGHT = 20;
         }
     }
     return cellInformation;
-}
-
-- (NSInteger)sectionRepresentingToday {
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"c"];
-    NSString *dayOfWeek = [formatter stringFromDate:[NSDate date]];
-    NSInteger section = [dayOfWeek integerValue] - 1;
-    return section;
 }
 
 - (CGRect)frameForItemAtIndexPath:(NSIndexPath *)indexPath {

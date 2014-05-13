@@ -70,6 +70,7 @@
 		D853A80E18E1DD3C0031E986 /* SQLiteStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D853A80D18E1DD3C0031E986 /* SQLiteStore.m */; };
 		D853A81018E1DD600031E986 /* SQLiteStoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D853A80F18E1DD600031E986 /* SQLiteStoreTests.m */; };
 		D853A81218E1E0280031E986 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D853A81118E1E0280031E986 /* libsqlite3.dylib */; };
+		D858CB8719221E0B00402E24 /* NSDate+VisualScheduler.m in Sources */ = {isa = PBXBuildFile; fileRef = D858CB8619221E0B00402E24 /* NSDate+VisualScheduler.m */; };
 		D85EBDC818DC6B7700DF76B7 /* MockCameraDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8315AFC18D39E0600C4A340 /* MockCameraDelegate.m */; };
 		D85EBDD118DC804400DF76B7 /* brushteeth.png in Resources */ = {isa = PBXBuildFile; fileRef = D85EBDCA18DC804400DF76B7 /* brushteeth.png */; };
 		D85EBDD218DC804400DF76B7 /* eat.png in Resources */ = {isa = PBXBuildFile; fileRef = D85EBDCB18DC804400DF76B7 /* eat.png */; };
@@ -228,6 +229,8 @@
 		D853A80D18E1DD3C0031E986 /* SQLiteStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQLiteStore.m; path = "Visual Scheduler/Database/SQLiteStore.m"; sourceTree = "<group>"; };
 		D853A80F18E1DD600031E986 /* SQLiteStoreTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQLiteStoreTests.m; path = "Visual Scheduler/Database/SQLiteStoreTests.m"; sourceTree = "<group>"; };
 		D853A81118E1E0280031E986 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		D858CB8519221E0B00402E24 /* NSDate+VisualScheduler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+VisualScheduler.h"; path = "Visual Scheduler/Category/NSDate+VisualScheduler.h"; sourceTree = "<group>"; };
+		D858CB8619221E0B00402E24 /* NSDate+VisualScheduler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+VisualScheduler.m"; path = "Visual Scheduler/Category/NSDate+VisualScheduler.m"; sourceTree = "<group>"; };
 		D85EBDCA18DC804400DF76B7 /* brushteeth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brushteeth.png; sourceTree = "<group>"; };
 		D85EBDCB18DC804400DF76B7 /* eat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eat.png; sourceTree = "<group>"; };
 		D85EBDCC18DC804400DF76B7 /* karate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = karate.png; sourceTree = "<group>"; };
@@ -488,6 +491,8 @@
 		D83A62AF18B696DB00EC0773 = {
 			isa = PBXGroup;
 			children = (
+				D858CB8519221E0B00402E24 /* NSDate+VisualScheduler.h */,
+				D858CB8619221E0B00402E24 /* NSDate+VisualScheduler.m */,
 				68D7964519092E590047A0CE /* Misc */,
 				D87964B91906A09500333CD1 /* UI */,
 				6818B6EB19050DE8009F0742 /* ExternalScreen */,
@@ -868,6 +873,7 @@
 				D81ABB80190966C5000B81F3 /* DayCollectionViewLayout.m in Sources */,
 				D8EB983118E33E4A00DA3A99 /* Repository.m in Sources */,
 				D8BABEC018EC6839009E562E /* NSMutableArray+MoveObject.m in Sources */,
+				D858CB8719221E0B00402E24 /* NSDate+VisualScheduler.m in Sources */,
 				68D7965C190947CB0047A0CE /* Timer.m in Sources */,
 				D83BFE4E1907EDCE00F72646 /* PictogramsCollectionDataSource.m in Sources */,
 				68D7965E190947CB0047A0CE /* WatchDialView.m in Sources */,
