@@ -5,6 +5,6 @@
 @interface WeekCollectionViewController : UICollectionViewController
 
 - (void)addPictogram:(Pictogram *)pictogram atIndexPath:(NSIndexPath *)indexPath;
-- (void)deleteItemAtIndexPath:(NSIndexPath *)touchedItem;
+- (void)deletePictogramAtIndexPath:(NSIndexPath *)indexPath;
 
 @end

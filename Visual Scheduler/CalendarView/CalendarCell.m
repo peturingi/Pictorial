@@ -16,6 +16,8 @@
 
 - (void)setupImageView {
     _imageView = [[UIImageView alloc] initWithFrame:self.contentView.bounds];
+    _imageView.layer.cornerRadius = BORDER_RADIUS;
+    _imageView.clipsToBounds = YES;
     [self setBackgroundView:_imageView];
 }
 

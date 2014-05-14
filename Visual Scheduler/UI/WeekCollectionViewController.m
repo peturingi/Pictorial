@@ -1,5 +1,6 @@
 #import "CalendarView.h"
 #import "Schedule.h"
+#import "UICollectionView+AbortScrollAnimation.h"
 #import "WeekCollectionViewController.h"
 #import "WeekCollectionViewLayout.h"
 #import "WeekDataSource.h"
@@ -24,7 +25,10 @@
 }
 
 - (void)setupCollectionView {
-    self.collectionView = [[CalendarView alloc] initWithFrame:self.view.frame collectionViewLayout:self.collectionViewLayout];
+    // This view will be managed with auto layout.
+    self.collectionView = [[CalendarView alloc] initWithFrame:CGRectZero collectionViewLayout:self.collectionViewLayout];
+    self.collectionView.translatesAutoresizingMaskIntoConstraints = NO;
+    
     self.collectionView.dataSource = self.dataSource;
     self.collectionView.backgroundColor = [UIColor whiteColor];
 }
@@ -33,6 +37,7 @@
     [super setEditing:editing animated:animated];
     [self.dataSource setEditing:editing];
     [self showEmptyPictogramsAtEndOfSchedule:editing];
+    [self.collectionView abortScrollAnimation];
 }
 
 - (void)showEmptyPictogramsAtEndOfSchedule:(BOOL)value {
@@ -45,7 +50,9 @@
             NSIndexPath const *destination = [NSIndexPath indexPathForItem:numberOfItemsInSection inSection:section];
             [emptyPictograms addObject:destination];
         }
-        [self.collectionView insertItemsAtIndexPaths:emptyPictograms];
+        [UIView performWithoutAnimation:^(void){
+            [self.collectionView insertItemsAtIndexPaths:emptyPictograms];
+        }];
     }
     else if (!value) {
         for (NSUInteger section = firstSection; section < numberOfSections; section++) {
@@ -53,7 +60,9 @@
             NSIndexPath const *locationOfEmptyPictogram = [NSIndexPath indexPathForItem:numberOfItemsInSection-1 inSection:section];
             [emptyPictograms addObject:locationOfEmptyPictogram];
         }
-        [self.collectionView deleteItemsAtIndexPaths:emptyPictograms];
+        [UIView performWithoutAnimation:^(void){
+            [self.collectionView deleteItemsAtIndexPaths:emptyPictograms];
+        }];
     }
 }
 

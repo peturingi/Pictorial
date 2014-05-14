@@ -45,17 +45,17 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="0.051676359249999998" blue="0.10486219419999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" priority="250" id="tz0-Ht-eq7"/>
+                                    <constraint firstAttribute="height" priority="250" placeholder="YES" id="tz0-Ht-eq7"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="K7V-1q-b0O" firstAttribute="top" secondItem="CIY-By-uiY" secondAttribute="bottom" id="CJD-FZ-bVh"/>
-                            <constraint firstAttribute="trailing" secondItem="CIY-By-uiY" secondAttribute="trailing" id="FWe-Ed-ytH"/>
+                            <constraint firstItem="CIY-By-uiY" firstAttribute="trailing" secondItem="3Ug-ui-Wfq" secondAttribute="trailing" id="FWe-Ed-ytH"/>
                             <constraint firstItem="K7V-1q-b0O" firstAttribute="leading" secondItem="3Ug-ui-Wfq" secondAttribute="leading" id="NZx-Dt-P05"/>
-                            <constraint firstAttribute="trailing" secondItem="K7V-1q-b0O" secondAttribute="trailing" id="ZRT-pi-3Qq"/>
-                            <constraint firstItem="xJL-F2-81S" firstAttribute="top" secondItem="K7V-1q-b0O" secondAttribute="bottom" id="aJf-QY-RtM"/>
+                            <constraint firstItem="K7V-1q-b0O" firstAttribute="trailing" secondItem="3Ug-ui-Wfq" secondAttribute="trailing" id="ZRT-pi-3Qq"/>
+                            <constraint firstItem="K7V-1q-b0O" firstAttribute="bottom" secondItem="xJL-F2-81S" secondAttribute="top" id="aJf-QY-RtM"/>
                             <constraint firstItem="CIY-By-uiY" firstAttribute="leading" secondItem="3Ug-ui-Wfq" secondAttribute="leading" id="bYc-gt-hmh"/>
                             <constraint firstItem="CIY-By-uiY" firstAttribute="top" secondItem="k6R-GB-Bny" secondAttribute="bottom" id="zIN-Hq-lnW"/>
                         </constraints>
@@ -81,7 +81,6 @@
                     <connections>
                         <outlet property="bottomView" destination="K7V-1q-b0O" id="zOn-TL-kdl"/>
                         <outlet property="dayWeekSegment" destination="mCy-3k-gPU" id="Oix-ng-kUB"/>
-                        <outlet property="heightOfBottomView" destination="tz0-Ht-eq7" id="viW-1Y-XJl"/>
                         <outlet property="topView" destination="CIY-By-uiY" id="8kB-JH-oqg"/>
                     </connections>
                 </viewController>

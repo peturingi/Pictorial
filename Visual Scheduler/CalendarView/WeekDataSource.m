@@ -4,8 +4,6 @@
 #import "Schedule.h"
 #import "WeekDataSource.h"
 
-#define NUMBER_OF_DAYS_IN_WEEK 7
-
 @implementation WeekDataSource
 
 - (id)init {

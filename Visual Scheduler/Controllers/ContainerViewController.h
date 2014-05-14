@@ -10,7 +10,7 @@
     Pictogram *_pictogramBeingDragged;
     CGRect _originOfTouchedPictogram;
     __weak IBOutlet UISegmentedControl *dayWeekSegment;
-    __weak IBOutlet NSLayoutConstraint *heightOfBottomView;
+    NSLayoutConstraint *_bottomViewHeight;
 }
 
 /** Container view for the calendar. */

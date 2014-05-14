@@ -21,26 +21,53 @@
 @property (weak, nonatomic) PictogramsCollectionViewController *pictogramViewController;
 
 @property (weak, nonatomic) UICollectionViewController *currentCollectionViewController;
+
+@property (strong, nonatomic) NSArray *constraints;
+
 @end
 
 @implementation ContainerViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.topView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self setupPictogramSelectorViewController];
     self.currentCollectionViewController = [self setupWeekViewController];
     [self presentSchedule];
     
-    [self setupPictogramSelectorViewController];
-    
     UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(toggleEditing)];
     [self.navigationItem setRightBarButtonItem:editButton];
-    
     cameraButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(showCamera)];
-    
-    timerButton = [[UIBarButtonItem alloc] initWithTitle:@"Timer" style:UIBarButtonItemStylePlain target:self action:@selector(showTimer:)];
+    timerButton = [[UIBarButtonItem alloc] initWithTitle:@"Timer" style:UIBarButtonItemStylePlain target:self action:@selector(showTimer)];
     [self.navigationItem setLeftBarButtonItem:timerButton];
     [self setupGestureRecognizer];
+    
+    [self addConstraintsTo:self.topView fillViewInSuperView:self.currentCollectionViewController.view];
+    
+    self.bottomView.translatesAutoresizingMaskIntoConstraints = NO;
+    _bottomViewHeight = [NSLayoutConstraint constraintWithItem:self.bottomView
+                                                     attribute:NSLayoutAttributeHeight
+                                                     relatedBy:NSLayoutRelationEqual
+                                                        toItem:nil
+                                                     attribute:NSLayoutAttributeNotAnAttribute
+                                                    multiplier:1.0f
+                                                      constant:0.0f];
+    [self.bottomView addConstraint:_bottomViewHeight];
+}
+
+#pragma mark - Constraints
+
+/** Fills the view given as the second parameter, in the view given by the first parameter.
+ */
+- (void)addConstraintsTo:(UIView *)superview fillViewInSuperView:(UIView *)view {
+    NSParameterAssert(view);
+    NSParameterAssert(superview);
+    
+    NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings(view);
+    [superview addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[view]|" options:0 metrics:nil views:viewsDictionary]];
+    [superview addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[view]|" options:0 metrics:nil views:viewsDictionary]];
+    
+    [superview updateConstraintsIfNeeded];
 }
 
 #pragma mark View Modes (now,day,week)
@@ -80,6 +107,7 @@
     
     WeekCollectionViewLayout *weekLayout = [[WeekCollectionViewLayout alloc] init];
     WeekCollectionViewController *weekController = [[WeekCollectionViewController alloc] initWithCollectionViewLayout:weekLayout];
+    weekController.view.translatesAutoresizingMaskIntoConstraints = NO;
     NSAssert(weekController, @"Failed to get controller");
     [self addChildViewController:weekController];
     return weekController;
@@ -92,6 +120,7 @@
     
     DayCollectionViewLayout *layout = [[DayCollectionViewLayout alloc] init];
     DayCollectionViewController *controller = [[DayCollectionViewController alloc] initWithCollectionViewLayout:layout];
+    controller.view.translatesAutoresizingMaskIntoConstraints = NO;
     NSAssert(controller, @"Failed to get controller");
     [self addChildViewController:controller];
     return controller;
@@ -101,18 +130,11 @@
 
 - (void)presentSchedule {
     [self removeAllSubviewsFrom:self.topView];
-    [self.topView addSubview:self.currentCollectionViewController.collectionView];
-    [self addConstraintsTo:self.view fillViewInSuperView:self.currentCollectionViewController.collectionView];
+    [self.topView addSubview:self.currentCollectionViewController.view];
+    [self addConstraintsTo:self.topView fillViewInSuperView:self.currentCollectionViewController.view];
 }
 
-- (void)addConstraintsTo:(UIView *)superview fillViewInSuperView:(UIView *)view {
-    NSParameterAssert(view);
-    view.translatesAutoresizingMaskIntoConstraints = NO;
-    NSDictionary *views = NSDictionaryOfVariableBindings(view);
-    [superview addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[view]|" options:0 metrics:nil views:views]];
-    [superview addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[view]|" options:0 metrics:nil views:views]];
-    [superview updateConstraintsIfNeeded];
-}
+
 
 - (void)removeAllSubviewsFrom:(UIView *)view {
     NSParameterAssert(view);
@@ -171,10 +193,16 @@
 - (void)setupPictogramSelectorViewController {
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     PictogramsCollectionViewController *viewController = [[PictogramsCollectionViewController alloc] initWithCollectionViewLayout:flowLayout];
-    viewController.view.frame = self.bottomView.bounds;
-    
     [self addChildViewController:viewController];
+    
+    self.bottomView.translatesAutoresizingMaskIntoConstraints = NO;
+    viewController.view.translatesAutoresizingMaskIntoConstraints = NO;
+    viewController.collectionView.translatesAutoresizingMaskIntoConstraints= NO;
+    [self addConstraintsTo:viewController.view fillViewInSuperView:viewController.collectionView];
+    
     [self.bottomView addSubview:viewController.view];
+    [self addConstraintsTo:self.bottomView fillViewInSuperView:viewController.view];
+    
     [self addShadowToBottomView];
     
     self.pictogramViewController = viewController;
@@ -188,17 +216,24 @@
 #pragma mark Animation
 - (void)animateInBottomView {
     self.bottomView.layer.shadowOpacity = PICTOGRAM_SHADOW_OPACITY;
-    [UIView animateWithDuration:0.3f
+    
+    _bottomViewHeight.constant = self.view.frame.size.height / 3.0f;
+    [self.view setNeedsUpdateConstraints];
+    //[self.bottomView setNeedsUpdateConstraints];
+    [self.currentCollectionViewController.view layoutSubviews];
+    
+    [UIView animateWithDuration:0.0f
                      animations:^{
-                         heightOfBottomView.constant = self.view.frame.size.height / 3.0f;
                          [self.view layoutIfNeeded];
                      }];
 }
 
 - (void)animateOutBottomView {
-       [UIView animateWithDuration:0.3f animations:^{
-        heightOfBottomView.constant = 0.0f;
-           [self.view layoutIfNeeded];
+    _bottomViewHeight.constant = 0.0f;
+    [self.view setNeedsUpdateConstraints];
+    [self.currentCollectionViewController.view layoutSubviews];
+    [UIView animateWithDuration:0.0f animations:^{
+        [self.view layoutIfNeeded];
     }completion:^(BOOL completed){
         if (completed) {
             self.bottomView.layer.shadowOpacity = 0.0f;
@@ -444,7 +479,7 @@
 
 #pragma mark - Timer
 
--(IBAction)showTimer:(id)sender{
+- (void)showTimer{
     if(_timerViewController == nil){
         _timerViewController = [[TimerViewController alloc]init];
     }
