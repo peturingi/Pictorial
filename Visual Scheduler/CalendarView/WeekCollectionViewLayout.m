@@ -83,7 +83,7 @@ static const NSUInteger HEADER_HEIGHT = 20;
 - (CGSize)sizeOfItems {
     CGFloat edge = (self.collectionView.bounds.size.width / self.collectionView.numberOfSections) - (self.insets.right+self.insets.left);
     CGSize itemSize = CGSizeMake(edge, edge);
-    NSAssert(itemSize.height > 0 && itemSize.width > 0, @"Unexpected size of item. Items must be greater in size than 0,0");
+  //  NSAssert(itemSize.height > 0 && itemSize.width > 0, @"Unexpected size of item. Items must be greater in size than 0,0");
     return itemSize;
 }
 

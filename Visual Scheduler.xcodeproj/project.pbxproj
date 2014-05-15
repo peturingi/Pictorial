@@ -103,6 +103,7 @@
 		D8EB983718E340CF00DA3A99 /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EB983618E340CF00DA3A99 /* Schedule.m */; };
 		D8EB983B18E346DF00DA3A99 /* Pictogram.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EB983A18E346DF00DA3A99 /* Pictogram.m */; };
 		D8EC7D5318CA61E500B6A673 /* MockTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EC7D5218CA61E500B6A673 /* MockTableView.m */; };
+		D8FD1D1D1924C943000226BF /* UIView+ContraintInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FD1D1C1924C943000226BF /* UIView+ContraintInfo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -273,6 +274,8 @@
 		D8EC7D5218CA61E500B6A673 /* MockTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MockTableView.m; path = "Visual SchedulerTests/MockTableView.m"; sourceTree = SOURCE_ROOT; };
 		D8EC7D5418CA63C500B6A673 /* MockScheduleOverviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MockScheduleOverviewViewController.h; path = "Visual SchedulerTests/MockScheduleOverviewViewController.h"; sourceTree = SOURCE_ROOT; };
 		D8EC7D5518CA63C500B6A673 /* MockScheduleOverviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MockScheduleOverviewViewController.m; path = "Visual SchedulerTests/MockScheduleOverviewViewController.m"; sourceTree = SOURCE_ROOT; };
+		D8FD1D1B1924C943000226BF /* UIView+ContraintInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ContraintInfo.h"; sourceTree = "<group>"; };
+		D8FD1D1C1924C943000226BF /* UIView+ContraintInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ContraintInfo.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -672,6 +675,8 @@
 			children = (
 				D832357B1902D80800FA4DFF /* ContainerViewController.h */,
 				D832357C1902D80800FA4DFF /* ContainerViewController.m */,
+				D8FD1D1B1924C943000226BF /* UIView+ContraintInfo.h */,
+				D8FD1D1C1924C943000226BF /* UIView+ContraintInfo.m */,
 				D8472B851922C07E00EBE741 /* UICollectionView+AbortScrollAnimation.h */,
 				D8472B861922C07E00EBE741 /* UICollectionView+AbortScrollAnimation.m */,
 				D81ABB8C1909C308000B81F3 /* ContainerViewController+Camera.h */,
@@ -909,6 +914,7 @@
 				68D7963D19092DE50047A0CE /* CALayer+WithSizeAndPosition.m in Sources */,
 				D8AFD99E1901BF2400A294D5 /* DayCollectionViewController.m in Sources */,
 				D83BFE4B1907CAE600F72646 /* UIView+HoverView.m in Sources */,
+				D8FD1D1D1924C943000226BF /* UIView+ContraintInfo.m in Sources */,
 				68D7963719092D2D0047A0CE /* UIView+CenterPoint.m in Sources */,
 				D853A80E18E1DD3C0031E986 /* SQLiteStore.m in Sources */,
 			);
@@ -1083,6 +1089,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1103,6 +1110,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

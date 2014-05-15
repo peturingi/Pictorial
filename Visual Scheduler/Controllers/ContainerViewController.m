@@ -11,6 +11,10 @@
 #import "WeekCollectionViewController.h"
 #import "UIView+HoverView.h"
 
+#ifdef DEBUG
+    #import "UIView+ContraintInfo.h"
+#endif
+
 @interface ContainerViewController () {
     TimerViewController* _timerViewController;
     UIBarButtonItem *cameraButton;
@@ -30,21 +34,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // Add constraints for top and bottom views
     self.topView.translatesAutoresizingMaskIntoConstraints = NO;
-    [self setupPictogramSelectorViewController];
-    self.currentCollectionViewController = [self setupWeekViewController];
-    [self presentSchedule];
-    
-    UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(toggleEditing)];
-    [self.navigationItem setRightBarButtonItem:editButton];
-    cameraButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(showCamera)];
-    timerButton = [[UIBarButtonItem alloc] initWithTitle:@"Timer" style:UIBarButtonItemStylePlain target:self action:@selector(showTimer)];
-    [self.navigationItem setLeftBarButtonItem:timerButton];
-    [self setupGestureRecognizer];
-    
-    [self addConstraintsTo:self.topView fillViewInSuperView:self.currentCollectionViewController.view];
-    
     self.bottomView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[topView][bottomView]|"
+                                                                      options:NSLayoutFormatAlignAllCenterX
+                                                                      metrics:nil
+                                                                        views:@{@"topView" : self.topView, @"bottomView" : self.bottomView}]];
+    
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[topView]|"
+                                                                      options:NSLayoutFormatAlignAllCenterX
+                                                                      metrics:nil
+                                                                        views:@{@"topView": self.topView}]];
+    
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[bottomView]|"
+                                                                      options:NSLayoutFormatAlignAllCenterX
+                                                                      metrics:nil
+                                                                        views:@{@"bottomView" : self.bottomView}]];
     _bottomViewHeight = [NSLayoutConstraint constraintWithItem:self.bottomView
                                                      attribute:NSLayoutAttributeHeight
                                                      relatedBy:NSLayoutRelationEqual
@@ -53,21 +60,63 @@
                                                     multiplier:1.0f
                                                       constant:0.0f];
     [self.bottomView addConstraint:_bottomViewHeight];
-}
 
-#pragma mark - Constraints
+    self.currentCollectionViewController = [self setupWeekViewController];
+    [self.topView addSubview:self.currentCollectionViewController.view];
+    [self.topView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[wrapperView]|"
+                                                                         options:0
+                                                                         metrics:nil
+                                                                           views:@{@"wrapperView" : self.currentCollectionViewController.view}]];
+    [self.topView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[wrapperView]|"
+                                                                         options:0
+                                                                         metrics:nil
+                                                                           views:@{@"wrapperView" : self.currentCollectionViewController.view}]];
+    
+    // BottomView
+    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+    PictogramsCollectionViewController *viewController = [[PictogramsCollectionViewController alloc] initWithCollectionViewLayout:flowLayout];
+    [self addChildViewController:viewController];
+    self.pictogramViewController = viewController;
+    [self.bottomView addSubview:viewController.view];
+    [self addShadowToBottomView];
 
-/** Fills the view given as the second parameter, in the view given by the first parameter.
- */
-- (void)addConstraintsTo:(UIView *)superview fillViewInSuperView:(UIView *)view {
-    NSParameterAssert(view);
-    NSParameterAssert(superview);
+    viewController.view.translatesAutoresizingMaskIntoConstraints = NO;
+    viewController.collectionView.translatesAutoresizingMaskIntoConstraints= NO;
+
+    [self.bottomView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[wrapperView]|"
+                                                                            options:0
+                                                                            metrics:nil
+                                                                              views:@{@"wrapperView" : viewController.view}]];
+    [self.bottomView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[wrapperView]|"
+                                                                            options:0
+                                                                            metrics:nil
+                                                                              views:@{@"wrapperView" : viewController.view}]];
     
-    NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings(view);
-    [superview addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[view]|" options:0 metrics:nil views:viewsDictionary]];
-    [superview addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[view]|" options:0 metrics:nil views:viewsDictionary]];
+    [viewController.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[collectionView]|"
+                                                                                options:0
+                                                                                metrics:nil
+                                                                                  views:@{@"collectionView" : viewController.collectionView}]];
+    [viewController.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[collectionView]|"
+                                                                                options:0
+                                                                                metrics:nil
+                                                                                  views:@{@"collectionView" : viewController.collectionView}]];
     
-    [superview updateConstraintsIfNeeded];
+    
+    [[self view] updateConstraints];
+
+    UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(toggleEditing)];
+    [self.navigationItem setRightBarButtonItem:editButton];
+    cameraButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(showCamera)];
+    timerButton = [[UIBarButtonItem alloc] initWithTitle:@"Timer" style:UIBarButtonItemStylePlain target:self action:@selector(showTimer)];
+    [self.navigationItem setLeftBarButtonItem:timerButton];
+    [self setupGestureRecognizer];
+    
+#ifdef DEBUG
+    self.currentCollectionViewController.view.backgroundColor = [UIColor blueColor]; // TODO REMOVE THIS LINE, ITS USELESS AND WAS FOR DEBUGGING LAYOUT CONSTRAINTS.
+    self.currentCollectionViewController.collectionView.backgroundColor = [UIColor yellowColor]; // TODO REMOVE THIS TOO
+    NSLog(@"%@", [self.view constraintsOfSelfAndSubviews]);
+#endif
+    
 }
 
 #pragma mark View Modes (now,day,week)
@@ -107,7 +156,6 @@
     
     WeekCollectionViewLayout *weekLayout = [[WeekCollectionViewLayout alloc] init];
     WeekCollectionViewController *weekController = [[WeekCollectionViewController alloc] initWithCollectionViewLayout:weekLayout];
-    weekController.view.translatesAutoresizingMaskIntoConstraints = NO;
     NSAssert(weekController, @"Failed to get controller");
     [self addChildViewController:weekController];
     return weekController;
@@ -120,7 +168,6 @@
     
     DayCollectionViewLayout *layout = [[DayCollectionViewLayout alloc] init];
     DayCollectionViewController *controller = [[DayCollectionViewController alloc] initWithCollectionViewLayout:layout];
-    controller.view.translatesAutoresizingMaskIntoConstraints = NO;
     NSAssert(controller, @"Failed to get controller");
     [self addChildViewController:controller];
     return controller;
@@ -131,10 +178,20 @@
 - (void)presentSchedule {
     [self removeAllSubviewsFrom:self.topView];
     [self.topView addSubview:self.currentCollectionViewController.view];
-    [self addConstraintsTo:self.topView fillViewInSuperView:self.currentCollectionViewController.view];
+    self.currentCollectionViewController.view.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    self.currentCollectionViewController.view.backgroundColor = [UIColor blueColor]; // TODO REMOVE THIS LINE, ITS USELESS AND WAS FOR DEBUGGING LAYOUT CONSTRAINTS.
+    self.currentCollectionViewController.collectionView.backgroundColor = [UIColor yellowColor]; // TODO REMOVE THIS TOO
+    
+    [self.topView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[collectionView]|"
+                                                                         options:0
+                                                                         metrics:nil
+                                                                           views:@{@"collectionView" : self.currentCollectionViewController.view}]];
+    [self.topView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[collectionView]|"
+                                                                         options:0
+                                                                         metrics:nil
+                                                                           views:@{@"collectionView" : self.currentCollectionViewController.view}]];
 }
-
-
 
 - (void)removeAllSubviewsFrom:(UIView *)view {
     NSParameterAssert(view);
@@ -190,66 +247,40 @@
 
 #pragma mark - Bottom View (Pictogram Selector Slide)
 
-- (void)setupPictogramSelectorViewController {
-    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-    PictogramsCollectionViewController *viewController = [[PictogramsCollectionViewController alloc] initWithCollectionViewLayout:flowLayout];
-    [self addChildViewController:viewController];
-    
-    self.bottomView.translatesAutoresizingMaskIntoConstraints = NO;
-    viewController.view.translatesAutoresizingMaskIntoConstraints = NO;
-    viewController.collectionView.translatesAutoresizingMaskIntoConstraints= NO;
-    [self addConstraintsTo:viewController.view fillViewInSuperView:viewController.collectionView];
-    
-    [self.bottomView addSubview:viewController.view];
-    [self addConstraintsTo:self.bottomView fillViewInSuperView:viewController.view];
-    
-    [self addShadowToBottomView];
-    
-    self.pictogramViewController = viewController;
-}
-
 - (void)addShadowToBottomView {
+    self.bottomView.layer.shadowOpacity = PICTOGRAM_SHADOW_OPACITY;
     self.bottomView.layer.shadowRadius = PICTOGRAM_SHADOW_RADIUS;
     self.bottomView.layer.shadowColor = [UIColor blackColor].CGColor;
 }
 
 #pragma mark Animation
 - (void)animateInBottomView {
-    self.bottomView.layer.shadowOpacity = PICTOGRAM_SHADOW_OPACITY;
+    [self updateViewConstraints];
+    [self.view layoutIfNeeded];
     
-    _bottomViewHeight.constant = self.view.frame.size.height / 3.0f;
-    [self.view setNeedsUpdateConstraints];
-    //[self.bottomView setNeedsUpdateConstraints];
-    [self.currentCollectionViewController.view layoutSubviews];
-    
-    [UIView animateWithDuration:0.0f
-                     animations:^{
-                         [self.view layoutIfNeeded];
+    [UIView animateWithDuration:0.3f
+                     animations:^{_bottomViewHeight.constant = (NSInteger)(self.view.frame.size.height / 3.0f); // Else the constraint will try to set the height to a fraction which is illegal.
+                       _bottomViewHeight.constant = (NSInteger)(self.view.frame.size.height / 3.0f); // Else the constraint will try to set the height to a fraction which is illegal.
+                         //[self.topView layoutSubviews];
+                         [self.view layoutSubviews]; // apple says do not use this directly. But if we do the suggested way, it will laag.
                      }];
+
 }
 
 - (void)animateOutBottomView {
-    _bottomViewHeight.constant = 0.0f;
-    [self.view setNeedsUpdateConstraints];
-    [self.currentCollectionViewController.view layoutSubviews];
-    [UIView animateWithDuration:0.0f animations:^{
-        [self.view layoutIfNeeded];
-    }completion:^(BOOL completed){
-        if (completed) {
-            self.bottomView.layer.shadowOpacity = 0.0f;
-        }
-    }];
+    [self updateViewConstraints];
+    [self.view layoutIfNeeded];
+    
+    [UIView animateWithDuration:0.3f
+                     animations:^{
+                         _bottomViewHeight.constant = 0;
+                        // [self.view setNeedsLayout];
+                        // [self.view layoutIfNeeded];
+                        [self.view layoutSubviews]; // apple says do not use this directly. But if we do the suggested way, it will laag.
+                     }];
 }
 
-
-
-#pragma mark -
-
-
-
-
-
-#pragma mark Gesture Recognizers
+#pragma mark - Gesture Recognizers
 
 - (void)setEditGestureRecognizersEnabled:(BOOL)value {
     _topViewGestureRecognizer.enabled = value;

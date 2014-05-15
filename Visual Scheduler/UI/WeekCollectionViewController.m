@@ -24,10 +24,24 @@
     [self setupCollectionView];
 }
 
+- (void)viewDidLoad {
+    self.view.translatesAutoresizingMaskIntoConstraints = NO;
+    self.collectionView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[collectionView]|"
+                                                                      options:0
+                                                                      metrics:nil
+                                                                        views:@{@"collectionView" : self.collectionView}]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[collectionView]|"
+                                                                      options:0
+                                                                      metrics:nil
+                                                                        views:@{@"collectionView" : self.collectionView}]];
+    [self.view setNeedsUpdateConstraints];
+
+}
+
 - (void)setupCollectionView {
     // This view will be managed with auto layout.
     self.collectionView = [[CalendarView alloc] initWithFrame:CGRectZero collectionViewLayout:self.collectionViewLayout];
-    self.collectionView.translatesAutoresizingMaskIntoConstraints = NO;
     
     self.collectionView.dataSource = self.dataSource;
     self.collectionView.backgroundColor = [UIColor whiteColor];
@@ -37,7 +51,7 @@
     [super setEditing:editing animated:animated];
     [self.dataSource setEditing:editing];
     [self showEmptyPictogramsAtEndOfSchedule:editing];
-    [self.collectionView abortScrollAnimation];
+   // [self.collectionView abortScrollAnimation];
 }
 
 - (void)showEmptyPictogramsAtEndOfSchedule:(BOOL)value {

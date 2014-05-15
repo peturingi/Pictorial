@@ -38,7 +38,7 @@
                             <view clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CIY-By-uiY" userLabel="Top">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="960"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="0.88627457620000005" green="0.97254908080000002" blue="0.97254908080000002" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K7V-1q-b0O" userLabel="Bottom">
                                 <rect key="frame" x="0.0" y="960" width="768" height="0.0"/>
@@ -51,13 +51,13 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="K7V-1q-b0O" firstAttribute="top" secondItem="CIY-By-uiY" secondAttribute="bottom" id="CJD-FZ-bVh"/>
-                            <constraint firstItem="CIY-By-uiY" firstAttribute="trailing" secondItem="3Ug-ui-Wfq" secondAttribute="trailing" id="FWe-Ed-ytH"/>
-                            <constraint firstItem="K7V-1q-b0O" firstAttribute="leading" secondItem="3Ug-ui-Wfq" secondAttribute="leading" id="NZx-Dt-P05"/>
-                            <constraint firstItem="K7V-1q-b0O" firstAttribute="trailing" secondItem="3Ug-ui-Wfq" secondAttribute="trailing" id="ZRT-pi-3Qq"/>
-                            <constraint firstItem="K7V-1q-b0O" firstAttribute="bottom" secondItem="xJL-F2-81S" secondAttribute="top" id="aJf-QY-RtM"/>
-                            <constraint firstItem="CIY-By-uiY" firstAttribute="leading" secondItem="3Ug-ui-Wfq" secondAttribute="leading" id="bYc-gt-hmh"/>
-                            <constraint firstItem="CIY-By-uiY" firstAttribute="top" secondItem="k6R-GB-Bny" secondAttribute="bottom" id="zIN-Hq-lnW"/>
+                            <constraint firstItem="CIY-By-uiY" firstAttribute="bottom" secondItem="K7V-1q-b0O" secondAttribute="top" priority="750" placeholder="YES" id="CJD-FZ-bVh"/>
+                            <constraint firstItem="CIY-By-uiY" firstAttribute="trailing" secondItem="3Ug-ui-Wfq" secondAttribute="trailing" placeholder="YES" id="FWe-Ed-ytH"/>
+                            <constraint firstItem="K7V-1q-b0O" firstAttribute="leading" secondItem="3Ug-ui-Wfq" secondAttribute="leading" placeholder="YES" id="NZx-Dt-P05"/>
+                            <constraint firstItem="K7V-1q-b0O" firstAttribute="trailing" secondItem="3Ug-ui-Wfq" secondAttribute="trailing" placeholder="YES" id="ZRT-pi-3Qq"/>
+                            <constraint firstItem="K7V-1q-b0O" firstAttribute="bottom" secondItem="xJL-F2-81S" secondAttribute="top" placeholder="YES" id="aJf-QY-RtM"/>
+                            <constraint firstItem="CIY-By-uiY" firstAttribute="leading" secondItem="3Ug-ui-Wfq" secondAttribute="leading" placeholder="YES" id="bYc-gt-hmh"/>
+                            <constraint firstItem="CIY-By-uiY" firstAttribute="top" secondItem="k6R-GB-Bny" secondAttribute="bottom" placeholder="YES" id="zIN-Hq-lnW"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
