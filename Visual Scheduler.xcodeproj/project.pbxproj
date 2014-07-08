@@ -636,7 +636,7 @@
 				D81ABB8C1909C308000B81F3 /* ContainerViewController+Camera.h */,
 				D81ABB8D1909C308000B81F3 /* ContainerViewController+Camera.m */,
 				D8387DBF18F9A94A00DD716C /* Top View */,
-				D8805F4818C5E459001BD35B /* Bottom View */,
+				D8805F4818C5E459001BD35B /* Pictogram Selector */,
 				D87964BC1906E23000333CD1 /* New Pictogram View */,
 				D83A62CD18B696DC00EC0773 /* Main.storyboard */,
 			);
@@ -653,13 +653,13 @@
 			name = "New Pictogram View";
 			sourceTree = "<group>";
 		};
-		D8805F4818C5E459001BD35B /* Bottom View */ = {
+		D8805F4818C5E459001BD35B /* Pictogram Selector */ = {
 			isa = PBXGroup;
 			children = (
 				D83BFE4C1907EDCE00F72646 /* PictogramSelectorDataSource.h */,
 				D83BFE4D1907EDCE00F72646 /* PictogramSelectorDataSource.m */,
 			);
-			name = "Bottom View";
+			name = "Pictogram Selector";
 			sourceTree = "<group>";
 		};
 		D8B49E6018B8077600788073 /* Protocols */ = {
