@@ -9,7 +9,9 @@
     ImageCache* _imageCache;
 }
 - (id)initWithStore:(id<DataStoreProtocol>)store;
+
 + (instancetype)defaultRepository;
+
 - (Schedule *)scheduleWithTitle:(NSString *)title withColor:(UIColor *)color;
 - (Pictogram *)pictogramWithTitle:(NSString *)title withImage:(UIImage *)image;
 -(NSArray*)pictogramsForSchedule:(Schedule*)schedule;

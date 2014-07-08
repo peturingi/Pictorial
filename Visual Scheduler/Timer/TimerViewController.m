@@ -22,7 +22,7 @@
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     if([_startStopButton isEnabled] == NO){
-        [_startStopButton setTitle:@"Start"];
+        [_startStopButton setTitle:@"Gangsetja"];
         [_startStopButton setEnabled:YES];
         [_audioPlayer stop];
         [_audioPlayer setCurrentTime:0];
@@ -70,17 +70,17 @@
 }
 
 -(void)setupStartStopButton{
-    _startStopButton = [[UIBarButtonItem alloc]initWithTitle:@"Start" style:UIBarButtonItemStyleBordered target:self action:@selector(toggleTimer:)];
+    _startStopButton = [[UIBarButtonItem alloc]initWithTitle:@"Gangsetja" style:UIBarButtonItemStyleBordered target:self action:@selector(toggleTimer:)];
     [[self navigationItem]setRightBarButtonItem:_startStopButton];
 }
 
 -(void)toggleTimer:(id)sender{
     if([_timer isStarted]){
-        [_startStopButton setTitle:@"Start"];
+        [_startStopButton setTitle:@"Gangsetja"];
         [_timerView setIsStarted:NO];
         [_timer stop];
     }else{
-        [_startStopButton setTitle:@"Stop"];
+        [_startStopButton setTitle:@"Stoppa"];
         [_timerView setIsStarted:YES];
         [_timer startForSeconds:[_timerView seconds]];
     }

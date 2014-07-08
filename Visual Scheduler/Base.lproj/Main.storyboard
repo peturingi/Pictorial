@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="wuf-cq-nwa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="wuf-cq-nwa">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -21,7 +21,67 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jOM-wJ-ZzT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1977" y="-1687"/>
+            <point key="canvasLocation" x="-2019" y="-2177"/>
+        </scene>
+        <!--Collection View Controller-->
+        <scene sceneID="g1N-9W-Iob">
+            <objects>
+                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="FA2-Kn-Gqf" sceneMemberID="viewController">
+                    <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="ctS-K9-1JT" userLabel="Pictogram Database">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="411"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="l2m-eX-6vm">
+                            <size key="itemSize" width="100" height="133"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="30" minY="30" maxX="30" maxY="30"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="pictogramSelector" id="RbT-Ur-yMv" userLabel="Pictogram">
+                                <rect key="frame" x="30" y="30" width="100" height="133"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="100" height="133"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="98J-LQ-yCt" userLabel="Image">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1RX-U6-eYG" userLabel="Title">
+                                            <rect key="frame" x="0.0" y="101" width="100" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="98J-LQ-yCt" firstAttribute="top" secondItem="RbT-Ur-yMv" secondAttribute="top" id="3Sv-Sv-S94"/>
+                                    <constraint firstAttribute="trailing" secondItem="98J-LQ-yCt" secondAttribute="trailing" id="BwU-xl-mep"/>
+                                    <constraint firstItem="98J-LQ-yCt" firstAttribute="trailing" secondItem="1RX-U6-eYG" secondAttribute="trailing" id="E4s-Xa-hJa"/>
+                                    <constraint firstAttribute="bottom" secondItem="1RX-U6-eYG" secondAttribute="bottom" constant="11" id="I8Y-TX-66Y"/>
+                                    <constraint firstItem="98J-LQ-yCt" firstAttribute="leading" secondItem="RbT-Ur-yMv" secondAttribute="leading" id="dXy-xg-NAp"/>
+                                    <constraint firstItem="1RX-U6-eYG" firstAttribute="top" secondItem="98J-LQ-yCt" secondAttribute="bottom" constant="1" id="hZ0-uh-4Z7"/>
+                                    <constraint firstItem="1RX-U6-eYG" firstAttribute="leading" secondItem="98J-LQ-yCt" secondAttribute="leading" id="lnB-oI-Qd9"/>
+                                </constraints>
+                                <size key="customSize" width="100" height="133"/>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="EaI-XR-N1N" id="oHZ-S9-a9M"/>
+                            <outlet property="delegate" destination="FA2-Kn-Gqf" id="WSV-JN-XJI"/>
+                        </connections>
+                    </collectionView>
+                    <size key="freeformSize" width="768" height="1024"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jl5-F3-qRC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="EaI-XR-N1N" customClass="PictogramSelectorDataSource"/>
+            </objects>
+            <point key="canvasLocation" x="-98" y="-1515"/>
         </scene>
         <!--Container View Controller-->
         <scene sceneID="ZQS-c9-YlW">
@@ -35,29 +95,21 @@
                         <rect key="frame" x="0.0" y="64" width="768" height="960"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CIY-By-uiY" userLabel="Top">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="960"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K7V-1q-b0O" userLabel="Bottom">
-                                <rect key="frame" x="0.0" y="960" width="768" height="0.0"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="1" green="0.051676359249999998" blue="0.10486219419999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" priority="250" placeholder="YES" id="tz0-Ht-eq7"/>
-                                </constraints>
-                            </view>
+                            <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j17-jP-moV">
+                                <rect key="frame" x="0.0" y="549" width="768" height="411"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="FA2-Kn-Gqf" kind="embed" id="nsD-SV-kCn"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="CIY-By-uiY" firstAttribute="bottom" secondItem="K7V-1q-b0O" secondAttribute="top" priority="750" placeholder="YES" id="CJD-FZ-bVh"/>
-                            <constraint firstItem="CIY-By-uiY" firstAttribute="trailing" secondItem="3Ug-ui-Wfq" secondAttribute="trailing" placeholder="YES" id="FWe-Ed-ytH"/>
-                            <constraint firstItem="K7V-1q-b0O" firstAttribute="leading" secondItem="3Ug-ui-Wfq" secondAttribute="leading" placeholder="YES" id="NZx-Dt-P05"/>
-                            <constraint firstItem="K7V-1q-b0O" firstAttribute="trailing" secondItem="3Ug-ui-Wfq" secondAttribute="trailing" placeholder="YES" id="ZRT-pi-3Qq"/>
-                            <constraint firstItem="K7V-1q-b0O" firstAttribute="bottom" secondItem="xJL-F2-81S" secondAttribute="top" placeholder="YES" id="aJf-QY-RtM"/>
-                            <constraint firstItem="CIY-By-uiY" firstAttribute="leading" secondItem="3Ug-ui-Wfq" secondAttribute="leading" placeholder="YES" id="bYc-gt-hmh"/>
-                            <constraint firstItem="CIY-By-uiY" firstAttribute="top" secondItem="k6R-GB-Bny" secondAttribute="bottom" placeholder="YES" id="zIN-Hq-lnW"/>
+                            <constraint firstItem="j17-jP-moV" firstAttribute="top" secondItem="k6R-GB-Bny" secondAttribute="bottom" constant="549" id="OnR-Xc-978"/>
+                            <constraint firstAttribute="bottom" secondItem="j17-jP-moV" secondAttribute="bottom" id="aka-7W-DsQ"/>
+                            <constraint firstItem="j17-jP-moV" firstAttribute="leading" secondItem="3Ug-ui-Wfq" secondAttribute="leading" id="hUk-Z4-2PH"/>
+                            <constraint firstAttribute="trailing" secondItem="j17-jP-moV" secondAttribute="trailing" id="jnB-CC-E1K"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -67,9 +119,9 @@
                             <rect key="frame" x="255" y="7" width="259" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
-                                <segment title="Now"/>
-                                <segment title="Day"/>
-                                <segment title="Week"/>
+                                <segment title="Nú"/>
+                                <segment title="Dagurinn"/>
+                                <segment title="Vikan"/>
                             </segments>
                             <connections>
                                 <action selector="changeCalendarViewMode:" destination="Xfv-XK-laj" eventType="valueChanged" id="mdp-2a-qwa"/>
@@ -79,14 +131,12 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="768" height="1024"/>
                     <connections>
-                        <outlet property="bottomView" destination="K7V-1q-b0O" id="zOn-TL-kdl"/>
                         <outlet property="dayWeekSegment" destination="mCy-3k-gPU" id="Oix-ng-kUB"/>
-                        <outlet property="topView" destination="CIY-By-uiY" id="8kB-JH-oqg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EM5-ug-Ix7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1021" y="-1678"/>
+            <point key="canvasLocation" x="-1025" y="-2108"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

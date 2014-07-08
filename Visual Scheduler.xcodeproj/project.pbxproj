@@ -35,7 +35,6 @@
 		68D7965D190947CB0047A0CE /* TimerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D79659190947CB0047A0CE /* TimerView.m */; };
 		68D7965E190947CB0047A0CE /* WatchDialView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D7965B190947CB0047A0CE /* WatchDialView.m */; };
 		68D796A319094E920047A0CE /* ding.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 68D7964119092E080047A0CE /* ding.m4a */; };
-		D813A9D118D38BA100D3515A /* MockScheduleOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EC7D5518CA63C500B6A673 /* MockScheduleOverviewViewController.m */; };
 		D81ABB7D1909583B000B81F3 /* DayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D81ABB7C1909583B000B81F3 /* DayDataSource.m */; };
 		D81ABB80190966C5000B81F3 /* DayCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D81ABB7F190966C5000B81F3 /* DayCollectionViewLayout.m */; };
 		D81ABB8719097F62000B81F3 /* NowCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D81ABB8619097F62000B81F3 /* NowCollectionViewLayout.m */; };
@@ -59,8 +58,7 @@
 		D83A62DD18B696DC00EC0773 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BF18B696DC00EC0773 /* UIKit.framework */; };
 		D83A62E518B696DC00EC0773 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D83A62E318B696DC00EC0773 /* InfoPlist.strings */; };
 		D83BFE4B1907CAE600F72646 /* UIView+HoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = D83BFE4A1907CAE600F72646 /* UIView+HoverView.m */; };
-		D83BFE4E1907EDCE00F72646 /* PictogramsCollectionDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D83BFE4D1907EDCE00F72646 /* PictogramsCollectionDataSource.m */; };
-		D83BFE541907FC7F00F72646 /* PictogramsCollectionViewDelegateFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D83BFE531907FC7F00F72646 /* PictogramsCollectionViewDelegateFlowLayout.m */; };
+		D83BFE4E1907EDCE00F72646 /* PictogramSelectorDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D83BFE4D1907EDCE00F72646 /* PictogramSelectorDataSource.m */; };
 		D8401AAA1900312A00BAF82F /* BackgroundColour.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8401AA91900312A00BAF82F /* BackgroundColour.xib */; };
 		D8401B471901846100BAF82F /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8401B461901846100BAF82F /* ScheduleViewController.m */; };
 		D8472B871922C07E00EBE741 /* UICollectionView+AbortScrollAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = D8472B861922C07E00EBE741 /* UICollectionView+AbortScrollAnimation.m */; };
@@ -82,14 +80,19 @@
 		D85EBDD718DC804400DF76B7 /* washhands.png in Resources */ = {isa = PBXBuildFile; fileRef = D85EBDD018DC804400DF76B7 /* washhands.png */; };
 		D85EBDDA18DC833A00DF76B7 /* BBAColor.m in Sources */ = {isa = PBXBuildFile; fileRef = D85EBDD918DC833A00DF76B7 /* BBAColor.m */; };
 		D85EBDDF18DC83B200DF76B7 /* BBAColor.m in Sources */ = {isa = PBXBuildFile; fileRef = D85EBDD918DC833A00DF76B7 /* BBAColor.m */; };
+		D862E670192A2C3000F6E1E5 /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EB983618E340CF00DA3A99 /* Schedule.m */; };
+		D862E671192A2C3300F6E1E5 /* Pictogram.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EB983A18E346DF00DA3A99 /* Pictogram.m */; };
+		D862E672192A2C3900F6E1E5 /* Repository.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EB983018E33E4A00DA3A99 /* Repository.m */; };
+		D862E673192A2C4200F6E1E5 /* SQLiteStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D853A80D18E1DD3C0031E986 /* SQLiteStore.m */; };
+		D862E674192A2C4A00F6E1E5 /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 6818B6F519058982009F0742 /* ImageCache.m */; };
+		D862E675192A2E2300F6E1E5 /* SQLiteDatabaseConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6835652E1901B4FD00FCA28A /* SQLiteDatabaseConnection.m */; };
+		D862E676192A2E6200F6E1E5 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D853A81118E1E0280031E986 /* libsqlite3.dylib */; };
 		D878CAEB18DC868400DD1885 /* BBAColourTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D85EBDDC18DC839300DF76B7 /* BBAColourTests.m */; };
 		D87964B81906A05A00333CD1 /* CreatePictogram.xib in Resources */ = {isa = PBXBuildFile; fileRef = D87964B71906A05A00333CD1 /* CreatePictogram.xib */; };
 		D87C4B1319042539004AD9C9 /* vs.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = D829DDA918E191C00039A449 /* vs.sqlite3 */; };
 		D8805F3F18C5DD01001BD35B /* CreatePictogram.m in Sources */ = {isa = PBXBuildFile; fileRef = D8805F3E18C5DD01001BD35B /* CreatePictogram.m */; };
-		D8805F4718C5E456001BD35B /* PictogramsCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8805F4618C5E456001BD35B /* PictogramsCollectionViewController.m */; };
 		D887832E18C8E33300F13B28 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		D889F7EE18C9249A008A497F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D83A62CB18B696DC00EC0773 /* AppDelegate.m */; };
-		D8A28F071902CD4B0003BA94 /* SelectPictogramCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8A28F061902CD4B0003BA94 /* SelectPictogramCell.xib */; };
 		D8AFD99E1901BF2400A294D5 /* DayCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8AFD99D1901BF2400A294D5 /* DayCollectionViewController.m */; };
 		D8B016EF18FEB85700017D76 /* CalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B016EE18FEB85700017D76 /* CalendarView.m */; };
 		D8BABEC018EC6839009E562E /* NSMutableArray+MoveObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D8BABEBF18EC6839009E562E /* NSMutableArray+MoveObject.m */; };
@@ -122,7 +125,7 @@
 		6818B6ED19050E0C009F0742 /* ExternalScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExternalScreen.m; path = "Visual Scheduler/ExternalScreen/ExternalScreen.m"; sourceTree = "<group>"; };
 		6818B6EF19052C3F009F0742 /* ExternalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExternalViewController.h; path = "Visual Scheduler/ExternalScreen/ExternalViewController.h"; sourceTree = "<group>"; };
 		6818B6F019052C3F009F0742 /* ExternalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExternalViewController.m; path = "Visual Scheduler/ExternalScreen/ExternalViewController.m"; sourceTree = "<group>"; };
-		6818B6F219054FC6009F0742 /* ScheduleTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScheduleTests.m; path = "Visual Scheduler/Database/ScheduleTests.m"; sourceTree = "<group>"; };
+		6818B6F219054FC6009F0742 /* ScheduleTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScheduleTests.m; path = "../Visual Scheduler/Database/ScheduleTests.m"; sourceTree = "<group>"; };
 		6818B6F419058982009F0742 /* ImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageCache.h; path = "Visual Scheduler/Database/ImageCache.h"; sourceTree = "<group>"; };
 		6818B6F519058982009F0742 /* ImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageCache.m; path = "Visual Scheduler/Database/ImageCache.m"; sourceTree = "<group>"; };
 		6818B6FA19059319009F0742 /* ExternalViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExternalViewLayout.h; path = "Visual Scheduler/ExternalScreen/ExternalViewLayout.h"; sourceTree = "<group>"; };
@@ -214,10 +217,8 @@
 		D83A62E418B696DC00EC0773 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D83BFE491907CAE600F72646 /* UIView+HoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+HoverView.h"; path = "Visual Scheduler/Category/UIView+HoverView.h"; sourceTree = "<group>"; };
 		D83BFE4A1907CAE600F72646 /* UIView+HoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+HoverView.m"; path = "Visual Scheduler/Category/UIView+HoverView.m"; sourceTree = "<group>"; };
-		D83BFE4C1907EDCE00F72646 /* PictogramsCollectionDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PictogramsCollectionDataSource.h; path = "Visual Scheduler/Controllers/PictogramsCollectionDataSource.h"; sourceTree = "<group>"; };
-		D83BFE4D1907EDCE00F72646 /* PictogramsCollectionDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PictogramsCollectionDataSource.m; path = "Visual Scheduler/Controllers/PictogramsCollectionDataSource.m"; sourceTree = "<group>"; };
-		D83BFE521907FC7F00F72646 /* PictogramsCollectionViewDelegateFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PictogramsCollectionViewDelegateFlowLayout.h; path = "Visual Scheduler/Controllers/PictogramsCollectionViewDelegateFlowLayout.h"; sourceTree = "<group>"; };
-		D83BFE531907FC7F00F72646 /* PictogramsCollectionViewDelegateFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PictogramsCollectionViewDelegateFlowLayout.m; path = "Visual Scheduler/Controllers/PictogramsCollectionViewDelegateFlowLayout.m"; sourceTree = "<group>"; };
+		D83BFE4C1907EDCE00F72646 /* PictogramSelectorDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PictogramSelectorDataSource.h; path = "Visual Scheduler/Controllers/PictogramSelectorDataSource.h"; sourceTree = "<group>"; };
+		D83BFE4D1907EDCE00F72646 /* PictogramSelectorDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PictogramSelectorDataSource.m; path = "Visual Scheduler/Controllers/PictogramSelectorDataSource.m"; sourceTree = "<group>"; };
 		D8401AA91900312A00BAF82F /* BackgroundColour.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BackgroundColour.xib; path = "Visual Scheduler/CalendarView/BackgroundColour.xib"; sourceTree = "<group>"; };
 		D8401B451901846100BAF82F /* ScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScheduleViewController.h; path = CalendarView/ScheduleViewController.h; sourceTree = "<group>"; };
 		D8401B461901846100BAF82F /* ScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScheduleViewController.m; path = CalendarView/ScheduleViewController.m; sourceTree = "<group>"; };
@@ -231,7 +232,7 @@
 		D853A80B18E1DB850031E986 /* DataStoreProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataStoreProtocol.h; path = "Visual Scheduler/Database/DataStoreProtocol.h"; sourceTree = "<group>"; };
 		D853A80C18E1DD3C0031E986 /* SQLiteStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQLiteStore.h; path = "Visual Scheduler/Database/SQLiteStore.h"; sourceTree = "<group>"; };
 		D853A80D18E1DD3C0031E986 /* SQLiteStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQLiteStore.m; path = "Visual Scheduler/Database/SQLiteStore.m"; sourceTree = "<group>"; };
-		D853A80F18E1DD600031E986 /* SQLiteStoreTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQLiteStoreTests.m; path = "Visual Scheduler/Database/SQLiteStoreTests.m"; sourceTree = "<group>"; };
+		D853A80F18E1DD600031E986 /* SQLiteStoreTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQLiteStoreTests.m; path = "../Visual Scheduler/Database/SQLiteStoreTests.m"; sourceTree = "<group>"; };
 		D853A81118E1E0280031E986 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		D858CB8519221E0B00402E24 /* NSDate+VisualScheduler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+VisualScheduler.h"; path = "Visual Scheduler/Category/NSDate+VisualScheduler.h"; sourceTree = "<group>"; };
 		D858CB8619221E0B00402E24 /* NSDate+VisualScheduler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+VisualScheduler.m"; path = "Visual Scheduler/Category/NSDate+VisualScheduler.m"; sourceTree = "<group>"; };
@@ -248,10 +249,6 @@
 		D87964B71906A05A00333CD1 /* CreatePictogram.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CreatePictogram.xib; path = "Visual Scheduler/UI/CreatePictogram.xib"; sourceTree = "<group>"; };
 		D8805F3D18C5DD01001BD35B /* CreatePictogram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CreatePictogram.h; path = "Visual Scheduler/Controllers/CreatePictogram.h"; sourceTree = "<group>"; };
 		D8805F3E18C5DD01001BD35B /* CreatePictogram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CreatePictogram.m; path = "Visual Scheduler/Controllers/CreatePictogram.m"; sourceTree = "<group>"; };
-		D8805F4518C5E456001BD35B /* PictogramsCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PictogramsCollectionViewController.h; path = "Visual Scheduler/Controllers/PictogramsCollectionViewController.h"; sourceTree = "<group>"; };
-		D8805F4618C5E456001BD35B /* PictogramsCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PictogramsCollectionViewController.m; path = "Visual Scheduler/Controllers/PictogramsCollectionViewController.m"; sourceTree = "<group>"; };
-		D88CF2B618C71B5300AF0CC1 /* SelectPictogramViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SelectPictogramViewControllerDelegate.h; path = "Visual Scheduler/Controllers/SelectPictogramViewControllerDelegate.h"; sourceTree = "<group>"; };
-		D8A28F061902CD4B0003BA94 /* SelectPictogramCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SelectPictogramCell.xib; path = "Visual Scheduler/Controllers/SelectPictogramCell.xib"; sourceTree = "<group>"; };
 		D8AFD99C1901BF2400A294D5 /* DayCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DayCollectionViewController.h; path = "Visual Scheduler/CalendarView/DayCollectionViewController.h"; sourceTree = "<group>"; };
 		D8AFD99D1901BF2400A294D5 /* DayCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DayCollectionViewController.m; path = "Visual Scheduler/CalendarView/DayCollectionViewController.m"; sourceTree = "<group>"; };
 		D8B016ED18FEB85700017D76 /* CalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarView.h; path = "Visual Scheduler/CalendarView/CalendarView.h"; sourceTree = "<group>"; };
@@ -265,15 +262,13 @@
 		D8EAF2E118D9D8C7004CC1B1 /* Visual Scheduler copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Visual Scheduler copy-Info.plist"; path = "/Users/petur/Development/Visual Scheduler/Visual Scheduler copy-Info.plist"; sourceTree = "<absolute>"; };
 		D8EB982F18E33E4A00DA3A99 /* Repository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Repository.h; path = "Visual Scheduler/Database/Repository.h"; sourceTree = "<group>"; };
 		D8EB983018E33E4A00DA3A99 /* Repository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Repository.m; path = "Visual Scheduler/Database/Repository.m"; sourceTree = "<group>"; };
-		D8EB983318E33ECE00DA3A99 /* RepositoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RepositoryTests.m; path = "Visual Scheduler/Database/RepositoryTests.m"; sourceTree = "<group>"; };
+		D8EB983318E33ECE00DA3A99 /* RepositoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RepositoryTests.m; path = "../Visual Scheduler/Database/RepositoryTests.m"; sourceTree = "<group>"; };
 		D8EB983518E340CF00DA3A99 /* Schedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Schedule.h; path = "Visual Scheduler/Database/Schedule.h"; sourceTree = "<group>"; };
 		D8EB983618E340CF00DA3A99 /* Schedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Schedule.m; path = "Visual Scheduler/Database/Schedule.m"; sourceTree = "<group>"; };
 		D8EB983918E346DF00DA3A99 /* Pictogram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Pictogram.h; path = "Visual Scheduler/Database/Pictogram.h"; sourceTree = "<group>"; };
 		D8EB983A18E346DF00DA3A99 /* Pictogram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Pictogram.m; path = "Visual Scheduler/Database/Pictogram.m"; sourceTree = "<group>"; };
 		D8EC7D5118CA61E500B6A673 /* MockTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MockTableView.h; path = "Visual SchedulerTests/MockTableView.h"; sourceTree = SOURCE_ROOT; };
 		D8EC7D5218CA61E500B6A673 /* MockTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MockTableView.m; path = "Visual SchedulerTests/MockTableView.m"; sourceTree = SOURCE_ROOT; };
-		D8EC7D5418CA63C500B6A673 /* MockScheduleOverviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MockScheduleOverviewViewController.h; path = "Visual SchedulerTests/MockScheduleOverviewViewController.h"; sourceTree = SOURCE_ROOT; };
-		D8EC7D5518CA63C500B6A673 /* MockScheduleOverviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MockScheduleOverviewViewController.m; path = "Visual SchedulerTests/MockScheduleOverviewViewController.m"; sourceTree = SOURCE_ROOT; };
 		D8FD1D1B1924C943000226BF /* UIView+ContraintInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ContraintInfo.h"; sourceTree = "<group>"; };
 		D8FD1D1C1924C943000226BF /* UIView+ContraintInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ContraintInfo.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -296,6 +291,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D862E676192A2E6200F6E1E5 /* libsqlite3.dylib in Frameworks */,
 				D83A62DB18B696DC00EC0773 /* XCTest.framework in Frameworks */,
 				D83A62DD18B696DC00EC0773 /* UIKit.framework in Frameworks */,
 				D83A62DC18B696DC00EC0773 /* Foundation.framework in Frameworks */,
@@ -472,7 +468,7 @@
 			path = "Visual SchedulerTests/BBACameraTests";
 			sourceTree = SOURCE_ROOT;
 		};
-		D8387DBF18F9A94A00DD716C /* Calendar */ = {
+		D8387DBF18F9A94A00DD716C /* Top View */ = {
 			isa = PBXGroup;
 			children = (
 				D8401AA91900312A00BAF82F /* BackgroundColour.xib */,
@@ -482,7 +478,7 @@
 				D8B016EE18FEB85700017D76 /* CalendarView.m */,
 				D8387DC218F9BE6B00DD716C /* Cell */,
 			);
-			name = Calendar;
+			name = "Top View";
 			sourceTree = "<group>";
 		};
 		D8387DC218F9BE6B00DD716C /* Cell */ = {
@@ -570,11 +566,12 @@
 		D83A62E018B696DC00EC0773 /* Visual SchedulerTests */ = {
 			isa = PBXGroup;
 			children = (
+				6818B6F219054FC6009F0742 /* ScheduleTests.m */,
+				D853A80F18E1DD600031E986 /* SQLiteStoreTests.m */,
+				D8EB983318E33ECE00DA3A99 /* RepositoryTests.m */,
 				D8DCC45018E2F520004794C9 /* testImage.png */,
 				D8EC7D5118CA61E500B6A673 /* MockTableView.h */,
 				D8EC7D5218CA61E500B6A673 /* MockTableView.m */,
-				D8EC7D5418CA63C500B6A673 /* MockScheduleOverviewViewController.h */,
-				D8EC7D5518CA63C500B6A673 /* MockScheduleOverviewViewController.m */,
 				D850E82918C87C3D0051CD51 /* MockManagedObjectContext.h */,
 				D850E82A18C87C3D0051CD51 /* MockManagedObjectContext.m */,
 				D850E82D18C88E7E0051CD51 /* MockViewController.h */,
@@ -593,49 +590,6 @@
 				D83A62E318B696DC00EC0773 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		D83BFE551908052300F72646 /* Data Source */ = {
-			isa = PBXGroup;
-			children = (
-				D83BFE4C1907EDCE00F72646 /* PictogramsCollectionDataSource.h */,
-				D83BFE4D1907EDCE00F72646 /* PictogramsCollectionDataSource.m */,
-			);
-			name = "Data Source";
-			sourceTree = "<group>";
-		};
-		D83BFE561908053300F72646 /* Delegate */ = {
-			isa = PBXGroup;
-			children = (
-				D83BFE521907FC7F00F72646 /* PictogramsCollectionViewDelegateFlowLayout.h */,
-				D83BFE531907FC7F00F72646 /* PictogramsCollectionViewDelegateFlowLayout.m */,
-			);
-			name = Delegate;
-			sourceTree = "<group>";
-		};
-		D83BFE571908054400F72646 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				D8805F4618C5E456001BD35B /* PictogramsCollectionViewController.m */,
-				D8805F4518C5E456001BD35B /* PictogramsCollectionViewController.h */,
-			);
-			name = Controller;
-			sourceTree = "<group>";
-		};
-		D83BFE581908055D00F72646 /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-				D88CF2B618C71B5300AF0CC1 /* SelectPictogramViewControllerDelegate.h */,
-			);
-			name = Protocol;
-			sourceTree = "<group>";
-		};
-		D83BFE591908056E00F72646 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				D8A28F061902CD4B0003BA94 /* SelectPictogramCell.xib */,
-			);
-			name = UI;
 			sourceTree = "<group>";
 		};
 		D85EBDC918DC804400DF76B7 /* DevelopmentPictograms */ = {
@@ -681,34 +635,31 @@
 				D8472B861922C07E00EBE741 /* UICollectionView+AbortScrollAnimation.m */,
 				D81ABB8C1909C308000B81F3 /* ContainerViewController+Camera.h */,
 				D81ABB8D1909C308000B81F3 /* ContainerViewController+Camera.m */,
-				D8387DBF18F9A94A00DD716C /* Calendar */,
-				D87964BC1906E23000333CD1 /* Create Pictograms */,
-				D8805F4818C5E459001BD35B /* Select Pictogram */,
+				D8387DBF18F9A94A00DD716C /* Top View */,
+				D8805F4818C5E459001BD35B /* Bottom View */,
+				D87964BC1906E23000333CD1 /* New Pictogram View */,
 				D83A62CD18B696DC00EC0773 /* Main.storyboard */,
 			);
 			name = UI;
 			sourceTree = "<group>";
 		};
-		D87964BC1906E23000333CD1 /* Create Pictograms */ = {
+		D87964BC1906E23000333CD1 /* New Pictogram View */ = {
 			isa = PBXGroup;
 			children = (
 				D87964B71906A05A00333CD1 /* CreatePictogram.xib */,
 				D8805F3D18C5DD01001BD35B /* CreatePictogram.h */,
 				D8805F3E18C5DD01001BD35B /* CreatePictogram.m */,
 			);
-			name = "Create Pictograms";
+			name = "New Pictogram View";
 			sourceTree = "<group>";
 		};
-		D8805F4818C5E459001BD35B /* Select Pictogram */ = {
+		D8805F4818C5E459001BD35B /* Bottom View */ = {
 			isa = PBXGroup;
 			children = (
-				D83BFE591908056E00F72646 /* UI */,
-				D83BFE581908055D00F72646 /* Protocol */,
-				D83BFE561908053300F72646 /* Delegate */,
-				D83BFE571908054400F72646 /* Controller */,
-				D83BFE551908052300F72646 /* Data Source */,
+				D83BFE4C1907EDCE00F72646 /* PictogramSelectorDataSource.h */,
+				D83BFE4D1907EDCE00F72646 /* PictogramSelectorDataSource.m */,
 			);
-			name = "Select Pictogram";
+			name = "Bottom View";
 			sourceTree = "<group>";
 		};
 		D8B49E6018B8077600788073 /* Protocols */ = {
@@ -734,8 +685,6 @@
 				D853A80B18E1DB850031E986 /* DataStoreProtocol.h */,
 				D853A80C18E1DD3C0031E986 /* SQLiteStore.h */,
 				D853A80D18E1DD3C0031E986 /* SQLiteStore.m */,
-				D853A80F18E1DD600031E986 /* SQLiteStoreTests.m */,
-				D8EB983318E33ECE00DA3A99 /* RepositoryTests.m */,
 			);
 			name = SQLite;
 			sourceTree = "<group>";
@@ -747,7 +696,6 @@
 				D8EB983618E340CF00DA3A99 /* Schedule.m */,
 				D8EB983918E346DF00DA3A99 /* Pictogram.h */,
 				D8EB983A18E346DF00DA3A99 /* Pictogram.m */,
-				6818B6F219054FC6009F0742 /* ScheduleTests.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -844,7 +792,6 @@
 				6835652B1900330600FCA28A /* settings.sqlite3 in Resources */,
 				D85EBDD218DC804400DF76B7 /* eat.png in Resources */,
 				D85EBDD618DC804400DF76B7 /* toilet.png in Resources */,
-				D8A28F071902CD4B0003BA94 /* SelectPictogramCell.xib in Resources */,
 				D83A62C618B696DC00EC0773 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -868,7 +815,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				682012351902C3A700CE0C91 /* Localizer.m in Sources */,
-				D83BFE541907FC7F00F72646 /* PictogramsCollectionViewDelegateFlowLayout.m in Sources */,
 				68AA188B19029C41002BE754 /* UIImage+Filters.m in Sources */,
 				68D7964819092E690047A0CE /* MathUtils.m in Sources */,
 				D82D5FD418C616A6000A8FD3 /* UIView+BBASubviews.m in Sources */,
@@ -878,7 +824,6 @@
 				D8EB983B18E346DF00DA3A99 /* Pictogram.m in Sources */,
 				D8805F3F18C5DD01001BD35B /* CreatePictogram.m in Sources */,
 				D8472B871922C07E00EBE741 /* UICollectionView+AbortScrollAnimation.m in Sources */,
-				D8805F4718C5E456001BD35B /* PictogramsCollectionViewController.m in Sources */,
 				D8B016EF18FEB85700017D76 /* CalendarView.m in Sources */,
 				68D7964019092DF10047A0CE /* CALayer+Rotate.m in Sources */,
 				D81ABB80190966C5000B81F3 /* DayCollectionViewLayout.m in Sources */,
@@ -886,7 +831,7 @@
 				D8BABEC018EC6839009E562E /* NSMutableArray+MoveObject.m in Sources */,
 				D858CB8719221E0B00402E24 /* NSDate+VisualScheduler.m in Sources */,
 				68D7965C190947CB0047A0CE /* Timer.m in Sources */,
-				D83BFE4E1907EDCE00F72646 /* PictogramsCollectionDataSource.m in Sources */,
+				D83BFE4E1907EDCE00F72646 /* PictogramSelectorDataSource.m in Sources */,
 				68D7965E190947CB0047A0CE /* WatchDialView.m in Sources */,
 				D8C7BDE7190287E800128FA7 /* WeekCollectionViewLayout.m in Sources */,
 				6818B6FF19059475009F0742 /* ExternalViewDataSource.m in Sources */,
@@ -925,17 +870,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				683565231900307300FCA28A /* SettingsManagerTests.m in Sources */,
+				D862E671192A2C3300F6E1E5 /* Pictogram.m in Sources */,
+				D862E674192A2C4A00F6E1E5 /* ImageCache.m in Sources */,
 				D8EB983418E33ECE00DA3A99 /* RepositoryTests.m in Sources */,
+				D862E670192A2C3000F6E1E5 /* Schedule.m in Sources */,
 				D8315B0018D39E0600C4A340 /* CameraTests.m in Sources */,
 				D878CAEB18DC868400DD1885 /* BBAColourTests.m in Sources */,
 				6818B6EA1903EB5C009F0742 /* SQLiteDatabaseConnectionTests.m in Sources */,
+				D862E673192A2C4200F6E1E5 /* SQLiteStore.m in Sources */,
+				D862E672192A2C3900F6E1E5 /* Repository.m in Sources */,
 				D8EC7D5318CA61E500B6A673 /* MockTableView.m in Sources */,
-				D813A9D118D38BA100D3515A /* MockScheduleOverviewViewController.m in Sources */,
 				D853A81018E1DD600031E986 /* SQLiteStoreTests.m in Sources */,
 				D850E82B18C87C3D0051CD51 /* MockManagedObjectContext.m in Sources */,
 				D850E82F18C88E7E0051CD51 /* MockViewController.m in Sources */,
 				D85EBDDF18DC83B200DF76B7 /* BBAColor.m in Sources */,
 				D887832E18C8E33300F13B28 /* (null) in Sources */,
+				D862E675192A2E2300F6E1E5 /* SQLiteDatabaseConnection.m in Sources */,
 				D82838B518D5BA39009C03A8 /* UIApplicationTests.m in Sources */,
 				682012391902C8D900CE0C91 /* LocalizerTests.m in Sources */,
 				6818B6F319054FC6009F0742 /* ScheduleTests.m in Sources */,
@@ -1124,8 +1074,8 @@
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
-				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
-				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = NO;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Visual SchedulerTests/Visual Scheduler-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1165,8 +1115,8 @@
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
-				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
-				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = NO;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Visual SchedulerTests/Visual Scheduler-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (

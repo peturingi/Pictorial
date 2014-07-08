@@ -1,11 +1,3 @@
-//
-//  NSString+CapitalizeSentence.m
-//  Visual Scheduler
-//
-//  Created by Brian Pedersen on 20/04/14.
-//  Copyright (c) 2014 Student Project. All rights reserved.
-//
-
 #import "NSString+CapitalizeSentence.h"
 
 @implementation NSString (CapitalizeSentence)

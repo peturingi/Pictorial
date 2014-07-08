@@ -1,7 +1,6 @@
 #import "ContainerViewController.h"
 #import "ContainerViewController+Camera.h"
 #import <QuartzCore/CAAnimation.h>
-#import "PictogramsCollectionViewController.h"
 #import "DayCollectionViewLayout.h"
 #import "DayCollectionViewController.h"
 #import "WeekCollectionViewLayout.h"
@@ -22,7 +21,6 @@
 }
 /** Controller for the view within the bottomView.
  */
-@property (weak, nonatomic) PictogramsCollectionViewController *pictogramViewController;
 
 @property (weak, nonatomic) UICollectionViewController *currentCollectionViewController;
 
@@ -34,33 +32,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Add constraints for top and bottom views
-    self.topView.translatesAutoresizingMaskIntoConstraints = NO;
-    self.bottomView.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[topView][bottomView]|"
-                                                                      options:NSLayoutFormatAlignAllCenterX
-                                                                      metrics:nil
-                                                                        views:@{@"topView" : self.topView, @"bottomView" : self.bottomView}]];
-    
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[topView]|"
-                                                                      options:NSLayoutFormatAlignAllCenterX
-                                                                      metrics:nil
-                                                                        views:@{@"topView": self.topView}]];
-    
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[bottomView]|"
-                                                                      options:NSLayoutFormatAlignAllCenterX
-                                                                      metrics:nil
-                                                                        views:@{@"bottomView" : self.bottomView}]];
-    _bottomViewHeight = [NSLayoutConstraint constraintWithItem:self.bottomView
-                                                     attribute:NSLayoutAttributeHeight
-                                                     relatedBy:NSLayoutRelationEqual
-                                                        toItem:nil
-                                                     attribute:NSLayoutAttributeNotAnAttribute
-                                                    multiplier:1.0f
-                                                      constant:0.0f];
-    [self.bottomView addConstraint:_bottomViewHeight];
-
+    /*
     self.currentCollectionViewController = [self setupWeekViewController];
     [self.topView addSubview:self.currentCollectionViewController.view];
     [self.topView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[wrapperView]|"
@@ -72,48 +44,16 @@
                                                                          metrics:nil
                                                                            views:@{@"wrapperView" : self.currentCollectionViewController.view}]];
     
-    // BottomView
-    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-    PictogramsCollectionViewController *viewController = [[PictogramsCollectionViewController alloc] initWithCollectionViewLayout:flowLayout];
-    [self addChildViewController:viewController];
-    self.pictogramViewController = viewController;
-    [self.bottomView addSubview:viewController.view];
-    [self addShadowToBottomView];
-
-    viewController.view.translatesAutoresizingMaskIntoConstraints = NO;
-    viewController.collectionView.translatesAutoresizingMaskIntoConstraints= NO;
-
-    [self.bottomView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[wrapperView]|"
-                                                                            options:0
-                                                                            metrics:nil
-                                                                              views:@{@"wrapperView" : viewController.view}]];
-    [self.bottomView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[wrapperView]|"
-                                                                            options:0
-                                                                            metrics:nil
-                                                                              views:@{@"wrapperView" : viewController.view}]];
-    
-    [viewController.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[collectionView]|"
-                                                                                options:0
-                                                                                metrics:nil
-                                                                                  views:@{@"collectionView" : viewController.collectionView}]];
-    [viewController.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[collectionView]|"
-                                                                                options:0
-                                                                                metrics:nil
-                                                                                  views:@{@"collectionView" : viewController.collectionView}]];
-    
-    
-    [[self view] updateConstraints];
-
-    UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(toggleEditing)];
+   
+    */
+    UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithTitle:@"Breyta" style:UIBarButtonItemStylePlain target:self action:@selector(toggleEditing)];
     [self.navigationItem setRightBarButtonItem:editButton];
     cameraButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(showCamera)];
-    timerButton = [[UIBarButtonItem alloc] initWithTitle:@"Timer" style:UIBarButtonItemStylePlain target:self action:@selector(showTimer)];
+    timerButton = [[UIBarButtonItem alloc] initWithTitle:@"Klukka" style:UIBarButtonItemStylePlain target:self action:@selector(showTimer)];
     [self.navigationItem setLeftBarButtonItem:timerButton];
     [self setupGestureRecognizer];
     
 #ifdef DEBUG
-    self.currentCollectionViewController.view.backgroundColor = [UIColor blueColor]; // TODO REMOVE THIS LINE, ITS USELESS AND WAS FOR DEBUGGING LAYOUT CONSTRAINTS.
-    self.currentCollectionViewController.collectionView.backgroundColor = [UIColor yellowColor]; // TODO REMOVE THIS TOO
     NSLog(@"%@", [self.view constraintsOfSelfAndSubviews]);
 #endif
     
@@ -180,9 +120,6 @@
     [self.topView addSubview:self.currentCollectionViewController.view];
     self.currentCollectionViewController.view.translatesAutoresizingMaskIntoConstraints = NO;
     
-    self.currentCollectionViewController.view.backgroundColor = [UIColor blueColor]; // TODO REMOVE THIS LINE, ITS USELESS AND WAS FOR DEBUGGING LAYOUT CONSTRAINTS.
-    self.currentCollectionViewController.collectionView.backgroundColor = [UIColor yellowColor]; // TODO REMOVE THIS TOO
-    
     [self.topView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[collectionView]|"
                                                                          options:0
                                                                          metrics:nil
@@ -217,7 +154,7 @@
     }
     
     [self setEditButtonText:
-        (self.editing) ? @"Done" : @"Edit"
+        (self.editing) ? @"Klára" : @"Breyta"
     ];
     
     [self.navigationItem setLeftBarButtonItem:
@@ -258,7 +195,7 @@
     [self updateViewConstraints];
     [self.view layoutIfNeeded];
     
-    [UIView animateWithDuration:0.3f
+    [UIView animateWithDuration:0.0f
                      animations:^{_bottomViewHeight.constant = (NSInteger)(self.view.frame.size.height / 3.0f); // Else the constraint will try to set the height to a fraction which is illegal.
                        _bottomViewHeight.constant = (NSInteger)(self.view.frame.size.height / 3.0f); // Else the constraint will try to set the height to a fraction which is illegal.
                          //[self.topView layoutSubviews];
@@ -271,7 +208,7 @@
     [self updateViewConstraints];
     [self.view layoutIfNeeded];
     
-    [UIView animateWithDuration:0.3f
+    [UIView animateWithDuration:0.0f
                      animations:^{
                          _bottomViewHeight.constant = 0;
                         // [self.view setNeedsLayout];
@@ -340,7 +277,7 @@
     
     switch (gestureRecognizer.state) {
         case UIGestureRecognizerStateBegan:
-            [self ifPictogramWasTouchedAnimateItToTheFingerLocation:gestureRecognizer];
+          //  [self ifPictogramWasTouchedAnimateItToTheFingerLocation:gestureRecognizer];
             break;
             
         case UIGestureRecognizerStateChanged:
@@ -418,14 +355,14 @@
             break;
     }
 }
-
+/*
 - (void)ifPictogramWasTouchedAnimateItToTheFingerLocation:(UIGestureRecognizer *)gestureRecognizer {
     CGPoint locationInBottomView = [gestureRecognizer locationInView:self.bottomView];
     if ([self.bottomView pointInside:locationInBottomView withEvent:nil]) {
         
-        /* get pictogram being dragged */
-        _pictogramBeingDragged = [self.pictogramViewController pictogramAtPoint:locationInBottomView];
-        CGRect frameOfTouchedPictogram = [self.pictogramViewController frameOfPictogramAtPoint:locationInBottomView];
+        // get pictogram being dragged
+        //_pictogramBeingDragged = [self.pictogramViewController pictogramAtPoint:locationInBottomView];
+        //CGRect frameOfTouchedPictogram = [self.pictogramViewController frameOfPictogramAtPoint:locationInBottomView];
         _originOfTouchedPictogram = [self.view convertRect:frameOfTouchedPictogram fromView:self.bottomView];
         
         _viewFollowingFinger = [self draggablePictogramWith:_originOfTouchedPictogram usingImage:_pictogramBeingDragged.image];
@@ -443,7 +380,7 @@
                              }
                          }];
     }
-}
+}*/
 
 #pragma mark - Abort Dragging Pictogram
 

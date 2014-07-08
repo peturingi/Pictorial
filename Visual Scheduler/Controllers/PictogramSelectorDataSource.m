@@ -1,8 +1,8 @@
-#import "PictogramsCollectionDataSource.h"
+#import "PictogramSelectorDataSource.h"
 #import "Repository.h"
 #import "UIView+BBASubviews.h"
 
-@implementation PictogramsCollectionDataSource
+@implementation PictogramSelectorDataSource
 
 - (id)init {
     self = [super init];
@@ -29,7 +29,7 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *reusableCell = [collectionView dequeueReusableCellWithReuseIdentifier:CELL_ID_PICTOGRAM_SELECTOR forIndexPath:indexPath];
+    UICollectionViewCell *reusableCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"pictogramSelector" forIndexPath:indexPath];
     [self configureCell:reusableCell atIndexPath:indexPath];
     return reusableCell;
 }
