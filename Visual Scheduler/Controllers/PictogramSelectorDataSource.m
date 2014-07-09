@@ -2,6 +2,9 @@
 #import "Repository.h"
 #import "UIView+BBASubviews.h"
 
+#import "AppDelegate.h"
+#import <CoreData/CoreData.h>
+
 @implementation PictogramSelectorDataSource
 
 - (id)init {
@@ -13,6 +16,18 @@
 }
 
 - (void)setupDataSource {
+    
+    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    self.managedObjectContext = delegate.managedObjectContext;
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Pictogram"];
+    NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES];
+    [request setSortDescriptors:[NSArray arrayWithObject:sort]];
+    [request setFetchBatchSize:20];
+    NSFetchedResultsController *controller = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+    
+    NSLog(@"%d", controller.sections.count);
+    
+    
     Repository *repo = [Repository defaultRepository];
     if (!repo) {
         @throw [NSException exceptionWithName:@"Could not setup data source." reason:@"Failed to get shared repository." userInfo:nil];

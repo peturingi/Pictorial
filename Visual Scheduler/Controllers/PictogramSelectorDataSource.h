@@ -9,6 +9,8 @@
     NSArray *_data;
 }
 
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
 - (Pictogram *)pictogramAtIndexPath:(NSIndexPath *)indexPath;
 - (void)reloadData;
 @end

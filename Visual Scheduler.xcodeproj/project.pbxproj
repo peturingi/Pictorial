@@ -31,6 +31,9 @@
 		68D7965D190947CB0047A0CE /* TimerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D79659190947CB0047A0CE /* TimerView.m */; };
 		68D7965E190947CB0047A0CE /* WatchDialView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D7965B190947CB0047A0CE /* WatchDialView.m */; };
 		68D796A319094E920047A0CE /* ding.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 68D7964119092E080047A0CE /* ding.m4a */; };
+		D800E4AD196D4A5900465541 /* CoreDataPopulator.m in Sources */ = {isa = PBXBuildFile; fileRef = D800E4AC196D4A5900465541 /* CoreDataPopulator.m */; };
+		D800E4AF196D50CC00465541 /* svane.png in Resources */ = {isa = PBXBuildFile; fileRef = D800E4AE196D50CC00465541 /* svane.png */; };
+		D800E4B1196D516E00465541 /* spade.png in Resources */ = {isa = PBXBuildFile; fileRef = D800E4B0196D516E00465541 /* spade.png */; };
 		D81ABB7D1909583B000B81F3 /* DayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D81ABB7C1909583B000B81F3 /* DayDataSource.m */; };
 		D81ABB80190966C5000B81F3 /* DayCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D81ABB7F190966C5000B81F3 /* DayCollectionViewLayout.m */; };
 		D81ABB8719097F62000B81F3 /* NowCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D81ABB8619097F62000B81F3 /* NowCollectionViewLayout.m */; };
@@ -84,6 +87,7 @@
 		D87964B81906A05A00333CD1 /* CreatePictogram.xib in Resources */ = {isa = PBXBuildFile; fileRef = D87964B71906A05A00333CD1 /* CreatePictogram.xib */; };
 		D87C4B1319042539004AD9C9 /* vs.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = D829DDA918E191C00039A449 /* vs.sqlite3 */; };
 		D8805F3F18C5DD01001BD35B /* CreatePictogram.m in Sources */ = {isa = PBXBuildFile; fileRef = D8805F3E18C5DD01001BD35B /* CreatePictogram.m */; };
+		D881B56D196D3404008B10F9 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D881B56B196D3404008B10F9 /* Model.xcdatamodeld */; };
 		D887832E18C8E33300F13B28 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		D889F7EE18C9249A008A497F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D83A62CB18B696DC00EC0773 /* AppDelegate.m */; };
 		D8B016EF18FEB85700017D76 /* CalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B016EE18FEB85700017D76 /* CalendarView.m */; };
@@ -159,6 +163,10 @@
 		68D79659190947CB0047A0CE /* TimerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimerView.m; path = Timer/TimerView.m; sourceTree = "<group>"; };
 		68D7965A190947CB0047A0CE /* WatchDialView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WatchDialView.h; path = Timer/WatchDialView.h; sourceTree = "<group>"; };
 		68D7965B190947CB0047A0CE /* WatchDialView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WatchDialView.m; path = Timer/WatchDialView.m; sourceTree = "<group>"; };
+		D800E4AB196D4A5900465541 /* CoreDataPopulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataPopulator.h; path = "Core Data/CoreDataPopulator.h"; sourceTree = "<group>"; };
+		D800E4AC196D4A5900465541 /* CoreDataPopulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataPopulator.m; path = "Core Data/CoreDataPopulator.m"; sourceTree = "<group>"; };
+		D800E4AE196D50CC00465541 /* svane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = svane.png; path = "Core Data/svane.png"; sourceTree = "<group>"; };
+		D800E4B0196D516E00465541 /* spade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spade.png; path = "Core Data/spade.png"; sourceTree = "<group>"; };
 		D813A9D918D3995700D3515A /* Visual Scheduler-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Visual Scheduler-Prefix.pch"; sourceTree = "<group>"; };
 		D81AAA1E18B94F0A00E3B50C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D81ABB7B1909583B000B81F3 /* DayDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DayDataSource.h; path = "Visual Scheduler/CalendarView/DayDataSource.h"; sourceTree = "<group>"; };
@@ -241,6 +249,7 @@
 		D87964B71906A05A00333CD1 /* CreatePictogram.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CreatePictogram.xib; path = "Visual Scheduler/UI/CreatePictogram.xib"; sourceTree = "<group>"; };
 		D8805F3D18C5DD01001BD35B /* CreatePictogram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CreatePictogram.h; path = "Visual Scheduler/Controllers/CreatePictogram.h"; sourceTree = "<group>"; };
 		D8805F3E18C5DD01001BD35B /* CreatePictogram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CreatePictogram.m; path = "Visual Scheduler/Controllers/CreatePictogram.m"; sourceTree = "<group>"; };
+		D881B56C196D3404008B10F9 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		D8AFD99C1901BF2400A294D5 /* DayCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DayCollectionViewController.h; path = "Visual Scheduler/CalendarView/DayCollectionViewController.h"; sourceTree = "<group>"; };
 		D8AFD99D1901BF2400A294D5 /* DayCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DayCollectionViewController.m; path = "Visual Scheduler/CalendarView/DayCollectionViewController.m"; sourceTree = "<group>"; };
 		D8B016ED18FEB85700017D76 /* CalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarView.h; path = "Visual Scheduler/CalendarView/CalendarView.h"; sourceTree = "<group>"; };
@@ -412,13 +421,8 @@
 		D829DDA818E191B60039A449 /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				D8EB983818E340D500DA3A99 /* Model */,
-				D829DDA918E191C00039A449 /* vs.sqlite3 */,
-				D8EB982F18E33E4A00DA3A99 /* Repository.h */,
-				D8EB983018E33E4A00DA3A99 /* Repository.m */,
-				D8EB983218E33E5400DA3A99 /* SQLite */,
-				6818B6F419058982009F0742 /* ImageCache.h */,
-				6818B6F519058982009F0742 /* ImageCache.m */,
+				D881B56E196D35E3008B10F9 /* Core Data */,
+				D881B56A196D33B7008B10F9 /* SQLite */,
 			);
 			name = Database;
 			sourceTree = "<group>";
@@ -646,6 +650,32 @@
 			name = "Dead Code";
 			sourceTree = "<group>";
 		};
+		D881B56A196D33B7008B10F9 /* SQLite */ = {
+			isa = PBXGroup;
+			children = (
+				D8EB983818E340D500DA3A99 /* Model */,
+				D829DDA918E191C00039A449 /* vs.sqlite3 */,
+				D8EB982F18E33E4A00DA3A99 /* Repository.h */,
+				D8EB983018E33E4A00DA3A99 /* Repository.m */,
+				D8EB983218E33E5400DA3A99 /* SQLite */,
+				6818B6F419058982009F0742 /* ImageCache.h */,
+				6818B6F519058982009F0742 /* ImageCache.m */,
+			);
+			name = SQLite;
+			sourceTree = "<group>";
+		};
+		D881B56E196D35E3008B10F9 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				D800E4AB196D4A5900465541 /* CoreDataPopulator.h */,
+				D800E4AC196D4A5900465541 /* CoreDataPopulator.m */,
+				D881B56B196D3404008B10F9 /* Model.xcdatamodeld */,
+				D800E4AE196D50CC00465541 /* svane.png */,
+				D800E4B0196D516E00465541 /* spade.png */,
+			);
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
 		D8B49E6018B8077600788073 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -761,10 +791,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8401AAA1900312A00BAF82F /* BackgroundColor.xib in Resources */,
+				D800E4AF196D50CC00465541 /* svane.png in Resources */,
 				D850E82C18C885230051CD51 /* Main.storyboard in Resources */,
 				D85EBDD718DC804400DF76B7 /* washhands.png in Resources */,
 				D85EBDD418DC804400DF76B7 /* play.png in Resources */,
 				D8DCC45218E2F57D004794C9 /* testImage.png in Resources */,
+				D800E4B1196D516E00465541 /* spade.png in Resources */,
 				D85EBDD518DC804400DF76B7 /* preparetable.png in Resources */,
 				D87C4B1319042539004AD9C9 /* vs.sqlite3 in Resources */,
 				682012371902C8B000CE0C91 /* localeDb.sqlite3 in Resources */,
@@ -825,6 +857,7 @@
 				D81ABB7D1909583B000B81F3 /* DayDataSource.m in Sources */,
 				6835652F1901B4FD00FCA28A /* SQLiteDatabaseConnection.m in Sources */,
 				D85EBDDA18DC833A00DF76B7 /* BBAColor.m in Sources */,
+				D800E4AD196D4A5900465541 /* CoreDataPopulator.m in Sources */,
 				D8401B471901846100BAF82F /* ScheduleViewController.m in Sources */,
 				6835651B19002A4700FCA28A /* SettingsManager.m in Sources */,
 				68D7965D190947CB0047A0CE /* TimerView.m in Sources */,
@@ -832,6 +865,7 @@
 				6818B6F619058982009F0742 /* ImageCache.m in Sources */,
 				D8EB983718E340CF00DA3A99 /* Schedule.m in Sources */,
 				D8315AF418D39DEA00C4A340 /* Camera.m in Sources */,
+				D881B56D196D3404008B10F9 /* Model.xcdatamodeld in Sources */,
 				D82C0CE218F8813F005B5569 /* CalendarCell.m in Sources */,
 				68D7963D19092DE50047A0CE /* CALayer+WithSizeAndPosition.m in Sources */,
 				D83BFE4B1907CAE600F72646 /* UIView+HoverView.m in Sources */,
@@ -1154,6 +1188,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D881B56B196D3404008B10F9 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D881B56C196D3404008B10F9 /* Model.xcdatamodel */,
+			);
+			currentVersion = D881B56C196D3404008B10F9 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = D83A62B018B696DB00EC0773 /* Project object */;
 }
