@@ -14,7 +14,7 @@
 #define NOTIFICATION_CALENDAR_VIEW  @"handleCalendarViewMode"
 #define NOTIFICATION_PICTOGRAM_INSERTED @"PictogramInserted"
 
-#define PICTOGRAM_BORDER_WIDTH  2
+#define PICTOGRAM_PICTOGRAM_BORDER_WIDTH  2
 #define PICTOGRAM_CORNER_RADIUS 5
 
 // UI Settings
@@ -29,3 +29,11 @@
 #define ANIMATION_DURATION_INSERT_PICTOGRAM 0.3f
 
 #define NUMBER_OF_DAYS_IN_WEEK 7
+
+// Registered Constants for Dequeu views.
+#define CALENDAR_CELL @"CALENDAR_CELL"
+#define DAY_OF_WEEK_COLOR @"DayOfWeekColor"
+
+// Schedule View
+#define PICTOGRAM_BORDER_WIDTH    2.0f
+#define PICTOGRAM_BORDER_RADIUS   5.0f

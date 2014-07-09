@@ -2,7 +2,7 @@
 #import "NSDate+VisualScheduler.h"
 
 #define CELL_KEY    @"ImageCell"
-#define HEADER_KEY  @"DayOfWeekColour"
+#define HEADER_KEY  @"DayOfWeekColor"
 
 static const NSInteger INSET_TOP    = 2;
 static const NSInteger INSET_LEFT   = 18;
@@ -17,8 +17,8 @@ static const NSUInteger HEADER_HEIGHT = 20;
 
 @implementation WeekCollectionViewLayout
 
-- (id)init {
-    self = [super init];
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
     if (self) {
         self.insets = UIEdgeInsetsMake(INSET_TOP, INSET_LEFT, INSET_BOTTOM, INSET_RIGHT);
     }

@@ -1,7 +1,7 @@
 #import "DayCollectionViewLayout.h"
 
 #define CELL_KEY    @"ImageCell"
-#define HEADER_KEY  @"DayOfWeekColour"
+#define HEADER_KEY  @"DayOfWeekColor"
 
 static const NSInteger INSET_TOP    = 2;
 static const NSInteger INSET_LEFT   = 15;

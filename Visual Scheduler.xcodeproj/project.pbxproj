@@ -8,12 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6818B6EA1903EB5C009F0742 /* SQLiteDatabaseConnectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6818B6E91903EB5C009F0742 /* SQLiteDatabaseConnectionTests.m */; };
-		6818B6EE19050E0C009F0742 /* ExternalScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 6818B6ED19050E0C009F0742 /* ExternalScreen.m */; };
-		6818B6F119052C3F009F0742 /* ExternalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6818B6F019052C3F009F0742 /* ExternalViewController.m */; };
 		6818B6F319054FC6009F0742 /* ScheduleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6818B6F219054FC6009F0742 /* ScheduleTests.m */; };
 		6818B6F619058982009F0742 /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 6818B6F519058982009F0742 /* ImageCache.m */; };
-		6818B6FC19059319009F0742 /* ExternalViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 6818B6FB19059319009F0742 /* ExternalViewLayout.m */; };
-		6818B6FF19059475009F0742 /* ExternalViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 6818B6FE19059475009F0742 /* ExternalViewDataSource.m */; };
 		682012351902C3A700CE0C91 /* Localizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 682012341902C3A700CE0C91 /* Localizer.m */; };
 		682012371902C8B000CE0C91 /* localeDb.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = 682012361902C8B000CE0C91 /* localeDb.sqlite3 */; };
 		682012391902C8D900CE0C91 /* LocalizerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 682012381902C8D900CE0C91 /* LocalizerTests.m */; };
@@ -38,15 +34,12 @@
 		D81ABB7D1909583B000B81F3 /* DayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D81ABB7C1909583B000B81F3 /* DayDataSource.m */; };
 		D81ABB80190966C5000B81F3 /* DayCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D81ABB7F190966C5000B81F3 /* DayCollectionViewLayout.m */; };
 		D81ABB8719097F62000B81F3 /* NowCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D81ABB8619097F62000B81F3 /* NowCollectionViewLayout.m */; };
-		D81ABB8B1909AEC0000B81F3 /* WeekCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D81ABB8A1909AEC0000B81F3 /* WeekCollectionViewController.m */; };
-		D81ABB8E1909C308000B81F3 /* ContainerViewController+Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = D81ABB8D1909C308000B81F3 /* ContainerViewController+Camera.m */; };
 		D82838B518D5BA39009C03A8 /* UIApplicationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D82838B418D5BA39009C03A8 /* UIApplicationTests.m */; };
 		D82C0CDC18F80DFB005B5569 /* WeekDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D82C0CDB18F80DFB005B5569 /* WeekDataSource.m */; };
 		D82C0CE218F8813F005B5569 /* CalendarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D82C0CE118F8813F005B5569 /* CalendarCell.m */; };
 		D82D5FD418C616A6000A8FD3 /* UIView+BBASubviews.m in Sources */ = {isa = PBXBuildFile; fileRef = D82D5FD318C616A6000A8FD3 /* UIView+BBASubviews.m */; };
 		D8315AF418D39DEA00C4A340 /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = D8315AF218D39DEA00C4A340 /* Camera.m */; };
 		D8315B0018D39E0600C4A340 /* CameraTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8315AF818D39E0600C4A340 /* CameraTests.m */; };
-		D832357D1902D80800FA4DFF /* ContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D832357C1902D80800FA4DFF /* ContainerViewController.m */; };
 		D83A62BC18B696DC00EC0773 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BB18B696DC00EC0773 /* Foundation.framework */; };
 		D83A62BE18B696DC00EC0773 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BD18B696DC00EC0773 /* CoreGraphics.framework */; };
 		D83A62C018B696DC00EC0773 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BF18B696DC00EC0773 /* UIKit.framework */; };
@@ -59,7 +52,7 @@
 		D83A62E518B696DC00EC0773 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D83A62E318B696DC00EC0773 /* InfoPlist.strings */; };
 		D83BFE4B1907CAE600F72646 /* UIView+HoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = D83BFE4A1907CAE600F72646 /* UIView+HoverView.m */; };
 		D83BFE4E1907EDCE00F72646 /* PictogramSelectorDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D83BFE4D1907EDCE00F72646 /* PictogramSelectorDataSource.m */; };
-		D8401AAA1900312A00BAF82F /* BackgroundColour.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8401AA91900312A00BAF82F /* BackgroundColour.xib */; };
+		D8401AAA1900312A00BAF82F /* BackgroundColor.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8401AA91900312A00BAF82F /* BackgroundColor.xib */; };
 		D8401B471901846100BAF82F /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8401B461901846100BAF82F /* ScheduleViewController.m */; };
 		D8472B871922C07E00EBE741 /* UICollectionView+AbortScrollAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = D8472B861922C07E00EBE741 /* UICollectionView+AbortScrollAnimation.m */; };
 		D850E82618C86F420051CD51 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D850E82518C86F420051CD51 /* MobileCoreServices.framework */; };
@@ -93,7 +86,6 @@
 		D8805F3F18C5DD01001BD35B /* CreatePictogram.m in Sources */ = {isa = PBXBuildFile; fileRef = D8805F3E18C5DD01001BD35B /* CreatePictogram.m */; };
 		D887832E18C8E33300F13B28 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		D889F7EE18C9249A008A497F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D83A62CB18B696DC00EC0773 /* AppDelegate.m */; };
-		D8AFD99E1901BF2400A294D5 /* DayCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8AFD99D1901BF2400A294D5 /* DayCollectionViewController.m */; };
 		D8B016EF18FEB85700017D76 /* CalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B016EE18FEB85700017D76 /* CalendarView.m */; };
 		D8BABEC018EC6839009E562E /* NSMutableArray+MoveObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D8BABEBF18EC6839009E562E /* NSMutableArray+MoveObject.m */; };
 		D8C7BDE7190287E800128FA7 /* WeekCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C7BDE6190287E800128FA7 /* WeekCollectionViewLayout.m */; };
@@ -219,7 +211,7 @@
 		D83BFE4A1907CAE600F72646 /* UIView+HoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+HoverView.m"; path = "Visual Scheduler/Category/UIView+HoverView.m"; sourceTree = "<group>"; };
 		D83BFE4C1907EDCE00F72646 /* PictogramSelectorDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PictogramSelectorDataSource.h; path = "Visual Scheduler/Controllers/PictogramSelectorDataSource.h"; sourceTree = "<group>"; };
 		D83BFE4D1907EDCE00F72646 /* PictogramSelectorDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PictogramSelectorDataSource.m; path = "Visual Scheduler/Controllers/PictogramSelectorDataSource.m"; sourceTree = "<group>"; };
-		D8401AA91900312A00BAF82F /* BackgroundColour.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BackgroundColour.xib; path = "Visual Scheduler/CalendarView/BackgroundColour.xib"; sourceTree = "<group>"; };
+		D8401AA91900312A00BAF82F /* BackgroundColor.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BackgroundColor.xib; path = "Visual Scheduler/CalendarView/BackgroundColor.xib"; sourceTree = "<group>"; };
 		D8401B451901846100BAF82F /* ScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScheduleViewController.h; path = CalendarView/ScheduleViewController.h; sourceTree = "<group>"; };
 		D8401B461901846100BAF82F /* ScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScheduleViewController.m; path = CalendarView/ScheduleViewController.m; sourceTree = "<group>"; };
 		D8472B851922C07E00EBE741 /* UICollectionView+AbortScrollAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+AbortScrollAnimation.h"; sourceTree = "<group>"; };
@@ -369,8 +361,6 @@
 		D81ABB8119096B66000B81F3 /* Day */ = {
 			isa = PBXGroup;
 			children = (
-				D8AFD99C1901BF2400A294D5 /* DayCollectionViewController.h */,
-				D8AFD99D1901BF2400A294D5 /* DayCollectionViewController.m */,
 				D81ABB7B1909583B000B81F3 /* DayDataSource.h */,
 				D81ABB7C1909583B000B81F3 /* DayDataSource.m */,
 				D81ABB8819098B5D000B81F3 /* DataSourceCanAddRemovePictogram.h */,
@@ -380,19 +370,6 @@
 				D81ABB8619097F62000B81F3 /* NowCollectionViewLayout.m */,
 			);
 			name = Day;
-			sourceTree = "<group>";
-		};
-		D81ABB8219096C10000B81F3 /* Week */ = {
-			isa = PBXGroup;
-			children = (
-				D81ABB891909AEC0000B81F3 /* WeekCollectionViewController.h */,
-				D81ABB8A1909AEC0000B81F3 /* WeekCollectionViewController.m */,
-				D82C0CDA18F80DFB005B5569 /* WeekDataSource.h */,
-				D82C0CDB18F80DFB005B5569 /* WeekDataSource.m */,
-				D8C7BDE5190287E800128FA7 /* WeekCollectionViewLayout.h */,
-				D8C7BDE6190287E800128FA7 /* WeekCollectionViewLayout.m */,
-			);
-			name = Week;
 			sourceTree = "<group>";
 		};
 		D82838B018D5B85A009C03A8 /* Categories */ = {
@@ -471,33 +448,32 @@
 		D8387DBF18F9A94A00DD716C /* Top View */ = {
 			isa = PBXGroup;
 			children = (
-				D8401AA91900312A00BAF82F /* BackgroundColour.xib */,
-				D81ABB8219096C10000B81F3 /* Week */,
-				D81ABB8119096B66000B81F3 /* Day */,
+				D8401AA91900312A00BAF82F /* BackgroundColor.xib */,
+				D82C0CDA18F80DFB005B5569 /* WeekDataSource.h */,
+				D82C0CDB18F80DFB005B5569 /* WeekDataSource.m */,
+				D8C7BDE5190287E800128FA7 /* WeekCollectionViewLayout.h */,
+				D8C7BDE6190287E800128FA7 /* WeekCollectionViewLayout.m */,
 				D8B016ED18FEB85700017D76 /* CalendarView.h */,
 				D8B016EE18FEB85700017D76 /* CalendarView.m */,
-				D8387DC218F9BE6B00DD716C /* Cell */,
-			);
-			name = "Top View";
-			sourceTree = "<group>";
-		};
-		D8387DC218F9BE6B00DD716C /* Cell */ = {
-			isa = PBXGroup;
-			children = (
 				D82C0CE018F8813F005B5569 /* CalendarCell.h */,
 				D82C0CE118F8813F005B5569 /* CalendarCell.m */,
+				D81ABB8119096B66000B81F3 /* Day */,
 			);
-			name = Cell;
+			name = "Top View";
 			sourceTree = "<group>";
 		};
 		D83A62AF18B696DB00EC0773 = {
 			isa = PBXGroup;
 			children = (
+				D881B569196D2D8A008B10F9 /* Dead Code */,
 				D858CB8519221E0B00402E24 /* NSDate+VisualScheduler.h */,
 				D858CB8619221E0B00402E24 /* NSDate+VisualScheduler.m */,
+				D8FD1D1B1924C943000226BF /* UIView+ContraintInfo.h */,
+				D8FD1D1C1924C943000226BF /* UIView+ContraintInfo.m */,
+				D8472B851922C07E00EBE741 /* UICollectionView+AbortScrollAnimation.h */,
+				D8472B861922C07E00EBE741 /* UICollectionView+AbortScrollAnimation.m */,
 				68D7964519092E590047A0CE /* Misc */,
 				D87964B91906A09500333CD1 /* UI */,
-				6818B6EB19050DE8009F0742 /* ExternalScreen */,
 				682012321902C38600CE0C91 /* Localization */,
 				D829DDA818E191B60039A449 /* Database */,
 				D83A62C118B696DC00EC0773 /* Visual Scheduler */,
@@ -627,16 +603,8 @@
 		D87964B91906A09500333CD1 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				D832357B1902D80800FA4DFF /* ContainerViewController.h */,
-				D832357C1902D80800FA4DFF /* ContainerViewController.m */,
-				D8FD1D1B1924C943000226BF /* UIView+ContraintInfo.h */,
-				D8FD1D1C1924C943000226BF /* UIView+ContraintInfo.m */,
-				D8472B851922C07E00EBE741 /* UICollectionView+AbortScrollAnimation.h */,
-				D8472B861922C07E00EBE741 /* UICollectionView+AbortScrollAnimation.m */,
-				D81ABB8C1909C308000B81F3 /* ContainerViewController+Camera.h */,
-				D81ABB8D1909C308000B81F3 /* ContainerViewController+Camera.m */,
 				D8387DBF18F9A94A00DD716C /* Top View */,
-				D8805F4818C5E459001BD35B /* Pictogram Selector */,
+				D8805F4818C5E459001BD35B /* Bottom View */,
 				D87964BC1906E23000333CD1 /* New Pictogram View */,
 				D83A62CD18B696DC00EC0773 /* Main.storyboard */,
 			);
@@ -653,13 +621,29 @@
 			name = "New Pictogram View";
 			sourceTree = "<group>";
 		};
-		D8805F4818C5E459001BD35B /* Pictogram Selector */ = {
+		D8805F4818C5E459001BD35B /* Bottom View */ = {
 			isa = PBXGroup;
 			children = (
 				D83BFE4C1907EDCE00F72646 /* PictogramSelectorDataSource.h */,
 				D83BFE4D1907EDCE00F72646 /* PictogramSelectorDataSource.m */,
 			);
-			name = "Pictogram Selector";
+			name = "Bottom View";
+			sourceTree = "<group>";
+		};
+		D881B569196D2D8A008B10F9 /* Dead Code */ = {
+			isa = PBXGroup;
+			children = (
+				6818B6EB19050DE8009F0742 /* ExternalScreen */,
+				D832357B1902D80800FA4DFF /* ContainerViewController.h */,
+				D832357C1902D80800FA4DFF /* ContainerViewController.m */,
+				D81ABB891909AEC0000B81F3 /* WeekCollectionViewController.h */,
+				D81ABB8A1909AEC0000B81F3 /* WeekCollectionViewController.m */,
+				D8AFD99C1901BF2400A294D5 /* DayCollectionViewController.h */,
+				D8AFD99D1901BF2400A294D5 /* DayCollectionViewController.m */,
+				D81ABB8C1909C308000B81F3 /* ContainerViewController+Camera.h */,
+				D81ABB8D1909C308000B81F3 /* ContainerViewController+Camera.m */,
+			);
+			name = "Dead Code";
 			sourceTree = "<group>";
 		};
 		D8B49E6018B8077600788073 /* Protocols */ = {
@@ -776,7 +760,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8401AAA1900312A00BAF82F /* BackgroundColour.xib in Resources */,
+				D8401AAA1900312A00BAF82F /* BackgroundColor.xib in Resources */,
 				D850E82C18C885230051CD51 /* Main.storyboard in Resources */,
 				D85EBDD718DC804400DF76B7 /* washhands.png in Resources */,
 				D85EBDD418DC804400DF76B7 /* play.png in Resources */,
@@ -818,7 +802,6 @@
 				68AA188B19029C41002BE754 /* UIImage+Filters.m in Sources */,
 				68D7964819092E690047A0CE /* MathUtils.m in Sources */,
 				D82D5FD418C616A6000A8FD3 /* UIView+BBASubviews.m in Sources */,
-				6818B6EE19050E0C009F0742 /* ExternalScreen.m in Sources */,
 				68D7964419092E490047A0CE /* NSString+TimeFormatted.m in Sources */,
 				68D7963419092D130047A0CE /* UIView+Wiggle.m in Sources */,
 				D8EB983B18E346DF00DA3A99 /* Pictogram.m in Sources */,
@@ -834,11 +817,8 @@
 				D83BFE4E1907EDCE00F72646 /* PictogramSelectorDataSource.m in Sources */,
 				68D7965E190947CB0047A0CE /* WatchDialView.m in Sources */,
 				D8C7BDE7190287E800128FA7 /* WeekCollectionViewLayout.m in Sources */,
-				6818B6FF19059475009F0742 /* ExternalViewDataSource.m in Sources */,
 				68D796551909479E0047A0CE /* TimerViewController.m in Sources */,
-				D81ABB8E1909C308000B81F3 /* ContainerViewController+Camera.m in Sources */,
 				D82C0CDC18F80DFB005B5569 /* WeekDataSource.m in Sources */,
-				6818B6FC19059319009F0742 /* ExternalViewLayout.m in Sources */,
 				D83A62C818B696DC00EC0773 /* main.m in Sources */,
 				D889F7EE18C9249A008A497F /* AppDelegate.m in Sources */,
 				D81ABB8719097F62000B81F3 /* NowCollectionViewLayout.m in Sources */,
@@ -847,17 +827,13 @@
 				D85EBDDA18DC833A00DF76B7 /* BBAColor.m in Sources */,
 				D8401B471901846100BAF82F /* ScheduleViewController.m in Sources */,
 				6835651B19002A4700FCA28A /* SettingsManager.m in Sources */,
-				6818B6F119052C3F009F0742 /* ExternalViewController.m in Sources */,
 				68D7965D190947CB0047A0CE /* TimerView.m in Sources */,
 				683941091903D0F500C05F3C /* NSString+CapitalizeSentence.m in Sources */,
-				D832357D1902D80800FA4DFF /* ContainerViewController.m in Sources */,
 				6818B6F619058982009F0742 /* ImageCache.m in Sources */,
 				D8EB983718E340CF00DA3A99 /* Schedule.m in Sources */,
 				D8315AF418D39DEA00C4A340 /* Camera.m in Sources */,
 				D82C0CE218F8813F005B5569 /* CalendarCell.m in Sources */,
-				D81ABB8B1909AEC0000B81F3 /* WeekCollectionViewController.m in Sources */,
 				68D7963D19092DE50047A0CE /* CALayer+WithSizeAndPosition.m in Sources */,
-				D8AFD99E1901BF2400A294D5 /* DayCollectionViewController.m in Sources */,
 				D83BFE4B1907CAE600F72646 /* UIView+HoverView.m in Sources */,
 				D8FD1D1D1924C943000226BF /* UIView+ContraintInfo.m in Sources */,
 				68D7963719092D2D0047A0CE /* UIView+CenterPoint.m in Sources */,

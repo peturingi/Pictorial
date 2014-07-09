@@ -1,29 +1,18 @@
 #import "CalendarView.h"
-#import "CalendarCell.h"
+
 @implementation CalendarView
 
-- (id)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout {
-    self = [super initWithFrame:frame collectionViewLayout:layout];
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
     if (self) {
-        [self registerViews];
+        [self registerSupplementaryView];
     }
     return self;
 }
 
-- (void)registerViews {
-    UINib *headerView = [UINib nibWithNibName:@"BackgroundColour" bundle:nil];
-    [self registerNib:headerView forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"DayOfWeekColour"];
-    [self registerClass:[CalendarCell class] forCellWithReuseIdentifier:@"CALENDAR_CELL"];
-}
-
-- (CalendarCell *)dequeueReusableCalendarCellForIndexPath:(NSIndexPath *)indexPath {
-    CalendarCell *cell = (CalendarCell *)[self dequeueReusableCellWithReuseIdentifier:@"CALENDAR_CELL" forIndexPath:indexPath];
-    return cell;
-}
-
-- (UICollectionReusableView *)dequeueReusableBackgroundColourViewforIndexPath:indexPath {
-    UICollectionReusableView *view = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader  withReuseIdentifier:@"DayOfWeekColour" forIndexPath:indexPath];
-    return view;
+- (void)registerSupplementaryView {
+    UINib *headerView = [UINib nibWithNibName:@"BackgroundColor" bundle:nil];
+    [self registerNib:headerView forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:DAY_OF_WEEK_COLOR];
 }
 
 @end

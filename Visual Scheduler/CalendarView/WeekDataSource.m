@@ -10,7 +10,6 @@
     self = [super init];
     if (self) {
         _schedules = [NSMutableArray arrayWithArray:[Schedule allSchedules]];
-        NSAssert(self.schedules.count == NUMBER_OF_DAYS_IN_WEEK, @"A week must consist of 7 schedules.");
     }
     return self;
 }
@@ -26,8 +25,7 @@
     NSInteger numberOfItems = schedule.pictograms.count;
     NSAssert(numberOfItems >= 0, @"Invalid number of items: %ld. Must be >=0", (long)numberOfItems);
     if (self.editing) {
-        // Make space for 'drag here' pictogram.
-        numberOfItems++;
+        numberOfItems++; // Make space for 'drag here' (empty) pictogram.
     }
     return numberOfItems;
 }
@@ -39,7 +37,7 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    CalendarCell *cell = [(CalendarView *)collectionView dequeueReusableCalendarCellForIndexPath:indexPath];
+    CalendarCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CALENDAR_CELL forIndexPath:indexPath];
     Schedule *schedule = [self.schedules objectAtIndex:indexPath.section];
     
     // Shows empty box below each schedule in edit mode.
@@ -58,7 +56,7 @@
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
-    UICollectionReusableView *view = [(CalendarView *)collectionView dequeueReusableBackgroundColourViewforIndexPath:indexPath];
+    UICollectionReusableView *view = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:DAY_OF_WEEK_COLOR forIndexPath:indexPath];
     NSAssert(view, @"Failed to dequeue reusable view.");
     Schedule *schedule = [_schedules objectAtIndex:indexPath.section];
     view.backgroundColor = schedule.color;

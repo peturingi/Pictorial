@@ -24,21 +24,6 @@
     [self setupCollectionView];
 }
 
-- (void)viewDidLoad {
-    self.view.translatesAutoresizingMaskIntoConstraints = NO;
-    self.collectionView.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[collectionView]|"
-                                                                      options:0
-                                                                      metrics:nil
-                                                                        views:@{@"collectionView" : self.collectionView}]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[collectionView]|"
-                                                                      options:0
-                                                                      metrics:nil
-                                                                        views:@{@"collectionView" : self.collectionView}]];
-    [self.view setNeedsUpdateConstraints];
-
-}
-
 - (void)setupCollectionView {
     // This view will be managed with auto layout.
     self.collectionView = [[CalendarView alloc] initWithFrame:CGRectZero collectionViewLayout:self.collectionViewLayout];

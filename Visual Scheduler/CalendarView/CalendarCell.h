@@ -2,6 +2,6 @@
 
 @interface CalendarCell : UICollectionViewCell
 
-@property (strong, nonatomic) UIImageView *imageView;
+@property IBOutlet UIImageView *imageView;
 
 @end

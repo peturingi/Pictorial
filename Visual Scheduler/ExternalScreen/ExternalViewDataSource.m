@@ -28,7 +28,7 @@
 }
 
 -(UICollectionReusableView*)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
-    UICollectionReusableView* view = [collectionView dequeueReusableCellWithReuseIdentifier:@"DayOfWeekColour" forIndexPath:indexPath];
+    UICollectionReusableView* view = [collectionView dequeueReusableCellWithReuseIdentifier:@"DayOfWeekColor" forIndexPath:indexPath];
     view.backgroundColor = [[_data objectAtIndex:indexPath.section] color];
     return view;
 }

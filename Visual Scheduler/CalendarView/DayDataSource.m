@@ -16,7 +16,7 @@
 - (id)initWithScheduleNumber:(NSUInteger)number {
     self = [super init];
     if (self) {
-        schedule = [[Repository defaultRepository] scheduleNumber:number];
+        schedule = [[Repository defaultRepository] scheduleNumber:number]; // Bad, does not work if day changes.
     }
     return self;
 }
@@ -46,11 +46,11 @@
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
-    UICollectionReusableView *view = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"DayOfWeekColour" forIndexPath:indexPath];
+    UICollectionReusableView *view = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"DayOfWeekColor" forIndexPath:indexPath];
     view.backgroundColor = schedule.color;
     return view;
 }
-
+/*
 - (void)addPictogram:(Pictogram *)pictogram toCollectionView:(UICollectionView *)collectionView atIndexPath:(NSIndexPath *)indexPath {
     [schedule addPictogram:pictogram atIndex:indexPath.item];
     [collectionView insertItemsAtIndexPaths:@[indexPath]];
@@ -70,6 +70,6 @@
             [collectionView deleteItemsAtIndexPaths:@[indexPath]];
         }
     }
-}
+}*/
 
 @end

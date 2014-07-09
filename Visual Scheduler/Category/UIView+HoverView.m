@@ -3,7 +3,7 @@
 @implementation UIView (HoverView)
 
 - (void)roundBorder {
-    [self.layer setBorderWidth:PICTOGRAM_BORDER_WIDTH];
+    [self.layer setBorderWidth:PICTOGRAM_PICTOGRAM_BORDER_WIDTH];
     [self.layer setCornerRadius:PICTOGRAM_CORNER_RADIUS];
     [self.layer setBorderColor:PICTOGRAM_BORDER_COLOR];
     [self.layer setMasksToBounds:YES];
