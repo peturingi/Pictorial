@@ -1,5 +1,4 @@
 #import "PictogramSelectorDataSource.h"
-#import "Repository.h"
 #import "UIView+BBASubviews.h"
 
 #import "AppDelegate.h"
@@ -16,31 +15,19 @@
 }
 
 - (void)setupDataSource {
-    
     AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
     self.managedObjectContext = delegate.managedObjectContext;
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Pictogram"];
     NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES];
     [request setSortDescriptors:[NSArray arrayWithObject:sort]];
     [request setFetchBatchSize:20];
-    NSFetchedResultsController *controller = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
-    
-    NSLog(@"%d", controller.sections.count);
-    
-    
-    Repository *repo = [Repository defaultRepository];
-    if (!repo) {
-        @throw [NSException exceptionWithName:@"Could not setup data source." reason:@"Failed to get shared repository." userInfo:nil];
-    }
-    _data = [repo allPictograms];
-    if (!_data) {
-        @throw [NSException exceptionWithName:@"Failed to fetch pictograms from data source." reason:@"Unknown." userInfo:nil];
-    }
+    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+    [self.fetchedResultsController performFetch:NULL];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    NSAssert(_data != nil, @"No datasource.");
-    return _data.count;
+    id <NSFetchedResultsSectionInfo> sectionInfo = self.fetchedResultsController.sections[section];
+    return sectionInfo.numberOfObjects;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -50,40 +37,18 @@
 }
 
 - (void)configureCell:(UICollectionViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    Pictogram *pictogram = [self pictogramAtIndexPath:indexPath];
-    NSAssert(pictogram && pictogram.title.length > 0 && pictogram.image, @"Invalid pictogram");
-
+    id object = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
     UIImageView *imageView = (UIImageView *)[cell.contentView firstSubviewWithTag:CELL_TAG_FOR_IMAGE_VIEW];
-    imageView.image = pictogram.image;
+    NSData *imageData = [object valueForKey:@"image"];
+    UIImage *image = [[UIImage alloc] initWithData:imageData];
+    imageView.image = image;
     
     UILabel *labelView = (UILabel *)[cell.contentView firstSubviewWithTag:CELL_TAG_FOR_LABEL_VIEW];
-    labelView.text = pictogram.title;
+    labelView.text = [object valueForKey:@"title"];
     
     imageView.layer.borderWidth = PICTOGRAM_PICTOGRAM_BORDER_WIDTH;
     imageView.layer.cornerRadius = PICTOGRAM_CORNER_RADIUS;
-}
-
-#pragma mark - Public
-
-- (Pictogram *)pictogramAtIndexPath:(NSIndexPath *)indexPath {
-    Pictogram *pictogram = nil;
-    @try {
-        pictogram = [_data objectAtIndex:indexPath.item];
-    }
-    @catch (NSException *e){
-        if ([e.name isEqualToString:NSRangeException]) {
-            NSString *reasonForException = [NSString stringWithFormat:@"No pictogram is located at indexPath %@", indexPath];
-            @throw [NSException exceptionWithName:@"Pictogram not found." reason:reasonForException userInfo:nil];
-        }
-    }
-    @finally {
-        return pictogram;
-    }
-    return pictogram;
-}
-
-- (void)reloadData {
-    [self setupDataSource];
 }
 
 @end

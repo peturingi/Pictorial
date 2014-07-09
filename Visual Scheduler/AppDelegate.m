@@ -24,9 +24,8 @@
     [request setFetchBatchSize:20];
     NSFetchedResultsController *controller = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
     [controller performFetch:nil];
-    NSLog(@"%d", controller.fetchedObjects.count);
     
-    
+    /* prepopulate the database
         NSManagedObject *pictogram = [NSEntityDescription insertNewObjectForEntityForName:@"Pictogram" inManagedObjectContext:self.managedObjectContext];
         [pictogram setValue:@"Svane" forKey:@"title"];
         UIImage *image = [UIImage imageNamed:@"svane.png"];
@@ -40,6 +39,7 @@
         [spade setValue:UIImagePNGRepresentation(spadeImage) forKey:@"image"];
         
            [self saveContext];
+     */
     
     
     return YES;
