@@ -31,7 +31,6 @@
 		68D7965D190947CB0047A0CE /* TimerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D79659190947CB0047A0CE /* TimerView.m */; };
 		68D7965E190947CB0047A0CE /* WatchDialView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D7965B190947CB0047A0CE /* WatchDialView.m */; };
 		68D796A319094E920047A0CE /* ding.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 68D7964119092E080047A0CE /* ding.m4a */; };
-		D800E4AD196D4A5900465541 /* CoreDataPopulator.m in Sources */ = {isa = PBXBuildFile; fileRef = D800E4AC196D4A5900465541 /* CoreDataPopulator.m */; };
 		D800E4AF196D50CC00465541 /* svane.png in Resources */ = {isa = PBXBuildFile; fileRef = D800E4AE196D50CC00465541 /* svane.png */; };
 		D800E4B1196D516E00465541 /* spade.png in Resources */ = {isa = PBXBuildFile; fileRef = D800E4B0196D516E00465541 /* spade.png */; };
 		D81ABB7D1909583B000B81F3 /* DayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D81ABB7C1909583B000B81F3 /* DayDataSource.m */; };
@@ -163,8 +162,6 @@
 		68D79659190947CB0047A0CE /* TimerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimerView.m; path = Timer/TimerView.m; sourceTree = "<group>"; };
 		68D7965A190947CB0047A0CE /* WatchDialView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WatchDialView.h; path = Timer/WatchDialView.h; sourceTree = "<group>"; };
 		68D7965B190947CB0047A0CE /* WatchDialView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WatchDialView.m; path = Timer/WatchDialView.m; sourceTree = "<group>"; };
-		D800E4AB196D4A5900465541 /* CoreDataPopulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataPopulator.h; path = "Core Data/CoreDataPopulator.h"; sourceTree = "<group>"; };
-		D800E4AC196D4A5900465541 /* CoreDataPopulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataPopulator.m; path = "Core Data/CoreDataPopulator.m"; sourceTree = "<group>"; };
 		D800E4AE196D50CC00465541 /* svane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = svane.png; path = "Core Data/svane.png"; sourceTree = "<group>"; };
 		D800E4B0196D516E00465541 /* spade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spade.png; path = "Core Data/spade.png"; sourceTree = "<group>"; };
 		D813A9D918D3995700D3515A /* Visual Scheduler-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Visual Scheduler-Prefix.pch"; sourceTree = "<group>"; };
@@ -478,7 +475,6 @@
 				D8472B861922C07E00EBE741 /* UICollectionView+AbortScrollAnimation.m */,
 				68D7964519092E590047A0CE /* Misc */,
 				D87964B91906A09500333CD1 /* UI */,
-				682012321902C38600CE0C91 /* Localization */,
 				D829DDA818E191B60039A449 /* Database */,
 				D83A62C118B696DC00EC0773 /* Visual Scheduler */,
 				D83A62E018B696DC00EC0773 /* Visual SchedulerTests */,
@@ -637,6 +633,7 @@
 		D881B569196D2D8A008B10F9 /* Dead Code */ = {
 			isa = PBXGroup;
 			children = (
+				682012321902C38600CE0C91 /* Localization */,
 				6818B6EB19050DE8009F0742 /* ExternalScreen */,
 				D832357B1902D80800FA4DFF /* ContainerViewController.h */,
 				D832357C1902D80800FA4DFF /* ContainerViewController.m */,
@@ -667,8 +664,6 @@
 		D881B56E196D35E3008B10F9 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				D800E4AB196D4A5900465541 /* CoreDataPopulator.h */,
-				D800E4AC196D4A5900465541 /* CoreDataPopulator.m */,
 				D881B56B196D3404008B10F9 /* Model.xcdatamodeld */,
 				D800E4AE196D50CC00465541 /* svane.png */,
 				D800E4B0196D516E00465541 /* spade.png */,
@@ -857,7 +852,6 @@
 				D81ABB7D1909583B000B81F3 /* DayDataSource.m in Sources */,
 				6835652F1901B4FD00FCA28A /* SQLiteDatabaseConnection.m in Sources */,
 				D85EBDDA18DC833A00DF76B7 /* BBAColor.m in Sources */,
-				D800E4AD196D4A5900465541 /* CoreDataPopulator.m in Sources */,
 				D8401B471901846100BAF82F /* ScheduleViewController.m in Sources */,
 				6835651B19002A4700FCA28A /* SettingsManager.m in Sources */,
 				68D7965D190947CB0047A0CE /* TimerView.m in Sources */,

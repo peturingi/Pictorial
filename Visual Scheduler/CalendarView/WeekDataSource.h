@@ -1,8 +1,11 @@
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
 @interface WeekDataSource : NSObject <UICollectionViewDataSource>
 
-@property (strong, nonatomic) NSMutableArray *schedules;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+
 @property BOOL editing;
 
 @end

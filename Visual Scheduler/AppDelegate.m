@@ -15,8 +15,10 @@
     [self createEditableCopyOfFileIfNeeded:@"settings.sqlite3"];
     [self createEditableCopyOfFileIfNeeded:@"vs.sqlite3"];
     
-    // Populate database if it is empty.
     
+    
+    // Populate database if it is empty.
+    /*
 
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Pictogram"];
     NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES];
@@ -25,7 +27,7 @@
     NSFetchedResultsController *controller = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
     [controller performFetch:nil];
     
-    /* prepopulate the database
+    // prepopulate the database with pictograms
         NSManagedObject *pictogram = [NSEntityDescription insertNewObjectForEntityForName:@"Pictogram" inManagedObjectContext:self.managedObjectContext];
         [pictogram setValue:@"Svane" forKey:@"title"];
         UIImage *image = [UIImage imageNamed:@"svane.png"];
@@ -39,8 +41,42 @@
         [spade setValue:UIImagePNGRepresentation(spadeImage) forKey:@"image"];
         
            [self saveContext];
-     */
+     
     
+    
+    // days prepopulation
+    
+    NSManagedObject *s1 = [NSEntityDescription insertNewObjectForEntityForName:@"Schedule" inManagedObjectContext:self.managedObjectContext];
+    NSManagedObject *s2 = [NSEntityDescription insertNewObjectForEntityForName:@"Schedule" inManagedObjectContext:self.managedObjectContext];
+    NSManagedObject *s3 = [NSEntityDescription insertNewObjectForEntityForName:@"Schedule" inManagedObjectContext:self.managedObjectContext];
+    NSManagedObject *s4 = [NSEntityDescription insertNewObjectForEntityForName:@"Schedule" inManagedObjectContext:self.managedObjectContext];
+    NSManagedObject *s5 = [NSEntityDescription insertNewObjectForEntityForName:@"Schedule" inManagedObjectContext:self.managedObjectContext];
+    NSManagedObject *s6 = [NSEntityDescription insertNewObjectForEntityForName:@"Schedule" inManagedObjectContext:self.managedObjectContext];
+    NSManagedObject *s7 = [NSEntityDescription insertNewObjectForEntityForName:@"Schedule" inManagedObjectContext:self.managedObjectContext];
+    
+    [s1 setValue:@"Mánudagur" forKey:@"title"];
+    [s2 setValue:@"Þriðjudagur" forKey:@"title"];
+    [s3 setValue:@"Miðvikudagur" forKey:@"title"];
+    [s4 setValue:@"Fimmtudagur" forKey:@"title"];
+    [s5 setValue:@"Föstudagur" forKey:@"title"];
+    [s6 setValue:@"Laugardagur" forKey:@"title"];
+    [s7 setValue:@"Sunnudagur" forKey:@"title"];
+    
+    // relations prepopulation
+    
+    NSMutableOrderedSet *allDaysAreTheSame = [[NSMutableOrderedSet alloc] initWithObjects:pictogram, spade, nil];
+    
+    [s1 setValue:allDaysAreTheSame forKey:@"pictograms"];
+    [s2 setValue:allDaysAreTheSame forKey:@"pictograms"];
+    [s3 setValue:allDaysAreTheSame forKey:@"pictograms"];
+    [s4 setValue:allDaysAreTheSame forKey:@"pictograms"];
+    [s5 setValue:allDaysAreTheSame forKey:@"pictograms"];
+    [s6 setValue:allDaysAreTheSame forKey:@"pictograms"];
+    [s7 setValue:allDaysAreTheSame forKey:@"pictograms"];
+    
+    
+    [self saveContext];
+    */
     
     return YES;
 }
