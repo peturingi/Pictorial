@@ -46,7 +46,7 @@
     UILabel *labelView = (UILabel *)[cell.contentView firstSubviewWithTag:CELL_TAG_FOR_LABEL_VIEW];
     labelView.text = [object valueForKey:CD_KEY_PICTOGRAM_TITLE];
     
-    imageView.layer.borderWidth = PICTOGRAM_PICTOGRAM_BORDER_WIDTH;
+    imageView.layer.borderWidth = PICTOGRAM_BORDER_WIDTH;
     imageView.layer.cornerRadius = PICTOGRAM_CORNER_RADIUS;
 }
 
