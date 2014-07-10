@@ -18,10 +18,10 @@
     AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
     self.managedObjectContext = delegate.managedObjectContext;
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Schedule"];
-    NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES]; // Sorts by title, but should sort by name
+    NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:YES]; // Sorts by title, but should sort by name
     [request setSortDescriptors:[NSArray arrayWithObject:sort]];
     [request setFetchBatchSize:20];
-    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.managedObjectContext sectionNameKeyPath:@"title" cacheName:nil];
+    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.managedObjectContext sectionNameKeyPath:@"date" cacheName:nil];
     [self.fetchedResultsController performFetch:NULL]; // Improper error handling.
 }
 
@@ -56,9 +56,12 @@
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     UICollectionReusableView *view = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:DAY_OF_WEEK_COLOR forIndexPath:indexPath];
-    NSAssert(view, @"Failed to dequeue reusable view.");
-    //Schedule *schedule = [_schedules objectAtIndex:indexPath.section];
-    //view.backgroundColor = schedule.color;
+    
+    // Get the schedule which I want to set the color
+    id <NSFetchedResultsSectionInfo> section = [self.fetchedResultsController sections][indexPath.section];
+    NSManagedObject *schedule = [section objects].firstObject;
+    UIColor *color = [NSKeyedUnarchiver unarchiveObjectWithData:[schedule valueForKey:@"color"]];
+    view.backgroundColor = color;
     return view;
 }
 

@@ -6,11 +6,13 @@
         <relationship name="usedBy" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Schedule" inverseName="pictograms" inverseEntity="Schedule" syncable="YES"/>
     </entity>
     <entity name="Schedule" syncable="YES">
-        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="color" attributeType="Binary" syncable="YES"/>
+        <attribute name="date" attributeType="Date" indexed="YES" syncable="YES"/>
+        <attribute name="title" attributeType="String" syncable="YES"/>
         <relationship name="pictograms" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Pictogram" inverseName="usedBy" inverseEntity="Pictogram" syncable="YES"/>
     </entity>
     <elements>
         <element name="Pictogram" positionX="-63" positionY="-18" width="128" height="90"/>
-        <element name="Schedule" positionX="-54" positionY="-9" width="128" height="73"/>
+        <element name="Schedule" positionX="-54" positionY="-9" width="128" height="103"/>
     </elements>
 </model>

@@ -11,14 +11,10 @@
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [self createEditableCopyOfFileIfNeeded:@"localeDb.sqlite3"];
-    [self createEditableCopyOfFileIfNeeded:@"settings.sqlite3"];
-    [self createEditableCopyOfFileIfNeeded:@"vs.sqlite3"];
-    
-    
+    /*
     
     // Populate database if it is empty.
-    /*
+    
 
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Pictogram"];
     NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES];
@@ -28,20 +24,16 @@
     [controller performFetch:nil];
     
     // prepopulate the database with pictograms
-        NSManagedObject *pictogram = [NSEntityDescription insertNewObjectForEntityForName:@"Pictogram" inManagedObjectContext:self.managedObjectContext];
-        [pictogram setValue:@"Svane" forKey:@"title"];
+        NSManagedObject *svane = [NSEntityDescription insertNewObjectForEntityForName:@"Pictogram" inManagedObjectContext:self.managedObjectContext];
+        [svane setValue:@"Svane" forKey:@"title"];
         UIImage *image = [UIImage imageNamed:@"svane.png"];
-        NSAssert(image, @"Must not be nil");
-        [pictogram setValue:UIImagePNGRepresentation(image) forKey:@"image"];
+        [svane setValue:UIImagePNGRepresentation(image) forKey:@"image"];
      
         
         NSManagedObject *spade = [NSEntityDescription insertNewObjectForEntityForName:@"Pictogram" inManagedObjectContext:self.managedObjectContext];
         [spade setValue:@"Spade" forKey:@"title"];
         UIImage *spadeImage = [UIImage imageNamed:@"spade.png"];
         [spade setValue:UIImagePNGRepresentation(spadeImage) forKey:@"image"];
-        
-           [self saveContext];
-     
     
     
     // days prepopulation
@@ -62,9 +54,34 @@
     [s6 setValue:@"Laugardagur" forKey:@"title"];
     [s7 setValue:@"Sunnudagur" forKey:@"title"];
     
+    const NSTimeInterval secondsInDay = 86400;
+    NSDate *d1 = [NSDate dateWithTimeIntervalSinceNow: 0 * secondsInDay];
+    NSDate *d2 = [NSDate dateWithTimeIntervalSinceNow: 1 * secondsInDay];
+    NSDate *d3 = [NSDate dateWithTimeIntervalSinceNow: 2 * secondsInDay];
+    NSDate *d4 = [NSDate dateWithTimeIntervalSinceNow: 3 * secondsInDay];
+    NSDate *d5 = [NSDate dateWithTimeIntervalSinceNow: 4 * secondsInDay];
+    NSDate *d6 = [NSDate dateWithTimeIntervalSinceNow: 5 * secondsInDay];
+    NSDate *d7 = [NSDate dateWithTimeIntervalSinceNow: 6 * secondsInDay];
+    
+    [s1 setValue:d1 forKey:@"date"];
+    [s2 setValue:d2 forKey:@"date"];
+    [s3 setValue:d3 forKey:@"date"];
+    [s4 setValue:d4 forKey:@"date"];
+    [s5 setValue:d5 forKey:@"date"];
+    [s6 setValue:d6 forKey:@"date"];
+    [s7 setValue:d7 forKey:@"date"];
+    
+    [s1 setValue:[NSKeyedArchiver archivedDataWithRootObject:[UIColor redColor]] forKey:@"color"];
+    [s2 setValue:[NSKeyedArchiver archivedDataWithRootObject:[UIColor greenColor]] forKey:@"color"];
+    [s3 setValue:[NSKeyedArchiver archivedDataWithRootObject:[UIColor redColor]] forKey:@"color"];
+    [s4 setValue:[NSKeyedArchiver archivedDataWithRootObject:[UIColor greenColor]] forKey:@"color"];
+    [s5 setValue:[NSKeyedArchiver archivedDataWithRootObject:[UIColor redColor]] forKey:@"color"];
+    [s6 setValue:[NSKeyedArchiver archivedDataWithRootObject:[UIColor greenColor]] forKey:@"color"];
+    [s7 setValue:[NSKeyedArchiver archivedDataWithRootObject:[UIColor redColor]] forKey:@"color"];
+    
     // relations prepopulation
     
-    NSMutableOrderedSet *allDaysAreTheSame = [[NSMutableOrderedSet alloc] initWithObjects:pictogram, spade, nil];
+    NSMutableOrderedSet *allDaysAreTheSame = [[NSMutableOrderedSet alloc] initWithObjects:svane, spade, nil];
     
     [s1 setValue:allDaysAreTheSame forKey:@"pictograms"];
     [s2 setValue:allDaysAreTheSame forKey:@"pictograms"];
@@ -76,29 +93,9 @@
     
     
     [self saveContext];
-    */
     
+    */
     return YES;
-}
-
-// Creates a writable copy of the bundled default database in the application Documents directory.
-- (void)createEditableCopyOfFileIfNeeded:(NSString *)file {
-    NSParameterAssert(file != nil);
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *writableDBPath = [documentsDirectory stringByAppendingPathComponent:file];
-    BOOL success;
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    success = [fileManager fileExistsAtPath:writableDBPath];
-    if (success)
-        return;
-    // The writable database does not exist, so copy the default to the appropriate location.
-    NSString *defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:file];
-    NSError *error;
-    success = [fileManager copyItemAtPath:defaultDBPath toPath:writableDBPath error:&error];
-    if (!success) {
-        NSAssert1(0, @"Failed to create writable file with message '%@'.", [error localizedDescription]);
-    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
