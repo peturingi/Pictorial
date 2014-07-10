@@ -41,3 +41,14 @@
 // Storyboard tags
 #define CELL_TAG_FOR_IMAGE_VIEW     1
 #define CELL_TAG_FOR_LABEL_VIEW     2
+
+// Core Data
+#define CD_ENTITY_PICTOGRAM         @"Pictogram"
+#define CD_ENTITY_SCHEDULE          @"Schedule"
+#define CD_KEY_PICTOGRAM_TITLE      @"title"
+#define CD_KEY_PICTOGRAM_IMAGE      @"image"
+#define CD_KEY_SCHEDULE_TITLE       @"title"
+#define CD_KEY_SCHEDULE_DATE        @"date"
+#define CD_KEY_SCHEDULE_COLOR       @"color"
+#define CD_KEY_SCHEDULE_PICTOGRAMS  @"pictograms"
+#define CD_FETCH_BATCH_SIZE         20

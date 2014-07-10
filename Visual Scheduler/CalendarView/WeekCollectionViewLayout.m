@@ -17,12 +17,19 @@ static const NSUInteger HEADER_HEIGHT = 20;
 
 @implementation WeekCollectionViewLayout
 
-- (id)initWithCoder:(NSCoder *)aDecoder {
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
     self = [super initWithCoder:aDecoder];
     if (self) {
         self.insets = UIEdgeInsetsMake(INSET_TOP, INSET_LEFT, INSET_BOTTOM, INSET_RIGHT);
     }
+    NSAssert(self, @"Super failed to init.");
     return self;
+}
+
+- (void)dealloc
+{
+    _layoutInformation = nil;
 }
 
 #pragma mark - UICollectionViewLayout Process
@@ -39,7 +46,8 @@ static const NSUInteger HEADER_HEIGHT = 20;
  After calling this method, the layout must have enouth information to calculate the collection view's content size.
  */
 
-- (void)prepareLayout {
+- (void)prepareLayout
+{
     NSDictionary *cellInformation = [self cellAttributes];
     NSDictionary *headerInformation = [self headerAttributes];
     self.layoutInformation = @{CELL_KEY     : cellInformation,
@@ -48,7 +56,8 @@ static const NSUInteger HEADER_HEIGHT = 20;
 
 #pragma mark Cell Layout
 
-- (NSDictionary *)cellAttributes {
+- (NSDictionary *)cellAttributes
+{
     NSMutableDictionary *cellInformation = [NSMutableDictionary dictionary];
     for (NSUInteger today = 0; today < NUMBER_OF_DAYS_IN_WEEK; today++) {
         const NSInteger numberOfItemsToday = [self.collectionView numberOfItemsInSection:today];
@@ -63,7 +72,8 @@ static const NSUInteger HEADER_HEIGHT = 20;
     return cellInformation;
 }
 
-- (CGRect)frameForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (CGRect)frameForItemAtIndexPath:(NSIndexPath *)indexPath
+{
     NSParameterAssert(indexPath);
     CGRect rect;
     rect.origin = [self originForItemAtIndexPath:indexPath];
@@ -71,7 +81,8 @@ static const NSUInteger HEADER_HEIGHT = 20;
     return rect;
 }
 
-- (CGPoint)originForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (CGPoint)originForItemAtIndexPath:(NSIndexPath *)indexPath
+{
     NSParameterAssert(indexPath);
     const CGSize itemSize = [self sizeOfItems];
     const CGFloat x = self.insets.left + indexPath.section * (itemSize.width+self.insets.left+self.insets.right);
@@ -80,16 +91,17 @@ static const NSUInteger HEADER_HEIGHT = 20;
     return origin;
 }
 
-- (CGSize)sizeOfItems {
+- (CGSize)sizeOfItems
+{
     CGFloat edge = (self.collectionView.bounds.size.width / self.collectionView.numberOfSections) - (self.insets.right+self.insets.left);
     CGSize itemSize = CGSizeMake(edge, edge);
-  //  NSAssert(itemSize.height > 0 && itemSize.width > 0, @"Unexpected size of item. Items must be greater in size than 0,0");
     return itemSize;
 }
 
 #pragma mark Header Layout
 
-- (NSDictionary *)headerAttributes {
+- (NSDictionary *)headerAttributes
+{
     NSMutableDictionary *headerInformation = [NSMutableDictionary dictionaryWithCapacity:NUMBER_OF_DAYS_IN_WEEK];
     
     for (NSUInteger today = 0; today < NUMBER_OF_DAYS_IN_WEEK; today++) {
@@ -105,21 +117,24 @@ static const NSUInteger HEADER_HEIGHT = 20;
     return headerInformation;
 }
 
-- (CGRect)frameForHeaderOfSection:(NSUInteger)section {
+- (CGRect)frameForHeaderOfSection:(NSUInteger)section
+{
     CGRect rect;
     rect.origin = [self originForHeaderOfSection:section];
     rect.size = [self headerSize];
     return rect;
 }
 
-- (CGPoint)originForHeaderOfSection:(NSUInteger)section {
+- (CGPoint)originForHeaderOfSection:(NSUInteger)section
+{
     const CGSize headerSize = [self headerSize];
     const CGFloat x = section * headerSize.width;
     const CGFloat y = self.collectionView.contentOffset.y; // Moves the headers location up, so it is drawn above the first item
     return CGPointMake(x, y);
 }
 
-- (CGSize)headerSize {
+- (CGSize)headerSize
+{
     const CGFloat width = [self sectionWidth];
     const CGFloat height = HEADER_HEIGHT;
     const CGSize size = CGSizeMake(width, height);
@@ -130,14 +145,16 @@ static const NSUInteger HEADER_HEIGHT = 20;
 
 /* Return the overall size of the entire content, based on initial calculations.
  */
-- (CGSize)collectionViewContentSize {
+- (CGSize)collectionViewContentSize
+{
     CGFloat const contentWidth = self.collectionView.bounds.size.width;
     const CGFloat contentHeight = [self numberOfPictogramsInLongestSchedule] * [self rowHeight] + ([self headerSize].height + self.insets.top + self.insets.bottom);
     const CGSize size = CGSizeMake(contentWidth, contentHeight);
     return size;
 }
 
-- (NSUInteger)numberOfPictogramsInLongestSchedule {
+- (NSUInteger)numberOfPictogramsInLongestSchedule
+{
     NSAssert(self.collectionView, @"The collection view is missing.");
     NSUInteger numberOfPictograms = 0;
     const NSInteger numberOfSections = [self.collectionView numberOfSections];
@@ -148,14 +165,16 @@ static const NSUInteger HEADER_HEIGHT = 20;
     return numberOfPictograms;
 }
 
-- (CGFloat)rowHeight {
+- (CGFloat)rowHeight
+{
     const CGFloat height = [self sizeOfItems].height + self.insets.top + self.insets.bottom;
     return height;
 }
 
 /** @note Sections are represented as columns.
  */
-- (CGFloat)sectionWidth {
+- (CGFloat)sectionWidth
+{
     const CGFloat width = self.collectionView.bounds.size.width / self.collectionView.numberOfSections;
     return width;
 }
@@ -172,14 +191,16 @@ static const NSUInteger HEADER_HEIGHT = 20;
  4. Return the array of layout attributes to the collection view.
  */
 
-- (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect {
+- (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect
+{
     NSMutableArray *layoutAttributes = [NSMutableArray arrayWithCapacity:self.layoutInformation.count];
     [layoutAttributes addObjectsFromArray:[self layoutAttributesWithKey:CELL_KEY inRect:rect]];
     [layoutAttributes addObjectsFromArray:[self layoutAttributesWithKey:HEADER_KEY inRect:rect]];
     return layoutAttributes;
 }
 
-- (NSArray *)layoutAttributesWithKey:(NSString *const)key inRect:(const CGRect)rect {
+- (NSArray *)layoutAttributesWithKey:(NSString *const)key inRect:(const CGRect)rect
+{
     const NSDictionary *attributes = [self.layoutInformation objectForKey:key];
     NSArray *intersectingCells = [self attributesIn:attributes intersecting:rect];
     return intersectingCells;
@@ -187,7 +208,8 @@ static const NSUInteger HEADER_HEIGHT = 20;
 
 /** Returns attributes for all items intersecting the given rect.
  */
-- (NSArray *)attributesIn:(const NSDictionary *)dictionary intersecting:(const CGRect)rect {
+- (NSArray *)attributesIn:(const NSDictionary *)dictionary intersecting:(const CGRect)rect
+{
     NSMutableArray *results = [NSMutableArray arrayWithCapacity:dictionary.count];
     for (NSIndexPath *key in dictionary) {
         const UICollectionViewLayoutAttributes *attributes = [dictionary objectForKey:key];
@@ -203,7 +225,8 @@ static const NSUInteger HEADER_HEIGHT = 20;
 /**
  Collectionview asks if we want to invalidate (and recompute) the layout on scrolling and orientation change.
  */
-- (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds {
+- (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds
+{
     return YES;
 }
 
@@ -211,7 +234,8 @@ static const NSUInteger HEADER_HEIGHT = 20;
  Called by the collection view when it needs information about cells that might currently not be visible.
  @note Required for animation.
  */
-- (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath
+{
     NSDictionary *cellInformation = [self.layoutInformation objectForKey:CELL_KEY];
     UICollectionViewLayoutAttributes *attributes = [cellInformation objectForKey:indexPath];
     return attributes;
@@ -224,7 +248,8 @@ static const NSUInteger HEADER_HEIGHT = 20;
 
 /** Tries to adjust pictograms during scrolling, so they are not shown partially (cut on top/bottom).
  */
-- (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset withScrollingVelocity:(CGPoint)velocity {
+- (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset withScrollingVelocity:(CGPoint)velocity
+{
     CGRect targetRect = CGRectMake(0, proposedContentOffset.y,
                                    self.collectionView.bounds.size.width, self.collectionView.bounds.size.height);
     NSArray *array = [self layoutAttributesForElementsInRect:targetRect];
@@ -239,10 +264,6 @@ static const NSUInteger HEADER_HEIGHT = 20;
                                  proposedContentOffset.y + offsetAdjustment);
     offset.y -= [self headerSize].height;
     return offset;
-}
-
-- (void)dealloc {
-    _layoutInformation = nil;
 }
 
 @end

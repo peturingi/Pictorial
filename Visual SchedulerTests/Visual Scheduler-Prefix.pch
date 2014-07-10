@@ -36,3 +36,7 @@
 #define ANIMATION_DURATION_INSERT_PICTOGRAM 0.3f
 
 #define NUMBER_OF_DAYS_IN_WEEK 7
+
+// Core DAta
+#define CD_ENTITY_PICTOGRAM     @"Pictogram"
+#define CD_ENTITY_SCHEDULE      @"Schedule"
