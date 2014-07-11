@@ -5,22 +5,11 @@
     __strong UIImage *lastPhotoCaptured;
 }
 
-@property (weak, nonatomic) id<CameraDelegate> delegate;
-@property (weak, nonatomic) UIViewController *controller;
-
-/** Creates a camera.
- @param controller The viewcontroller responsible for presenting the camera.
- @param delegate The camears delegate.
- @return A camera if if the hardware has one.
- @return nil if the hardware does not have a camera.
- */
-- (id)initWithViewController:(UIViewController *)controller usingDelegate:(id<CameraDelegate>)delegate;
+@property IBOutlet UIViewController <CameraDelegate> *delegate;
 
 /** Show the camera
- @return YES if an attempt was made to show the camera.
- @return NO if camera is not available.
- */
-- (BOOL)show;
+*/
+- (IBAction)show:(id)sender;
 
 - (void)hide;
 

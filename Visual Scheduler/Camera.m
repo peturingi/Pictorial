@@ -7,46 +7,36 @@
 
 @implementation Camera
 
-- (id)init {
-    return [self initWithViewController:nil usingDelegate:nil];
-}
-
-- (id)initWithViewController:(UIViewController *)controller usingDelegate:(id)delegate {
+- (id)init
+{
     self = [super init];
     if (self) {
         if ([Camera isAvailable]) {
-            _delegate = delegate;
-            _controller = controller;
             [self configureCamera];
-        } else {
-            return nil;
         }
     }
+    NSAssert(self, @"init failed.");
     return self;
 }
 
-- (void)configureCamera {
+- (void)configureCamera
+{
     _cameraUI = [[UIImagePickerController alloc] init];
     _cameraUI.delegate = self;
     _cameraUI.sourceType = UIImagePickerControllerSourceTypeCamera;
     _cameraUI.allowsEditing = YES;
 }
 
-- (BOOL)show {
+- (IBAction)show:(id)sender
+{
     if ([Camera isAvailable]) {
-        [self.controller presentViewController:self.cameraUI animated:YES completion:^{
-            if ([self.delegate respondsToSelector:@selector(cameraDidAppear:)]) {
-                [self.delegate cameraDidAppear:self];
-            }
-        }];
-        return YES;
-    } else {
-        return NO;
+        NSAssert(self.delegate, @"The delegate has not been set.");
+        [self.delegate presentViewController:self.cameraUI animated:YES completion:nil];
     }
 }
 
-+ (BOOL)isAvailable {
-    
++ (BOOL)isAvailable
+{
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         return YES;
     } else {
@@ -56,7 +46,8 @@
 
 #pragma mark - UIImagePickerControllerDelegate
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
     UIImage *editedImage;
     UIImage *originalImage;
     NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
@@ -70,43 +61,34 @@
     [self hide];
 }
 
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
     [self deletePreviouslyCapturedPhoto];
     [self hide];
 }
 
-- (void)deletePreviouslyCapturedPhoto {
+- (void)deletePreviouslyCapturedPhoto
+{
     lastPhotoCaptured = nil;
 }
 
 #pragma mark - Code
 
-- (void)hide {
-    [self.controller dismissViewControllerAnimated:YES completion:^{
+- (void)hide
+{
+    [self.delegate dismissViewControllerAnimated:YES completion:^{
         if (lastPhotoCaptured) {
-            if ([self.delegate respondsToSelector:@selector(cameraDidSnapPhoto:)]) {
-                [self.delegate cameraDidSnapPhoto:self];
-            }
+            [self.delegate cameraDidSnapPhoto:self];
         }
-        if ([self.delegate respondsToSelector:@selector(cameraDidDisappear:)]) {
-            [self.delegate cameraDidDisappear:self];
-        }
+        [self.delegate cameraDidDisappear:self];
     }];
 }
 
-- (UIImage *)developPhoto {
+- (UIImage *)developPhoto
+{
     UIImage *photo = lastPhotoCaptured;
     lastPhotoCaptured = nil;
     return photo;
-}
-
-- (void)setDelegate:(id<CameraDelegate>)delegate {
-    if (delegate && ![delegate conformsToProtocol:@protocol(CameraDelegate)]) {
-        [[NSException exceptionWithName:NSInvalidArgumentException
-                                 reason:@"Delegate object does not conform to the delegate protocol"
-                               userInfo:nil] raise];
-    }
-    _delegate = delegate;
 }
 
 @end

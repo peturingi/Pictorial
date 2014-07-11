@@ -21,6 +21,7 @@
     [request setSortDescriptors:[NSArray arrayWithObject:sort]];
     [request setFetchBatchSize:20];
     _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+    self.fetchedResultsController.delegate = self;
     [self.fetchedResultsController performFetch:NULL]; // Improper error handling
 }
 
@@ -48,6 +49,12 @@
     
     imageView.layer.borderWidth = PICTOGRAM_BORDER_WIDTH;
     imageView.layer.cornerRadius = PICTOGRAM_CORNER_RADIUS;
+}
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    [NSFetchedResultsController deleteCacheWithName:[controller cacheName]];
+    [controller performFetch:nil]; // poor error handling
+    // TODO, update the bottom view, the above code might be wrong.
 }
 
 @end

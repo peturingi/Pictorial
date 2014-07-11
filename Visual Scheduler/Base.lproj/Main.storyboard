@@ -4,6 +4,61 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
+        <!--Create Pictogram-->
+        <scene sceneID="spl-Py-oFI">
+            <objects>
+                <viewController id="6cx-Oo-qhh" customClass="CreatePictogram" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YmP-5z-fmg"/>
+                        <viewControllerLayoutGuide type="bottom" id="Qkf-m9-ODz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VYu-4O-NHW">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tJA-Et-y7g">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="New Pictogram" id="3rn-LN-aKs">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="0B4-oN-tao">
+                                            <color key="tintColor" red="1" green="0.051676359249999998" blue="0.10486219419999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="cancelButton:" destination="6cx-Oo-qhh" id="zr4-mq-lQg"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Done" id="DfR-fl-fv5">
+                                            <color key="tintColor" red="1" green="0.051676359249999998" blue="0.10486219419999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="doneButton:" destination="6cx-Oo-qhh" id="hDQ-lX-Qg6"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="28P-ZL-LYR">
+                                <rect key="frame" x="184" y="147" width="400" height="279"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vcp-x6-6PK">
+                                <rect key="frame" x="284" y="109" width="200" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="photoTitle" destination="vcp-x6-6PK" id="z0w-G8-Qba"/>
+                        <outlet property="photoView" destination="28P-ZL-LYR" id="Jqv-eP-aGe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9gL-qQ-Dm1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1064" y="-3528"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="LMG-h6-PzK">
             <objects>
@@ -132,10 +187,10 @@
             </objects>
             <point key="canvasLocation" x="-113" y="-1724"/>
         </scene>
-        <!--View Controller-->
+        <!--Master View Controller-->
         <scene sceneID="ZQS-c9-YlW">
             <objects>
-                <viewController id="Xfv-XK-laj" sceneMemberID="viewController">
+                <viewController id="Xfv-XK-laj" customClass="MasterViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="k6R-GB-Bny"/>
                         <viewControllerLayoutGuide type="bottom" id="xJL-F2-81S"/>
@@ -172,6 +227,11 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="kqo-Vj-Gd5">
                         <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="camera" id="SGf-sU-gKG">
+                            <connections>
+                                <action selector="show:" destination="lH0-R8-aVl" id="uUo-86-wzd"/>
+                            </connections>
+                        </barButtonItem>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="2" id="mCy-3k-gPU">
                             <rect key="frame" x="255" y="7" width="259" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -184,8 +244,17 @@
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="768" height="1024"/>
+                    <connections>
+                        <outlet property="camera" destination="lH0-R8-aVl" id="C4K-hJ-Pa5"/>
+                        <segue destination="6cx-Oo-qhh" kind="modal" identifier="newPictogram" id="Rmi-aP-70V"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EM5-ug-Ix7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="lH0-R8-aVl" customClass="Camera">
+                    <connections>
+                        <outlet property="delegate" destination="Xfv-XK-laj" id="R4S-5B-aU0"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="-1064" y="-2367"/>
         </scene>

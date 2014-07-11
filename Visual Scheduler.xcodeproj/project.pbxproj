@@ -23,6 +23,8 @@
 		68D796A319094E920047A0CE /* ding.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 68D7964119092E080047A0CE /* ding.m4a */; };
 		D800E4AF196D50CC00465541 /* svane.png in Resources */ = {isa = PBXBuildFile; fileRef = D800E4AE196D50CC00465541 /* svane.png */; };
 		D800E4B1196D516E00465541 /* spade.png in Resources */ = {isa = PBXBuildFile; fileRef = D800E4B0196D516E00465541 /* spade.png */; };
+		D80706A0196ED05F00B93F40 /* CreatePictogram.m in Sources */ = {isa = PBXBuildFile; fileRef = D8805F3E18C5DD01001BD35B /* CreatePictogram.m */; };
+		D80706A3196ED92100B93F40 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D80706A2196ED92100B93F40 /* MasterViewController.m */; };
 		D81ABB80190966C5000B81F3 /* DayCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D81ABB7F190966C5000B81F3 /* DayCollectionViewLayout.m */; };
 		D81ABB8719097F62000B81F3 /* NowCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D81ABB8619097F62000B81F3 /* NowCollectionViewLayout.m */; };
 		D82838B518D5BA39009C03A8 /* UIApplicationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D82838B418D5BA39009C03A8 /* UIApplicationTests.m */; };
@@ -63,7 +65,6 @@
 		D85EBDDA18DC833A00DF76B7 /* BBAColor.m in Sources */ = {isa = PBXBuildFile; fileRef = D85EBDD918DC833A00DF76B7 /* BBAColor.m */; };
 		D85EBDDF18DC83B200DF76B7 /* BBAColor.m in Sources */ = {isa = PBXBuildFile; fileRef = D85EBDD918DC833A00DF76B7 /* BBAColor.m */; };
 		D862E676192A2E6200F6E1E5 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D853A81118E1E0280031E986 /* libsqlite3.dylib */; };
-		D87964B81906A05A00333CD1 /* CreatePictogram.xib in Resources */ = {isa = PBXBuildFile; fileRef = D87964B71906A05A00333CD1 /* CreatePictogram.xib */; };
 		D881B56D196D3404008B10F9 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D881B56B196D3404008B10F9 /* Model.xcdatamodeld */; };
 		D887832E18C8E33300F13B28 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		D889F7EE18C9249A008A497F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D83A62CB18B696DC00EC0773 /* AppDelegate.m */; };
@@ -117,6 +118,8 @@
 		68D7965B190947CB0047A0CE /* WatchDialView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WatchDialView.m; path = Timer/WatchDialView.m; sourceTree = "<group>"; };
 		D800E4AE196D50CC00465541 /* svane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = svane.png; path = "Core Data/svane.png"; sourceTree = "<group>"; };
 		D800E4B0196D516E00465541 /* spade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spade.png; path = "Core Data/spade.png"; sourceTree = "<group>"; };
+		D80706A1196ED92100B93F40 /* MasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		D80706A2196ED92100B93F40 /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		D813A9D918D3995700D3515A /* Visual Scheduler-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Visual Scheduler-Prefix.pch"; sourceTree = "<group>"; };
 		D81AAA1E18B94F0A00E3B50C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D81ABB7E190966C5000B81F3 /* DayCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DayCollectionViewLayout.h; path = "Visual Scheduler/CalendarView/DayCollectionViewLayout.h"; sourceTree = "<group>"; };
@@ -138,8 +141,8 @@
 		D82C0CE118F8813F005B5569 /* CalendarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarCell.m; path = "Visual Scheduler/CalendarView/CalendarCell.m"; sourceTree = "<group>"; };
 		D82D5FD218C616A6000A8FD3 /* UIView+BBASubviews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+BBASubviews.h"; path = "Visual Scheduler/Category/UIView+BBASubviews.h"; sourceTree = "<group>"; };
 		D82D5FD318C616A6000A8FD3 /* UIView+BBASubviews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+BBASubviews.m"; path = "Visual Scheduler/Category/UIView+BBASubviews.m"; sourceTree = "<group>"; };
-		D8315AF118D39DEA00C4A340 /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
-		D8315AF218D39DEA00C4A340 /* Camera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Camera.m; sourceTree = "<group>"; };
+		D8315AF118D39DEA00C4A340 /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Camera.h; path = "Visual Scheduler/Camera.h"; sourceTree = "<group>"; };
+		D8315AF218D39DEA00C4A340 /* Camera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Camera.m; path = "Visual Scheduler/Camera.m"; sourceTree = "<group>"; };
 		D8315AF318D39DEA00C4A340 /* CameraDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraDelegate.h; sourceTree = "<group>"; };
 		D8315AF818D39E0600C4A340 /* CameraTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraTests.m; sourceTree = "<group>"; };
 		D8315AFB18D39E0600C4A340 /* MockCameraDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockCameraDelegate.h; sourceTree = "<group>"; };
@@ -189,7 +192,6 @@
 		D85EBDD018DC804400DF76B7 /* washhands.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = washhands.png; sourceTree = "<group>"; };
 		D85EBDD818DC833A00DF76B7 /* BBAColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBAColor.h; path = Components/BBAColor.h; sourceTree = "<group>"; };
 		D85EBDD918DC833A00DF76B7 /* BBAColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBAColor.m; path = Components/BBAColor.m; sourceTree = "<group>"; };
-		D87964B71906A05A00333CD1 /* CreatePictogram.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CreatePictogram.xib; path = "Visual Scheduler/UI/CreatePictogram.xib"; sourceTree = "<group>"; };
 		D8805F3D18C5DD01001BD35B /* CreatePictogram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CreatePictogram.h; path = "Visual Scheduler/Controllers/CreatePictogram.h"; sourceTree = "<group>"; };
 		D8805F3E18C5DD01001BD35B /* CreatePictogram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CreatePictogram.m; path = "Visual Scheduler/Controllers/CreatePictogram.m"; sourceTree = "<group>"; };
 		D881B56C196D3404008B10F9 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -332,8 +334,6 @@
 			isa = PBXGroup;
 			children = (
 				D8315AF618D39E0600C4A340 /* BBACameraTests */,
-				D8315AF118D39DEA00C4A340 /* Camera.h */,
-				D8315AF218D39DEA00C4A340 /* Camera.m */,
 				D8315AF318D39DEA00C4A340 /* CameraDelegate.h */,
 			);
 			name = Camera;
@@ -491,6 +491,12 @@
 		D87964B91906A09500333CD1 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				D80706A1196ED92100B93F40 /* MasterViewController.h */,
+				D80706A2196ED92100B93F40 /* MasterViewController.m */,
+				D8805F3D18C5DD01001BD35B /* CreatePictogram.h */,
+				D8805F3E18C5DD01001BD35B /* CreatePictogram.m */,
+				D8315AF118D39DEA00C4A340 /* Camera.h */,
+				D8315AF218D39DEA00C4A340 /* Camera.m */,
 				D8387DBF18F9A94A00DD716C /* Top View */,
 				D8805F4818C5E459001BD35B /* Bottom View */,
 				D87964BC1906E23000333CD1 /* New Pictogram View */,
@@ -502,9 +508,6 @@
 		D87964BC1906E23000333CD1 /* New Pictogram View */ = {
 			isa = PBXGroup;
 			children = (
-				D87964B71906A05A00333CD1 /* CreatePictogram.xib */,
-				D8805F3D18C5DD01001BD35B /* CreatePictogram.h */,
-				D8805F3E18C5DD01001BD35B /* CreatePictogram.m */,
 			);
 			name = "New Pictogram View";
 			sourceTree = "<group>";
@@ -638,7 +641,6 @@
 				D83A62D418B696DC00EC0773 /* Images.xcassets in Resources */,
 				68D796A319094E920047A0CE /* ding.m4a in Resources */,
 				D85EBDD318DC804400DF76B7 /* karate.png in Resources */,
-				D87964B81906A05A00333CD1 /* CreatePictogram.xib in Resources */,
 				D85EBDD218DC804400DF76B7 /* eat.png in Resources */,
 				D85EBDD618DC804400DF76B7 /* toilet.png in Resources */,
 				D83A62C618B696DC00EC0773 /* InfoPlist.strings in Resources */,
@@ -667,6 +669,7 @@
 				68D7964419092E490047A0CE /* NSString+TimeFormatted.m in Sources */,
 				68D7963419092D130047A0CE /* UIView+Wiggle.m in Sources */,
 				D8472B871922C07E00EBE741 /* UICollectionView+AbortScrollAnimation.m in Sources */,
+				D80706A0196ED05F00B93F40 /* CreatePictogram.m in Sources */,
 				D8B016EF18FEB85700017D76 /* CalendarView.m in Sources */,
 				68D7964019092DF10047A0CE /* CALayer+Rotate.m in Sources */,
 				D81ABB80190966C5000B81F3 /* DayCollectionViewLayout.m in Sources */,
@@ -688,6 +691,7 @@
 				D8315AF418D39DEA00C4A340 /* Camera.m in Sources */,
 				D881B56D196D3404008B10F9 /* Model.xcdatamodeld in Sources */,
 				D82C0CE218F8813F005B5569 /* CalendarCell.m in Sources */,
+				D80706A3196ED92100B93F40 /* MasterViewController.m in Sources */,
 				68D7963D19092DE50047A0CE /* CALayer+WithSizeAndPosition.m in Sources */,
 				D83BFE4B1907CAE600F72646 /* UIView+HoverView.m in Sources */,
 				D8FD1D1D1924C943000226BF /* UIView+ContraintInfo.m in Sources */,

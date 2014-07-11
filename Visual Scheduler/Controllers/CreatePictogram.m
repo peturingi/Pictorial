@@ -1,5 +1,6 @@
+#import "AppDelegate.h"
 #import "CreatePictogram.h"
-#import "Repository.h"
+#import <CoreData/CoreData.h>
 
 @implementation CreatePictogram
 
@@ -26,10 +27,17 @@
     NSAssert(self.photoTitle.text.length > 0, @"Cannot create a pictogram without a title.");
     
     if ([self validInputTitle]) {
-        id createdPictogram = [[Repository defaultRepository] pictogramWithTitle:self.photoTitle.text withImage:self.photoView.image];
-        if (!createdPictogram) {
-            [self throwErrorCreatingPictogram];
-        }
+        const AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        NSManagedObjectContext *managedObjectContext = appDelegate.managedObjectContext;
+        NSManagedObject *pictogram = [NSEntityDescription insertNewObjectForEntityForName:CD_ENTITY_PICTOGRAM inManagedObjectContext:managedObjectContext];
+        [pictogram setValue:self.photoTitle.text forKey:CD_KEY_PICTOGRAM_TITLE];
+        NSData *imageData = UIImagePNGRepresentation(self.photoView.image);
+        [pictogram setValue:imageData forKey:CD_KEY_PICTOGRAM_IMAGE];
+        
+        // Save the new pictogram
+        NSError *saveError;
+        [managedObjectContext save:&saveError];
+        if (saveError) @throw [NSException exceptionWithName:saveError.localizedDescription reason:saveError.localizedFailureReason userInfo:nil];
         
         [self dismissViewController];
     }
@@ -47,13 +55,6 @@
 - (void)alertUserOfInvalidTitle {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You must specify a title." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alert show];
-}
-
-- (void)throwErrorCreatingPictogram {
-    NSDictionary *userInfo = @{TITLE_KEY : self.photoTitle.text,
-                              IMAGE_KEY : self.photoView.image};
-    @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"Expected to receive a pictogram." userInfo:userInfo];
-
 }
 
 @end
