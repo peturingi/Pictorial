@@ -76,6 +76,7 @@
 		D8E7A2C818CA52FE005F505C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8E7A2C718CA52FE005F505C /* CoreData.framework */; };
 		D8EB983418E33ECE00DA3A99 /* RepositoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EB983318E33ECE00DA3A99 /* RepositoryTests.m */; };
 		D8EC7D5318CA61E500B6A673 /* MockTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EC7D5218CA61E500B6A673 /* MockTableView.m */; };
+		D8F498AA197128FA00CEF728 /* PictogramSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F498A9197128FA00CEF728 /* PictogramSelectorViewController.m */; };
 		D8FD1D1D1924C943000226BF /* UIView+ContraintInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FD1D1C1924C943000226BF /* UIView+ContraintInfo.m */; };
 /* End PBXBuildFile section */
 
@@ -209,6 +210,8 @@
 		D8EB983318E33ECE00DA3A99 /* RepositoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RepositoryTests.m; path = "../Visual Scheduler/Database/RepositoryTests.m"; sourceTree = "<group>"; };
 		D8EC7D5118CA61E500B6A673 /* MockTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MockTableView.h; path = "Visual SchedulerTests/MockTableView.h"; sourceTree = SOURCE_ROOT; };
 		D8EC7D5218CA61E500B6A673 /* MockTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MockTableView.m; path = "Visual SchedulerTests/MockTableView.m"; sourceTree = SOURCE_ROOT; };
+		D8F498A8197128FA00CEF728 /* PictogramSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictogramSelectorViewController.h; sourceTree = "<group>"; };
+		D8F498A9197128FA00CEF728 /* PictogramSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictogramSelectorViewController.m; sourceTree = "<group>"; };
 		D8FD1D1B1924C943000226BF /* UIView+ContraintInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ContraintInfo.h"; sourceTree = "<group>"; };
 		D8FD1D1C1924C943000226BF /* UIView+ContraintInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ContraintInfo.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -515,6 +518,8 @@
 		D8805F4818C5E459001BD35B /* Bottom View */ = {
 			isa = PBXGroup;
 			children = (
+				D8F498A8197128FA00CEF728 /* PictogramSelectorViewController.h */,
+				D8F498A9197128FA00CEF728 /* PictogramSelectorViewController.m */,
 				D83BFE4C1907EDCE00F72646 /* PictogramSelectorDataSource.h */,
 				D83BFE4D1907EDCE00F72646 /* PictogramSelectorDataSource.m */,
 			);
@@ -695,6 +700,7 @@
 				68D7963D19092DE50047A0CE /* CALayer+WithSizeAndPosition.m in Sources */,
 				D83BFE4B1907CAE600F72646 /* UIView+HoverView.m in Sources */,
 				D8FD1D1D1924C943000226BF /* UIView+ContraintInfo.m in Sources */,
+				D8F498AA197128FA00CEF728 /* PictogramSelectorViewController.m in Sources */,
 				68D7963719092D2D0047A0CE /* UIView+CenterPoint.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
