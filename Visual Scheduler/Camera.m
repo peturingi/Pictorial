@@ -12,27 +12,18 @@
     self = [super init];
     if (self) {
         if ([Camera isAvailable]) {
-            [self configureCamera];
+            [self setup];
+        }
+        else {
+            // TODO handle errors, possibly by returning nil or requesting users to use camera if available.
         }
     }
     NSAssert(self, @"init failed.");
     return self;
 }
 
-- (void)configureCamera
-{
-    _cameraUI = [[UIImagePickerController alloc] init];
-    _cameraUI.delegate = self;
-    _cameraUI.sourceType = UIImagePickerControllerSourceTypeCamera;
-    _cameraUI.allowsEditing = YES;
-}
-
-- (IBAction)show:(id)sender
-{
-    if ([Camera isAvailable]) {
-        NSAssert(self.delegate, @"The delegate has not been set.");
-        [self.delegate presentViewController:self.cameraUI animated:YES completion:nil];
-    }
+- (void)dealloc {
+    _cameraUI = nil;
 }
 
 + (BOOL)isAvailable
@@ -42,6 +33,20 @@
     } else {
         return NO;
     }
+}
+
+- (void)setup
+{
+    _cameraUI = [[UIImagePickerController alloc] init];
+    _cameraUI.delegate = self;
+    _cameraUI.sourceType = UIImagePickerControllerSourceTypeCamera;
+    _cameraUI.allowsEditing = YES;
+}
+
+- (void)show
+{
+    NSAssert(self.delegate, @"The delegate has not been set.");
+    [self.delegate presentViewController:self.cameraUI animated:YES completion:nil];
 }
 
 #pragma mark - UIImagePickerControllerDelegate
@@ -56,38 +61,31 @@
         editedImage = (UIImage *)[info objectForKey:UIImagePickerControllerEditedImage];
         originalImage = (UIImage *)[info objectForKey:UIImagePickerControllerOriginalImage];
         
-        lastPhotoCaptured = editedImage ? editedImage : originalImage;
+        photo = editedImage ? editedImage : originalImage;
     }
-    [self hide];
+    [self dismiss];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
-    [self deletePreviouslyCapturedPhoto];
-    [self hide];
-}
-
-- (void)deletePreviouslyCapturedPhoto
-{
-    lastPhotoCaptured = nil;
+    [self dismiss];
 }
 
 #pragma mark - Code
 
-- (void)hide
+- (void)dismiss
 {
     [self.delegate dismissViewControllerAnimated:YES completion:^{
-        if (lastPhotoCaptured) {
-            [self.delegate cameraDidSnapPhoto:self];
+        if (photo) {
+            [self.delegate cameraDisappearedAfterSnappingPhoto:self];
         }
-        [self.delegate cameraDidDisappear:self];
+        [self.delegate cameraDisappearedWithoutSnappingPhoto:self];
     }];
 }
 
-- (UIImage *)developPhoto
+- (UIImage *)develop
 {
-    UIImage *photo = lastPhotoCaptured;
-    lastPhotoCaptured = nil;
+    NSAssert(photo, @"Trying to develop a nonexcisting photo.");
     return photo;
 }
 

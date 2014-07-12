@@ -2,8 +2,8 @@
 #import "Camera.h"
 #import <UIKit/UIKit.h>
 
-@interface MasterViewController : UIViewController <CameraDelegate>
-
-@property IBOutlet Camera *camera;
+@interface MasterViewController : UIViewController <CameraDelegate> {
+    Camera *camera;
+}
 
 @end

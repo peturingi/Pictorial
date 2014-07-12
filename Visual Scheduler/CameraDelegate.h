@@ -5,8 +5,8 @@
 @protocol CameraDelegate <NSObject>
 
 @optional
-- (void)cameraDidDisappear:(Camera *)camera;
+- (void)cameraDisappearedWithoutSnappingPhoto:(Camera *)camera;
 - (void)cameraDidAppear:(Camera *)camera;
-- (void)cameraDidSnapPhoto:(Camera *)camera;
+- (void)cameraDisappearedAfterSnappingPhoto:(Camera *)camera;
 
 @end

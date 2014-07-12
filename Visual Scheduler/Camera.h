@@ -2,23 +2,23 @@
 #import "CameraDelegate.h"
 
 @interface Camera : NSObject <UINavigationControllerDelegate, UIImagePickerControllerDelegate> {
-    __strong UIImage *lastPhotoCaptured;
+    __strong UIImage *photo;
 }
 
 @property IBOutlet UIViewController <CameraDelegate> *delegate;
 
 /** Show the camera
 */
-- (IBAction)show:(id)sender;
+- (void)show;
 
-- (void)hide;
+- (void)dismiss;
 
 /** Develops the photo contained within the camera.
  @return photo if the camera contains a photo.
  @return nil if no photo is contained in the camera.
  @warning Developing a photo removes it from the camera.
  */
-- (UIImage *)developPhoto;
+- (UIImage *)develop;
 
 + (BOOL)isAvailable;
 
