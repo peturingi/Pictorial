@@ -4,7 +4,8 @@
 
 @implementation PictogramSelectorDataSource
 
-- (id)init {
+- (id)init
+{
     self = [super init];
     if (self) {
         [self setupDataSource];
@@ -13,30 +14,39 @@
     return self;
 }
 
-- (void)setupDataSource {
-    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-    self.managedObjectContext = delegate.managedObjectContext;
+- (void)setupDataSource
+{
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:CD_ENTITY_PICTOGRAM];
     NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:CD_KEY_PICTOGRAM_TITLE ascending:YES];
     [request setSortDescriptors:[NSArray arrayWithObject:sort]];
     [request setFetchBatchSize:20];
-    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:delegate.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
     self.fetchedResultsController.delegate = self;
-    [self.fetchedResultsController performFetch:NULL]; // Improper error handling
+    NSError *fetchError;
+    BOOL fetchSuccessful = [self.fetchedResultsController performFetch:&fetchError];
+    if (fetchSuccessful == NO)
+    {
+        @throw [NSException exceptionWithName:@"Failed to fetch pictograms from core data." reason:fetchError.localizedFailureReason userInfo:nil];
+    }
 }
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
     id <NSFetchedResultsSectionInfo> sectionInfo = self.fetchedResultsController.sections[section];
     return sectionInfo.numberOfObjects;
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
     UICollectionViewCell *reusableCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"pictogramSelector" forIndexPath:indexPath];
+    NSAssert(reusableCell, @"API should guarantee that a reusable cell is returned.");
     [self configureCell:reusableCell atIndexPath:indexPath];
     return reusableCell;
 }
 
-- (void)configureCell:(UICollectionViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+- (void)configureCell:(UICollectionViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+{
     id object = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     UIImageView *imageView = (UIImageView *)[cell.contentView firstSubviewWithTag:CELL_TAG_FOR_IMAGE_VIEW];
@@ -51,10 +61,16 @@
     imageView.layer.cornerRadius = PICTOGRAM_CORNER_RADIUS;
 }
 
-- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
-    [NSFetchedResultsController deleteCacheWithName:[controller cacheName]];
-    [controller performFetch:nil]; // poor error handling
-    // TODO, update the bottom view, the above code might be wrong.
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath
+{
+    NSAssert(self.collectionView, @"The collectionView has not been set.");
+    
+    switch (type) {
+        case NSFetchedResultsChangeInsert: {
+            [self.collectionView insertItemsAtIndexPaths:@[newIndexPath]];
+        }
+    }
+    
 }
 
 @end

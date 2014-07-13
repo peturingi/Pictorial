@@ -183,7 +183,11 @@
                     <size key="freeformSize" width="768" height="1024"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jl5-F3-qRC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="EaI-XR-N1N" customClass="PictogramSelectorDataSource"/>
+                <customObject id="EaI-XR-N1N" customClass="PictogramSelectorDataSource">
+                    <connections>
+                        <outlet property="collectionView" destination="ctS-K9-1JT" id="JCW-LA-ZxR"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="-113" y="-1724"/>
         </scene>

@@ -40,10 +40,7 @@
         if (saveError) {
             @throw [NSException exceptionWithName:saveError.localizedDescription reason:saveError.localizedFailureReason userInfo:nil];
         }
-        else
-        {
-            [[NSNotificationCenter defaultCenter] postNotificationName:PictogramCreatedNotification object:nil];
-        }
+        
         [self dismissViewController];
     }
     else {

@@ -3,7 +3,7 @@
 
 @interface PictogramSelectorDataSource : NSObject <UICollectionViewDataSource, NSFetchedResultsControllerDelegate>
 
-@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 @end
