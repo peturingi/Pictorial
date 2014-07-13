@@ -1,5 +1,4 @@
 #import "PictogramSelectorViewController.h"
-#import "AppDelegate.h"
 #import <CoreData/CoreData.h>
 
 @implementation PictogramSelectorViewController
@@ -8,17 +7,23 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
         [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(updateCollectionView)
-                                                     name:NSManagedObjectContextDidSaveNotification
-                                                   object:appDelegate.managedObjectContext];
+                                                 selector:@selector(insertNewPictogramInCollectionView)
+                                                     name:PictogramCreatedNotification
+                                                   object:nil];
     }
-    NSAssert(self, @"Super to init.");
+    NSAssert(self, @"Super failed to init.");
     return self;
 }
 
-- (void)updateCollectionView {
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)insertNewPictogramInCollectionView
+{
+    NSAssert(self.collectionView, @"CollectionView must be available.");
     [self.collectionView reloadData];
 }
 

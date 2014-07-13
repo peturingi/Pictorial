@@ -37,8 +37,13 @@
         // Save the new pictogram
         NSError *saveError;
         [managedObjectContext save:&saveError];
-        if (saveError) @throw [NSException exceptionWithName:saveError.localizedDescription reason:saveError.localizedFailureReason userInfo:nil];
-        
+        if (saveError) {
+            @throw [NSException exceptionWithName:saveError.localizedDescription reason:saveError.localizedFailureReason userInfo:nil];
+        }
+        else
+        {
+            [[NSNotificationCenter defaultCenter] postNotificationName:PictogramCreatedNotification object:nil];
+        }
         [self dismissViewController];
     }
     else {
