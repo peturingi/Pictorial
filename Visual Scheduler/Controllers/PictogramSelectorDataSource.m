@@ -68,6 +68,7 @@
     switch (type) {
         case NSFetchedResultsChangeInsert: {
             [self.collectionView insertItemsAtIndexPaths:@[newIndexPath]];
+            [self.collectionView scrollToItemAtIndexPath:newIndexPath atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:YES];
         }
     }
     
