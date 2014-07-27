@@ -12,7 +12,6 @@
     return self;
 }
 
-
 - (IBAction)pictogramLongPressed:(UILongPressGestureRecognizer *)sender {
     
     if (sender.state == UIGestureRecognizerStateBegan)   [self notifyDelegateOfSelectedItem:sender];
@@ -28,7 +27,7 @@
     const NSManagedObject *selectedItem = [[dataSource fetchedResultsController] objectAtIndexPath:indexPathOfSelectedItem];
     NSAssert(selectedItem, @"Item not found.");
     
-    [self.delegate selectedPictogramToAdd:selectedItem.objectID];
+    [self.delegate selectedPictogramToAdd:selectedItem.objectID atLocation:[sender locationInView:self.view]];
 }
 
 @end

@@ -1,6 +1,10 @@
 #import "MasterViewController.h"
 #import "CreatePictogram.h"
 #import "PictogramSelectorViewController.h"
+#import <CoreData/CoreData.h>
+#import "AppDelegate.h"
+
+#define PICTOGRAM_EDGE  100
 
 @implementation MasterViewController
 
@@ -49,20 +53,37 @@
 
 #pragma mark Touching
 
-- (void)selectedPictogramToAdd:(NSManagedObjectID *)pictogramIdentifier {
+- (void)selectedPictogramToAdd:(NSManagedObjectID *)pictogramIdentifier atLocation:(CGPoint)location{
     NSLog(@"Selected to add: %@", pictogramIdentifier);
     
-    NSLog(@"Animate pictogram to finger.");
+    //Get image of pictogram which was selected
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    NSManagedObjectContext *managedObjectContext = appDelegate.managedObjectContext;
+    NSManagedObject *managedObject = [managedObjectContext objectWithID:pictogramIdentifier];
+    NSData *imageData = [managedObject valueForKey:CD_KEY_PICTOGRAM_IMAGE];
+    UIImage *image = [UIImage imageWithData:imageData];
     
-    NSLog(@"Make Pictogram follow finger.");
+    //Construct view containing the image of the pictogram and show it
+    CGPoint locationInView = [self.view convertPoint:location fromView:bottomView];
+    PictogramView *pictogramView = [[PictogramView alloc] initWithFrame:[self frameForPictogramAtPoint:locationInView] andImage:image];
+    pictogramView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:pictogramView];
+    pictogramBeingMoved = pictogramView;
 }
 
 - (void)itemMovedTo:(CGPoint)point {
-    NSLog(@"Current location (x,y): %f,%f", point.x, point.y);
+    NSLog(@"Make Pictogram follow finger.");
+    CGPoint locationInView = [self.view convertPoint:point fromView:bottomView];
+    pictogramBeingMoved.frame = [self frameForPictogramAtPoint:locationInView];
 }
 
 - (void)itemSelectionEnded {
-    NSLog(@"Add pictogram to location when released.");
+    // TODO Add pictogram to location when released.
+    [pictogramBeingMoved removeFromSuperview];
+}
+
+- (CGRect)frameForPictogramAtPoint:(CGPoint)aPoint {
+    return CGRectMake(aPoint.x - PICTOGRAM_EDGE/2.0f, aPoint.y - PICTOGRAM_EDGE/2.0f, PICTOGRAM_EDGE, PICTOGRAM_EDGE);
 }
 
 @end

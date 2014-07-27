@@ -189,7 +189,7 @@
                         <outlet property="collectionView" destination="ctS-K9-1JT" id="JCW-LA-ZxR"/>
                     </connections>
                 </customObject>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="DZN-Kb-kE1">
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.20000000000000004" id="DZN-Kb-kE1">
                     <connections>
                         <action selector="pictogramLongPressed:" destination="FA2-Kn-Gqf" id="8IR-ni-yyh"/>
                     </connections>
