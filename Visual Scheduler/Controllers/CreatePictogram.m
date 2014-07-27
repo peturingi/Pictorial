@@ -2,6 +2,7 @@
 #import "CreatePictogram.h"
 #import <CoreData/CoreData.h>
 #import "PictogramCreator.h"
+#import "ImageResizer.h"
 
 @implementation CreatePictogram
 
@@ -32,7 +33,11 @@
 }
 
 - (void)createPictogram {
-    const PictogramCreator *pictogramCreator = [[PictogramCreator alloc] initWithTitle:self.photoTitle.text image:UIImagePNGRepresentation(self.photoView.image)];
+    NSAssert(self.photoView.image, @"Cannot create a pictogram without a photo.");
+    
+    const ImageResizer *imageResizer = [[ImageResizer alloc] initWithImage:self.photoView.image];
+    UIImage *resizedImage = [imageResizer getImageResizedTo:CD_MAX_PICTOGRAM_SIZE];
+    const PictogramCreator *pictogramCreator = [[PictogramCreator alloc] initWithTitle:self.photoTitle.text image:UIImagePNGRepresentation(resizedImage)];
     [pictogramCreator compute];
 }
 

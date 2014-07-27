@@ -50,6 +50,9 @@
 #define CD_KEY_SCHEDULE_COLOR       @"color"
 #define CD_KEY_SCHEDULE_PICTOGRAMS  @"pictograms"
 #define CD_FETCH_BATCH_SIZE         20
+#define CD_MAX_PICTOGRAM_SIZE       CGSizeMake(250, 250) // Maximum allowed dimention of a pictogram in the database, in pixels.
 
 // Segues
 #define SEGUE_NEW_PICTOGRAM         @"newPictogram"
+
+

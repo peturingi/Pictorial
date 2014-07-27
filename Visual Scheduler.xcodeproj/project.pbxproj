@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6818B6F319054FC6009F0742 /* ScheduleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6818B6F219054FC6009F0742 /* ScheduleTests.m */; };
 		683941091903D0F500C05F3C /* NSString+CapitalizeSentence.m in Sources */ = {isa = PBXBuildFile; fileRef = 683941081903D0F500C05F3C /* NSString+CapitalizeSentence.m */; };
 		68AA188B19029C41002BE754 /* UIImage+Filters.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AA188A19029C41002BE754 /* UIImage+Filters.m */; };
 		68D7963419092D130047A0CE /* UIView+Wiggle.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D7963319092D130047A0CE /* UIView+Wiggle.m */; };
@@ -32,7 +31,6 @@
 		D82C0CE218F8813F005B5569 /* CalendarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D82C0CE118F8813F005B5569 /* CalendarCell.m */; };
 		D82D5FD418C616A6000A8FD3 /* UIView+BBASubviews.m in Sources */ = {isa = PBXBuildFile; fileRef = D82D5FD318C616A6000A8FD3 /* UIView+BBASubviews.m */; };
 		D8315AF418D39DEA00C4A340 /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = D8315AF218D39DEA00C4A340 /* Camera.m */; };
-		D8315B0018D39E0600C4A340 /* CameraTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8315AF818D39E0600C4A340 /* CameraTests.m */; };
 		D83A62BC18B696DC00EC0773 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BB18B696DC00EC0773 /* Foundation.framework */; };
 		D83A62BE18B696DC00EC0773 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BD18B696DC00EC0773 /* CoreGraphics.framework */; };
 		D83A62C018B696DC00EC0773 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BF18B696DC00EC0773 /* UIKit.framework */; };
@@ -49,11 +47,12 @@
 		D8401B471901846100BAF82F /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8401B461901846100BAF82F /* ScheduleViewController.m */; };
 		D8466D051980FDB100781710 /* PictogramCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = D8466D041980FDB100781710 /* PictogramCreator.m */; };
 		D8472B871922C07E00EBE741 /* UICollectionView+AbortScrollAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = D8472B861922C07E00EBE741 /* UICollectionView+AbortScrollAnimation.m */; };
+		D84855CB1985506F0085C734 /* ImageResizer.m in Sources */ = {isa = PBXBuildFile; fileRef = D84855CA1985506F0085C734 /* ImageResizer.m */; };
+		D84855CD19855A360085C734 /* ImageResizerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D84855CC19855A360085C734 /* ImageResizerTests.m */; };
 		D850E82618C86F420051CD51 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D850E82518C86F420051CD51 /* MobileCoreServices.framework */; };
 		D850E82B18C87C3D0051CD51 /* MockManagedObjectContext.m in Sources */ = {isa = PBXBuildFile; fileRef = D850E82A18C87C3D0051CD51 /* MockManagedObjectContext.m */; };
 		D850E82C18C885230051CD51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D83A62CD18B696DC00EC0773 /* Main.storyboard */; };
 		D850E82F18C88E7E0051CD51 /* MockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D850E82E18C88E7E0051CD51 /* MockViewController.m */; };
-		D853A81018E1DD600031E986 /* SQLiteStoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D853A80F18E1DD600031E986 /* SQLiteStoreTests.m */; };
 		D858CB8719221E0B00402E24 /* NSDate+VisualScheduler.m in Sources */ = {isa = PBXBuildFile; fileRef = D858CB8619221E0B00402E24 /* NSDate+VisualScheduler.m */; };
 		D85E214F1985270300B611DE /* PictogramView.m in Sources */ = {isa = PBXBuildFile; fileRef = D85E214E1985270300B611DE /* PictogramView.m */; };
 		D85EBDC818DC6B7700DF76B7 /* MockCameraDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8315AFC18D39E0600C4A340 /* MockCameraDelegate.m */; };
@@ -76,7 +75,6 @@
 		D8DCC45118E2F520004794C9 /* testImage.png in Resources */ = {isa = PBXBuildFile; fileRef = D8DCC45018E2F520004794C9 /* testImage.png */; };
 		D8DCC45218E2F57D004794C9 /* testImage.png in Resources */ = {isa = PBXBuildFile; fileRef = D8DCC45018E2F520004794C9 /* testImage.png */; };
 		D8E7A2C818CA52FE005F505C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8E7A2C718CA52FE005F505C /* CoreData.framework */; };
-		D8EB983418E33ECE00DA3A99 /* RepositoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EB983318E33ECE00DA3A99 /* RepositoryTests.m */; };
 		D8EC7D5318CA61E500B6A673 /* MockTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EC7D5218CA61E500B6A673 /* MockTableView.m */; };
 		D8F498AA197128FA00CEF728 /* PictogramSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F498A9197128FA00CEF728 /* PictogramSelectorViewController.m */; };
 		D8FD1D1D1924C943000226BF /* UIView+ContraintInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FD1D1C1924C943000226BF /* UIView+ContraintInfo.m */; };
@@ -93,7 +91,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6818B6F219054FC6009F0742 /* ScheduleTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScheduleTests.m; path = "../Visual Scheduler/Database/ScheduleTests.m"; sourceTree = "<group>"; };
 		683941071903D0F500C05F3C /* NSString+CapitalizeSentence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+CapitalizeSentence.h"; path = "Visual Scheduler/Category/NSString+CapitalizeSentence.h"; sourceTree = "<group>"; };
 		683941081903D0F500C05F3C /* NSString+CapitalizeSentence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+CapitalizeSentence.m"; path = "Visual Scheduler/Category/NSString+CapitalizeSentence.m"; sourceTree = "<group>"; };
 		68AA188919029C41002BE754 /* UIImage+Filters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Filters.h"; path = "Visual Scheduler/Category/UIImage+Filters.h"; sourceTree = "<group>"; };
@@ -147,7 +144,6 @@
 		D8315AF118D39DEA00C4A340 /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Camera.h; path = "Visual Scheduler/Camera.h"; sourceTree = "<group>"; };
 		D8315AF218D39DEA00C4A340 /* Camera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Camera.m; path = "Visual Scheduler/Camera.m"; sourceTree = "<group>"; };
 		D8315AF318D39DEA00C4A340 /* CameraDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraDelegate.h; sourceTree = "<group>"; };
-		D8315AF818D39E0600C4A340 /* CameraTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraTests.m; sourceTree = "<group>"; };
 		D8315AFB18D39E0600C4A340 /* MockCameraDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockCameraDelegate.h; sourceTree = "<group>"; };
 		D8315AFC18D39E0600C4A340 /* MockCameraDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockCameraDelegate.m; sourceTree = "<group>"; };
 		D832357B1902D80800FA4DFF /* ContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContainerViewController.h; path = "Visual Scheduler/Controllers/ContainerViewController.h"; sourceTree = "<group>"; };
@@ -179,12 +175,14 @@
 		D8466D041980FDB100781710 /* PictogramCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictogramCreator.m; sourceTree = "<group>"; };
 		D8472B851922C07E00EBE741 /* UICollectionView+AbortScrollAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+AbortScrollAnimation.h"; sourceTree = "<group>"; };
 		D8472B861922C07E00EBE741 /* UICollectionView+AbortScrollAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+AbortScrollAnimation.m"; sourceTree = "<group>"; };
+		D84855C91985506F0085C734 /* ImageResizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageResizer.h; sourceTree = "<group>"; };
+		D84855CA1985506F0085C734 /* ImageResizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageResizer.m; sourceTree = "<group>"; };
+		D84855CC19855A360085C734 /* ImageResizerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageResizerTests.m; path = ../ImageResizerTests.m; sourceTree = "<group>"; };
 		D850E82518C86F420051CD51 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		D850E82918C87C3D0051CD51 /* MockManagedObjectContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MockManagedObjectContext.h; path = "Visual SchedulerTests/MockManagedObjectContext.h"; sourceTree = SOURCE_ROOT; };
 		D850E82A18C87C3D0051CD51 /* MockManagedObjectContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MockManagedObjectContext.m; path = "Visual SchedulerTests/MockManagedObjectContext.m"; sourceTree = SOURCE_ROOT; };
 		D850E82D18C88E7E0051CD51 /* MockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockViewController.h; sourceTree = "<group>"; };
 		D850E82E18C88E7E0051CD51 /* MockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockViewController.m; sourceTree = "<group>"; };
-		D853A80F18E1DD600031E986 /* SQLiteStoreTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQLiteStoreTests.m; path = "../Visual Scheduler/Database/SQLiteStoreTests.m"; sourceTree = "<group>"; };
 		D853A81118E1E0280031E986 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		D858CB8519221E0B00402E24 /* NSDate+VisualScheduler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+VisualScheduler.h"; path = "Visual Scheduler/Category/NSDate+VisualScheduler.h"; sourceTree = "<group>"; };
 		D858CB8619221E0B00402E24 /* NSDate+VisualScheduler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+VisualScheduler.m"; path = "Visual Scheduler/Category/NSDate+VisualScheduler.m"; sourceTree = "<group>"; };
@@ -213,7 +211,6 @@
 		D8DCC45018E2F520004794C9 /* testImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = testImage.png; sourceTree = "<group>"; };
 		D8E7A2C718CA52FE005F505C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D8EAF2E118D9D8C7004CC1B1 /* Visual Scheduler copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Visual Scheduler copy-Info.plist"; path = "/Users/petur/Development/Visual Scheduler/Visual Scheduler copy-Info.plist"; sourceTree = "<absolute>"; };
-		D8EB983318E33ECE00DA3A99 /* RepositoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RepositoryTests.m; path = "../Visual Scheduler/Database/RepositoryTests.m"; sourceTree = "<group>"; };
 		D8EC7D5118CA61E500B6A673 /* MockTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MockTableView.h; path = "Visual SchedulerTests/MockTableView.h"; sourceTree = SOURCE_ROOT; };
 		D8EC7D5218CA61E500B6A673 /* MockTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MockTableView.m; path = "Visual SchedulerTests/MockTableView.m"; sourceTree = SOURCE_ROOT; };
 		D8F498A8197128FA00CEF728 /* PictogramSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictogramSelectorViewController.h; sourceTree = "<group>"; };
@@ -351,7 +348,6 @@
 		D8315AF618D39E0600C4A340 /* BBACameraTests */ = {
 			isa = PBXGroup;
 			children = (
-				D8315AF818D39E0600C4A340 /* CameraTests.m */,
 				D8315AFB18D39E0600C4A340 /* MockCameraDelegate.h */,
 				D8315AFC18D39E0600C4A340 /* MockCameraDelegate.m */,
 			);
@@ -379,6 +375,8 @@
 		D83A62AF18B696DB00EC0773 = {
 			isa = PBXGroup;
 			children = (
+				D84855C91985506F0085C734 /* ImageResizer.h */,
+				D84855CA1985506F0085C734 /* ImageResizer.m */,
 				D881B569196D2D8A008B10F9 /* Dead Code */,
 				68D7964519092E590047A0CE /* Misc */,
 				D87964B91906A09500333CD1 /* UI */,
@@ -448,9 +446,7 @@
 		D83A62E018B696DC00EC0773 /* Visual SchedulerTests */ = {
 			isa = PBXGroup;
 			children = (
-				6818B6F219054FC6009F0742 /* ScheduleTests.m */,
-				D853A80F18E1DD600031E986 /* SQLiteStoreTests.m */,
-				D8EB983318E33ECE00DA3A99 /* RepositoryTests.m */,
+				D84855CC19855A360085C734 /* ImageResizerTests.m */,
 				D8DCC45018E2F520004794C9 /* testImage.png */,
 				D8EC7D5118CA61E500B6A673 /* MockTableView.h */,
 				D8EC7D5218CA61E500B6A673 /* MockTableView.m */,
@@ -698,6 +694,7 @@
 				68D796551909479E0047A0CE /* TimerViewController.m in Sources */,
 				D82C0CDC18F80DFB005B5569 /* WeekDataSource.m in Sources */,
 				D83A62C818B696DC00EC0773 /* main.m in Sources */,
+				D84855CB1985506F0085C734 /* ImageResizer.m in Sources */,
 				D889F7EE18C9249A008A497F /* AppDelegate.m in Sources */,
 				D81ABB8719097F62000B81F3 /* NowCollectionViewLayout.m in Sources */,
 				D85EBDDA18DC833A00DF76B7 /* BBAColor.m in Sources */,
@@ -721,16 +718,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8EB983418E33ECE00DA3A99 /* RepositoryTests.m in Sources */,
-				D8315B0018D39E0600C4A340 /* CameraTests.m in Sources */,
 				D8EC7D5318CA61E500B6A673 /* MockTableView.m in Sources */,
-				D853A81018E1DD600031E986 /* SQLiteStoreTests.m in Sources */,
+				D84855CD19855A360085C734 /* ImageResizerTests.m in Sources */,
 				D850E82B18C87C3D0051CD51 /* MockManagedObjectContext.m in Sources */,
 				D850E82F18C88E7E0051CD51 /* MockViewController.m in Sources */,
 				D85EBDDF18DC83B200DF76B7 /* BBAColor.m in Sources */,
 				D887832E18C8E33300F13B28 /* (null) in Sources */,
 				D82838B518D5BA39009C03A8 /* UIApplicationTests.m in Sources */,
-				6818B6F319054FC6009F0742 /* ScheduleTests.m in Sources */,
 				D85EBDC818DC6B7700DF76B7 /* MockCameraDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
