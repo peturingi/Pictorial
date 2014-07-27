@@ -178,6 +178,7 @@
                         <connections>
                             <outlet property="dataSource" destination="EaI-XR-N1N" id="oHZ-S9-a9M"/>
                             <outlet property="delegate" destination="FA2-Kn-Gqf" id="WSV-JN-XJI"/>
+                            <outletCollection property="gestureRecognizers" destination="DZN-Kb-kE1" appends="YES" id="NBW-ZF-kSM"/>
                         </connections>
                     </collectionView>
                     <size key="freeformSize" width="768" height="1024"/>
@@ -188,8 +189,13 @@
                         <outlet property="collectionView" destination="ctS-K9-1JT" id="JCW-LA-ZxR"/>
                     </connections>
                 </customObject>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="DZN-Kb-kE1">
+                    <connections>
+                        <action selector="pictogramLongPressed:" destination="FA2-Kn-Gqf" id="8IR-ni-yyh"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-113" y="-1724"/>
+            <point key="canvasLocation" x="-27" y="-1602"/>
         </scene>
         <!--Master View Controller-->
         <scene sceneID="ZQS-c9-YlW">
@@ -207,7 +213,7 @@
                                 <rect key="frame" x="0.0" y="549" width="768" height="411"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <connections>
-                                    <segue destination="FA2-Kn-Gqf" kind="embed" id="nsD-SV-kCn"/>
+                                    <segue destination="FA2-Kn-Gqf" kind="embed" identifier="SEGUE_EMBED_PICTORAM_SELECTOR" id="nsD-SV-kCn"/>
                                 </connections>
                             </containerView>
                             <containerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TPj-VT-Xow">
@@ -247,6 +253,7 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="768" height="1024"/>
                     <connections>
+                        <outlet property="bottomView" destination="j17-jP-moV" id="LQd-MU-xWP"/>
                         <segue destination="6cx-Oo-qhh" kind="modal" identifier="newPictogram" modalPresentationStyle="formSheet" id="Rmi-aP-70V"/>
                     </connections>
                 </viewController>

@@ -1,5 +1,6 @@
 #import "MasterViewController.h"
 #import "CreatePictogram.h"
+#import "PictogramSelectorViewController.h"
 
 @implementation MasterViewController
 
@@ -18,6 +19,13 @@
             @throw [NSException exceptionWithName:@"Camera now found." reason:@"Camera was nil." userInfo:nil];
         }
     }
+    
+    // Set self as the pictogram selectors delegate.
+    if ([segue.identifier isEqualToString:@"SEGUE_EMBED_PICTORAM_SELECTOR"]) {
+        PictogramSelectorViewController *destination = segue.destinationViewController;
+        destination.delegate = self;
+    }
+    
 }
 
 #pragma mark Camera
@@ -37,6 +45,24 @@
 - (void)cameraDisappearedAfterSnappingPhoto:(Camera *)sender
 {
     [self performSegueWithIdentifier:SEGUE_NEW_PICTOGRAM sender:nil];
+}
+
+#pragma mark Touching
+
+- (void)selectedPictogramToAdd:(NSManagedObjectID *)pictogramIdentifier {
+    NSLog(@"Selected to add: %@", pictogramIdentifier);
+    
+    NSLog(@"Animate pictogram to finger.");
+    
+    NSLog(@"Make Pictogram follow finger.");
+}
+
+- (void)itemMovedTo:(CGPoint)point {
+    NSLog(@"Current location (x,y): %f,%f", point.x, point.y);
+}
+
+- (void)itemSelectionEnded {
+    NSLog(@"Add pictogram to location when released.");
 }
 
 @end

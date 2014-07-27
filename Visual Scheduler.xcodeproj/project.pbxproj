@@ -47,6 +47,7 @@
 		D83BFE4E1907EDCE00F72646 /* PictogramSelectorDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D83BFE4D1907EDCE00F72646 /* PictogramSelectorDataSource.m */; };
 		D8401AAA1900312A00BAF82F /* BackgroundColor.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8401AA91900312A00BAF82F /* BackgroundColor.xib */; };
 		D8401B471901846100BAF82F /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8401B461901846100BAF82F /* ScheduleViewController.m */; };
+		D8466D051980FDB100781710 /* PictogramCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = D8466D041980FDB100781710 /* PictogramCreator.m */; };
 		D8472B871922C07E00EBE741 /* UICollectionView+AbortScrollAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = D8472B861922C07E00EBE741 /* UICollectionView+AbortScrollAnimation.m */; };
 		D850E82618C86F420051CD51 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D850E82518C86F420051CD51 /* MobileCoreServices.framework */; };
 		D850E82B18C87C3D0051CD51 /* MockManagedObjectContext.m in Sources */ = {isa = PBXBuildFile; fileRef = D850E82A18C87C3D0051CD51 /* MockManagedObjectContext.m */; };
@@ -173,6 +174,8 @@
 		D8401AA91900312A00BAF82F /* BackgroundColor.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BackgroundColor.xib; path = "Visual Scheduler/CalendarView/BackgroundColor.xib"; sourceTree = "<group>"; };
 		D8401B451901846100BAF82F /* ScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScheduleViewController.h; path = CalendarView/ScheduleViewController.h; sourceTree = "<group>"; };
 		D8401B461901846100BAF82F /* ScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScheduleViewController.m; path = CalendarView/ScheduleViewController.m; sourceTree = "<group>"; };
+		D8466D031980FDB100781710 /* PictogramCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictogramCreator.h; sourceTree = "<group>"; };
+		D8466D041980FDB100781710 /* PictogramCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictogramCreator.m; sourceTree = "<group>"; };
 		D8472B851922C07E00EBE741 /* UICollectionView+AbortScrollAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+AbortScrollAnimation.h"; sourceTree = "<group>"; };
 		D8472B861922C07E00EBE741 /* UICollectionView+AbortScrollAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+AbortScrollAnimation.m"; sourceTree = "<group>"; };
 		D850E82518C86F420051CD51 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -498,6 +501,8 @@
 				D80706A2196ED92100B93F40 /* MasterViewController.m */,
 				D8805F3D18C5DD01001BD35B /* CreatePictogram.h */,
 				D8805F3E18C5DD01001BD35B /* CreatePictogram.m */,
+				D8466D031980FDB100781710 /* PictogramCreator.h */,
+				D8466D041980FDB100781710 /* PictogramCreator.m */,
 				D8315AF118D39DEA00C4A340 /* Camera.h */,
 				D8315AF218D39DEA00C4A340 /* Camera.m */,
 				D8387DBF18F9A94A00DD716C /* Top View */,
@@ -680,6 +685,7 @@
 				D81ABB80190966C5000B81F3 /* DayCollectionViewLayout.m in Sources */,
 				D8BABEC018EC6839009E562E /* NSMutableArray+MoveObject.m in Sources */,
 				D858CB8719221E0B00402E24 /* NSDate+VisualScheduler.m in Sources */,
+				D8466D051980FDB100781710 /* PictogramCreator.m in Sources */,
 				68D7965C190947CB0047A0CE /* Timer.m in Sources */,
 				D83BFE4E1907EDCE00F72646 /* PictogramSelectorDataSource.m in Sources */,
 				68D7965E190947CB0047A0CE /* WatchDialView.m in Sources */,
