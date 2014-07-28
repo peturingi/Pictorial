@@ -84,7 +84,6 @@
 
 - (void)itemMovedTo:(CGPoint const)point
 {
-    NSLog(@"Make Pictogram follow finger.");
     const CGPoint locationInView = [self.view convertPoint:point fromView:bottomView];
     _pictogramBeingMoved.frame = [self frameForPictogramAtPoint:locationInView];
 }
@@ -101,6 +100,12 @@
 - (void)itemSelectionEnded
 {
     // TODO Add pictogram to location when released.
+    /**
+     if pictogram location is in schedule
+        find destination index in schedule
+        add pictogram to destination
+     else slide pictogram back
+     */
     [_pictogramBeingMoved removeFromSuperview];
 }
 

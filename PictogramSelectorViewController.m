@@ -4,34 +4,35 @@
 
 @implementation PictogramSelectorViewController
 
-- (IBAction)pictogramLongPressed:(UILongPressGestureRecognizer *)sender
+- (IBAction)pictogramLongPressed:(UILongPressGestureRecognizer * const)sender
 {
     if (sender.state == UIGestureRecognizerStateBegan)   [self handleItemSelection:sender];
     if (sender.state == UIGestureRecognizerStateEnded)   [self.delegate itemSelectionEnded];
     if (sender.state == UIGestureRecognizerStateChanged) [self.delegate itemMovedTo:[sender locationInView:self.view]];
 }
 
-- (void)handleItemSelection:(UILongPressGestureRecognizer *)sender
+- (void)handleItemSelection:(UILongPressGestureRecognizer * const)sender
 {
-    NSIndexPath *indexPathOfSelectedItem = [self.collectionView indexPathForItemAtPoint:[sender locationInView:sender.view]];
-    const NSManagedObject *selectedItem = [self getItemAtIndexPath:indexPathOfSelectedItem];
-    [self notifyDelegateOfItemSelectionWithObjectID:selectedItem.objectID atLocation:[sender locationInView:sender.view]];
+    NSIndexPath * const indexPathOfSelectedItem = [self.collectionView indexPathForItemAtPoint:[sender locationInView:self.collectionView]];
+    NSManagedObject * const selectedItem = [self getItemAtIndexPath:indexPathOfSelectedItem];
+    
+    // self.view is the topmost view in this controllers view hierarchy.
+    [self notifyDelegateOfItemSelectionWithObjectID:selectedItem.objectID atLocation:[sender locationInView:self.view]];
 }
 
 /** Returns the touched item.
  */
-- (NSManagedObject *)getItemAtIndexPath:(NSIndexPath *)indexPath
+- (NSManagedObject *)getItemAtIndexPath:(NSIndexPath * const)indexPath
 {
-    const PictogramSelectorDataSource *dataSource = (PictogramSelectorDataSource *)self.collectionView.dataSource;
+    PictogramSelectorDataSource * const dataSource = (PictogramSelectorDataSource *)self.collectionView.dataSource;
     return [[dataSource fetchedResultsController] objectAtIndexPath:indexPath];
 }
 
 /** Tells the delegate which item was touched, and its location.
  */
-- (void)notifyDelegateOfItemSelectionWithObjectID:(NSManagedObjectID *)objectID atLocation:(CGPoint)location
+- (void)notifyDelegateOfItemSelectionWithObjectID:(NSManagedObjectID * const)objectID atLocation:(CGPoint const)location
 {
      [self.delegate selectedPictogramToAdd:objectID atLocation:location];
 }
-
 
 @end
