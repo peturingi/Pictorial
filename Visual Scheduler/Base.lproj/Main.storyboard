@@ -81,10 +81,10 @@
             </objects>
             <point key="canvasLocation" x="-2019" y="-2177"/>
         </scene>
-        <!--Collection View Controller-->
+        <!--Schedule Collection View Controller-->
         <scene sceneID="A2x-wh-lni">
             <objects>
-                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="FBT-CU-eS9" sceneMemberID="viewController">
+                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="FBT-CU-eS9" customClass="ScheduleCollectionViewController" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="iyG-a6-xfH" customClass="CalendarView">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="541"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -121,11 +121,20 @@
                         <connections>
                             <outlet property="dataSource" destination="sdn-O5-Gfu" id="KFb-0n-aif"/>
                             <outlet property="delegate" destination="FBT-CU-eS9" id="lD8-9h-UUI"/>
+                            <outletCollection property="gestureRecognizers" destination="2We-zt-xLJ" appends="YES" id="PGF-jH-FGp"/>
                         </connections>
                     </collectionView>
+                    <connections>
+                        <outlet property="dataSource" destination="sdn-O5-Gfu" id="o5X-kr-cT2"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kjn-r4-5Vt" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="sdn-O5-Gfu" customClass="WeekDataSource"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="2We-zt-xLJ">
+                    <connections>
+                        <action selector="removePictogramFromSchedule:" destination="FBT-CU-eS9" id="6ie-Am-2dP"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-118" y="-2425"/>
         </scene>
@@ -220,7 +229,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="541"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <connections>
-                                    <segue destination="FBT-CU-eS9" kind="embed" id="G4v-B8-OwZ"/>
+                                    <segue destination="FBT-CU-eS9" kind="embed" identifier="SEGUE_EMBED_TOPVIEW" id="G4v-B8-OwZ"/>
                                 </connections>
                             </containerView>
                         </subviews>
