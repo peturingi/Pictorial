@@ -23,6 +23,11 @@
         PictogramSelectorViewController * const destination = segue.destinationViewController;
         destination.delegate = self;
     }
+    
+    // Know the top views controller
+    if ([segue.identifier isEqualToString:@"SEGUE_EMBED_TOPVIEW"]) {
+        _topViewController = segue.destinationViewController;
+    }
 }
 
 #pragma mark Camera
@@ -97,20 +102,26 @@
                       edgeLength);
 }
 
-- (void)itemSelectionEnded
+- (void)itemSelectionEndedAtLocation:(CGPoint)location
 {
     // TODO Add pictogram to location when released.
-    /**
-     if pictogram location is in schedule
-        find destination index in schedule
-        add pictogram to destination
-     else slide pictogram back
-     */
+    
+    // if pictogram location is in schedule
+    //if ([self locationIsASchedule:<#(const CGPoint)#>])
+    //    find destination index in schedule
+    //    add pictogram to destination
+    // else slide pictogram back
+    NSLog(@"%d", [self locationIsASchedule:[_topViewController.collectionView convertPoint:location fromView:bottomView]]);
+    
     [_pictogramBeingMoved removeFromSuperview];
 }
 
 #pragma mark Top View
 
-
+- (BOOL)locationIsASchedule:(CGPoint const)location {
+    NSIndexPath * const pathToItemAtLocation = [_topViewController.collectionView indexPathForItemAtPoint:location];
+    NSLog(@"%@", pathToItemAtLocation);
+    return pathToItemAtLocation != nil ? YES : NO;
+}
 
 @end
