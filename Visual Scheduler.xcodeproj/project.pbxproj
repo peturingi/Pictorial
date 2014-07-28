@@ -69,6 +69,7 @@
 		D881B56D196D3404008B10F9 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D881B56B196D3404008B10F9 /* Model.xcdatamodeld */; };
 		D887832E18C8E33300F13B28 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		D889F7EE18C9249A008A497F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D83A62CB18B696DC00EC0773 /* AppDelegate.m */; };
+		D88BF8131986618200B1ADAB /* ScheduleCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D88BF8121986618200B1ADAB /* ScheduleCollectionViewController.m */; };
 		D8B016EF18FEB85700017D76 /* CalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B016EE18FEB85700017D76 /* CalendarView.m */; };
 		D8BABEC018EC6839009E562E /* NSMutableArray+MoveObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D8BABEBF18EC6839009E562E /* NSMutableArray+MoveObject.m */; };
 		D8C7BDE7190287E800128FA7 /* WeekCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C7BDE6190287E800128FA7 /* WeekCollectionViewLayout.m */; };
@@ -200,6 +201,8 @@
 		D8805F3D18C5DD01001BD35B /* CreatePictogram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CreatePictogram.h; path = "Visual Scheduler/Controllers/CreatePictogram.h"; sourceTree = "<group>"; };
 		D8805F3E18C5DD01001BD35B /* CreatePictogram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CreatePictogram.m; path = "Visual Scheduler/Controllers/CreatePictogram.m"; sourceTree = "<group>"; };
 		D881B56C196D3404008B10F9 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		D88BF8111986618200B1ADAB /* ScheduleCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleCollectionViewController.h; sourceTree = "<group>"; };
+		D88BF8121986618200B1ADAB /* ScheduleCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleCollectionViewController.m; sourceTree = "<group>"; };
 		D8AFD99C1901BF2400A294D5 /* DayCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DayCollectionViewController.h; path = "Visual Scheduler/CalendarView/DayCollectionViewController.h"; sourceTree = "<group>"; };
 		D8AFD99D1901BF2400A294D5 /* DayCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DayCollectionViewController.m; path = "Visual Scheduler/CalendarView/DayCollectionViewController.m"; sourceTree = "<group>"; };
 		D8B016ED18FEB85700017D76 /* CalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarView.h; path = "Visual Scheduler/CalendarView/CalendarView.h"; sourceTree = "<group>"; };
@@ -358,6 +361,8 @@
 		D8387DBF18F9A94A00DD716C /* Top View */ = {
 			isa = PBXGroup;
 			children = (
+				D88BF8111986618200B1ADAB /* ScheduleCollectionViewController.h */,
+				D88BF8121986618200B1ADAB /* ScheduleCollectionViewController.m */,
 				D8401AA91900312A00BAF82F /* BackgroundColor.xib */,
 				D82C0CDA18F80DFB005B5569 /* WeekDataSource.h */,
 				D82C0CDB18F80DFB005B5569 /* WeekDataSource.m */,
@@ -703,6 +708,7 @@
 				D8FD1D1D1924C943000226BF /* UIView+ContraintInfo.m in Sources */,
 				D8F498AA197128FA00CEF728 /* PictogramSelectorViewController.m in Sources */,
 				68D7963719092D2D0047A0CE /* UIView+CenterPoint.m in Sources */,
+				D88BF8131986618200B1ADAB /* ScheduleCollectionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

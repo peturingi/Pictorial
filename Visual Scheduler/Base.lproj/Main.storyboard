@@ -132,7 +132,7 @@
                 <customObject id="sdn-O5-Gfu" customClass="WeekDataSource"/>
                 <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="2We-zt-xLJ">
                     <connections>
-                        <action selector="removePictogramFromSchedule:" destination="FBT-CU-eS9" id="6ie-Am-2dP"/>
+                        <action selector="handleRemovalOfPictogramFromScheduleGesture:" destination="FBT-CU-eS9" id="N7B-aF-QI4"/>
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
