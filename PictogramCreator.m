@@ -48,9 +48,7 @@
 }
 
 - (BOOL)save:(const NSManagedObjectContext *)context {
-    const BOOL successful = [context save:nil];
-    if (successful) { return YES; }
-    else { return NO; }
+    return [context save:nil] ? YES : NO;
 }
 
 @end
