@@ -4,30 +4,34 @@
 
 @implementation PictogramSelectorViewController
 
-- (id)initWithCoder:(NSCoder *)aDecoder {
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-    }
-    NSAssert(self, @"Super failed to init.");
-    return self;
-}
-
-- (IBAction)pictogramLongPressed:(UILongPressGestureRecognizer *)sender {
-    
-    if (sender.state == UIGestureRecognizerStateBegan)   [self notifyDelegateOfSelectedItem:sender];
+- (IBAction)pictogramLongPressed:(UILongPressGestureRecognizer *)sender
+{
+    if (sender.state == UIGestureRecognizerStateBegan)   [self handleItemSelection:sender];
     if (sender.state == UIGestureRecognizerStateEnded)   [self.delegate itemSelectionEnded];
     if (sender.state == UIGestureRecognizerStateChanged) [self.delegate itemMovedTo:[sender locationInView:self.view]];
 }
 
-- (void)notifyDelegateOfSelectedItem:(UILongPressGestureRecognizer *)sender {
-    NSAssert([sender isKindOfClass:[UIGestureRecognizer class]], @"This method must be invoked by a gesture recognizer.");
-    
-    NSIndexPath *indexPathOfSelectedItem = [self.collectionView indexPathForItemAtPoint:[sender locationInView:self.view]];
-    const PictogramSelectorDataSource *dataSource = (PictogramSelectorDataSource *)self.collectionView.dataSource;
-    const NSManagedObject *selectedItem = [[dataSource fetchedResultsController] objectAtIndexPath:indexPathOfSelectedItem];
-    NSAssert(selectedItem, @"Item not found.");
-    
-    [self.delegate selectedPictogramToAdd:selectedItem.objectID atLocation:[sender locationInView:self.view]];
+- (void)handleItemSelection:(UILongPressGestureRecognizer *)sender
+{
+    NSIndexPath *indexPathOfSelectedItem = [self.collectionView indexPathForItemAtPoint:[sender locationInView:sender.view]];
+    const NSManagedObject *selectedItem = [self getItemAtIndexPath:indexPathOfSelectedItem];
+    [self notifyDelegateOfItemSelectionWithObjectID:selectedItem.objectID atLocation:[sender locationInView:sender.view]];
 }
+
+/** Returns the touched item.
+ */
+- (NSManagedObject *)getItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    const PictogramSelectorDataSource *dataSource = (PictogramSelectorDataSource *)self.collectionView.dataSource;
+    return [[dataSource fetchedResultsController] objectAtIndexPath:indexPath];
+}
+
+/** Tells the delegate which item was touched, and its location.
+ */
+- (void)notifyDelegateOfItemSelectionWithObjectID:(NSManagedObjectID *)objectID atLocation:(CGPoint)location
+{
+     [self.delegate selectedPictogramToAdd:objectID atLocation:location];
+}
+
 
 @end

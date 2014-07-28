@@ -9,7 +9,7 @@
 
 - (id)init __deprecated_msg("Use initWithTitle:image:");
 
-- (id)initWithTitle:(NSString *)aString image:(NSData *)imageData;
+- (id)initWithTitle:(NSString * const)aString image:(NSData * const)imageData;
 
 /** Creates and saves a new pictogram.
  @return YES if successful in creating and saving a pictogram.

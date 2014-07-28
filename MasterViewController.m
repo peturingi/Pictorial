@@ -4,32 +4,25 @@
 #import <CoreData/CoreData.h>
 #import "AppDelegate.h"
 
-#define PICTOGRAM_EDGE  100
-
 @implementation MasterViewController
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:SEGUE_NEW_PICTOGRAM]) {
-        CreatePictogram *destinationController = segue.destinationViewController;
+        CreatePictogram * const destinationController = segue.destinationViewController;
         
-        if (camera)
-        {
+        if (camera) {
             destinationController.photo = [camera develop];
             camera = nil; // Free the camera
         }
-        else
-        {
-            @throw [NSException exceptionWithName:@"Camera now found." reason:@"Camera was nil." userInfo:nil];
-        }
+        else { @throw [NSException exceptionWithName:@"Camera now found." reason:@"Camera was nil." userInfo:nil]; }
     }
     
     // Set self as the pictogram selectors delegate.
     if ([segue.identifier isEqualToString:@"SEGUE_EMBED_PICTORAM_SELECTOR"]) {
-        PictogramSelectorViewController *destination = segue.destinationViewController;
+        PictogramSelectorViewController * const destination = segue.destinationViewController;
         destination.delegate = self;
     }
-    
 }
 
 #pragma mark Camera
@@ -46,44 +39,73 @@
     camera = nil; // Free the camera.
 }
 
-- (void)cameraDisappearedAfterSnappingPhoto:(Camera *)sender
+- (void)cameraDisappearedAfterSnappingPhoto:(Camera * )sender
 {
     [self performSegueWithIdentifier:SEGUE_NEW_PICTOGRAM sender:nil];
 }
 
-#pragma mark Touching
+#pragma mark - Touching
 
-- (void)selectedPictogramToAdd:(NSManagedObjectID *)pictogramIdentifier atLocation:(CGPoint)location{
-    NSLog(@"Selected to add: %@", pictogramIdentifier);
+#pragma mark Bottom View
+
+- (void)selectedPictogramToAdd:(NSManagedObjectID * const)pictogramIdentifier atLocation:(CGPoint const)location
+{
+    UIImage * const image = [self imageForPictogramWithID:pictogramIdentifier]; // TODO resize the image. No need to move a full size image around.
+    CGPoint const targetLocation = [self.view convertPoint:location fromView:bottomView];
     
-    //Get image of pictogram which was selected
-    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
-    NSManagedObjectContext *managedObjectContext = appDelegate.managedObjectContext;
-    NSManagedObject *managedObject = [managedObjectContext objectWithID:pictogramIdentifier];
-    NSData *imageData = [managedObject valueForKey:CD_KEY_PICTOGRAM_IMAGE];
-    UIImage *image = [UIImage imageWithData:imageData];
-    
-    //Construct view containing the image of the pictogram and show it
-    CGPoint locationInView = [self.view convertPoint:location fromView:bottomView];
-    PictogramView *pictogramView = [[PictogramView alloc] initWithFrame:[self frameForPictogramAtPoint:locationInView] andImage:image];
+    PictogramView * const pictogramView = [[PictogramView alloc] initWithFrame:[self frameForPictogramAtPoint:targetLocation] andImage:image];
     pictogramView.backgroundColor = [UIColor whiteColor];
+    
+    _pictogramBeingMoved = pictogramView;
     [self.view addSubview:pictogramView];
-    pictogramBeingMoved = pictogramView;
 }
 
-- (void)itemMovedTo:(CGPoint)point {
+- (UIImage *)imageForPictogramWithID:(NSManagedObjectID * const)objectID
+{
+    return [self imageForPictogram:[self itemWithID:objectID]];
+}
+
+- (UIImage *)imageForPictogram:(NSManagedObject * const)pictogram
+{
+    NSData * const imageData = [pictogram valueForKeyPath:CD_KEY_PICTOGRAM_IMAGE];
+    return [UIImage imageWithData:imageData];
+}
+
+- (NSManagedObject *)itemWithID:(NSManagedObjectID * const)objectID
+{
+    NSManagedObjectContext * const sharedContext = [self appDelegate].managedObjectContext;
+    return [sharedContext objectWithID:objectID];
+}
+
+- (AppDelegate *)appDelegate
+{
+    return [UIApplication sharedApplication].delegate;
+}
+
+- (void)itemMovedTo:(CGPoint const)point
+{
     NSLog(@"Make Pictogram follow finger.");
-    CGPoint locationInView = [self.view convertPoint:point fromView:bottomView];
-    pictogramBeingMoved.frame = [self frameForPictogramAtPoint:locationInView];
+    const CGPoint locationInView = [self.view convertPoint:point fromView:bottomView];
+    _pictogramBeingMoved.frame = [self frameForPictogramAtPoint:locationInView];
 }
 
-- (void)itemSelectionEnded {
+- (CGRect)frameForPictogramAtPoint:(CGPoint const)aPoint
+{
+    CGFloat const edgeLength = PICTOGRAM_SIZE_WHILE_DRAGGING;
+    return CGRectMake(aPoint.x - edgeLength/2.0f,
+                      aPoint.y - edgeLength/2.0f,
+                      edgeLength,
+                      edgeLength);
+}
+
+- (void)itemSelectionEnded
+{
     // TODO Add pictogram to location when released.
-    [pictogramBeingMoved removeFromSuperview];
+    [_pictogramBeingMoved removeFromSuperview];
 }
 
-- (CGRect)frameForPictogramAtPoint:(CGPoint)aPoint {
-    return CGRectMake(aPoint.x - PICTOGRAM_EDGE/2.0f, aPoint.y - PICTOGRAM_EDGE/2.0f, PICTOGRAM_EDGE, PICTOGRAM_EDGE);
-}
+#pragma mark Top View
+
+
 
 @end

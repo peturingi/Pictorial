@@ -8,7 +8,7 @@
     Camera *camera;
     __weak IBOutlet UIView *bottomView;
     
-    __weak PictogramView *pictogramBeingMoved;
+    __weak PictogramView *_pictogramBeingMoved;
 }
 
 - (void)selectedPictogramToAdd:(NSManagedObjectID *)pictogramIdentifier atLocation:(CGPoint)location;
