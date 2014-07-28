@@ -375,8 +375,6 @@
 		D83A62AF18B696DB00EC0773 = {
 			isa = PBXGroup;
 			children = (
-				D84855C91985506F0085C734 /* ImageResizer.h */,
-				D84855CA1985506F0085C734 /* ImageResizer.m */,
 				D881B569196D2D8A008B10F9 /* Dead Code */,
 				68D7964519092E590047A0CE /* Misc */,
 				D87964B91906A09500333CD1 /* UI */,
@@ -502,23 +500,17 @@
 				D8805F3E18C5DD01001BD35B /* CreatePictogram.m */,
 				D8466D031980FDB100781710 /* PictogramCreator.h */,
 				D8466D041980FDB100781710 /* PictogramCreator.m */,
+				D84855C91985506F0085C734 /* ImageResizer.h */,
+				D84855CA1985506F0085C734 /* ImageResizer.m */,
 				D85E214D1985270300B611DE /* PictogramView.h */,
 				D85E214E1985270300B611DE /* PictogramView.m */,
 				D8315AF118D39DEA00C4A340 /* Camera.h */,
 				D8315AF218D39DEA00C4A340 /* Camera.m */,
 				D8387DBF18F9A94A00DD716C /* Top View */,
 				D8805F4818C5E459001BD35B /* Bottom View */,
-				D87964BC1906E23000333CD1 /* New Pictogram View */,
 				D83A62CD18B696DC00EC0773 /* Main.storyboard */,
 			);
 			name = UI;
-			sourceTree = "<group>";
-		};
-		D87964BC1906E23000333CD1 /* New Pictogram View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "New Pictogram View";
 			sourceTree = "<group>";
 		};
 		D8805F4818C5E459001BD35B /* Bottom View */ = {
