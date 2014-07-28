@@ -35,9 +35,7 @@
  */
 - (void)removePictogramAtIndex:(NSUInteger)index fromSchedule:(NSManagedObject *)schedule
 {
-    NSMutableArray *pictogramsInSchedule = [schedule valueForKey:CD_KEY_SCHEDULE_PICTOGRAMS];
-    [pictogramsInSchedule removeObjectAtIndex:index];
-    [schedule setValue:pictogramsInSchedule forKeyPath:CD_KEY_SCHEDULE_PICTOGRAMS];
+    [[schedule valueForKey:CD_KEY_SCHEDULE_PICTOGRAMS] removeObjectAtIndex:index];
 }
 
 /** Persists changes made to the managed object context.
@@ -45,11 +43,13 @@
  */
 - (void)saveSchedule
 {
+    NSAssert(self.dataSource.managedObjectContext, @"The data source does not have a managed object context.");
+    if ([self.dataSource.managedObjectContext hasChanges] == NO) return;
+    
     NSError *error;
-    [self.dataSource.managedObjectContext save:&error];
-    if (error) @throw [NSException exceptionWithName:@"Error saving deletion from schedule." reason:error.localizedFailureReason userInfo:nil];
+    if ([self.dataSource.managedObjectContext save:&error] == NO) {
+        @throw [NSException exceptionWithName:@"Error saving deletion from schedule." reason:error.localizedFailureReason userInfo:nil];
+    }
 }
-
-#pragma mark -
 
 @end
