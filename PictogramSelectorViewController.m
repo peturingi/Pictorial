@@ -20,7 +20,7 @@
 }
 
 - (void)notifyDelegateOfSelectedItem:(UILongPressGestureRecognizer *)sender {
-    NSAssert(sender, @"This method must be invoked by a gesture recognizer.");
+    NSAssert([sender isKindOfClass:[UIGestureRecognizer class]], @"This method must be invoked by a gesture recognizer.");
     
     NSIndexPath *indexPathOfSelectedItem = [self.collectionView indexPathForItemAtPoint:[sender locationInView:self.view]];
     const PictogramSelectorDataSource *dataSource = (PictogramSelectorDataSource *)self.collectionView.dataSource;
