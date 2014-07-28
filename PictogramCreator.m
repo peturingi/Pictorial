@@ -20,44 +20,37 @@
 }
 
 - (BOOL)compute {
-    const AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *managedObjectContext = [self appDelegate].managedObjectContext;
     
-    if ([self createPictogram:appDelegate.managedObjectContext] && [self save:appDelegate.managedObjectContext]) {
-        return YES;
-    } else {
-        return NO;
-    }
+    BOOL pictogramCreated = [self createPictogram:managedObjectContext];
+    BOOL pictogramSaved = [self save:managedObjectContext];
+    
+    if (pictogramCreated && pictogramSaved) return YES;
+    else return NO;
+}
+
+- (AppDelegate *)appDelegate {
+    return [[UIApplication sharedApplication] delegate];
 }
 
 - (BOOL)createPictogram:(NSManagedObjectContext *)context {
     NSAssert(_imageData, @"Must not be nil.");
     NSAssert(_title, @"Must not be nil.");
     
-    BOOL successful = YES;
-    
     @try {
         NSManagedObject *pictogram = [NSEntityDescription insertNewObjectForEntityForName:CD_ENTITY_PICTOGRAM inManagedObjectContext:context];
         [pictogram setValue:_title forKey:CD_KEY_PICTOGRAM_TITLE];
         [pictogram setValue:_imageData forKey:CD_KEY_PICTOGRAM_IMAGE];
     }
-    @catch (NSException *e) {
-        successful = NO;
-    }
+    @catch (NSException *e) { return NO; }
     
-    if (successful) {
-        return YES;
-    } else {
-        return NO;
-    }
+    return YES;
 }
 
 - (BOOL)save:(const NSManagedObjectContext *)context {
-    NSError *error;
-    if ([context save:&error]) {
-        return YES;
-    } else {
-        return NO;
-    }
+    const BOOL successful = [context save:nil];
+    if (successful) { return YES; }
+    else { return NO; }
 }
 
 @end
