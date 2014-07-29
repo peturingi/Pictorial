@@ -52,4 +52,22 @@
     }
 }
 
+- (BOOL)addPictogramWithID:(NSManagedObjectID *const)objectID atPoint:(const CGPoint)point
+{
+    NSIndexPath * const target = [self.collectionView indexPathForItemAtPoint:point];
+    if (target) {
+        NSManagedObject * const targetSection = [self scheduleInSection:target.section];
+        [self insertPictogramWithID:objectID inSchedule:targetSection atIndexPath:target];
+    } else return NO;
+    
+    if (NO == [self.dataSource.managedObjectContext save:nil]) return NO;
+    
+    return YES;
+}
+
+- (void)insertPictogramWithID:(NSManagedObjectID * const)objectID inSchedule:(NSManagedObject * const)schedule atIndexPath:(NSIndexPath * const)indexPath {
+    [[schedule valueForKeyPath:CD_KEY_SCHEDULE_PICTOGRAMS] insertObject:[self.dataSource.managedObjectContext objectWithID:objectID] atIndex:indexPath.item];
+    [self.collectionView insertItemsAtIndexPaths:@[indexPath]];
+}
+
 @end

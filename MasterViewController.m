@@ -62,6 +62,7 @@
     pictogramView.backgroundColor = [UIColor whiteColor];
     
     _pictogramBeingMoved = pictogramView;
+    _idOfPictogramBeingMoved = pictogramIdentifier;
     [self.view addSubview:pictogramView];
 }
 
@@ -104,21 +105,27 @@
 
 - (void)itemSelectionEndedAtLocation:(CGPoint)location
 {
-    // TODO Add pictogram to location when released.
-    
-    // if pictogram location is in schedule
-    //if ([self locationIsASchedule:<#(const CGPoint)#>])
-    //    find destination index in schedule
-    //    add pictogram to destination
-    // else slide pictogram back
-    NSLog(@"%d", [self locationIsASchedule:[_topViewController.collectionView convertPoint:location fromView:bottomView]]);
-    
-    [_pictogramBeingMoved removeFromSuperview];
+    BOOL const pictogramWasAdded = [_topViewController addPictogramWithID:_idOfPictogramBeingMoved
+                                                                  atPoint:[_topViewController.collectionView convertPoint:location
+                                                                                                                 fromView:bottomView]];
+    if (pictogramWasAdded) [_pictogramBeingMoved removeFromSuperview];
+    else [self animatePictogramBackToOriginalPosition];
+}
+
+- (void)animatePictogramBackToOriginalPosition {
+    [_pictogramBeingMoved removeFromSuperview]; // TODO animate , currently this removes it immadiately instead of animating.
 }
 
 #pragma mark Top View
 
 - (BOOL)locationIsASchedule:(CGPoint const)location {
+    
+    /** TODO
+     Currently checks if dropped over another pictogram.
+     It should check if dropped in a valid schedule, as it is possible that
+     the user drops between two pictograms, in case the current code would
+     not insert the dropped pictogram into the schedule.
+     */
     NSIndexPath * const pathToItemAtLocation = [_topViewController.collectionView indexPathForItemAtPoint:location];
     NSLog(@"%@", pathToItemAtLocation);
     return pathToItemAtLocation != nil ? YES : NO;

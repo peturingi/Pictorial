@@ -4,4 +4,11 @@
 @interface ScheduleCollectionViewController : UICollectionViewController
 @property (weak, nonatomic) IBOutlet WeekDataSource *dataSource;
 
+/** Attempt to add the given pictogram to the schedule responsible for pictograms in the given point.
+ @return YES the pictogram was added
+ @return NO the pictogram was not added
+ @note If the pictogram was not added, it is because it was released in an area which does not represent a schedule.
+ */
+- (BOOL)addPictogramWithID:(NSManagedObjectID * const)objectID atPoint:(CGPoint const)point;
+
 @end

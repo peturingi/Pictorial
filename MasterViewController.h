@@ -3,14 +3,16 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 #import "PictogramView.h"
+#import "ScheduleCollectionViewController.h"
 
 
 @interface MasterViewController : UIViewController <CameraDelegate> {
     Camera *camera;
-    __weak UICollectionViewController *_topViewController;
+    __weak ScheduleCollectionViewController *_topViewController;
     __weak IBOutlet UIView *bottomView;
     
     __weak PictogramView *_pictogramBeingMoved;
+    NSManagedObjectID *_idOfPictogramBeingMoved;
 }
 
 - (void)selectedPictogramToAdd:(NSManagedObjectID *)pictogramIdentifier atLocation:(CGPoint)location;
