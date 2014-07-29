@@ -3,16 +3,21 @@
     <entity name="Pictogram" syncable="YES">
         <attribute name="image" attributeType="Transformable" syncable="YES"/>
         <attribute name="title" attributeType="String" indexed="YES" syncable="YES"/>
-        <relationship name="usedBy" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Schedule" inverseName="pictograms" inverseEntity="Schedule" syncable="YES"/>
+        <relationship name="usedBy" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PictogramContainer" inverseName="pictogram" inverseEntity="PictogramContainer" syncable="YES"/>
+    </entity>
+    <entity name="PictogramContainer" syncable="YES">
+        <relationship name="pictogram" maxCount="1" deletionRule="Nullify" destinationEntity="Pictogram" inverseName="usedBy" inverseEntity="Pictogram" syncable="YES"/>
+        <relationship name="schedule" maxCount="1" deletionRule="Nullify" destinationEntity="Schedule" inverseName="pictograms" inverseEntity="Schedule" syncable="YES"/>
     </entity>
     <entity name="Schedule" syncable="YES">
         <attribute name="color" attributeType="Binary" syncable="YES"/>
         <attribute name="date" attributeType="Date" indexed="YES" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
-        <relationship name="pictograms" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Pictogram" inverseName="usedBy" inverseEntity="Pictogram" syncable="YES"/>
+        <relationship name="pictograms" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="PictogramContainer" inverseName="schedule" inverseEntity="PictogramContainer" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Pictogram" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="Pictogram" positionX="-63" positionY="-18" width="128" height="88"/>
         <element name="Schedule" positionX="-54" positionY="-9" width="128" height="103"/>
+        <element name="PictogramContainer" positionX="-63" positionY="27" width="128" height="73"/>
     </elements>
 </model>

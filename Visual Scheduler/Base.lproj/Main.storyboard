@@ -220,14 +220,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="980"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j17-jP-moV" userLabel="Bottom Container">
+                            <containerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j17-jP-moV" userLabel="Bottom Container">
                                 <rect key="frame" x="0.0" y="613" width="768" height="367"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="FA2-Kn-Gqf" kind="embed" identifier="SEGUE_EMBED_PICTORAM_SELECTOR" id="nsD-SV-kCn"/>
                                 </connections>
                             </containerView>
-                            <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TPj-VT-Xow">
+                            <containerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TPj-VT-Xow">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="541"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <connections>
@@ -236,16 +236,6 @@
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="TPj-VT-Xow" firstAttribute="leading" secondItem="j17-jP-moV" secondAttribute="leading" id="K3z-dO-iHZ"/>
-                            <constraint firstItem="j17-jP-moV" firstAttribute="top" secondItem="k6R-GB-Bny" secondAttribute="bottom" constant="593" id="OnR-Xc-978"/>
-                            <constraint firstItem="j17-jP-moV" firstAttribute="top" secondItem="TPj-VT-Xow" secondAttribute="bottom" constant="72" id="Yfh-Dk-2vm"/>
-                            <constraint firstAttribute="bottom" secondItem="j17-jP-moV" secondAttribute="bottom" id="aka-7W-DsQ"/>
-                            <constraint firstItem="TPj-VT-Xow" firstAttribute="top" secondItem="3Ug-ui-Wfq" secondAttribute="top" id="cbg-o8-lFb"/>
-                            <constraint firstItem="j17-jP-moV" firstAttribute="width" secondItem="TPj-VT-Xow" secondAttribute="width" id="cft-9c-aBw"/>
-                            <constraint firstItem="j17-jP-moV" firstAttribute="leading" secondItem="3Ug-ui-Wfq" secondAttribute="leading" id="hUk-Z4-2PH"/>
-                            <constraint firstAttribute="trailing" secondItem="j17-jP-moV" secondAttribute="trailing" id="jnB-CC-E1K"/>
-                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems>

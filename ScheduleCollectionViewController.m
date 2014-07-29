@@ -33,7 +33,8 @@
 /** Removes a pictogram from the schedule.
  @pre A pictogram exists in the schedule at the given index.
  */
-- (void)removePictogramAtIndex:(NSUInteger)index fromSchedule:(NSManagedObject *)schedule
+- (void)removePictogramAtIndex:(NSUInteger)index
+                  fromSchedule:(NSManagedObject *)schedule
 {
     [[schedule valueForKey:CD_KEY_SCHEDULE_PICTOGRAMS] removeObjectAtIndex:index];
 }
@@ -52,9 +53,12 @@
     }
 }
 
-- (BOOL)addPictogramWithID:(NSManagedObjectID *const)objectID atPoint:(const CGPoint)point
+- (BOOL)addPictogramWithID:(NSManagedObjectID *const)objectID
+                   atPoint:(const CGPoint)point
+            relativeToView:(UIView *)view
 {
-    NSIndexPath * const target = [self.collectionView indexPathForItemAtPoint:point];
+    NSAssert(objectID, @"objectID must not be nil.");
+    NSIndexPath * const target = [self.collectionView indexPathForItemAtPoint:[self.collectionView convertPoint:point fromView:view]];
     if (target) {
         NSManagedObject * const targetSection = [self scheduleInSection:target.section];
         [self insertPictogramWithID:objectID inSchedule:targetSection atIndexPath:target];
@@ -65,9 +69,24 @@
     return YES;
 }
 
-- (void)insertPictogramWithID:(NSManagedObjectID * const)objectID inSchedule:(NSManagedObject * const)schedule atIndexPath:(NSIndexPath * const)indexPath {
-    [[schedule valueForKeyPath:CD_KEY_SCHEDULE_PICTOGRAMS] insertObject:[self.dataSource.managedObjectContext objectWithID:objectID] atIndex:indexPath.item];
+- (void)insertPictogramWithID:(NSManagedObjectID * const)objectID
+                   inSchedule:(NSManagedObject * const)schedule
+                  atIndexPath:(NSIndexPath * const)indexPath
+{
+    NSManagedObject * const pictogramContainer = [NSEntityDescription insertNewObjectForEntityForName:@"PictogramContainer"
+                                                                               inManagedObjectContext:self.managedObjectContext];
+    [pictogramContainer setValue:[self.managedObjectContext objectWithID:objectID] forKey:@"pictogram"];
+    [[schedule valueForKey:CD_KEY_SCHEDULE_PICTOGRAMS] insertObject:pictogramContainer atIndex:indexPath.item];
+    [pictogramContainer setValue:schedule forKeyPath:@"schedule"];
+    
     [self.collectionView insertItemsAtIndexPaths:@[indexPath]];
+}
+
+/** Convinience method
+ */
+- (NSManagedObjectContext *)managedObjectContext
+{
+    return self.dataSource.managedObjectContext;
 }
 
 @end

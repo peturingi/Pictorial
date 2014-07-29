@@ -11,90 +11,8 @@
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    /*
-    
-    // Populate database if it is empty.
-    
-
-    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Pictogram"];
-    NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES];
-    [request setSortDescriptors:[NSArray arrayWithObject:sort]];
-    [request setFetchBatchSize:20];
-    NSFetchedResultsController *controller = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
-    [controller performFetch:nil];
-    
-    // prepopulate the database with pictograms
-        NSManagedObject *svane = [NSEntityDescription insertNewObjectForEntityForName:@"Pictogram" inManagedObjectContext:self.managedObjectContext];
-        [svane setValue:@"Svane" forKey:@"title"];
-        UIImage *image = [UIImage imageNamed:@"svane.png"];
-        [svane setValue:UIImagePNGRepresentation(image) forKey:@"image"];
-     
-        
-        NSManagedObject *spade = [NSEntityDescription insertNewObjectForEntityForName:@"Pictogram" inManagedObjectContext:self.managedObjectContext];
-        [spade setValue:@"Spade" forKey:@"title"];
-        UIImage *spadeImage = [UIImage imageNamed:@"spade.png"];
-        [spade setValue:UIImagePNGRepresentation(spadeImage) forKey:@"image"];
-    
-    
-    // days prepopulation
-    
-    NSManagedObject *s1 = [NSEntityDescription insertNewObjectForEntityForName:@"Schedule" inManagedObjectContext:self.managedObjectContext];
-    NSManagedObject *s2 = [NSEntityDescription insertNewObjectForEntityForName:@"Schedule" inManagedObjectContext:self.managedObjectContext];
-    NSManagedObject *s3 = [NSEntityDescription insertNewObjectForEntityForName:@"Schedule" inManagedObjectContext:self.managedObjectContext];
-    NSManagedObject *s4 = [NSEntityDescription insertNewObjectForEntityForName:@"Schedule" inManagedObjectContext:self.managedObjectContext];
-    NSManagedObject *s5 = [NSEntityDescription insertNewObjectForEntityForName:@"Schedule" inManagedObjectContext:self.managedObjectContext];
-    NSManagedObject *s6 = [NSEntityDescription insertNewObjectForEntityForName:@"Schedule" inManagedObjectContext:self.managedObjectContext];
-    NSManagedObject *s7 = [NSEntityDescription insertNewObjectForEntityForName:@"Schedule" inManagedObjectContext:self.managedObjectContext];
-    
-    [s1 setValue:@"Mánudagur" forKey:@"title"];
-    [s2 setValue:@"Þriðjudagur" forKey:@"title"];
-    [s3 setValue:@"Miðvikudagur" forKey:@"title"];
-    [s4 setValue:@"Fimmtudagur" forKey:@"title"];
-    [s5 setValue:@"Föstudagur" forKey:@"title"];
-    [s6 setValue:@"Laugardagur" forKey:@"title"];
-    [s7 setValue:@"Sunnudagur" forKey:@"title"];
-    
-    const NSTimeInterval secondsInDay = 86400;
-    NSDate *d1 = [NSDate dateWithTimeIntervalSinceNow: 0 * secondsInDay];
-    NSDate *d2 = [NSDate dateWithTimeIntervalSinceNow: 1 * secondsInDay];
-    NSDate *d3 = [NSDate dateWithTimeIntervalSinceNow: 2 * secondsInDay];
-    NSDate *d4 = [NSDate dateWithTimeIntervalSinceNow: 3 * secondsInDay];
-    NSDate *d5 = [NSDate dateWithTimeIntervalSinceNow: 4 * secondsInDay];
-    NSDate *d6 = [NSDate dateWithTimeIntervalSinceNow: 5 * secondsInDay];
-    NSDate *d7 = [NSDate dateWithTimeIntervalSinceNow: 6 * secondsInDay];
-    
-    [s1 setValue:d1 forKey:@"date"];
-    [s2 setValue:d2 forKey:@"date"];
-    [s3 setValue:d3 forKey:@"date"];
-    [s4 setValue:d4 forKey:@"date"];
-    [s5 setValue:d5 forKey:@"date"];
-    [s6 setValue:d6 forKey:@"date"];
-    [s7 setValue:d7 forKey:@"date"];
-    
-    [s1 setValue:[NSKeyedArchiver archivedDataWithRootObject:[UIColor redColor]] forKey:@"color"];
-    [s2 setValue:[NSKeyedArchiver archivedDataWithRootObject:[UIColor greenColor]] forKey:@"color"];
-    [s3 setValue:[NSKeyedArchiver archivedDataWithRootObject:[UIColor redColor]] forKey:@"color"];
-    [s4 setValue:[NSKeyedArchiver archivedDataWithRootObject:[UIColor greenColor]] forKey:@"color"];
-    [s5 setValue:[NSKeyedArchiver archivedDataWithRootObject:[UIColor redColor]] forKey:@"color"];
-    [s6 setValue:[NSKeyedArchiver archivedDataWithRootObject:[UIColor greenColor]] forKey:@"color"];
-    [s7 setValue:[NSKeyedArchiver archivedDataWithRootObject:[UIColor redColor]] forKey:@"color"];
-    
-    // relations prepopulation
-    
-    NSMutableOrderedSet *allDaysAreTheSame = [[NSMutableOrderedSet alloc] initWithObjects:svane, spade, nil];
-    
-    [s1 setValue:allDaysAreTheSame forKey:@"pictograms"];
-    [s2 setValue:allDaysAreTheSame forKey:@"pictograms"];
-    [s3 setValue:allDaysAreTheSame forKey:@"pictograms"];
-    [s4 setValue:allDaysAreTheSame forKey:@"pictograms"];
-    [s5 setValue:allDaysAreTheSame forKey:@"pictograms"];
-    [s6 setValue:allDaysAreTheSame forKey:@"pictograms"];
-    [s7 setValue:allDaysAreTheSame forKey:@"pictograms"];
-    
-    
-    [self saveContext];
-    
-    */
+    //[self printDatabase];
+    //[self populateDatabase];
     return YES;
 }
 
@@ -201,6 +119,116 @@
 - (NSURL *)applicationDocumentsDirectory
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}
+
+#pragma mark - Mock Data Generator
+
+- (void)printDatabase {
+    // Populate database if it is empty.
+     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Pictogram"];
+     NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES];
+     [request setSortDescriptors:[NSArray arrayWithObject:sort]];
+     [request setFetchBatchSize:20];
+     NSFetchedResultsController *controller = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+     [controller performFetch:nil];
+    
+    for (id i in controller.fetchedObjects) { NSLog(@"%@", i); }
+}
+
+- (void)populateDatabase {
+     
+    /* pictograms */
+     NSManagedObject *svane = [NSEntityDescription insertNewObjectForEntityForName:@"Pictogram" inManagedObjectContext:self.managedObjectContext];
+     [svane setValue:@"Svane" forKey:@"title"];
+     UIImage *image = [UIImage imageNamed:@"svane.png"];
+     [svane setValue:UIImagePNGRepresentation(image) forKey:@"image"];
+     //
+     NSManagedObject *spade = [NSEntityDescription insertNewObjectForEntityForName:@"Pictogram" inManagedObjectContext:self.managedObjectContext];
+     [spade setValue:@"Spade" forKey:@"title"];
+     UIImage *spadeImage = [UIImage imageNamed:@"spade.png"];
+     [spade setValue:UIImagePNGRepresentation(spadeImage) forKey:@"image"];
+     
+     
+     /* days */
+     NSManagedObject *s1 = [NSEntityDescription insertNewObjectForEntityForName:@"Schedule" inManagedObjectContext:self.managedObjectContext];
+     NSManagedObject *s2 = [NSEntityDescription insertNewObjectForEntityForName:@"Schedule" inManagedObjectContext:self.managedObjectContext];
+     NSManagedObject *s3 = [NSEntityDescription insertNewObjectForEntityForName:@"Schedule" inManagedObjectContext:self.managedObjectContext];
+     NSManagedObject *s4 = [NSEntityDescription insertNewObjectForEntityForName:@"Schedule" inManagedObjectContext:self.managedObjectContext];
+     NSManagedObject *s5 = [NSEntityDescription insertNewObjectForEntityForName:@"Schedule" inManagedObjectContext:self.managedObjectContext];
+     NSManagedObject *s6 = [NSEntityDescription insertNewObjectForEntityForName:@"Schedule" inManagedObjectContext:self.managedObjectContext];
+     NSManagedObject *s7 = [NSEntityDescription insertNewObjectForEntityForName:@"Schedule" inManagedObjectContext:self.managedObjectContext];
+     //
+     [s1 setValue:@"Mánudagur" forKey:@"title"];
+     [s2 setValue:@"Þriðjudagur" forKey:@"title"];
+     [s3 setValue:@"Miðvikudagur" forKey:@"title"];
+     [s4 setValue:@"Fimmtudagur" forKey:@"title"];
+     [s5 setValue:@"Föstudagur" forKey:@"title"];
+     [s6 setValue:@"Laugardagur" forKey:@"title"];
+     [s7 setValue:@"Sunnudagur" forKey:@"title"];
+     //
+     const NSTimeInterval secondsInDay = 86400;
+     NSDate *d1 = [NSDate dateWithTimeIntervalSinceNow: 0 * secondsInDay];
+     NSDate *d2 = [NSDate dateWithTimeIntervalSinceNow: 1 * secondsInDay];
+     NSDate *d3 = [NSDate dateWithTimeIntervalSinceNow: 2 * secondsInDay];
+     NSDate *d4 = [NSDate dateWithTimeIntervalSinceNow: 3 * secondsInDay];
+     NSDate *d5 = [NSDate dateWithTimeIntervalSinceNow: 4 * secondsInDay];
+     NSDate *d6 = [NSDate dateWithTimeIntervalSinceNow: 5 * secondsInDay];
+     NSDate *d7 = [NSDate dateWithTimeIntervalSinceNow: 6 * secondsInDay];
+     //
+     [s1 setValue:d1 forKey:@"date"];
+     [s2 setValue:d2 forKey:@"date"];
+     [s3 setValue:d3 forKey:@"date"];
+     [s4 setValue:d4 forKey:@"date"];
+     [s5 setValue:d5 forKey:@"date"];
+     [s6 setValue:d6 forKey:@"date"];
+     [s7 setValue:d7 forKey:@"date"];
+     //
+     [s1 setValue:[NSKeyedArchiver archivedDataWithRootObject:[UIColor yellowColor]] forKey:@"color"];
+     [s2 setValue:[NSKeyedArchiver archivedDataWithRootObject:[UIColor redColor]] forKey:@"color"];
+     [s3 setValue:[NSKeyedArchiver archivedDataWithRootObject:[UIColor greenColor]] forKey:@"color"];
+     [s4 setValue:[NSKeyedArchiver archivedDataWithRootObject:[UIColor blueColor]] forKey:@"color"];
+     [s5 setValue:[NSKeyedArchiver archivedDataWithRootObject:[UIColor blackColor]] forKey:@"color"];
+     [s6 setValue:[NSKeyedArchiver archivedDataWithRootObject:[UIColor whiteColor]] forKey:@"color"];
+     [s7 setValue:[NSKeyedArchiver archivedDataWithRootObject:[UIColor purpleColor]] forKey:@"color"];
+     
+    /* relations */
+    NSManagedObject *c1 = [NSEntityDescription insertNewObjectForEntityForName:@"PictogramContainer" inManagedObjectContext:self.managedObjectContext];
+    NSManagedObject *c2 = [NSEntityDescription insertNewObjectForEntityForName:@"PictogramContainer" inManagedObjectContext:self.managedObjectContext];
+    NSManagedObject *c3 = [NSEntityDescription insertNewObjectForEntityForName:@"PictogramContainer" inManagedObjectContext:self.managedObjectContext];
+    NSManagedObject *c4 = [NSEntityDescription insertNewObjectForEntityForName:@"PictogramContainer" inManagedObjectContext:self.managedObjectContext];
+    NSManagedObject *c5 = [NSEntityDescription insertNewObjectForEntityForName:@"PictogramContainer" inManagedObjectContext:self.managedObjectContext];
+    NSManagedObject *c6 = [NSEntityDescription insertNewObjectForEntityForName:@"PictogramContainer" inManagedObjectContext:self.managedObjectContext];
+    NSManagedObject *c7 = [NSEntityDescription insertNewObjectForEntityForName:@"PictogramContainer" inManagedObjectContext:self.managedObjectContext];
+    //
+    [c1 setValue:svane forKey:@"pictogram"];
+    [c1 setValue:s1 forKey:@"schedule"];
+    [c2 setValue:svane forKey:@"pictogram"];
+    [c2 setValue:s2 forKey:@"schedule"];
+    [c3 setValue:svane forKey:@"pictogram"];
+    [c3 setValue:s3 forKey:@"schedule"];
+    [c4 setValue:svane forKey:@"pictogram"];
+    [c4 setValue:s4 forKey:@"schedule"];
+    [c5 setValue:svane forKey:@"pictogram"];
+    [c5 setValue:s5 forKey:@"schedule"];
+    [c6 setValue:svane forKey:@"pictogram"];
+    [c6 setValue:s6 forKey:@"schedule"];
+    [c7 setValue:svane forKey:@"pictogram"];
+    [c7 setValue:s7 forKey:@"schedule"];
+/*
+     NSMutableOrderedSet *allDaysAreTheSame = [[NSMutableOrderedSet alloc] initWithObjects:svane, spade, nil];
+     
+     [s1 setValue:allDaysAreTheSame forKey:@"pictograms"];
+     [s2 setValue:allDaysAreTheSame forKey:@"pictograms"];
+     [s3 setValue:allDaysAreTheSame forKey:@"pictograms"];
+     [s4 setValue:allDaysAreTheSame forKey:@"pictograms"];
+     [s5 setValue:allDaysAreTheSame forKey:@"pictograms"];
+     [s6 setValue:allDaysAreTheSame forKey:@"pictograms"];
+     [s7 setValue:allDaysAreTheSame forKey:@"pictograms"];
+  */
+     
+     [self saveContext];
+     
+     
 }
 
 

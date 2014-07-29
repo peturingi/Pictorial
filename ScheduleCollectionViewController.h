@@ -9,6 +9,6 @@
  @return NO the pictogram was not added
  @note If the pictogram was not added, it is because it was released in an area which does not represent a schedule.
  */
-- (BOOL)addPictogramWithID:(NSManagedObjectID * const)objectID atPoint:(CGPoint const)point;
+- (BOOL)addPictogramWithID:(NSManagedObjectID * const)objectID atPoint:(CGPoint const)point relativeToView:(UIView *)view;
 
 @end

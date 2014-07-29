@@ -53,10 +53,12 @@
 
 #pragma mark Bottom View
 
-- (void)selectedPictogramToAdd:(NSManagedObjectID * const)pictogramIdentifier atLocation:(CGPoint const)location
+- (void)selectedPictogramToAdd:(NSManagedObjectID * const)pictogramIdentifier
+                    atLocation:(CGPoint const)location
+                    relativeTo:(UIView *)view
 {
     UIImage * const image = [self imageForPictogramWithID:pictogramIdentifier]; // TODO resize the image. No need to move a full size image around.
-    CGPoint const targetLocation = [self.view convertPoint:location fromView:bottomView];
+    CGPoint const targetLocation = [self.view convertPoint:location fromView:view];
     
     PictogramView * const pictogramView = [[PictogramView alloc] initWithFrame:[self frameForPictogramAtPoint:targetLocation] andImage:image];
     pictogramView.backgroundColor = [UIColor whiteColor];
@@ -88,9 +90,9 @@
     return [UIApplication sharedApplication].delegate;
 }
 
-- (void)itemMovedTo:(CGPoint const)point
+- (void)itemMovedTo:(CGPoint const)point relativeTo:(UIView *)view
 {
-    const CGPoint locationInView = [self.view convertPoint:point fromView:bottomView];
+    const CGPoint locationInView = [self.view convertPoint:point fromView:view];
     _pictogramBeingMoved.frame = [self frameForPictogramAtPoint:locationInView];
 }
 
@@ -103,12 +105,20 @@
                       edgeLength);
 }
 
-- (void)itemSelectionEndedAtLocation:(CGPoint)location
+/**
+ Handles the notification of an item drop (after dragging).
+ Users drop items (pictograms) on a schedule where they are to be added.
+ @param location The location where the pictogram was dropped.
+ @param view The view to which the location is relative.
+ */
+- (void)itemDroppedAt:(CGPoint)location relativeTo:(UIView * const)view
 {
-    BOOL const pictogramWasAdded = [_topViewController addPictogramWithID:_idOfPictogramBeingMoved
-                                                                  atPoint:[_topViewController.collectionView convertPoint:location
-                                                                                                                 fromView:bottomView]];
-    if (pictogramWasAdded) [_pictogramBeingMoved removeFromSuperview];
+    NSAssert(view, @"The view must not be empty.");
+    
+    BOOL const wasAdded = [_topViewController addPictogramWithID:_idOfPictogramBeingMoved
+                                                        atPoint:location
+                                                  relativeToView:view];
+    if (wasAdded) [_pictogramBeingMoved removeFromSuperview];
     else [self animatePictogramBackToOriginalPosition];
 }
 

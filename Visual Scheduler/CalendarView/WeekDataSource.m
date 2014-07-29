@@ -18,12 +18,13 @@
 
 - (void)setupDataSource
 {
-    const AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    AppDelegate * const delegate = [[UIApplication sharedApplication] delegate];
     self.managedObjectContext = delegate.managedObjectContext;
     NSAssert(_managedObjectContext, @"Failed to get managedObjectContext.");
     
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:CD_ENTITY_SCHEDULE];
-    const NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:CD_KEY_SCHEDULE_DATE ascending:YES];
+    
+    NSSortDescriptor * const sort = [[NSSortDescriptor alloc] initWithKey:CD_KEY_SCHEDULE_DATE ascending:YES];
     [request setSortDescriptors:[NSArray arrayWithObject:sort]];
     [request setFetchBatchSize:CD_FETCH_BATCH_SIZE];
     _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
@@ -31,7 +32,7 @@
                                                                       sectionNameKeyPath:@"date"
                                                                                cacheName:nil];
     NSAssert(_fetchedResultsController, @"Failed to get fetchedResultsController.");
-    const NSError *error;
+    NSError *error;
     [self.fetchedResultsController performFetch:&error];
     if (error) @throw [NSException exceptionWithName:@"Core Data: Fetch failed." reason:error.localizedFailureReason userInfo:nil];
 }
@@ -40,7 +41,7 @@
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    const NSInteger sectionCount = self.fetchedResultsController.sections.count;
+    NSInteger const sectionCount = self.fetchedResultsController.sections.count;
     NSAssert(sectionCount >= 1, @"No sections found. This could mean that no schedule has been created yet.");
     return sectionCount;
 }
@@ -52,25 +53,26 @@
     NSAssert([sectionInfo objects].count == 1, @"Each day (section) must contain only a single schedule.");
     
     // Return the schedules pictogram count.
-    const NSManagedObject *schedule = [sectionInfo objects].firstObject;
-    const NSOrderedSet *pictograms = [schedule valueForKey:CD_KEY_SCHEDULE_PICTOGRAMS];
+    NSManagedObject * const schedule = [sectionInfo objects].firstObject;
+    NSOrderedSet * const pictograms = [schedule valueForKey:CD_KEY_SCHEDULE_PICTOGRAMS];
     return pictograms.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     // Get section containing the schedule which contains the pictogram I want to display.
-    const id <NSFetchedResultsSectionInfo> section = [self.fetchedResultsController sections][indexPath.section];
+    id <NSFetchedResultsSectionInfo> const section = [self.fetchedResultsController sections][indexPath.section];
     NSAssert([section objects].count == 1, @"Each day (section) must contain only a single schedule.");
-    const NSManagedObject *schedule = [section objects].firstObject;
+    NSManagedObject * const schedule = [section objects].firstObject;
     
     // Get the pictogram I want to display.
-    const NSArray *pictogramsInSchedule = [schedule valueForKey:CD_KEY_SCHEDULE_PICTOGRAMS];
-    const NSManagedObject *pictogram = pictogramsInSchedule[indexPath.item];
+    NSArray * const pictogramsInSchedule = [schedule valueForKey:CD_KEY_SCHEDULE_PICTOGRAMS];
+    NSManagedObject * const pictogramContainer = pictogramsInSchedule[indexPath.item];
+    NSManagedObject * const pictogram = [pictogramContainer valueForKey:@"pictogram"];
     
     // Return the pictogram in a collectionView cell.
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CALENDAR_CELL forIndexPath:indexPath];
-    const UIImageView *imageView = (UIImageView *)[cell.contentView firstSubviewWithTag:CELL_TAG_FOR_IMAGE_VIEW];
+    UIImageView * const imageView = (UIImageView *)[cell.contentView firstSubviewWithTag:CELL_TAG_FOR_IMAGE_VIEW];
     NSData *imageData = [pictogram valueForKey:CD_KEY_PICTOGRAM_IMAGE];
     UIImage *image = [[UIImage alloc] initWithData:imageData];
     imageView.image = image;

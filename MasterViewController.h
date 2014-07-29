@@ -15,8 +15,8 @@
     NSManagedObjectID *_idOfPictogramBeingMoved;
 }
 
-- (void)selectedPictogramToAdd:(NSManagedObjectID *)pictogramIdentifier atLocation:(CGPoint)location;
-- (void)itemSelectionEndedAtLocation:(CGPoint const)location;
-- (void)itemMovedTo:(CGPoint)point;
+- (void)selectedPictogramToAdd:(NSManagedObjectID *)pictogramIdentifier atLocation:(CGPoint)location relativeTo:(UIView *)view;
+- (void)itemDroppedAt:(CGPoint const)location relativeTo:(UIView * const)view;
+- (void)itemMovedTo:(CGPoint)point relativeTo:(UIView *)view;
 
 @end
