@@ -13,7 +13,7 @@
 }
 
 - (void)registerSupplementaryView {
-    UINib *headerView = [UINib nibWithNibName:@"BackgroundColor" bundle:nil];
+    UINib *headerView = [UINib nibWithNibName:@"DayHeader" bundle:nil];
     if (headerView == nil) @throw [NSException exceptionWithName:@"Failed to load nib." reason:@"Unknown" userInfo:nil];
     [self registerNib:headerView forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:DAY_OF_WEEK_COLOR];
 }

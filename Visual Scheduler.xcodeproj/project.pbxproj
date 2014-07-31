@@ -43,7 +43,7 @@
 		D83A62E518B696DC00EC0773 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D83A62E318B696DC00EC0773 /* InfoPlist.strings */; };
 		D83BFE4B1907CAE600F72646 /* UIView+HoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = D83BFE4A1907CAE600F72646 /* UIView+HoverView.m */; };
 		D83BFE4E1907EDCE00F72646 /* PictogramSelectorDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D83BFE4D1907EDCE00F72646 /* PictogramSelectorDataSource.m */; };
-		D8401AAA1900312A00BAF82F /* BackgroundColor.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8401AA91900312A00BAF82F /* BackgroundColor.xib */; };
+		D8401AAA1900312A00BAF82F /* DayHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8401AA91900312A00BAF82F /* DayHeader.xib */; };
 		D8401B471901846100BAF82F /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8401B461901846100BAF82F /* ScheduleViewController.m */; };
 		D8466D051980FDB100781710 /* PictogramCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = D8466D041980FDB100781710 /* PictogramCreator.m */; };
 		D8472B871922C07E00EBE741 /* UICollectionView+AbortScrollAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = D8472B861922C07E00EBE741 /* UICollectionView+AbortScrollAnimation.m */; };
@@ -173,7 +173,7 @@
 		D83BFE4A1907CAE600F72646 /* UIView+HoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+HoverView.m"; path = "Visual Scheduler/Category/UIView+HoverView.m"; sourceTree = "<group>"; };
 		D83BFE4C1907EDCE00F72646 /* PictogramSelectorDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PictogramSelectorDataSource.h; path = "Visual Scheduler/Controllers/PictogramSelectorDataSource.h"; sourceTree = "<group>"; };
 		D83BFE4D1907EDCE00F72646 /* PictogramSelectorDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PictogramSelectorDataSource.m; path = "Visual Scheduler/Controllers/PictogramSelectorDataSource.m"; sourceTree = "<group>"; };
-		D8401AA91900312A00BAF82F /* BackgroundColor.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BackgroundColor.xib; path = "Visual Scheduler/CalendarView/BackgroundColor.xib"; sourceTree = "<group>"; };
+		D8401AA91900312A00BAF82F /* DayHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DayHeader.xib; path = "Visual Scheduler/CalendarView/DayHeader.xib"; sourceTree = "<group>"; };
 		D8401B451901846100BAF82F /* ScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScheduleViewController.h; path = CalendarView/ScheduleViewController.h; sourceTree = "<group>"; };
 		D8401B461901846100BAF82F /* ScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScheduleViewController.m; path = CalendarView/ScheduleViewController.m; sourceTree = "<group>"; };
 		D8466D031980FDB100781710 /* PictogramCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictogramCreator.h; sourceTree = "<group>"; };
@@ -375,7 +375,7 @@
 			children = (
 				D88BF8111986618200B1ADAB /* ScheduleCollectionViewController.h */,
 				D88BF8121986618200B1ADAB /* ScheduleCollectionViewController.m */,
-				D8401AA91900312A00BAF82F /* BackgroundColor.xib */,
+				D8401AA91900312A00BAF82F /* DayHeader.xib */,
 				D82C0CDA18F80DFB005B5569 /* WeekDataSource.h */,
 				D82C0CDB18F80DFB005B5569 /* WeekDataSource.m */,
 				D8C7BDE5190287E800128FA7 /* WeekCollectionViewLayout.h */,
@@ -683,7 +683,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8401AAA1900312A00BAF82F /* BackgroundColor.xib in Resources */,
+				D8401AAA1900312A00BAF82F /* DayHeader.xib in Resources */,
 				D800E4AF196D50CC00465541 /* svane.png in Resources */,
 				D850E82C18C885230051CD51 /* Main.storyboard in Resources */,
 				D85EBDD718DC804400DF76B7 /* washhands.png in Resources */,
