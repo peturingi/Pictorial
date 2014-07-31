@@ -90,7 +90,7 @@
     // Set the color
     UIColor *color = [NSKeyedUnarchiver unarchiveObjectWithData:[schedule valueForKey:CD_KEY_SCHEDULE_COLOR]];
     UICollectionReusableView *view = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader
-                                                                        withReuseIdentifier:DAY_OF_WEEK_COLOR
+                                                                        withReuseIdentifier:DAY_HEADER
                                                                                forIndexPath:indexPath];
     view.backgroundColor = color;
     

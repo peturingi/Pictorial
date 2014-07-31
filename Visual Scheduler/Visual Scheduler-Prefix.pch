@@ -32,7 +32,7 @@
 
 // Registered Constants for Dequeu views.
 #define CALENDAR_CELL               @"CALENDAR_CELL"
-#define DAY_OF_WEEK_COLOR           @"DayOfWeekColor"
+#define DAY_HEADER                  @"DAY_HEADER"
 
 // Schedule View
 #define PICTOGRAM_BORDER_RADIUS     5.0f
