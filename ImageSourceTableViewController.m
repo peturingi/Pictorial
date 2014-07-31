@@ -6,7 +6,8 @@
 
 @implementation ImageSourceTableViewController
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
     /**
      The rows have tags set in the Storyboard:
      1  Camera
@@ -14,10 +15,11 @@
      */
     switch ([self.tableView cellForRowAtIndexPath:indexPath].tag) {
         case 1:
-            NSLog(@"Camera");
+            // TODO small bug. The popovercontroller does not get hidden when the camera is shown. I am not sure how to fix that.
+            [self.delegate showCameraPicker];
             break;
         case 2:
-            NSLog(@"Photo Album");
+            [self.delegate showAlbumPicker];
             break;
         default:
             NSAssert(false, @"Should not be reachable.");
