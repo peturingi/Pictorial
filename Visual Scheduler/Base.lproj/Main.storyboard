@@ -92,7 +92,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewLayout key="collectionViewLayout" id="asr-9d-iwn" customClass="WeekCollectionViewLayout"/>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CALENDAR_CELL" id="ww4-wN-Z99" customClass="CalendarCell">
+                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CALENDAR_CELL" id="ww4-wN-Z99" customClass="CalendarCell">
                                 <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -102,6 +102,15 @@
                                         <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gd0-nE-j2E">
                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                         </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FGN-Jy-vzf" userLabel="Delete Button">
+                                            <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="tintColor" red="1" green="0.051676359249999998" blue="0.10486219419999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <state key="normal" image="DeletePictogram"/>
+                                            <connections>
+                                                <action selector="deletePictogramFromSchedule:" destination="FBT-CU-eS9" eventType="touchUpInside" id="Fjq-lb-i4D"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
@@ -122,7 +131,6 @@
                         <connections>
                             <outlet property="dataSource" destination="sdn-O5-Gfu" id="KFb-0n-aif"/>
                             <outlet property="delegate" destination="FBT-CU-eS9" id="lD8-9h-UUI"/>
-                            <outletCollection property="gestureRecognizers" destination="2We-zt-xLJ" appends="YES" id="PGF-jH-FGp"/>
                         </connections>
                     </collectionView>
                     <connections>
@@ -131,11 +139,6 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kjn-r4-5Vt" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="sdn-O5-Gfu" customClass="WeekDataSource"/>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="2We-zt-xLJ">
-                    <connections>
-                        <action selector="handleRemovalOfPictogramFromScheduleGesture:" destination="FBT-CU-eS9" id="N7B-aF-QI4"/>
-                    </connections>
-                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-118" y="-2425"/>
         </scene>
@@ -345,6 +348,9 @@
             <point key="canvasLocation" x="-1064" y="-2367"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="DeletePictogram" width="800" height="800"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackOpaque"/>
         <simulatedOrientationMetrics key="orientation"/>

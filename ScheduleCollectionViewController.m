@@ -5,18 +5,14 @@
 
 #pragma mark - Remove pictogram from schedule
 
-/** Removes the pressed pictogram from the schedule and collection view it belonged to; persists the changes.
- */
-- (IBAction)handleRemovalOfPictogramFromScheduleGesture:(UIGestureRecognizer *)sender
+- (IBAction)deletePictogramFromSchedule:(UIButton *)sender
 {
-    NSAssert(sender, @"This method depends on the sender parameter.");
-    if (sender.state == UIGestureRecognizerStateBegan) {
-        NSIndexPath * const pictogramToRemove = [self.collectionView indexPathForItemAtPoint:[sender locationInView:sender.view]];
-        if (pictogramToRemove) {
-            [self removePictogramAtIndex:pictogramToRemove.item fromSchedule:[self scheduleInSection:pictogramToRemove.section]];
-            [self saveSchedule];
-            [self.collectionView deleteItemsAtIndexPaths:@[pictogramToRemove]];
-        }
+    UICollectionViewCell * const sendersCell = (UICollectionViewCell *)sender.superview.superview;
+    NSIndexPath * const pictogramToRemove = [self.collectionView indexPathForCell:sendersCell];
+    if (pictogramToRemove) {
+        [self removePictogramAtIndex:pictogramToRemove.item fromSchedule:[self scheduleInSection:pictogramToRemove.section]];
+        [self saveSchedule];
+        [self.collectionView deleteItemsAtIndexPaths:@[pictogramToRemove]];
     }
 }
 
