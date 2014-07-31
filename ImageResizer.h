@@ -1,5 +1,7 @@
 #import <UIKit/UIKit.h>
 
+/** Creates a new image, resized to a given size.
+ */
 @interface ImageResizer : NSObject
 
 @property UIImage *image;

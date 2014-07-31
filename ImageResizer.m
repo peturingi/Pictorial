@@ -11,7 +11,7 @@
     self = [super init];
     
     if (self) {
-        _image = anImage;
+        self.image = anImage;
     }
     
     NSAssert(self, @"Super failed to init.");
@@ -19,7 +19,7 @@
 }
 
 - (void)dealloc {
-    _image = nil;
+    self.image = nil;
 }
 
 - (UIImage *)getImageResizedTo:(CGSize)size {
