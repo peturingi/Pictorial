@@ -1,13 +1,13 @@
-#import "CameraDelegate.h"
-#import "Camera.h"
+#import "PickerDelegate.h"
+#import "Picker.h"
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 #import "PictogramView.h"
 #import "ScheduleCollectionViewController.h"
 
 
-@interface MasterViewController : UIViewController <CameraDelegate> {
-    Camera *camera;
+@interface MasterViewController : UIViewController <PickerDelegate> {
+    Picker *picker;
     __weak ScheduleCollectionViewController *_topViewController;
     __weak IBOutlet UIView *bottomView;
     

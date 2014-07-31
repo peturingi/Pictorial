@@ -30,7 +30,7 @@
 		D82C0CDC18F80DFB005B5569 /* WeekDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D82C0CDB18F80DFB005B5569 /* WeekDataSource.m */; };
 		D82C0CE218F8813F005B5569 /* CalendarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D82C0CE118F8813F005B5569 /* CalendarCell.m */; };
 		D82D5FD418C616A6000A8FD3 /* UIView+BBASubviews.m in Sources */ = {isa = PBXBuildFile; fileRef = D82D5FD318C616A6000A8FD3 /* UIView+BBASubviews.m */; };
-		D8315AF418D39DEA00C4A340 /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = D8315AF218D39DEA00C4A340 /* Camera.m */; };
+		D8315AF418D39DEA00C4A340 /* CameraPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = D8315AF218D39DEA00C4A340 /* CameraPicker.m */; };
 		D83A62BC18B696DC00EC0773 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BB18B696DC00EC0773 /* Foundation.framework */; };
 		D83A62BE18B696DC00EC0773 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BD18B696DC00EC0773 /* CoreGraphics.framework */; };
 		D83A62C018B696DC00EC0773 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BF18B696DC00EC0773 /* UIKit.framework */; };
@@ -66,6 +66,10 @@
 		D85EBDDA18DC833A00DF76B7 /* BBAColor.m in Sources */ = {isa = PBXBuildFile; fileRef = D85EBDD918DC833A00DF76B7 /* BBAColor.m */; };
 		D85EBDDF18DC83B200DF76B7 /* BBAColor.m in Sources */ = {isa = PBXBuildFile; fileRef = D85EBDD918DC833A00DF76B7 /* BBAColor.m */; };
 		D862E676192A2E6200F6E1E5 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D853A81118E1E0280031E986 /* libsqlite3.dylib */; };
+		D87607041988C720000D78D4 /* ImportImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D87607031988C720000D78D4 /* ImportImageViewController.m */; };
+		D87607071988C8D2000D78D4 /* ImageSourceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D87607061988C8D2000D78D4 /* ImageSourceTableViewController.m */; };
+		D876070B1988CC85000D78D4 /* AlbumPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = D876070A1988CC85000D78D4 /* AlbumPicker.m */; };
+		D876070E1988CD02000D78D4 /* Picker.m in Sources */ = {isa = PBXBuildFile; fileRef = D876070D1988CD02000D78D4 /* Picker.m */; };
 		D881B56D196D3404008B10F9 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D881B56B196D3404008B10F9 /* Model.xcdatamodeld */; };
 		D887832E18C8E33300F13B28 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		D889F7EE18C9249A008A497F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D83A62CB18B696DC00EC0773 /* AppDelegate.m */; };
@@ -142,9 +146,9 @@
 		D82C0CE118F8813F005B5569 /* CalendarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarCell.m; path = "Visual Scheduler/CalendarView/CalendarCell.m"; sourceTree = "<group>"; };
 		D82D5FD218C616A6000A8FD3 /* UIView+BBASubviews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+BBASubviews.h"; path = "Visual Scheduler/Category/UIView+BBASubviews.h"; sourceTree = "<group>"; };
 		D82D5FD318C616A6000A8FD3 /* UIView+BBASubviews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+BBASubviews.m"; path = "Visual Scheduler/Category/UIView+BBASubviews.m"; sourceTree = "<group>"; };
-		D8315AF118D39DEA00C4A340 /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Camera.h; path = "Visual Scheduler/Camera.h"; sourceTree = "<group>"; };
-		D8315AF218D39DEA00C4A340 /* Camera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Camera.m; path = "Visual Scheduler/Camera.m"; sourceTree = "<group>"; };
-		D8315AF318D39DEA00C4A340 /* CameraDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraDelegate.h; sourceTree = "<group>"; };
+		D8315AF118D39DEA00C4A340 /* CameraPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CameraPicker.h; path = "Visual Scheduler/CameraPicker.h"; sourceTree = "<group>"; };
+		D8315AF218D39DEA00C4A340 /* CameraPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CameraPicker.m; path = "Visual Scheduler/CameraPicker.m"; sourceTree = "<group>"; };
+		D8315AF318D39DEA00C4A340 /* PickerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PickerDelegate.h; path = "Visual Scheduler/PickerDelegate.h"; sourceTree = "<group>"; };
 		D8315AFB18D39E0600C4A340 /* MockCameraDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockCameraDelegate.h; sourceTree = "<group>"; };
 		D8315AFC18D39E0600C4A340 /* MockCameraDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockCameraDelegate.m; sourceTree = "<group>"; };
 		D832357B1902D80800FA4DFF /* ContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContainerViewController.h; path = "Visual Scheduler/Controllers/ContainerViewController.h"; sourceTree = "<group>"; };
@@ -198,11 +202,20 @@
 		D85EBDD018DC804400DF76B7 /* washhands.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = washhands.png; sourceTree = "<group>"; };
 		D85EBDD818DC833A00DF76B7 /* BBAColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBAColor.h; path = Components/BBAColor.h; sourceTree = "<group>"; };
 		D85EBDD918DC833A00DF76B7 /* BBAColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBAColor.m; path = Components/BBAColor.m; sourceTree = "<group>"; };
+		D87607021988C720000D78D4 /* ImportImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImportImageViewController.h; sourceTree = "<group>"; };
+		D87607031988C720000D78D4 /* ImportImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImportImageViewController.m; sourceTree = "<group>"; };
+		D87607051988C8D2000D78D4 /* ImageSourceTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSourceTableViewController.h; sourceTree = "<group>"; };
+		D87607061988C8D2000D78D4 /* ImageSourceTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageSourceTableViewController.m; sourceTree = "<group>"; };
+		D87607091988CC85000D78D4 /* AlbumPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumPicker.h; sourceTree = "<group>"; };
+		D876070A1988CC85000D78D4 /* AlbumPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumPicker.m; sourceTree = "<group>"; };
+		D876070C1988CD02000D78D4 /* Picker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Picker.h; sourceTree = "<group>"; };
+		D876070D1988CD02000D78D4 /* Picker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Picker.m; sourceTree = "<group>"; };
 		D8805F3D18C5DD01001BD35B /* CreatePictogram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CreatePictogram.h; path = "Visual Scheduler/Controllers/CreatePictogram.h"; sourceTree = "<group>"; };
 		D8805F3E18C5DD01001BD35B /* CreatePictogram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CreatePictogram.m; path = "Visual Scheduler/Controllers/CreatePictogram.m"; sourceTree = "<group>"; };
 		D881B56C196D3404008B10F9 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		D88BF8111986618200B1ADAB /* ScheduleCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleCollectionViewController.h; sourceTree = "<group>"; };
 		D88BF8121986618200B1ADAB /* ScheduleCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleCollectionViewController.m; sourceTree = "<group>"; };
+		D88C300B1988D27D003F5BDC /* Picker+Protected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Picker+Protected.h"; sourceTree = "<group>"; };
 		D8AFD99C1901BF2400A294D5 /* DayCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DayCollectionViewController.h; path = "Visual Scheduler/CalendarView/DayCollectionViewController.h"; sourceTree = "<group>"; };
 		D8AFD99D1901BF2400A294D5 /* DayCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DayCollectionViewController.m; path = "Visual Scheduler/CalendarView/DayCollectionViewController.m"; sourceTree = "<group>"; };
 		D8B016ED18FEB85700017D76 /* CalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarView.h; path = "Visual Scheduler/CalendarView/CalendarView.h"; sourceTree = "<group>"; };
@@ -343,7 +356,6 @@
 			isa = PBXGroup;
 			children = (
 				D8315AF618D39E0600C4A340 /* BBACameraTests */,
-				D8315AF318D39DEA00C4A340 /* CameraDelegate.h */,
 			);
 			name = Camera;
 			sourceTree = "<group>";
@@ -380,6 +392,8 @@
 		D83A62AF18B696DB00EC0773 = {
 			isa = PBXGroup;
 			children = (
+				D87607021988C720000D78D4 /* ImportImageViewController.h */,
+				D87607031988C720000D78D4 /* ImportImageViewController.m */,
 				D881B569196D2D8A008B10F9 /* Dead Code */,
 				68D7964519092E590047A0CE /* Misc */,
 				D87964B91906A09500333CD1 /* UI */,
@@ -496,24 +510,56 @@
 			name = Color;
 			sourceTree = "<group>";
 		};
-		D87964B91906A09500333CD1 /* UI */ = {
+		D87606FE1987C2A8000D78D4 /* New Pictogram */ = {
 			isa = PBXGroup;
 			children = (
-				D80706A1196ED92100B93F40 /* MasterViewController.h */,
-				D80706A2196ED92100B93F40 /* MasterViewController.m */,
+				D84855C91985506F0085C734 /* ImageResizer.h */,
+				D84855CA1985506F0085C734 /* ImageResizer.m */,
 				D8805F3D18C5DD01001BD35B /* CreatePictogram.h */,
 				D8805F3E18C5DD01001BD35B /* CreatePictogram.m */,
 				D8466D031980FDB100781710 /* PictogramCreator.h */,
 				D8466D041980FDB100781710 /* PictogramCreator.m */,
-				D84855C91985506F0085C734 /* ImageResizer.h */,
-				D84855CA1985506F0085C734 /* ImageResizer.m */,
+			);
+			name = "New Pictogram";
+			sourceTree = "<group>";
+		};
+		D87607081988CA8A000D78D4 /* Import Photo */ = {
+			isa = PBXGroup;
+			children = (
+				D876070C1988CD02000D78D4 /* Picker.h */,
+				D876070D1988CD02000D78D4 /* Picker.m */,
+				D88C300B1988D27D003F5BDC /* Picker+Protected.h */,
+				D8315AF318D39DEA00C4A340 /* PickerDelegate.h */,
+				D876070F1988CD16000D78D4 /* Generalizations */,
+			);
+			name = "Import Photo";
+			sourceTree = "<group>";
+		};
+		D876070F1988CD16000D78D4 /* Generalizations */ = {
+			isa = PBXGroup;
+			children = (
+				D87607091988CC85000D78D4 /* AlbumPicker.h */,
+				D876070A1988CC85000D78D4 /* AlbumPicker.m */,
+				D8315AF118D39DEA00C4A340 /* CameraPicker.h */,
+				D8315AF218D39DEA00C4A340 /* CameraPicker.m */,
+			);
+			name = Generalizations;
+			sourceTree = "<group>";
+		};
+		D87964B91906A09500333CD1 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				D87607081988CA8A000D78D4 /* Import Photo */,
+				D80706A1196ED92100B93F40 /* MasterViewController.h */,
+				D80706A2196ED92100B93F40 /* MasterViewController.m */,
+				D87606FE1987C2A8000D78D4 /* New Pictogram */,
 				D85E214D1985270300B611DE /* PictogramView.h */,
 				D85E214E1985270300B611DE /* PictogramView.m */,
-				D8315AF118D39DEA00C4A340 /* Camera.h */,
-				D8315AF218D39DEA00C4A340 /* Camera.m */,
 				D8387DBF18F9A94A00DD716C /* Top View */,
 				D8805F4818C5E459001BD35B /* Bottom View */,
 				D83A62CD18B696DC00EC0773 /* Main.storyboard */,
+				D87607051988C8D2000D78D4 /* ImageSourceTableViewController.h */,
+				D87607061988C8D2000D78D4 /* ImageSourceTableViewController.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -675,6 +721,7 @@
 				68D7964819092E690047A0CE /* MathUtils.m in Sources */,
 				D82D5FD418C616A6000A8FD3 /* UIView+BBASubviews.m in Sources */,
 				68D7964419092E490047A0CE /* NSString+TimeFormatted.m in Sources */,
+				D87607071988C8D2000D78D4 /* ImageSourceTableViewController.m in Sources */,
 				68D7963419092D130047A0CE /* UIView+Wiggle.m in Sources */,
 				D8472B871922C07E00EBE741 /* UICollectionView+AbortScrollAnimation.m in Sources */,
 				D80706A0196ED05F00B93F40 /* CreatePictogram.m in Sources */,
@@ -683,7 +730,9 @@
 				D81ABB80190966C5000B81F3 /* DayCollectionViewLayout.m in Sources */,
 				D8BABEC018EC6839009E562E /* NSMutableArray+MoveObject.m in Sources */,
 				D858CB8719221E0B00402E24 /* NSDate+VisualScheduler.m in Sources */,
+				D876070B1988CC85000D78D4 /* AlbumPicker.m in Sources */,
 				D8466D051980FDB100781710 /* PictogramCreator.m in Sources */,
+				D87607041988C720000D78D4 /* ImportImageViewController.m in Sources */,
 				68D7965C190947CB0047A0CE /* Timer.m in Sources */,
 				D83BFE4E1907EDCE00F72646 /* PictogramSelectorDataSource.m in Sources */,
 				68D7965E190947CB0047A0CE /* WatchDialView.m in Sources */,
@@ -693,13 +742,14 @@
 				D83A62C818B696DC00EC0773 /* main.m in Sources */,
 				D84855CB1985506F0085C734 /* ImageResizer.m in Sources */,
 				D889F7EE18C9249A008A497F /* AppDelegate.m in Sources */,
+				D876070E1988CD02000D78D4 /* Picker.m in Sources */,
 				D81ABB8719097F62000B81F3 /* NowCollectionViewLayout.m in Sources */,
 				D85EBDDA18DC833A00DF76B7 /* BBAColor.m in Sources */,
 				D85E214F1985270300B611DE /* PictogramView.m in Sources */,
 				D8401B471901846100BAF82F /* ScheduleViewController.m in Sources */,
 				68D7965D190947CB0047A0CE /* TimerView.m in Sources */,
 				683941091903D0F500C05F3C /* NSString+CapitalizeSentence.m in Sources */,
-				D8315AF418D39DEA00C4A340 /* Camera.m in Sources */,
+				D8315AF418D39DEA00C4A340 /* CameraPicker.m in Sources */,
 				D881B56D196D3404008B10F9 /* Model.xcdatamodeld in Sources */,
 				D82C0CE218F8813F005B5569 /* CalendarCell.m in Sources */,
 				D80706A3196ED92100B93F40 /* MasterViewController.m in Sources */,

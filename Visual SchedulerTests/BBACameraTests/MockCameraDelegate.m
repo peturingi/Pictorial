@@ -6,7 +6,7 @@
     return receivedCameraDidAppear;
 }
 
-- (void)cameraDidAppear:(Camera *)camera {
+- (void)pickerDidAppear:(CameraPicker *)camera {
     receivedCameraDidAppear = YES;
 }
 

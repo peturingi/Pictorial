@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "CameraDelegate.h"
 
-@interface MockCameraDelegate : NSObject <CameraDelegate> {
+@interface MockCameraDelegate : NSObject <PickerDelegate> {
     BOOL receivedCameraDidAppear;
 }
 

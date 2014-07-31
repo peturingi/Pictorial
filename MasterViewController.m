@@ -3,6 +3,8 @@
 #import "PictogramSelectorViewController.h"
 #import <CoreData/CoreData.h>
 #import "AppDelegate.h"
+#import "CameraPicker.h"
+#import "AlbumPicker.h"
 
 @implementation MasterViewController
 
@@ -11,11 +13,11 @@
     if ([segue.identifier isEqualToString:SEGUE_NEW_PICTOGRAM]) {
         CreatePictogram * const destinationController = segue.destinationViewController;
         
-        if (camera) {
-            destinationController.photo = [camera develop];
-            camera = nil; // Free the camera
+        if (picker) {
+            destinationController.photo = picker.image;
+            picker = nil; // Free the camera
         }
-        else { @throw [NSException exceptionWithName:@"Camera now found." reason:@"Camera was nil." userInfo:nil]; }
+        else { @throw [NSException exceptionWithName:@"Picker now found." reason:@"picker was nil." userInfo:nil]; }
     }
     
     // Set self as the pictogram selectors delegate.
@@ -34,17 +36,24 @@
 
 - (IBAction)cameraButton:(id)sender
 {
-    camera = [[Camera alloc] init];
-    camera.delegate = self;
-    [camera show];
+    picker = [[CameraPicker alloc] init];
+    picker.delegate = self;
+    [picker show];
 }
 
-- (void)cameraDisappearedWithoutSnappingPhoto:(Camera *)sender
+- (IBAction)albumButton:(id)sender
 {
-    camera = nil; // Free the camera.
+    picker = [[AlbumPicker alloc] init];
+    picker.delegate = self;
+    [picker show];
 }
 
-- (void)cameraDisappearedAfterSnappingPhoto:(Camera * )sender
+- (void)pickerDisappearedWithoutPickingPhoto:(CameraPicker *)sender
+{
+    picker = nil; // Free the camera.
+}
+
+- (void)pickerDisappearedAfterPickingPhoto:(CameraPicker * )sender
 {
     [self performSegueWithIdentifier:SEGUE_NEW_PICTOGRAM sender:nil];
 }
