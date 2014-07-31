@@ -155,8 +155,8 @@ static const NSInteger INSET_BOTTOM = 2;
         }
         else if ([key isEqualToString:HEADER_KEY]) {
             NSDictionary *headerAttributes = [self headerAttributes];
-            for (NSIndexPath *key in headerAttributes) {
-                [results addObject:[headerAttributes objectForKey:key]];
+            for (NSIndexPath *k in headerAttributes) {
+                [results addObject:[headerAttributes objectForKey:k]];
             }
         }
     }
