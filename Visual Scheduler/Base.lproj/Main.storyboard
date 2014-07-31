@@ -36,7 +36,7 @@
                                 </items>
                             </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="28P-ZL-LYR">
-                                <rect key="frame" x="70" y="178" width="400" height="279"/>
+                                <rect key="frame" x="120" y="178" width="300" height="300"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vcp-x6-6PK">
@@ -60,14 +60,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9gL-qQ-Dm1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-98" y="-3229"/>
+            <point key="canvasLocation" x="-100" y="-3236"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LMG-h6-PzK">
             <objects>
-                <navigationController definesPresentationContext="YES" navigationBarHidden="YES" id="wuf-cq-nwa" sceneMemberID="viewController">
+                <navigationController definesPresentationContext="YES" navigationBarHidden="YES" toolbarHidden="NO" id="wuf-cq-nwa" sceneMemberID="viewController">
                     <nil key="simulatedTopBarMetrics"/>
-                    <nil key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8N6-YY-0y4">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -88,7 +87,7 @@
             <objects>
                 <collectionViewController autoresizesArchivedViewToFullSize="NO" id="FBT-CU-eS9" customClass="ScheduleCollectionViewController" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="iyG-a6-xfH" customClass="CalendarView">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="541"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="521"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewLayout key="collectionViewLayout" id="asr-9d-iwn" customClass="WeekCollectionViewLayout"/>
@@ -269,7 +268,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mVO-gN-Zbc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1374" y="-2729"/>
+            <point key="canvasLocation" x="-1376" y="-2602"/>
         </scene>
         <!--Master View Controller-->
         <scene sceneID="ZQS-c9-YlW">
@@ -280,59 +279,43 @@
                         <viewControllerLayoutGuide type="bottom" id="xJL-F2-81S"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3Ug-ui-Wfq">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="980"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <containerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j17-jP-moV" userLabel="Bottom Container">
-                                <rect key="frame" x="0.0" y="579" width="768" height="445"/>
+                                <rect key="frame" x="0.0" y="535" width="768" height="445"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="FA2-Kn-Gqf" kind="embed" identifier="SEGUE_EMBED_PICTORAM_SELECTOR" id="nsD-SV-kCn"/>
                                 </connections>
                             </containerView>
-                            <containerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TPj-VT-Xow">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="541"/>
+                            <containerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TPj-VT-Xow" userLabel="Topview">
+                                <rect key="frame" x="0.0" y="18" width="768" height="521"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="FBT-CU-eS9" kind="embed" identifier="SEGUE_EMBED_TOPVIEW" id="G4v-B8-OwZ"/>
                                 </connections>
                             </containerView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g08-BF-tte">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g08-BF-tte" userLabel="Toolbar">
                                 <rect key="frame" x="0.0" y="540" width="768" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5iq-cf-6FA">
-                                        <rect key="frame" x="20" y="6" width="46" height="30"/>
+                                        <rect key="frame" x="20" y="6" width="45" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
+                                        <state key="normal" title="Import"/>
                                         <connections>
-                                            <action selector="cameraButton:" destination="Xfv-XK-laj" eventType="touchUpInside" id="9Qc-YN-Rot"/>
-                                            <segue destination="sX2-J3-ISF" kind="popover" popoverAnchorView="5iq-cf-6FA" id="1gj-BD-asb">
+                                            <segue destination="sX2-J3-ISF" kind="popover" identifier="SEGUE_IMAGE_SOURCE" popoverAnchorView="5iq-cf-6FA" id="1gj-BD-asb">
                                                 <popoverArrowDirection key="popoverArrowDirection" down="YES"/>
                                             </segue>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ery-rq-axn">
-                                        <rect key="frame" x="101" y="6" width="54" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWI-UH-5hS">
+                                        <rect key="frame" x="711" y="6" width="40" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Camera">
+                                        <state key="normal" title="Down">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <connections>
-                                            <action selector="cameraButton:" destination="Xfv-XK-laj" eventType="touchUpInside" id="xfY-2H-K7y"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="abS-ud-okB">
-                                        <rect key="frame" x="186" y="6" width="44" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Album">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="albumButton:" destination="Xfv-XK-laj" eventType="touchUpInside" id="xoW-Fq-8mi"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -342,16 +325,15 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems>
-                        <barButtonItem systemItem="camera" id="SGf-sU-gKG">
-                            <connections>
-                                <action selector="cameraButton:" destination="Xfv-XK-laj" id="BCc-lF-tpO"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="b3W-yc-uF7"/>
+                        <barButtonItem title="Day" id="yyS-qw-HFa"/>
+                        <barButtonItem title="Week" id="trc-5K-fJZ"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="JKA-ua-WWO"/>
+                        <barButtonItem title="Up" id="GXR-Iu-jgv"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="kqo-Vj-Gd5">
                         <nil key="title"/>
                     </navigationItem>
-                    <nil key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="768" height="1024"/>
                     <connections>
                         <outlet property="bottomView" destination="j17-jP-moV" id="LQd-MU-xWP"/>
