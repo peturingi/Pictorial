@@ -32,7 +32,6 @@
 -(void)setupAudioPlayer{
     NSString *path = [[NSBundle mainBundle] pathForResource:@"ding" ofType:@"m4a"];
     _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:path] error:NULL];
-#warning magic number
     [_audioPlayer setNumberOfLoops:-1];
     
     // Always throws C++ exception (__cxa_throw); it does not need to be handled.
