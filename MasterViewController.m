@@ -5,6 +5,7 @@
 #import "AppDelegate.h"
 #import "CameraPicker.h"
 #import "AlbumPicker.h"
+#import "ImageSourceTableViewController.h"
 
 @implementation MasterViewController
 
@@ -30,30 +31,43 @@
     if ([segue.identifier isEqualToString:@"SEGUE_EMBED_TOPVIEW"]) {
         _topViewController = segue.destinationViewController;
     }
+    
+    if ([segue.identifier isEqualToString:@"SEGUE_IMAGE_SOURCE"]) {
+        ImageSourceTableViewController * const destination = segue.destinationViewController;
+        destination.delegate = self;
+    }
 }
 
-#pragma mark Camera
+- (void)dealloc {
+    picker = nil;
+    _idOfPictogramBeingMoved = nil;
+}
 
-- (IBAction)cameraButton:(id)sender
+#pragma mark - Import Image
+
+- (void)showCameraPicker
 {
-    picker = [[CameraPicker alloc] init];
+    [self showPicker:[CameraPicker class]];
+}
+
+- (void)showAlbumPicker
+{
+    [self showPicker:[AlbumPicker class]];
+}
+
+- (void)showPicker:(Class)pickerClass {
+    NSAssert([pickerClass isSubclassOfClass:[Picker class]], @"Invalid class.");
+    picker = [[pickerClass alloc] init];
     picker.delegate = self;
     [picker show];
 }
 
-- (IBAction)albumButton:(id)sender
+- (void)pickerDisappearedWithoutPickingPhoto:(Picker *)sender
 {
-    picker = [[AlbumPicker alloc] init];
-    picker.delegate = self;
-    [picker show];
+    picker = nil;
 }
 
-- (void)pickerDisappearedWithoutPickingPhoto:(CameraPicker *)sender
-{
-    picker = nil; // Free the camera.
-}
-
-- (void)pickerDisappearedAfterPickingPhoto:(CameraPicker * )sender
+- (void)pickerDisappearedAfterPickingPhoto:(Picker * )sender
 {
     [self performSegueWithIdentifier:SEGUE_NEW_PICTOGRAM sender:nil];
 }
