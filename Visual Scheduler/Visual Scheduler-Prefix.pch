@@ -56,4 +56,5 @@
 // Segues
 #define SEGUE_NEW_PICTOGRAM         @"newPictogram"
 
-
+// Storyboard tags
+#define STORYBOARD_TAG_DAY_LABEL    3

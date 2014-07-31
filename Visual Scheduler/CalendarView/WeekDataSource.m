@@ -80,6 +80,10 @@
     return cell;
 }
 
+/**
+ Configure the header for each day.
+ Each day has a color and a name.
+ */
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
     // Get the schedule which I want to set the color
@@ -93,6 +97,11 @@
                                                                         withReuseIdentifier:DAY_HEADER
                                                                                forIndexPath:indexPath];
     view.backgroundColor = color;
+    
+    // Set the name of the day
+    UILabel *dayLabel = (UILabel *)[view firstSubviewWithTag:STORYBOARD_TAG_DAY_LABEL];
+    NSAssert(dayLabel, @"Expected a label.");
+    dayLabel.text = [schedule valueForKey:CD_KEY_SCHEDULE_TITLE];
     
     return view;
 }
