@@ -49,6 +49,8 @@
     NSAssert(view, @"Expected a relative view.");
     
     /*
+     Algorithm:
+     
      (1)
      If point is on a pictogram:
         If point is above vertical center of pictogram, add new pictogram above
@@ -81,26 +83,18 @@
             if ([cell isMemberOfClass:[CalendarCell class]]) [calendarCells addObject:cell];
         }
         /* Find all cells intersecting the dragged pictogram. */
-        CGRect draggedRect = CGRectMake([self.collectionView convertPoint:point fromView:view].x - PICTOGRAM_SIZE_WHILE_DRAGGING / 2,
+        CGRect const draggedRect = CGRectMake([self.collectionView convertPoint:point fromView:view].x - PICTOGRAM_SIZE_WHILE_DRAGGING / 2,
                                         [self.collectionView convertPoint:point fromView:view].y - PICTOGRAM_SIZE_WHILE_DRAGGING / 2,
                                         PICTOGRAM_SIZE_WHILE_DRAGGING,
                                         PICTOGRAM_SIZE_WHILE_DRAGGING);
-        NSMutableArray *intersectingCells = [[NSMutableArray alloc] init];
-        for (CalendarCell *cell in calendarCells) {
-            if (CGRectIntersectsRect(cell.frame, draggedRect)) {
-                [intersectingCells addObject:cell];
-            }
-        }
+        NSArray *intersectingCells = [self collectionViewCellsIn:calendarCells intersecting:draggedRect];
+        
         /* Find the largest intersecting rect */
-        CGRect largestIntersectingRect = CGRectZero;
-        for (CalendarCell *cell in intersectingCells) {
-            CGRect intersection = CGRectIntersection(cell.frame, draggedRect);
-            if (intersection.size.height * intersection.size.width > largestIntersectingRect.size.height * largestIntersectingRect.size.width) {
-                largestIntersectingRect = intersection;
-            }
-        }
+        CGRect largestIntersectingRect = [self largestIntersectionOf:intersectingCells and:draggedRect];
+        
         /* Get the pictogram currently occupying the area containing the largest intersecting rect. */
         NSIndexPath * const pathToPictogramAtDestination = [self.collectionView indexPathForItemAtPoint:largestIntersectingRect.origin];
+        
         /* Offset by one if below the center */
         CGPoint const centerOfPictogramAtDestination = [self.collectionView cellForItemAtIndexPath:pathToPictogramAtDestination].center;
         NSInteger const offset = (centerOfPictogramAtDestination.y - [self.collectionView convertPoint:point fromView:view].y < 0) ? 1 : 0;
@@ -111,6 +105,38 @@
     
     if (NO == [self.dataSource.managedObjectContext save:nil]) return NO;
     else return YES;
+}
+
+/** Filters the passed in cells and returns the cells which intersect the passed in rectangle.
+ */
+- (NSArray *)collectionViewCellsIn:(NSArray * const)collectionViewCells intersecting:(CGRect const)rect
+{
+    NSMutableArray *intersectingCells = [[NSMutableArray alloc] init];
+    for (UICollectionViewCell *cell in collectionViewCells) {
+        if (CGRectIntersectsRect(cell.frame, rect)) {
+            [intersectingCells addObject:cell];
+        }
+    }
+    return intersectingCells;
+}
+
+/** Returns the rectangle of the cell which has the largest intersection area with the passed in rect.
+ @pre Atleast one of the cells passed in must intersect the given rect.
+ */
+- (CGRect)largestIntersectionOf:(NSArray *)collectionviewCells and:(CGRect)rect
+{
+    NSAssert(collectionviewCells, @"Expected collectionViewCells.");
+    
+    CGRect rectWithLargestIntersectionArea = CGRectZero;
+    for (UICollectionViewCell *cell in collectionviewCells) {
+        CGRect const intersection = CGRectIntersection(cell.frame, rect);
+        if (intersection.size.height * intersection.size.width > rectWithLargestIntersectionArea.size.height * rectWithLargestIntersectionArea.size.width) {
+            rectWithLargestIntersectionArea = intersection;
+        }
+    }
+    NSAssert(CGRectEqualToRect(rectWithLargestIntersectionArea, CGRectZero) == NO, @"Unexpected results. Failed to find the largest intersection.");
+    
+    return rectWithLargestIntersectionArea;
 }
 
 - (void)insertPictogramWithID:(NSManagedObjectID * const)objectID
