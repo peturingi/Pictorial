@@ -65,15 +65,19 @@
     
     // (1)
     NSIndexPath *pictogramAtDropPoint = [self.collectionView indexPathForItemAtPoint:[self.collectionView convertPoint:point fromView:view]]; // target := nil, if release was not on a pictogram
+    NSManagedObject *targetSchedule;
+    NSIndexPath *destination;
     /* Offset the final location by one if the pictogram was dropped on a target, but below its vertical center. */
     if (pictogramAtDropPoint) {
+        
         // Offset by one if below center
         CGPoint const dropLocation = [self.collectionView convertPoint:point fromView:view];
         CGPoint const centerOfCellAtDropLocation = [self.collectionView cellForItemAtIndexPath:pictogramAtDropPoint].center;
         NSInteger offset = (centerOfCellAtDropLocation.y - dropLocation.y < 0) ? 1 : 0;
-        NSIndexPath * const destination = [NSIndexPath indexPathForItem:(pictogramAtDropPoint.item + offset) inSection:pictogramAtDropPoint.section];
+        destination = [NSIndexPath indexPathForItem:(pictogramAtDropPoint.item + offset) inSection:pictogramAtDropPoint.section];
         
-        [self insertPictogramWithID:objectID inSchedule:[self scheduleForSection:pictogramAtDropPoint.section] atIndexPath:destination];
+        targetSchedule = [self scheduleForSection:pictogramAtDropPoint.section];
+        
     }
     // (2)
     else {
@@ -87,10 +91,8 @@
                                         [self.collectionView convertPoint:point fromView:view].y - PICTOGRAM_SIZE_WHILE_DRAGGING / 2,
                                         PICTOGRAM_SIZE_WHILE_DRAGGING,
                                         PICTOGRAM_SIZE_WHILE_DRAGGING);
-        NSArray *intersectingCells = [self collectionViewCellsIn:calendarCells intersecting:draggedRect];
-        
-        /* Find the largest intersecting rect */
-        CGRect largestIntersectingRect = [self largestIntersectionOf:intersectingCells and:draggedRect];
+        NSArray * const intersectingCells = [self collectionViewCellsIn:calendarCells intersecting:draggedRect];
+        CGRect const largestIntersectingRect = [self largestIntersectionOf:intersectingCells and:draggedRect];
         
         /* Get the pictogram currently occupying the area containing the largest intersecting rect. */
         NSIndexPath * const pathToPictogramAtDestination = [self.collectionView indexPathForItemAtPoint:largestIntersectingRect.origin];
@@ -98,10 +100,12 @@
         /* Offset by one if below the center */
         CGPoint const centerOfPictogramAtDestination = [self.collectionView cellForItemAtIndexPath:pathToPictogramAtDestination].center;
         NSInteger const offset = (centerOfPictogramAtDestination.y - [self.collectionView convertPoint:point fromView:view].y < 0) ? 1 : 0;
-        NSIndexPath * const destination = [NSIndexPath indexPathForItem:(pathToPictogramAtDestination.item + offset) inSection:pathToPictogramAtDestination.section];
+        destination = [NSIndexPath indexPathForItem:(pathToPictogramAtDestination.item + offset) inSection:pathToPictogramAtDestination.section];
         
-        [self insertPictogramWithID:objectID inSchedule:[self scheduleForSection:pathToPictogramAtDestination.section] atIndexPath:destination];
+        targetSchedule = [self scheduleForSection:pathToPictogramAtDestination.section];
     }
+    
+    [self insertPictogramWithID:objectID inSchedule:targetSchedule atIndexPath:destination];
     
     if (NO == [self.dataSource.managedObjectContext save:nil]) return NO;
     else return YES;
