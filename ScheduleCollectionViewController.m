@@ -113,13 +113,6 @@
     else return YES;
 }
 
-- (CGFloat)distanceBetweenPoint:(CGPoint)A andPoint:(CGPoint)B {
-    CGFloat aPower2 = powf(A.x, 2) - powf(B.x, 2);
-    CGFloat bPower2 = powf(A.y, 2) - powf(B.y, 2);
-    CGFloat cPower2 = aPower2 + bPower2;
-    return sqrtf(cPower2);
-}
-
 - (void)insertPictogramWithID:(NSManagedObjectID * const)objectID
                    inSchedule:(NSManagedObject * const)schedule
                   atIndexPath:(NSIndexPath * const)indexPath
