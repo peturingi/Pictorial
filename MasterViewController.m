@@ -74,8 +74,10 @@
 
 #pragma mark - Touching
 
-#pragma mark Bottom View
-
+#pragma mark Touching in Bottom View
+/**
+ Notifies the receiver of which pictogram was selected for dragging.
+ */
 - (void)selectedPictogramToAdd:(NSManagedObjectID * const)pictogramIdentifier
                     atLocation:(CGPoint const)location
                     relativeTo:(UIView *)view
@@ -96,24 +98,21 @@
     return [self imageForPictogram:[self itemWithID:objectID]];
 }
 
-- (UIImage *)imageForPictogram:(NSManagedObject * const)pictogram
-{
-    NSData * const imageData = [pictogram valueForKeyPath:CD_KEY_PICTOGRAM_IMAGE];
-    return [UIImage imageWithData:imageData];
-}
-
 - (NSManagedObject *)itemWithID:(NSManagedObjectID * const)objectID
 {
     NSManagedObjectContext * const sharedContext = [self appDelegate].managedObjectContext;
     return [sharedContext objectWithID:objectID];
 }
 
-- (AppDelegate *)appDelegate
+- (UIImage *)imageForPictogram:(NSManagedObject * const)pictogram
 {
-    return [UIApplication sharedApplication].delegate;
+    NSData * const imageData = [pictogram valueForKeyPath:CD_KEY_PICTOGRAM_IMAGE];
+    return [UIImage imageWithData:imageData];
 }
 
-- (void)itemMovedTo:(CGPoint const)point relativeTo:(UIView *)view
+#pragma mark Moving in Bottom View
+
+- (void)handleItemMovedTo:(CGPoint const)point relativeTo:(UIView *)view
 {
     const CGPoint locationInView = [self.view convertPoint:point fromView:view];
     _pictogramBeingMoved.frame = [self frameForPictogramAtPoint:locationInView];
@@ -128,13 +127,15 @@
                       edgeLength);
 }
 
+#pragma mark Dropping from Bottom View
+
 /**
- Handles the notification of an item drop (after dragging).
+ Deal with what should happen when user drops an item (after dragging).
  Users drop items (pictograms) on a schedule where they are to be added.
  @param location The location where the pictogram was dropped.
  @param view The view to which the location is relative.
  */
-- (void)itemDroppedAt:(CGPoint)location relativeTo:(UIView * const)view
+- (void)handleItemDropAt:(CGPoint)location relativeTo:(UIView * const)view
 {
     NSAssert(view, @"The view must not be empty.");
     
@@ -162,6 +163,13 @@
     NSIndexPath * const pathToItemAtLocation = [_topViewController.collectionView indexPathForItemAtPoint:location];
     NSLog(@"%@", pathToItemAtLocation);
     return pathToItemAtLocation != nil ? YES : NO;
+}
+
+#pragma mark - 
+
+- (AppDelegate *)appDelegate
+{
+    return [UIApplication sharedApplication].delegate;
 }
 
 @end
