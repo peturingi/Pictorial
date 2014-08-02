@@ -10,4 +10,8 @@
 
 - (NSManagedObject *)pictogramAtIndexPath:(NSIndexPath * const)indexPath;
 
+/** Save any changes made to the data source.
+ */
+- (void)save;
+
 @end

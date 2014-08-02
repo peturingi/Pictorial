@@ -115,4 +115,14 @@
     return view;
 }
 
+- (void)save {
+    NSAssert(self.managedObjectContext, @"The data source does not have a managed object context.");
+    if ([self.managedObjectContext hasChanges] == NO) return;
+    
+    NSError *error;
+    if ([self.managedObjectContext save:&error] == NO) {
+        @throw [NSException exceptionWithName:@"Error saving deletion from schedule." reason:error.localizedFailureReason userInfo:nil];
+    }
+}
+
 @end

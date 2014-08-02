@@ -73,7 +73,7 @@
     NSManagedObject * const schedule = [self scheduleForSection:path.section];
     NSAssert(schedule, @"Expected a schedule.");
     [[schedule valueForKey:CD_KEY_SCHEDULE_PICTOGRAMS] removeObjectAtIndex:path.item];
-    [self saveSchedule];
+    [self.dataSource save];
     [self.collectionView deleteItemsAtIndexPaths:@[path]];
 }
 
@@ -166,20 +166,6 @@
 
 - (NSManagedObjectContext *)managedObjectContext {
     return self.dataSource.managedObjectContext;
-}
-
-/** Persists changes made to the managed object context.
- @throw NSException if the managed object context can not be saved.
- */
-- (void)saveSchedule
-{
-    NSAssert(self.dataSource.managedObjectContext, @"The data source does not have a managed object context.");
-    if ([self.dataSource.managedObjectContext hasChanges] == NO) return;
-    
-    NSError *error;
-    if ([self.dataSource.managedObjectContext save:&error] == NO) {
-        @throw [NSException exceptionWithName:@"Error saving deletion from schedule." reason:error.localizedFailureReason userInfo:nil];
-    }
 }
 
 #pragma mark - Rearrange pictograms
