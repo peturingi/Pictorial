@@ -115,7 +115,7 @@
 
 #pragma mark Moving in Bottom View
 
-- (void)handleItemMovedTo:(CGPoint const)point relativeTo:(UIView *)view
+- (void)pictogramBeingDraggedMovedToPoint:(CGPoint const)point relativeToView:(UIView *)view
 {
     const CGPoint locationInView = [self.view convertPoint:point fromView:view];
     _pictogramBeingMoved.frame = [self frameForPictogramAtPoint:locationInView];
@@ -140,7 +140,7 @@
  @return YES Pictogram was added.
  @return NO Pictogram was not added.
  */
-- (void)handleAddPictogramToScheduleAt:(CGPoint)location relativeTo:(UIView * const)view
+- (void)handleAddPictogramToScheduleAtPoint:(CGPoint)location relativeToView:(UIView * const)view
 {
     NSAssert(view, @"The view must not be empty.");
     

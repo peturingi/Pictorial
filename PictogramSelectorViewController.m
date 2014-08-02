@@ -10,22 +10,27 @@
 
 - (IBAction)pictogramLongPressed:(UILongPressGestureRecognizer * const)sender
 {
-    if (sender.state == UIGestureRecognizerStateBegan)   [self handleItemSelection:sender];
-    if (sender.state == UIGestureRecognizerStateEnded)   [self.delegate handleAddPictogramToScheduleAt:[sender locationInView:self.view] relativeTo:self.view];
-    if (sender.state == UIGestureRecognizerStateChanged) [self.delegate handleItemMovedTo:[sender locationInView:self.view] relativeTo:self.view];
+    if (sender.state == UIGestureRecognizerStateBegan)   [self handlePictogramSelection:sender];
+    if (sender.state == UIGestureRecognizerStateChanged) [self.delegate pictogramBeingDraggedMovedToPoint:[sender locationInView:self.view] relativeToView:self.view];
+    if (sender.state == UIGestureRecognizerStateEnded)   [self.delegate handleAddPictogramToScheduleAtPoint:[sender locationInView:self.view] relativeToView:self.view];
+    
+    if (sender.state == UIGestureRecognizerStateCancelled) {
+        // TODO deal with the cancelation
+    }
 }
 
-- (void)handleItemSelection:(UILongPressGestureRecognizer * const)sender
+- (void)handlePictogramSelection:(UILongPressGestureRecognizer * const)sender
 {
     NSIndexPath * const indexPathToTouchedPictogram = [self.collectionView indexPathForItemAtPoint:[sender locationInView:self.collectionView]];
-    self.mostRecentlytouchedPictogram = [self getItemAtIndexPath:indexPathToTouchedPictogram].objectID;
+    self.mostRecentlytouchedPictogram = [self getPictogramAtIndexPath:indexPathToTouchedPictogram].objectID;
     [self notifyDelegateOfItemSelectionWithObjectID:self.mostRecentlytouchedPictogram atLocation:[sender locationInView:self.view]];
 }
 
-/** Returns the touched item.
+/** Returns the touched pictogram.
  */
-- (NSManagedObject *)getItemAtIndexPath:(NSIndexPath * const)indexPath
+- (NSManagedObject *)getPictogramAtIndexPath:(NSIndexPath * const)indexPath
 {
+    NSAssert(indexPath, @"Must not be nil.");
     PictogramSelectorDataSource * const dataSource = (PictogramSelectorDataSource *)self.collectionView.dataSource;
     return [[dataSource fetchedResultsController] objectAtIndexPath:indexPath];
 }

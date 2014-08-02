@@ -19,7 +19,7 @@
 - (void)showAlbumPicker;
 
 - (void)selectedPictogramToAdd:(NSManagedObjectID *)pictogramIdentifier atLocation:(CGPoint)location relativeTo:(UIView *)view;
-- (void)handleAddPictogramToScheduleAt:(CGPoint const)location relativeTo:(UIView * const)view;
-- (void)handleItemMovedTo:(CGPoint)point relativeTo:(UIView *)view;
+- (void)handleAddPictogramToScheduleAtPoint:(CGPoint const)location relativeToView:(UIView * const)view;
+- (void)pictogramBeingDraggedMovedToPoint:(CGPoint)point relativeToView:(UIView *)view;
 
 @end

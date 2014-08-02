@@ -1,6 +1,8 @@
 #import "ScheduleCollectionViewController.h"
 #import <CoreData/CoreData.h>
 #import "CalendarCell.h"
+#import "RectHelper.h"
+#import "NSArray+ObjectsOfType.h"
 
 #import "MasterViewController.h"
 
@@ -12,7 +14,37 @@
 @implementation ScheduleCollectionViewController
 
 #pragma mark -
-#pragma mark Remove pictogram from schedule
+
+- (IBAction)pictogramLongPressed:(UILongPressGestureRecognizer * const)sender
+{
+    if (sender.state == UIGestureRecognizerStateBegan) [self handlePictogramSelection:sender];
+    
+    if (sender.state == UIGestureRecognizerStateChanged) {
+        [self.delegate pictogramBeingDraggedMovedToPoint:[sender locationInView:self.view] relativeToView:self.view];
+    }
+    
+    if (sender.state == UIGestureRecognizerStateEnded) {
+        NSAssert(self.pictogramBeingMoved, @"Must not be nil.");
+        /* Two animations will be performed during a move. One on insert and one on delete.
+         Unless they are grouped, the UI might in some cases not end up in a consistent state. */
+        [UICollectionView beginAnimations:nil context:nil];
+        {
+            [self.delegate handleAddPictogramToScheduleAtPoint:[sender locationInView:self.view] relativeToView:self.view];
+            
+            /* If the pictogram is being moved higher up in its schedule
+             its original position will be assigned a new indexPath. An
+             offset of one on indexPath.item will counter it. */
+            NSIndexPath * const destination = [self.collectionView indexPathForItemAtPoint:[sender locationInView:self.view]];
+            NSUInteger const offset = (self.pictogramBeingMoved.section == destination.section && self.pictogramBeingMoved.item >= destination.item) ? 1 : 0;
+            [self removePictogramAtIndexPath:[NSIndexPath indexPathForItem:(self.pictogramBeingMoved.item + offset) inSection:self.pictogramBeingMoved.section]];
+        }
+        [UICollectionView commitAnimations];
+        
+        self.pictogramBeingMoved = nil;
+    }
+}
+
+#pragma mark - Remove pictogram from schedule
 
 - (IBAction)removePictogramFromSchedule:(UIButton *)sender
 {
@@ -89,17 +121,16 @@
     // (2)
     else {
         /* Get all CalendarCell from the collection view. */
-        NSMutableArray * const calendarCells = [[NSMutableArray alloc] initWithCapacity:self.collectionView.subviews.count];
-        for (CalendarCell *cell in self.collectionView.subviews ) {
-            if ([cell isMemberOfClass:[CalendarCell class]]) [calendarCells addObject:cell];
-        }
+        NSMutableArray * const calendarCells = [[NSMutableArray alloc] initWithArray:[self.collectionView.subviews objectsOfType:[CalendarCell class]]];
+        
         /* Find all cells intersecting the dragged pictogram. */
         CGRect const draggedRect = CGRectMake([self.collectionView convertPoint:point fromView:view].x - PICTOGRAM_SIZE_WHILE_DRAGGING / 2,
                                         [self.collectionView convertPoint:point fromView:view].y - PICTOGRAM_SIZE_WHILE_DRAGGING / 2,
                                         PICTOGRAM_SIZE_WHILE_DRAGGING,
                                         PICTOGRAM_SIZE_WHILE_DRAGGING);
-        NSArray * const intersectingCells = [self collectionViewCellsIn:calendarCells intersecting:draggedRect];
-        CGRect const largestIntersectingRect = [self largestIntersectionOf:intersectingCells and:draggedRect];
+        //NSArray * const intersectingCells = [self collectionViewCellsIn:calendarCells intersecting:draggedRect];
+        NSArray * const intersectingCells = [RectHelper viewsIn:calendarCells intersectingWithRect:draggedRect];
+        CGRect const largestIntersectingRect = [RectHelper largestIntersectionOf:intersectingCells and:draggedRect];
         
         /* Get the pictogram currently occupying the area containing the largest intersecting rect. */
         NSIndexPath * const pathToPictogramAtDestination = [self.collectionView indexPathForItemAtPoint:largestIntersectingRect.origin];
@@ -118,38 +149,6 @@
     else return YES;
 }
 
-/** Filters the passed in cells and returns the cells which intersect the passed in rectangle.
- */
-- (NSArray *)collectionViewCellsIn:(NSArray * const)collectionViewCells intersecting:(CGRect const)rect
-{
-    NSMutableArray *intersectingCells = [[NSMutableArray alloc] init];
-    for (UICollectionViewCell *cell in collectionViewCells) {
-        if (CGRectIntersectsRect(cell.frame, rect)) {
-            [intersectingCells addObject:cell];
-        }
-    }
-    return intersectingCells;
-}
-
-/** Returns the rectangle of the cell which has the largest intersection area with the passed in rect.
- @pre Atleast one of the cells passed in must intersect the given rect.
- */
-- (CGRect)largestIntersectionOf:(NSArray *)collectionviewCells and:(CGRect)rect
-{
-    NSAssert(collectionviewCells, @"Expected collectionViewCells.");
-    
-    CGRect rectWithLargestIntersectionArea = CGRectZero;
-    for (UICollectionViewCell *cell in collectionviewCells) {
-        CGRect const intersection = CGRectIntersection(cell.frame, rect);
-        if (intersection.size.height * intersection.size.width > rectWithLargestIntersectionArea.size.height * rectWithLargestIntersectionArea.size.width) {
-            rectWithLargestIntersectionArea = intersection;
-        }
-    }
-    NSAssert(CGRectEqualToRect(rectWithLargestIntersectionArea, CGRectZero) == NO, @"Unexpected results. Failed to find the largest intersection.");
-    
-    return rectWithLargestIntersectionArea;
-}
-
 - (void)insertPictogramWithID:(NSManagedObjectID * const)objectID
                    inSchedule:(NSManagedObject * const)schedule
                   atIndexPath:(NSIndexPath * const)indexPath
@@ -165,13 +164,9 @@
 
 #pragma mark -
 
-/** Convinience method
- */
-- (NSManagedObjectContext *)managedObjectContext
-{
+- (NSManagedObjectContext *)managedObjectContext {
     return self.dataSource.managedObjectContext;
 }
-
 
 /** Persists changes made to the managed object context.
  @throw NSException if the managed object context can not be saved.
@@ -189,40 +184,7 @@
 
 #pragma mark - Rearrange pictograms
 
-- (IBAction)pictogramLongPressed:(UILongPressGestureRecognizer * const)sender
-{
-    if (sender.state == UIGestureRecognizerStateBegan) [self handleItemSelection:sender];
-    
-    if (sender.state == UIGestureRecognizerStateEnded) {
-        NSAssert(self.pictogramBeingMoved, @"Must not be nil.");
-        /* Two animations will be performed during a move. One on insert and one on delete.
-         Unless they are grouped, the UI might in some cases not end up in a consistent state. */
-        [UICollectionView beginAnimations:nil context:nil];
-        {
-            [self.delegate handleAddPictogramToScheduleAt:[sender locationInView:self.view] relativeTo:self.view];
-            
-            /* If the pictogram is being moved higher up in its schedule
-             its original position will be assigned a new indexPath. An
-             offset of one on indexPath.item will counter it. */
-            NSIndexPath * const destination = [self.collectionView indexPathForItemAtPoint:[sender locationInView:self.view]];
-            NSUInteger const offset = (self.pictogramBeingMoved.section == destination.section && self.pictogramBeingMoved.item >= destination.item) ? 1 : 0;
-            [self removePictogramAtIndexPath:[NSIndexPath indexPathForItem:(self.pictogramBeingMoved.item + offset) inSection:self.pictogramBeingMoved.section]];
-        }
-        [UICollectionView commitAnimations];
-        
-        self.pictogramBeingMoved = nil;
-    }
-    
-    if (sender.state == UIGestureRecognizerStateCancelled) {
-        // TODO deal with the cancelation
-    }
-    
-    if (sender.state == UIGestureRecognizerStateChanged) {
-        [self.delegate handleItemMovedTo:[sender locationInView:self.view] relativeTo:self.view];
-    }
-}
-
-- (void)handleItemSelection:(UILongPressGestureRecognizer * const)sender
+- (void)handlePictogramSelection:(UILongPressGestureRecognizer * const)sender
 {
     self.pictogramBeingMoved = [self.collectionView indexPathForItemAtPoint:[sender locationInView:self.collectionView]];
     self.mostRecentlytouchedPictogram = [self getPictogramAtIndexPath:self.pictogramBeingMoved].objectID;
@@ -241,8 +203,7 @@
 
 /** Tells the delegate which item was touched, and its location.
  */
-- (void)notifyDelegateOfItemSelectionWithObjectID:(NSManagedObjectID * const)objectID atLocation:(CGPoint const)location
-{
+- (void)notifyDelegateOfItemSelectionWithObjectID:(NSManagedObjectID * const)objectID atLocation:(CGPoint const)location {
     [self.delegate selectedPictogramToAdd:objectID atLocation:location relativeTo:self.view];
 }
 
