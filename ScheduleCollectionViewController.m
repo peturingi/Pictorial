@@ -6,6 +6,7 @@
 
 @interface ScheduleCollectionViewController ()
 @property (strong, nonatomic) NSManagedObjectID *mostRecentlytouchedPictogram;
+@property (strong, nonatomic) NSIndexPath *pictogramBeingMoved;
 @end
 
 @implementation ScheduleCollectionViewController
@@ -18,9 +19,7 @@
     UICollectionViewCell * const sendersCell = (UICollectionViewCell *)sender.superview.superview;
     NSIndexPath * const pictogramToRemove = [self.collectionView indexPathForCell:sendersCell];
     if (pictogramToRemove) {
-        [self removePictogramAtIndex:pictogramToRemove.item fromSchedule:[self scheduleForSection:pictogramToRemove.section]];
-        [self saveSchedule];
-        [self.collectionView deleteItemsAtIndexPaths:@[pictogramToRemove]];
+        [self removePictogramAtIndexPath: pictogramToRemove];
     }
 }
 
@@ -37,11 +36,13 @@
 /** Removes a pictogram from the schedule.
  @pre A pictogram exists in the schedule at the given index.
  */
-- (void)removePictogramAtIndex:(NSUInteger)index
-                  fromSchedule:(NSManagedObject *)schedule
+- (void)removePictogramAtIndexPath:(NSIndexPath * const)path
 {
+    NSManagedObject * const schedule = [self scheduleForSection:path.section];
     NSAssert(schedule, @"Expected a schedule.");
-    [[schedule valueForKey:CD_KEY_SCHEDULE_PICTOGRAMS] removeObjectAtIndex:index];
+    [[schedule valueForKey:CD_KEY_SCHEDULE_PICTOGRAMS] removeObjectAtIndex:path.item];
+    [self saveSchedule];
+    [self.collectionView deleteItemsAtIndexPaths:@[path]];
 }
 
 #pragma mark -
@@ -190,21 +191,47 @@
 
 - (IBAction)pictogramLongPressed:(UILongPressGestureRecognizer * const)sender
 {
-    if (sender.state == UIGestureRecognizerStateBegan)   [self handleItemSelection:sender];
-    if (sender.state == UIGestureRecognizerStateEnded)   [self.delegate handleAddPictogramToScheduleAt:[sender locationInView:self.view] relativeTo:self.view];
-    if (sender.state == UIGestureRecognizerStateChanged) [self.delegate handleItemMovedTo:[sender locationInView:self.view] relativeTo:self.view];
+    if (sender.state == UIGestureRecognizerStateBegan) [self handleItemSelection:sender];
+    
+    if (sender.state == UIGestureRecognizerStateEnded) {
+        NSAssert(self.pictogramBeingMoved, @"Must not be nil.");
+        /* Two animations will be performed during a move. One on insert and one on delete.
+         Unless they are grouped, the UI might in some cases not end up in a consistent state. */
+        [UICollectionView beginAnimations:nil context:nil];
+        {
+            [self.delegate handleAddPictogramToScheduleAt:[sender locationInView:self.view] relativeTo:self.view];
+            
+            /* If the pictogram is being moved higher up in its schedule
+             its original position will be assigned a new indexPath. An
+             offset of one on indexPath.item will counter it. */
+            NSIndexPath * const destination = [self.collectionView indexPathForItemAtPoint:[sender locationInView:self.view]];
+            NSUInteger const offset = (self.pictogramBeingMoved.section == destination.section && self.pictogramBeingMoved.item >= destination.item) ? 1 : 0;
+            [self removePictogramAtIndexPath:[NSIndexPath indexPathForItem:(self.pictogramBeingMoved.item + offset) inSection:self.pictogramBeingMoved.section]];
+        }
+        [UICollectionView commitAnimations];
+        
+        self.pictogramBeingMoved = nil;
+    }
+    
+    if (sender.state == UIGestureRecognizerStateCancelled) {
+        // TODO deal with the cancelation
+    }
+    
+    if (sender.state == UIGestureRecognizerStateChanged) {
+        [self.delegate handleItemMovedTo:[sender locationInView:self.view] relativeTo:self.view];
+    }
 }
 
 - (void)handleItemSelection:(UILongPressGestureRecognizer * const)sender
 {
-    NSIndexPath * const indexPathToTouchedPictogram = [self.collectionView indexPathForItemAtPoint:[sender locationInView:self.collectionView]];
-    self.mostRecentlytouchedPictogram = [self getItemAtIndexPath:indexPathToTouchedPictogram].objectID;
+    self.pictogramBeingMoved = [self.collectionView indexPathForItemAtPoint:[sender locationInView:self.collectionView]];
+    self.mostRecentlytouchedPictogram = [self getPictogramAtIndexPath:self.pictogramBeingMoved].objectID;
     [self notifyDelegateOfItemSelectionWithObjectID:self.mostRecentlytouchedPictogram atLocation:[sender locationInView:self.view]];
 }
 
 /** Returns the touched item.
  */
-- (NSManagedObject *)getItemAtIndexPath:(NSIndexPath * const)indexPath
+- (NSManagedObject *)getPictogramAtIndexPath:(NSIndexPath * const)indexPath
 {
     WeekDataSource * const dataSource = (WeekDataSource *)self.collectionView.dataSource;
     NSManagedObject * const schedule = [[dataSource.fetchedResultsController fetchedObjects] objectAtIndex:indexPath.section];
@@ -218,6 +245,5 @@
 {
     [self.delegate selectedPictogramToAdd:objectID atLocation:location relativeTo:self.view];
 }
-
 
 @end
