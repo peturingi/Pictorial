@@ -29,7 +29,10 @@
     
     // Know the top views controller
     if ([segue.identifier isEqualToString:@"SEGUE_EMBED_TOPVIEW"]) {
-        _topViewController = segue.destinationViewController;
+        ScheduleCollectionViewController * const destination = segue.destinationViewController;
+        destination.delegate = self;
+        _topViewController = destination;
+        
     }
     
     if ([segue.identifier isEqualToString:@"SEGUE_IMAGE_SOURCE"]) {
@@ -134,16 +137,22 @@
  Users drop items (pictograms) on a schedule where they are to be added.
  @param location The location where the pictogram was dropped.
  @param view The view to which the location is relative.
+ @return YES Pictogram was added.
+ @return NO Pictogram was not added.
  */
-- (void)handleItemDropAt:(CGPoint)location relativeTo:(UIView * const)view
+- (void)handleAddPictogramToScheduleAt:(CGPoint)location relativeTo:(UIView * const)view
 {
     NSAssert(view, @"The view must not be empty.");
     
     BOOL const wasAdded = [_topViewController addPictogramWithID:_idOfPictogramBeingMoved
                                                         atPoint:location
                                                   relativeToView:view];
-    if (wasAdded) [_pictogramBeingMoved removeFromSuperview];
-    else [self animatePictogramBackToOriginalPosition];
+    if (wasAdded) {
+        [_pictogramBeingMoved removeFromSuperview];
+    }
+    else {
+        [self animatePictogramBackToOriginalPosition];
+    }
 }
 
 - (void)animatePictogramBackToOriginalPosition {

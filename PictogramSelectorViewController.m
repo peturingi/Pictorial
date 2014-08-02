@@ -11,7 +11,7 @@
 - (IBAction)pictogramLongPressed:(UILongPressGestureRecognizer * const)sender
 {
     if (sender.state == UIGestureRecognizerStateBegan)   [self handleItemSelection:sender];
-    if (sender.state == UIGestureRecognizerStateEnded)   [self.delegate handleItemDropAt:[sender locationInView:self.view] relativeTo:self.view];
+    if (sender.state == UIGestureRecognizerStateEnded)   [self.delegate handleAddPictogramToScheduleAt:[sender locationInView:self.view] relativeTo:self.view];
     if (sender.state == UIGestureRecognizerStateChanged) [self.delegate handleItemMovedTo:[sender locationInView:self.view] relativeTo:self.view];
 }
 

@@ -1,8 +1,12 @@
 #import <UIKit/UIKit.h>
 #import "WeekDataSource.h"
 
+@class MasterViewController;
+
 @interface ScheduleCollectionViewController : UICollectionViewController
+
 @property (weak, nonatomic) IBOutlet WeekDataSource *dataSource;
+@property (weak, nonatomic) MasterViewController *delegate;
 
 /** Attempt to add the given pictogram to the schedule responsible for pictograms in the given point.
  @return YES the pictogram was added
