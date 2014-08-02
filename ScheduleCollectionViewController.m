@@ -187,18 +187,8 @@
 - (void)handlePictogramSelection:(UILongPressGestureRecognizer * const)sender
 {
     self.pictogramBeingMoved = [self.collectionView indexPathForItemAtPoint:[sender locationInView:self.collectionView]];
-    self.mostRecentlytouchedPictogram = [self getPictogramAtIndexPath:self.pictogramBeingMoved].objectID;
+    self.mostRecentlytouchedPictogram = [self.dataSource pictogramAtIndexPath:self.pictogramBeingMoved].objectID;
     [self notifyDelegateOfItemSelectionWithObjectID:self.mostRecentlytouchedPictogram atLocation:[sender locationInView:self.view]];
-}
-
-/** Returns the touched item.
- */
-- (NSManagedObject *)getPictogramAtIndexPath:(NSIndexPath * const)indexPath
-{
-    WeekDataSource * const dataSource = (WeekDataSource *)self.collectionView.dataSource;
-    NSManagedObject * const schedule = [[dataSource.fetchedResultsController fetchedObjects] objectAtIndex:indexPath.section];
-    NSManagedObject * const pictogramContainer = [[schedule valueForKey:CD_KEY_SCHEDULE_PICTOGRAMS] objectAtIndex:indexPath.item];
-    return [pictogramContainer valueForKey:CD_ENTITY_PICTOGRAM];
 }
 
 /** Tells the delegate which item was touched, and its location.

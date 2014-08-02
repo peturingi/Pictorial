@@ -8,4 +8,6 @@
 
 @property BOOL editing;
 
+- (NSManagedObject *)pictogramAtIndexPath:(NSIndexPath * const)indexPath;
+
 @end

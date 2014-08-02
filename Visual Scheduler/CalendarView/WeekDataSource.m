@@ -37,6 +37,15 @@
     if (error) @throw [NSException exceptionWithName:@"Core Data: Fetch failed." reason:error.localizedFailureReason userInfo:nil];
 }
 
+#pragma mark - Pictograms and Schedules
+
+- (NSManagedObject *)pictogramAtIndexPath:(NSIndexPath * const)indexPath
+{
+    NSManagedObject * const schedule = [[self.fetchedResultsController fetchedObjects] objectAtIndex:indexPath.section];
+    NSManagedObject * const pictogramContainer = [[schedule valueForKey:CD_KEY_SCHEDULE_PICTOGRAMS] objectAtIndex:indexPath.item];
+    return [pictogramContainer valueForKey:CD_ENTITY_PICTOGRAM];
+}
+
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView

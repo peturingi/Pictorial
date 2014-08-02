@@ -10,4 +10,5 @@
 + (CGRect)largestIntersectionOf:(NSArray *)views and:(CGRect)rect;
 
 + (NSArray *)viewsIn:(NSArray *)views intersectingWithRect:(CGRect)rect;
+
 @end
