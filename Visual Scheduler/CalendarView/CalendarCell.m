@@ -24,9 +24,9 @@
 
 - (void)setupBorder
 {
-    self.contentView.layer.borderWidth = PICTOGRAM_BORDER_WIDTH;
-    self.contentView.layer.cornerRadius = PICTOGRAM_BORDER_RADIUS;
-    self.contentView.layer.borderColor = PICTOGRAM_BORDER_COLOR;
+    self.layer.borderWidth = PICTOGRAM_BORDER_WIDTH;
+    self.layer.cornerRadius = PICTOGRAM_BORDER_RADIUS;
+    self.layer.borderColor = PICTOGRAM_BORDER_COLOR;
 }
 
 - (void)prepareForReuse
