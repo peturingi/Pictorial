@@ -16,6 +16,9 @@
 @property (nonatomic, retain) id image;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSSet *usedBy;
+
+- (UIImage *)uiImage;
+
 @end
 
 @interface Pictogram (CoreDataGeneratedAccessors)
@@ -24,7 +27,5 @@
 - (void)removeUsedByObject:(PictogramContainer *)value;
 - (void)addUsedBy:(NSSet *)values;
 - (void)removeUsedBy:(NSSet *)values;
-
-- (UIImage *)uiImage;
 
 @end

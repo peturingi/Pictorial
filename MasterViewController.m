@@ -6,6 +6,7 @@
 #import "CameraPicker.h"
 #import "AlbumPicker.h"
 #import "ImageSourceTableViewController.h"
+#import "Pictogram.h"
 
 @implementation MasterViewController
 
@@ -16,7 +17,7 @@
         
         if (picker) {
             destinationController.photo = picker.image;
-            picker = nil; // Free the camera
+            picker = nil;
         }
         else { @throw [NSException exceptionWithName:@"Picker now found." reason:@"picker was nil." userInfo:nil]; }
     }
@@ -48,13 +49,11 @@
 
 #pragma mark - Import Image
 
-- (void)showCameraPicker
-{
+- (void)showCameraPicker {
     [self showPicker:[CameraPicker class]];
 }
 
-- (void)showAlbumPicker
-{
+- (void)showAlbumPicker {
     [self showPicker:[AlbumPicker class]];
 }
 
@@ -65,13 +64,11 @@
     [picker show];
 }
 
-- (void)pickerDisappearedWithoutPickingPhoto:(Picker *)sender
-{
+- (void)pickerDisappearedWithoutPickingPhoto:(Picker *)sender {
     picker = nil;
 }
 
-- (void)pickerDisappearedAfterPickingPhoto:(Picker * )sender
-{
+- (void)pickerDisappearedAfterPickingPhoto:(Picker * )sender {
     [self performSegueWithIdentifier:SEGUE_NEW_PICTOGRAM sender:nil];
 }
 
@@ -87,29 +84,12 @@
 {
     _idOfPictogramBeingMoved = pictogramIdentifier;
     
-    UIImage * const image = [self imageForPictogramWithID:pictogramIdentifier]; // TODO resize the image. No need to move a full size image around.
+    UIImage * const image = ((Pictogram *)[[self appDelegate] objectWithID:pictogramIdentifier]).uiImage; // TODO resize the image. No need to move a full size image around.
     CGPoint const targetLocation = [self.view convertPoint:location fromView:view];
     
     PictogramView * const pictogramView = [[PictogramView alloc] initWithPoint:targetLocation andImage:image];
     _pictogramBeingMoved = pictogramView;
     [self.view addSubview:pictogramView];
-}
-
-- (UIImage *)imageForPictogramWithID:(NSManagedObjectID * const)objectID
-{
-    return [self imageForPictogram:[self itemWithID:objectID]];
-}
-
-- (NSManagedObject *)itemWithID:(NSManagedObjectID * const)objectID
-{
-    NSManagedObjectContext * const sharedContext = [self appDelegate].managedObjectContext;
-    return [sharedContext objectWithID:objectID];
-}
-
-- (UIImage *)imageForPictogram:(NSManagedObject * const)pictogram
-{
-    NSData * const imageData = [pictogram valueForKeyPath:CD_KEY_PICTOGRAM_IMAGE];
-    return [UIImage imageWithData:imageData];
 }
 
 #pragma mark Moving in Bottom View
@@ -130,7 +110,7 @@
  @return YES Pictogram was added.
  @return NO Pictogram was not added.
  */
-- (void)handleAddPictogramToScheduleAtPoint:(CGPoint)location relativeToView:(UIView * const)view
+- (BOOL)handleAddPictogramToScheduleAtPoint:(CGPoint)location relativeToView:(UIView * const)view
 {
     NSAssert(view, @"The view must not be empty.");
     
@@ -143,6 +123,7 @@
     else {
         [self animatePictogramBackToOriginalPosition];
     }
+    return wasAdded;
 }
 
 - (void)animatePictogramBackToOriginalPosition {

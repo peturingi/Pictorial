@@ -8,6 +8,7 @@
 
 #import "Pictogram.h"
 #import "PictogramContainer.h"
+#import "Visual Scheduler/AppDelegate.h"
 
 
 @implementation Pictogram

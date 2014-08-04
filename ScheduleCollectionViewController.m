@@ -29,7 +29,7 @@
          Unless they are grouped, the UI might in some cases not end up in a consistent state. */
         [UICollectionView beginAnimations:nil context:nil];
         {
-            [self.delegate handleAddPictogramToScheduleAtPoint:[sender locationInView:self.view] relativeToView:self.view];
+            if (NO == [self.delegate handleAddPictogramToScheduleAtPoint:[sender locationInView:self.view] relativeToView:self.view]) return;
             
             /* If the pictogram is being moved higher up in its schedule
              its original position will be assigned a new indexPath. An
@@ -48,6 +48,7 @@
 
 - (IBAction)removePictogramFromSchedule:(UIButton *)sender
 {
+    NSAssert(sender, @"Sender was nil.");
     UICollectionViewCell * const sendersCell = (UICollectionViewCell *)sender.superview.superview;
     NSIndexPath * const pictogramToRemove = [self.collectionView indexPathForCell:sendersCell];
     if (pictogramToRemove) {
@@ -87,8 +88,11 @@
     NSAssert(objectID, @"Expected objectID.");
     NSAssert(view, @"Expected a relative view.");
     
+    CGPoint const relativeDropPoint = [self.collectionView convertPoint:point fromView:view];
+    
     /*
      Algorithm:
+     (0) if point is not within the collection view, abort.
      
      (1)
      If point is on a pictogram:
@@ -102,17 +106,22 @@
             if point is below vertical center of pictogram, add new pictogram below
      */
     
+    // (0)
+    // Abort if the pictogram was not dropped on the collection view.
+    if (NO == [self.collectionView pointInside:relativeDropPoint withEvent:nil]) return NO;
+    
     // (1)
-    NSIndexPath *pictogramAtDropPoint = [self.collectionView indexPathForItemAtPoint:[self.collectionView convertPoint:point fromView:view]]; // target := nil, if release was not on a pictogram
+    // nil, if release was not on a pictogram
+    NSIndexPath * const pictogramAtDropPoint = [self.collectionView indexPathForItemAtPoint:relativeDropPoint];
+    
     NSManagedObject *targetSchedule;
     NSIndexPath *destination;
     /* Offset the final location by one if the pictogram was dropped on a target, but below its vertical center. */
     if (pictogramAtDropPoint) {
         
         // Offset by one if below center
-        CGPoint const dropLocation = [self.collectionView convertPoint:point fromView:view];
         CGPoint const centerOfCellAtDropLocation = [self.collectionView cellForItemAtIndexPath:pictogramAtDropPoint].center;
-        NSInteger offset = (centerOfCellAtDropLocation.y - dropLocation.y < 0) ? 1 : 0;
+        NSInteger offset = (centerOfCellAtDropLocation.y - relativeDropPoint.y < 0) ? 1 : 0;
         destination = [NSIndexPath indexPathForItem:(pictogramAtDropPoint.item + offset) inSection:pictogramAtDropPoint.section];
         
         targetSchedule = [self scheduleForSection:pictogramAtDropPoint.section];
@@ -124,8 +133,8 @@
         NSMutableArray * const calendarCells = [[NSMutableArray alloc] initWithArray:[self.collectionView.subviews objectsOfType:[CalendarCell class]]];
         
         /* Find all cells intersecting the dragged pictogram. */
-        CGRect const draggedRect = CGRectMake([self.collectionView convertPoint:point fromView:view].x - PICTOGRAM_SIZE_WHILE_DRAGGING / 2,
-                                        [self.collectionView convertPoint:point fromView:view].y - PICTOGRAM_SIZE_WHILE_DRAGGING / 2,
+        CGRect const draggedRect = CGRectMake(relativeDropPoint.x - PICTOGRAM_SIZE_WHILE_DRAGGING / 2,
+                                        relativeDropPoint.y - PICTOGRAM_SIZE_WHILE_DRAGGING / 2,
                                         PICTOGRAM_SIZE_WHILE_DRAGGING,
                                         PICTOGRAM_SIZE_WHILE_DRAGGING);
         //NSArray * const intersectingCells = [self collectionViewCellsIn:calendarCells intersecting:draggedRect];
@@ -137,7 +146,7 @@
         
         /* Offset by one if below the center */
         CGPoint const centerOfPictogramAtDestination = [self.collectionView cellForItemAtIndexPath:pathToPictogramAtDestination].center;
-        NSInteger const offset = (centerOfPictogramAtDestination.y - [self.collectionView convertPoint:point fromView:view].y < 0) ? 1 : 0;
+        NSInteger const offset = (centerOfPictogramAtDestination.y - relativeDropPoint.y < 0) ? 1 : 0;
         destination = [NSIndexPath indexPathForItem:(pathToPictogramAtDestination.item + offset) inSection:pathToPictogramAtDestination.section];
         
         targetSchedule = [self scheduleForSection:pathToPictogramAtDestination.section];

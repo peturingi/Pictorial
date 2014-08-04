@@ -1,4 +1,8 @@
 #import <UIKit/UIKit.h>
+
+@class NSManagedObject;
+@class NSManagedObjectID;
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 @property (strong, nonatomic) UIWindow *window;
 
@@ -8,5 +12,6 @@
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
+- (NSManagedObject *)objectWithID:(NSManagedObjectID * const)objectID;
 
 @end

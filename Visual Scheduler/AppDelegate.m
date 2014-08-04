@@ -227,8 +227,10 @@
   */
      
      [self saveContext];
-     
-     
+}
+
+- (NSManagedObject *)objectWithID:(NSManagedObjectID * const)objectID {
+    return [self.managedObjectContext objectWithID:objectID];
 }
 
 
