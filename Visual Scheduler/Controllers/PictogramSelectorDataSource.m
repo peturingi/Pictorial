@@ -59,6 +59,7 @@
     
     imageView.layer.borderWidth = PICTOGRAM_BORDER_WIDTH;
     imageView.layer.cornerRadius = PICTOGRAM_CORNER_RADIUS;
+    imageView.layer.masksToBounds = YES;
 }
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath
