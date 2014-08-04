@@ -85,14 +85,13 @@
                     atLocation:(CGPoint const)location
                     relativeTo:(UIView *)view
 {
+    _idOfPictogramBeingMoved = pictogramIdentifier;
+    
     UIImage * const image = [self imageForPictogramWithID:pictogramIdentifier]; // TODO resize the image. No need to move a full size image around.
     CGPoint const targetLocation = [self.view convertPoint:location fromView:view];
     
-    PictogramView * const pictogramView = [[PictogramView alloc] initWithFrame:[self frameForPictogramAtPoint:targetLocation] andImage:image];
-    pictogramView.backgroundColor = [UIColor whiteColor];
-    
+    PictogramView * const pictogramView = [[PictogramView alloc] initWithPoint:targetLocation andImage:image];
     _pictogramBeingMoved = pictogramView;
-    _idOfPictogramBeingMoved = pictogramIdentifier;
     [self.view addSubview:pictogramView];
 }
 
@@ -118,16 +117,7 @@
 - (void)pictogramBeingDraggedMovedToPoint:(CGPoint const)point relativeToView:(UIView *)view
 {
     const CGPoint locationInView = [self.view convertPoint:point fromView:view];
-    _pictogramBeingMoved.frame = [self frameForPictogramAtPoint:locationInView];
-}
-
-- (CGRect)frameForPictogramAtPoint:(CGPoint const)aPoint
-{
-    CGFloat const edgeLength = PICTOGRAM_SIZE_WHILE_DRAGGING;
-    return CGRectMake(aPoint.x - edgeLength/2.0f,
-                      aPoint.y - edgeLength/2.0f,
-                      edgeLength,
-                      edgeLength);
+    _pictogramBeingMoved.frame = [PictogramView frameAtPoint:locationInView];
 }
 
 #pragma mark Dropping from Bottom View

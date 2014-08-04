@@ -6,6 +6,8 @@
 - (id)initWithFrame:(CGRect)frame __deprecated;
 - (id)initWithCoder:(NSCoder *)aDecoder __deprecated;
 
-- (id)initWithFrame:(CGRect)frame andImage:(UIImage *)anImage;
+- (id)initWithPoint:(CGPoint const)point andImage:(UIImage * const)anImage;
+
++ (CGRect)frameAtPoint:(CGPoint)point;
 
 @end
