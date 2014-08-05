@@ -3,6 +3,7 @@
 #import "CalendarCell.h"
 #import "RectHelper.h"
 #import "NSArray+ObjectsOfType.h"
+#import "Schedule.h"
 
 #import "MasterViewController.h"
 
@@ -65,7 +66,7 @@
     UICollectionViewCell * const sendersCell = (UICollectionViewCell *)sender.superview.superview;
     NSIndexPath * const pictogramToRemove = [self.collectionView indexPathForCell:sendersCell];
     if (pictogramToRemove) {
-        [self removePictogramAtIndexPath: pictogramToRemove];
+        [self removePictogramAtIndexPath:pictogramToRemove];
     }
 }
 
@@ -85,9 +86,13 @@
 - (void)removePictogramAtIndexPath:(NSIndexPath * const)path
 {
     NSAssert(self.isEditing, @"Cannot remove pictogram unless editing.");
-    NSManagedObject * const schedule = [self scheduleForSection:path.section];
+    Schedule * const schedule = (Schedule*)[self scheduleForSection:path.section]; // TODO caller should not cast
     NSAssert(schedule, @"Expected a schedule.");
-    [[schedule valueForKey:CD_KEY_SCHEDULE_PICTOGRAMS] removeObjectAtIndex:path.item];
+
+    //[schedule removePictogramsAtIndexes:[NSIndexSet indexSetWithIndex:path.item]];
+    PictogramContainer * const container = [[schedule valueForKey:CD_KEY_SCHEDULE_PICTOGRAMS] objectAtIndex:path.item];
+    [[self managedObjectContext] deleteObject:(NSManagedObject*)container];
+    
     [self.dataSource save];
     [self.collectionView deleteItemsAtIndexPaths:@[path]];
 }
