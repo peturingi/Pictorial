@@ -16,8 +16,8 @@
         <relationship name="pictograms" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="PictogramContainer" inverseName="schedule" inverseEntity="PictogramContainer" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Pictogram" positionX="0" positionY="0" width="128" height="90"/>
-        <element name="PictogramContainer" positionX="0" positionY="0" width="128" height="75"/>
-        <element name="Schedule" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="Pictogram" positionX="0" positionY="0" width="128" height="88"/>
+        <element name="PictogramContainer" positionX="0" positionY="0" width="128" height="73"/>
+        <element name="Schedule" positionX="0" positionY="0" width="128" height="103"/>
     </elements>
 </model>

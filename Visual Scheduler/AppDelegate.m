@@ -199,6 +199,7 @@
     NSManagedObject *c5 = [NSEntityDescription insertNewObjectForEntityForName:@"PictogramContainer" inManagedObjectContext:self.managedObjectContext];
     NSManagedObject *c6 = [NSEntityDescription insertNewObjectForEntityForName:@"PictogramContainer" inManagedObjectContext:self.managedObjectContext];
     NSManagedObject *c7 = [NSEntityDescription insertNewObjectForEntityForName:@"PictogramContainer" inManagedObjectContext:self.managedObjectContext];
+    NSManagedObject *c71 = [NSEntityDescription insertNewObjectForEntityForName:@"PictogramContainer" inManagedObjectContext:self.managedObjectContext];
     //
     [c1 setValue:svane forKey:@"pictogram"];
     [c1 setValue:s1 forKey:@"schedule"];
@@ -212,8 +213,12 @@
     [c5 setValue:s5 forKey:@"schedule"];
     [c6 setValue:svane forKey:@"pictogram"];
     [c6 setValue:s6 forKey:@"schedule"];
+    //Föstudagur hefur 2 pictograms.
     [c7 setValue:svane forKey:@"pictogram"];
     [c7 setValue:s7 forKey:@"schedule"];
+    [c71 setValue:spade forKey:@"pictogram"];
+    [c71 setValue:s7 forKey:@"schedule"];
+
 /*
      NSMutableOrderedSet *allDaysAreTheSame = [[NSMutableOrderedSet alloc] initWithObjects:svane, spade, nil];
      

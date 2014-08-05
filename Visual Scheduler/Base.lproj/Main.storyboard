@@ -87,7 +87,7 @@
             <objects>
                 <collectionViewController autoresizesArchivedViewToFullSize="NO" id="FBT-CU-eS9" customClass="ScheduleCollectionViewController" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="iyG-a6-xfH" customClass="CalendarView">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="619"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="650"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewLayout key="collectionViewLayout" id="asr-9d-iwn" customClass="WeekCollectionViewLayout"/>
@@ -279,7 +279,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mVO-gN-Zbc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1376" y="-2602"/>
+            <point key="canvasLocation" x="-1132" y="-1222"/>
         </scene>
         <!--Master View Controller-->
         <scene sceneID="ZQS-c9-YlW">
@@ -304,48 +304,22 @@
                                 </connections>
                             </containerView>
                             <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TPj-VT-Xow" userLabel="Topview">
-                                <rect key="frame" x="0.0" y="20" width="768" height="619"/>
+                                <rect key="frame" x="0.0" y="20" width="768" height="650"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="FBT-CU-eS9" kind="embed" identifier="SEGUE_EMBED_TOPVIEW" id="G4v-B8-OwZ"/>
                                 </connections>
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g08-BF-tte" userLabel="Toolbar">
-                                <rect key="frame" x="0.0" y="639" width="768" height="41"/>
+                                <rect key="frame" x="0.0" y="670" width="768" height="10"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5iq-cf-6FA">
-                                        <rect key="frame" x="20" y="6" width="45" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Import"/>
-                                        <connections>
-                                            <segue destination="sX2-J3-ISF" kind="popover" identifier="SEGUE_IMAGE_SOURCE" popoverAnchorView="5iq-cf-6FA" id="1gj-BD-asb">
-                                                <popoverArrowDirection key="popoverArrowDirection" down="YES"/>
-                                            </segue>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWI-UH-5hS">
-                                        <rect key="frame" x="711" y="6" width="40" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Down">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="downButton:" destination="Xfv-XK-laj" eventType="touchUpInside" id="rSp-ab-PQs"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="centerY" secondItem="5iq-cf-6FA" secondAttribute="centerY" constant="-0.5" id="B7e-YB-gKT"/>
-                                    <constraint firstAttribute="centerY" secondItem="fWI-UH-5hS" secondAttribute="centerY" constant="-0.5" id="LNH-HK-Dmn"/>
-                                    <constraint firstAttribute="height" constant="41" id="aLe-gg-r91"/>
-                                    <constraint firstItem="5iq-cf-6FA" firstAttribute="leading" secondItem="g08-BF-tte" secondAttribute="leading" constant="20" id="g9x-rX-sHs"/>
-                                    <constraint firstAttribute="trailing" secondItem="fWI-UH-5hS" secondAttribute="trailing" constant="17" id="id9-oS-1Ni"/>
+                                    <constraint firstAttribute="height" constant="10" id="aLe-gg-r91"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="g08-BF-tte" firstAttribute="top" secondItem="TPj-VT-Xow" secondAttribute="bottom" id="09P-Fi-8q8"/>
                             <constraint firstItem="j17-jP-moV" firstAttribute="top" secondItem="g08-BF-tte" secondAttribute="bottom" id="Am0-dl-n1y"/>
@@ -362,6 +336,13 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems>
+                        <barButtonItem title="Import" id="WqI-yk-a3D">
+                            <connections>
+                                <segue destination="sX2-J3-ISF" kind="popover" identifier="SEGUE_IMAGE_SOURCE" popoverAnchorBarButtonItem="WqI-yk-a3D" id="oWE-Zj-iG8">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="b3W-yc-uF7"/>
                         <barButtonItem title="Day" id="yyS-qw-HFa"/>
                         <barButtonItem title="Week" id="trc-5K-fJZ"/>
@@ -369,6 +350,11 @@
                         <barButtonItem title="Up" id="GXR-Iu-jgv">
                             <connections>
                                 <action selector="upButton:" destination="Xfv-XK-laj" id="mfV-KR-gDR"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem title="Down" id="bgX-XF-Z7g">
+                            <connections>
+                                <action selector="downButton:" destination="Xfv-XK-laj" id="SGG-5b-GDg"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
