@@ -1,6 +1,7 @@
 #import "WeekDataSource.h"
 #import "AppDelegate.h"
 #import "UIView+BBASubviews.h"
+#import "CalendarCell.h"
 
 @implementation WeekDataSource
 
@@ -78,12 +79,15 @@
     NSManagedObject * const pictogram = [pictogramContainer valueForKey:@"pictogram"];
     
     // Return the pictogram in a collectionView cell.
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CALENDAR_CELL forIndexPath:indexPath];
-    UIImageView * const imageView = (UIImageView *)[cell.contentView firstSubviewWithTag:CELL_TAG_FOR_IMAGE_VIEW];
-    NSData *imageData = [pictogram valueForKey:CD_KEY_PICTOGRAM_IMAGE];
-    UIImage *image = [[UIImage alloc] initWithData:imageData];
-    imageView.image = image;
-    NSAssert(imageView.image, @"Failed to present the pictogram.");
+    CalendarCell * const cell = [collectionView dequeueReusableCellWithReuseIdentifier:CALENDAR_CELL forIndexPath:indexPath];
+    // Show the cells edit button if we are in editable state.
+    cell.deleteButton.alpha = self.editing ? 1.0f : 0.0f;
+    cell.deleteButton.enabled = self.editing;
+    //set image
+    NSData * const imageData = [pictogram valueForKey:CD_KEY_PICTOGRAM_IMAGE];
+    UIImage * const image = [[UIImage alloc] initWithData:imageData];
+    cell.imageView.image = image;
+    NSAssert(cell.imageView.image, @"Failed to present the pictogram.");
     return cell;
 }
 

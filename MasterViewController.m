@@ -132,17 +132,8 @@
 
 #pragma mark Top View
 
-- (BOOL)locationIsASchedule:(CGPoint const)location {
-    
-    /** TODO
-     Currently checks if dropped over another pictogram.
-     It should check if dropped in a valid schedule, as it is possible that
-     the user drops between two pictograms, in case the current code would
-     not insert the dropped pictogram into the schedule.
-     */
-    NSIndexPath * const pathToItemAtLocation = [_topViewController.collectionView indexPathForItemAtPoint:location];
-    NSLog(@"%@", pathToItemAtLocation);
-    return pathToItemAtLocation != nil ? YES : NO;
+- (void)pictogramDraggingCancelled {
+    [_pictogramBeingMoved removeFromSuperview]; // TODO maby call animatePictogramToOriginalPosition instead.
 }
 
 #pragma mark - 
@@ -150,6 +141,22 @@
 - (AppDelegate *)appDelegate
 {
     return [UIApplication sharedApplication].delegate;
+}
+- (IBAction)downButton:(id)sender {
+    NSLog(@"Exit edit mode.");
+    [_topViewController setEditing:NO];
+    
+    [self.view layoutIfNeeded];
+    bottomViewHeight.constant = 0;
+    [self.view layoutIfNeeded];
+}
+- (IBAction)upButton:(id)sender {
+    NSLog(@"Enter edit mode.");
+    [_topViewController setEditing:YES];
+    
+    [self.view layoutIfNeeded];
+    bottomViewHeight.constant = 300;
+    [self.view layoutIfNeeded];
 }
 
 @end

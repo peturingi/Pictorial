@@ -15,8 +15,15 @@
 
 #pragma mark -
 
+
+- (void)viewDidLoad {
+    // Gestures should disabled as the application starts in non-edit mode.
+    _movePictogramGestureRecognizer.enabled = self.isEditing;
+}
+
 - (IBAction)pictogramLongPressed:(UILongPressGestureRecognizer * const)sender
 {
+    /* Initial touch down on a pictogram to be moved. */
     if (sender.state == UIGestureRecognizerStateBegan) [self handlePictogramSelection:sender];
     
     if (sender.state == UIGestureRecognizerStateChanged) {
@@ -42,12 +49,18 @@
         
         self.pictogramBeingMoved = nil;
     }
+    
+    /* The gesture recognizer disabled while it was in use. */
+    if (sender.state == UIGestureRecognizerStateCancelled) {
+        [self.delegate pictogramDraggingCancelled];
+    }
 }
 
 #pragma mark - Remove pictogram from schedule
 
 - (IBAction)removePictogramFromSchedule:(UIButton *)sender
 {
+    NSAssert(self.isEditing, @"Cannot remove pictogram unless editing.");
     NSAssert(sender, @"Sender was nil.");
     UICollectionViewCell * const sendersCell = (UICollectionViewCell *)sender.superview.superview;
     NSIndexPath * const pictogramToRemove = [self.collectionView indexPathForCell:sendersCell];
@@ -71,6 +84,7 @@
  */
 - (void)removePictogramAtIndexPath:(NSIndexPath * const)path
 {
+    NSAssert(self.isEditing, @"Cannot remove pictogram unless editing.");
     NSManagedObject * const schedule = [self scheduleForSection:path.section];
     NSAssert(schedule, @"Expected a schedule.");
     [[schedule valueForKey:CD_KEY_SCHEDULE_PICTOGRAMS] removeObjectAtIndex:path.item];
@@ -87,6 +101,7 @@
 {
     NSAssert(objectID, @"Expected objectID.");
     NSAssert(view, @"Expected a relative view.");
+    NSAssert(self.isEditing, @"Cannot add a pictogram unless editing.");
     
     CGPoint const relativeDropPoint = [self.collectionView convertPoint:point fromView:view];
     
@@ -162,6 +177,7 @@
                    inSchedule:(NSManagedObject * const)schedule
                   atIndexPath:(NSIndexPath * const)indexPath
 {
+    NSAssert(self.isEditing, @"Cannot insert pictogram unless editing.");
     NSManagedObject * const pictogramContainer = [NSEntityDescription insertNewObjectForEntityForName:@"PictogramContainer"
                                                                                inManagedObjectContext:self.managedObjectContext];
     [pictogramContainer setValue:[self.managedObjectContext objectWithID:objectID] forKey:@"pictogram"];
@@ -190,6 +206,20 @@
  */
 - (void)notifyDelegateOfItemSelectionWithObjectID:(NSManagedObjectID * const)objectID atLocation:(CGPoint const)location {
     [self.delegate selectedPictogramToAdd:objectID atLocation:location relativeTo:self.view];
+}
+
+- (void)setEditing:(BOOL)editing {
+    
+    // Set cells removable.
+    for (CalendarCell *cell in self.collectionView.visibleCells) {
+        cell.deleteButton.alpha = (editing) ? 1.0f : 0.0f;
+        cell.deleteButton.enabled = editing;
+        self.dataSource.editing = editing;
+    }
+    
+    _movePictogramGestureRecognizer.enabled = editing; // Moves to cancelled state if currently in use.
+
+    [super setEditing:editing];
 }
 
 @end

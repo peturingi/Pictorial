@@ -3,7 +3,9 @@
 
 @class MasterViewController;
 
-@interface ScheduleCollectionViewController : UICollectionViewController
+@interface ScheduleCollectionViewController : UICollectionViewController {
+    __weak IBOutlet UILongPressGestureRecognizer *_movePictogramGestureRecognizer;
+}
 
 @property (weak, nonatomic) IBOutlet WeekDataSource *dataSource;
 @property (weak, nonatomic) MasterViewController *delegate;
