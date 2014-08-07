@@ -15,6 +15,7 @@
         self.backgroundColor = [UIColor whiteColor];
         [self addSubview:[self getAutoresizingImageViewRepresenting:anImage]];
         [self setupBorder];
+        [self setupShadow];
     }
     NSAssert(self, @"Failed to init.");
     return self;
@@ -25,6 +26,10 @@
     imageView.image = anImage;
     imageView.contentMode = UIViewContentModeScaleAspectFill;
     imageView.autoresizingMask = (UIViewAutoresizingFlexibleBottomMargin|UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleWidth);
+    
+    imageView.layer.cornerRadius = PICTOGRAM_BORDER_RADIUS;
+    imageView.layer.masksToBounds = YES;
+    
     return imageView;
 }
 
@@ -32,7 +37,13 @@
     self.layer.borderWidth = PICTOGRAM_BORDER_WIDTH;
     self.layer.cornerRadius = PICTOGRAM_BORDER_RADIUS;
     self.layer.borderColor = PICTOGRAM_BORDER_COLOR;
-    self.clipsToBounds = YES; // The border marks the bounds.
+}
+
+- (void)setupShadow {
+    self.layer.shadowRadius = PICTOGRAM_SHADOW_RADIUS;
+    self.layer.shadowOpacity = PICTOGRAM_SHADOW_OPACITY;
+    self.layer.shadowOffset = PICTOGRAM_SHADOW_OFFSET;
+    self.layer.shadowColor = PICTOGRAM_SHADOW_COLOR;
 }
 
 + (CGRect)frameAtPoint:(CGPoint const)aPoint
