@@ -248,7 +248,8 @@ static const NSUInteger HEADER_HEIGHT = 20;
 
 /** Tries to adjust pictograms during scrolling, so they are not shown partially (cut on top/bottom).
  */
-- (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset withScrollingVelocity:(CGPoint)velocity
+// TODO uncomment and use this code.
+/*- (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset withScrollingVelocity:(CGPoint)velocity
 {
     CGRect targetRect = CGRectMake(0, proposedContentOffset.y,
                                    self.collectionView.bounds.size.width, self.collectionView.bounds.size.height);
@@ -264,6 +265,6 @@ static const NSUInteger HEADER_HEIGHT = 20;
                                  proposedContentOffset.y + offsetAdjustment);
     offset.y -= [self headerSize].height;
     return offset;
-}
+}*/
 
 @end

@@ -31,7 +31,8 @@
 #define NUMBER_OF_DAYS_IN_WEEK      7
 
 // Registered Constants for Dequeu views.
-#define CALENDAR_CELL               @"CALENDAR_CELL"
+#define PICTOGRAM_CALENDAR_CELL     @"PICTOGRAM_CALENDAR_CELL"
+#define EMPTY_CALENDAR_CELL         @"EMPTY_CALENDAR_CELL"
 #define DAY_HEADER                  @"DAY_HEADER"
 
 // Schedule View
@@ -58,3 +59,6 @@
 
 // Storyboard tags
 #define STORYBOARD_TAG_DAY_LABEL    3
+
+// Debugging aid
+#define LOG_METHOD NSLog(@"%@", NSStringFromSelector(_cmd));

@@ -1,7 +1,9 @@
 #import "WeekDataSource.h"
 #import "AppDelegate.h"
 #import "UIView+BBASubviews.h"
-#import "CalendarCell.h"
+#import "PictogramCalendarCell.h"
+#import "Schedule.h"
+#import "EmptyCalendarCell.h"
 
 @implementation WeekDataSource
 
@@ -60,10 +62,16 @@
     id <NSFetchedResultsSectionInfo> sectionInfo = self.fetchedResultsController.sections[section];
     NSAssert([sectionInfo objects].count == 1, @"Each day (section) must contain only a single schedule.");
     
-    // Return the schedules pictogram count.
-    NSManagedObject * const schedule = [sectionInfo objects].firstObject;
+    // Get number of pictograms in schedule
+    Schedule const * schedule = [sectionInfo objects].firstObject;
     NSOrderedSet * const pictograms = [schedule valueForKey:CD_KEY_SCHEDULE_PICTOGRAMS];
-    return pictograms.count;
+    
+    // Increase the real number by one, if the schedule is in edit mode.
+    // This allows me to inject an empty box at the bottom of the schedule
+    // which is used as an indicator that a pictogram can be dropped there
+    NSUInteger const numberOfEmptyBoxes = self.editing ? 1 : 0;
+    
+    return pictograms.count + numberOfEmptyBoxes;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -72,14 +80,23 @@
     id <NSFetchedResultsSectionInfo> const section = [self.fetchedResultsController sections][indexPath.section];
     NSAssert([section objects].count == 1, @"Each day (section) must contain only a single schedule.");
     NSManagedObject * const schedule = [section objects].firstObject;
-    
-    // Get the pictogram I want to display.
+ 
+    // Get all pictograms in schedule
     NSArray * const pictogramsInSchedule = [schedule valueForKey:CD_KEY_SCHEDULE_PICTOGRAMS];
+ 
+    
+    /* If schedule is in edit mode, display empty box */
+    if (self.editing && indexPath.item+1 > pictogramsInSchedule.count) {
+        EmptyCalendarCell * const cell = [collectionView dequeueReusableCellWithReuseIdentifier:EMPTY_CALENDAR_CELL forIndexPath:indexPath];
+        return cell;
+    }
+    
+    // Get pictogram to display
     NSManagedObject * const pictogramContainer = pictogramsInSchedule[indexPath.item];
     NSManagedObject * const pictogram = [pictogramContainer valueForKey:@"pictogram"];
     
     // Return the pictogram in a collectionView cell.
-    CalendarCell * const cell = [collectionView dequeueReusableCellWithReuseIdentifier:CALENDAR_CELL forIndexPath:indexPath];
+    PictogramCalendarCell * const cell = [collectionView dequeueReusableCellWithReuseIdentifier:PICTOGRAM_CALENDAR_CELL forIndexPath:indexPath];
     // Show the cells edit button if we are in editable state.
     cell.deleteButton.alpha = self.editing ? 1.0f : 0.0f;
     cell.deleteButton.enabled = self.editing;

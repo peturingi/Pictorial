@@ -1,6 +1,7 @@
 #import <UIKit/UIKit.h>
+#import "CalendarCell.h"
 
-@interface CalendarCell : UICollectionViewCell
+@interface PictogramCalendarCell : CalendarCell
 
 @property IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
