@@ -13,7 +13,6 @@
     if (self) {
         [self setupDataSource];
     }
-    NSAssert(self, @"Failed to init");
     return self;
 }
 
@@ -140,7 +139,7 @@
     
     NSError *error;
     if ([self.managedObjectContext save:&error] == NO) {
-        @throw [NSException exceptionWithName:@"Error saving deletion from schedule." reason:error.localizedFailureReason userInfo:nil];
+        @throw [NSException exceptionWithName:@"Error saving deletion from schedule." reason:[error.localizedFailureReason stringByAppendingString:error.localizedDescription] userInfo:nil];
     }
 }
 

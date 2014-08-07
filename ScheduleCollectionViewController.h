@@ -7,6 +7,12 @@
     __weak IBOutlet UILongPressGestureRecognizer *_movePictogramGestureRecognizer;
 }
 
+/* Private */
+@property (strong, nonatomic) NSManagedObjectID *mostRecentlytouchedPictogram;
+@property (strong, nonatomic) NSIndexPath *pictogramsSourceLocation;
+@property (strong, nonatomic) NSIndexPath *pictogramsDestinationLocation;
+
+/* Public */
 @property (weak, nonatomic) IBOutlet WeekDataSource *dataSource;
 @property (weak, nonatomic) MasterViewController *delegate;
 

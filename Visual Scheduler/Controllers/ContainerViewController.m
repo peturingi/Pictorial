@@ -52,11 +52,6 @@
     timerButton = [[UIBarButtonItem alloc] initWithTitle:@"Klukka" style:UIBarButtonItemStylePlain target:self action:@selector(showTimer)];
     [self.navigationItem setLeftBarButtonItem:timerButton];
     [self setupGestureRecognizer];
-    
-#ifdef DEBUG
-    NSLog(@"%@", [self.view constraintsOfSelfAndSubviews]);
-#endif
-    
 }
 
 #pragma mark View Modes (now,day,week)
@@ -288,9 +283,6 @@
                 /* animate shifting while moving */
                 CGPoint locationInCollectionView = [gestureRecognizer locationInView:self.currentCollectionViewController.collectionView];
                 NSIndexPath *fingerIsOverPictogram = [self.currentCollectionViewController.collectionView indexPathForItemAtPoint:locationInCollectionView];
-                if (fingerIsOverPictogram) {
-                    NSLog(@"Finger over %@", fingerIsOverPictogram);
-                }
             }
             break;
             

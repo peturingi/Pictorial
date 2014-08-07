@@ -78,6 +78,8 @@
 		D88954ED19921B7300243422 /* EmptyCalendarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D88954EC19921B7300243422 /* EmptyCalendarCell.m */; };
 		D889F7EE18C9249A008A497F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D83A62CB18B696DC00EC0773 /* AppDelegate.m */; };
 		D88BF8131986618200B1ADAB /* ScheduleCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D88BF8121986618200B1ADAB /* ScheduleCollectionViewController.m */; };
+		D88E4F0219938FCE00414457 /* UILongPressGestureRecognizer+Cancel.m in Sources */ = {isa = PBXBuildFile; fileRef = D88E4F0119938FCE00414457 /* UILongPressGestureRecognizer+Cancel.m */; };
+		D88E4F08199390C400414457 /* UICollectionView+CellAtPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = D88E4F07199390C400414457 /* UICollectionView+CellAtPoint.m */; };
 		D8A8292B198F7F1100E0D85F /* PictogramContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A8292A198F7F1100E0D85F /* PictogramContainer.m */; };
 		D8A8292E198F7F1100E0D85F /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A8292D198F7F1100E0D85F /* Schedule.m */; };
 		D8A82931198F7F1200E0D85F /* Pictogram.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A82930198F7F1200E0D85F /* Pictogram.m */; };
@@ -231,6 +233,10 @@
 		D88BF8111986618200B1ADAB /* ScheduleCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleCollectionViewController.h; sourceTree = "<group>"; };
 		D88BF8121986618200B1ADAB /* ScheduleCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleCollectionViewController.m; sourceTree = "<group>"; };
 		D88C300B1988D27D003F5BDC /* Picker+Protected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Picker+Protected.h"; sourceTree = "<group>"; };
+		D88E4F0019938FCE00414457 /* UILongPressGestureRecognizer+Cancel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILongPressGestureRecognizer+Cancel.h"; sourceTree = "<group>"; };
+		D88E4F0119938FCE00414457 /* UILongPressGestureRecognizer+Cancel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILongPressGestureRecognizer+Cancel.m"; sourceTree = "<group>"; };
+		D88E4F06199390C400414457 /* UICollectionView+CellAtPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+CellAtPoint.h"; sourceTree = "<group>"; };
+		D88E4F07199390C400414457 /* UICollectionView+CellAtPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+CellAtPoint.m"; sourceTree = "<group>"; };
 		D8A82929198F7F1100E0D85F /* PictogramContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictogramContainer.h; sourceTree = "<group>"; };
 		D8A8292A198F7F1100E0D85F /* PictogramContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictogramContainer.m; sourceTree = "<group>"; };
 		D8A8292C198F7F1100E0D85F /* Schedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Schedule.h; sourceTree = "<group>"; };
@@ -323,6 +329,12 @@
 		D82838B018D5B85A009C03A8 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				D88E4F06199390C400414457 /* UICollectionView+CellAtPoint.h */,
+				D88E4F07199390C400414457 /* UICollectionView+CellAtPoint.m */,
+				D81C450F198D336100E9801C /* NSArray+ObjectsOfType.h */,
+				D81C4510198D336200E9801C /* NSArray+ObjectsOfType.m */,
+				D88E4F0019938FCE00414457 /* UILongPressGestureRecognizer+Cancel.h */,
+				D88E4F0119938FCE00414457 /* UILongPressGestureRecognizer+Cancel.m */,
 				D858CB8519221E0B00402E24 /* NSDate+VisualScheduler.h */,
 				D858CB8619221E0B00402E24 /* NSDate+VisualScheduler.m */,
 				D8FD1D1B1924C943000226BF /* UIView+ContraintInfo.h */,
@@ -423,8 +435,6 @@
 		D83A62AF18B696DB00EC0773 = {
 			isa = PBXGroup;
 			children = (
-				D81C450F198D336100E9801C /* NSArray+ObjectsOfType.h */,
-				D81C4510198D336200E9801C /* NSArray+ObjectsOfType.m */,
 				D81C450C198D320A00E9801C /* RectHelper.h */,
 				D81C450D198D320A00E9801C /* RectHelper.m */,
 				D87607021988C720000D78D4 /* ImportImageViewController.h */,
@@ -757,6 +767,7 @@
 				D82D5FD418C616A6000A8FD3 /* UIView+BBASubviews.m in Sources */,
 				D88954EA19921A7400243422 /* CalendarCell.m in Sources */,
 				68D7964419092E490047A0CE /* NSString+TimeFormatted.m in Sources */,
+				D88E4F0219938FCE00414457 /* UILongPressGestureRecognizer+Cancel.m in Sources */,
 				D87607071988C8D2000D78D4 /* ImageSourceTableViewController.m in Sources */,
 				68D7963419092D130047A0CE /* UIView+Wiggle.m in Sources */,
 				D8472B871922C07E00EBE741 /* UICollectionView+AbortScrollAnimation.m in Sources */,
@@ -766,6 +777,7 @@
 				68D7964019092DF10047A0CE /* CALayer+Rotate.m in Sources */,
 				D81ABB80190966C5000B81F3 /* DayCollectionViewLayout.m in Sources */,
 				D8BABEC018EC6839009E562E /* NSMutableArray+MoveObject.m in Sources */,
+				D88E4F08199390C400414457 /* UICollectionView+CellAtPoint.m in Sources */,
 				D858CB8719221E0B00402E24 /* NSDate+VisualScheduler.m in Sources */,
 				D81C4511198D336200E9801C /* NSArray+ObjectsOfType.m in Sources */,
 				D876070B1988CC85000D78D4 /* AlbumPicker.m in Sources */,

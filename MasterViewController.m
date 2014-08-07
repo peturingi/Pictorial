@@ -113,15 +113,10 @@
 - (BOOL)handleAddPictogramToScheduleAtPoint:(CGPoint)location relativeToView:(UIView * const)view
 {
     NSAssert(view, @"The view must not be empty.");
-    LOG_METHOD // DEBUG
-    NSLog(@"Add at point: (%f,%f)", location.x, location.y);
-    NSLog(@"Relative to view: %@", view);
     
     BOOL const wasAdded = [_topViewController addPictogramWithID:_idOfPictogramBeingMoved
                                                         atPoint:location
                                                   relativeToView:view];
-    LOG_METHOD // DEBUG
-    NSLog(@"Was added: %d", wasAdded); // DEBUG
     if (wasAdded) {
         [_pictogramBeingMoved removeFromSuperview];
     }

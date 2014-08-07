@@ -82,7 +82,6 @@
 
 - (void)sectionAtPoint:(CGPoint)point {
     NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:point];
-    NSLog(@"Section: %ld, Item: %ld", (long)indexPath.section, (long)indexPath.item);
 }
 
 - (void)addPictogram:(Pictogram *)pictogram atIndexPath:(NSIndexPath *)indexPath {
