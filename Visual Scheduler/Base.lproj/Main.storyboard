@@ -314,7 +314,7 @@
                                 <rect key="frame" x="0.0" y="744" width="768" height="236"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="236" id="cVv-eZ-qbp"/>
+                                    <constraint firstAttribute="height" constant="236" id="cVv-eZ-qbp" userLabel="PictogramSelector Height"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
@@ -334,7 +334,7 @@
                         <constraints>
                             <constraint firstItem="TPj-VT-Xow" firstAttribute="leading" secondItem="j17-jP-moV" secondAttribute="leading" id="F4q-1I-oR2"/>
                             <constraint firstItem="TPj-VT-Xow" firstAttribute="top" secondItem="k6R-GB-Bny" secondAttribute="bottom" id="IUO-JK-Rq5"/>
-                            <constraint firstItem="j17-jP-moV" firstAttribute="top" secondItem="TPj-VT-Xow" secondAttribute="bottom" id="RCS-XI-tbt"/>
+                            <constraint firstItem="j17-jP-moV" firstAttribute="top" secondItem="TPj-VT-Xow" secondAttribute="bottom" id="RCS-XI-tbt" userLabel="vSpace between pictograms schedule"/>
                             <constraint firstItem="xJL-F2-81S" firstAttribute="top" secondItem="j17-jP-moV" secondAttribute="bottom" id="SkK-vD-ZYZ"/>
                             <constraint firstItem="j17-jP-moV" firstAttribute="width" secondItem="3Ug-ui-Wfq" secondAttribute="width" id="UjP-M0-Cfy"/>
                             <constraint firstAttribute="width" secondItem="TPj-VT-Xow" secondAttribute="width" id="btk-Nf-D6o"/>

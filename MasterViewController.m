@@ -10,6 +10,10 @@
 
 @implementation MasterViewController
 
+- (void)viewDidLoad {
+    [self hidePictogramSelector];
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:SEGUE_NEW_PICTOGRAM]) {
@@ -143,19 +147,22 @@
     return [UIApplication sharedApplication].delegate;
 }
 - (IBAction)downButton:(id)sender {
-    NSLog(@"Exit edit mode.");
     [_topViewController setEditing:NO];
-    
+    [self hidePictogramSelector];
+}
+- (IBAction)upButton:(id)sender {
+    [_topViewController setEditing:YES];
+    [self showPictogramSelector];
+}
+
+- (void)hidePictogramSelector {
     [self.view layoutIfNeeded];
     bottomViewHeight.constant = 0;
     [self.view layoutIfNeeded];
 }
-- (IBAction)upButton:(id)sender {
-    NSLog(@"Enter edit mode.");
-    [_topViewController setEditing:YES];
-    
+- (void)showPictogramSelector {
     [self.view layoutIfNeeded];
-    bottomViewHeight.constant = 300;
+    bottomViewHeight.constant = floor(self.view.frame.size.height / 3.0f);
     [self.view layoutIfNeeded];
 }
 
