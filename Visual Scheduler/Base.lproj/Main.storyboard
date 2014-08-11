@@ -372,6 +372,9 @@
                     <connections>
                         <outlet property="bottomView" destination="j17-jP-moV" id="LQd-MU-xWP"/>
                         <outlet property="bottomViewHeight" destination="cVv-eZ-qbp" id="gSD-v4-FJ1"/>
+                        <outlet property="hidePictogramSelectorButton" destination="bgX-XF-Z7g" id="HRd-mS-6E7"/>
+                        <outlet property="importPhotosButton" destination="WqI-yk-a3D" id="yBj-nt-dQr"/>
+                        <outlet property="showPictogramSelectorButton" destination="GXR-Iu-jgv" id="qBc-Ju-vFi"/>
                         <segue destination="6cx-Oo-qhh" kind="modal" identifier="newPictogram" modalPresentationStyle="formSheet" id="Rmi-aP-70V"/>
                     </connections>
                 </viewController>

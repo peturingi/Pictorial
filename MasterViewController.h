@@ -14,6 +14,9 @@
     __weak PictogramView *_pictogramBeingMoved;
     NSManagedObjectID *_idOfPictogramBeingMoved;
     __weak IBOutlet NSLayoutConstraint *bottomViewHeight;
+    __weak IBOutlet UIBarButtonItem *importPhotosButton;
+    __weak IBOutlet UIBarButtonItem *showPictogramSelectorButton;
+    __weak IBOutlet UIBarButtonItem *hidePictogramSelectorButton;
 }
 
 - (void)showCameraPicker;
@@ -23,4 +26,5 @@
 - (BOOL)handleAddPictogramToScheduleAtPoint:(CGPoint const)location relativeToView:(UIView * const)view;
 - (void)pictogramBeingDraggedMovedToPoint:(CGPoint)point relativeToView:(UIView *)view;
 - (void)pictogramDraggingCancelled;
+
 @end

@@ -11,7 +11,7 @@
 @implementation MasterViewController
 
 - (void)viewDidLoad {
-    [self hidePictogramSelector];
+    [self downButton:nil];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -148,10 +148,16 @@
 }
 - (IBAction)downButton:(id)sender {
     [_topViewController setEditing:NO];
+    [self hideImportPhotosButton];
+    [self hideHidePictogramSelectorButton];
+    [self showShowPictogramSelectorButton];
     [self hidePictogramSelector];
 }
 - (IBAction)upButton:(id)sender {
     [_topViewController setEditing:YES];
+    [self showHidePictogramSelectorButton];
+    [self hideShowPictogramSelectorButton];
+    [self showImportPhotosButton];
     [self showPictogramSelector];
 }
 
@@ -165,5 +171,14 @@
     bottomViewHeight.constant = floor(self.view.frame.size.height / 3.0f);
     [self.view layoutIfNeeded];
 }
+
+- (void)showImportPhotosButton { importPhotosButton.enabled = YES; }
+- (void)hideImportPhotosButton { importPhotosButton.enabled = NO; }
+
+- (void)showShowPictogramSelectorButton { showPictogramSelectorButton.enabled = YES; }
+- (void)hideShowPictogramSelectorButton { showPictogramSelectorButton.enabled = NO; }
+
+- (void)showHidePictogramSelectorButton { hidePictogramSelectorButton.enabled = YES; }
+- (void)hideHidePictogramSelectorButton { hidePictogramSelectorButton.enabled = NO; }
 
 @end
