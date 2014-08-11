@@ -343,7 +343,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems>
-                        <barButtonItem title="Import" id="WqI-yk-a3D">
+                        <barButtonItem systemItem="camera" id="WqI-yk-a3D">
                             <connections>
                                 <segue destination="sX2-J3-ISF" kind="popover" identifier="SEGUE_IMAGE_SOURCE" popoverAnchorBarButtonItem="WqI-yk-a3D" id="oWE-Zj-iG8">
                                     <popoverArrowDirection key="popoverArrowDirection" up="YES"/>
