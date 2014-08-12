@@ -6,10 +6,18 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
+        [self setupBorder];
         [self setupImageView];
     }
     NSAssert(self, @"Failed to init.");
     return self;
+}
+
+- (void)setupBorder
+{
+    self.layer.borderWidth = PICTOGRAM_BORDER_WIDTH;
+    self.layer.cornerRadius = PICTOGRAM_BORDER_RADIUS;
+    self.layer.borderColor = PICTOGRAM_BORDER_COLOR;
 }
 
 - (void)setupImageView
