@@ -7,6 +7,7 @@
 #import "MasterViewController.h"
 #import "UILongPressGestureRecognizer+Cancel.h"
 #import "UICollectionView+CellAtPoint.h"
+#import "DayCollectionViewLayout.h"
 
 @implementation ScheduleCollectionViewController
 
@@ -243,9 +244,9 @@
     
     if (selectedCell && [selectedCell isMemberOfClass:[PictogramCalendarCell class]]) {
         self.pictogramsSourceLocation = [self.collectionView indexPathForItemAtPoint:[sender locationInView:self.collectionView]];
-        self.mostRecentlytouchedPictogram = [self.dataSource pictogramAtIndexPath:self.pictogramsSourceLocation].objectID;
+        NSManagedObject * const mostRecentlytouchedPictogram = [self.dataSource pictogramAtIndexPath:self.pictogramsSourceLocation];
         
-        [self.delegate selectedPictogramToAdd:self.mostRecentlytouchedPictogram fromRect:[self.view convertRect:selectedCell.frame fromView:self.collectionView] atLocation:[sender locationInView:self.view] relativeTo:self.view];
+        [self.delegate selectedPictogramToAdd:mostRecentlytouchedPictogram.objectID fromRect:[self.view convertRect:selectedCell.frame fromView:self.collectionView] atLocation:[sender locationInView:self.view] relativeTo:self.view];
     } else {
         [sender cancel];
     }
@@ -276,6 +277,18 @@
 - (void)showEmptyCells:(BOOL const)value {
     self.dataSource.editing = value;
     [self.collectionView reloadData];
+}
+
+#pragma mark - Switching Layouts
+
+- (void)switchToDayLayout {
+    DayCollectionViewLayout *layout = [[DayCollectionViewLayout alloc] init];
+    [self.collectionView setCollectionViewLayout:layout animated:YES];
+    [self.collectionView reloadData];
+}
+
+- (void)switchToWeekLayout {
+    NSLog(@"Not implemented.");
 }
 
 #pragma mark -

@@ -2,7 +2,7 @@
 
 @implementation UICollectionView (CellAtPoint)
 
-- (UICollectionViewCell *)cellAtPoint:(const CGPoint)point {
+- (id)cellAtPoint:(const CGPoint)point {
     NSIndexPath * const pathToSelectedCell = [self indexPathForItemAtPoint:point];
     return [self cellForItemAtIndexPath:pathToSelectedCell];
 }

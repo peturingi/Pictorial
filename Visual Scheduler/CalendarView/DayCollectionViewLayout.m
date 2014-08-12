@@ -43,7 +43,7 @@ static const NSInteger INSET_BOTTOM = 2;
 
 - (NSDictionary *)cellAttributes {
     NSMutableDictionary *cellInformation = [NSMutableDictionary dictionaryWithCapacity:1];
-    const NSInteger firstSection = 0;
+    const NSInteger firstSection = 0; // TODO get current day. This gets only Monday.
     self.maxNumRows = [self.collectionView numberOfItemsInSection:firstSection];
     
     for (NSInteger item = 0; item < self.maxNumRows; item++) {

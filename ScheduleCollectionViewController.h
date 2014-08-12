@@ -23,4 +23,8 @@
  */
 - (BOOL)addPictogramWithID:(NSManagedObjectID * const)objectID atPoint:(CGPoint const)point relativeToView:(UIView *)view;
 
+// Layout switching
+- (void)switchToDayLayout;
+- (void)switchToWeekLayout;
+
 @end

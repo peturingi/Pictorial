@@ -2,6 +2,6 @@
 
 @interface UICollectionView (CellAtPoint)
 
-- (UICollectionViewCell *)cellAtPoint:(CGPoint const)point;
+- (id)cellAtPoint:(CGPoint const)point;
 
 @end

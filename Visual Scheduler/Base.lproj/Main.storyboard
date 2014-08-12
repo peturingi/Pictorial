@@ -351,8 +351,16 @@
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="b3W-yc-uF7"/>
-                        <barButtonItem title="Day" id="yyS-qw-HFa"/>
-                        <barButtonItem title="Week" id="trc-5K-fJZ"/>
+                        <barButtonItem title="Day" id="yyS-qw-HFa">
+                            <connections>
+                                <action selector="showDayView:" destination="Xfv-XK-laj" id="8LZ-cy-LiW"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem title="Week" id="trc-5K-fJZ">
+                            <connections>
+                                <action selector="showWeekView:" destination="Xfv-XK-laj" id="LDa-NS-Imv"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="JKA-ua-WWO"/>
                         <barButtonItem title="Up" id="GXR-Iu-jgv">
                             <connections>

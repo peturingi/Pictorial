@@ -3,10 +3,8 @@
 #import "PictogramSelectorDataSource.h"
 #import "UICollectionView+CellAtPoint.h"
 #import "UILongPressGestureRecognizer+Cancel.h"
-
-@interface PictogramSelectorViewController ()
-    @property (strong, nonatomic) NSManagedObjectID *mostRecentlytouchedPictogram;
-@end
+#import "Pictogram.h"
+#import "PictogramCalendarCell.h"
 
 @implementation PictogramSelectorViewController
 
@@ -28,9 +26,9 @@
     
     if (selectedCell && [selectedCell isKindOfClass:[UICollectionViewCell class]]) {
         NSIndexPath * const indexPathToTouchedPictogram = [self.collectionView indexPathForItemAtPoint:[sender locationInView:self.collectionView]];
-        self.mostRecentlytouchedPictogram = [(PictogramSelectorDataSource *)self.collectionView.dataSource pictogramAtIndexPath:indexPathToTouchedPictogram].objectID;
+        NSManagedObjectID * const mostRecentlytouchedPictogram = [(PictogramSelectorDataSource *)self.collectionView.dataSource pictogramAtIndexPath:indexPathToTouchedPictogram].objectID;
         
-        [self.delegate selectedPictogramToAdd:self.mostRecentlytouchedPictogram fromRect:[self.view convertRect:selectedCell.frame fromView:self.collectionView] atLocation:[sender locationInView:self.view] relativeTo:self.view];
+        [self.delegate selectedPictogramToAdd:mostRecentlytouchedPictogram fromRect:[self.view convertRect:selectedCell.frame fromView:self.collectionView] atLocation:[sender locationInView:self.view] relativeTo:self.view];
     } else {
         [sender cancel];
     }

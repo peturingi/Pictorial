@@ -142,6 +142,17 @@
     [_pictogramBeingMoved removeFromSuperview]; // TODO maby call animatePictogramToOriginalPosition instead.
 }
 
+#pragma mark - Change View Modes
+
+- (IBAction)showDayView:(id)sender {
+    [_topViewController switchToDayLayout];
+}
+
+- (IBAction)showWeekView:(id)sender {
+    [_topViewController switchToWeekLayout];
+}
+
+
 #pragma mark - 
 
 - (AppDelegate *)appDelegate
