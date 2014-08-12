@@ -1,6 +1,8 @@
 #import "PictogramSelectorViewController.h"
 #import <CoreData/CoreData.h>
 #import "PictogramSelectorDataSource.h"
+#import "UICollectionView+CellAtPoint.h"
+#import "UILongPressGestureRecognizer+Cancel.h"
 
 @interface PictogramSelectorViewController ()
     @property (strong, nonatomic) NSManagedObjectID *mostRecentlytouchedPictogram;
@@ -18,19 +20,20 @@
     }
 }
 
-- (void)handlePictogramSelection:(UILongPressGestureRecognizer * const)sender
-{
-    NSIndexPath * const indexPathToTouchedPictogram = [self.collectionView indexPathForItemAtPoint:[sender locationInView:self.collectionView]];
-    self.mostRecentlytouchedPictogram = [(PictogramSelectorDataSource *)self.collectionView.dataSource pictogramAtIndexPath:indexPathToTouchedPictogram].objectID;
-    [self notifyDelegateOfItemSelectionWithObjectID:self.mostRecentlytouchedPictogram atLocation:[sender locationInView:self.view]];
-}
-
-
 /** Tells the delegate which item was touched, and its location.
  */
-- (void)notifyDelegateOfItemSelectionWithObjectID:(NSManagedObjectID * const)objectID atLocation:(CGPoint const)location
+- (void)handlePictogramSelection:(UILongPressGestureRecognizer * const)sender
 {
-     [self.delegate selectedPictogramToAdd:objectID atLocation:location relativeTo:self.view];
+    UICollectionViewCell * const selectedCell = [self.collectionView cellAtPoint:[sender locationInView:self.collectionView]];
+    
+    if (selectedCell && [selectedCell isKindOfClass:[UICollectionViewCell class]]) {
+        NSIndexPath * const indexPathToTouchedPictogram = [self.collectionView indexPathForItemAtPoint:[sender locationInView:self.collectionView]];
+        self.mostRecentlytouchedPictogram = [(PictogramSelectorDataSource *)self.collectionView.dataSource pictogramAtIndexPath:indexPathToTouchedPictogram].objectID;
+        
+        [self.delegate selectedPictogramToAdd:self.mostRecentlytouchedPictogram inCell:selectedCell atLocation:[sender locationInView:self.view] relativeTo:self.view];
+    } else {
+        [sender cancel];
+    }
 }
 
 @end

@@ -240,9 +240,8 @@
 - (void)handlePictogramSelection:(UILongPressGestureRecognizer * const)sender
 {
     UICollectionViewCell * const selectedCell = [self.collectionView cellAtPoint:[sender locationInView:self.collectionView]];
-    NSAssert(selectedCell, @"Cell not found.");
     
-    if ([selectedCell isMemberOfClass:[PictogramCalendarCell class]]) {
+    if (selectedCell && [selectedCell isMemberOfClass:[PictogramCalendarCell class]]) {
         self.pictogramsSourceLocation = [self.collectionView indexPathForItemAtPoint:[sender locationInView:self.collectionView]];
         self.mostRecentlytouchedPictogram = [self.dataSource pictogramAtIndexPath:self.pictogramsSourceLocation].objectID;
         
