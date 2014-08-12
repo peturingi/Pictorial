@@ -98,23 +98,6 @@
     }];
 }
 
-/**
- Notifies the receiver of which pictogram was selected for dragging.
- */
-- (void)selectedPictogramToAdd:(NSManagedObjectID * const)pictogramIdentifier
-                    atLocation:(CGPoint const)location
-                    relativeTo:(UIView *)view
-{
-    _idOfPictogramBeingMoved = pictogramIdentifier;
-    
-    UIImage * const image = ((Pictogram *)[[self appDelegate] objectWithID:pictogramIdentifier]).uiImage; // TODO resize the image. No need to move a full size image around.
-    CGPoint const targetLocation = [self.view convertPoint:location fromView:view];
-    
-    PictogramView * const pictogramView = [[PictogramView alloc] initWithPoint:targetLocation andImage:image];
-    _pictogramBeingMoved = pictogramView;
-    [self.view addSubview:pictogramView];
-}
-
 #pragma mark Moving in Bottom View
 
 - (void)pictogramBeingDraggedMovedToPoint:(CGPoint const)point relativeToView:(UIView *)view
