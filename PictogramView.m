@@ -21,6 +21,19 @@
     return self;
 }
 
+- (id)initWithFrame:(CGRect)frame andImage:(UIImage * const)anImage
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        self.backgroundColor = [UIColor whiteColor];
+        [self addSubview:[self getAutoresizingImageViewRepresenting:anImage]];
+        [self setupBorder];
+        [self setupShadow];
+    }
+    NSAssert(self, @"Failed to init.");
+    return self;
+}
+
 - (UIImageView *)getAutoresizingImageViewRepresenting:(UIImage *)anImage {
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.bounds];
     imageView.image = anImage;

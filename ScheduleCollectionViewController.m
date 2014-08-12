@@ -243,7 +243,9 @@
     if ([selectedCell isMemberOfClass:[PictogramCalendarCell class]]) {
         self.pictogramsSourceLocation = [self.collectionView indexPathForItemAtPoint:[sender locationInView:self.collectionView]];
         self.mostRecentlytouchedPictogram = [self.dataSource pictogramAtIndexPath:self.pictogramsSourceLocation].objectID;
-        [self notifyDelegateOfItemSelectionWithObjectID:self.mostRecentlytouchedPictogram atLocation:[sender locationInView:self.view]];
+        
+        //[self notifyDelegateOfItemSelectionWithObjectID:self.mostRecentlytouchedPictogram atLocation:[sender locationInView:self.view]];
+        [self.delegate selectedPictogramToAdd:self.mostRecentlytouchedPictogram inCell:selectedCell atLocation:[sender locationInView:self.view] relativeTo:self.view];
     } else {
         [sender cancel];
     }

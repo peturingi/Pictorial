@@ -152,7 +152,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kjn-r4-5Vt" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="sdn-O5-Gfu" customClass="WeekDataSource"/>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.29999999999999999" id="aAz-Nb-UqU">
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.099999999999999978" id="aAz-Nb-UqU">
                     <connections>
                         <action selector="pictogramLongPressed:" destination="FBT-CU-eS9" id="mzc-h4-jMV"/>
                     </connections>
