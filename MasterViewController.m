@@ -153,24 +153,19 @@
     [self hideImportPhotosButton];
     [self hideHidePictogramSelectorButton];
     [self showShowPictogramSelectorButton];
-    [self hidePictogramSelector];
+    [self setHeightOfPictogramSelector:0];
 }
 - (IBAction)upButton:(id)sender {
     [_topViewController setEditing:YES];
     [self showHidePictogramSelectorButton];
     [self hideShowPictogramSelectorButton];
     [self showImportPhotosButton];
-    [self showPictogramSelector];
+    [self setHeightOfPictogramSelector:floor(self.view.frame.size.height / 3.0f)];
 }
 
-- (void)hidePictogramSelector {
+- (void)setHeightOfPictogramSelector:(CGFloat const)height {
     [self.view layoutIfNeeded];
-    bottomViewHeight.constant = 0;
-    [self.view layoutIfNeeded];
-}
-- (void)showPictogramSelector {
-    [self.view layoutIfNeeded];
-    bottomViewHeight.constant = floor(self.view.frame.size.height / 3.0f);
+    bottomViewHeight.constant = height;
     [self.view layoutIfNeeded];
 }
 
