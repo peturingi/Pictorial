@@ -235,6 +235,8 @@
 
 #pragma mark - Rearrange pictograms
 
+/** Tells the delegate which item was touched, and its location.
+ */
 - (void)handlePictogramSelection:(UILongPressGestureRecognizer * const)sender
 {
     UICollectionViewCell * const selectedCell = [self.collectionView cellAtPoint:[sender locationInView:self.collectionView]];
@@ -244,17 +246,10 @@
         self.pictogramsSourceLocation = [self.collectionView indexPathForItemAtPoint:[sender locationInView:self.collectionView]];
         self.mostRecentlytouchedPictogram = [self.dataSource pictogramAtIndexPath:self.pictogramsSourceLocation].objectID;
         
-        //[self notifyDelegateOfItemSelectionWithObjectID:self.mostRecentlytouchedPictogram atLocation:[sender locationInView:self.view]];
         [self.delegate selectedPictogramToAdd:self.mostRecentlytouchedPictogram inCell:selectedCell atLocation:[sender locationInView:self.view] relativeTo:self.view];
     } else {
         [sender cancel];
     }
-}
-
-/** Tells the delegate which item was touched, and its location.
- */
-- (void)notifyDelegateOfItemSelectionWithObjectID:(NSManagedObjectID * const)objectID atLocation:(CGPoint const)location {
-    [self.delegate selectedPictogramToAdd:objectID atLocation:location relativeTo:self.view];
 }
 
 #pragma mark - Toggle Edit Mode
