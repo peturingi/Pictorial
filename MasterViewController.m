@@ -78,13 +78,13 @@
 
 #pragma mark - Touching
 
-- (void)selectedPictogramToAdd:(NSManagedObjectID *)pictogramIdentifier inCell:(UICollectionViewCell *)cell atLocation:(CGPoint)location relativeTo:(UIView *)view {
+- (void)selectedPictogramToAdd:(NSManagedObjectID *)pictogramIdentifier fromRect:(CGRect const)rect atLocation:(CGPoint)location relativeTo:(UIView *)view {
     _idOfPictogramBeingMoved = pictogramIdentifier;
     
     /* Animate the selected pictogram, to the finger. Resize it if needed.*/
     // Compute frames
     CGPoint const touchLocation = [self.view convertPoint:location fromView:view];
-    CGRect const source = [self.view convertRect:cell.frame fromView:view];
+    CGRect const source = [self.view convertRect:rect fromView:view];
     CGRect const destination = CGRectMake(touchLocation.x-PICTOGRAM_SIZE_WHILE_DRAGGING/2, touchLocation.y-PICTOGRAM_SIZE_WHILE_DRAGGING/2, PICTOGRAM_SIZE_WHILE_DRAGGING, PICTOGRAM_SIZE_WHILE_DRAGGING);
     // Add as subview
     // TODO resize the image. No need to move a full size image around.

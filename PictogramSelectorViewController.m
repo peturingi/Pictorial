@@ -30,7 +30,7 @@
         NSIndexPath * const indexPathToTouchedPictogram = [self.collectionView indexPathForItemAtPoint:[sender locationInView:self.collectionView]];
         self.mostRecentlytouchedPictogram = [(PictogramSelectorDataSource *)self.collectionView.dataSource pictogramAtIndexPath:indexPathToTouchedPictogram].objectID;
         
-        [self.delegate selectedPictogramToAdd:self.mostRecentlytouchedPictogram inCell:selectedCell atLocation:[sender locationInView:self.view] relativeTo:self.view];
+        [self.delegate selectedPictogramToAdd:self.mostRecentlytouchedPictogram fromRect:[self.view convertRect:selectedCell.frame fromView:self.collectionView] atLocation:[sender locationInView:self.view] relativeTo:self.view];
     } else {
         [sender cancel];
     }

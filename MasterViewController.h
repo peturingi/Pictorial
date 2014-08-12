@@ -22,7 +22,7 @@
 - (void)showCameraPicker;
 - (void)showAlbumPicker;
 
-- (void)selectedPictogramToAdd:(NSManagedObjectID *)pictogramIdentifier inCell:(UICollectionViewCell *)cell atLocation:(CGPoint)location relativeTo:(UIView *)view;
+- (void)selectedPictogramToAdd:(NSManagedObjectID *)pictogramIdentifier fromRect:(CGRect const)rect atLocation:(CGPoint)location relativeTo:(UIView *)view;
 - (BOOL)handleAddPictogramToScheduleAtPoint:(CGPoint const)location relativeToView:(UIView * const)view;
 - (void)pictogramBeingDraggedMovedToPoint:(CGPoint)point relativeToView:(UIView *)view;
 - (void)pictogramDraggingCancelled;
