@@ -24,10 +24,10 @@
     AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
     _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:delegate.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
     self.fetchedResultsController.delegate = self;
+    
     NSError *fetchError;
     BOOL fetchSuccessful = [self.fetchedResultsController performFetch:&fetchError];
-    if (fetchSuccessful == NO)
-    {
+    if (fetchSuccessful == NO) {
         @throw [NSException exceptionWithName:@"Failed to fetch pictograms from core data." reason:fetchError.localizedFailureReason userInfo:nil];
     }
 }
