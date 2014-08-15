@@ -74,7 +74,6 @@
  */
 - (NSManagedObject *)pictogramAtIndexPath:(NSIndexPath * const)indexPath
 {
-    NSAssert(indexPath, @"Must not be nil.");
     return [[self fetchedResultsController] objectAtIndexPath:indexPath];
 }
 
