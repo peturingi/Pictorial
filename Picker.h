@@ -8,8 +8,7 @@
     UIImagePickerControllerSourceType _source;
 }
 
-@property UIViewController <PickerDelegate> *delegate;
-
+@property (weak, nonatomic) UIViewController <PickerDelegate> *delegate;
 
 /*
  Class protected methods are defined in a class extension.

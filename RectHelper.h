@@ -7,7 +7,7 @@
 /** Returns the rectangle of the cell which has the largest intersection area with the passed in rect.
  @pre Atleast one of the cells passed in must intersect the given rect.
  */
-+ (CGRect)largestIntersectionOf:(NSArray *)views and:(CGRect)rect;
++ (CGRect)largestIntersectionOfViews:(NSArray *)views andRect:(CGRect)rect;
 
 + (NSArray *)viewsIn:(NSArray *)views intersectingWithRect:(CGRect)rect;
 

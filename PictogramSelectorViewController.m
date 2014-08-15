@@ -3,8 +3,6 @@
 #import "PictogramSelectorDataSource.h"
 #import "UICollectionView+CellAtPoint.h"
 #import "UILongPressGestureRecognizer+Cancel.h"
-#import "Pictogram.h"
-#import "PictogramCalendarCell.h"
 
 @implementation PictogramSelectorViewController
 

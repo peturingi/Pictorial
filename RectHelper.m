@@ -2,7 +2,7 @@
 
 @implementation RectHelper
 
-+ (CGRect)largestIntersectionOf:(NSArray *)views and:(CGRect)rect
++ (CGRect)largestIntersectionOfViews:(NSArray *)views andRect:(CGRect)rect
 {
     NSAssert(views, @"Expected collectionViewCells.");
     

@@ -8,19 +8,6 @@
 - (id)initWithFrame:(CGRect)frame { ASSERT_DEPRECATED; return nil; }
 - (id)initWithCoder:(NSCoder *)aDecoder { ASSERT_DEPRECATED; return nil; }
 
-- (id)initWithPoint:(CGPoint const)point andImage:(UIImage * const)anImage
-{
-    self = [super initWithFrame:[PictogramView frameAtPoint:point]];
-    if (self) {
-        self.backgroundColor = [UIColor whiteColor];
-        [self addSubview:[self getAutoresizingImageViewRepresenting:anImage]];
-        [self setupBorder];
-        [self setupShadow];
-    }
-    NSAssert(self, @"Failed to init.");
-    return self;
-}
-
 - (id)initWithFrame:(CGRect)frame andImage:(UIImage * const)anImage
 {
     self = [super initWithFrame:frame];

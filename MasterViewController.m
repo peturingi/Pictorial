@@ -14,6 +14,7 @@
     [self downButton:nil];
 }
 
+/* Most of these are executed when view is created and loads.*/
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:SEGUE_NEW_PICTOGRAM]) {
@@ -74,6 +75,7 @@
 
 - (void)pickerDisappearedAfterPickingPhoto:(Picker * )sender {
     [self performSegueWithIdentifier:SEGUE_NEW_PICTOGRAM sender:nil];
+    // TODO merge into pickerDisappeared which returns a photo. Then check if photo is nil and perform segue.
 }
 
 #pragma mark - Touching

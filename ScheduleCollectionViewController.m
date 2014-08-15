@@ -196,7 +196,7 @@
         /* If no cells are intersecting, then the pictogram is not to be added. Abort. */
         if (intersectingCells.count == 0) return NO;
         
-        CGRect const largestIntersectingRect = [RectHelper largestIntersectionOf:intersectingCells and:draggedRect];
+        CGRect const largestIntersectingRect = [RectHelper largestIntersectionOfViews:intersectingCells andRect:draggedRect];
         NSAssert(largestIntersectingRect.size.height != 0 && largestIntersectingRect.size.width != 0, @"Invalid intersection.");
         
         /* Get the pictogram currently occupying the area containing the largest intersecting rect. */

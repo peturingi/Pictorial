@@ -1,9 +1,5 @@
 #import "ImageSourceTableViewController.h"
 
-@interface ImageSourceTableViewController ()
-
-@end
-
 @implementation ImageSourceTableViewController
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

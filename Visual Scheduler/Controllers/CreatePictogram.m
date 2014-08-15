@@ -1,6 +1,4 @@
-#import "AppDelegate.h"
 #import "CreatePictogram.h"
-#import <CoreData/CoreData.h>
 #import "PictogramCreator.h"
 #import "ImageResizer.h"
 
