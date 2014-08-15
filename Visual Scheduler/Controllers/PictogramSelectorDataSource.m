@@ -41,7 +41,6 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionViewCell *reusableCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"pictogramSelector" forIndexPath:indexPath];
-    NSAssert(reusableCell, @"API should guarantee that a reusable cell is returned.");
     [self configureCell:reusableCell atIndexPath:indexPath];
     return reusableCell;
 }
