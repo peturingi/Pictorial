@@ -15,6 +15,7 @@
     return self;
 }
 
+/** Pictogram Touched */
 - (void)setPictogramToDrag:(NSManagedObjectID *)pictogramIdentifier fromRect:(CGRect const)rect atLocation:(CGPoint)location relativeTo:(UIView *)view {
     {
         NSAssert(_source, @"Must not be nil.");
@@ -42,6 +43,7 @@
     }];
 }
 
+/** Pictogram moved */
 - (void)pictogramDraggedToPoint:(CGPoint const)point relativeToView:(UIView *)view
 {
     const CGPoint locationInView = [_source.view convertPoint:point fromView:view];
@@ -57,7 +59,7 @@
 }
 
 /**
- Deal with what should happen when user drops an item (after dragging).
+ Deal with what should happen when user drops a pictogram (after dragging).
  Users drop items (pictograms) on a schedule where they are to be added.
  @param location The location where the pictogram was dropped.
  @param view The view to which the location is relative.

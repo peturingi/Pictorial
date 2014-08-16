@@ -34,6 +34,8 @@
         /* Gesture recognizer disabled while in use. */
         case UIGestureRecognizerStateCancelled:
             [self.cellDraggingManager pictogramDraggingCancelled];
+            self.pictogramsSourceLocation = nil;
+            self.cellDraggingManager = nil;
             break;
             
         /* Pictogram dropped. */
@@ -45,6 +47,7 @@
                 if (NO == [self.cellDraggingManager handleAddPictogramToScheduleAtPoint:[sender locationInView:self.view] relativeToView:self.view]) {
                     [UICollectionView commitAnimations];
                     self.pictogramsSourceLocation = nil;
+                    self.cellDraggingManager = nil;
                     return; // No need to continue after failed insertion, as we do not want to delete the source pictogram as it was not moved.
                 }
                 
@@ -53,6 +56,7 @@
             }
             [UICollectionView commitAnimations];
             self.pictogramsSourceLocation = nil;
+            self.cellDraggingManager = nil;
             break;
             
         case UIGestureRecognizerStateFailed:
@@ -84,8 +88,10 @@
  */
 // TODO: Move to schedule, rename to locationHigherUpInSchedule
 - (BOOL)pictogramBeingMovedUpWithinSchedule {
-    NSAssert(self.pictogramsSourceLocation, @"Source has not been set.");
-    NSAssert(self.pictogramsDestinationLocation, @"Destination has not been set.");
+    {
+        NSAssert(self.pictogramsSourceLocation, @"Source has not been set.");
+        NSAssert(self.pictogramsDestinationLocation, @"Destination has not been set.");
+    } // Assert
     BOOL const movedWithinSchedule = self.pictogramsDestinationLocation.section == self.pictogramsSourceLocation.section;
     BOOL const movedIntoHigherPosition = self.pictogramsDestinationLocation.item < self.pictogramsSourceLocation.item;
     return movedWithinSchedule && movedIntoHigherPosition;

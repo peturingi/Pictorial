@@ -1,6 +1,5 @@
 #import <UIKit/UIKit.h>
 #import "WeekDataSource.h"
-#import "AddPictogramWithID.h"
 #import "CellDraggingManager.h"
 
 @class MasterViewController;
