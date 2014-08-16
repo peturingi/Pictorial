@@ -248,7 +248,7 @@ static const NSUInteger HEADER_HEIGHT = 20;
 
 /** Tries to adjust pictograms during scrolling, so they are not shown partially (cut on top/bottom).
  */
-// TODO uncomment and use this code.
+// TODO: uncomment and use this code.
 /*- (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset withScrollingVelocity:(CGPoint)velocity
 {
     CGRect targetRect = CGRectMake(0, proposedContentOffset.y,
