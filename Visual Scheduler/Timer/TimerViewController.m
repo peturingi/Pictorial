@@ -54,7 +54,7 @@
 }
 
 -(void)setupTimerView{
-    _timerView = [[TimerView alloc]initWithFrame:self.view.frame]; // TODO try self.view.frame þpetur
+    _timerView = [[TimerView alloc]initWithFrame:self.view.frame]; // TODO: try self.view.frame þpetur
     [_timerView setLabelToUpdate:_titleLabel];
     [[self view] addSubview:_timerView];
 }
