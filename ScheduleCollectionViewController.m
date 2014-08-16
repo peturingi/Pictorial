@@ -9,7 +9,6 @@
 #import "UICollectionView+CellAtPoint.h"
 #import "DayCollectionViewLayout.h"
 #import "PictogramContainer.h"
-#import "ModelHelper.h"
 
 @implementation ScheduleCollectionViewController
 
@@ -100,18 +99,12 @@
     UICollectionViewCell * const sendersCell = (UICollectionViewCell *)sender.superview.superview;
     NSIndexPath * const pictogramToRemove = [self.collectionView indexPathForCell:sendersCell];
     if (pictogramToRemove) {
+        {
+            NSAssert(self.isEditing, @"Cannot remove pictogram unless editing.");
+        } // Assert
         [self removePictogramAtIndexPath:pictogramToRemove];
-    }
-}
 
-/** A section in the collection view represents a single schedule.
- @pre The specified section contains one schedule.
- */
-- (NSManagedObject *)scheduleForSection:(NSUInteger)section
-{
-    id <NSFetchedResultsSectionInfo> const sectionContainingSchedule = self.dataSource.fetchedResultsController.sections[section];
-    NSAssert([sectionContainingSchedule objects].count == 1, @"There should be a single schedule per section!");
-    return [sectionContainingSchedule objects].firstObject;
+    }
 }
 
 /** Removes a pictogram from the schedule.
@@ -119,14 +112,12 @@
  */
 - (void)removePictogramAtIndexPath:(NSIndexPath * const)path
 {
-    NSAssert(self.isEditing, @"Cannot remove pictogram unless editing.");
-    Schedule * const schedule = (Schedule*)[self scheduleForSection:path.section]; // TODO caller should not cast
-    NSAssert(schedule, @"Expected a schedule.");
-
-    PictogramContainer * const container = [schedule.pictograms objectAtIndex:path.item];
-    NSAssert(container, @"Failed to get container.");
-    [[self managedObjectContext] deleteObject:(NSManagedObject*)container];
-    
+    Schedule * const schedule = [self.dataSource scheduleForSection:path.section];
+    {
+        NSAssert(schedule, @"Expected a schedule.");
+        NSAssert(self.isEditing, @"Cannot remove pictogram unless editing.");
+    } // Assert
+    [schedule removePictogramAtIndexPath:path];
     [self.dataSource save];
     [self.collectionView deleteItemsAtIndexPaths:@[path]];
 }
@@ -141,53 +132,19 @@
                    atPoint:(const CGPoint)point
             relativeToView:(UIView *)view
 {
-    NSAssert(objectID, @"Expected objectID.");
-    NSAssert(view, @"Expected a relative view.");
-    NSAssert(self.isEditing, @"Cannot add a pictogram unless editing.");
+    {
+        NSAssert(objectID, @"Expected objectID.");
+        NSAssert(view, @"Expected a relative view.");
+        NSAssert(self.isEditing, @"Cannot add a pictogram unless editing.");
+    } // Assert
+    CGPoint const releasePointInCollectionView = [self.collectionView convertPoint:point fromView:view];
     
-    /*
-     Algorithm:
-     (0) if point is not within the collection view, abort.
-     
-     (1)
-     If point is on a pictogram:
-        If point is on an empty pictogram cell, add new pictogram above.
-        If point is above vertical center of pictogram, add new pictogram above
-        If point s below vertical center of pictogram, add new pictogram below
-     (2)
-     Else
-        X := pictogram with largest interserction area, intersecting the released pictogram
-        if X is not empty
-            if point is above vertical center of x, add new pictogram above X
-            if point is below vertical center of pictogram, add new pictogram below
-     */
-    
-     CGPoint const releasePointInCollectionView = [self.collectionView convertPoint:point fromView:view];
-    
-    // (0) Abort if the pictogram was not dropped inside of this controllers collection view.
+    // Abort if the pictogram was not dropped inside of this controllers collection view.
     if ([self.collectionView pointInside:releasePointInCollectionView withEvent:nil] == NO) {
         return NO;
     }
-    
-    // (1)
-    // nil, if release was not on a pictogram
-    NSIndexPath * const pathTocellAtReleasePoint = [self.collectionView indexPathForItemAtPoint:releasePointInCollectionView];
-    
-    NSManagedObject *destinationSchedule;
-    
-    /* Offset the final location by one if the pictogram was dropped on another pictogram, but below its vertical center. */
-    if (pathTocellAtReleasePoint) {
-        
-        // Offset by one, if the touchup was below the center of another pictogram.
-        CGPoint const centerOfCellAtReleasePoint = [self.collectionView cellForItemAtIndexPath:pathTocellAtReleasePoint].center;
-        BOOL const touchedUpOverPictogram = [[[self.collectionView cellForItemAtIndexPath:pathTocellAtReleasePoint] class]isSubclassOfClass:[PictogramCalendarCell class]];
-        NSInteger const offset = (touchedUpOverPictogram && centerOfCellAtReleasePoint.y - releasePointInCollectionView.y < 0) ? 1 : 0;
-        self.pictogramsDestinationLocation = [NSIndexPath indexPathForItem:(pathTocellAtReleasePoint.item + offset) inSection:pathTocellAtReleasePoint.section];
-        
-        destinationSchedule = [self scheduleForSection:pathTocellAtReleasePoint.section];
-    }
-    // (2) Touchup not over a cell but within the collectionview, base insertion on intersection area (if any).
     else {
+        /* Offset the final location by one if the pictogram was dropped on another pictogram, but below its vertical center. */
         /* Get all CalendarCell from the collection view. */
         NSMutableArray * const calendarCells = [[NSMutableArray alloc] initWithArray:[self.collectionView.subviews objectsOfType:[CalendarCell class]]];
         
@@ -212,24 +169,14 @@
         NSInteger const offset = (targetIsPictogramCell && centerOfPictogramAtDestination.y - releasePointInCollectionView.y < 0) ? 1 : 0;
         self.pictogramsDestinationLocation = [NSIndexPath indexPathForItem:(pathToPictogramAtDestination.item + offset) inSection:pathToPictogramAtDestination.section];
         
-        destinationSchedule = [self scheduleForSection:pathToPictogramAtDestination.section];
+        /* Insert pictogram and save. */
+        Schedule * const schedule = [self.dataSource scheduleForSection:pathToPictogramAtDestination.section];
+        [schedule insertPictogramWithID:objectID atIndexPath:self.pictogramsDestinationLocation];
+        [self.collectionView insertItemsAtIndexPaths:@[self.pictogramsDestinationLocation]];
+        [self.dataSource save];
+        
+        return YES;
     }
-    
-    [ModelHelper insertPictogramWithID:objectID intoSchedule:(Schedule*)destinationSchedule inManagedObjectContext:[self managedObjectContext] atIndexPath:self.pictogramsDestinationLocation];
-    [self.collectionView insertItemsAtIndexPaths:@[self.pictogramsDestinationLocation]];
-    [self.dataSource save];
-    
-    return YES;
-    
-    NSString * const name = @"Hello world";
-    {
-        NSAssert(name.length == 11, @"Wrong length.");
-        NSAssert(name != nil, @"Must not be nil.");
-    } // Assert
-    {
-        if ([name isEqualToString:@"Hello world"] != NO) NSLog(@"Wrong text!");
-    } // Error handling
-    NSLog(@"%@", name);
 }
 
 #pragma mark - Rearrange pictograms

@@ -137,6 +137,16 @@
     return view;
 }
 
+/** A section in the collection view represents a single schedule.
+ @pre The specified section contains one schedule.
+ */
+- (Schedule *)scheduleForSection:(NSUInteger const)section
+{
+    id <NSFetchedResultsSectionInfo> const sectionContainingSchedule = self.fetchedResultsController.sections[section];
+    NSAssert([sectionContainingSchedule objects].count == 1, @"There should be a single schedule per section!");
+    return [sectionContainingSchedule objects].firstObject;
+}
+
 - (void)save {
     NSAssert(self.managedObjectContext, @"The data source does not have a managed object context.");
     if ([self.managedObjectContext hasChanges] == NO) return;

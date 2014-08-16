@@ -1,14 +1,5 @@
-//
-//  Schedule.m
-//  Visual Scheduler
-//
-//  Created by Pétur Ingi Egilsson on 04/08/14.
-//  Copyright (c) 2014 Student Project. All rights reserved.
-//
-
 #import "Schedule.h"
 #import "PictogramContainer.h"
-
 
 @implementation Schedule
 
@@ -16,5 +7,38 @@
 @dynamic date;
 @dynamic title;
 @dynamic pictograms;
+
+- (void)removePictogramAtIndexPath:(NSIndexPath * const)indexPath {
+    PictogramContainer *pictogramContainer = [self.pictograms objectAtIndex:indexPath.item];
+    {
+        NSAssert(pictogramContainer, @"Failed to get container.");
+    } // Assert
+    [self.managedObjectContext deleteObject:pictogramContainer];
+}
+
+- (void)insertPictogramWithID:(NSManagedObjectID * const)objectID
+                  atIndexPath:(NSIndexPath * const)indexPath
+{
+    {
+        NSAssert(objectID, @"Cannot insert nil.");
+        NSAssert(indexPath, @"Invalid indexPath");
+    } // Assert
+    PictogramContainer * const pictogramContainer = [NSEntityDescription insertNewObjectForEntityForName:@"PictogramContainer"
+                                                                                  inManagedObjectContext:self.managedObjectContext];
+    {
+        NSAssert(pictogramContainer, @"Failed to create pictogram container.");
+    } // Assert
+    
+    
+    /* The following lines must be in this order, else insertion inserts random items */
+    // Set pictogram in container
+    pictogramContainer.pictogram = [self.managedObjectContext objectWithID:objectID];
+    // Insert container in schedule
+    NSMutableOrderedSet *pictograms = [[NSMutableOrderedSet alloc] initWithOrderedSet:self.pictograms];
+    [pictograms insertObject:pictogramContainer atIndex:indexPath.item];
+    self.pictograms = pictograms;
+    // Set schedule in container
+    pictogramContainer.schedule = self;
+}
 
 @end

@@ -1,11 +1,3 @@
-//
-//  Schedule.h
-//  Visual Scheduler
-//
-//  Created by Pétur Ingi Egilsson on 04/08/14.
-//  Copyright (c) 2014 Student Project. All rights reserved.
-//
-
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
@@ -17,6 +9,10 @@
 @property (nonatomic, retain) NSDate * date;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSOrderedSet *pictograms;
+
+- (void)removePictogramAtIndexPath:(NSIndexPath * const)indexPath;
+- (void)insertPictogramWithID:(NSManagedObjectID * const)objectID atIndexPath:(NSIndexPath * const)indexPath;
+
 @end
 
 @interface Schedule (CoreDataGeneratedAccessors)
@@ -31,4 +27,6 @@
 - (void)removePictogramsObject:(PictogramContainer *)value;
 - (void)addPictograms:(NSOrderedSet *)values;
 - (void)removePictograms:(NSOrderedSet *)values;
+
+
 @end
