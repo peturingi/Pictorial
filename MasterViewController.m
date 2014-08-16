@@ -49,7 +49,6 @@
 
 - (void)dealloc {
     picker = nil;
-    _idOfPictogramBeingMoved = nil;
 }
 
 #pragma mark - Import Image
@@ -75,73 +74,7 @@
 
 - (void)pickerDisappearedAfterPickingPhoto:(Picker * )sender {
     [self performSegueWithIdentifier:SEGUE_NEW_PICTOGRAM sender:nil];
-    // TODO merge into pickerDisappeared which returns a photo. Then check if photo is nil and perform segue.
-}
-
-#pragma mark - Touching
-
-- (void)selectedPictogramToAdd:(NSManagedObjectID *)pictogramIdentifier fromRect:(CGRect const)rect atLocation:(CGPoint)location relativeTo:(UIView *)view {
-    _idOfPictogramBeingMoved = pictogramIdentifier;
-    
-    /* Animate the selected pictogram, to the finger. Resize it if needed.*/
-    // Compute frames
-    CGPoint const touchLocation = [self.view convertPoint:location fromView:view];
-    CGRect const source = [self.view convertRect:rect fromView:view];
-    CGRect const destination = CGRectMake(touchLocation.x-PICTOGRAM_SIZE_WHILE_DRAGGING/2, touchLocation.y-PICTOGRAM_SIZE_WHILE_DRAGGING/2, PICTOGRAM_SIZE_WHILE_DRAGGING, PICTOGRAM_SIZE_WHILE_DRAGGING);
-    // Add as subview
-    // TODO resize the image. No need to move a full size image around.
-    UIImage * const image = ((Pictogram *)[[self appDelegate] objectWithID:pictogramIdentifier]).uiImage;
-    PictogramView * const pictogramView = [[PictogramView alloc] initWithFrame:source andImage:image];
-    _pictogramBeingMoved = pictogramView;
-    [self.view addSubview:pictogramView];
-    // Animate
-    [UIView animateWithDuration:ANIMATION_DURATION_MOVE_TO_FINGER_ON_SELECTION animations:^(void){
-        _pictogramBeingMoved.frame =  destination;
-    }];
-}
-
-#pragma mark Moving in Bottom View
-
-- (void)pictogramBeingDraggedMovedToPoint:(CGPoint const)point relativeToView:(UIView *)view
-{
-    const CGPoint locationInView = [self.view convertPoint:point fromView:view];
-    _pictogramBeingMoved.frame = [PictogramView frameAtPoint:locationInView];
-}
-
-#pragma mark Dropping from Bottom View
-
-/**
- Deal with what should happen when user drops an item (after dragging).
- Users drop items (pictograms) on a schedule where they are to be added.
- @param location The location where the pictogram was dropped.
- @param view The view to which the location is relative.
- @return YES Pictogram was added.
- @return NO Pictogram was not added.
- */
-- (BOOL)handleAddPictogramToScheduleAtPoint:(CGPoint)location relativeToView:(UIView * const)view
-{
-    NSAssert(view, @"The view must not be empty.");
-    
-    BOOL const wasAdded = [_topViewController addPictogramWithID:_idOfPictogramBeingMoved
-                                                        atPoint:location
-                                                  relativeToView:view];
-    if (wasAdded) {
-        [_pictogramBeingMoved removeFromSuperview];
-    }
-    else {
-        [self animatePictogramBackToOriginalPosition];
-    }
-    return wasAdded;
-}
-
-- (void)animatePictogramBackToOriginalPosition {
-    [_pictogramBeingMoved removeFromSuperview]; // TODO animate , currently this removes it immadiately instead of animating.
-}
-
-#pragma mark Top View
-
-- (void)pictogramDraggingCancelled {
-    [_pictogramBeingMoved removeFromSuperview]; // TODO maby call animatePictogramToOriginalPosition instead.
+    // TODO: merge into pickerDisappeared which returns a photo. Then check if photo is nil and perform segue.
 }
 
 #pragma mark - Change View Modes
@@ -154,13 +87,8 @@
     [_topViewController switchToWeekLayout];
 }
 
-
 #pragma mark - 
 
-- (AppDelegate *)appDelegate
-{
-    return [UIApplication sharedApplication].delegate;
-}
 - (IBAction)downButton:(id)sender {
     [_topViewController setEditing:NO];
     [self hideImportPhotosButton];
@@ -190,5 +118,9 @@
 
 - (void)showHidePictogramSelectorButton { hidePictogramSelectorButton.enabled = YES; }
 - (void)hideHidePictogramSelectorButton { hidePictogramSelectorButton.enabled = NO; }
+
+- (UICollectionViewController<AddPictogramWithID>*)targetForPictogramDrops {
+    return _topViewController;
+}
 
 @end

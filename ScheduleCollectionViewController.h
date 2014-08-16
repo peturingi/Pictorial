@@ -1,9 +1,11 @@
 #import <UIKit/UIKit.h>
 #import "WeekDataSource.h"
+#import "AddPictogramWithID.h"
+#import "CellDraggingManager.h"
 
 @class MasterViewController;
 
-@interface ScheduleCollectionViewController : UICollectionViewController {
+@interface ScheduleCollectionViewController : UICollectionViewController <AddPictogramWithID> {
     __weak IBOutlet UILongPressGestureRecognizer *_movePictogramGestureRecognizer;
 }
 
@@ -11,6 +13,7 @@
 @property (strong, nonatomic) NSManagedObjectID *mostRecentlytouchedPictogram;
 @property (strong, nonatomic) NSIndexPath *pictogramsSourceLocation;
 @property (strong, nonatomic) NSIndexPath *pictogramsDestinationLocation;
+@property (strong, nonatomic) CellDraggingManager *cellDraggingManager;
 
 /* Public */
 @property (weak, nonatomic) IBOutlet WeekDataSource *dataSource;

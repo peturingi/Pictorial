@@ -22,17 +22,18 @@
     switch (sender.state) {
         /* Initial touchdown on a pictogram. */
         case UIGestureRecognizerStateBegan:
+            self.cellDraggingManager = [[CellDraggingManager alloc] initWithSource:self andDestination:self];
             [self handlePictogramSelection:sender];
             break;
             
         /* Pictogram being dragged around. */
         case UIGestureRecognizerStateChanged:
-            [self.delegate pictogramBeingDraggedMovedToPoint:[sender locationInView:self.view] relativeToView:self.view];
+            [self.cellDraggingManager pictogramDraggedToPoint:[sender locationInView:self.view] relativeToView:self.view];
             break;
             
         /* Gesture recognizer disabled while in use. */
         case UIGestureRecognizerStateCancelled:
-            [self.delegate pictogramDraggingCancelled];
+            [self.cellDraggingManager pictogramDraggingCancelled];
             break;
             
         /* Pictogram dropped. */
@@ -41,7 +42,7 @@
             /* Two animations will be performed during a move. One on insert and one on delete. */
             [UICollectionView beginAnimations:nil context:nil];
             {
-                if (NO == [self.delegate handleAddPictogramToScheduleAtPoint:[sender locationInView:self.view] relativeToView:self.view]) {
+                if (NO == [self.cellDraggingManager handleAddPictogramToScheduleAtPoint:[sender locationInView:self.view] relativeToView:self.view]) {
                     [UICollectionView commitAnimations];
                     self.pictogramsSourceLocation = nil;
                     return; // No need to continue after failed insertion, as we do not want to delete the source pictogram as it was not moved.
@@ -191,7 +192,7 @@
         self.pictogramsSourceLocation = [self.collectionView indexPathForItemAtPoint:[sender locationInView:self.collectionView]];
         NSManagedObject * const mostRecentlytouchedPictogram = [self.dataSource pictogramAtIndexPath:self.pictogramsSourceLocation];
         
-        [self.delegate selectedPictogramToAdd:mostRecentlytouchedPictogram.objectID fromRect:[self.view convertRect:selectedCell.frame fromView:self.collectionView] atLocation:[sender locationInView:self.view] relativeTo:self.view];
+        [self.cellDraggingManager setPictogramToDrag:mostRecentlytouchedPictogram.objectID fromRect:[self.view convertRect:selectedCell.frame fromView:self.collectionView] atLocation:[sender locationInView:self.view] relativeTo:self.view];
     } else {
         [sender cancel];
     }

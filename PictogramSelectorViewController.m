@@ -9,11 +9,16 @@
 
 - (IBAction)pictogramLongPressed:(UILongPressGestureRecognizer * const)sender
 {
-    if (sender.state == UIGestureRecognizerStateBegan)   [self handlePictogramSelection:sender];
-    if (sender.state == UIGestureRecognizerStateChanged) [self.delegate pictogramBeingDraggedMovedToPoint:[sender locationInView:self.view] relativeToView:self.view];
-    if (sender.state == UIGestureRecognizerStateEnded)   [self.delegate handleAddPictogramToScheduleAtPoint:[sender locationInView:self.view] relativeToView:self.view];
+    if (sender.state == UIGestureRecognizerStateBegan) {
+        if (self.cellDraggingManager == NO) {
+            self.cellDraggingManager = [[CellDraggingManager alloc] initWithSource:self andDestination:self.delegate.targetForPictogramDrops];
+        }
+        [self handlePictogramSelection:sender];
+    }
+    if (sender.state == UIGestureRecognizerStateChanged) [self.cellDraggingManager pictogramDraggedToPoint:[sender locationInView:self.view] relativeToView:self.view];
+    if (sender.state == UIGestureRecognizerStateEnded)   [self.cellDraggingManager handleAddPictogramToScheduleAtPoint:[sender locationInView:self.view] relativeToView:self.view];
     if (sender.state == UIGestureRecognizerStateCancelled) {
-        // TODO deal with the cancelation
+        // TODO: deal with the cancelation
     }
 }
 
@@ -32,7 +37,7 @@
             NSAssert(imageView, @"imageView not found.");
         } // Assert
         
-        [self.delegate selectedPictogramToAdd:mostRecentlytouchedPictogram
+        [self.cellDraggingManager setPictogramToDrag:mostRecentlytouchedPictogram
                                      fromRect:[self.view convertRect:imageView.frame fromView:imageView]
                                    atLocation:[sender locationInView:self.view] relativeTo:self.view];
     } else {

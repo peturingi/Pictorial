@@ -83,6 +83,7 @@
 		D8B016EF18FEB85700017D76 /* CalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B016EE18FEB85700017D76 /* CalendarView.m */; };
 		D8BABEC018EC6839009E562E /* NSMutableArray+MoveObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D8BABEBF18EC6839009E562E /* NSMutableArray+MoveObject.m */; };
 		D8C7BDE7190287E800128FA7 /* WeekCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C7BDE6190287E800128FA7 /* WeekCollectionViewLayout.m */; };
+		D8CCA7DF199F6FD600D0A657 /* CellDraggingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CCA7DE199F6FD600D0A657 /* CellDraggingManager.m */; };
 		D8DCC45118E2F520004794C9 /* testImage.png in Resources */ = {isa = PBXBuildFile; fileRef = D8DCC45018E2F520004794C9 /* testImage.png */; };
 		D8DCC45218E2F57D004794C9 /* testImage.png in Resources */ = {isa = PBXBuildFile; fileRef = D8DCC45018E2F520004794C9 /* testImage.png */; };
 		D8E7A2C818CA52FE005F505C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8E7A2C718CA52FE005F505C /* CoreData.framework */; };
@@ -238,6 +239,9 @@
 		D8BABEBF18EC6839009E562E /* NSMutableArray+MoveObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+MoveObject.m"; sourceTree = "<group>"; };
 		D8C7BDE5190287E800128FA7 /* WeekCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeekCollectionViewLayout.h; path = "Visual Scheduler/CalendarView/WeekCollectionViewLayout.h"; sourceTree = "<group>"; };
 		D8C7BDE6190287E800128FA7 /* WeekCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeekCollectionViewLayout.m; path = "Visual Scheduler/CalendarView/WeekCollectionViewLayout.m"; sourceTree = "<group>"; };
+		D8CCA7DD199F6FD600D0A657 /* CellDraggingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellDraggingManager.h; sourceTree = "<group>"; };
+		D8CCA7DE199F6FD600D0A657 /* CellDraggingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellDraggingManager.m; sourceTree = "<group>"; };
+		D8CCA7E0199F74DC00D0A657 /* AddPictogramWithID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddPictogramWithID.h; sourceTree = "<group>"; };
 		D8DCC45018E2F520004794C9 /* testImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = testImage.png; sourceTree = "<group>"; };
 		D8E7A2C718CA52FE005F505C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D8EAF2E118D9D8C7004CC1B1 /* Visual Scheduler copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Visual Scheduler copy-Info.plist"; path = "/Users/petur/Development/Visual Scheduler/Visual Scheduler copy-Info.plist"; sourceTree = "<absolute>"; };
@@ -390,12 +394,7 @@
 				D8B016ED18FEB85700017D76 /* CalendarView.h */,
 				D8B016EE18FEB85700017D76 /* CalendarView.m */,
 				D8401AA91900312A00BAF82F /* DayHeader.xib */,
-				D82C0CE018F8813F005B5569 /* PictogramCalendarCell.h */,
-				D82C0CE118F8813F005B5569 /* PictogramCalendarCell.m */,
-				D88954EB19921B7300243422 /* EmptyCalendarCell.h */,
-				D88954EC19921B7300243422 /* EmptyCalendarCell.m */,
-				D88954E819921A7400243422 /* CalendarCell.h */,
-				D88954E919921A7400243422 /* CalendarCell.m */,
+				D8BE00E3199F9CEB00108121 /* Cell */,
 				D81ABB8119096B66000B81F3 /* Day */,
 			);
 			name = "Top View";
@@ -408,6 +407,7 @@
 				D81C450D198D320A00E9801C /* RectHelper.m */,
 				D881B569196D2D8A008B10F9 /* Dead Code */,
 				D87964B91906A09500333CD1 /* UI */,
+				D8BE00E4199F9D0400108121 /* Drag Manager */,
 				D829DDA818E191B60039A449 /* Database */,
 				D83A62C118B696DC00EC0773 /* Visual Scheduler */,
 				D83A62E018B696DC00EC0773 /* Visual SchedulerTests */,
@@ -596,6 +596,29 @@
 			name = "Dead Code";
 			sourceTree = "<group>";
 		};
+		D8BE00E3199F9CEB00108121 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D82C0CE018F8813F005B5569 /* PictogramCalendarCell.h */,
+				D82C0CE118F8813F005B5569 /* PictogramCalendarCell.m */,
+				D88954EB19921B7300243422 /* EmptyCalendarCell.h */,
+				D88954EC19921B7300243422 /* EmptyCalendarCell.m */,
+				D88954E819921A7400243422 /* CalendarCell.h */,
+				D88954E919921A7400243422 /* CalendarCell.m */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		D8BE00E4199F9D0400108121 /* Drag Manager */ = {
+			isa = PBXGroup;
+			children = (
+				D8CCA7DD199F6FD600D0A657 /* CellDraggingManager.h */,
+				D8CCA7DE199F6FD600D0A657 /* CellDraggingManager.m */,
+				D8CCA7E0199F74DC00D0A657 /* AddPictogramWithID.h */,
+			);
+			name = "Drag Manager";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -756,6 +779,7 @@
 				68D7963D19092DE50047A0CE /* CALayer+WithSizeAndPosition.m in Sources */,
 				D83BFE4B1907CAE600F72646 /* UIView+HoverView.m in Sources */,
 				D8FD1D1D1924C943000226BF /* UIView+ContraintInfo.m in Sources */,
+				D8CCA7DF199F6FD600D0A657 /* CellDraggingManager.m in Sources */,
 				D8F498AA197128FA00CEF728 /* PictogramSelectorViewController.m in Sources */,
 				68D7963719092D2D0047A0CE /* UIView+CenterPoint.m in Sources */,
 				D88BF8131986618200B1ADAB /* ScheduleCollectionViewController.m in Sources */,
