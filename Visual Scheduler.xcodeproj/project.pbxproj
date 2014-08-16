@@ -80,6 +80,7 @@
 		D8A8292B198F7F1100E0D85F /* PictogramContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A8292A198F7F1100E0D85F /* PictogramContainer.m */; };
 		D8A8292E198F7F1100E0D85F /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A8292D198F7F1100E0D85F /* Schedule.m */; };
 		D8A82931198F7F1200E0D85F /* Pictogram.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A82930198F7F1200E0D85F /* Pictogram.m */; };
+		D8AD0FA6199F306A00737D35 /* ModelHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D8AD0FA5199F306A00737D35 /* ModelHelper.m */; };
 		D8B016EF18FEB85700017D76 /* CalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B016EE18FEB85700017D76 /* CalendarView.m */; };
 		D8BABEC018EC6839009E562E /* NSMutableArray+MoveObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D8BABEBF18EC6839009E562E /* NSMutableArray+MoveObject.m */; };
 		D8C7BDE7190287E800128FA7 /* WeekCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C7BDE6190287E800128FA7 /* WeekCollectionViewLayout.m */; };
@@ -230,6 +231,8 @@
 		D8A8292D198F7F1100E0D85F /* Schedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Schedule.m; sourceTree = "<group>"; };
 		D8A8292F198F7F1200E0D85F /* Pictogram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pictogram.h; sourceTree = "<group>"; };
 		D8A82930198F7F1200E0D85F /* Pictogram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pictogram.m; sourceTree = "<group>"; };
+		D8AD0FA4199F306A00737D35 /* ModelHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelHelper.h; sourceTree = "<group>"; };
+		D8AD0FA5199F306A00737D35 /* ModelHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelHelper.m; sourceTree = "<group>"; };
 		D8AFD99C1901BF2400A294D5 /* DayCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DayCollectionViewController.h; path = "Visual Scheduler/CalendarView/DayCollectionViewController.h"; sourceTree = "<group>"; };
 		D8AFD99D1901BF2400A294D5 /* DayCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DayCollectionViewController.m; path = "Visual Scheduler/CalendarView/DayCollectionViewController.m"; sourceTree = "<group>"; };
 		D8B016ED18FEB85700017D76 /* CalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarView.h; path = "Visual Scheduler/CalendarView/CalendarView.h"; sourceTree = "<group>"; };
@@ -370,6 +373,8 @@
 				D8A82930198F7F1200E0D85F /* Pictogram.m */,
 				D8A8292C198F7F1100E0D85F /* Schedule.h */,
 				D8A8292D198F7F1100E0D85F /* Schedule.m */,
+				D8AD0FA4199F306A00737D35 /* ModelHelper.h */,
+				D8AD0FA5199F306A00737D35 /* ModelHelper.m */,
 				D8A82929198F7F1100E0D85F /* PictogramContainer.h */,
 				D8A8292A198F7F1100E0D85F /* PictogramContainer.m */,
 				D800E4AE196D50CC00465541 /* svane.png */,
@@ -727,6 +732,7 @@
 				D88E4F08199390C400414457 /* UICollectionView+CellAtPoint.m in Sources */,
 				D858CB8719221E0B00402E24 /* NSDate+VisualScheduler.m in Sources */,
 				D81C4511198D336200E9801C /* NSArray+ObjectsOfType.m in Sources */,
+				D8AD0FA6199F306A00737D35 /* ModelHelper.m in Sources */,
 				D876070B1988CC85000D78D4 /* AlbumPicker.m in Sources */,
 				D8466D051980FDB100781710 /* PictogramCreator.m in Sources */,
 				68D7965C190947CB0047A0CE /* Timer.m in Sources */,

@@ -12,6 +12,7 @@
     self = [super init];
     if (self) {
         [self setupDataSource];
+        [self fetchData];
     }
     return self;
 }
@@ -32,6 +33,9 @@
                                                                       sectionNameKeyPath:@"date"
                                                                                cacheName:nil];
     NSAssert(_fetchedResultsController, @"Failed to get fetchedResultsController.");
+}
+
+- (void)fetchData {
     NSError *error;
     [self.fetchedResultsController performFetch:&error];
     if (error) @throw [NSException exceptionWithName:@"Core Data: Fetch failed." reason:error.localizedFailureReason userInfo:nil];

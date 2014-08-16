@@ -8,6 +8,8 @@
 #import "UILongPressGestureRecognizer+Cancel.h"
 #import "UICollectionView+CellAtPoint.h"
 #import "DayCollectionViewLayout.h"
+#import "PictogramContainer.h"
+#import "ModelHelper.h"
 
 @implementation ScheduleCollectionViewController
 
@@ -121,7 +123,7 @@
     Schedule * const schedule = (Schedule*)[self scheduleForSection:path.section]; // TODO caller should not cast
     NSAssert(schedule, @"Expected a schedule.");
 
-    PictogramContainer * const container = [[schedule valueForKey:CD_KEY_SCHEDULE_PICTOGRAMS] objectAtIndex:path.item];
+    PictogramContainer * const container = [schedule.pictograms objectAtIndex:path.item];
     NSAssert(container, @"Failed to get container.");
     [[self managedObjectContext] deleteObject:(NSManagedObject*)container];
     
@@ -179,7 +181,7 @@
         // Offset by one, if the touchup was below the center of another pictogram.
         CGPoint const centerOfCellAtReleasePoint = [self.collectionView cellForItemAtIndexPath:pathTocellAtReleasePoint].center;
         BOOL const touchedUpOverPictogram = [[[self.collectionView cellForItemAtIndexPath:pathTocellAtReleasePoint] class]isSubclassOfClass:[PictogramCalendarCell class]];
-        NSInteger offset = (touchedUpOverPictogram && centerOfCellAtReleasePoint.y - releasePointInCollectionView.y < 0) ? 1 : 0;
+        NSInteger const offset = (touchedUpOverPictogram && centerOfCellAtReleasePoint.y - releasePointInCollectionView.y < 0) ? 1 : 0;
         self.pictogramsDestinationLocation = [NSIndexPath indexPathForItem:(pathTocellAtReleasePoint.item + offset) inSection:pathTocellAtReleasePoint.section];
         
         destinationSchedule = [self scheduleForSection:pathTocellAtReleasePoint.section];
@@ -213,25 +215,21 @@
         destinationSchedule = [self scheduleForSection:pathToPictogramAtDestination.section];
     }
     
-    [self insertPictogramWithID:objectID inSchedule:destinationSchedule atIndexPath:self.pictogramsDestinationLocation];
+    [ModelHelper insertPictogramWithID:objectID intoSchedule:(Schedule*)destinationSchedule inManagedObjectContext:[self managedObjectContext] atIndexPath:self.pictogramsDestinationLocation];
+    [self.collectionView insertItemsAtIndexPaths:@[self.pictogramsDestinationLocation]];
     [self.dataSource save];
     
     return YES;
-}
-
-- (void)insertPictogramWithID:(NSManagedObjectID * const)objectID
-                   inSchedule:(NSManagedObject * const)schedule
-                  atIndexPath:(NSIndexPath * const)indexPath
-{
-    NSAssert(self.isEditing, @"Cannot insert pictogram unless editing.");
-    NSManagedObject * const pictogramContainer = [NSEntityDescription insertNewObjectForEntityForName:@"PictogramContainer"
-                                                                               inManagedObjectContext:self.managedObjectContext];
-    NSAssert(pictogramContainer, @"Failed to create pictogram container.");
-    [pictogramContainer setValue:[self.managedObjectContext objectWithID:objectID] forKey:@"pictogram"];
-    [[schedule valueForKey:CD_KEY_SCHEDULE_PICTOGRAMS] insertObject:pictogramContainer atIndex:indexPath.item];
-    [pictogramContainer setValue:schedule forKeyPath:@"schedule"];
     
-    [self.collectionView insertItemsAtIndexPaths:@[indexPath]];
+    NSString * const name = @"Hello world";
+    {
+        NSAssert(name.length == 11, @"Wrong length.");
+        NSAssert(name != nil, @"Must not be nil.");
+    } // Assert
+    {
+        if ([name isEqualToString:@"Hello world"] != NO) NSLog(@"Wrong text!");
+    } // Error handling
+    NSLog(@"%@", name);
 }
 
 #pragma mark - Rearrange pictograms
