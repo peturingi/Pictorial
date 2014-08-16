@@ -407,7 +407,6 @@
 				D81C450D198D320A00E9801C /* RectHelper.m */,
 				D881B569196D2D8A008B10F9 /* Dead Code */,
 				D87964B91906A09500333CD1 /* UI */,
-				D8BE00E4199F9D0400108121 /* Drag Manager */,
 				D829DDA818E191B60039A449 /* Database */,
 				D83A62C118B696DC00EC0773 /* Visual Scheduler */,
 				D83A62E018B696DC00EC0773 /* Visual SchedulerTests */,
@@ -557,6 +556,7 @@
 		D87964B91906A09500333CD1 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				D8BE00E4199F9D0400108121 /* Drag Manager */,
 				D83A62CD18B696DC00EC0773 /* Main.storyboard */,
 				D87607081988CA8A000D78D4 /* Import Photo */,
 				D80706A1196ED92100B93F40 /* MasterViewController.h */,
