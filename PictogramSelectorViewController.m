@@ -3,6 +3,7 @@
 #import "PictogramSelectorDataSource.h"
 #import "UICollectionView+CellAtPoint.h"
 #import "UILongPressGestureRecognizer+Cancel.h"
+#import "UIView+BBASubviews.h"
 
 @implementation PictogramSelectorViewController
 
@@ -26,7 +27,14 @@
         NSIndexPath * const indexPathToTouchedPictogram = [self.collectionView indexPathForItemAtPoint:[sender locationInView:self.collectionView]];
         NSManagedObjectID * const mostRecentlytouchedPictogram = [(PictogramSelectorDataSource *)self.collectionView.dataSource pictogramAtIndexPath:indexPathToTouchedPictogram].objectID;
         
-        [self.delegate selectedPictogramToAdd:mostRecentlytouchedPictogram fromRect:[self.view convertRect:selectedCell.frame fromView:self.collectionView] atLocation:[sender locationInView:self.view] relativeTo:self.view];
+        UIView * const imageView = [selectedCell.contentView firstSubviewWithTag:CELL_TAG_FOR_IMAGE_VIEW];
+        {
+            NSAssert(imageView, @"imageView not found.");
+        } // Assert
+        
+        [self.delegate selectedPictogramToAdd:mostRecentlytouchedPictogram
+                                     fromRect:[self.view convertRect:imageView.frame fromView:imageView]
+                                   atLocation:[sender locationInView:self.view] relativeTo:self.view];
     } else {
         [sender cancel];
     }
