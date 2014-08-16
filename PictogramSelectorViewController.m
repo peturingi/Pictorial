@@ -9,17 +9,32 @@
 
 - (IBAction)pictogramLongPressed:(UILongPressGestureRecognizer * const)sender
 {
-    if (sender.state == UIGestureRecognizerStateBegan) {
-        if (self.cellDraggingManager == NO) {
-            self.cellDraggingManager = [[CellDraggingManager alloc] initWithSource:self andDestination:self.delegate.targetForPictogramDrops];
-        }
-        [self handlePictogramSelection:sender];
+    switch (sender.state) {
+        case UIGestureRecognizerStateBegan:
+            if (self.cellDraggingManager == NO) {
+                self.cellDraggingManager = [[CellDraggingManager alloc] initWithSource:self andDestination:self.delegate.targetForPictogramDrops];
+            }
+            [self handlePictogramSelection:sender];
+            break;
+            
+        case UIGestureRecognizerStateCancelled:
+        [self.cellDraggingManager pictogramDraggingCancelled];
+            break;
+        
+        case UIGestureRecognizerStateChanged:
+            [self.cellDraggingManager pictogramDraggedToPoint:[sender locationInView:self.view] relativeToView:self.view];
+            break;
+            
+        case UIGestureRecognizerStateEnded:
+            [self.cellDraggingManager handleAddPictogramToScheduleAtPoint:[sender locationInView:self.view] relativeToView:self.view];
+            break;
+            
+        case UIGestureRecognizerStateFailed:
+        case UIGestureRecognizerStatePossible:
+        default:
+            break;
     }
-    if (sender.state == UIGestureRecognizerStateChanged) [self.cellDraggingManager pictogramDraggedToPoint:[sender locationInView:self.view] relativeToView:self.view];
-    if (sender.state == UIGestureRecognizerStateEnded)   [self.cellDraggingManager handleAddPictogramToScheduleAtPoint:[sender locationInView:self.view] relativeToView:self.view];
-    if (sender.state == UIGestureRecognizerStateCancelled) {
-        // TODO: deal with the cancelation
-    }
+    
 }
 
 /** Tells the delegate which item was touched, and its location.
