@@ -55,7 +55,7 @@
 }
 
 - (void)pictogramDraggingCancelled {
-    [_pictogramBeingMoved removeFromSuperview]; // TODO: maby call animatePictogramToOriginalPosition instead.
+    [_pictogramBeingMoved removeFromSuperview];
 }
 
 /**
