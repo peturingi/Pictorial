@@ -82,6 +82,7 @@
  @note A schedule represents a single day.
  @pre The source and destination locations are known.
  */
+// TODO: Move to schedule, rename to locationHigherUpInSchedule
 - (BOOL)pictogramBeingMovedUpWithinSchedule {
     NSAssert(self.pictogramsSourceLocation, @"Source has not been set.");
     NSAssert(self.pictogramsDestinationLocation, @"Destination has not been set.");
@@ -238,9 +239,5 @@
 }
 
 #pragma mark -
-
-- (NSManagedObjectContext *)managedObjectContext {
-    return self.dataSource.managedObjectContext;
-}
 
 @end
