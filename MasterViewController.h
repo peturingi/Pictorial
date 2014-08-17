@@ -9,6 +9,7 @@
 
 @interface MasterViewController : UIViewController <PickerDelegate> {
     Picker *picker;
+    
     __weak ScheduleCollectionViewController<AddPictogramWithID> *_topViewController;
     __weak IBOutlet UIView *bottomView;
     

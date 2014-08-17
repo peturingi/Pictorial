@@ -8,6 +8,10 @@
 #import "ImageSourceTableViewController.h"
 #import "Pictogram.h"
 
+@interface MasterViewController ()
+@property (weak) UIPopoverController *imageSourcePopover;
+@end
+
 @implementation MasterViewController
 
 - (void)viewDidLoad {
@@ -42,8 +46,15 @@
     }
     
     if ([segue.identifier isEqualToString:@"SEGUE_IMAGE_SOURCE"]) {
+        // Set self as delegate of ImageSource controller
         ImageSourceTableViewController * const destination = segue.destinationViewController;
         destination.delegate = self;
+        
+        // ImageSource is shown as popover, remember the controller so I can dismiss it.
+        self.imageSourcePopover = ((UIStoryboardPopoverSegue*)segue).popoverController;
+        {
+            NSAssert(self.imageSourcePopover, @"Failed to get popoverController.");
+        } // Assert
     }
 }
 
@@ -62,7 +73,12 @@
 }
 
 - (void)showPicker:(Class)pickerClass {
-    NSAssert([pickerClass isSubclassOfClass:[Picker class]], @"Invalid class.");
+    {
+        NSAssert([pickerClass isSubclassOfClass:[Picker class]], @"Invalid class.");
+        NSAssert(self.imageSourcePopover, @"Failed to get popovercontroller.");
+    } // Assert
+    [self.imageSourcePopover dismissPopoverAnimated:NO];
+    
     picker = [[pickerClass alloc] init];
     picker.delegate = self;
     [picker show];
@@ -74,7 +90,6 @@
 
 - (void)pickerDisappearedAfterPickingPhoto:(Picker * )sender {
     [self performSegueWithIdentifier:SEGUE_NEW_PICTOGRAM sender:nil];
-    // TODO: merge into pickerDisappeared which returns a photo. Then check if photo is nil and perform segue.
 }
 
 #pragma mark - Change View Modes

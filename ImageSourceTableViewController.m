@@ -11,7 +11,6 @@
      */
     switch ([self.tableView cellForRowAtIndexPath:indexPath].tag) {
         case 1:
-            // TODO: small bug. The popovercontroller does not get hidden when the camera is shown. I am not sure how to fix that.
             [self.delegate showCameraPicker];
             break;
         case 2:
