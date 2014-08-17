@@ -26,16 +26,14 @@
     } // Assert
     self.idOfPictogramBeingMoved = pictogramIdentifier;
     
-    /* Animate the selected pictogram, to the finger. Resize it if needed.*/
-    
-    // Add as subview
-    // TODO: resize the image. No need to move a full size image around.
+    /* Animate the selected pictogram, to the finger. */
     AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
     
     /* Resize image. Saves about 1,5 MB of RAM. */
     ImageResizer * const imageResizer = [[ImageResizer alloc] initWithImage:((Pictogram *)[delegate objectWithID:pictogramIdentifier]).uiImage];
     UIImage * const image = [imageResizer getImageResizedTo:CGSizeMake(PICTOGRAM_SIZE_WHILE_DRAGGING, PICTOGRAM_SIZE_WHILE_DRAGGING)];
     
+    // Add as subview
     CGRect const source = [_source.view convertRect:rect fromView:view];
     PictogramView * const pictogramView = [[PictogramView alloc] initWithFrame:source andImage:image];
     _pictogramBeingMoved = pictogramView;
