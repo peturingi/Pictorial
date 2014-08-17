@@ -5,8 +5,6 @@
 
 @interface CellDraggingManager : NSObject {
     __weak PictogramView *_pictogramBeingMoved;
-    
-    
     __weak UICollectionViewController *_source;
     __weak UICollectionViewController <AddPictogramWithID> *_destination;
 }
