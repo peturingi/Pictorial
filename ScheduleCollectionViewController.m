@@ -3,12 +3,14 @@
 #import "PictogramCalendarCell.h"
 #import "RectHelper.h"
 #import "NSArray+ObjectsOfType.h"
-#import "Schedule.h"
 #import "MasterViewController.h"
 #import "UILongPressGestureRecognizer+Cancel.h"
 #import "UICollectionView+CellAtPoint.h"
 #import "DayCollectionViewLayout.h"
+/* Models */
+#import "Pictogram.h"
 #import "PictogramContainer.h"
+#import "Schedule.h"
 
 @implementation ScheduleCollectionViewController
 
@@ -22,7 +24,6 @@
     switch (sender.state) {
         /* Initial touchdown on a pictogram. */
         case UIGestureRecognizerStateBegan:
-            self.cellDraggingManager = [[CellDraggingManager alloc] initWithSource:self andDestination:self];
             [self handlePictogramSelection:sender];
             break;
             
@@ -34,29 +35,12 @@
         /* Gesture recognizer disabled while in use. */
         case UIGestureRecognizerStateCancelled:
             [self.cellDraggingManager pictogramDraggingCancelled];
-            self.pictogramsSourceLocation = nil;
             self.cellDraggingManager = nil;
             break;
             
         /* Pictogram dropped. */
         case UIGestureRecognizerStateEnded:
-            NSAssert(self.pictogramsSourceLocation, @"Must not be nil.");
-            /* Two animations will be performed during a move. One on insert and one on delete. */
-            [UICollectionView beginAnimations:nil context:nil];
-            {
-                if (NO == [self.cellDraggingManager handleAddPictogramToScheduleAtPoint:[sender locationInView:self.view] relativeToView:self.view]) {
-                    [UICollectionView commitAnimations];
-                    self.pictogramsSourceLocation = nil;
-                    self.cellDraggingManager = nil;
-                    return; // No need to continue after failed insertion, as we do not want to delete the source pictogram as it was not moved.
-                }
-                
-                [self adjustPictogramsSourceLocation];
-                [self removePictogramAtIndexPath:self.pictogramsSourceLocation];
-            }
-            [UICollectionView commitAnimations];
-            self.pictogramsSourceLocation = nil;
-            self.cellDraggingManager = nil;
+            [self movePictogram:sender];
             break;
             
         case UIGestureRecognizerStateFailed:
@@ -66,35 +50,24 @@
     }
 }
 
-#pragma mark - Adjust Location
-
-/**
- Take into count that a pictogram might have been moved up within its own schedule.
- The insertion of a pictogram higher up in the same schedule will invalidate the currently known
- source indexPath, resulting in internal inconsistency if for example the source was to be deleted during a move
- of the pictogram.
- */
-- (void)adjustPictogramsSourceLocation {
-    NSAssert(self.pictogramsSourceLocation, @"Unknown source location.");
-    NSUInteger const offset = [self pictogramBeingMovedUpWithinSchedule] ? 1 : 0;
-    NSIndexPath * const newLocation = [NSIndexPath indexPathForItem:(self.pictogramsSourceLocation.item + offset) inSection:self.pictogramsSourceLocation.section];
-    self.pictogramsSourceLocation = newLocation;
-}
-
-/**
- Evaluates whether the currently dragged pictogram, was released in a higher location within the same schedule.
- @note A schedule represents a single day.
- @pre The source and destination locations are known.
- */
-// TODO: Move to schedule, rename to locationHigherUpInSchedule
-- (BOOL)pictogramBeingMovedUpWithinSchedule {
+- (void)movePictogram:(UILongPressGestureRecognizer *)sender
+{
     {
-        NSAssert(self.pictogramsSourceLocation, @"Source has not been set.");
-        NSAssert(self.pictogramsDestinationLocation, @"Destination has not been set.");
+        NSAssert(self.cellDraggingManager, @"Must not be nil.");
     } // Assert
-    BOOL const movedWithinSchedule = self.pictogramsDestinationLocation.section == self.pictogramsSourceLocation.section;
-    BOOL const movedIntoHigherPosition = self.pictogramsDestinationLocation.item < self.pictogramsSourceLocation.item;
-    return movedWithinSchedule && movedIntoHigherPosition;
+    
+    /* Two animations will be performed during a move. One on insert and one on delete. */
+    [UICollectionView beginAnimations:nil context:nil];
+    {
+        if (NO == [self.cellDraggingManager handleAddPictogramToScheduleAtPoint:[sender locationInView:self.view] relativeToView:self.view]) {
+            [UICollectionView commitAnimations];
+            self.cellDraggingManager = nil;
+            return; // No need to continue after failed insertion, as we do not want to delete the source pictogram as it was not moved.
+        }
+        [self removePictogramAtIndexPath:[self.dataSource indexPathToPictogramContainer:self.touchedPictogramContainer inCollectionView:self.collectionView]];
+    }
+    [UICollectionView commitAnimations];
+    self.cellDraggingManager = nil;
 }
 
 #pragma mark - Remove from Schedule
@@ -111,7 +84,6 @@
             NSAssert(self.isEditing, @"Cannot remove pictogram unless editing.");
         } // Assert
         [self removePictogramAtIndexPath:pictogramToRemove];
-
     }
 }
 
@@ -151,24 +123,29 @@
     if ([self.collectionView pointInside:releasePointInCollectionView withEvent:nil] == NO) {
         return NO;
     }
-    else {
+    else { // Was released in this controllers collection view.
+        
         /* Offset the final location by one if the pictogram was dropped on another pictogram, but below its vertical center. */
-        /* Get all CalendarCell from the collection view. */
+        // Get all CalendarCell from the collection view.
         NSMutableArray * const calendarCells = [[NSMutableArray alloc] initWithArray:[self.collectionView.subviews objectsOfType:[CalendarCell class]]];
         
-        /* Find all cells intersecting the dragged pictogram. */
+        // Find all cells intersecting the dragged pictogram.
         CGRect const draggedRect = CGRectMake(releasePointInCollectionView.x - PICTOGRAM_SIZE_WHILE_DRAGGING / 2, releasePointInCollectionView.y - PICTOGRAM_SIZE_WHILE_DRAGGING / 2, PICTOGRAM_SIZE_WHILE_DRAGGING, PICTOGRAM_SIZE_WHILE_DRAGGING);
         NSArray * const intersectingCells = [RectHelper viewsIn:calendarCells intersectingWithRect:draggedRect];
         
-        /* If no cells are intersecting, then the pictogram is not to be added. Abort. */
+        // If no cells are intersecting, then the pictogram is not to be added. Abort.
         if (intersectingCells.count == 0) return NO;
         
         CGRect const largestIntersectingRect = [RectHelper largestIntersectionOfViews:intersectingCells andRect:draggedRect];
-        NSAssert(largestIntersectingRect.size.height != 0 && largestIntersectingRect.size.width != 0, @"Invalid intersection.");
+        {
+            NSAssert(largestIntersectingRect.size.height != 0 && largestIntersectingRect.size.width != 0, @"Invalid intersection.");
+        } // Assert
         
         /* Get the pictogram currently occupying the area containing the largest intersecting rect. */
         NSIndexPath * const pathToPictogramAtDestination = [self.collectionView indexPathForItemAtPoint:largestIntersectingRect.origin];
-        NSAssert(pathToPictogramAtDestination, @"Must not be nil.");
+        {
+            NSAssert(pathToPictogramAtDestination, @"Must not be nil.");
+        } // Assert
         CGPoint const centerOfPictogramAtDestination = [self.collectionView cellForItemAtIndexPath:pathToPictogramAtDestination].center;
         
         /* Offset by one if below the center of another pictogram */
@@ -193,13 +170,19 @@
  */
 - (void)handlePictogramSelection:(UILongPressGestureRecognizer * const)sender
 {
-    UICollectionViewCell * const selectedCell = [self.collectionView cellAtPoint:[sender locationInView:self.collectionView]];
+    CGPoint const gestureLocation = [sender locationInView:self.collectionView];
+    UICollectionViewCell * const selectedCell = [self.collectionView cellAtPoint:gestureLocation];
     
-    if (selectedCell && [selectedCell isMemberOfClass:[PictogramCalendarCell class]]) {
-        self.pictogramsSourceLocation = [self.collectionView indexPathForItemAtPoint:[sender locationInView:self.collectionView]];
-        NSManagedObject * const mostRecentlytouchedPictogram = [self.dataSource pictogramAtIndexPath:self.pictogramsSourceLocation];
+    if (selectedCell && [selectedCell isMemberOfClass:[PictogramCalendarCell class]])
+    {
+        NSIndexPath * const touchedItem = [self.collectionView indexPathForItemAtPoint:gestureLocation];
+        self.touchedPictogramContainer = [self.dataSource pictogramContainerAtIndexPath:touchedItem];
         
-        [self.cellDraggingManager setPictogramToDrag:mostRecentlytouchedPictogram.objectID fromRect:[self.view convertRect:selectedCell.frame fromView:self.collectionView] atLocation:[sender locationInView:self.view] relativeTo:self.view];
+        self.cellDraggingManager = [[CellDraggingManager alloc] initWithSource:self andDestination:self];
+        [self.cellDraggingManager setPictogramToDrag:self.touchedPictogramContainer.pictogram.objectID
+                                            fromRect:[self.view convertRect:selectedCell.frame fromView:self.collectionView]
+                                          atLocation:[sender locationInView:self.view]
+                                          relativeTo:self.view];
     } else {
         [sender cancel];
     }

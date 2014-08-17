@@ -23,21 +23,22 @@
         NSAssert(pictogramIdentifier, @"Must not be nil.");
         NSAssert(view, @"Must not be nil.");
     } // Assert
-    _idOfPictogramBeingMoved = pictogramIdentifier;
+    self.idOfPictogramBeingMoved = pictogramIdentifier;
     
     /* Animate the selected pictogram, to the finger. Resize it if needed.*/
-    // Compute frames
-    CGPoint const touchLocation = [_source.view convertPoint:location fromView:view];
-    CGRect const source = [_source.view convertRect:rect fromView:view];
-    CGRect const destination = CGRectMake(touchLocation.x-PICTOGRAM_SIZE_WHILE_DRAGGING/2, touchLocation.y-PICTOGRAM_SIZE_WHILE_DRAGGING/2, PICTOGRAM_SIZE_WHILE_DRAGGING, PICTOGRAM_SIZE_WHILE_DRAGGING);
+    
     // Add as subview
     // TODO: resize the image. No need to move a full size image around.
     AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
     UIImage * const image = ((Pictogram *)[delegate objectWithID:pictogramIdentifier]).uiImage;
+    CGRect const source = [_source.view convertRect:rect fromView:view];
     PictogramView * const pictogramView = [[PictogramView alloc] initWithFrame:source andImage:image];
     _pictogramBeingMoved = pictogramView;
     [_source.view addSubview:pictogramView];
+    
     // Animate
+    CGPoint const touchLocation = [_source.view convertPoint:location fromView:view];
+    CGRect const destination = CGRectMake(touchLocation.x-PICTOGRAM_SIZE_WHILE_DRAGGING/2, touchLocation.y-PICTOGRAM_SIZE_WHILE_DRAGGING/2, PICTOGRAM_SIZE_WHILE_DRAGGING, PICTOGRAM_SIZE_WHILE_DRAGGING);
     [UIView animateWithDuration:ANIMATION_DURATION_MOVE_TO_FINGER_ON_SELECTION animations:^(void){
         _pictogramBeingMoved.frame =  destination;
     }];
@@ -70,7 +71,7 @@
 {
     NSAssert(view, @"The view must not be empty.");
     
-    BOOL const wasAdded = [_destination addPictogramWithID:_idOfPictogramBeingMoved
+    BOOL const wasAdded = [_destination addPictogramWithID:self.idOfPictogramBeingMoved
                                                          atPoint:location
                                                   relativeToView:view];
     if (wasAdded) {

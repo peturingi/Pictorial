@@ -4,6 +4,8 @@
 #import "PictogramCalendarCell.h"
 #import "Schedule.h"
 #import "EmptyCalendarCell.h"
+#import "PictogramContainer.h"
+#import "Pictogram.h"
 
 @implementation WeekDataSource
 
@@ -43,11 +45,38 @@
 
 #pragma mark - Pictograms and Schedules
 
-- (NSManagedObject *)pictogramAtIndexPath:(NSIndexPath * const)indexPath
+- (Pictogram *)pictogramAtIndexPath:(NSIndexPath * const)indexPath
 {
-    NSManagedObject * const schedule = [[self.fetchedResultsController fetchedObjects] objectAtIndex:indexPath.section];
-    NSManagedObject * const pictogramContainer = [[schedule valueForKey:CD_KEY_SCHEDULE_PICTOGRAMS] objectAtIndex:indexPath.item];
-    return [pictogramContainer valueForKey:CD_ENTITY_PICTOGRAM];
+    PictogramContainer * const pictogramContainer = [self pictogramContainerAtIndexPath:indexPath];
+    return (Pictogram*)pictogramContainer.pictogram;
+}
+
+- (PictogramContainer *)pictogramContainerAtIndexPath:(NSIndexPath *const)indexPath
+{
+    Schedule * const schedule = [[self.fetchedResultsController fetchedObjects] objectAtIndex:indexPath.section];
+    return [schedule.pictograms objectAtIndex:indexPath.item];
+}
+
+
+
+/**
+ @return NSIndexPath to container if found.
+ @return nil if not found.
+ */
+- (NSIndexPath *)indexPathToPictogramContainer:(PictogramContainer * const)pictogramContainer inCollectionView:(UICollectionView * const)collectionView
+{
+    for (NSUInteger section = 0; section < [self numberOfSectionsInCollectionView:collectionView]; section++) {
+        Schedule * const schedule = [[self.fetchedResultsController fetchedObjects] objectAtIndex:section];
+        for (NSUInteger index = 0; index < schedule.pictograms.count; index++) {
+            NSIndexPath * const indexPath = [NSIndexPath indexPathForItem:index inSection:section];
+            PictogramContainer * const container = [schedule.pictograms objectAtIndex:indexPath.item];
+            if ([pictogramContainer.objectID isEqual:container.objectID]) return indexPath;
+        }
+    }
+    {
+        NSAssert(false, @"Should not be reachable. Container not found.");
+    } // Assert
+    return nil; // Not found.
 }
 
 #pragma mark - UICollectionViewDataSource

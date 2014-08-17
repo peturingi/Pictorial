@@ -2,6 +2,7 @@
 #import "WeekDataSource.h"
 #import "CellDraggingManager.h"
 
+@class Pictogram;
 @class MasterViewController;
 
 @interface ScheduleCollectionViewController : UICollectionViewController <AddPictogramWithID> {
@@ -9,8 +10,7 @@
 }
 
 /* Private */
-@property (strong, nonatomic) NSManagedObjectID *mostRecentlytouchedPictogram;
-@property (strong, nonatomic) NSIndexPath *pictogramsSourceLocation;
+@property (strong, nonatomic) PictogramContainer *touchedPictogramContainer;
 @property (strong, nonatomic) NSIndexPath *pictogramsDestinationLocation;
 @property (strong, nonatomic) CellDraggingManager *cellDraggingManager;
 

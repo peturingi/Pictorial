@@ -5,11 +5,13 @@
 
 @interface CellDraggingManager : NSObject {
     __weak PictogramView *_pictogramBeingMoved;
-    NSManagedObjectID *_idOfPictogramBeingMoved;
+    
     
     __weak UICollectionViewController *_source;
     __weak UICollectionViewController <AddPictogramWithID> *_destination;
 }
+
+@property (strong, nonatomic) NSManagedObjectID *idOfPictogramBeingMoved;
 
 - (id)initWithSource:(UICollectionViewController * const)source andDestination:(UICollectionViewController <AddPictogramWithID> * const)destination;
 
