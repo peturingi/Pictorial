@@ -3,6 +3,7 @@
 #import "PictogramView.h"
 #import "Pictogram.h"
 #import "AppDelegate.h"
+#import "ImageResizer.h"
 
 @implementation CellDraggingManager
 
@@ -30,7 +31,11 @@
     // Add as subview
     // TODO: resize the image. No need to move a full size image around.
     AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-    UIImage * const image = ((Pictogram *)[delegate objectWithID:pictogramIdentifier]).uiImage;
+    
+    /* Resize image. Saves about 1,5 MB of RAM. */
+    ImageResizer * const imageResizer = [[ImageResizer alloc] initWithImage:((Pictogram *)[delegate objectWithID:pictogramIdentifier]).uiImage];
+    UIImage * const image = [imageResizer getImageResizedTo:CGSizeMake(PICTOGRAM_SIZE_WHILE_DRAGGING, PICTOGRAM_SIZE_WHILE_DRAGGING)];
+    
     CGRect const source = [_source.view convertRect:rect fromView:view];
     PictogramView * const pictogramView = [[PictogramView alloc] initWithFrame:source andImage:image];
     _pictogramBeingMoved = pictogramView;
