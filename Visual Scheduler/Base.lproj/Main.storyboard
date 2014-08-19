@@ -155,8 +155,10 @@
                 <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.099999999999999978" id="aAz-Nb-UqU">
                     <connections>
                         <action selector="pictogramLongPressed:" destination="FBT-CU-eS9" id="mzc-h4-jMV"/>
+                        <outlet property="delegate" destination="FM1-nM-KdU" id="6Hv-Jb-S5j"/>
                     </connections>
                 </pongPressGestureRecognizer>
+                <customObject id="FM1-nM-KdU" customClass="DragPictogramGestureRecognizerDelegate"/>
             </objects>
             <point key="canvasLocation" x="-118" y="-2425"/>
         </scene>
@@ -232,8 +234,10 @@
                 <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.20000000000000004" id="DZN-Kb-kE1">
                     <connections>
                         <action selector="pictogramLongPressed:" destination="FA2-Kn-Gqf" id="8IR-ni-yyh"/>
+                        <outlet property="delegate" destination="39O-FW-7vi" id="Fke-PA-CI3"/>
                     </connections>
                 </pongPressGestureRecognizer>
+                <customObject id="39O-FW-7vi" customClass="DragPictogramGestureRecognizerDelegate"/>
             </objects>
             <point key="canvasLocation" x="-27" y="-1602"/>
         </scene>

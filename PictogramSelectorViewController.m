@@ -22,6 +22,7 @@
             break;
         
         case UIGestureRecognizerStateChanged:
+            // TODO: if current position is near the edge of the collection view, start scrolling the collectionview.
             [self.cellDraggingManager pictogramDraggedToPoint:[sender locationInView:self.view] relativeToView:self.view];
             break;
             
