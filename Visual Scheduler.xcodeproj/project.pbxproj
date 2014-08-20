@@ -24,6 +24,7 @@
 		D800E4B1196D516E00465541 /* spade.png in Resources */ = {isa = PBXBuildFile; fileRef = D800E4B0196D516E00465541 /* spade.png */; };
 		D80706A0196ED05F00B93F40 /* CreatePictogram.m in Sources */ = {isa = PBXBuildFile; fileRef = D8805F3E18C5DD01001BD35B /* CreatePictogram.m */; };
 		D80706A3196ED92100B93F40 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D80706A2196ED92100B93F40 /* MasterViewController.m */; };
+		D812BDAB19A4B309006442EF /* DayFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = D812BDAA19A4B309006442EF /* DayFooter.xib */; };
 		D81ABB80190966C5000B81F3 /* DayCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D81ABB7F190966C5000B81F3 /* DayCollectionViewLayout.m */; };
 		D81ABB8719097F62000B81F3 /* NowCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D81ABB8619097F62000B81F3 /* NowCollectionViewLayout.m */; };
 		D81C450E198D320A00E9801C /* RectHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D81C450D198D320A00E9801C /* RectHelper.m */; };
@@ -133,6 +134,7 @@
 		D800E4B0196D516E00465541 /* spade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spade.png; path = "Core Data/spade.png"; sourceTree = "<group>"; };
 		D80706A1196ED92100B93F40 /* MasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
 		D80706A2196ED92100B93F40 /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		D812BDAA19A4B309006442EF /* DayFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DayFooter.xib; sourceTree = "<group>"; };
 		D813A9D918D3995700D3515A /* Visual Scheduler-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Visual Scheduler-Prefix.pch"; sourceTree = "<group>"; };
 		D81AAA1E18B94F0A00E3B50C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D81ABB7E190966C5000B81F3 /* DayCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DayCollectionViewLayout.h; path = "Visual Scheduler/CalendarView/DayCollectionViewLayout.h"; sourceTree = "<group>"; };
@@ -397,6 +399,7 @@
 				D8B016ED18FEB85700017D76 /* CalendarView.h */,
 				D8B016EE18FEB85700017D76 /* CalendarView.m */,
 				D8401AA91900312A00BAF82F /* DayHeader.xib */,
+				D812BDAA19A4B309006442EF /* DayFooter.xib */,
 				D8BE00E3199F9CEB00108121 /* Cell */,
 				D81ABB8119096B66000B81F3 /* Day */,
 			);
@@ -714,6 +717,7 @@
 				D85EBDD118DC804400DF76B7 /* brushteeth.png in Resources */,
 				D83A62D418B696DC00EC0773 /* Images.xcassets in Resources */,
 				68D796A319094E920047A0CE /* ding.m4a in Resources */,
+				D812BDAB19A4B309006442EF /* DayFooter.xib in Resources */,
 				D85EBDD318DC804400DF76B7 /* karate.png in Resources */,
 				D85EBDD218DC804400DF76B7 /* eat.png in Resources */,
 				D85EBDD618DC804400DF76B7 /* toilet.png in Resources */,

@@ -150,20 +150,29 @@
     id <NSFetchedResultsSectionInfo> section = [self.fetchedResultsController sections][indexPath.section];
     NSManagedObject *schedule = [section objects].firstObject;
     NSAssert(schedule, @"Schedule was not found!");
-    
-    // Set the color
     UIColor *color = [NSKeyedUnarchiver unarchiveObjectWithData:[schedule valueForKey:CD_KEY_SCHEDULE_COLOR]];
-    UICollectionReusableView *view = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader
-                                                                        withReuseIdentifier:DAY_HEADER
-                                                                               forIndexPath:indexPath];
+    
+    UICollectionReusableView *view;
+    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+        view = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader
+                                                                            withReuseIdentifier:DAY_HEADER
+                                                                                   forIndexPath:indexPath];
+        
+        
+        // Set the name of the day
+        UILabel *dayLabel = (UILabel *)[view firstSubviewWithTag:STORYBOARD_TAG_DAY_LABEL];
+        NSAssert(dayLabel, @"Expected a label.");
+        dayLabel.text = [schedule valueForKey:CD_KEY_SCHEDULE_TITLE];
+    }
+    if ([kind isEqualToString:UICollectionElementKindSectionFooter]) {
+        view = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter
+                                                                            withReuseIdentifier:DAY_FOOTER
+                                                                                   forIndexPath:indexPath];
+    }
+    
     view.backgroundColor = color;
     
-    // Set the name of the day
-    UILabel *dayLabel = (UILabel *)[view firstSubviewWithTag:STORYBOARD_TAG_DAY_LABEL];
-    NSAssert(dayLabel, @"Expected a label.");
-    dayLabel.text = [schedule valueForKey:CD_KEY_SCHEDULE_TITLE];
-    
-    return view;
+    return view;;
 }
 
 /** A section in the collection view represents a single schedule.

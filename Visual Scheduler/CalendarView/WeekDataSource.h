@@ -21,5 +21,4 @@
 - (void)save;
 
 - (NSIndexPath *)indexPathToPictogramContainer:(PictogramContainer * const)pictogramContainer inCollectionView:(UICollectionView * const)collectionView;
-
 @end

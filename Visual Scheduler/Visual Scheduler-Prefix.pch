@@ -36,6 +36,7 @@
 #define PICTOGRAM_CALENDAR_CELL     @"PICTOGRAM_CALENDAR_CELL"
 #define EMPTY_CALENDAR_CELL         @"EMPTY_CALENDAR_CELL"
 #define DAY_HEADER                  @"DAY_HEADER"
+#define DAY_FOOTER                  @"DAY_FOOTER"
 
 // Schedule View
 #define PICTOGRAM_BORDER_RADIUS     5.0f

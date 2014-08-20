@@ -3,6 +3,7 @@
 
 #define CELL_KEY    @"ImageCell"
 #define HEADER_KEY  @"DayOfWeekColor"
+#define FOOTER_KEY  @"kFooter"
 
 static const NSInteger INSET_TOP    = 2;
 static const NSInteger INSET_LEFT   = 18;
@@ -50,8 +51,10 @@ static const NSUInteger HEADER_HEIGHT = 20;
 {
     NSDictionary *cellInformation = [self cellAttributes];
     NSDictionary *headerInformation = [self headerAttributes];
+    NSDictionary *footerInformation = [self footerAttributes];
     self.layoutInformation = @{CELL_KEY     : cellInformation,
-                               HEADER_KEY   : headerInformation};
+                               HEADER_KEY   : headerInformation,
+                               FOOTER_KEY   : footerInformation};
 }
 
 #pragma mark Cell Layout
@@ -141,6 +144,49 @@ static const NSUInteger HEADER_HEIGHT = 20;
     return size;
 }
 
+#pragma mark Footer layout
+
+- (NSDictionary *)footerAttributes
+{
+    NSMutableDictionary *footerInformation = [NSMutableDictionary dictionaryWithCapacity:NUMBER_OF_DAYS_IN_WEEK];
+    
+    for (NSUInteger today = 0; today < NUMBER_OF_DAYS_IN_WEEK; today++) {
+        const NSUInteger indexOfFirstPictogram = 0;
+        NSIndexPath *const pathToFirstItem = [NSIndexPath indexPathForItem:indexOfFirstPictogram inSection:today]; // assume there is always an item, so we can calculate offset of header.
+        UICollectionViewLayoutAttributes *const attributes = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionFooter
+                                                                                                                            withIndexPath:pathToFirstItem];
+        attributes.frame = [self frameForFooterOfSection:today];
+        attributes.zIndex = NSIntegerMin;
+        [footerInformation setObject:attributes forKey:pathToFirstItem];
+    }
+    NSAssert(footerInformation, @"nil must never be returned.");
+    return footerInformation;
+}
+
+- (CGRect)frameForFooterOfSection:(NSUInteger)section
+{
+    CGRect rect;
+    rect.origin = [self originForFooterOfSection:section];
+    rect.size = [self footerSize];
+    return rect;
+}
+
+- (CGPoint)originForFooterOfSection:(NSUInteger)section
+{
+    const CGSize footerSize = [self headerSize];
+    const CGFloat x = section * footerSize.width;
+    const CGFloat y = self.collectionView.contentOffset.y;
+    return CGPointMake(x, y);
+}
+
+- (CGSize)footerSize
+{
+    const CGFloat width = [self sectionWidth];
+    const CGFloat height = self.collectionView.frame.size.height;
+    const CGSize size = CGSizeMake(width, height);
+    return size;
+}
+
 #pragma mark Step 2 - CollectionView Size and Grid configuration
 
 /* Return the overall size of the entire content, based on initial calculations.
@@ -196,6 +242,7 @@ static const NSUInteger HEADER_HEIGHT = 20;
     NSMutableArray *layoutAttributes = [NSMutableArray arrayWithCapacity:self.layoutInformation.count];
     [layoutAttributes addObjectsFromArray:[self layoutAttributesWithKey:CELL_KEY inRect:rect]];
     [layoutAttributes addObjectsFromArray:[self layoutAttributesWithKey:HEADER_KEY inRect:rect]];
+    [layoutAttributes addObjectsFromArray:[self layoutAttributesWithKey:FOOTER_KEY inRect:rect]];
     return layoutAttributes;
 }
 
@@ -236,8 +283,8 @@ static const NSUInteger HEADER_HEIGHT = 20;
  */
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDictionary *cellInformation = [self.layoutInformation objectForKey:CELL_KEY];
-    UICollectionViewLayoutAttributes *attributes = [cellInformation objectForKey:indexPath];
+    NSDictionary * const cellInformation = [self.layoutInformation objectForKey:CELL_KEY];
+    UICollectionViewLayoutAttributes * const attributes = [cellInformation objectForKey:indexPath];
     return attributes;
 }
 

@@ -14,8 +14,12 @@
 
 - (void)registerSupplementaryView {
     UINib *headerView = [UINib nibWithNibName:@"DayHeader" bundle:nil];
-    if (headerView == nil) @throw [NSException exceptionWithName:@"Failed to load nib." reason:@"Unknown" userInfo:nil];
+    NSAssert(headerView, @"Failed to load nib.");
     [self registerNib:headerView forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:DAY_HEADER];
+    
+    UINib *footerView = [UINib nibWithNibName:@"DayFooter" bundle:nil];
+    NSAssert(footerView, @"Failed to load nib.");
+    [self registerNib:footerView forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:DAY_FOOTER];
 }
 
 @end
