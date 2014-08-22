@@ -66,9 +66,9 @@
         <scene sceneID="LMG-h6-PzK">
             <objects>
                 <navigationController definesPresentationContext="YES" navigationBarHidden="YES" toolbarHidden="NO" id="wuf-cq-nwa" sceneMemberID="viewController">
-                    <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8N6-YY-0y4">
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="1" green="0.051676359249999998" blue="0.10486219419999999" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="W4B-Cd-chq">
                         <rect key="frame" x="0.0" y="980" width="768" height="44"/>
@@ -374,7 +374,7 @@
                                 </connections>
                             </containerView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="TPj-VT-Xow" firstAttribute="leading" secondItem="j17-jP-moV" secondAttribute="leading" id="F4q-1I-oR2"/>
                             <constraint firstItem="TPj-VT-Xow" firstAttribute="top" secondItem="k6R-GB-Bny" secondAttribute="bottom" id="IUO-JK-Rq5"/>

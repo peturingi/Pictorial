@@ -9,6 +9,7 @@ static const NSInteger INSET_TOP    = 2;
 static const NSInteger INSET_LEFT   = 18;
 static const NSInteger INSET_RIGHT  = 18;
 static const NSInteger INSET_BOTTOM = 2;
+static const NSInteger OFFSET_FROM_TOP = 4;
 static const NSUInteger HEADER_HEIGHT = 20;
 
 @interface WeekCollectionViewLayout ()
@@ -89,7 +90,7 @@ static const NSUInteger HEADER_HEIGHT = 20;
     NSParameterAssert(indexPath);
     const CGSize itemSize = [self sizeOfItems];
     const CGFloat x = self.insets.left + indexPath.section * (itemSize.width+self.insets.left+self.insets.right);
-    const CGFloat y = ([self headerSize].height+self.insets.top) + indexPath.item * (itemSize.height+self.insets.top+self.insets.bottom);
+    const CGFloat y = ([self headerSize].height+self.insets.top) + indexPath.item * (itemSize.height+self.insets.top+self.insets.bottom) + OFFSET_FROM_TOP;
     const CGPoint origin = CGPointMake(x, y);
     return origin;
 }
@@ -221,7 +222,7 @@ static const NSUInteger HEADER_HEIGHT = 20;
  */
 - (CGFloat)sectionWidth
 {
-    const CGFloat width = self.collectionView.bounds.size.width / self.collectionView.numberOfSections;
+    const CGFloat width = ceil(self.collectionView.bounds.size.width / self.collectionView.numberOfSections);
     return width;
 }
 

@@ -11,8 +11,6 @@
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    //[self printDatabase];
-    //[self populateDatabase];
     return YES;
 }
 

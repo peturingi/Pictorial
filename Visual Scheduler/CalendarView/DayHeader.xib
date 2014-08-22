@@ -11,17 +11,18 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Candy Day" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H4v-6f-uBX" userLabel="DayOfWeek">
-                    <rect key="frame" x="41" y="5" width="85" height="21"/>
+                    <rect key="frame" x="0.0" y="0.0" width="167" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <constraints>
-                <constraint firstAttribute="centerY" secondItem="H4v-6f-uBX" secondAttribute="centerY" id="PCS-Gg-kEa"/>
-                <constraint firstAttribute="centerX" secondItem="H4v-6f-uBX" secondAttribute="centerX" constant="0.5" id="XEd-AW-u0n"/>
+                <constraint firstItem="H4v-6f-uBX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="6iD-ie-GDM"/>
+                <constraint firstAttribute="trailing" secondItem="H4v-6f-uBX" secondAttribute="trailing" id="GPT-4R-jY6"/>
+                <constraint firstItem="H4v-6f-uBX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="LBW-xt-mjO"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
