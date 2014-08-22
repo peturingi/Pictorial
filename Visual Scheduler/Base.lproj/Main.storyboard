@@ -202,6 +202,26 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jVh-e4-nyL" userLabel="Delete">
+                                            <rect key="frame" x="50" y="97" width="50" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="1" green="0.051676359249999998" blue="0.10486219419999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <state key="normal" title="Delete"/>
+                                            <connections>
+                                                <action selector="deleteButton:" destination="FA2-Kn-Gqf" eventType="touchUpInside" id="T6a-44-wZ1"/>
+                                            </connections>
+                                        </button>
+                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="07w-WK-pz3" userLabel="Modify">
+                                            <rect key="frame" x="0.0" y="97" width="50" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <state key="normal" title="Edit"/>
+                                            <connections>
+                                                <action selector="modifyButton:" destination="FA2-Kn-Gqf" eventType="touchUpInside" id="pJG-DN-H9P"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
@@ -215,6 +235,11 @@
                                     <constraint firstItem="1RX-U6-eYG" firstAttribute="leading" secondItem="98J-LQ-yCt" secondAttribute="leading" id="lnB-oI-Qd9"/>
                                 </constraints>
                                 <size key="customSize" width="100" height="133"/>
+                                <connections>
+                                    <outlet property="deleteButton" destination="jVh-e4-nyL" id="yiG-Ed-diL"/>
+                                    <outlet property="modifyButton" destination="07w-WK-pz3" id="WjL-rg-RLi"/>
+                                    <outlet property="title" destination="1RX-U6-eYG" id="sfJ-Cf-FbU"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>

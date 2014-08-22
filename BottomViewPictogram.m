@@ -2,14 +2,16 @@
 
 @implementation BottomViewPictogram
 
--(void) drawRect:(CGRect)rect {
-    [super drawRect:rect];
+- (void)setHighlighted:(BOOL)highlighted {
+    [super setHighlighted:highlighted];
     
-    if (self.highlighted) {
-        CGContextRef context = UIGraphicsGetCurrentContext();
-        CGContextSetRGBFillColor(context, 1, 0, 0, 1);
-        CGContextFillRect(context, self.bounds);
-    }
+    self.title.hidden = highlighted;
+    
+    self.deleteButton.enabled = highlighted;
+    self.deleteButton.hidden = !highlighted;
+    
+    self.modifyButton.enabled = highlighted;
+    self.modifyButton.hidden = !highlighted;
 }
 
 @end

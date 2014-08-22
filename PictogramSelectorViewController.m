@@ -28,11 +28,20 @@
 - (void)handleTapOnCellAtLocation:(CGPoint const)point {
     UICollectionViewCell *cell = [self.collectionView cellAtPoint:point];
     if (cell) {
+        [self.collectionView scrollToItemAtIndexPath:[self.collectionView indexPathForCell:cell] atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:YES];
         cell.highlighted = !cell.highlighted; // Set highlighted.
         [cell setNeedsDisplay];
     }
     
 }
+
+- (IBAction)modifyButton:(UIButton *)sender {
+    NSLog(@"modify");
+}
+- (IBAction)deleteButton:(UIButton *)sender {
+    NSLog(@"delete");
+}
+
 
 
 
