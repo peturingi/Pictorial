@@ -19,6 +19,11 @@
 
 - (UIImage *)uiImage;
 
+/**
+ Indicates whether the pictogram is being used in some schedule.
+ */
+- (BOOL)inUse;
+
 @end
 
 @interface Pictogram (CoreDataGeneratedAccessors)

@@ -22,4 +22,8 @@
     return [UIImage imageWithData:imageData];
 }
 
+- (BOOL)inUse {
+    return self.usedBy.count != 0;
+}
+
 @end

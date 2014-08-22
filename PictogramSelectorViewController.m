@@ -4,6 +4,8 @@
 #import "UICollectionView+CellAtPoint.h"
 #import "UILongPressGestureRecognizer+Cancel.h"
 #import "UIView+BBASubviews.h"
+#import "BottomViewPictogram.h"
+#import "Pictogram.h"
 
 @implementation PictogramSelectorViewController
 
@@ -39,28 +41,52 @@
     NSLog(@"modify");
 }
 - (IBAction)deleteButton:(UIButton *)sender {
-    NSLog(@"delete");
+    BottomViewPictogram * const cell = (BottomViewPictogram *)sender.superview.superview;
+    NSIndexPath * const pathToCell = [self.collectionView indexPathForCell:cell];
+    Pictogram * const pictogramInCell = [(PictogramSelectorDataSource*)self.collectionView.dataSource pictogramAtIndexPath:pathToCell];
+    {
+        NSAssert(cell, @"Could not get view owning the delete button.");
+        NSAssert(pathToCell, @"Coult not get path to cell owning the delete button.");
+        NSAssert(pictogramInCell, @"Could not find the pictogram.");
+    } // Assert
+    
+    /* Show alert box if pictogram is in use, else delete it. */
+    if (pictogramInCell.inUse) {
+        {
+            NSString * const title = @"Can Not Delete";
+            NSString * const message = @"Pictogram is being used by a schedule. Remove it from the schedule and try again.";
+            NSString * const ok = @"Ok";
+            [[[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:ok otherButtonTitles:nil] show];
+        }
+        cell.highlighted = NO;
+    }
+    else {
+        {
+            NSManagedObjectContext * const moc = pictogramInCell.managedObjectContext;
+            [moc deleteObject:pictogramInCell];
+            [moc save:nil]; // TODO: error handling
+        }
+        [self.collectionView deleteItemsAtIndexPaths:@[pathToCell]];
+    }
 }
-
-
-
 
 - (IBAction)pictogramLongPressed:(UILongPressGestureRecognizer * const)sender
 {
     switch (sender.state) {
         case UIGestureRecognizerStateBegan:
+        {
             if (self.cellDraggingManager == NO) {
                 self.cellDraggingManager = [[CellDraggingManager alloc] initWithSource:self andDestination:self.delegate.targetForPictogramDrops];
             }
             [self handlePictogramSelection:sender];
             break;
+        }
             
         case UIGestureRecognizerStateCancelled:
         [self.cellDraggingManager pictogramDraggingCancelled];
             break;
         
         case UIGestureRecognizerStateChanged:
-            // TODO: if current position is near the edge of the collection view, start scrolling the collectionview.
             [self.cellDraggingManager pictogramDraggedToPoint:[sender locationInView:self.view] relativeToView:self.view];
             break;
             

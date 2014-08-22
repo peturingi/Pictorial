@@ -41,4 +41,8 @@
     pictogramContainer.schedule = self;
 }
 
+- (NSString *)description {
+    return self.title;
+}
+
 @end

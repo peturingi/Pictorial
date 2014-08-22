@@ -71,7 +71,7 @@
 
 /** Returns the touched pictogram.
  */
-- (NSManagedObject *)pictogramAtIndexPath:(NSIndexPath * const)indexPath
+- (Pictogram *)pictogramAtIndexPath:(NSIndexPath * const)indexPath
 {
     return [[self fetchedResultsController] objectAtIndexPath:indexPath];
 }
