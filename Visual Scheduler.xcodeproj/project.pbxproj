@@ -67,6 +67,7 @@
 		D85EBDD718DC804400DF76B7 /* washhands.png in Resources */ = {isa = PBXBuildFile; fileRef = D85EBDD018DC804400DF76B7 /* washhands.png */; };
 		D85EBDDA18DC833A00DF76B7 /* BBAColor.m in Sources */ = {isa = PBXBuildFile; fileRef = D85EBDD918DC833A00DF76B7 /* BBAColor.m */; };
 		D85EBDDF18DC83B200DF76B7 /* BBAColor.m in Sources */ = {isa = PBXBuildFile; fileRef = D85EBDD918DC833A00DF76B7 /* BBAColor.m */; };
+		D86A4A6519A71DD800D221CC /* BottomViewPictogram.m in Sources */ = {isa = PBXBuildFile; fileRef = D86A4A6419A71DD800D221CC /* BottomViewPictogram.m */; };
 		D87607071988C8D2000D78D4 /* ImageSourceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D87607061988C8D2000D78D4 /* ImageSourceTableViewController.m */; };
 		D876070B1988CC85000D78D4 /* AlbumPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = D876070A1988CC85000D78D4 /* AlbumPicker.m */; };
 		D876070E1988CD02000D78D4 /* Picker.m in Sources */ = {isa = PBXBuildFile; fileRef = D876070D1988CD02000D78D4 /* Picker.m */; };
@@ -208,6 +209,8 @@
 		D85EBDD018DC804400DF76B7 /* washhands.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = washhands.png; sourceTree = "<group>"; };
 		D85EBDD818DC833A00DF76B7 /* BBAColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBAColor.h; path = Components/BBAColor.h; sourceTree = "<group>"; };
 		D85EBDD918DC833A00DF76B7 /* BBAColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBAColor.m; path = Components/BBAColor.m; sourceTree = "<group>"; };
+		D86A4A6319A71DD800D221CC /* BottomViewPictogram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BottomViewPictogram.h; sourceTree = "<group>"; };
+		D86A4A6419A71DD800D221CC /* BottomViewPictogram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BottomViewPictogram.m; sourceTree = "<group>"; };
 		D87607051988C8D2000D78D4 /* ImageSourceTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSourceTableViewController.h; sourceTree = "<group>"; };
 		D87607061988C8D2000D78D4 /* ImageSourceTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageSourceTableViewController.m; sourceTree = "<group>"; };
 		D87607091988CC85000D78D4 /* AlbumPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumPicker.h; sourceTree = "<group>"; };
@@ -564,6 +567,8 @@
 			children = (
 				D8BE00E4199F9D0400108121 /* Drag Manager */,
 				D83A62CD18B696DC00EC0773 /* Main.storyboard */,
+				D86A4A6319A71DD800D221CC /* BottomViewPictogram.h */,
+				D86A4A6419A71DD800D221CC /* BottomViewPictogram.m */,
 				D87607081988CA8A000D78D4 /* Import Photo */,
 				D80706A1196ED92100B93F40 /* MasterViewController.h */,
 				D80706A2196ED92100B93F40 /* MasterViewController.m */,
@@ -766,6 +771,7 @@
 				D8A8292B198F7F1100E0D85F /* PictogramContainer.m in Sources */,
 				D8A8292E198F7F1100E0D85F /* Schedule.m in Sources */,
 				D83BFE4E1907EDCE00F72646 /* PictogramSelectorDataSource.m in Sources */,
+				D86A4A6519A71DD800D221CC /* BottomViewPictogram.m in Sources */,
 				68D7965E190947CB0047A0CE /* WatchDialView.m in Sources */,
 				D8C7BDE7190287E800128FA7 /* WeekCollectionViewLayout.m in Sources */,
 				68D796551909479E0047A0CE /* TimerViewController.m in Sources */,

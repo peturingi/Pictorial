@@ -7,6 +7,35 @@
 
 @implementation PictogramSelectorViewController
 
+- (IBAction)pictogramTapped:(UITapGestureRecognizer *)sender {
+    switch (sender.state) {
+        case UIGestureRecognizerStateEnded:
+        {
+            [self handleTapOnCellAtLocation:[sender locationInView:self.collectionView]];
+            break;
+        }
+        
+        case UIGestureRecognizerStateBegan:
+        case UIGestureRecognizerStateCancelled:
+        case UIGestureRecognizerStateChanged:
+        case UIGestureRecognizerStateFailed:
+        case UIGestureRecognizerStatePossible:
+        default:
+            break;
+    }
+}
+
+- (void)handleTapOnCellAtLocation:(CGPoint const)point {
+    UICollectionViewCell *cell = [self.collectionView cellAtPoint:point];
+    if (cell) {
+        cell.highlighted = !cell.highlighted; // Set highlighted.
+        [cell setNeedsDisplay];
+    }
+    
+}
+
+
+
 - (IBAction)pictogramLongPressed:(UILongPressGestureRecognizer * const)sender
 {
     switch (sender.state) {

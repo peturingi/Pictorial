@@ -177,7 +177,7 @@
                             <inset key="sectionInset" minX="30" minY="12" maxX="30" maxY="5"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="pictogramSelector" id="RbT-Ur-yMv" userLabel="Pictogram">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="pictogramSelector" id="RbT-Ur-yMv" userLabel="Pictogram" customClass="BottomViewPictogram">
                                 <rect key="frame" x="30" y="12" width="100" height="133"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -221,6 +221,7 @@
                             <outlet property="dataSource" destination="EaI-XR-N1N" id="oHZ-S9-a9M"/>
                             <outlet property="delegate" destination="FA2-Kn-Gqf" id="WSV-JN-XJI"/>
                             <outletCollection property="gestureRecognizers" destination="DZN-Kb-kE1" appends="YES" id="NBW-ZF-kSM"/>
+                            <outletCollection property="gestureRecognizers" destination="Uqb-1h-m79" appends="YES" id="mGs-Ku-hiB"/>
                         </connections>
                     </collectionView>
                     <size key="freeformSize" width="768" height="1024"/>
@@ -238,6 +239,11 @@
                     </connections>
                 </pongPressGestureRecognizer>
                 <customObject id="39O-FW-7vi" customClass="DragPictogramGestureRecognizerDelegate"/>
+                <tapGestureRecognizer delaysTouchesEnded="NO" id="Uqb-1h-m79">
+                    <connections>
+                        <action selector="pictogramTapped:" destination="FA2-Kn-Gqf" id="SQI-1Q-kMb"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-27" y="-1602"/>
         </scene>
