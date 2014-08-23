@@ -3,6 +3,7 @@
 #import "CellDraggingManager.h"
 
 @interface PictogramSelectorViewController : UICollectionViewController
+@property (weak, nonatomic) IBOutlet UILongPressGestureRecognizer *pictogramDragger;
 
 @property (weak, nonatomic) MasterViewController *delegate;
 @property (strong, nonatomic) CellDraggingManager *cellDraggingManager;

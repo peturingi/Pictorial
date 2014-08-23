@@ -250,6 +250,9 @@
                         </connections>
                     </collectionView>
                     <size key="freeformSize" width="768" height="1024"/>
+                    <connections>
+                        <outlet property="pictogramDragger" destination="DZN-Kb-kE1" id="msA-jl-MzU"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jl5-F3-qRC" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="EaI-XR-N1N" customClass="PictogramSelectorDataSource">
@@ -406,14 +409,9 @@
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="JKA-ua-WWO"/>
-                        <barButtonItem title="Up" id="GXR-Iu-jgv">
+                        <barButtonItem title="Breyta" id="j1e-pW-2Sc">
                             <connections>
-                                <action selector="upButton:" destination="Xfv-XK-laj" id="mfV-KR-gDR"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem title="Down" id="bgX-XF-Z7g">
-                            <connections>
-                                <action selector="downButton:" destination="Xfv-XK-laj" id="SGG-5b-GDg"/>
+                                <action selector="editButton:" destination="Xfv-XK-laj" id="0tT-ai-piT"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
@@ -424,9 +422,8 @@
                     <connections>
                         <outlet property="bottomView" destination="j17-jP-moV" id="LQd-MU-xWP"/>
                         <outlet property="bottomViewHeight" destination="cVv-eZ-qbp" id="gSD-v4-FJ1"/>
-                        <outlet property="hidePictogramSelectorButton" destination="bgX-XF-Z7g" id="HRd-mS-6E7"/>
                         <outlet property="importPhotosButton" destination="WqI-yk-a3D" id="yBj-nt-dQr"/>
-                        <outlet property="showPictogramSelectorButton" destination="GXR-Iu-jgv" id="qBc-Ju-vFi"/>
+                        <outlet property="toggleEdit" destination="j1e-pW-2Sc" id="8uL-ol-0Sa"/>
                         <segue destination="6cx-Oo-qhh" kind="modal" identifier="newPictogram" modalPresentationStyle="formSheet" id="Rmi-aP-70V"/>
                     </connections>
                 </viewController>

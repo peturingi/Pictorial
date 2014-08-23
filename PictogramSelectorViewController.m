@@ -34,7 +34,6 @@
         cell.highlighted = !cell.highlighted; // Set highlighted.
         [cell setNeedsDisplay];
     }
-    
 }
 
 - (IBAction)modifyButton:(UIButton *)sender {
@@ -99,7 +98,6 @@
         default:
             break;
     }
-    
 }
 
 /** Tells the delegate which item was touched, and its location.
@@ -123,6 +121,15 @@
     } else {
         [sender cancel];
     }
+}
+
+- (void)setEditing:(BOOL)editing {
+    [super setEditing:editing];
+    
+    /* Cancel dragging if editing was turned off,
+     in order to prevent a crash which occurs if the pictogram
+     is released after the pictogram window has disappeared. */
+    if (editing == NO) [self.pictogramDragger cancel];
 }
 
 @end

@@ -7,6 +7,7 @@
 #import "AlbumPicker.h"
 #import "ImageSourceTableViewController.h"
 #import "Pictogram.h"
+#import "UIBarButtonItem+EditButton.h"
 
 @interface MasterViewController ()
 @property (weak) UIPopoverController *imageSourcePopover;
@@ -15,7 +16,12 @@
 @implementation MasterViewController
 
 - (void)viewDidLoad {
-    [self downButton:nil];
+    /* The pictogram selection window is intially hidden. */
+    {
+        [self.editButtonItem setEditMode:YES];
+        [self editButton:self.editButtonItem];
+    }
+    
 }
 
 /* Most of these are executed when view is created and loads.*/
@@ -33,8 +39,8 @@
     
     // Set self as the pictogram selectors delegate.
     if ([segue.identifier isEqualToString:@"SEGUE_EMBED_PICTORAM_SELECTOR"]) {
-        PictogramSelectorViewController * const destination = segue.destinationViewController;
-        destination.delegate = self;
+        _bottomViewController = segue.destinationViewController;
+        _bottomViewController.delegate = self;
     }
     
     // Know the top views controller
@@ -104,19 +110,15 @@
 
 #pragma mark - 
 
-- (IBAction)downButton:(id)sender {
-    [_topViewController setEditing:NO];
-    [self hideImportPhotosButton];
-    [self hideHidePictogramSelectorButton];
-    [self showShowPictogramSelectorButton];
-    [self setHeightOfPictogramSelector:0];
-}
-- (IBAction)upButton:(id)sender {
-    [_topViewController setEditing:YES];
-    [self showHidePictogramSelectorButton];
-    [self hideShowPictogramSelectorButton];
-    [self showImportPhotosButton];
-    [self setHeightOfPictogramSelector:floor(self.view.frame.size.height / 3.0f)];
+- (IBAction)editButton:(UIBarButtonItem *)sender {
+    [sender setEditMode                 : ! sender.editMode ];
+    importPhotosButton.enabled          = sender.editMode;
+    sender.title                        = sender.editMode ? @"Loka" : @"Breyta";
+    NSUInteger const heightDuringEdit   = floor(self.view.frame.size.height / 3.0f);
+    NSUInteger const heightWhenClosed   = 0;
+    [self setHeightOfPictogramSelector  : (sender.editMode ? heightDuringEdit : heightWhenClosed) ];
+    [_topViewController setEditing      : sender.editMode ];
+    [_bottomViewController setEditing   : sender.editMode ];
 }
 
 - (void)setHeightOfPictogramSelector:(CGFloat const)height {
@@ -124,15 +126,6 @@
     bottomViewHeight.constant = height;
     [self.view layoutIfNeeded];
 }
-
-- (void)showImportPhotosButton { importPhotosButton.enabled = YES; }
-- (void)hideImportPhotosButton { importPhotosButton.enabled = NO; }
-
-- (void)showShowPictogramSelectorButton { showPictogramSelectorButton.enabled = YES; }
-- (void)hideShowPictogramSelectorButton { showPictogramSelectorButton.enabled = NO; }
-
-- (void)showHidePictogramSelectorButton { hidePictogramSelectorButton.enabled = YES; }
-- (void)hideHidePictogramSelectorButton { hidePictogramSelectorButton.enabled = NO; }
 
 - (UICollectionViewController<AddPictogramWithID>*)targetForPictogramDrops {
     return _topViewController;

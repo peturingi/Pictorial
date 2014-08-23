@@ -73,6 +73,7 @@
 		D876070E1988CD02000D78D4 /* Picker.m in Sources */ = {isa = PBXBuildFile; fileRef = D876070D1988CD02000D78D4 /* Picker.m */; };
 		D881B56D196D3404008B10F9 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D881B56B196D3404008B10F9 /* Model.xcdatamodeld */; };
 		D882E9B619A33AD300B358F7 /* DragPictogramGestureRecognizerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D882E9B519A33AD300B358F7 /* DragPictogramGestureRecognizerDelegate.m */; };
+		D885A33019A85FF100D01B08 /* UIBarButtonItem+EditButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D885A32F19A85FF100D01B08 /* UIBarButtonItem+EditButton.m */; };
 		D887832E18C8E33300F13B28 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		D88954EA19921A7400243422 /* CalendarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D88954E919921A7400243422 /* CalendarCell.m */; };
 		D88954ED19921B7300243422 /* EmptyCalendarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D88954EC19921B7300243422 /* EmptyCalendarCell.m */; };
@@ -222,6 +223,8 @@
 		D881B56C196D3404008B10F9 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		D882E9B419A33AD300B358F7 /* DragPictogramGestureRecognizerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DragPictogramGestureRecognizerDelegate.h; sourceTree = "<group>"; };
 		D882E9B519A33AD300B358F7 /* DragPictogramGestureRecognizerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DragPictogramGestureRecognizerDelegate.m; sourceTree = "<group>"; };
+		D885A32E19A85FF100D01B08 /* UIBarButtonItem+EditButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+EditButton.h"; sourceTree = "<group>"; };
+		D885A32F19A85FF100D01B08 /* UIBarButtonItem+EditButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+EditButton.m"; sourceTree = "<group>"; };
 		D88954E819921A7400243422 /* CalendarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarCell.h; sourceTree = "<group>"; };
 		D88954E919921A7400243422 /* CalendarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarCell.m; sourceTree = "<group>"; };
 		D88954EB19921B7300243422 /* EmptyCalendarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptyCalendarCell.h; sourceTree = "<group>"; };
@@ -572,6 +575,8 @@
 				D87607081988CA8A000D78D4 /* Import Photo */,
 				D80706A1196ED92100B93F40 /* MasterViewController.h */,
 				D80706A2196ED92100B93F40 /* MasterViewController.m */,
+				D885A32E19A85FF100D01B08 /* UIBarButtonItem+EditButton.h */,
+				D885A32F19A85FF100D01B08 /* UIBarButtonItem+EditButton.m */,
 				D85E214D1985270300B611DE /* PictogramView.h */,
 				D85E214E1985270300B611DE /* PictogramView.m */,
 				D87607051988C8D2000D78D4 /* ImageSourceTableViewController.h */,
@@ -772,6 +777,7 @@
 				D8A8292E198F7F1100E0D85F /* Schedule.m in Sources */,
 				D83BFE4E1907EDCE00F72646 /* PictogramSelectorDataSource.m in Sources */,
 				D86A4A6519A71DD800D221CC /* BottomViewPictogram.m in Sources */,
+				D885A33019A85FF100D01B08 /* UIBarButtonItem+EditButton.m in Sources */,
 				68D7965E190947CB0047A0CE /* WatchDialView.m in Sources */,
 				D8C7BDE7190287E800128FA7 /* WeekCollectionViewLayout.m in Sources */,
 				68D796551909479E0047A0CE /* TimerViewController.m in Sources */,
