@@ -89,7 +89,7 @@
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="iyG-a6-xfH" customClass="CalendarView">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <collectionViewLayout key="collectionViewLayout" id="asr-9d-iwn" customClass="WeekCollectionViewLayout"/>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PICTOGRAM_CALENDAR_CELL" id="ww4-wN-Z99" customClass="PictogramCalendarCell">
@@ -398,12 +398,13 @@
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="b3W-yc-uF7"/>
-                        <barButtonItem title="Day" id="yyS-qw-HFa">
+                        <barButtonItem title="Dagur" id="yyS-qw-HFa">
                             <connections>
                                 <action selector="showDayView:" destination="Xfv-XK-laj" id="8LZ-cy-LiW"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem title="Week" id="trc-5K-fJZ">
+                        <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="zVI-M9-IhP"/>
+                        <barButtonItem title="Vika" id="trc-5K-fJZ">
                             <connections>
                                 <action selector="showWeekView:" destination="Xfv-XK-laj" id="LDa-NS-Imv"/>
                             </connections>

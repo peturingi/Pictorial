@@ -1,4 +1,4 @@
-#import "WeekCollectionViewLayout.h"
+#import "DayCollectionViewLayout.h"
 #import "NSDate+VisualScheduler.h"
 
 #define CELL_KEY    @"ImageCell"
@@ -12,17 +12,12 @@ static const NSInteger INSET_BOTTOM = 2;
 static const NSInteger OFFSET_FROM_TOP = 4;
 static const NSUInteger HEADER_HEIGHT = 20;
 
-@interface WeekCollectionViewLayout ()
+@interface DayCollectionViewLayout ()
 @property (nonatomic, strong) NSDictionary *layoutInformation;
 @property (nonatomic) UIEdgeInsets insets;
 @end
 
-@implementation WeekCollectionViewLayout
-
-- (id)init {
-    NSAssert(false, @"Use initWithCoder:");
-    return nil;
-}
+@implementation DayCollectionViewLayout
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -74,9 +69,11 @@ static const NSUInteger HEADER_HEIGHT = 20;
             NSIndexPath *pathToItem = [NSIndexPath indexPathForItem:item inSection:today];
             UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:pathToItem];
             attributes.frame = [self frameForItemAtIndexPath:pathToItem];
+            attributes.alpha = (today == [NSDate dayOfWeekInDenmark]) ? 1.0f : 0.0f;
             [cellInformation setObject:attributes forKey:pathToItem];
         }
     }
+    
     NSAssert(cellInformation != nil, @"nil must never be returned.");
     return cellInformation;
 }
@@ -94,7 +91,16 @@ static const NSUInteger HEADER_HEIGHT = 20;
 {
     NSParameterAssert(indexPath);
     const CGSize itemSize = [self sizeOfItems];
-    const CGFloat x = self.insets.left + indexPath.section * (itemSize.width+self.insets.left+self.insets.right);
+    
+    /*
+     Place out of screen if cell it not for today.
+     Reason: Setting the cells alpha to 0 does not make it non-interactable. It is still possible
+     to drop a pictogram over an invisible cell while in the day view, in order to add that pictogram to the
+     invisible cells schedule. 
+     */
+    const CGFloat x = [NSDate dayOfWeekInDenmark] == indexPath.section ?
+        floor(self.collectionView.bounds.size.width / 2.0f - itemSize.width / 2.0f) : -100;
+    
     const CGFloat y = ([self headerSize].height+self.insets.top) + indexPath.item * (itemSize.height+self.insets.top+self.insets.bottom) + OFFSET_FROM_TOP;
     const CGPoint origin = CGPointMake(x, y);
     return origin;
@@ -113,15 +119,14 @@ static const NSUInteger HEADER_HEIGHT = 20;
 {
     NSMutableDictionary *headerInformation = [NSMutableDictionary dictionaryWithCapacity:NUMBER_OF_DAYS_IN_WEEK];
     
-    for (NSUInteger today = 0; today < NUMBER_OF_DAYS_IN_WEEK; today++) {
         const NSUInteger indexOfFirstPictogram = 0;
-        NSIndexPath *const pathToFirstItem = [NSIndexPath indexPathForItem:indexOfFirstPictogram inSection:today]; // assume there is always an item, so we can calculate offset of header.
+        NSIndexPath *const pathToFirstItem = [NSIndexPath indexPathForItem:indexOfFirstPictogram inSection:[NSDate dayOfWeekInDenmark]]; // assume there is always an item, so we can calculate offset of header.
         UICollectionViewLayoutAttributes *const attributes = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionHeader
-                                                                                                                      withIndexPath:pathToFirstItem];
-        attributes.frame = [self frameForHeaderOfSection:today];
+                                                                                                                            withIndexPath:pathToFirstItem];
+        attributes.frame = [self frameForHeaderOfSection:[NSDate dayOfWeekInDenmark]];
         attributes.zIndex = NSIntegerMax;
         [headerInformation setObject:attributes forKey:pathToFirstItem];
-    }
+    
     NSAssert(headerInformation, @"nil must never be returned.");
     return headerInformation;
 }
@@ -136,15 +141,15 @@ static const NSUInteger HEADER_HEIGHT = 20;
 
 - (CGPoint)originForHeaderOfSection:(NSUInteger)section
 {
-    const CGSize headerSize = [self headerSize];
-    const CGFloat x = section * headerSize.width;
+    /** All are placed in same location. I dont care as I alpha=0 the ones I dont want to show. */
+    const CGFloat x = floor(self.collectionView.bounds.size.width / 2.0f - [self headerSize].width / 2.0f);
     const CGFloat y = self.collectionView.contentOffset.y; // Moves the headers location up, so it is drawn above the first item
     return CGPointMake(x, y);
 }
 
 - (CGSize)headerSize
 {
-    const CGFloat width = [self sectionWidth];
+    const CGFloat width = self.collectionView.bounds.size.width;
     const CGFloat height = HEADER_HEIGHT;
     const CGSize size = CGSizeMake(width, height);
     return size;
@@ -156,15 +161,15 @@ static const NSUInteger HEADER_HEIGHT = 20;
 {
     NSMutableDictionary *footerInformation = [NSMutableDictionary dictionaryWithCapacity:NUMBER_OF_DAYS_IN_WEEK];
     
-    for (NSUInteger today = 0; today < NUMBER_OF_DAYS_IN_WEEK; today++) {
-        const NSUInteger indexOfFirstPictogram = 0;
-        NSIndexPath *const pathToFirstItem = [NSIndexPath indexPathForItem:indexOfFirstPictogram inSection:today]; // assume there is always an item, so we can calculate offset of header.
-        UICollectionViewLayoutAttributes *const attributes = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionFooter
-                                                                                                                            withIndexPath:pathToFirstItem];
-        attributes.frame = [self frameForFooterOfSection:today];
-        attributes.zIndex = NSIntegerMin;
-        [footerInformation setObject:attributes forKey:pathToFirstItem];
-    }
+    
+    const NSUInteger indexOfFirstPictogram = 0;
+    NSIndexPath *const pathToFirstItem = [NSIndexPath indexPathForItem:indexOfFirstPictogram inSection:[NSDate dayOfWeekInDenmark]]; // assume there is always an item, so we can calculate offset of header.
+    UICollectionViewLayoutAttributes *const attributes = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionFooter
+                                                                                                                        withIndexPath:pathToFirstItem];
+    attributes.frame = [self frameForFooterOfSection:[NSDate dayOfWeekInDenmark]];
+    attributes.zIndex = NSIntegerMin;
+    [footerInformation setObject:attributes forKey:pathToFirstItem];
+    
     NSAssert(footerInformation, @"nil must never be returned.");
     return footerInformation;
 }
@@ -179,8 +184,8 @@ static const NSUInteger HEADER_HEIGHT = 20;
 
 - (CGPoint)originForFooterOfSection:(NSUInteger)section
 {
-    const CGSize footerSize = [self headerSize];
-    const CGFloat x = section * footerSize.width;
+    /** All are placed in same location. I dont care as I alpha=0 the ones I dont want to show. */
+    const CGFloat x = floor(self.collectionView.bounds.size.width / 2.0f - [self footerSize].width / 2.0f);
     const CGFloat y = self.collectionView.contentOffset.y;
     return CGPointMake(x, y);
 }
@@ -303,21 +308,21 @@ static const NSUInteger HEADER_HEIGHT = 20;
  */
 // TODO: uncomment and use this code.
 /*- (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset withScrollingVelocity:(CGPoint)velocity
-{
-    CGRect targetRect = CGRectMake(0, proposedContentOffset.y,
-                                   self.collectionView.bounds.size.width, self.collectionView.bounds.size.height);
-    NSArray *array = [self layoutAttributesForElementsInRect:targetRect];
-    CGFloat offsetAdjustment = MAXFLOAT;
-    for (UICollectionViewLayoutAttributes *layoutAttributes in array) {
-        CGFloat itemOffset = layoutAttributes.frame.origin.y;
-        if (ABS(itemOffset - proposedContentOffset.y) < ABS(offsetAdjustment)) {
-            offsetAdjustment = itemOffset - proposedContentOffset.y;
-        }
-    }
-    CGPoint offset = CGPointMake(proposedContentOffset.x,
-                                 proposedContentOffset.y + offsetAdjustment);
-    offset.y -= [self headerSize].height;
-    return offset;
-}*/
+ {
+ CGRect targetRect = CGRectMake(0, proposedContentOffset.y,
+ self.collectionView.bounds.size.width, self.collectionView.bounds.size.height);
+ NSArray *array = [self layoutAttributesForElementsInRect:targetRect];
+ CGFloat offsetAdjustment = MAXFLOAT;
+ for (UICollectionViewLayoutAttributes *layoutAttributes in array) {
+ CGFloat itemOffset = layoutAttributes.frame.origin.y;
+ if (ABS(itemOffset - proposedContentOffset.y) < ABS(offsetAdjustment)) {
+ offsetAdjustment = itemOffset - proposedContentOffset.y;
+ }
+ }
+ CGPoint offset = CGPointMake(proposedContentOffset.x,
+ proposedContentOffset.y + offsetAdjustment);
+ offset.y -= [self headerSize].height;
+ return offset;
+ }*/
 
 @end

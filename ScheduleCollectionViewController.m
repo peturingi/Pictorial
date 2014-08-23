@@ -7,6 +7,7 @@
 #import "UILongPressGestureRecognizer+Cancel.h"
 #import "UICollectionView+CellAtPoint.h"
 #import "DayCollectionViewLayout.h"
+#import "WeekCollectionViewLayout.h"
 /* Models */
 #import "Pictogram.h"
 #import "PictogramContainer.h"
@@ -218,13 +219,15 @@
 #pragma mark - Switching Layouts
 
 - (void)switchToDayLayout {
-    DayCollectionViewLayout *layout = [[DayCollectionViewLayout alloc] init];
-    [self.collectionView setCollectionViewLayout:layout animated:YES];
+    DayCollectionViewLayout *layout = [[DayCollectionViewLayout alloc] initWithCoder:nil];
+    [self.collectionView setCollectionViewLayout:layout animated:NO];
     [self.collectionView reloadData];
 }
 
 - (void)switchToWeekLayout {
-    NSLog(@"Not implemented.");
+    WeekCollectionViewLayout *layout = [[WeekCollectionViewLayout alloc] initWithCoder:nil];
+    [self.collectionView setCollectionViewLayout:layout animated:NO];
+    [self.collectionView reloadData];
 }
 
 #pragma mark -
