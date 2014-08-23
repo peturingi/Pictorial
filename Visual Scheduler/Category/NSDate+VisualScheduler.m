@@ -2,7 +2,7 @@
 
 @implementation NSDate (VisualScheduler)
 
-/** The current day of the week. (0)Monday to (6)Sunday.
+/** The current day of the week. (0)Monday to (1)Sunday.
  *
  */
 + (NSUInteger)dayOfWeekInDenmark {
@@ -12,8 +12,7 @@
     [formatter setLocale:dkLocale];
     NSString *dayOfWeek = [formatter stringFromDate:[NSDate date]];
     NSAssert(dayOfWeek, @"Failed to get a string representation for today.");
-    const NSInteger day = [dayOfWeek integerValue];
-    return day;
+    return [dayOfWeek integerValue] - 1;
 }
 
 @end
