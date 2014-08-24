@@ -12,6 +12,7 @@
     if (self) {
         _source = source;
         _destination = destination;
+        self.locationRestriction = CGRectZero;
     }
     return self;
 }
@@ -51,7 +52,31 @@
 - (void)pictogramDraggedToPoint:(CGPoint const)point relativeToView:(UIView *)view
 {
     const CGPoint locationInView = [_source.view convertPoint:point fromView:view];
-    _pictogramBeingMoved.frame = [PictogramView frameAtPoint:locationInView];
+    CGRect frame = [PictogramView frameAtPoint:locationInView];
+    
+    /* Adjust new frame if there is restriction on where it can be placed. */
+    if ([self restrictedMovement])
+    {
+        CGSize const size = self.locationRestriction.size;
+        CGPoint const origin = self.locationRestriction.origin;
+        // Up
+        CGFloat const minY = origin.y;
+        if (frame.origin.y < minY) frame.origin.y = minY;
+        // Down
+        CGFloat const maxY = minY + size.height - _pictogramBeingMoved.frame.size.height;
+        if (frame.origin.y > maxY) frame.origin.y = maxY;
+        // Left
+        CGFloat const minX = origin.x;
+        if (frame.origin.x < minX) frame.origin.x = minX;
+        // Right
+        CGFloat const maxX = minX + size.width - _pictogramBeingMoved.frame.size.width;
+        if (frame.origin.x > maxX) frame.origin.x = maxX;
+    }
+    _pictogramBeingMoved.frame = frame;
+}
+
+- (BOOL)restrictedMovement {
+    return self.locationRestriction.size.height != 0 || self.locationRestriction.size.width != 0 || self.locationRestriction.origin.x != 0 || self.locationRestriction.origin.y != 0;
 }
 
 - (void)animatePictogramBackToOriginalPosition {

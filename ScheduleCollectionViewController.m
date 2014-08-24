@@ -180,6 +180,7 @@
         self.touchedPictogramContainer = [self.dataSource pictogramContainerAtIndexPath:touchedItem];
         
         self.cellDraggingManager = [[CellDraggingManager alloc] initWithSource:self andDestination:self];
+        self.cellDraggingManager.locationRestriction = self.view.frame;
         [self.cellDraggingManager setPictogramToDrag:self.touchedPictogramContainer.pictogram.objectID
                                             fromRect:[self.view convertRect:selectedCell.frame fromView:self.collectionView]
                                           atLocation:[sender locationInView:self.view]

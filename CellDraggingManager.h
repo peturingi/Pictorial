@@ -10,6 +10,7 @@
 }
 
 @property (strong, nonatomic) NSManagedObjectID *idOfPictogramBeingMoved;
+@property CGRect locationRestriction;
 
 - (id)initWithSource:(UICollectionViewController * const)source andDestination:(UICollectionViewController <AddPictogramWithID> * const)destination;
 
