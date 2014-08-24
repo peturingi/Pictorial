@@ -548,8 +548,6 @@
 			children = (
 				D8BE00E4199F9D0400108121 /* Drag Manager */,
 				D83A62CD18B696DC00EC0773 /* Main.storyboard */,
-				D86A4A6319A71DD800D221CC /* BottomViewPictogram.h */,
-				D86A4A6419A71DD800D221CC /* BottomViewPictogram.m */,
 				D87607081988CA8A000D78D4 /* Import Photo */,
 				D80706A1196ED92100B93F40 /* MasterViewController.h */,
 				D80706A2196ED92100B93F40 /* MasterViewController.m */,
@@ -571,6 +569,8 @@
 			children = (
 				D8F498A8197128FA00CEF728 /* PictogramSelectorViewController.h */,
 				D8F498A9197128FA00CEF728 /* PictogramSelectorViewController.m */,
+				D86A4A6319A71DD800D221CC /* BottomViewPictogram.h */,
+				D86A4A6419A71DD800D221CC /* BottomViewPictogram.m */,
 				D882E9B419A33AD300B358F7 /* DragPictogramGestureRecognizerDelegate.h */,
 				D882E9B519A33AD300B358F7 /* DragPictogramGestureRecognizerDelegate.m */,
 				D83BFE4C1907EDCE00F72646 /* PictogramSelectorDataSource.h */,
