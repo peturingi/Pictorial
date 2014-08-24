@@ -50,6 +50,7 @@
 
 - (IBAction)modifyButton:(UIButton *)sender {
     BottomViewPictogram * const cell = (BottomViewPictogram *)sender.superview.superview;
+    [cell showControls:NO]; // Hide the Edit/Delete buttons.
     NSIndexPath * const pathToCell = [self.collectionView indexPathForCell:cell];
     self.pictogramToEdit = [(PictogramSelectorDataSource*)self.collectionView.dataSource pictogramAtIndexPath:pathToCell];
 }

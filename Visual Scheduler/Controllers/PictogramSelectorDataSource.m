@@ -66,12 +66,13 @@
             [self.collectionView scrollToItemAtIndexPath:newIndexPath atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:YES];
             break;
         }
-        case NSFetchedResultsChangeUpdate: {
-            [self.collectionView reloadItemsAtIndexPaths:@[indexPath]];
+        
+        /* When pictograms are renamed, they are sometimes "Move" and othertimes "Update. */
+        case NSFetchedResultsChangeMove:
+        case NSFetchedResultsChangeUpdate:
+            [self.collectionView reloadData];
             break;
-        }
     }
-    
 }
 
 /** Returns the touched pictogram.
