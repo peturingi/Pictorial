@@ -551,8 +551,11 @@
 			children = (
 				D8BE00E4199F9D0400108121 /* Drag Manager */,
 				D83A62CD18B696DC00EC0773 /* Main.storyboard */,
+<<<<<<< HEAD
 				D8DDEF7119A9F72F00D3A083 /* EditPictogramViewController.h */,
 				D8DDEF7219A9F72F00D3A083 /* EditPictogramViewController.m */,
+=======
+>>>>>>> 0eb1edc0737037062414aff6950875fbf40186a2
 				D87607081988CA8A000D78D4 /* Import Photo */,
 				D80706A1196ED92100B93F40 /* MasterViewController.h */,
 				D80706A2196ED92100B93F40 /* MasterViewController.m */,
