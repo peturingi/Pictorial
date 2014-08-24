@@ -7,6 +7,20 @@
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
 - (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+
+        // Populate database if it is empty.
+        NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Schedule"];
+        NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES];
+        [request setSortDescriptors:[NSArray arrayWithObject:sort]];
+        [request setFetchBatchSize:20];
+        NSFetchedResultsController *controller = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+        [controller performFetch:nil];
+    if (controller.fetchedObjects.count == 0) {
+        [self populateDatabase];
+    }
+    
+    
     return YES;
 }
 
@@ -119,19 +133,7 @@
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
-#pragma mark - Mock Data Generator
-
-- (void)printDatabase {
-    // Populate database if it is empty.
-     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Pictogram"];
-     NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES];
-     [request setSortDescriptors:[NSArray arrayWithObject:sort]];
-     [request setFetchBatchSize:20];
-     NSFetchedResultsController *controller = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
-     [controller performFetch:nil];
-    
-    for (id i in controller.fetchedObjects) { NSLog(@"%@", i); }
-}
+#pragma mark - Initial Data Generator
 
 - (void)populateDatabase {
      
@@ -180,56 +182,29 @@
      [s5 setValue:d5 forKey:@"date"];
      [s6 setValue:d6 forKey:@"date"];
      [s7 setValue:d7 forKey:@"date"];
-     //
-     [s1 setValue:[NSKeyedArchiver archivedDataWithRootObject:[UIColor yellowColor]] forKey:@"color"];
-     [s2 setValue:[NSKeyedArchiver archivedDataWithRootObject:[UIColor redColor]] forKey:@"color"];
-     [s3 setValue:[NSKeyedArchiver archivedDataWithRootObject:[UIColor greenColor]] forKey:@"color"];
-     [s4 setValue:[NSKeyedArchiver archivedDataWithRootObject:[UIColor blueColor]] forKey:@"color"];
-     [s5 setValue:[NSKeyedArchiver archivedDataWithRootObject:[UIColor blackColor]] forKey:@"color"];
-     [s6 setValue:[NSKeyedArchiver archivedDataWithRootObject:[UIColor whiteColor]] forKey:@"color"];
-     [s7 setValue:[NSKeyedArchiver archivedDataWithRootObject:[UIColor purpleColor]] forKey:@"color"];
-     
-    /* relations */
-    NSManagedObject *c1 = [NSEntityDescription insertNewObjectForEntityForName:@"PictogramContainer" inManagedObjectContext:self.managedObjectContext];
-    NSManagedObject *c2 = [NSEntityDescription insertNewObjectForEntityForName:@"PictogramContainer" inManagedObjectContext:self.managedObjectContext];
-    NSManagedObject *c3 = [NSEntityDescription insertNewObjectForEntityForName:@"PictogramContainer" inManagedObjectContext:self.managedObjectContext];
-    NSManagedObject *c4 = [NSEntityDescription insertNewObjectForEntityForName:@"PictogramContainer" inManagedObjectContext:self.managedObjectContext];
-    NSManagedObject *c5 = [NSEntityDescription insertNewObjectForEntityForName:@"PictogramContainer" inManagedObjectContext:self.managedObjectContext];
-    NSManagedObject *c6 = [NSEntityDescription insertNewObjectForEntityForName:@"PictogramContainer" inManagedObjectContext:self.managedObjectContext];
-    NSManagedObject *c7 = [NSEntityDescription insertNewObjectForEntityForName:@"PictogramContainer" inManagedObjectContext:self.managedObjectContext];
-    NSManagedObject *c71 = [NSEntityDescription insertNewObjectForEntityForName:@"PictogramContainer" inManagedObjectContext:self.managedObjectContext];
+     // Soft Colours
+    UIColor * const red = [self colorWithRed:221 green:64 blue:60];
+    UIColor * const yellow = [self colorWithRed:252 green:225 blue:20];
+    UIColor * const green = [self colorWithRed:43 green:148 blue:101];
+    UIColor * const purple = [self colorWithRed:156 green:84 blue:157];
+    UIColor * const orange = [self colorWithRed:255 green:163 blue:0];
+    UIColor * const blue = [self colorWithRed:19 green:153 blue:212];
+    UIColor * const white = [self colorWithRed:240 green:240 blue:240];
     //
-    [c1 setValue:svane forKey:@"pictogram"];
-    [c1 setValue:s1 forKey:@"schedule"];
-    [c2 setValue:svane forKey:@"pictogram"];
-    [c2 setValue:s2 forKey:@"schedule"];
-    [c3 setValue:svane forKey:@"pictogram"];
-    [c3 setValue:s3 forKey:@"schedule"];
-    [c4 setValue:svane forKey:@"pictogram"];
-    [c4 setValue:s4 forKey:@"schedule"];
-    [c5 setValue:svane forKey:@"pictogram"];
-    [c5 setValue:s5 forKey:@"schedule"];
-    [c6 setValue:svane forKey:@"pictogram"];
-    [c6 setValue:s6 forKey:@"schedule"];
-    //Föstudagur hefur 2 pictograms.
-    [c7 setValue:svane forKey:@"pictogram"];
-    [c7 setValue:s7 forKey:@"schedule"];
-    [c71 setValue:spade forKey:@"pictogram"];
-    [c71 setValue:s7 forKey:@"schedule"];
-
-/*
-     NSMutableOrderedSet *allDaysAreTheSame = [[NSMutableOrderedSet alloc] initWithObjects:svane, spade, nil];
-     
-     [s1 setValue:allDaysAreTheSame forKey:@"pictograms"];
-     [s2 setValue:allDaysAreTheSame forKey:@"pictograms"];
-     [s3 setValue:allDaysAreTheSame forKey:@"pictograms"];
-     [s4 setValue:allDaysAreTheSame forKey:@"pictograms"];
-     [s5 setValue:allDaysAreTheSame forKey:@"pictograms"];
-     [s6 setValue:allDaysAreTheSame forKey:@"pictograms"];
-     [s7 setValue:allDaysAreTheSame forKey:@"pictograms"];
-  */
-     
+     [s1 setValue:[NSKeyedArchiver archivedDataWithRootObject:green ] forKey:@"color"];
+     [s2 setValue:[NSKeyedArchiver archivedDataWithRootObject:purple] forKey:@"color"];
+     [s3 setValue:[NSKeyedArchiver archivedDataWithRootObject:orange] forKey:@"color"];
+     [s4 setValue:[NSKeyedArchiver archivedDataWithRootObject:blue] forKey:@"color"];
+     [s5 setValue:[NSKeyedArchiver archivedDataWithRootObject:yellow] forKey:@"color"];
+     [s6 setValue:[NSKeyedArchiver archivedDataWithRootObject:red] forKey:@"color"];
+     [s7 setValue:[NSKeyedArchiver archivedDataWithRootObject:white] forKey:@"color"];
+    
      [self saveContext];
+}
+
+- (UIColor *)colorWithRed:(NSUInteger)red green:(NSUInteger)green blue:(NSUInteger)blue {
+    NSAssert(red <= 255 && green <= 255 && blue <= 255, @"Invalid value.");
+    return [UIColor colorWithRed:red/255.0 green:green/255.0 blue:blue/255.0 alpha:1];
 }
 
 - (NSManagedObject *)objectWithID:(NSManagedObjectID * const)objectID {
