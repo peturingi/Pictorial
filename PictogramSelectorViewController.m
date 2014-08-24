@@ -28,11 +28,11 @@
 }
 
 - (void)handleTapOnCellAtLocation:(CGPoint const)point {
-    UICollectionViewCell *cell = [self.collectionView cellAtPoint:point];
+    BottomViewPictogram *cell = [self.collectionView cellAtPoint:point];
     if (cell) {
         [self.collectionView scrollToItemAtIndexPath:[self.collectionView indexPathForCell:cell] atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:YES];
-        cell.highlighted = !cell.highlighted; // Set highlighted.
-        [cell setNeedsDisplay];
+        cell.highlighted = !cell.highlighted;
+        [cell showControls:cell.highlighted];
     }
 }
 
@@ -74,7 +74,7 @@
     switch (sender.state) {
         case UIGestureRecognizerStateBegan:
         {
-            if (self.cellDraggingManager == NO) {
+            if ( ! self.cellDraggingManager ) {
                 self.cellDraggingManager = [[CellDraggingManager alloc] initWithSource:self andDestination:self.delegate.targetForPictogramDrops];
             }
             [self handlePictogramSelection:sender];

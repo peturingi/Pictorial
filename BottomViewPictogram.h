@@ -5,4 +5,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *modifyButton;
 @property (weak, nonatomic) IBOutlet UILabel *title;
 
+- (void)showControls:(BOOL)truthValue;
+
 @end

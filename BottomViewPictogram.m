@@ -2,16 +2,15 @@
 
 @implementation BottomViewPictogram
 
-- (void)setHighlighted:(BOOL)highlighted {
-    [super setHighlighted:highlighted];
+- (void)showControls:(BOOL)truthValue {
+    self.title.hidden = truthValue;
     
-    self.title.hidden = highlighted;
+    self.deleteButton.enabled = truthValue;
+    self.deleteButton.hidden = !truthValue;
     
-    self.deleteButton.enabled = highlighted;
-    self.deleteButton.hidden = !highlighted;
-    
-    self.modifyButton.enabled = highlighted;
-    self.modifyButton.hidden = !highlighted;
+    self.modifyButton.enabled = truthValue;
+    self.modifyButton.hidden = !truthValue;
+    [self setNeedsDisplay];
 }
 
 @end
