@@ -89,6 +89,7 @@
 		D8CCA7DF199F6FD600D0A657 /* CellDraggingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CCA7DE199F6FD600D0A657 /* CellDraggingManager.m */; };
 		D8DCC45118E2F520004794C9 /* testImage.png in Resources */ = {isa = PBXBuildFile; fileRef = D8DCC45018E2F520004794C9 /* testImage.png */; };
 		D8DCC45218E2F57D004794C9 /* testImage.png in Resources */ = {isa = PBXBuildFile; fileRef = D8DCC45018E2F520004794C9 /* testImage.png */; };
+		D8DDEF7319A9F72F00D3A083 /* EditPictogramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DDEF7219A9F72F00D3A083 /* EditPictogramViewController.m */; };
 		D8E7A2C818CA52FE005F505C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8E7A2C718CA52FE005F505C /* CoreData.framework */; };
 		D8EC7D5318CA61E500B6A673 /* MockTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EC7D5218CA61E500B6A673 /* MockTableView.m */; };
 		D8F498AA197128FA00CEF728 /* PictogramSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F498A9197128FA00CEF728 /* PictogramSelectorViewController.m */; };
@@ -244,6 +245,8 @@
 		D8CCA7DE199F6FD600D0A657 /* CellDraggingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellDraggingManager.m; sourceTree = "<group>"; };
 		D8CCA7E0199F74DC00D0A657 /* AddPictogramWithID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddPictogramWithID.h; sourceTree = "<group>"; };
 		D8DCC45018E2F520004794C9 /* testImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = testImage.png; sourceTree = "<group>"; };
+		D8DDEF7119A9F72F00D3A083 /* EditPictogramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditPictogramViewController.h; sourceTree = "<group>"; };
+		D8DDEF7219A9F72F00D3A083 /* EditPictogramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditPictogramViewController.m; sourceTree = "<group>"; };
 		D8E7A2C718CA52FE005F505C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D8EAF2E118D9D8C7004CC1B1 /* Visual Scheduler copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Visual Scheduler copy-Info.plist"; path = "/Users/petur/Development/Visual Scheduler/Visual Scheduler copy-Info.plist"; sourceTree = "<absolute>"; };
 		D8EC7D5118CA61E500B6A673 /* MockTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MockTableView.h; path = "Visual SchedulerTests/MockTableView.h"; sourceTree = SOURCE_ROOT; };
@@ -548,6 +551,8 @@
 			children = (
 				D8BE00E4199F9D0400108121 /* Drag Manager */,
 				D83A62CD18B696DC00EC0773 /* Main.storyboard */,
+				D8DDEF7119A9F72F00D3A083 /* EditPictogramViewController.h */,
+				D8DDEF7219A9F72F00D3A083 /* EditPictogramViewController.m */,
 				D87607081988CA8A000D78D4 /* Import Photo */,
 				D80706A1196ED92100B93F40 /* MasterViewController.h */,
 				D80706A2196ED92100B93F40 /* MasterViewController.m */,
@@ -727,6 +732,7 @@
 				D82B6C4719A88C0300FB89AF /* WeekCollectionViewLayout.m in Sources */,
 				D87607071988C8D2000D78D4 /* ImageSourceTableViewController.m in Sources */,
 				68D7963419092D130047A0CE /* UIView+Wiggle.m in Sources */,
+				D8DDEF7319A9F72F00D3A083 /* EditPictogramViewController.m in Sources */,
 				D8472B871922C07E00EBE741 /* UICollectionView+AbortScrollAnimation.m in Sources */,
 				D81C450E198D320A00E9801C /* RectHelper.m in Sources */,
 				D80706A0196ED05F00B93F40 /* CreatePictogram.m in Sources */,

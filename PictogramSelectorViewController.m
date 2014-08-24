@@ -6,8 +6,20 @@
 #import "UIView+BBASubviews.h"
 #import "BottomViewPictogram.h"
 #import "Pictogram.h"
+#import "EditPictogramViewController.h"
+
+@interface PictogramSelectorViewController ()
+@property (strong, nonatomic) Pictogram *pictogramToEdit;
+@end
 
 @implementation PictogramSelectorViewController
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqual:@"editPictogram"]) {
+        EditPictogramViewController *controller = segue.destinationViewController;
+        controller.pictogram = self.pictogramToEdit;
+    }
+}
 
 - (IBAction)pictogramTapped:(UITapGestureRecognizer *)sender {
     switch (sender.state) {
@@ -37,7 +49,9 @@
 }
 
 - (IBAction)modifyButton:(UIButton *)sender {
-    NSLog(@"modify");
+    BottomViewPictogram * const cell = (BottomViewPictogram *)sender.superview.superview;
+    NSIndexPath * const pathToCell = [self.collectionView indexPathForCell:cell];
+    self.pictogramToEdit = [(PictogramSelectorDataSource*)self.collectionView.dataSource pictogramAtIndexPath:pathToCell];
 }
 - (IBAction)deleteButton:(UIButton *)sender {
     BottomViewPictogram * const cell = (BottomViewPictogram *)sender.superview.superview;

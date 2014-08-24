@@ -60,7 +60,61 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9gL-qQ-Dm1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-100" y="-3236"/>
+            <point key="canvasLocation" x="-226" y="-3212"/>
+        </scene>
+        <!--Edit Pictogram View Controller-->
+        <scene sceneID="JsJ-i7-Pkd">
+            <objects>
+                <viewController id="DFd-59-8j2" customClass="EditPictogramViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="N6M-fm-Sfo"/>
+                        <viewControllerLayoutGuide type="bottom" id="kAe-HL-dbQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4PY-Ki-I5x">
+                        <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yju-hH-Zf7">
+                                <rect key="frame" x="0.0" y="0.0" width="540" height="44"/>
+                                <items>
+                                    <navigationItem title="Edit Pictogram" id="erh-We-nqm">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="APB-jR-BKQ">
+                                            <color key="tintColor" red="1" green="0.051676359249999998" blue="0.10486219419999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="pressedCancel:" destination="DFd-59-8j2" id="1VI-uw-QDl"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Done" id="KhE-U7-RfE">
+                                            <color key="tintColor" red="1" green="0.051676359249999998" blue="0.10486219419999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="pressedDone:" destination="DFd-59-8j2" id="N9B-oN-4YS"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7eG-iW-ugf">
+                                <rect key="frame" x="120" y="179" width="300" height="300"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R3G-6k-zOD">
+                                <rect key="frame" x="170" y="141" width="200" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <modalFormSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="image" destination="7eG-iW-ugf" id="nxK-mO-Ge1"/>
+                        <outlet property="pictogramTitle" destination="R3G-6k-zOD" id="8S3-GK-fWc"/>
+                        <outlet property="title" destination="R3G-6k-zOD" id="hCJ-Ja-jDt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0rz-lE-eQH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="984" y="-1919"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LMG-h6-PzK">
@@ -220,6 +274,7 @@
                                             <state key="normal" title="Edit"/>
                                             <connections>
                                                 <action selector="modifyButton:" destination="FA2-Kn-Gqf" eventType="touchUpInside" id="pJG-DN-H9P"/>
+                                                <segue destination="DFd-59-8j2" kind="modal" identifier="editPictogram" modalPresentationStyle="formSheet" id="3OR-ro-had"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -430,7 +485,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EM5-ug-Ix7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1064" y="-2367"/>
+            <point key="canvasLocation" x="-1069" y="-2367"/>
         </scene>
     </scenes>
     <resources>
