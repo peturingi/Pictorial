@@ -29,8 +29,8 @@
 
 // This is the total number of segments on each axis.
 // The spectrum will consists of NUMBER_OF_PARTS^2 rectangles.
-// Lower number results in larger rectangles.
-#define NUMBER_OF_PARTS 400
+// Lower number results in larger rectangles, but increases performance.
+#define NUMBER_OF_PARTS 200
 
 #define RGBMax  1.0
 
@@ -45,8 +45,9 @@
 /**
  The spectrum is drawn as lines.
  Hue increases down the Y axis. (note: In Cocoa, the Y axis is reversed).
- Saturation increases from left to right, alone the X axis, in quadrants 2 and 3.
+ Saturation increases from left to right, along the X axis, in quadrants 2 and 3.
  Brightness decreases from left to right, along the X axis, in quadrants 1 and 4.
+ Grids origin is at (NUMBER_OF_PARTS / 2)
  */
 - (void)drawSpectrumInRect:(CGRect const)rect
 {
@@ -77,13 +78,13 @@
             [self drawLineWithWidth:ceil(rect.size.height / NUMBER_OF_PARTS) fromPoint:src toPoint:dest usingColor:color];
         };
         
-        /* Draw left part of current hue, with saturation increasing from left to right. */
+        /* Draw left part of current hue (quadrants 2 and 3), with saturation increasing from left to right. */
         for (NSUInteger currentLine = 0; currentLine < NUMBER_OF_PARTS / 2; currentLine++) {
             drawLine(currentLine);
             saturation += saturationChange;
         }
         
-        /* Draw right part of current hue, with brightness decreasing from left to right. */
+        /* Draw right part of current hue (quadrants 1 and 4), with brightness decreasing from left to right. */
         for (NSUInteger currentLine = NUMBER_OF_PARTS / 2; currentLine < NUMBER_OF_PARTS; currentLine++) {
             drawLine(currentLine);
             brightness -= brightnessChange;

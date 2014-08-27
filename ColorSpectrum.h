@@ -33,4 +33,6 @@
  */
 @interface ColorSpectrum : UIView
 
+@property CGContextRef context;
+
 @end
