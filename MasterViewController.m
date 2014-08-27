@@ -18,9 +18,10 @@
 
 - (void)viewDidLoad {
     /* Disable the border underneath the navigation bar. */
-    [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
-    [[UINavigationBar appearance] setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
-    
+    {
+        [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
+        [[UINavigationBar appearance] setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+    }
     /* The pictogram selection window is intially hidden. */
     {
         [self.editButtonItem setEditMode:YES];
@@ -29,6 +30,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    self.navigationController.toolbarHidden = NO;
     self.navigationController.navigationBarHidden = YES;
 }
 

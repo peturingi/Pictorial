@@ -33,6 +33,7 @@
 @implementation ColorSpectrumViewController
 
 - (void)viewWillAppear:(BOOL)animated {
+    self.navigationController.toolbarHidden = YES;
     self.navigationController.navigationBarHidden = NO;
     [self setupColorViews];
     [self setupLabelViews];
