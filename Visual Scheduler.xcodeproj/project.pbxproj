@@ -321,6 +321,21 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		D823424B19ADFCC400B398FA /* Background Selection */ = {
+			isa = PBXGroup;
+			children = (
+				D823424819ADE9D900B398FA /* ColorView.h */,
+				D823424919ADE9D900B398FA /* ColorView.m */,
+				D857FDE919AC5C3600A40C0D /* ColorSpectrumViewController.h */,
+				D857FDEA19AC5C3600A40C0D /* ColorSpectrumViewController.m */,
+				D8C8870919AC57BC00A9ADE8 /* ColorSpectrum.h */,
+				D8C8870A19AC57BC00A9ADE8 /* ColorSpectrum.m */,
+				D8C8870F19AC57F100A9ADE8 /* UIView+ColorAtPoint.h */,
+				D8C8871019AC57F100A9ADE8 /* UIView+ColorAtPoint.m */,
+			);
+			name = "Background Selection";
+			sourceTree = "<group>";
+		};
 		D82838B018D5B85A009C03A8 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -561,17 +576,9 @@
 		D87964B91906A09500333CD1 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				D8C8870819AC579E00A9ADE8 /* Color Spectrum */,
 				D8BE00E4199F9D0400108121 /* Drag Manager */,
 				D83A62CD18B696DC00EC0773 /* Main.storyboard */,
-				D823424819ADE9D900B398FA /* ColorView.h */,
-				D823424919ADE9D900B398FA /* ColorView.m */,
-				D857FDE919AC5C3600A40C0D /* ColorSpectrumViewController.h */,
-				D857FDEA19AC5C3600A40C0D /* ColorSpectrumViewController.m */,
-				D8C8870919AC57BC00A9ADE8 /* ColorSpectrum.h */,
-				D8C8870A19AC57BC00A9ADE8 /* ColorSpectrum.m */,
-				D8C8870F19AC57F100A9ADE8 /* UIView+ColorAtPoint.h */,
-				D8C8871019AC57F100A9ADE8 /* UIView+ColorAtPoint.m */,
+				D823424B19ADFCC400B398FA /* Background Selection */,
 				D8DDEF7119A9F72F00D3A083 /* EditPictogramViewController.h */,
 				D8DDEF7219A9F72F00D3A083 /* EditPictogramViewController.m */,
 				D87607081988CA8A000D78D4 /* Import Photo */,
@@ -626,13 +633,6 @@
 				D8CCA7E0199F74DC00D0A657 /* AddPictogramWithID.h */,
 			);
 			name = "Drag Manager";
-			sourceTree = "<group>";
-		};
-		D8C8870819AC579E00A9ADE8 /* Color Spectrum */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Color Spectrum";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
