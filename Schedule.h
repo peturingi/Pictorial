@@ -13,6 +13,9 @@
 - (void)removePictogramAtIndexPath:(NSIndexPath * const)indexPath;
 - (void)insertPictogramWithID:(NSManagedObjectID * const)objectID atIndexPath:(NSIndexPath * const)indexPath;
 
+- (UIColor *)backgroundColor;
+- (void)setBackgroundColor:(UIColor * const)backgroundColor;
+
 @end
 
 @interface Schedule (CoreDataGeneratedAccessors)

@@ -32,7 +32,7 @@
     [request setFetchBatchSize:CD_FETCH_BATCH_SIZE];
     _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                                     managedObjectContext:self.managedObjectContext
-                                                                      sectionNameKeyPath:@"date"
+                                                                      sectionNameKeyPath:CD_KEY_SCHEDULE_DATE
                                                                                cacheName:nil];
     NSAssert(_fetchedResultsController, @"Failed to get fetchedResultsController.");
 }
@@ -56,8 +56,6 @@
     Schedule * const schedule = [[self.fetchedResultsController fetchedObjects] objectAtIndex:indexPath.section];
     return [schedule.pictograms objectAtIndex:indexPath.item];
 }
-
-
 
 /**
  @return NSIndexPath to container if found.

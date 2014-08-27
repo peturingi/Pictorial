@@ -20,6 +20,12 @@
     _movePictogramGestureRecognizer.enabled = self.isEditing;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    /* Update schedule colors, in case it has changed. */
+    [self.collectionView reloadData];
+    [self.collectionViewLayout invalidateLayout];
+}
+
 - (IBAction)pictogramLongPressed:(UILongPressGestureRecognizer * const)sender
 {
     switch (sender.state) {

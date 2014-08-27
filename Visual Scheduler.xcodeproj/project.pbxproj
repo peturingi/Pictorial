@@ -27,6 +27,7 @@
 		D812BDAB19A4B309006442EF /* DayFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = D812BDAA19A4B309006442EF /* DayFooter.xib */; };
 		D81C450E198D320A00E9801C /* RectHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D81C450D198D320A00E9801C /* RectHelper.m */; };
 		D81C4511198D336200E9801C /* NSArray+ObjectsOfType.m in Sources */ = {isa = PBXBuildFile; fileRef = D81C4510198D336200E9801C /* NSArray+ObjectsOfType.m */; };
+		D823424A19ADE9D900B398FA /* ColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = D823424919ADE9D900B398FA /* ColorView.m */; };
 		D82838B518D5BA39009C03A8 /* UIApplicationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D82838B418D5BA39009C03A8 /* UIApplicationTests.m */; };
 		D82B6C4719A88C0300FB89AF /* WeekCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C7BDE6190287E800128FA7 /* WeekCollectionViewLayout.m */; };
 		D82B6C4819A88C3600FB89AF /* DayCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D81ACA8219A88AB4005B4FD9 /* DayCollectionViewLayout.m */; };
@@ -148,6 +149,8 @@
 		D81C450D198D320A00E9801C /* RectHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RectHelper.m; sourceTree = "<group>"; };
 		D81C450F198D336100E9801C /* NSArray+ObjectsOfType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+ObjectsOfType.h"; sourceTree = "<group>"; };
 		D81C4510198D336200E9801C /* NSArray+ObjectsOfType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+ObjectsOfType.m"; sourceTree = "<group>"; };
+		D823424819ADE9D900B398FA /* ColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorView.h; sourceTree = "<group>"; };
+		D823424919ADE9D900B398FA /* ColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorView.m; sourceTree = "<group>"; };
 		D82838B418D5BA39009C03A8 /* UIApplicationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIApplicationTests.m; path = "Visual SchedulerTests/UIApplicationTests.m"; sourceTree = "<group>"; };
 		D82C0CDA18F80DFB005B5569 /* WeekDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeekDataSource.h; path = "Visual Scheduler/CalendarView/WeekDataSource.h"; sourceTree = "<group>"; };
 		D82C0CDB18F80DFB005B5569 /* WeekDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeekDataSource.m; path = "Visual Scheduler/CalendarView/WeekDataSource.m"; sourceTree = "<group>"; };
@@ -561,6 +564,8 @@
 				D8C8870819AC579E00A9ADE8 /* Color Spectrum */,
 				D8BE00E4199F9D0400108121 /* Drag Manager */,
 				D83A62CD18B696DC00EC0773 /* Main.storyboard */,
+				D823424819ADE9D900B398FA /* ColorView.h */,
+				D823424919ADE9D900B398FA /* ColorView.m */,
 				D857FDE919AC5C3600A40C0D /* ColorSpectrumViewController.h */,
 				D857FDEA19AC5C3600A40C0D /* ColorSpectrumViewController.m */,
 				D8C8870919AC57BC00A9ADE8 /* ColorSpectrum.h */,
@@ -778,6 +783,7 @@
 				68D796551909479E0047A0CE /* TimerViewController.m in Sources */,
 				D82C0CDC18F80DFB005B5569 /* WeekDataSource.m in Sources */,
 				D83A62C818B696DC00EC0773 /* main.m in Sources */,
+				D823424A19ADE9D900B398FA /* ColorView.m in Sources */,
 				D84855CB1985506F0085C734 /* ImageResizer.m in Sources */,
 				D88954ED19921B7300243422 /* EmptyCalendarCell.m in Sources */,
 				D889F7EE18C9249A008A497F /* AppDelegate.m in Sources */,

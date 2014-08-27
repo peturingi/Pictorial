@@ -10,6 +10,7 @@
 #import "UIBarButtonItem+EditButton.h"
 
 @interface MasterViewController ()
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *configureBackground;
 @property (weak) UIPopoverController *imageSourcePopover;
 @end
 
@@ -21,7 +22,10 @@
         [self.editButtonItem setEditMode:YES];
         [self editButton:self.editButtonItem];
     }
-    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    self.navigationController.navigationBarHidden = YES;
 }
 
 /* Most of these are executed when view is created and loads.*/
@@ -113,6 +117,7 @@
 - (IBAction)editButton:(UIBarButtonItem *)sender {
     [sender setEditMode                 : ! sender.editMode ];
     importPhotosButton.enabled          = sender.editMode;
+    self.configureBackground.enabled    = sender.editMode;
     sender.title                        = sender.editMode ? @"Loka" : @"Breyta";
     NSUInteger const heightDuringEdit   = floor(self.view.frame.size.height / 3.0f);
     NSUInteger const heightWhenClosed   = 0;

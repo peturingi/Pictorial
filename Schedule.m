@@ -41,6 +41,15 @@
     pictogramContainer.schedule = self;
 }
 
+- (void)setBackgroundColor:(UIColor * const)backgroundColor {
+    NSAssert(backgroundColor, @"Expected a background color.");
+    self.color = [NSKeyedArchiver archivedDataWithRootObject:backgroundColor];
+}
+
+- (UIColor *)backgroundColor {
+    return [NSKeyedUnarchiver unarchiveObjectWithData:self.color];
+}
+
 - (NSString *)description {
     return self.title;
 }

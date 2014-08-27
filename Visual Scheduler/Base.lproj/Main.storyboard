@@ -119,10 +119,9 @@
         <!--Navigation Controller-->
         <scene sceneID="LMG-h6-PzK">
             <objects>
-                <navigationController definesPresentationContext="YES" navigationBarHidden="YES" toolbarHidden="NO" id="wuf-cq-nwa" sceneMemberID="viewController">
+                <navigationController definesPresentationContext="YES" toolbarHidden="NO" id="wuf-cq-nwa" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8N6-YY-0y4">
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="1" green="0.051676359249999998" blue="0.10486219419999999" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="W4B-Cd-chq">
                         <rect key="frame" x="0.0" y="980" width="768" height="44"/>
@@ -393,7 +392,7 @@
             </objects>
             <point key="canvasLocation" x="-1132" y="-1222"/>
         </scene>
-        <!--Color Spectrum View Controller-->
+        <!--Color Spectrum View Controller - Schedule Background-->
         <scene sceneID="ABe-eY-tVe">
             <objects>
                 <viewController id="NkY-m6-fHL" customClass="ColorSpectrumViewController" sceneMemberID="viewController">
@@ -402,109 +401,95 @@
                         <viewControllerLayoutGuide type="bottom" id="hN6-XI-XUe"/>
                     </layoutGuides>
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="7rj-Rf-6L1">
-                        <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
+                        <rect key="frame" x="0.0" y="64" width="1024" height="704"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S7i-ue-zTP" userLabel="Spectrum" customClass="ColorSpectrum">
-                                <rect key="frame" x="0.0" y="80" width="540" height="540"/>
+                                <rect key="frame" x="0.0" y="183" width="1024" height="477"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="eDy-2e-G3i" appends="YES" id="hKV-na-RR5"/>
                                 </connections>
                             </view>
-                            <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jgP-NF-B11" userLabel="Mánudagur">
-                                <rect key="frame" x="0.0" y="0.0" width="78" height="80"/>
+                            <view tag="1" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jgP-NF-B11" userLabel="Mánudagur" customClass="ColorView">
+                                <rect key="frame" x="0.0" y="0.0" width="146" height="175"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.3771617115" green="0.0" blue="0.99836844209999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="9Ir-zd-Jk2" appends="YES" id="ncC-xS-UXg"/>
                                 </connections>
                             </view>
-                            <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iap-xS-wD2" userLabel="Þriðjudagur">
-                                <rect key="frame" x="78" y="0.0" width="78" height="80"/>
+                            <view tag="2" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Iap-xS-wD2" userLabel="Þriðjudagur" customClass="ColorView">
+                                <rect key="frame" x="148" y="0.0" width="146" height="175"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.3771617115" green="0.0" blue="0.99836844209999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="xLv-Fu-g9V" appends="YES" id="nld-nZ-8Lg"/>
                                 </connections>
                             </view>
-                            <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4kV-0c-IMQ" userLabel="Miðvikudagur">
-                                <rect key="frame" x="155" y="0.0" width="78" height="80"/>
+                            <view tag="3" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4kV-0c-IMQ" userLabel="Miðvikudagur" customClass="ColorView">
+                                <rect key="frame" x="295" y="0.0" width="146" height="175"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.3771617115" green="0.0" blue="0.99836844209999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="rF2-sP-p7a" appends="YES" id="Fcc-gU-Xfr"/>
                                 </connections>
                             </view>
-                            <view tag="4" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Su7-vg-cNY" userLabel="Fimmtudagur">
-                                <rect key="frame" x="230" y="0.0" width="78" height="80"/>
+                            <view tag="4" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Su7-vg-cNY" userLabel="Fimmtudagur" customClass="ColorView">
+                                <rect key="frame" x="439" y="0.0" width="146" height="175"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.3771617115" green="0.0" blue="0.99836844209999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="637-VB-eSQ" appends="YES" id="6R3-EO-u2l"/>
                                 </connections>
                             </view>
-                            <view tag="5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GU2-UK-gID" userLabel="Föstudagur">
-                                <rect key="frame" x="308" y="0.0" width="78" height="80"/>
+                            <view tag="5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GU2-UK-gID" userLabel="Föstudagur" customClass="ColorView">
+                                <rect key="frame" x="586" y="0.0" width="146" height="175"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.3771617115" green="0.0" blue="0.99836844209999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="eJQ-06-vlR" appends="YES" id="0kF-4l-ee8"/>
                                 </connections>
                             </view>
-                            <view tag="6" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1r6-XZ-j53" userLabel="Laugardagur">
-                                <rect key="frame" x="383" y="0.0" width="78" height="80"/>
+                            <view tag="6" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1r6-XZ-j53" userLabel="Laugardagur" customClass="ColorView">
+                                <rect key="frame" x="732" y="0.0" width="146" height="175"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.3771617115" green="0.0" blue="0.99836844209999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="KVA-uQ-eke" appends="YES" id="rB8-E0-RGs"/>
                                 </connections>
                             </view>
-                            <view tag="7" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z0f-jg-lnt" userLabel="Sunnudagur">
-                                <rect key="frame" x="461" y="0.0" width="78" height="80"/>
+                            <view tag="7" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z0f-jg-lnt" userLabel="Sunnudagur" customClass="ColorView">
+                                <rect key="frame" x="878" y="0.0" width="146" height="175"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.3771617115" green="0.0" blue="0.99836844209999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="YYR-LX-fGL"/>
-                                    <constraint firstAttribute="width" constant="78" id="bt8-Hm-OFc"/>
-                                </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="WRw-AV-Kte" appends="YES" id="snc-Jg-pTI"/>
                                 </connections>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="Su7-vg-cNY" firstAttribute="width" secondItem="GU2-UK-gID" secondAttribute="width" id="0H2-vz-pZl"/>
-                            <constraint firstItem="4kV-0c-IMQ" firstAttribute="width" secondItem="Iap-xS-wD2" secondAttribute="width" id="0qK-YI-leX"/>
-                            <constraint firstItem="1r6-XZ-j53" firstAttribute="height" secondItem="z0f-jg-lnt" secondAttribute="height" id="1qw-09-LMN"/>
-                            <constraint firstItem="1r6-XZ-j53" firstAttribute="leading" secondItem="GU2-UK-gID" secondAttribute="trailing" constant="-3" id="4US-lR-l6n"/>
-                            <constraint firstItem="4kV-0c-IMQ" firstAttribute="centerY" secondItem="Su7-vg-cNY" secondAttribute="centerY" id="5Fp-Bl-Gfy"/>
-                            <constraint firstItem="Iap-xS-wD2" firstAttribute="width" secondItem="jgP-NF-B11" secondAttribute="width" id="5HJ-N7-BuM"/>
-                            <constraint firstItem="Su7-vg-cNY" firstAttribute="height" secondItem="GU2-UK-gID" secondAttribute="height" id="5pX-pm-bzQ"/>
-                            <constraint firstItem="1r6-XZ-j53" firstAttribute="width" secondItem="z0f-jg-lnt" secondAttribute="width" id="86i-3Z-6Cz"/>
-                            <constraint firstItem="4kV-0c-IMQ" firstAttribute="leading" secondItem="Iap-xS-wD2" secondAttribute="trailing" constant="-1" id="9ZT-eu-tna"/>
-                            <constraint firstItem="1r6-XZ-j53" firstAttribute="centerY" secondItem="GU2-UK-gID" secondAttribute="centerY" id="A0R-HI-b96"/>
-                            <constraint firstItem="1r6-XZ-j53" firstAttribute="centerY" secondItem="z0f-jg-lnt" secondAttribute="centerY" id="BbZ-jd-1wq"/>
-                            <constraint firstItem="z0f-jg-lnt" firstAttribute="top" secondItem="9RO-Vp-b5u" secondAttribute="bottom" id="Cpi-wy-ZuM"/>
-                            <constraint firstItem="z0f-jg-lnt" firstAttribute="leading" secondItem="1r6-XZ-j53" secondAttribute="trailing" id="Fkw-pP-RuP"/>
-                            <constraint firstItem="Iap-xS-wD2" firstAttribute="leading" secondItem="jgP-NF-B11" secondAttribute="trailing" id="JqU-4x-ifi"/>
-                            <constraint firstItem="4kV-0c-IMQ" firstAttribute="height" secondItem="Iap-xS-wD2" secondAttribute="height" id="NZ2-fb-teE"/>
-                            <constraint firstItem="1r6-XZ-j53" firstAttribute="width" secondItem="GU2-UK-gID" secondAttribute="width" id="P3K-eq-0ZR"/>
-                            <constraint firstItem="Su7-vg-cNY" firstAttribute="centerY" secondItem="GU2-UK-gID" secondAttribute="centerY" id="YdW-6o-YRk"/>
-                            <constraint firstItem="4kV-0c-IMQ" firstAttribute="centerY" secondItem="Iap-xS-wD2" secondAttribute="centerY" id="fHm-aq-TPd"/>
-                            <constraint firstItem="4kV-0c-IMQ" firstAttribute="width" secondItem="Su7-vg-cNY" secondAttribute="width" id="fnX-ln-SRT"/>
-                            <constraint firstItem="jgP-NF-B11" firstAttribute="leading" secondItem="7rj-Rf-6L1" secondAttribute="leading" id="hqC-cU-crY"/>
-                            <constraint firstItem="Su7-vg-cNY" firstAttribute="leading" secondItem="4kV-0c-IMQ" secondAttribute="trailing" constant="-3" id="oVl-5s-YO0"/>
-                            <constraint firstItem="4kV-0c-IMQ" firstAttribute="height" secondItem="Su7-vg-cNY" secondAttribute="height" id="qPJ-lW-332"/>
-                            <constraint firstItem="1r6-XZ-j53" firstAttribute="height" secondItem="GU2-UK-gID" secondAttribute="height" id="t9F-uD-Wyt"/>
-                            <constraint firstItem="GU2-UK-gID" firstAttribute="leading" secondItem="Su7-vg-cNY" secondAttribute="trailing" id="vUY-Z1-0gZ"/>
-                            <constraint firstItem="Iap-xS-wD2" firstAttribute="height" secondItem="jgP-NF-B11" secondAttribute="height" id="xZo-2k-9lX"/>
-                            <constraint firstItem="Iap-xS-wD2" firstAttribute="centerY" secondItem="jgP-NF-B11" secondAttribute="centerY" id="zdA-h8-cRb"/>
-                        </constraints>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
-                    <modalFormSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" title="Schedule Background" id="yZc-0h-FUe">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="2yw-75-3yC">
+                            <connections>
+                                <action selector="save" destination="NkY-m6-fHL" id="w5c-7S-eQ0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="friday" destination="GU2-UK-gID" id="QxG-hN-oMG"/>
+                        <outlet property="monday" destination="jgP-NF-B11" id="5fD-Ab-Ohq"/>
+                        <outlet property="saturday" destination="1r6-XZ-j53" id="fb1-lB-nIV"/>
+                        <outlet property="sunday" destination="z0f-jg-lnt" id="gkG-mp-jrx"/>
+                        <outlet property="thursday" destination="Su7-vg-cNY" id="ak2-HQ-tQF"/>
+                        <outlet property="tuesday" destination="Iap-xS-wD2" id="nXc-rr-s25"/>
+                        <outlet property="wednesday" destination="4kV-0c-IMQ" id="Lhq-X1-KCT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fcm-ZD-71g" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="9Ir-zd-Jk2" userLabel="Mánudagur">
@@ -559,18 +544,18 @@
                         <viewControllerLayoutGuide type="bottom" id="xJL-F2-81S"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3Ug-ui-Wfq">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="980"/>
+                        <rect key="frame" x="0.0" y="64" width="768" height="916"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TPj-VT-Xow" userLabel="Topview">
-                                <rect key="frame" x="0.0" y="20" width="768" height="724"/>
+                            <containerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TPj-VT-Xow" userLabel="Topview">
+                                <rect key="frame" x="0.0" y="15" width="768" height="724"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="FBT-CU-eS9" kind="embed" identifier="SEGUE_EMBED_TOPVIEW" id="G4v-B8-OwZ"/>
                                 </connections>
                             </containerView>
                             <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j17-jP-moV" userLabel="Bottom Container">
-                                <rect key="frame" x="0.0" y="744" width="768" height="236"/>
+                                <rect key="frame" x="0.0" y="680" width="768" height="236"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="236" id="cVv-eZ-qbp" userLabel="PictogramSelector Height"/>
@@ -612,7 +597,7 @@
                         <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="zVI-M9-IhP"/>
                         <barButtonItem title="Litur" id="zcN-mJ-zNP">
                             <connections>
-                                <segue destination="NkY-m6-fHL" kind="modal" modalPresentationStyle="formSheet" id="eLE-Hn-6pZ"/>
+                                <segue destination="NkY-m6-fHL" kind="push" id="eLE-Hn-6pZ"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="b3W-yc-uF7"/>
@@ -637,11 +622,13 @@
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="kqo-Vj-Gd5">
                         <nil key="title"/>
+                        <barButtonItem key="backBarButtonItem" title="Schedule" id="DKK-TO-RWh"/>
                     </navigationItem>
                     <size key="freeformSize" width="768" height="1024"/>
                     <connections>
                         <outlet property="bottomView" destination="j17-jP-moV" id="LQd-MU-xWP"/>
                         <outlet property="bottomViewHeight" destination="cVv-eZ-qbp" id="gSD-v4-FJ1"/>
+                        <outlet property="configureBackground" destination="zcN-mJ-zNP" id="iua-TI-Zk0"/>
                         <outlet property="importPhotosButton" destination="WqI-yk-a3D" id="yBj-nt-dQr"/>
                         <outlet property="toggleEdit" destination="j1e-pW-2Sc" id="8uL-ol-0Sa"/>
                         <segue destination="6cx-Oo-qhh" kind="modal" identifier="newPictogram" modalPresentationStyle="formSheet" id="Rmi-aP-70V"/>
