@@ -17,6 +17,14 @@
 @property (weak, nonatomic) IBOutlet ColorView *saturday;
 @property (weak, nonatomic) IBOutlet ColorView *sunday;
 
+@property (weak, nonatomic) IBOutlet UILabel *mondayLabel;
+@property (weak, nonatomic) IBOutlet UILabel *tuesdayLabel;
+@property (weak, nonatomic) IBOutlet UILabel *wednesdayLabel;
+@property (weak, nonatomic) IBOutlet UILabel *thursdayLabel;
+@property (weak, nonatomic) IBOutlet UILabel *fridayLabel;
+@property (weak, nonatomic) IBOutlet UILabel *saturdayLabel;
+@property (weak, nonatomic) IBOutlet UILabel *sundayLabel;
+
 @property (weak, nonatomic) ColorView *selectedDay;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (weak, nonatomic) NSManagedObjectContext *managedObjectContext;
@@ -27,6 +35,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBarHidden = NO;
     [self setupColorViews];
+    [self setupLabelViews];
 }
 
 - (void)setupColorViews {
@@ -38,6 +47,17 @@
     self.friday.color       = ((Schedule*)days[4]).backgroundColor;
     self.saturday.color     = ((Schedule*)days[5]).backgroundColor;
     self.sunday.color       = ((Schedule*)days[6]).backgroundColor;
+}
+
+- (void)setupLabelViews {
+    NSOrderedSet *days = [self schedules];
+    self.mondayLabel.text   = ((Schedule*)days[0]).title;
+    self.tuesdayLabel.text  = ((Schedule*)days[1]).title;
+    self.wednesdayLabel.text= ((Schedule*)days[2]).title;
+    self.thursdayLabel.text = ((Schedule*)days[3]).title;
+    self.fridayLabel.text   = ((Schedule*)days[4]).title;
+    self.saturdayLabel.text = ((Schedule*)days[5]).title;
+    self.sundayLabel.text   = ((Schedule*)days[6]).title;
 }
 
 - (IBAction)daySelected:(UITapGestureRecognizer * const)sender {
