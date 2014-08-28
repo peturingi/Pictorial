@@ -158,10 +158,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FGN-Jy-vzf" userLabel="Delete Button">
-                                            <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="tintColor" red="1" green="0.051676359249999998" blue="0.10486219419999999" alpha="1" colorSpace="calibratedRGB"/>
-                                            <state key="normal" image="DeletePictogram"/>
+                                            <state key="normal" image="Recycle"/>
                                             <connections>
                                                 <action selector="removePictogramFromSchedule:" destination="FBT-CU-eS9" eventType="touchUpInside" id="opN-Og-rRo"/>
                                             </connections>
@@ -757,7 +757,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="DeletePictogram" width="800" height="800"/>
+        <image name="Recycle" width="228" height="221"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackOpaque"/>
