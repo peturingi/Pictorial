@@ -15,9 +15,7 @@
     __weak ScheduleCollectionViewController<AddPictogramWithID> *_topViewController;
     __weak PictogramSelectorViewController *_bottomViewController;
     __weak IBOutlet UIView *bottomView;
-    
     __weak IBOutlet NSLayoutConstraint *bottomViewHeight;
-    __weak IBOutlet UIBarButtonItem *importPhotosButton;
     __weak IBOutlet UIBarButtonItem *toggleEdit;
 }
 

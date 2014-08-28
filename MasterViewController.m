@@ -8,10 +8,13 @@
 #import "ImageSourceTableViewController.h"
 #import "Pictogram.h"
 #import "UIBarButtonItem+EditButton.h"
+#import "HidableBarButtonItem.h"
 
 @interface MasterViewController ()
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *configureBackground;
+@property (weak, nonatomic) IBOutlet HidableBarButtonItem *configureBackground;
 @property (weak) UIPopoverController *imageSourcePopover;
+@property (weak, nonatomic) IBOutlet HidableBarButtonItem *importPhotoButton;
+
 @end
 
 @implementation MasterViewController
@@ -22,7 +25,9 @@
         [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
         [[UINavigationBar appearance] setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
     }
-    /* The pictogram selection window is intially hidden. */
+    /* The pictogram selection window is intially hidden, 
+     as well as the bar button items which are revelaed during
+     pictogram selection. */
     {
         [self.editButtonItem setEditMode:YES];
         [self editButton:self.editButtonItem];
@@ -58,7 +63,6 @@
         ScheduleCollectionViewController * const destination = segue.destinationViewController;
         destination.delegate = self;
         _topViewController = destination;
-        
     }
     
     if ([segue.identifier isEqualToString:@"SEGUE_IMAGE_SOURCE"]) {
@@ -122,8 +126,13 @@
 
 - (IBAction)editButton:(UIBarButtonItem *)sender {
     [sender setEditMode                 : ! sender.editMode ];
-    importPhotosButton.enabled          = sender.editMode;
-    self.configureBackground.enabled    = sender.editMode;
+    
+    /* Hide / Show bar button items */
+    {
+        self.importPhotoButton.hidden   = sender.editMode;
+        self.configureBackground.hidden = sender.editMode;
+    }
+    
     sender.title                        = sender.editMode ? @"Loka" : @"Breyta";
     NSUInteger const heightDuringEdit   = floor(self.view.frame.size.height / 3.0f);
     NSUInteger const heightWhenClosed   = 0;

@@ -91,6 +91,7 @@
 		D8C8870B19AC57BC00A9ADE8 /* ColorSpectrum.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C8870A19AC57BC00A9ADE8 /* ColorSpectrum.m */; };
 		D8C8871119AC57F100A9ADE8 /* UIView+ColorAtPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C8871019AC57F100A9ADE8 /* UIView+ColorAtPoint.m */; };
 		D8CCA7DF199F6FD600D0A657 /* CellDraggingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CCA7DE199F6FD600D0A657 /* CellDraggingManager.m */; };
+		D8D3C12519AF0522009A2241 /* HidableBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D3C12419AF0522009A2241 /* HidableBarButtonItem.m */; };
 		D8DCC45118E2F520004794C9 /* testImage.png in Resources */ = {isa = PBXBuildFile; fileRef = D8DCC45018E2F520004794C9 /* testImage.png */; };
 		D8DCC45218E2F57D004794C9 /* testImage.png in Resources */ = {isa = PBXBuildFile; fileRef = D8DCC45018E2F520004794C9 /* testImage.png */; };
 		D8DDEF7319A9F72F00D3A083 /* EditPictogramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DDEF7219A9F72F00D3A083 /* EditPictogramViewController.m */; };
@@ -256,6 +257,8 @@
 		D8CCA7DD199F6FD600D0A657 /* CellDraggingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellDraggingManager.h; sourceTree = "<group>"; };
 		D8CCA7DE199F6FD600D0A657 /* CellDraggingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellDraggingManager.m; sourceTree = "<group>"; };
 		D8CCA7E0199F74DC00D0A657 /* AddPictogramWithID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddPictogramWithID.h; sourceTree = "<group>"; };
+		D8D3C12319AF0522009A2241 /* HidableBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HidableBarButtonItem.h; sourceTree = "<group>"; };
+		D8D3C12419AF0522009A2241 /* HidableBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HidableBarButtonItem.m; sourceTree = "<group>"; };
 		D8DCC45018E2F520004794C9 /* testImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = testImage.png; sourceTree = "<group>"; };
 		D8DDEF7119A9F72F00D3A083 /* EditPictogramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditPictogramViewController.h; sourceTree = "<group>"; };
 		D8DDEF7219A9F72F00D3A083 /* EditPictogramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditPictogramViewController.m; sourceTree = "<group>"; };
@@ -576,6 +579,8 @@
 		D87964B91906A09500333CD1 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				D8D3C12319AF0522009A2241 /* HidableBarButtonItem.h */,
+				D8D3C12419AF0522009A2241 /* HidableBarButtonItem.m */,
 				D8BE00E4199F9D0400108121 /* Drag Manager */,
 				D83A62CD18B696DC00EC0773 /* Main.storyboard */,
 				D823424B19ADFCC400B398FA /* Background Selection */,
@@ -797,6 +802,7 @@
 				683941091903D0F500C05F3C /* NSString+CapitalizeSentence.m in Sources */,
 				D8315AF418D39DEA00C4A340 /* CameraPicker.m in Sources */,
 				D881B56D196D3404008B10F9 /* Model.xcdatamodeld in Sources */,
+				D8D3C12519AF0522009A2241 /* HidableBarButtonItem.m in Sources */,
 				D82C0CE218F8813F005B5569 /* PictogramCalendarCell.m in Sources */,
 				D80706A3196ED92100B93F40 /* MasterViewController.m in Sources */,
 				68D7963D19092DE50047A0CE /* CALayer+WithSizeAndPosition.m in Sources */,
