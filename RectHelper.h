@@ -11,4 +11,6 @@
 
 + (NSArray *)viewsIn:(NSArray *)views intersectingWithRect:(CGRect)rect;
 
++ (CGRect)makeRectWithSize:(CGSize const)size andOrigin:(CGPoint const)origin;
+
 @end

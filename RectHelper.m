@@ -2,6 +2,13 @@
 
 @implementation RectHelper
 
++ (CGRect)makeRectWithSize:(CGSize const)size andOrigin:(CGPoint const)origin {
+    CGRect rect = CGRectZero;
+    rect.origin = origin;
+    rect.size = size;
+    return rect;
+}
+
 + (CGRect)largestIntersectionOfViews:(NSArray *)views andRect:(CGRect)rect
 {
     NSAssert(views, @"Expected collectionViewCells.");

@@ -8,35 +8,6 @@
 #import "Pictogram.h"
 #import "EditPictogramViewController.h"
 
-@interface UIApplication (AppDimensions)
-+(CGSize) currentSize;
-+(CGSize) sizeInOrientation:(UIInterfaceOrientation)orientation;
-@end
-
-@implementation UIApplication (AppDimensions)
-
-+(CGSize) currentSize
-{
-    return [UIApplication sizeInOrientation:[UIApplication sharedApplication].statusBarOrientation];
-}
-
-+(CGSize) sizeInOrientation:(UIInterfaceOrientation)orientation
-{
-    CGSize size = [UIScreen mainScreen].bounds.size;
-    UIApplication *application = [UIApplication sharedApplication];
-    if (UIInterfaceOrientationIsLandscape(orientation))
-    {
-        size = CGSizeMake(size.height, size.width);
-    }
-    if (application.statusBarHidden == NO)
-    {
-        size.height -= MIN(application.statusBarFrame.size.width, application.statusBarFrame.size.height);
-    }
-    return size;
-}
-
-@end
-
 @interface PictogramSelectorViewController ()
 @property (strong, nonatomic) Pictogram *pictogramToEdit;
 @end
@@ -155,9 +126,7 @@
         NSManagedObjectID * const mostRecentlytouchedPictogram = [(PictogramSelectorDataSource *)self.collectionView.dataSource pictogramAtIndexPath:indexPathToTouchedPictogram].objectID;
         
         UIView * const imageView = [selectedCell.contentView firstSubviewWithTag:CELL_TAG_FOR_IMAGE_VIEW];
-        {
-            NSAssert(imageView, @"imageView not found.");
-        } // Assert
+        NSAssert(imageView, @"imageView not found.");
         
         [self.cellDraggingManager setPictogramToDrag:mostRecentlytouchedPictogram
                                      fromRect:[self.view convertRect:imageView.frame fromView:imageView]

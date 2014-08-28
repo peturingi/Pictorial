@@ -5,6 +5,17 @@
 #import "AppDelegate.h"
 #import "ImageResizer.h"
 
+/* Math Helpers */
+#import "RectHelper.h"
+#import "PointHelper.h"
+
+/* Used to keep track of the original position of the pictogram to be dragged,
+ so that it is possible to animate it back. */
+@interface CellDraggingManager ()
+    @property CGRect sourceFrame;
+    @property CGPoint sourceOffset;
+@end
+
 @implementation CellDraggingManager
 
 - (id)initWithSource:(UICollectionViewController *const)source andDestination:(UICollectionViewController<AddPictogramWithID> *const)destination {
@@ -25,6 +36,13 @@
         NSAssert(pictogramIdentifier, @"Must not be nil.");
         NSAssert(view, @"Must not be nil.");
     } // Assert
+    
+    /* Store orignal location of pictogram, so it is possible to animate it back if needed. */
+    {
+        self.sourceOffset = _source.collectionView.contentOffset;
+        self.sourceFrame = [_source.view convertRect:rect fromView:view];
+    }
+    
     self.idOfPictogramBeingMoved = pictogramIdentifier;
     
     /* Animate the selected pictogram, to the finger. */
@@ -79,8 +97,24 @@
     return self.locationRestriction.size.height != 0 || self.locationRestriction.size.width != 0 || self.locationRestriction.origin.x != 0 || self.locationRestriction.origin.y != 0;
 }
 
-- (void)animatePictogramBackToOriginalPosition {
-    [_pictogramBeingMoved removeFromSuperview]; // TODO: animate , currently this removes it immadiately instead of animating.
+/** Animates the pictogram back into its original position. 
+ The method takes into account that the collection view might have scrolled.
+ */
+- (void)animatePictogramBackToOriginalPosition
+{
+    CGPoint const differenceInOffset = [PointHelper subPointA:self.sourceOffset fromB:_source.collectionView.contentOffset];
+    CGPoint const destinationOrigin = [PointHelper addPointA:self.sourceFrame.origin andB:differenceInOffset];
+    CGRect const destinationFrame = [RectHelper makeRectWithSize:self.sourceFrame.size andOrigin:destinationOrigin];
+    
+    [UIView animateWithDuration:ANIMATION_DURING_MOVE_BACK_PICTOGRAM
+                     animations:^(void)
+    {
+        _pictogramBeingMoved.frame = destinationFrame;
+    }
+                     completion:^(BOOL finished)
+    {
+        if (finished) [_pictogramBeingMoved removeFromSuperview];
+    }];
 }
 
 - (void)pictogramDraggingCancelled {

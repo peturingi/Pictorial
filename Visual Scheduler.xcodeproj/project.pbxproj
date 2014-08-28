@@ -44,7 +44,6 @@
 		D83BFE4B1907CAE600F72646 /* UIView+HoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = D83BFE4A1907CAE600F72646 /* UIView+HoverView.m */; };
 		D83BFE4E1907EDCE00F72646 /* PictogramSelectorDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D83BFE4D1907EDCE00F72646 /* PictogramSelectorDataSource.m */; };
 		D8401AAA1900312A00BAF82F /* DayHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8401AA91900312A00BAF82F /* DayHeader.xib */; };
-		D8401B471901846100BAF82F /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8401B461901846100BAF82F /* ScheduleViewController.m */; };
 		D8466D051980FDB100781710 /* PictogramCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = D8466D041980FDB100781710 /* PictogramCreator.m */; };
 		D8472B871922C07E00EBE741 /* UICollectionView+AbortScrollAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = D8472B861922C07E00EBE741 /* UICollectionView+AbortScrollAnimation.m */; };
 		D84855CB1985506F0085C734 /* ImageResizer.m in Sources */ = {isa = PBXBuildFile; fileRef = D84855CA1985506F0085C734 /* ImageResizer.m */; };
@@ -88,6 +87,7 @@
 		D8C8871119AC57F100A9ADE8 /* UIView+ColorAtPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C8871019AC57F100A9ADE8 /* UIView+ColorAtPoint.m */; };
 		D8CCA7DF199F6FD600D0A657 /* CellDraggingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CCA7DE199F6FD600D0A657 /* CellDraggingManager.m */; };
 		D8D3C12519AF0522009A2241 /* HidableBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D3C12419AF0522009A2241 /* HidableBarButtonItem.m */; };
+		D8D3C12919AF4002009A2241 /* PointHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D3C12819AF4002009A2241 /* PointHelper.m */; };
 		D8DCC45118E2F520004794C9 /* testImage.png in Resources */ = {isa = PBXBuildFile; fileRef = D8DCC45018E2F520004794C9 /* testImage.png */; };
 		D8DCC45218E2F57D004794C9 /* testImage.png in Resources */ = {isa = PBXBuildFile; fileRef = D8DCC45018E2F520004794C9 /* testImage.png */; };
 		D8DDEF7319A9F72F00D3A083 /* EditPictogramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DDEF7219A9F72F00D3A083 /* EditPictogramViewController.m */; };
@@ -179,8 +179,6 @@
 		D83BFE4C1907EDCE00F72646 /* PictogramSelectorDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PictogramSelectorDataSource.h; path = "Visual Scheduler/Controllers/PictogramSelectorDataSource.h"; sourceTree = "<group>"; };
 		D83BFE4D1907EDCE00F72646 /* PictogramSelectorDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PictogramSelectorDataSource.m; path = "Visual Scheduler/Controllers/PictogramSelectorDataSource.m"; sourceTree = "<group>"; };
 		D8401AA91900312A00BAF82F /* DayHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DayHeader.xib; path = "Visual Scheduler/CalendarView/DayHeader.xib"; sourceTree = "<group>"; };
-		D8401B451901846100BAF82F /* ScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScheduleViewController.h; path = CalendarView/ScheduleViewController.h; sourceTree = "<group>"; };
-		D8401B461901846100BAF82F /* ScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScheduleViewController.m; path = CalendarView/ScheduleViewController.m; sourceTree = "<group>"; };
 		D8466D031980FDB100781710 /* PictogramCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictogramCreator.h; sourceTree = "<group>"; };
 		D8466D041980FDB100781710 /* PictogramCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictogramCreator.m; sourceTree = "<group>"; };
 		D8472B851922C07E00EBE741 /* UICollectionView+AbortScrollAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+AbortScrollAnimation.h"; sourceTree = "<group>"; };
@@ -255,6 +253,8 @@
 		D8CCA7E0199F74DC00D0A657 /* AddPictogramWithID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddPictogramWithID.h; sourceTree = "<group>"; };
 		D8D3C12319AF0522009A2241 /* HidableBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HidableBarButtonItem.h; sourceTree = "<group>"; };
 		D8D3C12419AF0522009A2241 /* HidableBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HidableBarButtonItem.m; sourceTree = "<group>"; };
+		D8D3C12719AF4002009A2241 /* PointHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointHelper.h; sourceTree = "<group>"; };
+		D8D3C12819AF4002009A2241 /* PointHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointHelper.m; sourceTree = "<group>"; };
 		D8DCC45018E2F520004794C9 /* testImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = testImage.png; sourceTree = "<group>"; };
 		D8DDEF7119A9F72F00D3A083 /* EditPictogramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditPictogramViewController.h; sourceTree = "<group>"; };
 		D8DDEF7219A9F72F00D3A083 /* EditPictogramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditPictogramViewController.m; sourceTree = "<group>"; };
@@ -422,8 +422,6 @@
 		D83A62AF18B696DB00EC0773 = {
 			isa = PBXGroup;
 			children = (
-				D81C450C198D320A00E9801C /* RectHelper.h */,
-				D81C450D198D320A00E9801C /* RectHelper.m */,
 				D87964B91906A09500333CD1 /* UI */,
 				D829DDA818E191B60039A449 /* Database */,
 				D83A62C118B696DC00EC0773 /* Visual Scheduler */,
@@ -460,13 +458,12 @@
 		D83A62C118B696DC00EC0773 /* Visual Scheduler */ = {
 			isa = PBXGroup;
 			children = (
+				D8D3C12A19AF4066009A2241 /* Math Helpers */,
 				68D7964519092E590047A0CE /* Misc */,
 				68D7963119092CDB0047A0CE /* Timer */,
 				D85EBDDB18DC836700DF76B7 /* Color */,
 				D83A62CA18B696DC00EC0773 /* AppDelegate.h */,
 				D83A62CB18B696DC00EC0773 /* AppDelegate.m */,
-				D8401B451901846100BAF82F /* ScheduleViewController.h */,
-				D8401B461901846100BAF82F /* ScheduleViewController.m */,
 				D82838B018D5B85A009C03A8 /* Categories */,
 				D83A62D318B696DC00EC0773 /* Images.xcassets */,
 				D83A62C218B696DC00EC0773 /* Supporting Files */,
@@ -644,6 +641,34 @@
 			name = "Calendar View";
 			sourceTree = "<group>";
 		};
+		D8D3C12A19AF4066009A2241 /* Math Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D8D3C12B19AF4076009A2241 /* CGPoint */,
+				D8D3C12C19AF4080009A2241 /* CGRect */,
+			);
+			name = "Math Helpers";
+			path = ..;
+			sourceTree = "<group>";
+		};
+		D8D3C12B19AF4076009A2241 /* CGPoint */ = {
+			isa = PBXGroup;
+			children = (
+				D8D3C12719AF4002009A2241 /* PointHelper.h */,
+				D8D3C12819AF4002009A2241 /* PointHelper.m */,
+			);
+			name = CGPoint;
+			sourceTree = "<group>";
+		};
+		D8D3C12C19AF4080009A2241 /* CGRect */ = {
+			isa = PBXGroup;
+			children = (
+				D81C450C198D320A00E9801C /* RectHelper.h */,
+				D81C450D198D320A00E9801C /* RectHelper.m */,
+			);
+			name = CGRect;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -784,6 +809,7 @@
 				D8466D051980FDB100781710 /* PictogramCreator.m in Sources */,
 				D8A8292B198F7F1100E0D85F /* PictogramContainer.m in Sources */,
 				D8A8292E198F7F1100E0D85F /* Schedule.m in Sources */,
+				D8D3C12919AF4002009A2241 /* PointHelper.m in Sources */,
 				D83BFE4E1907EDCE00F72646 /* PictogramSelectorDataSource.m in Sources */,
 				D86A4A6519A71DD800D221CC /* BottomViewPictogram.m in Sources */,
 				D885A33019A85FF100D01B08 /* UIBarButtonItem+EditButton.m in Sources */,
@@ -798,7 +824,6 @@
 				D85EBDDA18DC833A00DF76B7 /* BBAColor.m in Sources */,
 				D85E214F1985270300B611DE /* PictogramView.m in Sources */,
 				D8C8871119AC57F100A9ADE8 /* UIView+ColorAtPoint.m in Sources */,
-				D8401B471901846100BAF82F /* ScheduleViewController.m in Sources */,
 				683941091903D0F500C05F3C /* NSString+CapitalizeSentence.m in Sources */,
 				D8315AF418D39DEA00C4A340 /* CameraPicker.m in Sources */,
 				D881B56D196D3404008B10F9 /* Model.xcdatamodeld in Sources */,
