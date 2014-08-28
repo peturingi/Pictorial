@@ -12,7 +12,8 @@
     return self;
 }
 
-- (void)registerSupplementaryView {
+- (void)registerSupplementaryView
+{
     UINib *headerView = [UINib nibWithNibName:@"DayHeader" bundle:nil];
     NSAssert(headerView, @"Failed to load nib.");
     [self registerNib:headerView forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:DAY_HEADER];

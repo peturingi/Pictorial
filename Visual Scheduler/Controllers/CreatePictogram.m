@@ -4,9 +4,9 @@
 
 @implementation CreatePictogram
 
-- (void)viewWillAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated
+{
     NSAssert(self.photo, @"Missing photo.");
-    
     [self.photoView setImage:self.photo];
 }
 
@@ -18,7 +18,8 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)doneButton:(id)sender {
+- (IBAction)doneButton:(id)sender
+{
     NSAssert(self.photoView.image != nil, @"Cannot create a pictogram without a photo.");
     NSAssert(self.photoTitle.text.length > 0, @"Cannot create a pictogram without a title.");
     
@@ -30,7 +31,8 @@
     }
 }
 
-- (void)createPictogram {
+- (void)createPictogram
+{
     NSAssert(self.photoView.image, @"Cannot create a pictogram without a photo.");
     
     const ImageResizer *imageResizer = [[ImageResizer alloc] initWithImage:self.photoView.image];
@@ -45,7 +47,8 @@
 
 #pragma mark -
 
-- (void)alertUserOfInvalidTitle {
+- (void)alertUserOfInvalidTitle
+{
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You must specify a title." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alert show];
 }

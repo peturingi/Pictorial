@@ -21,7 +21,8 @@
     return self;
 }
 
-- (UIImageView *)getAutoresizingImageViewRepresenting:(UIImage *)anImage {
+- (UIImageView *)getAutoresizingImageViewRepresenting:(UIImage *)anImage
+{
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.bounds];
     imageView.image = anImage;
     imageView.contentMode = UIViewContentModeScaleAspectFill;
@@ -33,13 +34,15 @@
     return imageView;
 }
 
-- (void)setupBorder {
+- (void)setupBorder
+{
     self.layer.borderWidth = PICTOGRAM_BORDER_WIDTH;
     self.layer.cornerRadius = PICTOGRAM_BORDER_RADIUS;
     self.layer.borderColor = PICTOGRAM_BORDER_COLOR;
 }
 
-- (void)setupShadow {
+- (void)setupShadow
+{
     self.layer.shadowRadius = PICTOGRAM_SHADOW_RADIUS;
     self.layer.shadowOpacity = PICTOGRAM_SHADOW_OPACITY;
     self.layer.shadowOffset = PICTOGRAM_SHADOW_OFFSET;

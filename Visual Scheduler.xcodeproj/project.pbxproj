@@ -15,10 +15,6 @@
 		68D7964019092DF10047A0CE /* CALayer+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D7963F19092DF10047A0CE /* CALayer+Rotate.m */; };
 		68D7964419092E490047A0CE /* NSString+TimeFormatted.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D7964319092E490047A0CE /* NSString+TimeFormatted.m */; };
 		68D7964819092E690047A0CE /* MathUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D7964719092E690047A0CE /* MathUtils.m */; };
-		68D796551909479E0047A0CE /* TimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D796541909479E0047A0CE /* TimerViewController.m */; };
-		68D7965C190947CB0047A0CE /* Timer.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D79657190947CB0047A0CE /* Timer.m */; };
-		68D7965D190947CB0047A0CE /* TimerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D79659190947CB0047A0CE /* TimerView.m */; };
-		68D7965E190947CB0047A0CE /* WatchDialView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D7965B190947CB0047A0CE /* WatchDialView.m */; };
 		68D796A319094E920047A0CE /* ding.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 68D7964119092E080047A0CE /* ding.m4a */; };
 		D800E4AF196D50CC00465541 /* svane.png in Resources */ = {isa = PBXBuildFile; fileRef = D800E4AE196D50CC00465541 /* svane.png */; };
 		D800E4B1196D516E00465541 /* spade.png in Resources */ = {isa = PBXBuildFile; fileRef = D800E4B0196D516E00465541 /* spade.png */; };
@@ -342,6 +338,8 @@
 		D82838B018D5B85A009C03A8 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				D885A32E19A85FF100D01B08 /* UIBarButtonItem+EditButton.h */,
+				D885A32F19A85FF100D01B08 /* UIBarButtonItem+EditButton.m */,
 				D88E4F06199390C400414457 /* UICollectionView+CellAtPoint.h */,
 				D88E4F07199390C400414457 /* UICollectionView+CellAtPoint.m */,
 				D81C450F198D336100E9801C /* NSArray+ObjectsOfType.h */,
@@ -415,10 +413,7 @@
 				D8C7BDE6190287E800128FA7 /* WeekCollectionViewLayout.m */,
 				D81ACA8119A88AB4005B4FD9 /* DayCollectionViewLayout.h */,
 				D81ACA8219A88AB4005B4FD9 /* DayCollectionViewLayout.m */,
-				D8B016ED18FEB85700017D76 /* CalendarView.h */,
-				D8B016EE18FEB85700017D76 /* CalendarView.m */,
-				D8401AA91900312A00BAF82F /* DayHeader.xib */,
-				D812BDAA19A4B309006442EF /* DayFooter.xib */,
+				D8D3C12619AF3019009A2241 /* Calendar View */,
 				D8BE00E3199F9CEB00108121 /* Cell */,
 			);
 			name = "Top View";
@@ -589,8 +584,6 @@
 				D87607081988CA8A000D78D4 /* Import Photo */,
 				D80706A1196ED92100B93F40 /* MasterViewController.h */,
 				D80706A2196ED92100B93F40 /* MasterViewController.m */,
-				D885A32E19A85FF100D01B08 /* UIBarButtonItem+EditButton.h */,
-				D885A32F19A85FF100D01B08 /* UIBarButtonItem+EditButton.m */,
 				D85E214D1985270300B611DE /* PictogramView.h */,
 				D85E214E1985270300B611DE /* PictogramView.m */,
 				D87607051988C8D2000D78D4 /* ImageSourceTableViewController.h */,
@@ -638,6 +631,17 @@
 				D8CCA7E0199F74DC00D0A657 /* AddPictogramWithID.h */,
 			);
 			name = "Drag Manager";
+			sourceTree = "<group>";
+		};
+		D8D3C12619AF3019009A2241 /* Calendar View */ = {
+			isa = PBXGroup;
+			children = (
+				D8B016ED18FEB85700017D76 /* CalendarView.h */,
+				D8B016EE18FEB85700017D76 /* CalendarView.m */,
+				D8401AA91900312A00BAF82F /* DayHeader.xib */,
+				D812BDAA19A4B309006442EF /* DayFooter.xib */,
+			);
+			name = "Calendar View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -778,14 +782,11 @@
 				D81C4511198D336200E9801C /* NSArray+ObjectsOfType.m in Sources */,
 				D876070B1988CC85000D78D4 /* AlbumPicker.m in Sources */,
 				D8466D051980FDB100781710 /* PictogramCreator.m in Sources */,
-				68D7965C190947CB0047A0CE /* Timer.m in Sources */,
 				D8A8292B198F7F1100E0D85F /* PictogramContainer.m in Sources */,
 				D8A8292E198F7F1100E0D85F /* Schedule.m in Sources */,
 				D83BFE4E1907EDCE00F72646 /* PictogramSelectorDataSource.m in Sources */,
 				D86A4A6519A71DD800D221CC /* BottomViewPictogram.m in Sources */,
 				D885A33019A85FF100D01B08 /* UIBarButtonItem+EditButton.m in Sources */,
-				68D7965E190947CB0047A0CE /* WatchDialView.m in Sources */,
-				68D796551909479E0047A0CE /* TimerViewController.m in Sources */,
 				D82C0CDC18F80DFB005B5569 /* WeekDataSource.m in Sources */,
 				D83A62C818B696DC00EC0773 /* main.m in Sources */,
 				D823424A19ADE9D900B398FA /* ColorView.m in Sources */,
@@ -798,7 +799,6 @@
 				D85E214F1985270300B611DE /* PictogramView.m in Sources */,
 				D8C8871119AC57F100A9ADE8 /* UIView+ColorAtPoint.m in Sources */,
 				D8401B471901846100BAF82F /* ScheduleViewController.m in Sources */,
-				68D7965D190947CB0047A0CE /* TimerView.m in Sources */,
 				683941091903D0F500C05F3C /* NSString+CapitalizeSentence.m in Sources */,
 				D8315AF418D39DEA00C4A340 /* CameraPicker.m in Sources */,
 				D881B56D196D3404008B10F9 /* Model.xcdatamodeld in Sources */,

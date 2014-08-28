@@ -22,7 +22,8 @@
     self.image = nil;
 }
 
-- (UIImage *)getImageResizedTo:(CGSize)size {
+- (UIImage *)getImageResizedTo:(CGSize)size
+{
     if (self.image == nil) return nil;
     
     const CGFloat currentScalingFactor = 0.0f;
