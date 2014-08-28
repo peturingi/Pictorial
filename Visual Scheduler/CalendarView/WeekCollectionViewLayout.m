@@ -10,7 +10,6 @@ static const NSInteger INSET_LEFT   = 18;
 static const NSInteger INSET_RIGHT  = 18;
 static const NSInteger INSET_BOTTOM = 2;
 static const NSInteger OFFSET_FROM_TOP = 4;
-static const NSUInteger HEADER_HEIGHT = 20;
 
 @interface WeekCollectionViewLayout ()
 @property (nonatomic, strong) NSDictionary *layoutInformation;
@@ -145,7 +144,7 @@ static const NSUInteger HEADER_HEIGHT = 20;
 - (CGSize)headerSize
 {
     const CGFloat width = [self sectionWidth];
-    const CGFloat height = HEADER_HEIGHT;
+    const CGFloat height = SCHEDULE_HEADER_HEIGHT;
     const CGSize size = CGSizeMake(width, height);
     return size;
 }

@@ -59,12 +59,15 @@
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
     if (self.cellDraggingManager) {
-        self.cellDraggingManager.locationRestriction = [self restrictPictogramDraggingToFrame];
+        self.cellDraggingManager.locationRestriction = [self scheduleFrameWithoutHeader];
     }
 }
 
-- (CGRect)restrictPictogramDraggingToFrame {
-    return self.view.frame;
+- (CGRect)scheduleFrameWithoutHeader {
+    CGRect frame = self.view.frame;
+    frame.origin.y += SCHEDULE_HEADER_HEIGHT;
+    frame.size.height -= SCHEDULE_HEADER_HEIGHT;
+    return frame;
 }
 
 - (void)movePictogram:(UILongPressGestureRecognizer *)sender
@@ -196,7 +199,7 @@
         self.touchedPictogramContainer = [self.dataSource pictogramContainerAtIndexPath:touchedItem];
         
         self.cellDraggingManager = [[CellDraggingManager alloc] initWithSource:self andDestination:self];
-        self.cellDraggingManager.locationRestriction = [self restrictPictogramDraggingToFrame];
+        self.cellDraggingManager.locationRestriction = [self scheduleFrameWithoutHeader];
         [self.cellDraggingManager setPictogramToDrag:self.touchedPictogramContainer.pictogram.objectID
                                             fromRect:[self.view convertRect:selectedCell.frame fromView:self.collectionView]
                                           atLocation:[sender locationInView:self.view]
