@@ -18,6 +18,40 @@
 - (void)viewDidLoad {
     // Gestures should disabled as the application starts in non-edit mode.
     _movePictogramGestureRecognizer.enabled = self.isEditing;
+    
+    // Change day if needed.
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reloadDayViewIfNeeded)
+                                                 name:UIApplicationSignificantTimeChangeNotification
+                                               object:nil];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)reloadDayViewIfNeeded {
+    BOOL const midnight = [self isMidnight];
+    BOOL const dayView = [self isDisplayingDayView];
+    if (midnight && dayView) {
+        [self switchToDayLayout];
+    }
+}
+
+- (BOOL)isMidnight {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    
+    [dateFormatter setDateFormat:@"HH"];
+    NSUInteger const hour = [[dateFormatter stringFromDate:[NSDate date]] intValue];
+    
+    [dateFormatter setDateFormat:@"mm"];
+    NSUInteger const minute = [[dateFormatter stringFromDate:[NSDate date]] intValue];
+    
+    return (hour == 0 && minute == 0) ? YES : NO;
+}
+
+- (BOOL)isDisplayingDayView {
+    return [self.collectionView.collectionViewLayout isMemberOfClass:[DayCollectionViewLayout class]];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
