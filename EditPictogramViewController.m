@@ -1,43 +1,25 @@
-//
-//  EditPictogramViewController.m
-//  Visual Scheduler
-//
-//  Created by Pétur Ingi Egilsson on 24/08/14.
-//  Copyright (c) 2014 Student Project. All rights reserved.
-//
-
 #import "EditPictogramViewController.h"
+#import "Pictogram.h"
 
 @interface EditPictogramViewController ()
-    @property (weak, nonatomic) IBOutlet UIImageView *image;
-    @property (weak, nonatomic) IBOutlet UITextField *pictogramTitle;
+
+@property (weak, nonatomic) IBOutlet UIImageView *image;
+@property (weak, nonatomic) IBOutlet UITextField *pictogramTitle;
+
 @end
 
 @implementation EditPictogramViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (void)viewWillAppear:(BOOL)animated
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+    NSAssert(self.pictogram, @"Pictogram has not been set.");
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    {
-        NSAssert(self.pictogram, @"Pictogram has not been set.");
-    }
     self.pictogramTitle.text = self.pictogram.title;
     self.image.image = self.pictogram.uiImage;
 }
-- (IBAction)pressedDone:(id)sender {
+
+- (IBAction)pressedDone:(id)sender
+{
     if ([self validInputTitle]) {
         [self save];
         [self dismissViewControllerAnimated:YES completion:nil];
@@ -62,10 +44,10 @@
 
 #pragma mark -
 
-- (void)alertUserOfInvalidTitle {
+- (void)alertUserOfInvalidTitle
+{
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You must specify a title." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alert show];
 }
-
 
 @end

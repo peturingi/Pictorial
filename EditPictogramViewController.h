@@ -1,6 +1,6 @@
 #import <UIKit/UIKit.h>
-#import "Pictogram.h"
-#import "PictogramSelectorViewController.h"
+
+@class Pictogram;
 
 @interface EditPictogramViewController : UIViewController
 
