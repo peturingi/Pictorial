@@ -98,7 +98,7 @@
     }
 }
 
-- (void)drawLineWithWidth:(CGFloat const)width fromPoint:(CGPoint const)source toPoint:(CGPoint const)destination usingColor:(UIColor *)color
+- (void)drawLineWithWidth:(CGFloat const)width fromPoint:(CGPoint const)source toPoint:(CGPoint const)destination usingColor:(UIColor * const)color
 {
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetStrokeColorWithColor(context, color.CGColor);
