@@ -3,8 +3,10 @@
 #import "Picker+Protected.h"
 
 @interface Picker ()
-    @property (strong, nonatomic) UIImagePickerController *cameraUI;
-    @property (strong, nonatomic) UIImage *image;
+
+@property (strong, nonatomic) UIImagePickerController *cameraUI;
+@property (strong, nonatomic) UIImage *image;
+
 @end
 
 @implementation Picker
@@ -95,8 +97,5 @@
 - (UIImagePickerControllerSourceType)source {
     return _source;
 }
-
-
-
 
 @end
