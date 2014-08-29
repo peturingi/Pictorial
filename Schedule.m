@@ -1,5 +1,6 @@
 #import "Schedule.h"
 #import "PictogramContainer.h"
+#import "AppDelegate.h"
 
 @implementation Schedule
 
@@ -52,6 +53,26 @@
 
 - (NSString *)description {
     return self.title;
+}
+
++ (NSOrderedSet *)schedules {
+
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    NSManagedObjectContext * const managedObjectContext = appDelegate.managedObjectContext;
+    NSAssert(managedObjectContext, @"Failed to get managedObjectContext.");
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:CD_ENTITY_SCHEDULE];
+    
+    NSSortDescriptor * const sort = [[NSSortDescriptor alloc] initWithKey:CD_KEY_SCHEDULE_DATE ascending:YES];
+    [request setSortDescriptors:[NSArray arrayWithObject:sort]];
+    [request setFetchBatchSize:CD_FETCH_BATCH_SIZE];
+    NSFetchedResultsController * const fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
+                                                                        managedObjectContext:managedObjectContext
+                                                                          sectionNameKeyPath:CD_KEY_SCHEDULE_DATE
+                                                                                   cacheName:nil];
+    [fetchedResultsController performFetch:nil]; // TODO: deal with errors
+    return [NSOrderedSet orderedSetWithArray:fetchedResultsController.fetchedObjects];
+    
 }
 
 @end

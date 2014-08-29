@@ -16,6 +16,9 @@
 - (UIColor *)backgroundColor;
 - (void)setBackgroundColor:(UIColor * const)backgroundColor;
 
+/* Returns all schedules found in the system. */
++ (NSOrderedSet *)schedules;
+
 @end
 
 @interface Schedule (CoreDataGeneratedAccessors)

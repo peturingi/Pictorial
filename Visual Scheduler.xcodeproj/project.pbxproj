@@ -24,7 +24,6 @@
 		D81C450E198D320A00E9801C /* RectHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D81C450D198D320A00E9801C /* RectHelper.m */; };
 		D81C4511198D336200E9801C /* NSArray+ObjectsOfType.m in Sources */ = {isa = PBXBuildFile; fileRef = D81C4510198D336200E9801C /* NSArray+ObjectsOfType.m */; };
 		D823424A19ADE9D900B398FA /* ColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = D823424919ADE9D900B398FA /* ColorView.m */; };
-		D82838B518D5BA39009C03A8 /* UIApplicationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D82838B418D5BA39009C03A8 /* UIApplicationTests.m */; };
 		D82B6C4719A88C0300FB89AF /* WeekCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C7BDE6190287E800128FA7 /* WeekCollectionViewLayout.m */; };
 		D82B6C4819A88C3600FB89AF /* DayCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D81ACA8219A88AB4005B4FD9 /* DayCollectionViewLayout.m */; };
 		D82C0CDC18F80DFB005B5569 /* WeekDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D82C0CDB18F80DFB005B5569 /* WeekDataSource.m */; };
@@ -37,10 +36,6 @@
 		D83A62C618B696DC00EC0773 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D83A62C418B696DC00EC0773 /* InfoPlist.strings */; };
 		D83A62C818B696DC00EC0773 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D83A62C718B696DC00EC0773 /* main.m */; };
 		D83A62D418B696DC00EC0773 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D83A62D318B696DC00EC0773 /* Images.xcassets */; };
-		D83A62DB18B696DC00EC0773 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62DA18B696DC00EC0773 /* XCTest.framework */; };
-		D83A62DC18B696DC00EC0773 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BB18B696DC00EC0773 /* Foundation.framework */; };
-		D83A62DD18B696DC00EC0773 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BF18B696DC00EC0773 /* UIKit.framework */; };
-		D83A62E518B696DC00EC0773 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D83A62E318B696DC00EC0773 /* InfoPlist.strings */; };
 		D83BFE4B1907CAE600F72646 /* UIView+HoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = D83BFE4A1907CAE600F72646 /* UIView+HoverView.m */; };
 		D83BFE4E1907EDCE00F72646 /* PictogramSelectorDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D83BFE4D1907EDCE00F72646 /* PictogramSelectorDataSource.m */; };
 		D8401AAA1900312A00BAF82F /* DayHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8401AA91900312A00BAF82F /* DayHeader.xib */; };
@@ -49,6 +44,11 @@
 		D84855CB1985506F0085C734 /* ImageResizer.m in Sources */ = {isa = PBXBuildFile; fileRef = D84855CA1985506F0085C734 /* ImageResizer.m */; };
 		D850E82618C86F420051CD51 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D850E82518C86F420051CD51 /* MobileCoreServices.framework */; };
 		D850E82C18C885230051CD51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D83A62CD18B696DC00EC0773 /* Main.storyboard */; };
+		D853879A19B07BA2003DBBF4 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62DA18B696DC00EC0773 /* XCTest.framework */; };
+		D853879B19B07BA2003DBBF4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BB18B696DC00EC0773 /* Foundation.framework */; };
+		D853879C19B07BA2003DBBF4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83A62BF18B696DC00EC0773 /* UIKit.framework */; };
+		D85387A219B07BA2003DBBF4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D85387A019B07BA2003DBBF4 /* InfoPlist.strings */; };
+		D85387AB19B07BAA003DBBF4 /* ColorView_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = D853879319B07A16003DBBF4 /* ColorView_Tests.m */; };
 		D857FDEB19AC5C3600A40C0D /* ColorSpectrumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D857FDEA19AC5C3600A40C0D /* ColorSpectrumViewController.m */; };
 		D858CB8719221E0B00402E24 /* NSDate+VisualScheduler.m in Sources */ = {isa = PBXBuildFile; fileRef = D858CB8619221E0B00402E24 /* NSDate+VisualScheduler.m */; };
 		D85E214F1985270300B611DE /* PictogramView.m in Sources */ = {isa = PBXBuildFile; fileRef = D85E214E1985270300B611DE /* PictogramView.m */; };
@@ -60,7 +60,6 @@
 		D85EBDD618DC804400DF76B7 /* toilet.png in Resources */ = {isa = PBXBuildFile; fileRef = D85EBDCF18DC804400DF76B7 /* toilet.png */; };
 		D85EBDD718DC804400DF76B7 /* washhands.png in Resources */ = {isa = PBXBuildFile; fileRef = D85EBDD018DC804400DF76B7 /* washhands.png */; };
 		D85EBDDA18DC833A00DF76B7 /* BBAColor.m in Sources */ = {isa = PBXBuildFile; fileRef = D85EBDD918DC833A00DF76B7 /* BBAColor.m */; };
-		D85EBDDF18DC83B200DF76B7 /* BBAColor.m in Sources */ = {isa = PBXBuildFile; fileRef = D85EBDD918DC833A00DF76B7 /* BBAColor.m */; };
 		D86A4A6519A71DD800D221CC /* BottomViewPictogram.m in Sources */ = {isa = PBXBuildFile; fileRef = D86A4A6419A71DD800D221CC /* BottomViewPictogram.m */; };
 		D87607071988C8D2000D78D4 /* ImageSourceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D87607061988C8D2000D78D4 /* ImageSourceTableViewController.m */; };
 		D876070B1988CC85000D78D4 /* AlbumPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = D876070A1988CC85000D78D4 /* AlbumPicker.m */; };
@@ -68,7 +67,6 @@
 		D881B56D196D3404008B10F9 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D881B56B196D3404008B10F9 /* Model.xcdatamodeld */; };
 		D882E9B619A33AD300B358F7 /* DragPictogramGestureRecognizerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D882E9B519A33AD300B358F7 /* DragPictogramGestureRecognizerDelegate.m */; };
 		D885A33019A85FF100D01B08 /* UIBarButtonItem+EditButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D885A32F19A85FF100D01B08 /* UIBarButtonItem+EditButton.m */; };
-		D887832E18C8E33300F13B28 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		D88954EA19921A7400243422 /* CalendarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D88954E919921A7400243422 /* CalendarCell.m */; };
 		D88954ED19921B7300243422 /* EmptyCalendarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D88954EC19921B7300243422 /* EmptyCalendarCell.m */; };
 		D889F7EE18C9249A008A497F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D83A62CB18B696DC00EC0773 /* AppDelegate.m */; };
@@ -92,7 +90,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		D83A62DE18B696DC00EC0773 /* PBXContainerItemProxy */ = {
+		D85387A619B07BA2003DBBF4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D83A62B018B696DB00EC0773 /* Project object */;
 			proxyType = 1;
@@ -164,7 +162,6 @@
 		D83A62CB18B696DC00EC0773 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D83A62CE18B696DC00EC0773 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D83A62D318B696DC00EC0773 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		D83A62D918B696DC00EC0773 /* Visual SchedulerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Visual SchedulerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D83A62DA18B696DC00EC0773 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		D83A62E218B696DC00EC0773 /* Visual SchedulerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Visual SchedulerTests-Info.plist"; sourceTree = "<group>"; };
 		D83A62E418B696DC00EC0773 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -180,6 +177,12 @@
 		D84855C91985506F0085C734 /* ImageResizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageResizer.h; sourceTree = "<group>"; };
 		D84855CA1985506F0085C734 /* ImageResizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageResizer.m; sourceTree = "<group>"; };
 		D850E82518C86F420051CD51 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		D853879319B07A16003DBBF4 /* ColorView_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorView_Tests.m; path = ../ColorView_Tests.m; sourceTree = "<group>"; };
+		D853879919B07BA2003DBBF4 /* Visual Scheduler Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Visual Scheduler Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D853879F19B07BA2003DBBF4 /* Visual Scheduler Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Visual Scheduler Tests-Info.plist"; sourceTree = "<group>"; };
+		D85387A119B07BA2003DBBF4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D85387A319B07BA2003DBBF4 /* Visual_Scheduler_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Visual_Scheduler_Tests.m; sourceTree = "<group>"; };
+		D85387A519B07BA2003DBBF4 /* Visual Scheduler Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Visual Scheduler Tests-Prefix.pch"; sourceTree = "<group>"; };
 		D857FDE919AC5C3600A40C0D /* ColorSpectrumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorSpectrumViewController.h; sourceTree = "<group>"; };
 		D857FDEA19AC5C3600A40C0D /* ColorSpectrumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorSpectrumViewController.m; sourceTree = "<group>"; };
 		D858CB8519221E0B00402E24 /* NSDate+VisualScheduler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+VisualScheduler.h"; path = "Visual Scheduler/Category/NSDate+VisualScheduler.h"; sourceTree = "<group>"; };
@@ -267,13 +270,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D83A62D618B696DC00EC0773 /* Frameworks */ = {
+		D853879619B07BA2003DBBF4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D83A62DB18B696DC00EC0773 /* XCTest.framework in Frameworks */,
-				D83A62DD18B696DC00EC0773 /* UIKit.framework in Frameworks */,
-				D83A62DC18B696DC00EC0773 /* Foundation.framework in Frameworks */,
+				D853879A19B07BA2003DBBF4 /* XCTest.framework in Frameworks */,
+				D853879C19B07BA2003DBBF4 /* UIKit.framework in Frameworks */,
+				D853879B19B07BA2003DBBF4 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +415,7 @@
 				D829DDA818E191B60039A449 /* Database */,
 				D83A62C118B696DC00EC0773 /* Visual Scheduler */,
 				D83A62E018B696DC00EC0773 /* Visual SchedulerTests */,
+				D853879D19B07BA2003DBBF4 /* Visual Scheduler Tests */,
 				D83A62BA18B696DC00EC0773 /* Frameworks */,
 				D83A62B918B696DC00EC0773 /* Products */,
 				D8EAF2E118D9D8C7004CC1B1 /* Visual Scheduler copy-Info.plist */,
@@ -422,7 +426,7 @@
 			isa = PBXGroup;
 			children = (
 				D83A62B818B696DC00EC0773 /* Visual Scheduler.app */,
-				D83A62D918B696DC00EC0773 /* Visual SchedulerTests.xctest */,
+				D853879919B07BA2003DBBF4 /* Visual Scheduler Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -472,6 +476,7 @@
 		D83A62E018B696DC00EC0773 /* Visual SchedulerTests */ = {
 			isa = PBXGroup;
 			children = (
+				D853879319B07A16003DBBF4 /* ColorView_Tests.m */,
 				D83A62E118B696DC00EC0773 /* Supporting Files */,
 			);
 			path = "Visual SchedulerTests";
@@ -483,6 +488,25 @@
 				D813A9D918D3995700D3515A /* Visual Scheduler-Prefix.pch */,
 				D83A62E218B696DC00EC0773 /* Visual SchedulerTests-Info.plist */,
 				D83A62E318B696DC00EC0773 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D853879D19B07BA2003DBBF4 /* Visual Scheduler Tests */ = {
+			isa = PBXGroup;
+			children = (
+				D85387A319B07BA2003DBBF4 /* Visual_Scheduler_Tests.m */,
+				D853879E19B07BA2003DBBF4 /* Supporting Files */,
+			);
+			path = "Visual Scheduler Tests";
+			sourceTree = "<group>";
+		};
+		D853879E19B07BA2003DBBF4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D853879F19B07BA2003DBBF4 /* Visual Scheduler Tests-Info.plist */,
+				D85387A019B07BA2003DBBF4 /* InfoPlist.strings */,
+				D85387A519B07BA2003DBBF4 /* Visual Scheduler Tests-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -667,22 +691,22 @@
 			productReference = D83A62B818B696DC00EC0773 /* Visual Scheduler.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D83A62D818B696DC00EC0773 /* Visual SchedulerTests */ = {
+		D853879819B07BA2003DBBF4 /* Visual Scheduler Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D83A62ED18B696DC00EC0773 /* Build configuration list for PBXNativeTarget "Visual SchedulerTests" */;
+			buildConfigurationList = D85387A819B07BA2003DBBF4 /* Build configuration list for PBXNativeTarget "Visual Scheduler Tests" */;
 			buildPhases = (
-				D83A62D518B696DC00EC0773 /* Sources */,
-				D83A62D618B696DC00EC0773 /* Frameworks */,
-				D83A62D718B696DC00EC0773 /* Resources */,
+				D853879519B07BA2003DBBF4 /* Sources */,
+				D853879619B07BA2003DBBF4 /* Frameworks */,
+				D853879719B07BA2003DBBF4 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				D83A62DF18B696DC00EC0773 /* PBXTargetDependency */,
+				D85387A719B07BA2003DBBF4 /* PBXTargetDependency */,
 			);
-			name = "Visual SchedulerTests";
-			productName = "Visual SchedulerTests";
-			productReference = D83A62D918B696DC00EC0773 /* Visual SchedulerTests.xctest */;
+			name = "Visual Scheduler Tests";
+			productName = "Visual Scheduler Tests";
+			productReference = D853879919B07BA2003DBBF4 /* Visual Scheduler Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -697,7 +721,7 @@
 					D83A62B718B696DC00EC0773 = {
 						DevelopmentTeam = 32325SM62E;
 					};
-					D83A62D818B696DC00EC0773 = {
+					D853879819B07BA2003DBBF4 = {
 						TestTargetID = D83A62B718B696DC00EC0773;
 					};
 				};
@@ -716,7 +740,7 @@
 			projectRoot = "";
 			targets = (
 				D83A62B718B696DC00EC0773 /* Visual Scheduler */,
-				D83A62D818B696DC00EC0773 /* Visual SchedulerTests */,
+				D853879819B07BA2003DBBF4 /* Visual Scheduler Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -744,11 +768,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D83A62D718B696DC00EC0773 /* Resources */ = {
+		D853879719B07BA2003DBBF4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D83A62E518B696DC00EC0773 /* InfoPlist.strings in Resources */,
+				D85387A219B07BA2003DBBF4 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -817,23 +841,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D83A62D518B696DC00EC0773 /* Sources */ = {
+		D853879519B07BA2003DBBF4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D85EBDDF18DC83B200DF76B7 /* BBAColor.m in Sources */,
-				D887832E18C8E33300F13B28 /* (null) in Sources */,
-				D82838B518D5BA39009C03A8 /* UIApplicationTests.m in Sources */,
+				D85387AB19B07BAA003DBBF4 /* ColorView_Tests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		D83A62DF18B696DC00EC0773 /* PBXTargetDependency */ = {
+		D85387A719B07BA2003DBBF4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D83A62B718B696DC00EC0773 /* Visual Scheduler */;
-			targetProxy = D83A62DE18B696DC00EC0773 /* PBXContainerItemProxy */;
+			targetProxy = D85387A619B07BA2003DBBF4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -859,6 +881,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				D83A62E418B696DC00EC0773 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D85387A019B07BA2003DBBF4 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D85387A119B07BA2003DBBF4 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -997,7 +1027,7 @@
 			};
 			name = Release;
 		};
-		D83A62EE18B696DC00EC0773 /* Debug */ = {
+		D85387A919B07BA2003DBBF4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Visual Scheduler.app/Visual Scheduler";
@@ -1006,73 +1036,36 @@
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
-				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
-				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Visual SchedulerTests/Visual Scheduler-Prefix.pch";
+				GCC_PREFIX_HEADER = "Visual Scheduler Tests/Visual Scheduler Tests-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
-					"TESTING=1",
 					"DEBUG=1",
-				);
-				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"$(SRCROOT)/usr/include",
 				);
-				INFOPLIST_FILE = "Visual SchedulerTests/Visual SchedulerTests-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/usr/lib",
-				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-framework",
-					XCTest,
-					"-force_load",
-					"\"$(SRCROOT)/usr/lib/libOCMock.a\"",
-					"-objC",
-				);
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = "Visual Scheduler Tests/Visual Scheduler Tests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
 		};
-		D83A62EF18B696DC00EC0773 /* Release */ = {
+		D85387AA19B07BA2003DBBF4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Visual Scheduler.app/Visual Scheduler";
+				ENABLE_NS_ASSERTIONS = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
-				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
-				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Visual SchedulerTests/Visual Scheduler-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"TESTING=1",
-					"DEBUG=1",
-				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"$(SRCROOT)/usr/include",
-				);
-				INFOPLIST_FILE = "Visual SchedulerTests/Visual SchedulerTests-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/usr/lib",
-				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-framework",
-					XCTest,
-					"-force_load",
-					"\"$(SRCROOT)/usr/lib/libOCMock.a\"",
-					"-objC",
-				);
+				GCC_PREFIX_HEADER = "Visual Scheduler Tests/Visual Scheduler Tests-Prefix.pch";
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = "Visual Scheduler Tests/Visual Scheduler Tests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -1100,14 +1093,13 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D83A62ED18B696DC00EC0773 /* Build configuration list for PBXNativeTarget "Visual SchedulerTests" */ = {
+		D85387A819B07BA2003DBBF4 /* Build configuration list for PBXNativeTarget "Visual Scheduler Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D83A62EE18B696DC00EC0773 /* Debug */,
-				D83A62EF18B696DC00EC0773 /* Release */,
+				D85387A919B07BA2003DBBF4 /* Debug */,
+				D85387AA19B07BA2003DBBF4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -26,8 +26,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *sundayLabel;
 
 @property (weak, nonatomic) ColorView *selectedDay;
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
-@property (weak, nonatomic) NSManagedObjectContext *managedObjectContext;
 @end
 
 @implementation ColorSpectrumViewController
@@ -40,7 +38,7 @@
 }
 
 - (void)setupColorViews {
-    NSOrderedSet *days = [self schedules];
+    NSOrderedSet *days = [Schedule schedules];
     self.monday.color       = ((Schedule*)days[0]).backgroundColor;
     self.tuesday.color      = ((Schedule*)days[1]).backgroundColor;
     self.wednesday.color    = ((Schedule*)days[2]).backgroundColor;
@@ -51,7 +49,7 @@
 }
 
 - (void)setupLabelViews {
-    NSOrderedSet *days = [self schedules];
+    NSOrderedSet *days = [Schedule schedules];
     self.mondayLabel.text   = ((Schedule*)days[0]).title;
     self.tuesdayLabel.text  = ((Schedule*)days[1]).title;
     self.wednesdayLabel.text= ((Schedule*)days[2]).title;
@@ -81,14 +79,18 @@
     }
 }
 
-- (IBAction)save {
+/* Done button pressed. */
+- (IBAction)save{
     [self applyColors];
-    [self.managedObjectContext save:nil]; // TODO: handle errors.
+    
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    [appDelegate.managedObjectContext save:nil]; // TODO: handle errors.
+    
     [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)applyColors {
-    NSOrderedSet *days = [self schedules];
+    NSOrderedSet *days = [Schedule schedules];
     ((Schedule*)days[0]).backgroundColor = self.monday.color;
     ((Schedule*)days[1]).backgroundColor = self.tuesday.color;
     ((Schedule*)days[2]).backgroundColor = self.wednesday.color;
@@ -96,24 +98,6 @@
     ((Schedule*)days[4]).backgroundColor = self.friday.color;
     ((Schedule*)days[5]).backgroundColor = self.saturday.color;
     ((Schedule*)days[6]).backgroundColor = self.sunday.color;
-}
-
-- (NSOrderedSet *)schedules {
-    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
-    self.managedObjectContext = appDelegate.managedObjectContext;
-    NSAssert(self.managedObjectContext, @"Failed to get managedObjectContext.");
-    
-    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:CD_ENTITY_SCHEDULE];
-    
-    NSSortDescriptor * const sort = [[NSSortDescriptor alloc] initWithKey:CD_KEY_SCHEDULE_DATE ascending:YES];
-    [request setSortDescriptors:[NSArray arrayWithObject:sort]];
-    [request setFetchBatchSize:CD_FETCH_BATCH_SIZE];
-    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
-                                                                    managedObjectContext:self.managedObjectContext
-                                                                      sectionNameKeyPath:CD_KEY_SCHEDULE_DATE
-                                                                               cacheName:nil];
-    [self.fetchedResultsController performFetch:nil]; // TODO: deal with errors
-    return [NSOrderedSet orderedSetWithArray:self.fetchedResultsController.fetchedObjects];
 }
 
 @end

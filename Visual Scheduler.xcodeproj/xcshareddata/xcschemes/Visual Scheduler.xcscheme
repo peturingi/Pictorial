@@ -67,6 +67,16 @@
                referenceType = "1">
             </LocationScenarioReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D853879819B07BA2003DBBF4"
+               BuildableName = "Visual Scheduler Tests.xctest"
+               BlueprintName = "Visual Scheduler Tests"
+               ReferencedContainer = "container:Visual Scheduler.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
