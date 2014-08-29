@@ -26,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *sundayLabel;
 
 @property (weak, nonatomic) ColorView *selectedDay;
+
 @end
 
 @implementation ColorSpectrumViewController
@@ -50,24 +51,27 @@
 
 - (void)setupLabelViews {
     NSOrderedSet *days = [Schedule schedules];
-    self.mondayLabel.text   = ((Schedule*)days[0]).title;
-    self.tuesdayLabel.text  = ((Schedule*)days[1]).title;
-    self.wednesdayLabel.text= ((Schedule*)days[2]).title;
-    self.thursdayLabel.text = ((Schedule*)days[3]).title;
-    self.fridayLabel.text   = ((Schedule*)days[4]).title;
-    self.saturdayLabel.text = ((Schedule*)days[5]).title;
-    self.sundayLabel.text   = ((Schedule*)days[6]).title;
+    self.mondayLabel.text    = ((Schedule*)days[0]).title;
+    self.tuesdayLabel.text   = ((Schedule*)days[1]).title;
+    self.wednesdayLabel.text = ((Schedule*)days[2]).title;
+    self.thursdayLabel.text  = ((Schedule*)days[3]).title;
+    self.fridayLabel.text    = ((Schedule*)days[4]).title;
+    self.saturdayLabel.text  = ((Schedule*)days[5]).title;
+    self.sundayLabel.text    = ((Schedule*)days[6]).title;
 }
 
+/* User pressed a color box for the day/schedule he would like to change. */
 - (IBAction)daySelected:(UITapGestureRecognizer * const)sender {
     self.selectedDay = (ColorView*)sender.view;
 }
+
+/* User pressed a color on the specrum. */
 - (IBAction)colorSelected:(id)sender {
-    UIGestureRecognizer *gr = sender;
+    UIGestureRecognizer * const gr = sender;
     if (gr.state == UIGestureRecognizerStateBegan ||
         gr.state == UIGestureRecognizerStateChanged )
     {
-        /* Prevent the gesture recognizer from moving out of the view. */
+        /* Prevent the detection of colors from outside of the view. */
         CGPoint point = [gr locationInView:gr.view];
         CGSize const size = gr.view.bounds.size;
         if (point.x < 0) point.x = 0;
