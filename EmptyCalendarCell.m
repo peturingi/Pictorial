@@ -12,6 +12,10 @@
     return self;
 }
 
+- (void)dealloc {
+    self.border = nil;
+}
+
 - (CAShapeLayer *)dottedBorder
 {
     CAShapeLayer * const dottedBorder = [CAShapeLayer layer];

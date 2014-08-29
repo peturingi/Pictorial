@@ -19,6 +19,11 @@
     return self;
 }
 
+- (void)dealloc {
+    self.managedObjectContext = nil;
+    self.fetchedResultsController = nil;
+}
+
 - (void)setupDataSource
 {
     AppDelegate * const delegate = [[UIApplication sharedApplication] delegate];

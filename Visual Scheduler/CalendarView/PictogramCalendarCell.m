@@ -13,6 +13,10 @@
     return self;
 }
 
+- (void)dealloc {
+    self.imageView = nil;
+}
+
 - (void)setupBorder
 {
     self.layer.borderWidth = PICTOGRAM_BORDER_WIDTH;

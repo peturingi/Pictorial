@@ -21,6 +21,11 @@
     return self;
 }
 
+- (void)dealloc {
+    _imageData = nil;
+    _title = nil;
+}
+
 - (BOOL)compute
 {
     NSManagedObjectContext * const managedObjectContext = [self appDelegate].managedObjectContext;

@@ -10,6 +10,10 @@
 
 @implementation EditPictogramViewController
 
+- (void)dealloc {
+    self.pictogram = nil;
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     NSAssert(self.pictogram, @"Pictogram has not been set.");

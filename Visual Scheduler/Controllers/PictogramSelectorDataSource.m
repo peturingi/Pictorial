@@ -15,6 +15,11 @@
     return self;
 }
 
+- (void)dealloc {
+    self.collectionView = nil;
+    self.fetchedResultsController = nil;
+}
+
 - (void)setupDataSource
 {
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:CD_ENTITY_PICTOGRAM];

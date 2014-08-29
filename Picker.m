@@ -28,6 +28,7 @@
 
 - (void)dealloc {
     self.cameraUI = nil;
+    self.image = nil;
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info

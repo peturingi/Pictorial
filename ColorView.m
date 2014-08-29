@@ -2,6 +2,10 @@
 
 @implementation ColorView
 
+- (void)dealloc {
+    _color = nil;
+}
+
 - (void)setColor:(UIColor *)color {
     NSAssert(color, @"Expected a color.");
     _color = color;

@@ -31,7 +31,7 @@ static const NSUInteger HEADER_HEIGHT = 20;
 
 - (void)dealloc
 {
-    _layoutInformation = nil;
+    self.layoutInformation = nil;
 }
 
 #pragma mark - UICollectionViewLayout Process

@@ -14,6 +14,11 @@
 
 @implementation PictogramSelectorViewController
 
+- (void)dealloc {
+    self.cellDraggingManager = nil;
+    self.pictogramToEdit = nil;
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqual:@"editPictogram"]) {
         EditPictogramViewController *controller = segue.destinationViewController;

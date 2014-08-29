@@ -28,6 +28,9 @@
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    self.touchedPictogramContainer = nil;
+    self.pictogramsDestinationLocation = nil;
+    self.cellDraggingManager = nil;
 }
 
 - (void)reloadDayViewIfNeeded {

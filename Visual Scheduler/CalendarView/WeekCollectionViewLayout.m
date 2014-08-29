@@ -35,7 +35,7 @@ static const NSInteger OFFSET_FROM_TOP = 4;
 
 - (void)dealloc
 {
-    _layoutInformation = nil;
+    self.layoutInformation = nil;
 }
 
 #pragma mark - UICollectionViewLayout Process

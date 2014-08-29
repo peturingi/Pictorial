@@ -20,6 +20,10 @@
 
 @implementation MasterViewController
 
+- (void)dealloc {
+    picker = nil;
+}
+
 - (void)viewDidLoad {
     /* Disable the border underneath the navigation bar. */
     {
@@ -77,10 +81,6 @@
             NSAssert(self.imageSourcePopover, @"Failed to get popoverController.");
         } // Assert
     }
-}
-
-- (void)dealloc {
-    picker = nil;
 }
 
 #pragma mark - Import Image
