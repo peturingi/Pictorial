@@ -2,11 +2,6 @@
 
 @implementation HidableBarButtonItem
 
-- (id)initWithCoder:(NSCoder *)aDecoder {
-    self = [super initWithCoder:aDecoder];
-    return self;
-}
-
 - (void)setHidden:(BOOL const)hidden {
     _hidden = hidden;
     

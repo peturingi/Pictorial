@@ -10,15 +10,15 @@
 #import "PointHelper.h"
 
 /* Used to keep track of the original position of the pictogram to be dragged,
- so that it is possible to animate it back. */
+ so that it is possible to animate it back if needed. */
 @interface CellDraggingManager ()
-    @property CGRect sourceFrame;
-    @property CGPoint sourceOffset;
+@property CGRect sourceFrame;
+@property CGPoint sourceOffset;
 @end
 
 @implementation CellDraggingManager
 
-- (id)initWithSource:(UICollectionViewController *const)source andDestination:(UICollectionViewController<AddPictogramWithID> *const)destination {
+- (id)initWithSource:(UICollectionViewController * const)source andDestination:(UICollectionViewController<AddPictogramWithID> * const)destination {
     self = [super init];
     if (self) {
         _source = source;
@@ -29,7 +29,7 @@
 }
 
 /** Pictogram Touched */
-- (void)setPictogramToDrag:(NSManagedObjectID *)pictogramIdentifier fromRect:(CGRect const)rect atLocation:(CGPoint)location relativeTo:(UIView *)view {
+- (void)setPictogramToDrag:(NSManagedObjectID * const)pictogramIdentifier fromRect:(CGRect const)rect atLocation:(CGPoint const)location relativeTo:(UIView * const)view {
     {
         NSAssert(_source, @"Must not be nil.");
         NSAssert(_destination, @"Must not be nil.");
@@ -69,7 +69,7 @@
 /** Pictogram moved */
 - (void)pictogramDraggedToPoint:(CGPoint const)point relativeToView:(UIView *)view
 {
-    const CGPoint locationInView = [_source.view convertPoint:point fromView:view];
+    CGPoint const locationInView = [_source.view convertPoint:point fromView:view];
     CGRect frame = [PictogramView frameAtPoint:locationInView];
     
     /* Adjust new frame if there is restriction on where it can be placed. */
@@ -77,15 +77,19 @@
     {
         CGSize const size = self.locationRestriction.size;
         CGPoint const origin = self.locationRestriction.origin;
-        // Up
+        
+        /* Up */
         CGFloat const minY = origin.y;
         if (frame.origin.y < minY) frame.origin.y = minY;
-        // Down
+        
+        /* Down */
         CGFloat const maxY = minY + size.height - _pictogramBeingMoved.frame.size.height;
         if (frame.origin.y > maxY) frame.origin.y = maxY;
-        // Left
+        
+        /* Left */
         CGFloat const minX = origin.x;
         if (frame.origin.x < minX) frame.origin.x = minX;
+        
         // Right
         CGFloat const maxX = minX + size.width - _pictogramBeingMoved.frame.size.width;
         if (frame.origin.x > maxX) frame.origin.x = maxX;
@@ -93,8 +97,16 @@
     _pictogramBeingMoved.frame = frame;
 }
 
+/**
+ Has the dragging of a pictogram been restricted to a given rectangle?
+ @return YES Movement is restricted.
+ @return NO Movement is not restricted.
+ */
 - (BOOL)restrictedMovement {
-    return self.locationRestriction.size.height != 0 || self.locationRestriction.size.width != 0 || self.locationRestriction.origin.x != 0 || self.locationRestriction.origin.y != 0;
+    return  self.locationRestriction.size.height != 0 ||
+            self.locationRestriction.size.width != 0 ||
+            self.locationRestriction.origin.x != 0 ||
+            self.locationRestriction.origin.y != 0;
 }
 
 /** Animates the pictogram back into its original position. 
