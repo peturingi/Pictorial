@@ -28,6 +28,10 @@
     return self;
 }
 
+- (void)dealloc {
+    self.idOfPictogramBeingMoved = nil;
+}
+
 /** Pictogram Touched */
 - (void)setPictogramToDrag:(NSManagedObjectID * const)pictogramIdentifier fromRect:(CGRect const)rect atLocation:(CGPoint const)location relativeTo:(UIView * const)view {
     {
