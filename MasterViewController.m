@@ -11,6 +11,7 @@
 #import "HidableBarButtonItem.h"
 
 @interface MasterViewController ()
+
 @property (weak, nonatomic) IBOutlet HidableBarButtonItem *configureBackground;
 @property (weak) UIPopoverController *imageSourcePopover;
 @property (weak, nonatomic) IBOutlet HidableBarButtonItem *importPhotoButton;
