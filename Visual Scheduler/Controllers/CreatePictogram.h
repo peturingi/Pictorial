@@ -9,7 +9,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *photoView;
 
 /** Photo of pictogram to be added */
-@property (weak, nonatomic) UIImage *photo;
+@property (strong, nonatomic) UIImage *photo;
 
 @property (weak, nonatomic) id delegate;
 

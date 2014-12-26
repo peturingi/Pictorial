@@ -13,7 +13,7 @@
 @interface MasterViewController ()
 
 @property (weak, nonatomic) IBOutlet HidableBarButtonItem *configureBackground;
-@property (weak) UIPopoverController *imageSourcePopover;
+@property (strong) UIPopoverController *imageSourcePopover;
 @property (weak, nonatomic) IBOutlet HidableBarButtonItem *importPhotoButton;
 
 @end
@@ -99,6 +99,7 @@
         NSAssert(self.imageSourcePopover, @"Failed to get popovercontroller.");
     } // Assert
     [self.imageSourcePopover dismissPopoverAnimated:NO];
+    self.imageSourcePopover = nil;
     
     picker = [[pickerClass alloc] init];
     picker.delegate = self;
