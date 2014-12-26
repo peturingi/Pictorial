@@ -75,6 +75,7 @@
         /* When pictograms are renamed, they are sometimes "Move" and othertimes "Update. */
         case NSFetchedResultsChangeMove:
         case NSFetchedResultsChangeUpdate:
+        case NSFetchedResultsChangeDelete:
             [self.collectionView reloadData];
             break;
     }
