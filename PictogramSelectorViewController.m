@@ -61,6 +61,7 @@
 }
 - (IBAction)deleteButton:(UIButton *)sender {
     BottomViewPictogram * const cell = (BottomViewPictogram *)sender.superview.superview;
+    [cell showControls:NO];
     NSIndexPath * const pathToCell = [self.collectionView indexPathForCell:cell];
     Pictogram * const pictogramInCell = [(PictogramSelectorDataSource*)self.collectionView.dataSource pictogramAtIndexPath:pathToCell];
     {
@@ -77,15 +78,16 @@
             NSString * const ok = @"Ok";
             [[[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:ok otherButtonTitles:nil] show];
         }
-        cell.highlighted = NO;
+        
     }
     else {
         {
             NSManagedObjectContext * const moc = pictogramInCell.managedObjectContext;
             [moc deleteObject:pictogramInCell];
-            [moc save:nil]; // TODO: error handling
+            NSError *error;
+            [moc save:&error];
+            NSAssert(error == nil, @"Unhandled error");
         }
-        [self.collectionView deleteItemsAtIndexPaths:@[pathToCell]];
     }
 }
 
