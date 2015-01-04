@@ -206,7 +206,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kjn-r4-5Vt" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="sdn-O5-Gfu" customClass="WeekDataSource"/>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.099999999999999978" id="aAz-Nb-UqU">
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.20000000000000004" id="aAz-Nb-UqU">
                     <connections>
                         <action selector="pictogramLongPressed:" destination="FBT-CU-eS9" id="mzc-h4-jMV"/>
                         <outlet property="delegate" destination="FM1-nM-KdU" id="6Hv-Jb-S5j"/>
@@ -684,7 +684,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems>
-                        <barButtonItem systemItem="camera" id="WqI-yk-a3D" customClass="HidableBarButtonItem">
+                        <barButtonItem systemItem="add" id="WqI-yk-a3D" customClass="HidableBarButtonItem">
                             <connections>
                                 <segue destination="sX2-J3-ISF" kind="popover" identifier="SEGUE_IMAGE_SOURCE" popoverAnchorBarButtonItem="WqI-yk-a3D" id="oWE-Zj-iG8">
                                     <popoverArrowDirection key="popoverArrowDirection" up="YES"/>
@@ -692,26 +692,26 @@
                             </connections>
                         </barButtonItem>
                         <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="zVI-M9-IhP"/>
-                        <barButtonItem title="Litur" id="zcN-mJ-zNP" customClass="HidableBarButtonItem">
+                        <barButtonItem title="Color" id="zcN-mJ-zNP" customClass="HidableBarButtonItem">
                             <connections>
                                 <segue destination="NkY-m6-fHL" kind="push" id="eLE-Hn-6pZ"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="b3W-yc-uF7"/>
-                        <barButtonItem title="Dagur" id="yyS-qw-HFa">
+                        <barButtonItem title="Day" id="yyS-qw-HFa">
                             <connections>
                                 <action selector="showDayView:" destination="Xfv-XK-laj" id="8LZ-cy-LiW"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="fsH-A9-p1I"/>
-                        <barButtonItem title="Vika" id="trc-5K-fJZ">
+                        <barButtonItem title="Week" id="trc-5K-fJZ">
                             <connections>
                                 <action selector="showWeekView:" destination="Xfv-XK-laj" id="LDa-NS-Imv"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="JKA-ua-WWO"/>
                         <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="C1M-Uo-pfr"/>
-                        <barButtonItem title="Breyta" id="j1e-pW-2Sc">
+                        <barButtonItem title="Edit" id="j1e-pW-2Sc">
                             <connections>
                                 <action selector="editButton:" destination="Xfv-XK-laj" id="0tT-ai-piT"/>
                             </connections>

@@ -135,7 +135,7 @@
         self.configureBackground.hidden = sender.editMode;
     }
     
-    sender.title                        = sender.editMode ? @"Loka" : @"Breyta";
+    sender.title                        = sender.editMode ? @"Done" : @"Edit";
     NSUInteger const heightDuringEdit   = floor(self.view.frame.size.height / 3.0f);
     NSUInteger const heightWhenClosed   = 0;
     [self setHeightOfPictogramSelector  : (sender.editMode ? heightDuringEdit : heightWhenClosed) ];

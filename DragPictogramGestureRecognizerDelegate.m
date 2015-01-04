@@ -7,6 +7,7 @@
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
     for (UIGestureRecognizer *gr in gestureRecognizer.view.gestureRecognizers) {
         if ([gr isKindOfClass:[UILongPressGestureRecognizer class]] == NO) {
+            
             gr.enabled = NO;
             gr.enabled = YES;
         }

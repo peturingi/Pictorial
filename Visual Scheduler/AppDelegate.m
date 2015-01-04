@@ -159,13 +159,13 @@
      NSManagedObject *s6 = [NSEntityDescription insertNewObjectForEntityForName:@"Schedule" inManagedObjectContext:self.managedObjectContext];
      NSManagedObject *s7 = [NSEntityDescription insertNewObjectForEntityForName:@"Schedule" inManagedObjectContext:self.managedObjectContext];
      //
-     [s1 setValue:@"Mánudagur" forKey:@"title"];
-     [s2 setValue:@"Þriðjudagur" forKey:@"title"];
-     [s3 setValue:@"Miðvikudagur" forKey:@"title"];
-     [s4 setValue:@"Fimmtudagur" forKey:@"title"];
-     [s5 setValue:@"Föstudagur" forKey:@"title"];
-     [s6 setValue:@"Laugardagur" forKey:@"title"];
-     [s7 setValue:@"Sunnudagur" forKey:@"title"];
+     [s1 setValue:@"Monday" forKey:@"title"];
+     [s2 setValue:@"Tuesday" forKey:@"title"];
+     [s3 setValue:@"Wednesday" forKey:@"title"];
+     [s4 setValue:@"Thursday" forKey:@"title"];
+     [s5 setValue:@"Friday" forKey:@"title"];
+     [s6 setValue:@"Saturday" forKey:@"title"];
+     [s7 setValue:@"Sunday" forKey:@"title"];
      //
      const NSTimeInterval secondsInDay = 86400;
      NSDate *d1 = [NSDate dateWithTimeIntervalSinceNow: 0 * secondsInDay];
