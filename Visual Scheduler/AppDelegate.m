@@ -139,7 +139,7 @@
 - (void)populateDatabase {
      
     /* pictograms */
-     NSManagedObject *svane = [NSEntityDescription insertNewObjectForEntityForName:@"Pictogram" inManagedObjectContext:self.managedObjectContext];
+    /* NSManagedObject *svane = [NSEntityDescription insertNewObjectForEntityForName:@"Pictogram" inManagedObjectContext:self.managedObjectContext];
      [svane setValue:@"Svane" forKey:@"title"];
      UIImage *image = [UIImage imageNamed:@"svane.png"];
      [svane setValue:UIImagePNGRepresentation(image) forKey:@"image"];
@@ -148,7 +148,7 @@
      [spade setValue:@"Spade" forKey:@"title"];
      UIImage *spadeImage = [UIImage imageNamed:@"spade.png"];
      [spade setValue:UIImagePNGRepresentation(spadeImage) forKey:@"image"];
-     
+     */
      
      /* days */
      NSManagedObject *s1 = [NSEntityDescription insertNewObjectForEntityForName:@"Schedule" inManagedObjectContext:self.managedObjectContext];
