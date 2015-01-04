@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Visual Scheduler.xcodeproj">
+      location = "self:Pictorial.xcodeproj">
    </FileRef>
 </Workspace>

@@ -150,14 +150,14 @@
 		D8315AF118D39DEA00C4A340 /* CameraPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CameraPicker.h; path = "Visual Scheduler/CameraPicker.h"; sourceTree = "<group>"; };
 		D8315AF218D39DEA00C4A340 /* CameraPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CameraPicker.m; path = "Visual Scheduler/CameraPicker.m"; sourceTree = "<group>"; };
 		D8315AF318D39DEA00C4A340 /* PickerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PickerDelegate.h; path = "Visual Scheduler/PickerDelegate.h"; sourceTree = "<group>"; };
-		D83A62B818B696DC00EC0773 /* Visual Scheduler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Visual Scheduler.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D83A62B818B696DC00EC0773 /* Pictorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pictorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D83A62BB18B696DC00EC0773 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D83A62BD18B696DC00EC0773 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		D83A62BF18B696DC00EC0773 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		D83A62C318B696DC00EC0773 /* Visual Scheduler-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Visual Scheduler-Info.plist"; sourceTree = "<group>"; };
+		D83A62C318B696DC00EC0773 /* Pictorial-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Pictorial-Info.plist"; sourceTree = "<group>"; };
 		D83A62C518B696DC00EC0773 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D83A62C718B696DC00EC0773 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		D83A62C918B696DC00EC0773 /* Visual Scheduler-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Visual Scheduler-Prefix.pch"; sourceTree = "<group>"; };
+		D83A62C918B696DC00EC0773 /* Pictorial-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Pictorial-Prefix.pch"; sourceTree = "<group>"; };
 		D83A62CA18B696DC00EC0773 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D83A62CB18B696DC00EC0773 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D83A62CE18B696DC00EC0773 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -178,11 +178,11 @@
 		D84855CA1985506F0085C734 /* ImageResizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageResizer.m; sourceTree = "<group>"; };
 		D850E82518C86F420051CD51 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		D853879319B07A16003DBBF4 /* ColorView_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorView_Tests.m; path = ../ColorView_Tests.m; sourceTree = "<group>"; };
-		D853879919B07BA2003DBBF4 /* Visual Scheduler Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Visual Scheduler Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D853879F19B07BA2003DBBF4 /* Visual Scheduler Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Visual Scheduler Tests-Info.plist"; sourceTree = "<group>"; };
+		D853879919B07BA2003DBBF4 /* Pictorial Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pictorial Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D853879F19B07BA2003DBBF4 /* Pictorial Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Pictorial Tests-Info.plist"; sourceTree = "<group>"; };
 		D85387A119B07BA2003DBBF4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D85387A319B07BA2003DBBF4 /* Visual_Scheduler_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Visual_Scheduler_Tests.m; sourceTree = "<group>"; };
-		D85387A519B07BA2003DBBF4 /* Visual Scheduler Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Visual Scheduler Tests-Prefix.pch"; sourceTree = "<group>"; };
+		D85387A519B07BA2003DBBF4 /* Pictorial Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Pictorial Tests-Prefix.pch"; sourceTree = "<group>"; };
 		D857FDE919AC5C3600A40C0D /* ColorSpectrumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorSpectrumViewController.h; sourceTree = "<group>"; };
 		D857FDEA19AC5C3600A40C0D /* ColorSpectrumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorSpectrumViewController.m; sourceTree = "<group>"; };
 		D858CB8519221E0B00402E24 /* NSDate+VisualScheduler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+VisualScheduler.h"; path = "Visual Scheduler/Category/NSDate+VisualScheduler.h"; sourceTree = "<group>"; };
@@ -425,8 +425,8 @@
 		D83A62B918B696DC00EC0773 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D83A62B818B696DC00EC0773 /* Visual Scheduler.app */,
-				D853879919B07BA2003DBBF4 /* Visual Scheduler Tests.xctest */,
+				D83A62B818B696DC00EC0773 /* Pictorial.app */,
+				D853879919B07BA2003DBBF4 /* Pictorial Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -465,8 +465,8 @@
 			isa = PBXGroup;
 			children = (
 				D85EBDC918DC804400DF76B7 /* DevelopmentPictograms */,
-				D83A62C918B696DC00EC0773 /* Visual Scheduler-Prefix.pch */,
-				D83A62C318B696DC00EC0773 /* Visual Scheduler-Info.plist */,
+				D83A62C918B696DC00EC0773 /* Pictorial-Prefix.pch */,
+				D83A62C318B696DC00EC0773 /* Pictorial-Info.plist */,
 				D83A62C418B696DC00EC0773 /* InfoPlist.strings */,
 				D83A62C718B696DC00EC0773 /* main.m */,
 			);
@@ -504,9 +504,9 @@
 		D853879E19B07BA2003DBBF4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D853879F19B07BA2003DBBF4 /* Visual Scheduler Tests-Info.plist */,
+				D853879F19B07BA2003DBBF4 /* Pictorial Tests-Info.plist */,
 				D85387A019B07BA2003DBBF4 /* InfoPlist.strings */,
-				D85387A519B07BA2003DBBF4 /* Visual Scheduler Tests-Prefix.pch */,
+				D85387A519B07BA2003DBBF4 /* Pictorial Tests-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -674,9 +674,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D83A62B718B696DC00EC0773 /* Visual Scheduler */ = {
+		D83A62B718B696DC00EC0773 /* Pictorial */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D83A62EA18B696DC00EC0773 /* Build configuration list for PBXNativeTarget "Visual Scheduler" */;
+			buildConfigurationList = D83A62EA18B696DC00EC0773 /* Build configuration list for PBXNativeTarget "Pictorial" */;
 			buildPhases = (
 				D83A62B418B696DC00EC0773 /* Sources */,
 				D83A62B518B696DC00EC0773 /* Frameworks */,
@@ -686,14 +686,14 @@
 			);
 			dependencies = (
 			);
-			name = "Visual Scheduler";
+			name = Pictorial;
 			productName = "Visual Scheduler";
-			productReference = D83A62B818B696DC00EC0773 /* Visual Scheduler.app */;
+			productReference = D83A62B818B696DC00EC0773 /* Pictorial.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D853879819B07BA2003DBBF4 /* Visual Scheduler Tests */ = {
+		D853879819B07BA2003DBBF4 /* Pictorial Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D85387A819B07BA2003DBBF4 /* Build configuration list for PBXNativeTarget "Visual Scheduler Tests" */;
+			buildConfigurationList = D85387A819B07BA2003DBBF4 /* Build configuration list for PBXNativeTarget "Pictorial Tests" */;
 			buildPhases = (
 				D853879519B07BA2003DBBF4 /* Sources */,
 				D853879619B07BA2003DBBF4 /* Frameworks */,
@@ -704,9 +704,9 @@
 			dependencies = (
 				D85387A719B07BA2003DBBF4 /* PBXTargetDependency */,
 			);
-			name = "Visual Scheduler Tests";
+			name = "Pictorial Tests";
 			productName = "Visual Scheduler Tests";
-			productReference = D853879919B07BA2003DBBF4 /* Visual Scheduler Tests.xctest */;
+			productReference = D853879919B07BA2003DBBF4 /* Pictorial Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -716,7 +716,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0510;
-				ORGANIZATIONNAME = "Student Project";
+				ORGANIZATIONNAME = "EP Software";
 				TargetAttributes = {
 					D83A62B718B696DC00EC0773 = {
 						DevelopmentTeam = 32325SM62E;
@@ -726,7 +726,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D83A62B318B696DB00EC0773 /* Build configuration list for PBXProject "Visual Scheduler" */;
+			buildConfigurationList = D83A62B318B696DB00EC0773 /* Build configuration list for PBXProject "Pictorial" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -739,8 +739,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D83A62B718B696DC00EC0773 /* Visual Scheduler */,
-				D853879819B07BA2003DBBF4 /* Visual Scheduler Tests */,
+				D83A62B718B696DC00EC0773 /* Pictorial */,
+				D853879819B07BA2003DBBF4 /* Pictorial Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -854,7 +854,7 @@
 /* Begin PBXTargetDependency section */
 		D85387A719B07BA2003DBBF4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D83A62B718B696DC00EC0773 /* Visual Scheduler */;
+			target = D83A62B718B696DC00EC0773 /* Pictorial */;
 			targetProxy = D85387A619B07BA2003DBBF4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -998,11 +998,11 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Visual Scheduler/Visual Scheduler-Prefix.pch";
-				INFOPLIST_FILE = "Visual Scheduler/Visual Scheduler-Info.plist";
+				GCC_PREFIX_HEADER = "Visual Scheduler/Pictorial-Prefix.pch";
+				INFOPLIST_FILE = "Visual Scheduler/Pictorial-Info.plist";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Pictorial;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
@@ -1018,11 +1018,11 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Visual Scheduler/Visual Scheduler-Prefix.pch";
-				INFOPLIST_FILE = "Visual Scheduler/Visual Scheduler-Info.plist";
+				GCC_PREFIX_HEADER = "Visual Scheduler/Pictorial-Prefix.pch";
+				INFOPLIST_FILE = "Visual Scheduler/Pictorial-Info.plist";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Pictorial;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
@@ -1040,14 +1040,14 @@
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Visual Scheduler Tests/Visual Scheduler Tests-Prefix.pch";
+				GCC_PREFIX_HEADER = "Visual Scheduler Tests/Pictorial Tests-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = "Visual Scheduler Tests/Visual Scheduler Tests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "Visual Scheduler Tests/Pictorial Tests-Info.plist";
+				PRODUCT_NAME = "Pictorial Tests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1065,10 +1065,10 @@
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Visual Scheduler Tests/Visual Scheduler Tests-Prefix.pch";
+				GCC_PREFIX_HEADER = "Visual Scheduler Tests/Pictorial Tests-Prefix.pch";
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = "Visual Scheduler Tests/Visual Scheduler Tests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "Visual Scheduler Tests/Pictorial Tests-Info.plist";
+				PRODUCT_NAME = "Pictorial Tests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1077,7 +1077,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D83A62B318B696DB00EC0773 /* Build configuration list for PBXProject "Visual Scheduler" */ = {
+		D83A62B318B696DB00EC0773 /* Build configuration list for PBXProject "Pictorial" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D83A62E818B696DC00EC0773 /* Debug */,
@@ -1086,7 +1086,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D83A62EA18B696DC00EC0773 /* Build configuration list for PBXNativeTarget "Visual Scheduler" */ = {
+		D83A62EA18B696DC00EC0773 /* Build configuration list for PBXNativeTarget "Pictorial" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D83A62EB18B696DC00EC0773 /* Debug */,
@@ -1095,7 +1095,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D85387A819B07BA2003DBBF4 /* Build configuration list for PBXNativeTarget "Visual Scheduler Tests" */ = {
+		D85387A819B07BA2003DBBF4 /* Build configuration list for PBXNativeTarget "Pictorial Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D85387A919B07BA2003DBBF4 /* Debug */,

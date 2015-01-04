@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D83A62B718B696DC00EC0773"
-               BuildableName = "Visual Scheduler.app"
-               BlueprintName = "Visual Scheduler"
-               ReferencedContainer = "container:Visual Scheduler.xcodeproj">
+               BuildableName = "Pictorial.app"
+               BlueprintName = "Pictorial"
+               ReferencedContainer = "container:Pictorial.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -31,7 +31,7 @@
                BlueprintIdentifier = "685146CA18C49EC4002CF73F"
                BuildableName = "BBA Core Data StackTests"
                BlueprintName = "BBA Core Data StackTests"
-               ReferencedContainer = "container:Visual Scheduler.xcodeproj">
+               ReferencedContainer = "container:Pictorial.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -49,7 +49,7 @@
                BlueprintIdentifier = "D83A62D818B696DC00EC0773"
                BuildableName = "Visual SchedulerTests.xctest"
                BlueprintName = "Visual SchedulerTests"
-               ReferencedContainer = "container:Visual Scheduler.xcodeproj">
+               ReferencedContainer = "container:Pictorial.xcodeproj">
             </BuildableReference>
             <SkippedTests>
                <Test
@@ -72,9 +72,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D853879819B07BA2003DBBF4"
-               BuildableName = "Visual Scheduler Tests.xctest"
-               BlueprintName = "Visual Scheduler Tests"
-               ReferencedContainer = "container:Visual Scheduler.xcodeproj">
+               BuildableName = "Pictorial Tests.xctest"
+               BlueprintName = "Pictorial Tests"
+               ReferencedContainer = "container:Pictorial.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -82,9 +82,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D83A62B718B696DC00EC0773"
-            BuildableName = "Visual Scheduler.app"
-            BlueprintName = "Visual Scheduler"
-            ReferencedContainer = "container:Visual Scheduler.xcodeproj">
+            BuildableName = "Pictorial.app"
+            BlueprintName = "Pictorial"
+            ReferencedContainer = "container:Pictorial.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -101,9 +101,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D83A62B718B696DC00EC0773"
-            BuildableName = "Visual Scheduler.app"
-            BlueprintName = "Visual Scheduler"
-            ReferencedContainer = "container:Visual Scheduler.xcodeproj">
+            BuildableName = "Pictorial.app"
+            BlueprintName = "Pictorial"
+            ReferencedContainer = "container:Pictorial.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <CommandLineArguments>
@@ -125,9 +125,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D83A62B718B696DC00EC0773"
-            BuildableName = "Visual Scheduler.app"
-            BlueprintName = "Visual Scheduler"
-            ReferencedContainer = "container:Visual Scheduler.xcodeproj">
+            BuildableName = "Pictorial.app"
+            BlueprintName = "Pictorial"
+            ReferencedContainer = "container:Pictorial.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
